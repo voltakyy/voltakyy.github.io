@@ -41,3 +41,4 @@ Dibuat oleh **Rizky ([@voltakyy](https://github.com/voltakyy))** berkolaborasi b
 ## 📜 Lisensi & Kontribusi
 
 Proyek ini bersifat terbuka (*open-source*) untuk kepentingan edukasi mahasiswa Informatika UMS dan adik tingkat di masa mendatang.
+

@@ -1,14 +1,14 @@
 /**
- * RUANG BELAJAR INFORMATIKA UMS — CLIENT LOGIC
- * Features: Instant Search, Category Filter, Keyboard Shortcuts
+ * RUANG BELAJAR INFORMATIKA UMS
+ * iOS 18 Cupertino Light Interaction Script
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('courseSearch');
-  const chipButtons = document.querySelectorAll('.chip-btn');
-  const courseCards = document.querySelectorAll('.course-card');
+  const segmentButtons = document.querySelectorAll('.segment-btn');
+  const cards = document.querySelectorAll('.ios-card');
   const emptyState = document.getElementById('emptyState');
-  const resetSearchBtn = document.getElementById('resetSearch');
+  const resetBtn = document.getElementById('resetSearch');
 
   let activeCategory = 'all';
   let searchQuery = '';
@@ -17,14 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let visibleCount = 0;
     const q = searchQuery.toLowerCase().trim();
 
-    courseCards.forEach(card => {
-      // Don't filter out the "coming soon" card on empty searches unless category conflicts
-      const isComingSoon = card.classList.contains('card-coming-soon');
+    cards.forEach(card => {
       const cardCategory = card.dataset.category || '';
       const cardText = (card.innerText || '').toLowerCase();
 
       // Check category match
-      const matchesCategory = (activeCategory === 'all') || (cardCategory === activeCategory);
+      const matchesCategory = (activeCategory === 'all') || (cardCategory === activeCategory) || (card.classList.contains('card-roadmap'));
 
       // Check search query match
       const matchesSearch = !q || cardText.includes(q);
@@ -46,14 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Search input event
+  // Live search input
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
       filterCards();
     });
 
-    // Keyboard shortcut '/' to focus search
+    // Keyboard shortcut '/' to focus search, 'Esc' to clear
     document.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== searchInput) {
         e.preventDefault();
@@ -68,24 +66,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Category chips
-  chipButtons.forEach(btn => {
+  // Segmented control tabs
+  segmentButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      chipButtons.forEach(b => b.classList.remove('active'));
+      segmentButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
       activeCategory = btn.dataset.filter || 'all';
       filterCards();
     });
   });
 
   // Reset button in empty state
-  if (resetSearchBtn) {
-    resetSearchBtn.addEventListener('click', () => {
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
       if (searchInput) searchInput.value = '';
       searchQuery = '';
       activeCategory = 'all';
-      chipButtons.forEach(b => {
-        b.classList.toggle('active', b.dataset.filter === 'all');
+      segmentButtons.forEach(b => {
+        const isAll = b.dataset.filter === 'all';
+        b.classList.toggle('active', isAll);
+        b.setAttribute('aria-selected', isAll ? 'true' : 'false');
       });
       filterCards();
       if (searchInput) searchInput.focus();

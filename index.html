@@ -2,461 +2,397 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ruang Belajar UMS — Portal Hub Matkul Informatika</title>
-  <meta name="description" content="Super-App portal belajar satu pintu mahasiswa Informatika UMS. Akses cepat materi kuliah, bank soal, dan simulasi UTS Pemrograman Visual, KKI, Alpro, Kalkulus, dan Lohim.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ruang Belajar UMS — Portal Matkul Informatika</title>
+  <meta name="description" content="Portal akses cepat materi kuliah, bank soal interaktif, dan persiapan UTS Informatika UMS dengan antarmuka iOS Cupertino yang bersih, nyaman, dan ergonomis di HP.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <meta name="theme-color" content="#dd5a3a">
+  <meta name="theme-color" content="#f2f2f7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 <body>
 
   <a href="#mainContent" class="skip-link">Lewati ke konten utama</a>
 
   <div class="shell">
-    <!-- Header -->
-    <header class="site-head">
-      <a href="./" class="brand" title="Kembali ke Beranda Ruang Belajar">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" width="28" height="28">
-            <rect x="2" y="13" width="21" height="21" rx="6" fill="#2b8a79" stroke="#24221f" stroke-width="2.5"/>
-            <rect x="9" y="7" width="21" height="21" rx="6" fill="#f2b544" stroke="#24221f" stroke-width="2.5"/>
-            <rect x="16" y="1" width="21" height="21" rx="6" fill="#dd5a3a" stroke="#24221f" stroke-width="2.5"/>
-          </svg>
-        </span>
-        <div class="brand-text">
-          ruang belajar
-          <span>Informatika UMS · Super-App</span>
+    <!-- iOS Header -->
+    <header class="ios-header">
+      <span class="ios-date-badge">EDISI UTS GASAL · INFORMATIKA UMS</span>
+      <div class="header-top">
+        <div class="header-title-box">
+          <div class="app-brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10L16 4L28 10L16 16L4 10Z" fill="#ffffff"/>
+              <path d="M6 14.5V20.5C6 20.5 10 24 16 24C22 24 26 20.5 26 20.5V14.5L16 19.5L6 14.5Z" fill="#ffffff" fill-opacity="0.85"/>
+              <path d="M28 12V22" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Ruang Belajar</h1>
+            <p>Portal Satu Pintu Persiapan Ujian &amp; Modul Kuliah</p>
+          </div>
         </div>
-      </a>
 
-      <div class="head-meta">
-        <span class="nav-pill" style="background:var(--mustard-soft);">
-          🎓 Kelas B Informatika
-        </span>
-        <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="nav-pill" title="Buka SPADA UMS">
-          <span>🌐</span> SPADA UMS ↗
-        </a>
-        <a href="https://github.com/voltakyy" target="_blank" rel="noopener noreferrer" class="nav-pill" title="Buka Profil GitHub">
-          <span>🐙</span> GitHub ↗
-        </a>
+        <div class="header-meta-pills">
+          <span class="ios-pill-btn" style="color:var(--ios-blue); background:rgba(0,122,255,0.08); border-color:transparent;">
+            🎓 Kelas B Informatika
+          </span>
+          <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="ios-pill-btn" title="Buka SPADA UMS">
+            <span>🌐</span> SPADA ↗
+          </a>
+          <a href="https://github.com/voltakyy" target="_blank" rel="noopener noreferrer" class="ios-pill-btn" title="Buka GitHub Profil">
+            <span>🐙</span> GitHub ↗
+          </a>
+        </div>
       </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Search & Filter Bar (Sticky Spotlight) -->
+    <section class="search-filter-section" aria-label="Pencarian dan Filter">
+      <div class="search-filter-wrap">
+        <div class="ios-search-bar">
+          <span class="ios-search-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input type="search" id="courseSearch" class="ios-search-input" placeholder="Cari mata kuliah, topik, atau kata kunci..." aria-label="Cari mata kuliah atau materi">
+          <kbd class="search-hint-key" aria-hidden="true">/</kbd>
+        </div>
+
+        <div class="segmented-control" role="tablist" aria-label="Kategori Matkul">
+          <button type="button" class="segment-btn active" data-filter="all" role="tab" aria-selected="true">Semua (5)</button>
+          <button type="button" class="segment-btn" data-filter="programming" role="tab" aria-selected="false">Pemrograman</button>
+          <button type="button" class="segment-btn" data-filter="theory" role="tab" aria-selected="false">Studi Kasus</button>
+          <button type="button" class="segment-btn" data-filter="math" role="tab" aria-selected="false">Matematika &amp; Logika</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
     <main id="mainContent">
-      <section class="hero" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <div class="kicker">
-            <span class="kicker-dot" aria-hidden="true"></span>
-            Portal Hub Belajar Mahasiswa
-          </div>
-          <h1 id="heroTitle">
-            Semua materi kuliah,<br>
-            kini dalam <em>satu genggaman</em>.
-          </h1>
-          <p class="lede">
-            Dashboard belajar satu pintu untuk persiapan ujian dan penguasaan konsep Informatika UMS. Lengkap dengan latihan soal pilihan ganda, arena simulasi esai, hingga bedah naskah asli dosen.
-          </p>
-
-          <div class="hero-badge-box">
-            <div class="hero-stat">
-              <strong>5 Matkul</strong>
-              <span>Kurikulum Aktif</span>
-            </div>
-            <div class="hero-stat">
-              <strong>100+ Soal</strong>
-              <span>Interaktif & Kunci</span>
-            </div>
-            <div class="hero-stat">
-              <strong>100% Free</strong>
-              <span>Open Source</span>
-            </div>
-          </div>
+      <!-- iOS Quick App Grid (Top Launcher) -->
+      <section class="app-launcher-section" aria-labelledby="launcherTitle">
+        <div class="section-headline">
+          <h2 id="launcherTitle">Aplikasi Matkul</h2>
+          <span>Tap untuk membuka langsung</span>
         </div>
 
-        <div class="hero-stamp-card" aria-hidden="true">
-          <span class="hero-stamp-icon">🏛️</span>
-          <h3>INFORMATIKA</h3>
-          <p>Universitas Muhammadiyah Surakarta</p>
-          <div style="margin-top: 12px; font-family: var(--mono); font-size: 10px; background: var(--mustard); border: 1.5px solid var(--ink); border-radius: 999px; padding: 4px 10px; font-weight: 700;">
-            EDISI UTS GASAL
-          </div>
-        </div>
-      </section>
-
-      <!-- Gojek-Style Service Menu Grid -->
-      <section class="launcher-section" aria-labelledby="launcherTitle">
-        <div class="section-label">
-          <h2 id="launcherTitle" class="section-title">
-            <span>⚡</span> Menu Cepat Matkul
-          </h2>
-          <span class="section-hint">Klik untuk langsung membuka web matkul</span>
-        </div>
-
-        <div class="service-grid">
+        <div class="ios-app-grid">
           <!-- 1. Pemvis -->
-          <a href="https://voltakyy.github.io/latihan-pemrograman-visual/" class="service-btn" title="Buka Latihan Pemrograman Visual">
-            <div class="service-icon-box" style="background: var(--mustard); color: #fff;">🎨</div>
-            <div class="service-name">Pemvis</div>
-            <div class="service-sub">Alice 3 &amp; OOP Java</div>
-            <div class="service-badge">31 Soal + UTS 2026</div>
+          <a href="https://voltakyy.github.io/latihan-pemrograman-visual/" class="ios-app-item" title="Buka Pemrograman Visual">
+            <div class="ios-squircle-icon" style="background: var(--grad-pemvis);">🎨</div>
+            <div class="ios-app-name">Pemvis</div>
+            <div class="ios-app-sub">Alice 3 &amp; OOP</div>
+            <div class="ios-app-badge">UTS 2026 Ready</div>
           </a>
 
           <!-- 2. KKI -->
-          <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/" class="service-btn" title="Buka Belajar UTS Kepemimpinan (KKI)">
-            <div class="service-icon-box" style="background: var(--teal); color: #fff;">🤝</div>
-            <div class="service-name">KKI</div>
-            <div class="service-sub">Kepemimpinan</div>
-            <div class="service-badge">40 Kasus + Simulator</div>
+          <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/" class="ios-app-item" title="Buka Kepemimpinan & KKI">
+            <div class="ios-squircle-icon" style="background: var(--grad-kki);">🤝</div>
+            <div class="ios-app-name">KKI</div>
+            <div class="ios-app-sub">Kepemimpinan</div>
+            <div class="ios-app-badge">40+ Kasus Esai</div>
           </a>
 
           <!-- 3. Alpro -->
-          <a href="https://voltakyy.github.io/materi-alpro/" class="service-btn" title="Buka Materi Algoritma & Pemrograman">
-            <div class="service-icon-box" style="background: var(--emerald); color: #fff;">🐍</div>
-            <div class="service-name">Alpro</div>
-            <div class="service-sub">Python &amp; Algoritma</div>
-            <div class="service-badge">Modul Interaktif</div>
+          <a href="https://voltakyy.github.io/materi-alpro/" class="ios-app-item" title="Buka Algoritma & Pemrograman">
+            <div class="ios-squircle-icon" style="background: var(--grad-alpro);">🐍</div>
+            <div class="ios-app-name">Alpro</div>
+            <div class="ios-app-sub">Python &amp; Algoritma</div>
+            <div class="ios-app-badge">Modul Latihan</div>
           </a>
 
           <!-- 4. Kalkulus -->
-          <a href="https://voltakyy.github.io/latihan-kalkulus/" class="service-btn" title="Buka Latihan Kalkulus & Fungsi">
-            <div class="service-icon-box" style="background: var(--cobalt); color: #fff;">📐</div>
-            <div class="service-name">Kalkulus</div>
-            <div class="service-sub">Kalkulus &amp; Fungsi</div>
-            <div class="service-badge">Soal PG + Limit</div>
+          <a href="https://voltakyy.github.io/latihan-kalkulus/" class="ios-app-item" title="Buka Kalkulus & Fungsi">
+            <div class="ios-squircle-icon" style="background: var(--grad-kalkulus);">📐</div>
+            <div class="ios-app-name">Kalkulus</div>
+            <div class="ios-app-sub">Kalkulus &amp; Fungsi</div>
+            <div class="ios-app-badge">PG + Limit</div>
           </a>
 
           <!-- 5. Lohim -->
-          <a href="https://voltakyy.github.io/materi-lohim/" class="service-btn" title="Buka Materi Logika & Himpunan">
-            <div class="service-icon-box" style="background: var(--grape); color: #fff;">🧠</div>
-            <div class="service-name">Lohim</div>
-            <div class="service-sub">Logika &amp; Himpunan</div>
-            <div class="service-badge">Tabel Kebenaran</div>
+          <a href="https://voltakyy.github.io/materi-lohim/" class="ios-app-item" title="Buka Logika & Himpunan">
+            <div class="ios-squircle-icon" style="background: var(--grad-lohim);">🧠</div>
+            <div class="ios-app-name">Lohim</div>
+            <div class="ios-app-sub">Logika &amp; Boolean</div>
+            <div class="ios-app-badge">Tabel Kebenaran</div>
           </a>
 
-          <!-- 6. Next Sem (Roadmap) -->
-          <a href="#courseGrid" class="service-btn" title="Lihat rencana matkul berikutnya" style="background: var(--paper-2); border-style: dashed;">
-            <div class="service-icon-box" style="background: var(--card); color: var(--ink);">⏳</div>
-            <div class="service-name">Next Sem</div>
-            <div class="service-sub">Basis Data, Jarkom</div>
-            <div class="service-badge">Segera Hadir</div>
+          <!-- 6. Next Sem -->
+          <a href="#courseList" class="ios-app-item" style="background: rgba(255,255,255,0.7); border-style: dashed;" title="Rencana matkul semester depan">
+            <div class="ios-squircle-icon" style="background: var(--grad-next);">⏳</div>
+            <div class="ios-app-name">Next Sem</div>
+            <div class="ios-app-sub">Struktur Data, SQL</div>
+            <div class="ios-app-badge">Roadmap</div>
           </a>
         </div>
       </section>
 
-      <!-- Search & Category Filtering Control Bar -->
-      <section class="control-bar" aria-label="Pencarian dan Filter Materi">
-        <div class="search-box">
-          <span class="search-icon" aria-hidden="true">🔍</span>
-          <input type="search" id="courseSearch" class="search-input" placeholder="Cari matkul, topik, atau kata kunci..." aria-label="Cari mata kuliah atau materi">
-          <kbd class="search-kbd" aria-hidden="true">/</kbd>
-        </div>
-
-        <div class="filter-chips" role="tablist" aria-label="Filter Kategori Matkul">
-          <button type="button" class="chip-btn active" data-filter="all" role="tab" aria-selected="true">Semua (5)</button>
-          <button type="button" class="chip-btn" data-filter="programming" role="tab" aria-selected="false">Pemrograman</button>
-          <button type="button" class="chip-btn" data-filter="theory" role="tab" aria-selected="false">Studi Kasus &amp; Teori</button>
-          <button type="button" class="chip-btn" data-filter="math" role="tab" aria-selected="false">Matematika &amp; Logika</button>
-        </div>
-      </section>
-
-      <!-- Empty State for Search -->
+      <!-- Empty State -->
       <div id="emptyState" class="empty-state">
-        <span class="empty-icon" aria-hidden="true">🧐</span>
+        <span class="empty-icon" aria-hidden="true">🔍</span>
         <h3>Matkul Tidak Ditemukan</h3>
-        <p>Tidak ada mata kuliah atau topik yang cocok dengan pencarianmu.</p>
-        <button id="resetSearch" type="button" class="btn-launch" style="cursor: pointer;">
+        <p>Coba kata kunci lain atau bersihkan kotak pencarian.</p>
+        <button id="resetSearch" type="button" class="btn-reset">
           Reset Pencarian
         </button>
       </div>
 
-      <!-- Detailed Course Cards Grid -->
-      <div id="courseGrid" class="course-grid">
+      <!-- Detailed Course Cards Grid (iOS Interactive Widgets) -->
+      <section id="courseList" class="widget-grid" aria-label="Daftar Mata Kuliah">
 
-        <!-- Card 1: Pemrograman Visual -->
-        <article class="course-card" data-category="programming" style="border-top: 6px solid var(--mustard);">
-          <div class="card-banner">
-            <div class="card-title-group">
-              <div class="card-icon" style="background: var(--mustard-soft);">🎨</div>
-              <div>
-                <h2>
-                  <a href="https://voltakyy.github.io/latihan-pemrograman-visual/" class="card-link">Pemrograman Visual</a>
-                </h2>
-                <span class="card-code">INF201 · Semester 3</span>
+        <!-- 1. Pemrograman Visual -->
+        <article class="ios-card" data-category="programming">
+          <div class="card-header-row">
+            <div class="card-identity">
+              <div class="card-icon-box" style="background: var(--grad-pemvis);">🎨</div>
+              <div class="card-title-wrap">
+                <h3>
+                  <a href="https://voltakyy.github.io/latihan-pemrograman-visual/" class="stretched-link">Pemrograman Visual</a>
+                </h3>
+                <span class="card-subtitle">INF201 · Semester 3 · Alice 3 &amp; Java OOP</span>
               </div>
             </div>
-            <span class="card-tag" style="background: var(--mustard-soft); color: var(--ink);">UTS 2026 Ready</span>
+            <a href="https://voltakyy.github.io/latihan-pemrograman-visual/" class="btn-app-store">Buka</a>
           </div>
 
-          <div class="card-content">
-            <p class="card-desc">
-              Latihan interaktif OOP berbasis Alice 3 dan konsep Java: Class &amp; Object, Property &amp; Method, Inheritance hierarki, Function vs Procedure, hingga struktur Loops.
-            </p>
+          <p class="card-body-text">
+            Bank soal pilihan ganda dan bedah naskah ujian resmi: Class vs Object, Inheritance, Procedure vs Function, hingga konstruksi perulangan di Alice 3.
+          </p>
 
-            <div class="card-features">
-              <span class="feature-pill">🎯 31 Soal PG Interaktif</span>
-              <span class="feature-pill">📜 Naskah Asli UTS 2024</span>
-              <span class="feature-pill">🚀 Modul Mutakhir UTS 2026</span>
-              <span class="feature-pill">📊 Visualizer Alice 3</span>
-              <span class="feature-pill">🖨️ Rangkuman Siap Cetak A4</span>
-            </div>
-
-            <div class="card-sublinks">
-              <a href="https://voltakyy.github.io/latihan-pemrograman-visual/uts-2026.html" class="sublink-btn">
-                <span>🚀</span> Modul UTS 2026 ↗
-              </a>
-              <a href="https://voltakyy.github.io/latihan-pemrograman-visual/uts-2024.html" class="sublink-btn">
-                <span>📜</span> Naskah UTS 2024 ↗
-              </a>
-            </div>
+          <div class="card-tag-row">
+            <span class="ios-tag">🎯 31 Soal PG Interaktif</span>
+            <span class="ios-tag">📜 Naskah Asli UTS 2024</span>
+            <span class="ios-tag">🚀 Modul Mutakhir UTS 2026</span>
+            <span class="ios-tag">📊 Visualizer Alur Data</span>
           </div>
 
-          <div class="card-footer">
-            <span class="footer-stat">Alice 3 &amp; Java OOP</span>
-            <span class="btn-launch">Buka Matkul ↗</span>
+          <div class="card-subactions">
+            <a href="https://voltakyy.github.io/latihan-pemrograman-visual/uts-2026.html" class="subaction-pill">
+              <span>🚀</span> Modul UTS 2026 ↗
+            </a>
+            <a href="https://voltakyy.github.io/latihan-pemrograman-visual/uts-2024.html" class="subaction-pill">
+              <span>📜</span> Naskah UTS 2024 ↗
+            </a>
           </div>
         </article>
 
-        <!-- Card 2: KKI -->
-        <article class="course-card" data-category="theory" style="border-top: 6px solid var(--teal);">
-          <div class="card-banner">
-            <div class="card-title-group">
-              <div class="card-icon" style="background: var(--teal-soft);">🤝</div>
-              <div>
-                <h2>
-                  <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/" class="card-link">Kepemimpinan &amp; KKI</a>
-                </h2>
-                <span class="card-code">INF204 · Semester 3</span>
+        <!-- 2. KKI -->
+        <article class="ios-card" data-category="theory">
+          <div class="card-header-row">
+            <div class="card-identity">
+              <div class="card-icon-box" style="background: var(--grad-kki);">🤝</div>
+              <div class="card-title-wrap">
+                <h3>
+                  <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/" class="stretched-link">Kepemimpinan &amp; KKI</a>
+                </h3>
+                <span class="card-subtitle">INF204 · Semester 3 · Soft Skill &amp; Kasus</span>
               </div>
             </div>
-            <span class="card-tag" style="background: var(--teal-soft); color: var(--teal);">40+ Kasus</span>
+            <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/" class="btn-app-store">Buka</a>
           </div>
 
-          <div class="card-content">
-            <p class="card-desc">
-              Pembahasan tuntas studi kasus Komunikasi &amp; Kepemimpinan Interpersonal UMS. Dilengkapi arena simulasi esai 90 menit dengan rubrik penilaian resmi dosen.
-            </p>
+          <p class="card-body-text">
+            Pembahasan tuntas studi kasus komunikasi &amp; kepemimpinan interpersonal dengan arena simulasi esai 90 menit dan rubrik penilaian dosen UMS.
+          </p>
 
-            <div class="card-features">
-              <span class="feature-pill">⏱️ Simulator Esai 90 Menit</span>
-              <span class="feature-pill">📋 Kunci &amp; Rubrik Dosen</span>
-              <span class="feature-pill">🎯 Kuis 10 Kasus Manajerial</span>
-              <span class="feature-pill">👥 Visualizer Tim Multidisiplin</span>
-              <span class="feature-pill">💾 Auto-Save LocalStorage</span>
-            </div>
-
-            <div class="card-sublinks">
-              <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/uts-2025.html" class="sublink-btn">
-                <span>🎯</span> Simulator UTS 2025/2026 ↗
-              </a>
-              <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/uts-2024.html" class="sublink-btn">
-                <span>📜</span> Naskah Kasus 2024 ↗
-              </a>
-            </div>
+          <div class="card-tag-row">
+            <span class="ios-tag">⏱️ Simulator Esai 90m</span>
+            <span class="ios-tag">📋 Rubrik &amp; Kunci Dosen</span>
+            <span class="ios-tag">🎯 40+ Bank Kasus</span>
+            <span class="ios-tag">💾 Auto-Save LocalStorage</span>
           </div>
 
-          <div class="card-footer">
-            <span class="footer-stat">Kepemimpinan &amp; Komunikasi</span>
-            <span class="btn-launch">Buka Matkul ↗</span>
+          <div class="card-subactions">
+            <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/uts-2025.html" class="subaction-pill">
+              <span>🎯</span> Simulator UTS 2025/2026 ↗
+            </a>
+            <a href="https://voltakyy.github.io/belajar-uts-kepemimpinan/uts-2024.html" class="subaction-pill">
+              <span>📜</span> Naskah Kasus 2024 ↗
+            </a>
           </div>
         </article>
 
-        <!-- Card 3: Algoritma & Pemrograman -->
-        <article class="course-card" data-category="programming" style="border-top: 6px solid var(--emerald);">
-          <div class="card-banner">
-            <div class="card-title-group">
-              <div class="card-icon" style="background: var(--emerald-soft);">🐍</div>
-              <div>
-                <h2>
-                  <a href="https://voltakyy.github.io/materi-alpro/" class="card-link">Algoritma &amp; Pemrograman</a>
-                </h2>
-                <span class="card-code">INF102 · Dasar Pemrograman</span>
+        <!-- 3. Alpro -->
+        <article class="ios-card" data-category="programming">
+          <div class="card-header-row">
+            <div class="card-identity">
+              <div class="card-icon-box" style="background: var(--grad-alpro);">🐍</div>
+              <div class="card-title-wrap">
+                <h3>
+                  <a href="https://voltakyy.github.io/materi-alpro/" class="stretched-link">Algoritma &amp; Pemrograman</a>
+                </h3>
+                <span class="card-subtitle">INF102 · Dasar Pemrograman Python</span>
               </div>
             </div>
-            <span class="card-tag" style="background: var(--emerald-soft); color: var(--emerald);">Python</span>
+            <a href="https://voltakyy.github.io/materi-alpro/" class="btn-app-store">Buka</a>
           </div>
 
-          <div class="card-content">
-            <p class="card-desc">
-              Portal belajar dasar pemrograman Python: sintaksis, logika algoritma, percabangan if-else, looping, fungsi modular, hingga manipulasi struktur data list dan dictionary.
-            </p>
+          <p class="card-body-text">
+            Pemahaman mendalam sintaksis Python, alur logika algoritma, percabangan kondisional, perulangan, hingga operasi struktur data list dan dictionary.
+          </p>
 
-            <div class="card-features">
-              <span class="feature-pill">🐍 Sintaks Python Dasar</span>
-              <span class="feature-pill">🔄 Looping &amp; Percabangan</span>
-              <span class="feature-pill">📦 List, Tuple &amp; Dictionary</span>
-              <span class="feature-pill">📝 Latihan Soal Persiapan UTS</span>
-            </div>
-          </div>
-
-          <div class="card-footer">
-            <span class="footer-stat">Python &amp; Algoritma</span>
-            <span class="btn-launch">Buka Matkul ↗</span>
+          <div class="card-tag-row">
+            <span class="ios-tag">🐍 Python Programming</span>
+            <span class="ios-tag">🔄 Loop &amp; Percabangan</span>
+            <span class="ios-tag">📦 List &amp; Dictionary</span>
+            <span class="ios-tag">📝 Latihan Soal Persiapan UTS</span>
           </div>
         </article>
 
-        <!-- Card 4: Kalkulus & Fungsi -->
-        <article class="course-card" data-category="math" style="border-top: 6px solid var(--cobalt);">
-          <div class="card-banner">
-            <div class="card-title-group">
-              <div class="card-icon" style="background: var(--cobalt-soft);">📐</div>
-              <div>
-                <h2>
-                  <a href="https://voltakyy.github.io/latihan-kalkulus/" class="card-link">Kalkulus &amp; Fungsi</a>
-                </h2>
-                <span class="card-code">INF103 · Matematika Informatika</span>
+        <!-- 4. Kalkulus & Fungsi -->
+        <article class="ios-card" data-category="math">
+          <div class="card-header-row">
+            <div class="card-identity">
+              <div class="card-icon-box" style="background: var(--grad-kalkulus);">📐</div>
+              <div class="card-title-wrap">
+                <h3>
+                  <a href="https://voltakyy.github.io/latihan-kalkulus/" class="stretched-link">Kalkulus &amp; Fungsi</a>
+                </h3>
+                <span class="card-subtitle">INF103 · Matematika Informatika</span>
               </div>
             </div>
-            <span class="card-tag" style="background: var(--cobalt-soft); color: var(--cobalt);">Reguler</span>
+            <a href="https://voltakyy.github.io/latihan-kalkulus/" class="btn-app-store">Buka</a>
           </div>
 
-          <div class="card-content">
-            <p class="card-desc">
-              Latihan soal pilihan ganda UTS Kalkulus Reguler dengan pembahasan terstruktur step-by-step, terintegrasi langsung dengan modul materi fungsi matematika.
-            </p>
+          <p class="card-body-text">
+            Latihan soal pilihan ganda UTS Kalkulus Reguler dengan solusi langkah demi langkah, terhubung langsung dengan modul lengkap materi fungsi dan limit.
+          </p>
 
-            <div class="card-features">
-              <span class="feature-pill">📈 Pembahasan Step-by-Step</span>
-              <span class="feature-pill">🎯 Limit &amp; Kekontinuan</span>
-              <span class="feature-pill">⚡ Turunan &amp; Aturan Rantai</span>
-              <span class="feature-pill">📊 Fungsi, Invers &amp; Komposisi</span>
-            </div>
-
-            <div class="card-sublinks">
-              <a href="https://voltakyy.github.io/materi-fungsi/" class="sublink-btn" title="Buka Modul Belajar Fungsi dari Nol">
-                <span>📊</span> Sub-Modul: Materi Fungsi (15 Bagian) ↗
-              </a>
-            </div>
+          <div class="card-tag-row">
+            <span class="ios-tag">📈 Solusi Step-by-Step</span>
+            <span class="ios-tag">🎯 Limit &amp; Kekontinuan</span>
+            <span class="ios-tag">⚡ Turunan &amp; Aturan Rantai</span>
+            <span class="ios-tag">📊 Invers &amp; Komposisi</span>
           </div>
 
-          <div class="card-footer">
-            <span class="footer-stat">Kalkulus + Fungsi Lengkap</span>
-            <span class="btn-launch">Buka Matkul ↗</span>
+          <div class="card-subactions">
+            <a href="https://voltakyy.github.io/materi-fungsi/" class="subaction-pill" title="Buka Modul Belajar Fungsi Lengkap">
+              <span>📊</span> Sub-Modul: Materi Fungsi (15 Bagian) ↗
+            </a>
           </div>
         </article>
 
-        <!-- Card 5: Logika & Himpunan -->
-        <article class="course-card" data-category="math" style="border-top: 6px solid var(--grape);">
-          <div class="card-banner">
-            <div class="card-title-group">
-              <div class="card-icon" style="background: var(--grape-soft);">🧠</div>
-              <div>
-                <h2>
-                  <a href="https://voltakyy.github.io/materi-lohim/" class="card-link">Logika &amp; Himpunan (Lohim)</a>
-                </h2>
-                <span class="card-code">INF105 · Fondasi Komputasi</span>
+        <!-- 5. Lohim -->
+        <article class="ios-card" data-category="math">
+          <div class="card-header-row">
+            <div class="card-identity">
+              <div class="card-icon-box" style="background: var(--grad-lohim);">🧠</div>
+              <div class="card-title-wrap">
+                <h3>
+                  <a href="https://voltakyy.github.io/materi-lohim/" class="stretched-link">Logika &amp; Himpunan (Lohim)</a>
+                </h3>
+                <span class="card-subtitle">INF105 · Fondasi Komputasi &amp; Boolean</span>
               </div>
             </div>
-            <span class="card-tag" style="background: var(--grape-soft); color: var(--grape);">Aljabar Boolean</span>
+            <a href="https://voltakyy.github.io/materi-lohim/" class="btn-app-store">Buka</a>
           </div>
 
-          <div class="card-content">
-            <p class="card-desc">
-              Pemahaman tuntas logika matematika dan teori himpunan: proposisi, tabel kebenaran, kuantor, hukum aljabar boolean, relasi ekivalensi, dan operasi himpunan.
-            </p>
+          <p class="card-body-text">
+            Konsep proposisi dan implikasi, hukum aljabar boolean, penyusunan tabel kebenaran lengkap, serta operasi himpunan dan diagram Venn.
+          </p>
 
-            <div class="card-features">
-              <span class="feature-pill">🔲 Gerbang Logika &amp; Boolean</span>
-              <span class="feature-pill">📋 Tabel Kebenaran Lengkap</span>
-              <span class="feature-pill">⭕ Diagram Venn &amp; Himpunan</span>
-              <span class="feature-pill">💡 Persiapan UTS Logika</span>
-            </div>
-          </div>
-
-          <div class="card-footer">
-            <span class="footer-stat">Logika Komputasi</span>
-            <span class="btn-launch">Buka Matkul ↗</span>
+          <div class="card-tag-row">
+            <span class="ios-tag">🔲 Gerbang Logika &amp; Boolean</span>
+            <span class="ios-tag">📋 Tabel Kebenaran Lengkap</span>
+            <span class="ios-tag">⭕ Diagram Venn &amp; Himpunan</span>
+            <span class="ios-tag">💡 Persiapan Ujian Komputasi</span>
           </div>
         </article>
 
-        <!-- Card 6: Matkul Semester Depan (Roadmap Placeholder) -->
-        <article class="course-card card-coming-soon" data-category="all" style="border-top: 6px dashed var(--ink-faint);">
-          <div class="card-banner">
-            <div class="card-title-group">
-              <div class="card-icon" style="background: var(--card);">⏳</div>
-              <div>
-                <h2>Matkul Semester Depan</h2>
-                <span class="card-code">Roadmap Pembelajaran</span>
+        <!-- 6. Roadmap Semester Depan -->
+        <article class="ios-card card-roadmap" data-category="all">
+          <div class="card-header-row">
+            <div class="card-identity">
+              <div class="card-icon-box" style="background: var(--grad-next);">⏳</div>
+              <div class="card-title-wrap">
+                <h3>Matkul Semester Depan</h3>
+                <span class="card-subtitle">Roadmap Kurikulum Mendatang</span>
               </div>
             </div>
-            <span class="card-tag">Coming Soon</span>
+            <span class="ios-pill-btn" style="pointer-events:none; font-size:11px;">Coming Soon</span>
           </div>
 
-          <div class="card-content">
-            <p class="card-desc">
-              Web materi dan bank soal berikutnya sedang dalam tahap perancangan untuk semester mendatang sesuai kurikulum Informatika UMS:
-            </p>
+          <p class="card-body-text">
+            Modul latihan dan ringkasan materi untuk semester lanjutan sedang dipersiapkan untuk terus mendukung angkatan Informatika UMS:
+          </p>
 
-            <div class="card-features">
-              <span class="feature-pill">📁 Struktur Data &amp; Algoritma</span>
-              <span class="feature-pill">🗄️ Sistem Basis Data (SQL)</span>
-              <span class="feature-pill">🌐 Jaringan Komputer</span>
-              <span class="feature-pill">⚙️ Rekayasa Perangkat Lunak</span>
-            </div>
-          </div>
-
-          <div class="card-footer">
-            <span class="footer-stat">Segera Hadir</span>
-            <span class="sublink-btn" style="pointer-events: none; opacity: 0.7;">Dalam Pengembangan</span>
+          <div class="card-tag-row">
+            <span class="ios-tag">📁 Struktur Data &amp; Algoritma</span>
+            <span class="ios-tag">🗄️ Sistem Basis Data (SQL)</span>
+            <span class="ios-tag">🌐 Jaringan Komputer</span>
+            <span class="ios-tag">⚙️ Rekayasa Perangkat Lunak</span>
           </div>
         </article>
 
-      </div>
+      </section>
 
-      <!-- Campus Shortcuts Section -->
+      <!-- Campus Grouped List (iOS Settings Style) -->
       <section class="campus-section" aria-labelledby="campusTitle">
-        <h2 id="campusTitle" class="section-title">
-          <span>🏛️</span> Pintasan Portal Kampus UMS
-        </h2>
-        <p style="margin: 4px 0 0; color: var(--ink-soft); font-size: 13px;">
-          Tautan cepat ke layanan resmi akademik yang paling sering digunakan mahasiswa sehari-hari:
-        </p>
+        <div class="section-headline">
+          <h2 id="campusTitle">Layanan Kampus UMS</h2>
+          <span>Pintasan akademik resmi</span>
+        </div>
 
-        <div class="campus-grid">
-          <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="campus-card">
-            <span class="campus-card-icon">💻</span>
-            <div class="campus-card-text">
-              <strong>SPADA UMS</strong>
-              <span>Portal Pembelajaran Online</span>
+        <div class="ios-grouped-list">
+          <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="ios-list-item">
+            <div class="item-left">
+              <div class="item-icon-box" style="background: linear-gradient(135deg, #007aff, #00c6ff);">💻</div>
+              <div class="item-title-box">
+                <strong>SPADA UMS</strong>
+                <span>Portal E-Learning &amp; Materi Kuliah Dosen</span>
+              </div>
             </div>
+            <span class="item-chevron" aria-hidden="true">›</span>
           </a>
 
-          <a href="https://sia.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="campus-card">
-            <span class="campus-card-icon">📋</span>
-            <div class="campus-card-text">
-              <strong>SIA UMS</strong>
-              <span>Sistem Informasi Akademik &amp; KRS</span>
+          <a href="https://sia.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="ios-list-item">
+            <div class="item-left">
+              <div class="item-icon-box" style="background: linear-gradient(135deg, #34c759, #30b0c7);">📋</div>
+              <div class="item-title-box">
+                <strong>SIA UMS</strong>
+                <span>Sistem Informasi Akademik, KRS &amp; Transkrip Nilai</span>
+              </div>
             </div>
+            <span class="item-chevron" aria-hidden="true">›</span>
           </a>
 
-          <a href="https://library.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="campus-card">
-            <span class="campus-card-icon">📚</span>
-            <div class="campus-card-text">
-              <strong>Perpustakaan UMS</strong>
-              <span>Katalog Digital &amp; E-Book</span>
+          <a href="https://library.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="ios-list-item">
+            <div class="item-left">
+              <div class="item-icon-box" style="background: linear-gradient(135deg, #ff9500, #ff5e3a);">📚</div>
+              <div class="item-title-box">
+                <strong>Perpustakaan UMS</strong>
+                <span>E-Book, Jurnal Ilmiah &amp; Katalog Buku Digital</span>
+              </div>
             </div>
+            <span class="item-chevron" aria-hidden="true">›</span>
           </a>
 
-          <a href="https://github.com/voltakyy" target="_blank" rel="noopener noreferrer" class="campus-card">
-            <span class="campus-card-icon">🐙</span>
-            <div class="campus-card-text">
-              <strong>GitHub voltakyy</strong>
-              <span>Repositori Kode &amp; Kolaborasi</span>
+          <a href="https://github.com/voltakyy" target="_blank" rel="noopener noreferrer" class="ios-list-item">
+            <div class="item-left">
+              <div class="item-icon-box" style="background: linear-gradient(135deg, #24221f, #48484a);">🐙</div>
+              <div class="item-title-box">
+                <strong>GitHub @voltakyy</strong>
+                <span>Repositori Sumber Kode &amp; Proyek Belajar</span>
+              </div>
             </div>
+            <span class="item-chevron" aria-hidden="true">›</span>
           </a>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="site-foot">
+    <!-- iOS Minimalist Footer -->
+    <footer class="ios-footer">
       <div>
-        <strong>Ruang Belajar</strong> — Dibuat dengan dedikasi oleh <strong>Rizky (`voltakyy`)</strong> bersama <strong>Bima</strong> &amp; Rekan Kelas B Informatika UMS.
+        <strong>Ruang Belajar</strong> · Dibuat oleh <strong>Rizky (`voltakyy`)</strong> bersama <strong>Bima (Ketua Kelas B)</strong> &amp; Rekan Informatika UMS.
       </div>
-      <div class="foot-links">
-        <a href="#mainContent">Kembali ke Atas ↑</a>
+      <div class="footer-links">
+        <a href="#mainContent">Ke Atas ↑</a>
         <a href="https://github.com/voltakyy/voltakyy.github.io" target="_blank" rel="noopener noreferrer">Source Code</a>
       </div>
     </footer>
