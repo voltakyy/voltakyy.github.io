@@ -1,0 +1,16 @@
+{
+  "name": "Ruang Belajar UMS — Portal Matkul Informatika",
+  "short_name": "Ruang Belajar",
+  "description": "Portal super-app akses cepat seluruh materi, latihan soal, dan persiapan UTS Informatika UMS",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f0e4",
+  "theme_color": "#dd5a3a",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
