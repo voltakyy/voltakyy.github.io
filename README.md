@@ -8,15 +8,16 @@ Dibuat oleh **Rizky ([@voltakyy](https://github.com/voltakyy))** berkolaborasi b
 
 ---
 
-## ⚡ 5 Matkul Resmi yang Terintegrasi
+## ⚡ 6 Matkul Resmi yang Terintegrasi
 
 | No | Mata Kuliah | Kode & Semester | URL Live Modul | Fitur Unggulan |
 |:--:|---|:--:|---|---|
 | 1 | **Pemrograman Visual** | `INF201` · Sem 3 | [latihan-pemrograman-visual](https://voltakyy.github.io/latihan-pemrograman-visual/) | Alice 3, Java OOP, 31 Soal PG, Naskah Asli UTS 2024 & Modul UTS 2026 |
 | 2 | **Komunikasi & Kepemimpinan (KKI)** | `INF204` · Sem 3 | [belajar-uts-kepemimpinan](https://voltakyy.github.io/belajar-uts-kepemimpinan/) | 40+ Bank Soal Kasus, Simulator Esai 90 Menit, Rubrik & Kunci Dosen |
-| 3 | **Algoritma & Pemrograman (Alpro)** | `INF102` · Sem 1 | [materi-alpro](https://voltakyy.github.io/materi-alpro/) | Teori Alpro, Sintaks Python, Flowchart, Latihan UTS |
-| 4 | **Kalkulus & Fungsi Matematika** | `INF103` · Sem 1 | [latihan-kalkulus](https://voltakyy.github.io/latihan-kalkulus/) | Latihan PG UTS Kalkulus Reguler + [Sub-Modul Fungsi](https://voltakyy.github.io/materi-fungsi/) |
-| 5 | **Logika & Himpunan (Lohim)** | `INF105` · Sem 1 | [materi-lohim](https://voltakyy.github.io/materi-lohim/) | Gerbang Logika, Aljabar Boolean, Tabel Kebenaran, Teori Himpunan |
+| 3 | **English for Academic Purposes (EAP)** | `INF208` · Sem 3 | [latihan-eap](https://voltakyy.github.io/latihan-eap/) | Listening Arena, Grammar Clauses & Puzzles, Reading, Smart Word Counter & Simulasi UTS |
+| 4 | **Algoritma & Pemrograman (Alpro)** | `INF102` · Sem 1 | [materi-alpro](https://voltakyy.github.io/materi-alpro/) | Teori Alpro, Sintaks Python, Flowchart, Latihan UTS |
+| 5 | **Kalkulus & Fungsi Matematika** | `INF103` · Sem 1 | [latihan-kalkulus](https://voltakyy.github.io/latihan-kalkulus/) | Latihan PG UTS Kalkulus Reguler + [Sub-Modul Fungsi](https://voltakyy.github.io/materi-fungsi/) |
+| 6 | **Logika & Himpunan (Lohim)** | `INF105` · Sem 1 | [materi-lohim](https://voltakyy.github.io/materi-lohim/) | Gerbang Logika, Aljabar Boolean, Tabel Kebenaran, Teori Himpunan |
 
 ---
 
