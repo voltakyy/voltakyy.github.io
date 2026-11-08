@@ -196,15 +196,27 @@
 
 @media (max-width: 640px) {
   .ums-portal-inner {
-    padding: 8px 12px;
+    padding: 8px 12px !important;
+    flex-wrap: nowrap !important;
   }
-  .ums-portal-crumb-sep, .ums-portal-current-badge span:last-child {
-    display: none;
+  .ums-portal-crumb-sep,
+  .ums-portal-current-badge {
+    display: none !important;
+  }
+  .ums-portal-home-link {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    flex-shrink: 0 !important;
+  }
+  .ums-portal-dropbtn {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    flex-shrink: 0 !important;
   }
   .ums-portal-menu {
-    right: 0;
-    left: auto;
-    width: min(320px, calc(100vw - 24px));
-    min-width: 0;
+    right: 0 !important;
+    left: auto !important;
+    width: min(300px, calc(100vw - 24px)) !important;
+    min-width: 0 !important;
   }
 }
