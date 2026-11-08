@@ -1,0 +1,546 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Computational Thinking â€” Video Penjelasan</title>
+<style>
+  :root{
+    --bg:#070b10;
+    --panel:#0d141c;
+    --panel2:#111a24;
+    --line:rgba(255,255,255,.09);
+    --ink:#e9eff7;
+    --muted:#8fa2b7;
+    --dim:#5d7085;
+    --a1:#f2b455;
+    --a2:#6ea8fe;
+    --a3:#b98cff;
+    --a4:#4ade80;
+    --mono:"Consolas","Cascadia Mono",ui-monospace,monospace;
+    --sans:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  #stage{position:relative;width:1920px;height:1080px;overflow:hidden;
+    background:
+      radial-gradient(1200px 700px at 78% 8%, rgba(110,168,254,.10), transparent 60%),
+      radial-gradient(900px 600px at 8% 92%, rgba(74,222,128,.07), transparent 60%),
+      var(--bg);}
+  .grid{position:absolute;inset:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+    background-size:80px 80px;mask-image:radial-gradient(circle at 50% 45%,#000 30%,transparent 85%)}
+  .hud{position:absolute;left:100px;right:100px;top:56px;display:flex;justify-content:space-between;
+    align-items:center;font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);z-index:5}
+  .hud .l{display:flex;align-items:center;gap:14px}
+  .hud .dot{width:9px;height:9px;background:var(--a4);border-radius:2px}
+  .hud .chapter{font-family:var(--mono);color:var(--muted)}
+  .rule{position:absolute;left:100px;right:100px;top:96px;height:1px;background:var(--line)}
+
+  .scene{position:absolute;left:100px;right:100px;top:140px;bottom:140px;display:none;
+    flex-direction:column;justify-content:center}
+  .scene.on{display:flex}
+
+  .kicker{font-family:var(--mono);font-size:20px;letter-spacing:.22em;color:var(--dim);text-transform:uppercase}
+  h1{font-size:132px;line-height:.94;letter-spacing:-.035em;font-weight:650}
+  h2{font-size:78px;line-height:1.02;letter-spacing:-.028em;font-weight:640}
+  h2 .num{font-family:var(--mono);font-size:34px;color:var(--dim);display:block;margin-bottom:14px;letter-spacing:.1em}
+  .lede{font-size:29px;line-height:1.5;color:var(--muted);max-width:760px}
+  .accent{color:var(--a4)}
+
+  /* ---------- S1 ---------- */
+  .s1-wrap{display:grid;grid-template-columns:1fr 560px;height:100%;align-items:center;gap:40px}
+  .s1-title span{display:block}
+  .s1-title .l2{color:var(--muted)}
+  .s1-sub{margin-top:38px;font-size:30px;line-height:1.55;color:var(--muted);max-width:720px}
+  .s1-tags{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:18px;letter-spacing:.08em;text-transform:uppercase;
+    padding:10px 16px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+  .diagram{position:relative;width:560px;height:520px;justify-self:end}
+  .diagram svg{position:absolute;inset:0;overflow:visible}
+  .node{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;
+    font-family:var(--mono);font-size:17px;letter-spacing:.08em;text-transform:uppercase;
+    padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:rgba(13,20,28,.9);color:var(--ink)}
+  .node.core{left:280px;top:260px;border-color:rgba(74,222,128,.5);
+    box-shadow:0 0 0 8px rgba(74,222,128,.06),0 0 60px rgba(74,222,128,.12);font-size:19px;padding:16px 22px}
+  .node.n1{left:120px;top:84px}.node.n2{left:448px;top:120px}
+  .node.n3{left:110px;top:400px}.node.n4{left:452px;top:424px}
+
+  /* ---------- S2 ---------- */
+  .s2-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px}
+  .pillars4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:6px}
+  .pcard{position:relative;background:linear-gradient(180deg,var(--panel2),var(--panel));
+    border:1px solid var(--line);border-radius:16px;padding:34px 30px 38px;min-height:390px;overflow:hidden}
+  .pcard:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--c)}
+  .pcard .idx{font-family:var(--mono);font-size:22px;color:var(--c);letter-spacing:.1em}
+  .pcard h3{font-size:35px;font-weight:620;letter-spacing:-.01em;margin:26px 0 18px;line-height:1.15}
+  .pcard p{font-size:22px;line-height:1.55;color:var(--muted)}
+  .pcard .glyph{position:absolute;right:-10px;bottom:-24px;font-family:var(--mono);font-size:170px;
+    color:rgba(255,255,255,.03);letter-spacing:-.06em}
+
+  /* ---------- S3 ---------- */
+  .s3-wrap{display:grid;grid-template-columns:900px 1fr;gap:60px;align-items:center}
+  .tree{position:relative;width:900px;height:560px;margin-top:8px}
+  .tree svg{position:absolute;inset:0;width:900px;height:560px}
+  .troot{position:absolute;left:0;top:50%;transform:translateY(-50%);width:250px;
+    border:1px solid rgba(242,180,85,.45);background:rgba(242,180,85,.07);border-radius:12px;padding:20px 22px}
+  .troot b{display:block;font-size:25px;font-weight:620}
+  .troot span{font-family:var(--mono);font-size:15px;color:var(--dim);letter-spacing:.06em}
+  .tnode{position:absolute;left:430px;width:430px;display:flex;align-items:center;gap:16px;
+    border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:15px 20px}
+  .tnode i{font-family:var(--mono);font-style:normal;font-size:15px;color:var(--a1);opacity:.9}
+  .tnode b{font-size:23px;font-weight:600}
+  .note{border-left:2px solid var(--a1);padding:6px 0 6px 22px;margin-top:34px}
+  .note p{font-size:25px;line-height:1.55;color:var(--muted)}
+  .note .k{font-family:var(--mono);font-size:16px;color:var(--a1);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:10px}
+
+  /* ---------- S4 ---------- */
+  .s4-wrap{display:grid;grid-template-columns:1fr 470px;gap:56px;margin-top:52px;align-items:start}
+  .bars{display:flex;flex-direction:column;gap:34px;margin-top:6px}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:23px;color:var(--muted);margin-bottom:12px}
+  .bar-row .lab b{color:var(--ink);font-weight:600}
+  .track{height:26px;border-radius:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .fill{height:100%;width:0;border-radius:6px}
+  .stat{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--panel2),var(--panel));padding:34px}
+  .stat .big{font-size:96px;font-weight:660;letter-spacing:-.04em;line-height:1}
+  .stat .big small{font-size:32px;color:var(--muted);font-weight:500;letter-spacing:0}
+  .stat .cap{font-size:21px;line-height:1.5;color:var(--muted);margin-top:14px}
+  .stat + .stat{margin-top:20px}
+  .chiprow{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .chip{font-family:var(--mono);font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+    padding:7px 12px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+
+  /* ---------- S5 ---------- */
+  .s5-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:46px}
+  .col{border:1px solid var(--line);border-radius:16px;padding:38px 38px 16px;background:rgba(13,20,28,.6)}
+  .col.focus{border-color:rgba(185,140,255,.35);background:linear-gradient(180deg,rgba(185,140,255,.08),rgba(13,20,28,.6))}
+  .col h4{font-family:var(--mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+  .col.focus h4{color:var(--a3)}
+  .item{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-top:1px solid rgba(255,255,255,.06);font-size:24px;line-height:1.35}
+  .item:first-of-type{border-top:none}
+  .item .b{width:7px;height:7px;border-radius:50%;margin-top:12px;flex:none;background:var(--a3)}
+  .col.skip .item{color:var(--dim)}
+  .col.skip .item .b{background:#3a4a5c}
+  .col.skip .item span{text-decoration:line-through;text-decoration-color:rgba(143,162,183,.45)}
+
+  /* ---------- S6 ---------- */
+  .flow{display:flex;align-items:stretch;gap:26px;margin-top:56px}
+  .step{flex:1;position:relative;border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    padding:26px 22px;min-height:186px}
+  .step .n{font-family:var(--mono);font-size:15px;color:var(--a4);letter-spacing:.1em}
+  .step b{display:block;font-size:22px;line-height:1.28;margin-top:12px;font-weight:600}
+  .step .arrow{position:absolute;right:-19px;top:50%;transform:translateY(-50%);font-size:22px;
+    color:var(--dim);font-family:var(--mono);z-index:2}
+  .step:last-child .arrow{display:none}
+  .branch{display:flex;align-items:center;gap:14px;margin-top:34px;font-size:21px;color:var(--muted)}
+  .branch .pill{font-family:var(--mono);font-size:16px;text-transform:uppercase;letter-spacing:.08em;
+    color:#ff9b9b;border:1px solid rgba(255,155,155,.35);background:rgba(255,155,155,.08);padding:8px 14px;border-radius:999px}
+  .branch .ok{color:#9ef0bb;border-color:rgba(158,240,187,.35);background:rgba(158,240,187,.08)}
+
+  /* ---------- S7 ---------- */
+  .tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px}
+  .tl .line{position:absolute;left:12.5%;right:12.5%;top:55px;height:2px;background:var(--line)}
+  .tl .line i{position:absolute;inset:0;background:var(--a2);transform-origin:left;transform:scaleX(0)}
+  .tl .pt{position:relative;text-align:center;padding:0 12px}
+  .tl .pt .t{font-family:var(--mono);font-size:21px;color:var(--a2);letter-spacing:.06em}
+  .tl .pt .d{width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--a2);
+    margin:22px auto 0;position:relative;z-index:2}
+  .tl .pt .b{font-size:25px;line-height:1.35;margin-top:24px;color:var(--ink)}
+  .tl .pt .p{font-family:var(--mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+
+  /* ---------- S8 ---------- */
+  .s8{height:100%;display:flex;flex-direction:column;justify-content:center}
+  .s8 h2{font-size:92px;max-width:1300px}
+  .s8 .sub{font-size:30px;color:var(--muted);margin-top:30px;max-width:900px;line-height:1.5}
+  .domains{display:flex;gap:14px;margin-top:46px}
+  .domain{border:1px solid var(--line);border-radius:12px;padding:18px 24px;font-size:22px;color:var(--ink);
+    background:rgba(255,255,255,.02)}
+  .src{position:absolute;bottom:0;left:0;font-size:16px;color:var(--dim);font-family:var(--mono);letter-spacing:.04em}
+
+  /* ---------- footer ---------- */
+  .foot{position:absolute;left:100px;right:100px;bottom:56px;z-index:5}
+  .prog{position:relative;height:2px;background:rgba(255,255,255,.08);margin-bottom:18px}
+  .prog i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3),var(--a4));width:0}
+  .pillars{display:flex;justify-content:space-between;font-family:var(--mono);font-size:15px;
+    letter-spacing:.12em;text-transform:uppercase;color:#42536a}
+  .pillars span{transition:none}
+  .pillars span.act{color:var(--ink)}
+  .pillars span.act b{color:var(--a4)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="grid"></div>
+
+  <div class="hud">
+    <div class="l"><span class="dot"></span><span>Algoritma &amp; Pemrograman â€” Materi 03</span></div>
+    <div class="chapter" id="chapter">PEMBUKA</div>
+  </div>
+  <div class="rule"></div>
+
+  <!-- ============ S1 ============ -->
+  <section class="scene" data-scene="s1">
+    <div class="s1-wrap">
+      <div>
+        <div class="kicker" data-in="0.15">Berpikir komputasional</div>
+        <h1 class="s1-title" style="margin-top:30px">
+          <span data-in="0.45">Computational</span>
+          <span class="l2" data-in="0.62">Thinking</span>
+        </h1>
+        <p class="s1-sub" data-in="1.1">Memecah masalah kompleks menjadi langkah yang
+          <span class="accent">terstruktur, logis, dan sistematis</span> â€” agar solusinya dapat
+          dijalankan oleh komputer maupun manusia.</p>
+        <div class="s1-tags">
+          <span class="tag" data-in="1.7">Dekomposisi</span>
+          <span class="tag" data-in="1.85">Pola</span>
+          <span class="tag" data-in="2.0">Abstraksi</span>
+          <span class="tag" data-in="2.15">Algoritma</span>
+        </div>
+      </div>
+      <div class="diagram">
+        <svg viewBox="0 0 560 520" fill="none">
+          <g stroke="#6ea8fe" stroke-opacity=".35" stroke-width="1.4" id="s1-lines">
+            <path d="M280 260 L120 84"/><path d="M280 260 L448 120"/>
+            <path d="M280 260 L110 400"/><path d="M280 260 L452 424"/>
+          </g>
+          <circle cx="280" cy="260" r="96" stroke="#4ade80" stroke-opacity=".22"/>
+          <circle cx="280" cy="260" r="140" stroke="#4ade80" stroke-opacity=".12"/>
+        </svg>
+        <div class="node core">Masalah</div>
+        <div class="node n1" data-in="0.9" data-base="center">Pecah</div>
+        <div class="node n2" data-in="1.05" data-base="center">Kenali pola</div>
+        <div class="node n3" data-in="1.2" data-base="center">Saring</div>
+        <div class="node n4" data-in="1.35" data-base="center">Susun langkah</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S2 ============ -->
+  <section class="scene" data-scene="s2">
+    <div class="s2-head">
+      <h2 data-in="0.1"><span class="num">EMPAT PILAR</span>Fondasi cara berpikir</h2>
+      <div class="kicker" data-in="0.4" style="text-align:right">Computational<br>Thinking</div>
+    </div>
+    <div class="pillars4">
+      <div class="pcard" style="--c:var(--a1)" data-in="0.7">
+        <div class="idx">01</div><h3>Dekomposisi</h3>
+        <p>Memecah masalah besar menjadi bagian kecil yang lebih mudah dikelola.</p>
+        <div class="glyph">01</div>
+      </div>
+      <div class="pcard" style="--c:var(--a2)" data-in="1.15">
+        <div class="idx">02</div><h3>Pengenalan Pola</h3>
+        <p>Mencari kesamaan dan keteraturan dari pengalaman yang sudah ada.</p>
+        <div class="glyph">02</div>
+      </div>
+      <div class="pcard" style="--c:var(--a3)" data-in="1.6">
+        <div class="idx">03</div><h3>Abstraksi</h3>
+        <p>Fokus pada informasi kunci, abaikan detail yang tidak berpengaruh.</p>
+        <div class="glyph">03</div>
+      </div>
+      <div class="pcard" style="--c:var(--a4)" data-in="2.05">
+        <div class="idx">04</div><h3>Perancangan Algoritma</h3>
+        <p>Menyusun urutan instruksi logis dari awal hingga akhir.</p>
+        <div class="glyph">04</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S3 ============ -->
+  <section class="scene" data-scene="s3">
+    <div style="display:flex;gap:40px;align-items:flex-end;margin-bottom:6px">
+      <h2 data-in="0.1"><span class="num">PILAR 01</span>Dekomposisi</h2>
+      <div class="kicker" data-in="0.35" style="margin-bottom:14px">Masalah besar â†’ sub-tugas</div>
+    </div>
+    <div class="s3-wrap">
+      <div class="tree">
+        <svg id="s3-svg" viewBox="0 0 900 560" preserveAspectRatio="none" fill="none">
+          <path d="M250 280 C330 280 350 67 430 67" stroke="#f2b455" stroke-opacity=".8" stroke-width="1.6"/>
+          <path d="M250 280 C330 280 350 179 430 179" stroke="#f2b455" stroke-opacity=".8" stroke-width="1.6"/>
+          <path d="M250 280 L430 280" stroke="#f2b455" stroke-opacity=".8" stroke-width="1.6"/>
+          <path d="M250 280 C330 280 350 403 430 403" stroke="#f2b455" stroke-opacity=".8" stroke-width="1.6"/>
+          <path d="M250 280 C330 280 350 515 430 515" stroke="#f2b455" stroke-opacity=".8" stroke-width="1.6"/>
+        </svg>
+        <div class="troot" data-in="0.4">
+          <b>Hidangan pesta</b><span>30â€“50 TAMU</span>
+        </div>
+        <div class="tnode" style="top:36px" data-in="0.9"><i>01</i><b>Perencanaan</b></div>
+        <div class="tnode" style="top:148px" data-in="1.15"><i>02</i><b>Pengadaan</b></div>
+        <div class="tnode" style="top:260px" data-in="1.4"><i>03</i><b>Persiapan</b></div>
+        <div class="tnode" style="top:372px" data-in="1.65"><i>04</i><b>Memasak</b></div>
+        <div class="tnode" style="top:484px" data-in="1.9"><i>05</i><b>Penyajian</b></div>
+      </div>
+      <div style="padding-top:80px">
+        <div class="note" data-in="2.4">
+          <span class="k">Kenapa penting</span>
+          <p>Setiap sub-tugas bisa dikerjakan terpisah, diukur, dan dibagi ke orang yang berbeda.</p>
+        </div>
+        <div class="note" data-in="3.0" style="border-color:var(--dim)">
+          <span class="k" style="color:var(--muted)">Di dunia nyata</span>
+          <p>Modul autentikasi, katalog, checkout, pembayaran, dan logistik pada aplikasi e-commerce.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S4 ============ -->
+  <section class="scene" data-scene="s4">
+    <div style="display:flex;gap:40px;align-items:flex-end">
+      <h2 data-in="0.1"><span class="num">PILAR 02</span>Pengenalan Pola</h2>
+      <div class="kicker" data-in="0.3" style="margin-bottom:14px">Pengalaman â†’ keteraturan</div>
+    </div>
+    <div class="s4-wrap">
+      <div>
+        <div class="bars">
+          <div class="bar-row" data-in="0.6">
+            <div class="lab"><b>Rendang</b><span>butuh berjam-jam</span></div>
+            <div class="track"><div class="fill" id="bar1" style="background:linear-gradient(90deg,#f2b455,#f2b45588)"></div></div>
+          </div>
+          <div class="bar-row" data-in="1.0">
+            <div class="lab"><b>Tumis sayur</b><span>15â€“20 menit</span></div>
+            <div class="track"><div class="fill" id="bar2" style="background:linear-gradient(90deg,#6ea8fe,#6ea8fe88)"></div></div>
+          </div>
+          <div class="bar-row" data-in="1.4">
+            <div class="lab"><b>Es buah</b><span>disiapkan terakhir</span></div>
+            <div class="track"><div class="fill" id="bar3" style="background:linear-gradient(90deg,#b98cff,#b98cff88)"></div></div>
+          </div>
+        </div>
+        <div class="chiprow" data-in="1.9">
+          <span class="chip">Durasi masak</span>
+          <span class="chip">Konsumsi tamu</span>
+          <span class="chip">Daya tahan bahan</span>
+        </div>
+      </div>
+      <div>
+        <div class="stat" data-in="2.2">
+          <div class="big">1,5<small> porsi</small></div>
+          <div class="cap">Rata-rata konsumsi lauk utama per tamu â€” dasar menghitung total porsi.</div>
+        </div>
+        <div class="stat" data-in="2.7">
+          <div class="big">200<small> ml</small></div>
+          <div class="cap">Kebutuhan minuman per tamu, sehingga belanja bahan bisa dihitung, bukan ditaksir.</div>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:56px;border-color:var(--a2)" data-in="3.3">
+      <span class="k" style="color:var(--a2)">Manfaat</span>
+      <p style="font-size:25px;max-width:1250px">Pola mengubah tebakan menjadi perhitungan yang bisa diulang:
+        porsi, durasi, dan urutan kerja menjadi terukur.</p>
+    </div>
+  </section>
+
+  <!-- ============ S5 ============ -->
+  <section class="scene" data-scene="s5">
+    <div style="display:flex;gap:40px;align-items:flex-end">
+      <h2 data-in="0.1"><span class="num">PILAR 03</span>Abstraksi</h2>
+      <div class="kicker" data-in="0.3" style="margin-bottom:14px">Fokus pada yang krusial</div>
+    </div>
+    <div class="s5-wrap">
+      <div class="col focus">
+        <h4 data-in="0.55">Fokus utama â€” MVP</h4>
+        <div class="item" data-in="0.9"><span class="b"></span><span>Keamanan transaksi &amp; data pengguna</span></div>
+        <div class="item" data-in="1.25"><span class="b"></span><span>Akurasi harga, diskon, dan ongkos kirim</span></div>
+        <div class="item" data-in="1.6"><span class="b"></span><span>Kecepatan memuat katalog produk</span></div>
+      </div>
+      <div class="col skip">
+        <h4 data-in="2.0">Ditunda ke fase berikutnya</h4>
+        <div class="item" data-in="2.3"><span class="b"></span><span>Live streaming penjual</span></div>
+        <div class="item" data-in="2.6"><span class="b"></span><span>AI rekomendasi tingkat lanjut</span></div>
+        <div class="item" data-in="2.9"><span class="b"></span><span>Gamifikasi &amp; kustomisasi tema</span></div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:44px;border-color:var(--a3)" data-in="3.4">
+      <span class="k" style="color:var(--a3)">Prinsipnya</span>
+      <p style="font-size:25px">Yang ditunda bukan berarti dibuang â€” hanya diprioritaskan setelah versi inti rilis.</p>
+    </div>
+  </section>
+
+  <!-- ============ S6 ============ -->
+  <section class="scene" data-scene="s6">
+    <div style="display:flex;gap:40px;align-items:flex-end">
+      <h2 data-in="0.1"><span class="num">PILAR 04</span>Perancangan Algoritma</h2>
+      <div class="kicker" data-in="0.3" style="margin-bottom:14px">Alur checkout e-commerce</div>
+    </div>
+    <div class="flow" style="margin-top:44px">
+      <div class="step" data-in="0.55"><div class="n">01</div><b>Mulai<br>checkout</b><span class="arrow">â†’</span></div>
+      <div class="step" data-in="0.8"><div class="n">02</div><b>Cek stok<br>barang</b><span class="arrow">â†’</span></div>
+      <div class="step" data-in="1.05"><div class="n">03</div><b>Hitung total<br>tagihan</b><span class="arrow">â†’</span></div>
+      <div class="step" data-in="1.3"><div class="n">04</div><b>Buat invoice<br>transaksi</b><span class="arrow">â†’</span></div>
+      <div class="step" data-in="1.55"><div class="n">05</div><b>Panggil payment<br>gateway</b><span class="arrow">â†’</span></div>
+      <div class="step" data-in="1.8"><div class="n">06</div><b>Verifikasi<br>pembayaran</b></div>
+    </div>
+    <div class="branch" data-in="2.4">
+      <span class="pill">Stok habis</span><span>tampilkan pesan error, hentikan proses</span>
+      <span style="width:26px"></span>
+      <span class="pill ok">Pembayaran sukses</span><span>kurangi stok, status â€œDiprosesâ€, notifikasi penjual</span>
+    </div>
+    <div style="margin-top:44px;display:flex;gap:18px" data-in="3.0">
+      <div class="note" style="border-color:var(--a4);margin:0">
+        <span class="k" style="color:var(--a4)">Urutan</span>
+        <p style="font-size:23px">Langkah dieksekusi berurutan â€” satu kondisi diperiksa sebelum langkah berikutnya.</p>
+      </div>
+      <div class="note" style="border-color:var(--a4);margin:0">
+        <span class="k" style="color:var(--a4)">Percabangan</span>
+        <p style="font-size:23px">Setiap kemungkinan punya jalur sendiri: sukses, gagal, atau dibatalkan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S7 ============ -->
+  <section class="scene" data-scene="s7">
+    <div style="display:flex;gap:40px;align-items:flex-end">
+      <h2 data-in="0.1"><span class="num">STUDI KASUS</span>Empat pilar bekerja bersama</h2>
+      <div class="kicker" data-in="0.3" style="margin-bottom:14px">Rute tercepat ke kantor</div>
+    </div>
+    <div class="tl">
+      <div class="line"><i id="tl-line"></i></div>
+      <div class="pt" data-in="0.7">
+        <div class="t">06.30</div><div class="d"></div>
+        <div class="b">Berangkat dari rumah</div><div class="p">Dekomposisi</div>
+      </div>
+      <div class="pt" data-in="1.6">
+        <div class="t">06.45</div><div class="d"></div>
+        <div class="b">Ambil jalan pintas A</div><div class="p">Abstraksi</div>
+      </div>
+      <div class="pt" data-in="2.5">
+        <div class="t">07.00</div><div class="d"></div>
+        <div class="b">Naik kereta</div><div class="p">Pola kemacetan</div>
+      </div>
+      <div class="pt" data-in="3.4">
+        <div class="t">07.25</div><div class="d"></div>
+        <div class="b">Tiba tepat waktu</div><div class="p">Algoritma</div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:56px;border-color:var(--a2)" data-in="4.2">
+      <span class="k" style="color:var(--a2)">Intinya</span>
+      <p style="font-size:24px;max-width:1200px">Masalah perjalanan dipecah, pola kemacetan dipakai, detail tak relevan diabaikan,
+        lalu langkahnya disusun menjadi satu urutan yang bisa dijalankan.</p>
+    </div>
+  </section>
+
+  <!-- ============ S8 ============ -->
+  <section class="scene" data-scene="s8">
+    <div class="s8">
+      <div class="kicker" data-in="0.15">Penutup</div>
+      <h2 data-in="0.45" style="margin-top:26px">Bukan hanya untuk<br><span class="accent">programmer.</span></h2>
+      <p class="sub" data-in="1.1">Ini keterampilan memecahkan masalah yang bisa dipakai di bisnis, sains,
+        pendidikan, hingga keputusan sehari-hari.</p>
+      <div class="domains">
+        <span class="domain" data-in="2.0">Bisnis</span>
+        <span class="domain" data-in="2.15">Sains</span>
+        <span class="domain" data-in="2.3">Pendidikan</span>
+        <span class="domain" data-in="2.45">Kehidupan sehari-hari</span>
+      </div>
+    </div>
+    <div class="src">Sumber: Proctor (2022); Rana dkk. (2022)</div>
+  </section>
+
+  <div class="foot">
+    <div class="prog"><i id="prog"></i></div>
+    <div class="pillars" id="pillars">
+      <span data-p="0">01 Dekomposisi</span>
+      <span data-p="1">02 Pola</span>
+      <span data-p="2">03 Abstraksi</span>
+      <span data-p="3">04 Algoritma</span>
+      <span id="clock" style="color:#42536a">00:00 / 00:00</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const M = window.MANIFEST;
+const stage = document.getElementById('stage');
+const sceneEls = [...document.querySelectorAll('.scene')];
+const chapterEl = document.getElementById('chapter');
+const progEl = document.getElementById('prog');
+const clockEl = document.getElementById('clock');
+const pillarEls = [...document.querySelectorAll('#pillars [data-p]')];
+const byId = Object.fromEntries(M.scenes.map(s => [s.id, s]));
+
+const clamp01 = x => x < 0 ? 0 : x > 1 ? 1 : x;
+const easeOut = p => 1 - Math.pow(1 - p, 3);
+const easeInOut = p => p < .5 ? 2*p*p : 1 - Math.pow(-2*p+2,2)/2;
+
+/* elemen yang digambar: simpan panjang path untuk animasi stroke */
+const drawPaths = [...document.querySelectorAll('#s3-svg path')].map(p => ({ el:p, len:p.getTotalLength() }));
+drawPaths.forEach(({el,len}) => { el.style.strokeDasharray = len; el.style.strokeDashoffset = len; });
+
+const tlLine = document.getElementById('tl-line');
+const bars = { bar1: document.getElementById('bar1'), bar2: document.getElementById('bar2'), bar3: document.getElementById('bar3') };
+const BAR_W = { bar1: 100, bar2: 18, bar3: 9 };
+
+const CHAPTER = { s1:'PEMBUKA', s2:'EMPAT PILAR', s3:'PILAR 01', s4:'PILAR 02', s5:'PILAR 03', s6:'PILAR 04', s7:'STUDI KASUS', s8:'PENUTUP' };
+const PILLAR_OF = { s3:0, s4:1, s5:2, s6:3, s7:-1, s2:-1 };
+
+function applyEntrance(el, lt){
+  const at = parseFloat(el.dataset.in || '0');
+  const d = parseFloat(el.dataset.dur || '0.65');
+  const dy = parseFloat(el.dataset.dy || '26');
+  const p = clamp01((lt - at) / d);
+  const e = easeOut(p);
+  el.style.opacity = e.toFixed(4);
+  const move = `translateY(${((1-e)*dy).toFixed(2)}px)`;
+  el.style.transform = el.dataset.base === 'center' ? `translate(-50%,-50%) ${move}` : move;
+  el.style.willChange = 'opacity, transform';
+}
+
+function render(t){
+  const total = M.total;
+  progEl.style.width = (clamp01(t/total)*100).toFixed(3) + '%';
+  const mm = s => String(Math.floor(s/60)).padStart(2,'0') + ':' + String(Math.floor(s%60)).padStart(2,'0');
+  clockEl.textContent = `${mm(t)} / ${mm(total)}`;
+
+  for (const el of sceneEls){
+    const s = byId[el.dataset.scene];
+    const lt = t - s.start;
+    const on = lt >= -0.001 && lt <= s.dur + 0.001;
+    if (!on){ if (el.classList.contains('on')) el.classList.remove('on'); continue; }
+    if (!el.classList.contains('on')) el.classList.add('on');
+
+    // fade tepi scene
+    const fin = clamp01(lt / 0.35);
+    const fout = clamp01((s.dur - lt) / 0.30);
+    el.style.opacity = Math.min(easeOut(fin), easeOut(fout)).toFixed(3);
+    el.style.transform = `translateY(${((1-easeOut(fin))*14).toFixed(2)}px)`;
+    if (Math.min(fin, fout) < 0.02) continue;
+
+    if (CHAPTER[s.id]) chapterEl.textContent = CHAPTER[s.id];
+
+    for (const child of el.querySelectorAll('[data-in]')) applyEntrance(child, lt);
+
+    if (s.id === 's3'){
+      const p = clamp01((lt - 0.75) / 1.6);
+      const e = easeInOut(p);
+      drawPaths.forEach(({el:path,len}) => { path.style.strokeDashoffset = (len * (1-e)).toFixed(1); });
+    }
+    if (s.id === 's4'){
+      const t1 = clamp01((lt - 0.85)/1.1), t2 = clamp01((lt - 1.25)/1.0), t3 = clamp01((lt - 1.65)/0.9);
+      bars.bar1.style.width = (BAR_W.bar1 * easeOut(t1)).toFixed(2) + '%';
+      bars.bar2.style.width = (BAR_W.bar2 * easeOut(t2)).toFixed(2) + '%';
+      bars.bar3.style.width = (BAR_W.bar3 * easeOut(t3)).toFixed(2) + '%';
+    }
+    if (s.id === 's7'){
+      const p = clamp01((lt - 0.5) / 3.4);
+      tlLine.style.transform = `scaleX(${easeInOut(p).toFixed(3)})`;
+    }
+
+    // indikator pilar
+    const idx = PILLAR_OF[s.id];
+    pillarEls.forEach((pe, i) => {
+      const act = idx === -1 ? (s.id === 's7' || s.id === 's2') : i === idx;
+      pe.classList.toggle('act', act);
+      pe.style.color = act ? '#e9eff7' : '#42536a';
+    });
+  }
+}
+
+window.renderAt = render;
+window.__ready = true;
+render(0);
+</script>
+  
+  <script src="../../../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

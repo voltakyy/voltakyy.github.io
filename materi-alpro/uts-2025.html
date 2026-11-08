@@ -1,0 +1,1114 @@
+﻿<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Soal &amp; Pembahasan Lengkap UTS Gasal 2025/2026 â€” Algoritma &amp; Pemrograman UMS</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Dark Mode Palette (Cyber-Academic) */
+      --bg-page: #0b0f17;
+      --bg-surface: #111827;
+      --bg-surface-elevated: #162032;
+      --bg-surface-card: #131c2e;
+      --bg-hover: #1e2c44;
+      --border-color: #22324d;
+      --border-subtle: #19263c;
+
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #8da2be;
+      --text-subtle: #64748b;
+
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(59, 130, 246, 0.35);
+
+      --py-blue: #3776ab;
+      --py-yellow: #ffd43b;
+
+      --accent-emerald: #10b981;
+      --emerald-bg: rgba(16, 185, 129, 0.12);
+      --emerald-border: rgba(16, 185, 129, 0.35);
+
+      --accent-amber: #f59e0b;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --amber-border: rgba(245, 158, 11, 0.35);
+
+      --accent-rose: #f43f5e;
+      --rose-bg: rgba(244, 63, 94, 0.12);
+      --rose-border: rgba(244, 63, 94, 0.35);
+
+      --accent-cyan: #06b6d4;
+      --cyan-bg: rgba(6, 182, 212, 0.12);
+      --cyan-border: rgba(6, 182, 212, 0.35);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    [data-theme="light"] {
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --bg-surface-card: #ffffff;
+      --bg-hover: #e2e8f0;
+      --border-color: #e2e8f0;
+      --border-subtle: #edf2f7;
+
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+
+      --accent-emerald: #059669;
+      --emerald-bg: #ecfdf5;
+      --emerald-border: #a7f3d0;
+
+      --accent-amber: #d97706;
+      --amber-bg: #fffbeb;
+      --amber-border: #fde68a;
+
+      --accent-rose: #e11d48;
+      --rose-bg: #fff1f2;
+      --rose-border: #fecdd3;
+
+      --accent-cyan: #0891b2;
+      --cyan-bg: #ecfeff;
+      --cyan-border: #a5f3fc;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-inline-size: 0; }
+    html, body {
+      max-width: 100vw;
+      overflow-x: clip;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Header */
+    .top-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #3776ab, #ffd43b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 2px 10px rgba(55, 118, 171, 0.3);
+    }
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav-link-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-hover);
+      border-color: var(--border-color);
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--bg-hover);
+      border-color: var(--primary-border);
+    }
+
+    /* Subnav Tabs */
+    .subnav-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .subnav-bar::-webkit-scrollbar { display: none; }
+    .subnav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 4px;
+    }
+    .tab-btn {
+      padding: 12px 14px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* Main Container */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+    .tab-pane.active {
+      display: block;
+      animation: fadeIn 0.25s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Typography & Academic Cards */
+    .article-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .article-card h1, .article-card h2 {
+      font-family: var(--font-heading);
+      color: var(--text-main);
+    }
+    .article-card h2 {
+      font-size: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .article-card h3 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      color: var(--primary);
+      margin: 20px 0 10px;
+    }
+    .article-card h4 {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-main);
+      margin: 14px 0 6px;
+    }
+    .article-card p {
+      margin-bottom: 12px;
+      color: var(--text-body);
+      font-size: 14px;
+    }
+    .article-card ul, .article-card ol {
+      margin: 0 0 16px 20px;
+    }
+    .article-card li {
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text-body);
+    }
+    .article-card code {
+      font-family: var(--font-mono);
+      background: var(--bg-surface-elevated);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--accent-cyan);
+      font-size: 0.9em;
+      border: 1px solid var(--border-color);
+    }
+    .article-card pre {
+      background: #0d131f;
+      color: #e2e8f0;
+      border: 1px solid var(--border-color);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 12px 0 18px;
+    }
+
+    .academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 12px 0 20px;
+    }
+    .academic-table th {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .academic-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-body);
+    }
+    .academic-table tr:hover td {
+      background: var(--bg-hover);
+    }
+
+    /* Common Callout Boxes */
+    .callout {
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary);
+      background: var(--bg-surface-elevated);
+      margin: 16px 0;
+    }
+    .callout.info {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      border-left-color: var(--primary);
+    }
+    .callout.warning {
+      background: var(--amber-bg);
+      border-color: var(--amber-border);
+      border-left-color: var(--accent-amber);
+    }
+    .callout.danger {
+      background: var(--rose-bg);
+      border-color: var(--rose-border);
+      border-left-color: var(--accent-rose);
+    }
+    .callout.success {
+      background: var(--emerald-bg);
+      border-color: var(--emerald-border);
+      border-left-color: var(--accent-emerald);
+    }
+    .callout-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+    .btn-outline {
+      background: var(--bg-surface-elevated);
+      border-color: var(--border-color);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: var(--bg-hover);
+      border-color: var(--primary-border);
+    }
+    .btn-emerald {
+      background: var(--accent-emerald);
+      color: #ffffff;
+    }
+    .btn-emerald:hover {
+      background: #059669;
+    }
+
+    /* Tracing Simulator Ruler */
+    .ruler-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 4px;
+      padding: 12px 0;
+      margin: 16px 0;
+    }
+    .ruler-cell {
+      min-width: 48px;
+      height: 70px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 4px;
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .ruler-cell.active-slice {
+      border-color: var(--accent-amber);
+      background: var(--amber-bg);
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.25);
+    }
+    .ruler-cell .pos-idx {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+    .ruler-cell .char-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .ruler-cell .neg-idx {
+      font-size: 10px;
+      color: var(--primary);
+    }
+
+    /* Flashcard Flip 3D */
+    .fc-wrapper {
+      perspective: 1000px;
+      width: 100%;
+      max-width: 620px;
+      margin: 20px auto;
+      height: 320px;
+      cursor: pointer;
+    }
+    .fc-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .fc-wrapper.flipped .fc-inner {
+      transform: rotateY(180deg);
+    }
+    .fc-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+    }
+    .fc-front {
+      background: var(--bg-surface-card);
+      color: var(--text-main);
+    }
+    .fc-back {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      transform: rotateY(180deg);
+      border-color: var(--primary-border);
+      text-align: left;
+    }
+
+    /* Flowchart Simulator Visualizer */
+    .flowchart-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface-elevated);
+      margin-bottom: 8px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .flowchart-step:hover {
+      border-color: var(--primary-border);
+    }
+    .flowchart-step.highlight {
+      border-color: var(--accent-emerald);
+      background: var(--emerald-bg);
+      transform: translateX(6px);
+    }
+    .fc-shape-badge {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      flex-shrink: 0;
+    }
+
+    /* A4 Cheatsheet Printable Styles */
+    .hvs-paper-container {
+      background: #ffffff;
+      color: #0f172a;
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 24px 28px;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+      border: 1px solid #cbd5e1;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .hvs-paper-container h1 {
+      font-size: 18px;
+      text-align: center;
+      color: #0f172a;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+      font-family: var(--font-heading);
+    }
+    .hvs-student-bar {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #64748b;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+    }
+    .hvs-grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .hvs-box {
+      border: 1px solid #94a3b8;
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      background: #f8fafc;
+      page-break-inside: avoid;
+    }
+    .hvs-box-title {
+      font-weight: 800;
+      font-size: 11.5px;
+      color: #1e3a8a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .hvs-box code {
+      font-family: var(--font-mono);
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-size: 10.5px;
+    }
+
+    /* Question Grid in UTS Arena */
+    .q-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .q-grid-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface-elevated);
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .q-grid-btn:hover {
+      border-color: var(--primary);
+      color: var(--text-main);
+    }
+    .q-grid-btn.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-border);
+      color: var(--primary);
+    }
+    .q-grid-btn.correct {
+      background: var(--emerald-bg);
+      border-color: var(--emerald-border);
+      color: var(--accent-emerald);
+    }
+    .q-grid-btn.wrong {
+      background: var(--rose-bg);
+      border-color: var(--rose-border);
+      color: var(--accent-rose);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .top-header, .subnav-bar, .theme-toggle-btn, .no-print, .btn, .header-actions {
+        display: none !important;
+      }
+      .main-content {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      .tab-pane {
+        display: none !important;
+      }
+      #tab-hvs-cheatsheet {
+        display: block !important;
+      }
+      .hvs-paper-container {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-actions .nav-link-btn { display: none; }
+      .header-inner { padding: 10px 14px; }
+      .brand-subtitle { display: none; }
+      .subnav-inner { padding: 0 10px; }
+      .tab-btn { padding: 10px 10px; font-size: 12px; gap: 4px; }
+      .main-content { padding: 16px 12px 40px; }
+      .article-card { padding: 16px 14px; }
+      .fc-wrapper { height: 350px; }
+      .hvs-grid-2col { grid-template-columns: 1fr; }
+    }
+  
+    .active-page {
+      background: var(--primary-light) !important;
+      border-color: var(--primary) !important;
+      color: var(--primary) !important;
+    }
+    .scan-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .scan-card {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .scan-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: top;
+      cursor: zoom-in;
+      transition: transform 0.2s ease;
+      background: #1e293b;
+    }
+    .scan-img:hover {
+      transform: scale(1.02);
+    }
+    .scan-label {
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-surface-card);
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+
+  
+  <!-- Top Navigation Header -->
+  <header class="top-header no-print">
+    <div class="header-inner">
+      <a href="index.html" class="brand-group">
+        <div class="brand-logo">ðŸ</div>
+        <div class="brand-title">
+          <span>ALPRO UMS</span>
+          <span class="brand-subtitle">Algoritma &amp; Pemrograman Python</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="index.html" class="nav-link-btn " title="Kembali ke Portal Belajar &amp; Diktat">
+          <span>ðŸ </span> Portal Utama
+        </a>
+        <a href="uts-2026.html" class="nav-link-btn" style="border:1.5px solid #10b981; color:#10b981; font-weight:700;" title="Halaman Khusus Soal &amp; Pembahasan UTS 2026/2027 (Terbaru)">
+          <span>ðŸš€</span> Halaman UTS 2026
+        </a>
+        <a href="uts-2025.html" class="nav-link-btn active-page" style="border:1px solid #3b82f6; background:rgba(59,130,246,0.2); font-weight:700;" title="Halaman Khusus Soal &amp; Pembahasan UTS 2025/2026">
+          <span>ðŸŽ¯</span> Halaman UTS 2025
+        </a>
+        <a href="uts-2024.html" class="nav-link-btn " style="border:1px solid #f59e0b; " title="Halaman Khusus Soal &amp; Pembahasan UTS 2024/2025">
+          <span>ðŸ“œ</span> Halaman UTS 2024
+        </a>
+        <a href="https://github.com/voltakyy/materi-lohim" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Kunjungi Portal Materi Logika dan Himpunan">
+          <span>ðŸ“</span> Lohim UMS
+        </a>
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Ganti Tema (Dark / Light)">
+          <span id="theme-icon">ðŸŒ™</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+
+  <main class="main-content">
+    
+    <!-- Hero Banner 2025 -->
+    <div class="article-card" style="border-left: 5px solid #3b82f6; background: linear-gradient(to right, var(--bg-surface-card), var(--bg-surface-elevated)); margin-bottom: 24px;">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+        <span style="background:rgba(59,130,246,0.15); color:#3b82f6; border:1px solid rgba(59,130,246,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">ARSIP RESMI REPOTIF UMS</span>
+        <span style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">GASAL 2025/2026 (TERBARU)</span>
+        <span style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">BUKU TERTUTUP Â· 90 MENIT Â· KELAS ABCD</span>
+      </div>
+
+      <h1 style="font-size:26px; color:var(--text-main); margin-bottom:10px;">ðŸŽ¯ Soal &amp; Pembahasan Lengkap UTS Gasal 2025/2026</h1>
+      <p style="color:var(--text-body); font-size:14.5px; line-height:1.7; margin-bottom:14px;">
+        Naskah Ujian Resmi Program Studi Informatika UMS pada <strong>Rabu, 29 Oktober 2025 (Sesi Jam ke-3)</strong>. Dosen Penguji: <strong>Arif Setiawan, S.Kom., M.Eng.</strong>, <strong>Husni Thamrin, M.T., Ph.D.</strong>, dan <strong>Muhammad Syahriandi Adhantoro, S.Kom., M.Kom.</strong>
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; padding-top:12px; border-top:1px solid var(--border-subtle);">
+        <a href="uts-2026.html" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px; background:#10b981; color:#fff; border-radius:8px;">
+          <span>ðŸš€</span> Buka Halaman UTS 2026 (Terbaru)
+        </a>
+        <a href="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler.pdf" target="_blank" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px; background:#3b82f6; color:#fff; border-radius:8px;">
+          <span>ðŸ“„</span> Unduh Berkas Asli PDF (doc_213)
+        </a>
+        <a href="uts-2024.html" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); color:var(--text-main); border:1px solid var(--border-color); border-radius:8px;">
+          Lihat Halaman Soal UTS 2024 âž¡ï¸
+        </a>
+      </div>
+    </div>
+
+    <!-- Pindaian Lembar Asli 2025 Gallery -->
+    <article class="article-card">
+      <h2 style="font-size:19px; color:var(--text-main); margin-bottom:6px;">ðŸ“¸ Pindaian Lembar Soal Asli UTS 2025/2026 (Repotif UMS)</h2>
+      <p style="color:var(--text-muted); font-size:13.5px; margin-bottom:16px;">
+        Klik gambar untuk memperbesar lembar naskah resmi yang diujikan kepada mahasiswa semester 1:
+      </p>
+
+      <div class="scan-gallery">
+        <div class="scan-card">
+          <a href="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler_p1_img1.jpeg" target="_blank">
+            <img src="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler_p1_img1.jpeg" alt="Halaman 1 Soal UTS 2025" class="scan-img">
+          </a>
+          <div class="scan-label">
+            <span>ðŸ“„ Halaman 1 (Soal 1 &amp; Soal 2 &amp; Soal 3)</span>
+            <a href="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler_p1_img1.jpeg" target="_blank" style="color:var(--primary); font-size:12px;">Buka Gambar â†—</a>
+          </div>
+        </div>
+
+        <div class="scan-card">
+          <a href="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler_p2_img1.jpeg" target="_blank">
+            <img src="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler_p2_img1.jpeg" alt="Halaman 2 Soal UTS 2025" class="scan-img">
+          </a>
+          <div class="scan-label">
+            <span>ðŸ“„ Halaman 2 (Lanjutan Soal 3 &amp; Rubrik)</span>
+            <a href="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler_p2_img1.jpeg" target="_blank" style="color:var(--primary); font-size:12px;">Buka Gambar â†—</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SOAL 1 -->
+    <article class="article-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px;">
+        <h2 style="font-size:19px; margin:0; color:#3b82f6;">ðŸ“Œ Soal 1: Konsep Dasar Algoritma &amp; Pemrograman</h2>
+        <span style="background:var(--primary-light); color:#3b82f6; font-size:12px; font-weight:700; padding:3px 10px; border-radius:6px;">Bobot: 25 Poin (CPMK 1)</span>
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <h3 style="font-size:16px; margin-bottom:6px;">1.a. Apa yang Anda ketahui dari Algoritma? (Skor: 5)</h3>
+        <div style="background:var(--bg-surface-elevated); padding:14px 18px; border-radius:8px; border-left:4px solid #3b82f6;">
+          <p style="margin:0 0 8px 0; color:var(--text-body); font-size:14px; line-height:1.7;">
+            <strong>Etimologi:</strong> Kata <em>Algoritma</em> berasal dari nama ilmuwan matematika muslim terkemuka <strong>Abu Ja'far Muhammad bin Musa Al-Khawarizmi</strong>.<br>
+            <strong>Definisi Formal:</strong> Algoritma adalah <strong>urutan langkah-langkah logis, terstruktur, dan berhingga yang disusun secara sistematis untuk memecahkan persoalan komputasi tertentu</strong>.
+          </p>
+          <div style="font-size:13px; color:var(--text-muted); line-height:1.6; border-top:1px dashed var(--border-subtle); padding-top:8px;">
+            <strong>5 Kriteria Mutlak Donald E. Knuth:</strong>
+            1. <em>Finiteness</em> (pasti berakhir), 2. <em>Definiteness</em> (langkah pasti &amp; tidak ambigu), 3. <em>Input</em> (nol atau lebih data masuk), 4. <em>Output</em> (minimal satu solusi hasil), dan 5. <em>Effectiveness</em> (setiap langkah efektif &amp; wajar).
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <h3 style="font-size:16px; margin-bottom:6px;">1.b. Menurut Anda, apakah algoritma sama dengan flowchart? Jelaskan! (Skor: 5)</h3>
+        <div style="background:var(--bg-surface-elevated); padding:14px 18px; border-radius:8px; border-left:4px solid var(--accent-amber);">
+          <p style="margin:0 0 8px 0; color:var(--text-body); font-size:14px; line-height:1.7;">
+            <strong>Jawaban: TIDAK SAMA.</strong><br>
+            <strong>Algoritma</strong> adalah <em>gagasan logika atau urutan langkah pemecahan masalahnya</em> (konsep abstrak). Sedangkan <strong>Flowchart</strong> adalah <em>salah satu teknik representasi visual/grafis</em> dari algoritma menggunakan simbol geometris baku (oval terminator, jajar genjang I/O, persegi panjang proses, belah ketupat keputusan).
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <h3 style="font-size:16px; margin-bottom:6px;">1.c. Menurut Anda, bagaimana struktur program yang baik? (Skor: 5)</h3>
+        <div style="background:var(--bg-surface-elevated); padding:14px 18px; border-radius:8px; border-left:4px solid var(--accent-emerald);">
+          <p style="margin:0 0 8px 0; color:var(--text-body); font-size:14px; line-height:1.7;">
+            Struktur program yang baik berpegang pada prinsip <strong>Pemrograman Terstruktur (Structured Programming)</strong> dengan 3 konstruksi alur kendali:
+          </p>
+          <ol style="margin:0 0 8px 20px; color:var(--text-body); font-size:13.5px; line-height:1.6;">
+            <li><strong>Runtunan (Sequence):</strong> Kode dieksekusi runtut baris per baris dari atas ke bawah.</li>
+            <li><strong>Percabangan (Selection):</strong> Mengatur keputusan alur logika berdasarkan kondisi boolean (<code>if-elif-else</code>).</li>
+            <li><strong>Perulangan (Iteration):</strong> Mengulang blok kode selama kondisi bernilai True (<code>for</code> / <code>while</code>).</li>
+          </ol>
+          <p style="margin:0; font-size:13px; color:var(--text-muted);">
+            Kualitas pelengkap: <strong>Modular</strong> (dipecah dalam fungsi), <strong>Readable</strong> (nama variabel bermakna &amp; indentasi PEP 8), dan <strong>Robust</strong> (mampu menangani kesalahan input).
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; margin-bottom:6px;">1.d. Perintah &amp; Contoh Program Python: Meminta 2 Input, Menampilkan Input, dan Menghitung Hasilnya (Skor: 10)</h3>
+        <pre><code class="language-python"># 1. Meminta 2 input pengguna (konversi tipe data str ke float)
+angka1 = float(input("Masukkan angka pertama : "))
+angka2 = float(input("Masukkan angka kedua   : "))
+
+# 2. Menampilkan masing-masing inputan
+print("
+--- DATA INPUT ---")
+print("Data input pertama :", angka1)
+print("Data input kedua   :", angka2)
+
+# 3. Menghitung hasil keduanya
+penjumlahan = angka1 + angka2
+perkalian   = angka1 * angka2
+
+print("
+--- HASIL PERHITUNGAN ---")
+print(f"Hasil Penjumlahan ({angka1} + {angka2}) = {penjumlahan}")
+print(f"Hasil Perkalian   ({angka1} * {angka2}) = {perkalian}")</code></pre>
+      </div>
+    </article>
+
+    <!-- SOAL 2 -->
+    <article class="article-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px;">
+        <h2 style="font-size:19px; margin:0; color:#3b82f6;">ðŸ“Œ Soal 2: Sistem Kasir Minimarket &amp; Flowchart Diskon 10%</h2>
+        <span style="background:var(--primary-light); color:#3b82f6; font-size:12px; font-weight:700; padding:3px 10px; border-radius:6px;">Bobot: 40 Poin (CPMK 1)</span>
+      </div>
+
+      <div style="background:var(--bg-surface-elevated); padding:12px 16px; border-radius:6px; margin-bottom:16px; font-size:13.5px; color:var(--text-body);">
+        <em>Kasus: Kasir memasukkan harga setiap barang dan jumlah barang yang dibeli. Setelah semua data dimasukkan, sistem menghitung total harga dan memberikan potongan 10% jika total pembelian lebih dari Rp 100.000.</em>
+      </div>
+
+      <h3>2.a. Algoritma Pseudocode (Skor: 20)</h3>
+      <pre><code class="language-text">ALGORITMA Kasir_Minimarket_Diskon10
+DEKLARASI:
+    harga_barang, jumlah_beli : Riil
+    subtotal, total_belanja   : Riil
+    diskon, total_bayar       : Riil
+    ulang                     : Karakter ('y' atau 't')
+
+DESKRIPSI:
+    1. total_belanja <- 0
+    2. ulang <- 'y'
+    3. SELAMA ulang = 'y' ATAU ulang = 'Y' LAKUKAN:
+           INPUT harga_barang
+           INPUT jumlah_beli
+           subtotal <- harga_barang * jumlah_beli
+           total_belanja <- total_belanja + subtotal
+           INPUT ulang ("Tambah barang lain? y/t: ")
+    4. JIKA total_belanja > 100000 MAKA:
+           diskon <- 0.10 * total_belanja
+       SELAIN ITU:
+           diskon <- 0
+    5. total_bayar <- total_belanja - diskon
+    6. OUTPUT total_belanja, diskon, total_bayar
+    7. SELESAI</code></pre>
+
+      <h3>2.b. Flowchart Visual Kasir Minimarket (Skor: 20)</h3>
+      <div style="text-align:center; padding:20px; background:var(--bg-surface-elevated); border-radius:8px; margin-bottom:16px;">
+        <svg viewBox="0 0 540 480" style="width:100%; max-width:500px; height:auto; font-family:var(--font-sans);">
+          <rect x="190" y="10" width="160" height="34" rx="17" fill="#3b82f6" />
+          <text x="270" y="32" fill="#fff" text-anchor="middle" font-size="12" font-weight="bold">Mulai (Start)</text>
+          <line x1="270" y1="44" x2="270" y2="68" stroke="var(--border-color)" stroke-width="2" />
+
+          <rect x="160" y="68" width="220" height="38" fill="var(--bg-surface-card)" stroke="var(--border-color)" stroke-width="1.5" />
+          <text x="270" y="92" fill="var(--text-main)" text-anchor="middle" font-size="11">total_belanja = 0, ulang = 'y'</text>
+          <line x1="270" y1="106" x2="270" y2="130" stroke="var(--border-color)" stroke-width="2" />
+
+          <polygon points="175,168 145,130 365,130 395,168" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.5" />
+          <text x="270" y="153" fill="var(--primary)" text-anchor="middle" font-size="11" font-weight="600">Input harga_barang &amp; jumlah_beli</text>
+          <line x1="270" y1="168" x2="270" y2="192" stroke="var(--border-color)" stroke-width="2" />
+
+          <rect x="160" y="192" width="220" height="38" fill="var(--bg-surface-card)" stroke="var(--border-color)" stroke-width="1.5" />
+          <text x="270" y="216" fill="var(--text-main)" text-anchor="middle" font-size="11">total_belanja += harga * jumlah</text>
+          <line x1="270" y1="230" x2="270" y2="254" stroke="var(--border-color)" stroke-width="2" />
+
+          <polygon points="270,254 380,288 270,322 160,288" fill="var(--amber-bg)" stroke="var(--accent-amber)" stroke-width="1.5" />
+          <text x="270" y="292" fill="var(--accent-amber)" text-anchor="middle" font-size="11" font-weight="700">total &gt; 100.000 ?</text>
+
+          <line x1="380" y1="288" x2="450" y2="288" stroke="var(--border-color)" stroke-width="2" />
+          <line x1="450" y1="288" x2="450" y2="340" stroke="var(--border-color)" stroke-width="2" />
+          <rect x="380" y="340" width="140" height="32" fill="var(--bg-surface-card)" stroke="var(--accent-emerald)" stroke-width="1.5" />
+          <text x="450" y="360" fill="var(--accent-emerald)" text-anchor="middle" font-size="10" font-weight="600">diskon = 0.10 * total</text>
+
+          <line x1="160" y1="288" x2="90" y2="288" stroke="var(--border-color)" stroke-width="2" />
+          <line x1="90" y1="288" x2="90" y2="340" stroke="var(--border-color)" stroke-width="2" />
+          <rect x="30" y="340" width="120" height="32" fill="var(--bg-surface-card)" stroke="var(--border-color)" stroke-width="1.5" />
+          <text x="90" y="360" fill="var(--text-main)" text-anchor="middle" font-size="10">diskon = 0</text>
+
+          <line x1="450" y1="372" x2="450" y2="395" stroke="var(--border-color)" stroke-width="2" />
+          <line x1="90" y1="372" x2="90" y2="395" stroke="var(--border-color)" stroke-width="2" />
+          <line x1="90" y1="395" x2="450" y2="395" stroke="var(--border-color)" stroke-width="2" />
+          <line x1="270" y1="395" x2="270" y2="415" stroke="var(--border-color)" stroke-width="2" />
+
+          <polygon points="180,445 150,415 360,415 390,445" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.5" />
+          <text x="270" y="434" fill="var(--primary)" text-anchor="middle" font-size="10" font-weight="600">Output Total, Diskon, Bayar</text>
+          <line x1="270" y1="445" x2="270" y2="460" stroke="var(--border-color)" stroke-width="2" />
+
+          <rect x="200" y="460" width="140" height="26" rx="13" fill="#3b82f6" />
+          <text x="270" y="478" fill="#fff" text-anchor="middle" font-size="11" font-weight="bold">Selesai</text>
+        </svg>
+      </div>
+    </article>
+
+    <!-- SOAL 3 -->
+    <article class="article-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px;">
+        <h2 style="font-size:19px; margin:0; color:#3b82f6;">ðŸ“Œ Soal 3: Tracing Nilai Variabel NIM (Bobot: 35)</h2>
+        <span style="background:var(--primary-light); color:#3b82f6; font-size:12px; font-weight:700; padding:3px 10px; border-radius:6px;">Bobot: 35 Poin (CPMK 1)</span>
+      </div>
+
+      <pre><code class="language-python">Z = 'L200101XXX' # gantilah dengan NIM saudara sendiri
+m = Z[9:6:-1]
+n = int(m[0])
+p = int(m) + 19
+q = 15 - n
+r = p // 10
+s = 2 * m
+t = p % q
+u = t ** 2
+v = p - t
+w = n < 6</code></pre>
+
+      <div style="background:var(--bg-surface-elevated); padding:16px; border-radius:8px; border:1px solid var(--border-color); margin:16px 0;">
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px;">
+          <label style="font-size:13px; font-weight:700; color:var(--text-main);">Kalkulator Tracing NIM 2025:</label>
+          <input type="text" id="nimInput2025Page" value="L200240182" maxlength="10" style="padding:6px 12px; border-radius:6px; background:var(--bg-surface-card); border:1px solid var(--border-color); color:var(--text-main); font-family:var(--font-mono); font-size:14px; font-weight:700;" oninput="hitungNimPage()">
+          <span style="font-size:12px; color:var(--text-muted);">(Ketik NIM Anda untuk melihat nilai m s.d. w seketika)</span>
+        </div>
+
+        <div id="nimResult2025PageTable" style="overflow-x:auto;"></div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="app-footer no-print">
+    <div style="max-width:1100px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between;">
+      <span>Mata Kuliah: Algoritma &amp; Pemrograman (TIF3221303) â€” UMS</span>
+      <span>Halaman Khusus UTS 2025/2026</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('alpro_theme', next);
+      const icon = document.getElementById('theme-icon');
+      if (icon) icon.textContent = next === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+    }
+
+    function hitungNimPage() {
+      const input = document.getElementById('nimInput2025Page');
+      const tableDiv = document.getElementById('nimResult2025PageTable');
+      if (!input || !tableDiv) return;
+
+      const nim = (input.value.trim() || 'L200240182').padEnd(10, '0').substring(0, 10);
+      const Z = nim;
+      
+      const m = Z[9] + Z[8] + Z[7];
+      const n = parseInt(m[0], 10) || 0;
+      const p = (parseInt(m, 10) || 0) + 19;
+      const q = 15 - n;
+      const r = Math.floor(p / 10);
+      const s = m + m;
+      const t = q !== 0 ? p % q : 0;
+      const u = t * t;
+      const v = p - t;
+      const w = n < 6;
+
+      tableDiv.innerHTML = `
+        <table class="academic-table" style="margin:0;">
+          <thead>
+            <tr><th>Variabel</th><th>Ekspresi</th><th>Nilai Hasil</th><th>Tipe Data</th><th>Analisis Perhitungan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>m</code></td><td><code>Z[9:6:-1]</code></td><td><strong style="color:var(--primary);">'${m}'</strong></td><td><code>str</code></td><td>Slicing mundur 3 digit terakhir NIM (${Z[9]}, ${Z[8]}, ${Z[7]})</td></tr>
+            <tr><td><code>n</code></td><td><code>int(m[0])</code></td><td><strong>${n}</strong></td><td><code>int</code></td><td>Karakter pertama dari m diubah ke integer</td></tr>
+            <tr><td><code>p</code></td><td><code>int(m) + 19</code></td><td><strong>${p}</strong></td><td><code>int</code></td><td>${parseInt(m,10)} + 19 = ${p}</td></tr>
+            <tr><td><code>q</code></td><td><code>15 - n</code></td><td><strong>${q}</strong></td><td><code>int</code></td><td>15 - ${n} = ${q}</td></tr>
+            <tr><td><code>r</code></td><td><code>p // 10</code></td><td><strong>${r}</strong></td><td><code>int</code></td><td>Pembagian bulat ${p} // 10</td></tr>
+            <tr style="background:rgba(239,68,68,0.1); font-weight:700;"><td><code>s</code></td><td><code>2 * m</code></td><td><strong style="color:#ef4444;">'${s}'</strong></td><td><code>str</code></td><td>âš ï¸ Duplikasi string: '${m}' + '${m}' (bukan perkalian angka!)</td></tr>
+            <tr><td><code>t</code></td><td><code>p % q</code></td><td><strong>${t}</strong></td><td><code>int</code></td><td>Sisa hasil bagi ${p} % ${q}</td></tr>
+            <tr><td><code>u</code></td><td><code>t ** 2</code></td><td><strong>${u}</strong></td><td><code>int</code></td><td>${t} pangkat 2</td></tr>
+            <tr><td><code>v</code></td><td><code>p - t</code></td><td><strong>${v}</strong></td><td><code>int</code></td><td>${p} - ${t} = ${v}</td></tr>
+            <tr><td><code>w</code></td><td><code>n &lt; 6</code></td><td><strong>${w ? 'True' : 'False'}</strong></td><td><code>bool</code></td><td>Evaluasi boolean: ${n} &lt; 6</td></tr>
+          </tbody>
+        </table>
+      `;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      hitungNimPage();
+      const savedTheme = localStorage.getItem('alpro_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const icon = document.getElementById('theme-icon');
+        if (icon) icon.textContent = savedTheme === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+      }
+    });
+  </script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

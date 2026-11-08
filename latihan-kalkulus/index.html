@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Batas &amp; Bentuk â€” Latihan UTS Kalkulus</title>
+<meta name="description" content="Latihan soal pilihan ganda UTS Kalkulus Reguler: bilangan dan modulo, trigonometri, fungsi invers, pertidaksamaan, domain dan range, limit aljabar, serta limit trigonometri. Setiap soal dibahas langkah demi langkah.">
+<meta name="theme-color" content="#f6f1e6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100;1,9..144,300..900,100&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modul.css">
+<link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+<main class="shell">
+
+  <!-- ================= BERANDA ================= -->
+  <section id="home" class="screen">
+    <header class="site-head">
+      <a class="brand" href="#home" aria-label="Batas dan Bentuk, kembali ke beranda">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <rect width="40" height="40" rx="8" fill="#fffdf7"/>
+            <path d="M7 20h26M20 33V7" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M11 9l6 16 6-16" fill="none" stroke="#3c5f8c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="17" cy="25" r="2.2" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+          </svg>
+        </span>
+        <span class="brand-word">batas<span>.</span></span>
+      </a>
+      <div class="head-meta">
+        <nav class="site-nav" aria-label="Navigasi utama">
+          <a href="index.html" aria-current="page">Latihan</a>
+          <a href="modul.html">Modul</a>
+          <a class="nav-uts" href="uts-2025.html">UTS<span class="nav-long">&nbsp;2025</span></a>
+        </nav>
+        <span class="stamp-badge">35 soal</span>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="kicker"><span class="kicker-box" aria-hidden="true">âˆ«</span> bilangan Â· trigonometri Â· fungsi Â· limit</p>
+        <h1>
+          <span>Dari akar,</span>
+          <span class="h1-blue">ke fungsi,</span>
+          <span class="h1-last">ke <em>limit</em>.</span>
+        </h1>
+        <p class="lede">Latihan pilihan ganda untuk UTS Kalkulus Reguler. Dibuka dengan 14 soal materi sendiriâ€”bilangan, trigonometri, dan fungsi inversâ€”lalu pertidaksamaan, domainâ€“range, sampai limit. Tiap jawaban dibedah langkah demi langkah, bukan cuma dikasih kunci.</p>
+
+        <div class="hero-actions">
+          <button id="startBtn" class="btn btn-primary" type="button">
+            Mulai latihan
+            <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <a class="btn btn-ghost" href="modul.html">
+            Baca modul
+            <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </a>
+          <p class="cta-note">14 soal materi sendiri<br>13 inti Â· 8 tantangan</p>
+        </div>
+
+        <p id="bestNote" class="best-note" hidden></p>
+      </div>
+
+      <figure class="hero-figure">
+        <div class="paper-stack">
+          <svg viewBox="0 0 600 440" role="img" aria-labelledby="figTitle figDesc">
+            <title id="figTitle">Meja belajar kalkulus</title>
+            <desc id="figDesc">Lembar grafik berisi parabola, kalkulator dengan layar limit, pensil, kopi, dan catatan kecil bertuliskan faktorkan dulu.</desc>
+            <defs>
+              <pattern id="heroGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M20 0H0v20" fill="none" stroke="#3c5f8c" stroke-width="1" opacity=".11"/>
+              </pattern>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="5" dy="6" stdDeviation="0" flood-color="#2f3330" flood-opacity=".16"/>
+              </filter>
+            </defs>
+
+            <rect width="600" height="440" fill="#f8f2e5"/>
+            <rect width="600" height="440" fill="url(#heroGrid)"/>
+            <circle cx="538" cy="52" r="88" fill="#e8eef5"/>
+            <circle cx="48" cy="396" r="74" fill="#f8e3db"/>
+
+            <!-- lembar grafik -->
+            <g transform="translate(36 66) rotate(-3 175 145)" filter="url(#softShadow)">
+              <rect width="350" height="290" rx="3" fill="#fffdf7" stroke="#2f3330" stroke-width="2.6"/>
+              <rect width="350" height="290" rx="3" fill="url(#heroGrid)"/>
+              <text x="18" y="28" font-family="'Spline Sans Mono',monospace" font-size="11.5" fill="#2f3330">y = xÂ² + 5x + 6</text>
+              <text x="288" y="28" font-family="'Spline Sans Mono',monospace" font-size="8.5" fill="#a95741">FIG. 01</text>
+
+              <path d="M44 214H322" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M148 58V246" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M322 214l-7-4v8ZM148 58l-4 7h8Z" fill="#2f3330"/>
+
+              <path d="M56 76C96 232 200 232 240 76" fill="#3c5f8c" fill-opacity=".1" stroke="none"/>
+              <path d="M56 76C96 232 200 232 240 76" fill="none" stroke="#3c5f8c" stroke-width="3.2" stroke-linecap="round"/>
+              <circle cx="99" cy="214" r="4.2" fill="#a95741" stroke="#2f3330" stroke-width="1.5"/>
+              <circle cx="199" cy="214" r="4.2" fill="#a95741" stroke="#2f3330" stroke-width="1.5"/>
+              <circle cx="148" cy="184" r="4.6" fill="#68774f" stroke="#2f3330" stroke-width="1.5"/>
+              <path d="M148 184v30M148 184h-44" stroke="#68774f" stroke-width="1.4" stroke-dasharray="4 4"/>
+              <text x="88" y="234" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#62685f">âˆ’3</text>
+              <text x="195" y="234" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#62685f">âˆ’2</text>
+              <text x="87" y="167" font-family="'Fraunces',serif" font-size="12" font-style="italic" fill="#68774f">titik balik</text>
+              <path d="M128 172c-12 4-18 9-21 16" fill="none" stroke="#68774f" stroke-width="1.4" stroke-linecap="round"/>
+              <text x="42" y="266" font-family="'Fraunces',serif" font-size="12" font-style="italic" fill="#a95741">range â†’ [âˆ’Â¼, âˆž)</text>
+              <path d="M140 254c2-14 4-35 6-58" fill="none" stroke="#a95741" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
+
+              <rect x="248" y="52" width="86" height="54" rx="2" fill="#f5e7bd" stroke="#2f3330" stroke-width="1.8" transform="rotate(4 291 79)"/>
+              <text x="258" y="73" font-family="'Fraunces',serif" font-size="12" font-style="italic" fill="#2f3330" transform="rotate(4 291 79)">0/0?</text>
+              <text x="258" y="91" font-family="'Fraunces',serif" font-size="12" font-style="italic" fill="#a95741" transform="rotate(4 291 79)">faktorkan!</text>
+            </g>
+
+            <!-- klip kertas -->
+            <path d="M346 47c0-7 5-12 12-12s12 5 12 12v34c0 9-7 16-16 16s-16-7-16-16V62" fill="none" stroke="#2f3330" stroke-width="3" stroke-linecap="round"/>
+            <path d="M358 82V50" fill="none" stroke="#2f3330" stroke-width="2" stroke-linecap="round"/>
+
+            <!-- kalkulator -->
+            <g transform="translate(424 92) rotate(4 64 94)" filter="url(#softShadow)">
+              <rect width="128" height="190" rx="12" fill="#fffdf7" stroke="#2f3330" stroke-width="2.6"/>
+              <rect x="11" y="12" width="106" height="66" rx="6" fill="#2f3330" stroke="#2f3330" stroke-width="2"/>
+              <text x="20" y="28" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#b9c6c4">lim</text>
+              <text x="40" y="28" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#f5e7bd">xâ†’3</text>
+              <text x="20" y="45" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#fffdf7">xÂ²âˆ’2xâˆ’3</text>
+              <path d="M20 51h88" stroke="#fffdf7" stroke-width="1" opacity=".7"/>
+              <text x="20" y="63" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#fffdf7">xâˆ’3</text>
+              <text x="82" y="70" font-family="'Spline Sans Mono',monospace" font-size="12" font-weight="600" fill="#f5e7bd">= 4</text>
+
+              <g font-family="'Spline Sans Mono',monospace" font-size="8" text-anchor="middle">
+                <g fill="#e8eef5" stroke="#2f3330" stroke-width="1.4">
+                  <rect x="11" y="90" width="31" height="20" rx="4"/><rect x="48" y="90" width="31" height="20" rx="4"/><rect x="85" y="90" width="31" height="20" rx="4"/>
+                  <rect x="11" y="117" width="31" height="20" rx="4"/><rect x="48" y="117" width="31" height="20" rx="4"/><rect x="85" y="117" width="31" height="20" rx="4"/>
+                  <rect x="11" y="144" width="31" height="20" rx="4"/><rect x="48" y="144" width="31" height="20" rx="4"/><rect x="85" y="144" width="31" height="20" rx="4"/>
+                </g>
+                <text x="26" y="104" fill="#2f3330">sin</text><text x="63" y="104" fill="#2f3330">cos</text><text x="100" y="104" fill="#2f3330">tan</text>
+                <text x="26" y="131" fill="#2f3330">Ï€</text><text x="63" y="131" fill="#2f3330">âˆž</text><text x="100" y="131" fill="#a95741">C</text>
+                <text x="26" y="158" fill="#2f3330">7</text><text x="63" y="158" fill="#2f3330">8</text><text x="100" y="158" fill="#2f3330">9</text>
+              </g>
+              <rect x="11" y="171" width="105" height="11" rx="5.5" fill="#68774f" stroke="#2f3330" stroke-width="1.4"/>
+            </g>
+
+            <!-- kopi -->
+            <g transform="translate(470 314)">
+              <ellipse cx="38" cy="72" rx="52" ry="9" fill="#2f3330" opacity=".1"/>
+              <path d="M10 30h54v28a15 15 0 0 1-15 15H25a15 15 0 0 1-15-15Z" fill="#3c5f8c" stroke="#2f3330" stroke-width="2.6"/>
+              <path d="M64 37h5a10 10 0 0 1 0 20h-5" fill="none" stroke="#2f3330" stroke-width="2.6"/>
+              <ellipse cx="37" cy="30" rx="27" ry="7" fill="#8f6b4e" stroke="#2f3330" stroke-width="2.2"/>
+              <path d="M24 16c-5-6 5-9 0-16M43 16c-5-6 5-9 0-16" fill="none" stroke="#2f3330" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+              <ellipse cx="96" cy="52" rx="18" ry="6" fill="none" stroke="#8f6b4e" stroke-width="2" opacity=".35"/>
+            </g>
+
+            <!-- pensil -->
+            <g transform="translate(236 366) rotate(-12)">
+              <rect x="0" y="0" width="146" height="18" rx="2" fill="#f2c14e" stroke="#2f3330" stroke-width="2.2"/>
+              <path d="M146 0l26 9-26 9Z" fill="#f3d9b1" stroke="#2f3330" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M164 6l8 3-8 3Z" fill="#2f3330"/>
+              <path d="M0 0h22v18H0Z" fill="#a95741" stroke="#2f3330" stroke-width="2.2"/>
+              <path d="M24 0v18M132 0v18" stroke="#2f3330" stroke-width="1.2" opacity=".45"/>
+            </g>
+
+            <!-- catatan kecil -->
+            <g transform="translate(68 360) rotate(3)">
+              <rect width="132" height="48" rx="2" fill="#e7e3c2" stroke="#2f3330" stroke-width="2"/>
+              <text x="11" y="19" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#62685f">x â†’ 3â»</text>
+              <text x="11" y="33" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#62685f">x â†’ 3âº</text>
+              <text x="83" y="27" font-family="'Fraunces',serif" font-size="14" font-style="italic" fill="#3c5f8c">sama?</text>
+            </g>
+
+            <path d="M410 52l3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="#a95741" stroke="#2f3330" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M384 388v10M379 393h10" stroke="#3c5f8c" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="566" cy="258" r="4" fill="#68774f"/>
+          </svg>
+        </div>
+        <figcaption>fig. 01 â€” cek tanda, baca grafik, baru hitung limit.</figcaption>
+      </figure>
+    </div>
+
+    <a class="shelf-uts" href="uts-2025.html">
+      <span class="shelf-uts-copy">
+        <span class="uts-stamp" aria-hidden="true">UTS<br>2025</span>
+        <span class="shelf-uts-text">
+          <span class="uts-kicker">acuan utama Â· mulai dari sini</span>
+          <strong>Arsip UTS Gasal 2025/2026</strong>
+          <span class="shelf-uts-sub">Empat soal asli, kunci ringkas, pembahasan lengkap, dan timer simulasi 90 menit.</span>
+        </span>
+      </span>
+      <span class="shelf-uts-side">
+        <span class="uts-facts">4 soal <i>Â·</i> 100 poin <i>Â·</i> 90 menit</span>
+        <span class="shelf-uts-cta">Buka arsip UTS <span aria-hidden="true">â†’</span></span>
+      </span>
+    </a>
+
+    <section id="modul" class="module-shelf" aria-labelledby="shelfTitle">
+      <div class="shelf-head">
+        <div>
+          <p class="section-kicker">modul pendamping</p>
+          <h2 id="shelfTitle">Baca dulu, baru hitung.</h2>
+        </div>
+        <a class="text-link" href="modul.html">Semua modul â†’</a>
+      </div>
+      <div class="shelf-grid">
+        <a class="shelf-card shelf-card--1" href="materi-1.html">
+          <span class="shelf-top"><span class="shelf-no">01</span><span class="shelf-tag">bilangan</span></span>
+          <strong>Bilangan &amp; Representasi</strong>
+          <p>Bilangan vs angka, peta Nâ€“Zâ€“Qâ€“Râ€“C, garis bilangan, dan operasi akar.</p>
+          <span class="shelf-foot">7 bagian Â· 4 latihan</span>
+        </a>
+        <a class="shelf-card shelf-card--2" href="materi-2.html">
+          <span class="shelf-top"><span class="shelf-no">02</span><span class="shelf-tag">trigonometri</span></span>
+          <strong>Trigonometri</strong>
+          <p>Enam rasio, radian, unit circle, nilai istimewa, dan delapan identitas.</p>
+          <span class="shelf-foot">7 bagian Â· 5 latihan</span>
+        </a>
+        <a class="shelf-card shelf-card--3" href="materi-3.html">
+          <span class="shelf-top"><span class="shelf-no">03</span><span class="shelf-tag">fungsi</span></span>
+          <strong>Fungsi &amp; Bilangan Khusus</strong>
+          <p>Domainâ€“range, invers, komposisi, floor, modulo, log, dan rekursi.</p>
+          <span class="shelf-foot">8 bagian Â· 6 latihan</span>
+        </a>
+        <a class="shelf-card shelf-card--4" href="materi-4.html">
+          <span class="shelf-top"><span class="shelf-no">04</span><span class="shelf-tag">limit</span></span>
+          <strong>Limit</strong>
+          <p>Limit kiriâ€“kanan, bentuk 0/0, limit trigonometri, asimtot, dan kontinuitas.</p>
+          <span class="shelf-foot">8 bagian Â· 7 latihan</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="exam-map" aria-labelledby="mapTitle">
+      <div class="map-head">
+        <div>
+          <p class="section-kicker">peta UTS</p>
+          <h2 id="mapTitle">Tujuh topik, satu alur berpikir.</h2>
+        </div>
+        <p class="map-note">14 materi sendiri<br>+ 13 inti Â· 8 tantangan</p>
+      </div>
+      <div id="topicList" class="topic-grid"></div>
+      <div class="map-foot">
+        <span class="foot-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          Bisa jawab pakai tombol 1â€“4 atau Aâ€“D
+        </span>
+        <span class="foot-item">Lembar rumus tersedia saat latihan</span>
+      </div>
+    </section>
+
+    <div class="howto">
+      <p><span class="howto-num">01</span><strong>Jawab tanpa timer.</strong> Boleh buka lembar rumus kapan saja.</p>
+      <p><span class="howto-num">02</span><strong>Baca pembahasannya.</strong> Di situ letak latihannya, bukan di skor.</p>
+      <p><span class="howto-num">03</span><strong>Ulangi yang lemah.</strong> Rapor per topik menunjukkan celahnya.</p>
+    </div>
+
+    <footer class="site-foot">
+      <span>Latihan mandiri Â· Kalkulus Reguler</span>
+      <span class="mono">tanpa timer Â· tanpa tekanan</span>
+    </footer>
+  </section>
+
+  <!-- ================= KUIS ================= -->
+  <section id="quiz" class="screen" hidden>
+    <header class="quiz-head">
+      <button id="quitBtn" class="icon-btn" type="button" aria-label="Keluar dari latihan dan kembali ke beranda">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="quiz-progress">
+        <div class="progress-top">
+          <span id="qCounter" class="mono">Soal 01 / 35</span>
+          <span id="phaseLabel" class="phase-label mono">bagian inti</span>
+        </div>
+        <div id="progressBar" class="progress-track" role="progressbar" aria-label="Kemajuan latihan" aria-valuemin="1" aria-valuemax="35" aria-valuenow="1">
+          <span id="progressFill" class="progress-fill"></span>
+        </div>
+      </div>
+      <button id="formulaBtn" class="formula-btn" type="button" aria-haspopup="dialog" aria-controls="formulaModal" aria-expanded="false">
+        <span class="formula-btn-icon" aria-hidden="true">âˆ‘</span>
+        <span class="formula-btn-label">Rumus</span>
+      </button>
+      <div class="score-chip" aria-live="polite">
+        <strong id="scoreNum">0</strong>
+        <span>benar</span>
+      </div>
+    </header>
+
+    <article id="qCard" class="q-card">
+      <div class="q-top">
+        <span id="qTopic" class="topic-tag">Pertidaksamaan</span>
+        <span id="qChallenge" class="challenge-tag" hidden>Tantangan</span>
+        <span id="qNumber" class="q-number mono">#01</span>
+      </div>
+
+      <h2 id="qText" class="q-text"></h2>
+      <div id="options" class="options" role="group" aria-label="Pilihan jawaban"></div>
+
+      <div id="feedback" class="feedback" hidden aria-live="polite">
+        <div class="feedback-head">
+          <span id="fbIcon" class="feedback-icon" aria-hidden="true"></span>
+          <div class="feedback-title">
+            <strong id="fbTitle"></strong>
+            <span id="fbSub"></span>
+          </div>
+          <button id="nextBtnTop" class="fb-top-btn" type="button">Lanjut</button>
+        </div>
+        <div id="fbBody" class="feedback-body rich"></div>
+        <div class="feedback-foot">
+          <span class="kbd-hint">Enter untuk lanjut</span>
+          <button id="nextBtn" class="btn btn-primary btn-small" type="button">
+            Soal berikutnya
+            <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <p class="quiz-footnote">Tidak ada timer. Kalau perlu, buka lembar rumus dulu â€” ini latihan, bukan ujian.</p>
+  </section>
+
+  <!-- ================= HASIL ================= -->
+  <section id="result" class="screen" hidden>
+    <div class="result-card">
+      <div class="result-top">
+        <svg class="seal" viewBox="0 0 160 160" role="img" aria-labelledby="sealTitle">
+          <title id="sealTitle">Segel hasil latihan kalkulus</title>
+          <defs>
+            <path id="sealArc" d="M80 76m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/>
+          </defs>
+          <g transform="rotate(-7 80 80)">
+            <path d="M55 104 38 150l23-8 10 18 11-48Z" fill="#a95741" stroke="#2f3330" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M105 104l17 46-23-8-10 18-11-48Z" fill="#68774f" stroke="#2f3330" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="80" cy="76" r="54" fill="#3c5f8c" stroke="#2f3330" stroke-width="3.4"/>
+            <text font-family="'Spline Sans Mono',monospace" font-size="6.4" letter-spacing="1.2" fill="#fffdf7" opacity=".88">
+              <textPath href="#sealArc" startOffset="25%" text-anchor="middle">BATAS &amp; BENTUK Â· UTS KALKULUS</textPath>
+            </text>
+            <circle cx="80" cy="76" r="36.5" fill="#fffdf7" stroke="#2f3330" stroke-width="2"/>
+            <text x="71" y="96" text-anchor="middle" font-family="'Fraunces',serif" font-size="47" font-style="italic" fill="#2f3330">âˆ«</text>
+            <text x="86" y="93" font-family="'Fraunces',serif" font-size="15" font-style="italic" fill="#3c5f8c">dx</text>
+          </g>
+          <path d="M27 38l5 5M133 31l-5 5M20 104h7M139 99h-7" stroke="#a95741" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <div class="result-headline">
+          <p class="kicker"><span class="kicker-box" aria-hidden="true">âˆ«</span> hasil latihan</p>
+          <h2 id="resHeadline">Alurnya mulai terlihat.</h2>
+          <p id="resSub" class="result-sub"></p>
+        </div>
+        <div id="scoreStamp" class="score-stamp">PERLU LATIHAN</div>
+      </div>
+
+      <div class="score-line">
+        <strong id="resScore">0 / 35</strong>
+        <span id="resPercent" class="mono">0% benar</span>
+      </div>
+
+      <section class="rapor" aria-labelledby="raporTitle">
+        <h3 id="raporTitle">Rapor materi</h3>
+        <div id="breakdown"></div>
+      </section>
+
+      <details id="review" class="review" hidden>
+        <summary><span class="review-label">Lihat soal yang salah &amp; pembahasannya</span><span id="wrongCount" class="mono"></span></summary>
+        <div id="reviewList"></div>
+      </details>
+
+      <div class="result-actions">
+        <button id="retryBtn" class="btn btn-primary" type="button">
+          Ulangi dari awal
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 6.3M20 5v6h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button id="homeBtn" class="btn btn-ghost" type="button">Kembali ke beranda</button>
+      </div>
+    </div>
+    <p class="quiz-footnote">Mau ulang? Urutan soal dan pilihan jawaban akan diacak lagi.</p>
+  </section>
+
+  <noscript>
+    <p class="noscript">Web ini butuh JavaScript untuk menampilkan soal. Aktifkan JavaScript, lalu muat ulang halaman.</p>
+  </noscript>
+</main>
+
+<!-- ================= LEMBAR RUMUS ================= -->
+<div id="formulaModal" class="formula-modal" hidden>
+  <div class="formula-backdrop" data-close-formula></div>
+  <aside class="formula-sheet" role="dialog" aria-modal="true" aria-labelledby="formulaTitle">
+    <header class="formula-head">
+      <div>
+        <p class="section-kicker">bekal cepat</p>
+        <h2 id="formulaTitle">Lembar rumus</h2>
+      </div>
+      <button id="formulaClose" class="icon-btn" type="button" aria-label="Tutup lembar rumus">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+    <div class="formula-content">
+      <section>
+        <h3>Trigonometri dasar</h3>
+        <p>$$\tan t=\frac{\sin t}{\cos t}\qquad \cot t=\frac{\cos t}{\sin t}$$</p>
+        <p>$$\sec t=\frac{1}{\cos t}\qquad \csc t=\frac{1}{\sin t}$$</p>
+        <p>$$\sin^2 x+\cos^2 x=1$$</p>
+        <p>$$1+\tan^2 x=\sec^2 x\qquad 1+\cot^2 x=\csc^2 x$$</p>
+        <p>$$\sin(-x)=-\sin x\qquad \cos(-x)=\cos x$$</p>
+      </section>
+      <section>
+        <h3>Sudut rangkap</h3>
+        <p>$$\sin(x+y)=\sin x\cos y+\cos x\sin y$$</p>
+        <p>$$\cos(x+y)=\cos x\cos y-\sin x\sin y$$</p>
+        <p>$$\sin^2 x=\frac{1-\cos 2x}{2}\qquad \cos^2 x=\frac{1+\cos 2x}{2}$$</p>
+      </section>
+      <section>
+        <h3>Sifat limit</h3>
+        <p>$$\lim_{x\to c}(f\pm g)(x)=\lim_{x\to c}f(x)\pm\lim_{x\to c}g(x)$$</p>
+        <p>$$\lim_{x\to c}(fg)(x)=\lim_{x\to c}f(x)\cdot\lim_{x\to c}g(x)$$</p>
+        <p>$$\lim_{x\to c}\frac{f(x)}{g(x)}=\frac{\lim_{x\to c}f(x)}{\lim_{x\to c}g(x)},\quad \lim_{x\to c}g(x)\ne0$$</p>
+        <p>$$\lim_{x\to c}\sin x=\sin c\qquad \lim_{x\to c}\cos x=\cos c$$</p>
+      </section>
+      <section>
+        <h3>Limit trigonometri istimewa</h3>
+        <p>$$\lim_{x\to0}\frac{\sin x}{x}=1\qquad \lim_{x\to0}\frac{x}{\sin x}=1$$</p>
+        <p>$$\lim_{x\to0}\frac{\tan x}{x}=1\qquad \lim_{x\to0}\frac{x}{\tan x}=1$$</p>
+        <p class="formula-tip">Kalau substitusi menghasilkan <strong>0/0</strong>: faktorkan, kalikan sekawan, atau ubah ke bentuk $\frac{\sin u}{u}$.</p>
+      </section>
+    </div>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script src="questions/materi-sendiri.js"></script>
+<script src="questions/pertidaksamaan.js"></script>
+<script src="questions/domain-range.js"></script>
+<script src="questions/limit-aljabar.js"></script>
+<script src="questions/limit-trigonometri.js"></script>
+<script src="figures.js"></script>
+<script src="app.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

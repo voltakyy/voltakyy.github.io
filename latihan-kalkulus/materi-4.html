@@ -1,0 +1,613 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materi 4 â€” Limit | Modul Kalkulus</title>
+<meta name="description" content="Modul limit: pengertian limit, limit kiri dan kanan, substitusi, bentuk 0/0, limit trigonometri, limit di tak hingga, asimtot tegak, dan kontinuitas.">
+<meta name="theme-color" content="#f6f1e6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100;1,9..144,300..900,100&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modul.css">
+<link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body class="doc-page">
+<div id="readProgress" class="read-progress" aria-hidden="true"><span></span></div>
+<main class="shell doc-shell">
+
+  <header class="site-head">
+    <a class="brand" href="index.html" aria-label="Batas dan Bentuk, kembali ke beranda">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40">
+          <rect width="40" height="40" rx="8" fill="#fffdf7"/>
+          <path d="M7 20h26M20 33V7" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 9l6 16 6-16" fill="none" stroke="#3c5f8c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="17" cy="25" r="2.2" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <span class="brand-word">batas<span>.</span></span>
+    </a>
+    <div class="head-meta">
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Latihan</a>
+        <a href="modul.html" aria-current="page">Modul</a>
+        <a class="nav-uts" href="uts-2025.html">UTS 2025</a>
+      </nav>
+      <span class="stamp-badge">Materi 4 / 4</span>
+    </div>
+  </header>
+
+  <section class="module-hero" style="--chapter-ink:#5c6845;--chapter-soft:#eef1e3;--chapter-accent:#68774f">
+    <div class="module-hero-copy">
+      <div class="eyebrow-row">
+        <span class="chapter-pill">Materi 04 Â· Limit</span>
+        <span class="eyebrow-note">Week 4 Â· nilai yang didekati</span>
+      </div>
+      <h1>Nilai yang didekati,<br><em>bukan</em> yang dicapai.</h1>
+      <p class="lede">Limit adalah jantung kalkulus. Ia membaca kecenderungan fungsi di sekitar suatu titikâ€”bahkan ketika fungsi itu sendiri tidak terdefinisi di titik tersebut.</p>
+      <div class="module-meta">
+        <span class="meta-chip"><b>8</b> bagian</span>
+        <span class="meta-chip">Â± <b>20</b> menit</span>
+        <span class="meta-chip"><b>7</b> latihan</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pengertian">Mulai membaca
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="modul.html">Kembali ke indeks</a>
+      </div>
+    </div>
+
+    <aside class="hero-summary" aria-label="Ringkasan materi 4">
+      <div class="summary-paper">
+        <div class="summary-label"><span>peta singkat</span><span>04 / 04</span></div>
+        <div class="summary-big">$\lim_{x\to c}f(x)=L$</div>
+        <p class="summary-caption">Saat $x$ mendekati $c$, nilai $f(x)$ mendekati $L$. Nilai $f(c)$ boleh berbedaâ€”atau tidak ada sama sekali.</p>
+        <div class="summary-rule"></div>
+        <ul class="summary-list">
+          <li>Limit kiri = limit kanan â†’ limit ada</li>
+          <li>$0/0$ bukan jawaban, tapi sinyal untuk menyederhanakan</li>
+          <li>Kontinu = nilai, limit, dan nilainya sama</li>
+        </ul>
+        <span class="summary-stamp">week 4 Â· limit</span>
+      </div>
+    </aside>
+  </section>
+
+  <div class="doc-layout">
+    <aside class="doc-toc" aria-label="Daftar isi materi 4">
+      <div class="toc-box">
+        <div class="toc-head"><strong>Daftar isi</strong><span>04</span></div>
+        <ol class="toc-list">
+          <li><a href="#pengertian"><span class="toc-no">01</span>Pengertian limit</a></li>
+          <li><a href="#kiri-kanan"><span class="toc-no">02</span>Limit kiri &amp; kanan</a></li>
+          <li><a href="#substitusi"><span class="toc-no">03</span>Teorema &amp; substitusi</a></li>
+          <li><a href="#trigonometri"><span class="toc-no">04</span>Limit trigonometri</a></li>
+          <li><a href="#tak-hingga"><span class="toc-no">05</span>Tak hingga &amp; asimtot</a></li>
+          <li><a href="#kontinuitas"><span class="toc-no">06</span>Kontinuitas</a></li>
+          <li><a href="#latihan"><span class="toc-no">07</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">08</span>Rangkuman</a></li>
+        </ol>
+        <div class="toc-foot">Sebelum menghitung, selalu coba substitusi langsung. Hasil $0/0$ berarti bentuknya harus diubah, bukan berarti limitnya nol.</div>
+      </div>
+    </aside>
+
+    <article class="lesson">
+      <details class="toc-mobile">
+        <summary>Daftar isi materi 04</summary>
+        <ol class="toc-list">
+          <li><a href="#pengertian"><span class="toc-no">01</span>Pengertian limit</a></li>
+          <li><a href="#kiri-kanan"><span class="toc-no">02</span>Limit kiri &amp; kanan</a></li>
+          <li><a href="#substitusi"><span class="toc-no">03</span>Teorema &amp; substitusi</a></li>
+          <li><a href="#trigonometri"><span class="toc-no">04</span>Limit trigonometri</a></li>
+          <li><a href="#tak-hingga"><span class="toc-no">05</span>Tak hingga &amp; asimtot</a></li>
+          <li><a href="#kontinuitas"><span class="toc-no">06</span>Kontinuitas</a></li>
+          <li><a href="#latihan"><span class="toc-no">07</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">08</span>Rangkuman</a></li>
+        </ol>
+      </details>
+
+      <div class="lesson-intro">
+        <span class="lesson-intro-mark" aria-hidden="true">lim</span>
+        <p><strong>Target halaman ini:</strong> kamu bisa membaca limit dari grafik, memilih strategi saat substitusi menghasilkan $0/0$, menghitung limit trigonometri dan limit di tak hingga, serta memeriksa kontinuitas dengan tiga syaratnya.</p>
+      </div>
+
+      <section id="pengertian" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">01</span>
+          <div>
+            <h2>Pengertian limit</h2>
+            <p class="sec-sub">Limit berbicara tentang perjalanan menuju suatu titik, bukan tentang titik tujuannya.</p>
+          </div>
+        </div>
+
+        <p>Notasi $\lim_{x\to c}f(x)=L$ berarti: ketika $x$ mendekati $c$ dari kedua arah, nilai $f(x)$ mendekati $L$. Kita tidak peduli apa yang terjadi tepat di $x=c$; yang dibaca adalah perilaku di sekitarnya.</p>
+
+        <div class="formula-card formula-card--green">
+          <p class="formula-title">definisi informal</p>
+          <p class="formula-lead">$\lim_{x\to c}f(x)=L$</p>
+          <p>$x$: variabel yang mendekati $c$ Â· $c$: titik yang didekati Â· $L$: nilai yang didekati</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>$x$</th><th>1,9</th><th>1,99</th><th>2</th><th>2,01</th><th>2,1</th></tr></thead>
+            <tbody><tr><td>$f(x)=x+3$</td><td class="num">4,9</td><td class="num">4,99</td><td class="num">5</td><td class="num">5,01</td><td class="num">5,1</td></tr></tbody>
+          </table>
+        </div>
+        <p>Dari tabel, $x$ yang mendekati 2 membuat $x+3$ mendekati 5. Jadi $\lim_{x\to2}(x+3)=5$.</p>
+
+        <figure class="figure-card">
+          <svg viewBox="0 0 560 310" role="img" aria-labelledby="holeTitle holeDesc">
+            <title id="holeTitle">Grafik fungsi dengan lubang dan titik terpisah</title>
+            <desc id="holeDesc">Garis y = x + 1 memiliki lubang di (2,3), sedangkan nilai fungsi di x = 2 adalah 5. Limit di x = 2 tetap 3.</desc>
+            <rect width="560" height="310" fill="#fffdf7"/>
+            <g stroke="#3c5f8c" stroke-width=".7" opacity=".2">
+              <path d="M80 40h420M80 90h420M80 140h420M80 190h420M80 240h420"/>
+              <path d="M120 20v250M170 20v250M220 20v250M270 20v250M320 20v250M370 20v250M420 20v250M470 20v250"/>
+            </g>
+            <path d="M80 270h420M120 20v250" stroke="#2f3330" stroke-width="1.4"/>
+            <path d="M500 270l-8-3v6ZM120 20l-3 8h6Z" fill="#2f3330"/>
+            <text x="506" y="274" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#62685f">x</text>
+            <text x="126" y="18" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#62685f">y</text>
+            <path d="M150 238L350 88" stroke="#3c5f8c" stroke-width="2.4"/>
+            <circle cx="260" cy="148" r="5" fill="#fffdf7" stroke="#3c5f8c" stroke-width="2.2"/>
+            <circle cx="260" cy="88" r="5" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+            <path d="M260 148H120M260 148V270" stroke="#7d8379" stroke-width="1" stroke-dasharray="3 4"/>
+            <path d="M260 88H120" stroke="#a95741" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="266" y="166" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">lubang: (2, 3)</text>
+            <text x="270" y="82" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#a95741">f(2) = 5</text>
+            <text x="148" y="292" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">limit di x â†’ 2 adalah 3, walaupun nilai fungsinya 5</text>
+            <text x="350" y="74" font-family="'Fraunces',serif" font-size="14" font-style="italic" fill="#3c5f8c">y = x + 1</text>
+          </svg>
+          <figcaption>Lubang pada grafik tidak menghalangi limit. Yang penting adalah ke arah mana $f(x)$ menuju saat $x$ mendekati 2.</figcaption>
+        </figure>
+
+        <div class="callout callout--info" data-label="prinsip">
+          <p>$\lim_{x\to c}f(x)$ dan $f(c)$ adalah dua hal berbeda. Limit bisa ada walaupun $f(c)$ tidak terdefinisi; nilai fungsi bisa ada walaupun limitnya tidak ada.</p>
+        </div>
+      </section>
+
+      <section id="kiri-kanan" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">02</span>
+          <div>
+            <h2>Limit kiri &amp; kanan</h2>
+            <p class="sec-sub">Dua arah pendekatan harus bertemu di angka yang sama.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="def-card">
+            <span class="def-label">limit kiri</span>
+            <p>$\displaystyle\lim_{x\to c^-}f(x)=L$</p>
+            <p>Nilai $f(x)$ saat $x$ mendekati $c$ dari sisi $x&lt;c$.</p>
+          </div>
+          <div class="def-card">
+            <span class="def-label">limit kanan</span>
+            <p>$\displaystyle\lim_{x\to c^+}f(x)=L$</p>
+            <p>Nilai $f(x)$ saat $x$ mendekati $c$ dari sisi $x&gt;c$.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <p class="formula-title">syarat limit dua arah</p>
+          <p class="formula-lead">$\displaystyle\lim_{x\to c}f(x)=L \iff \lim_{x\to c^-}f(x)=\lim_{x\to c^+}f(x)=L$</p>
+          <p>Jika limit kiri dan kanan berbeda, limit dua arah tidak ada.</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 1</span><strong>Dua arah bertemu</strong></div>
+          <div class="example-body">
+            <p class="example-q">Diberikan $f(x)=\begin{cases}x+2,&x&lt;1\\2x+1,&x\ge1\end{cases}$. Tentukan $\lim_{x\to1}f(x)$.</p>
+            <ol class="steps">
+              <li>Dari kiri ($x&lt;1$): $\lim_{x\to1^-}(x+2)=1+2=3$.</li>
+              <li>Dari kanan ($x\ge1$): $\lim_{x\to1^+}(2x+1)=2+1=3$.</li>
+              <li>Kedua limit sama, jadi limit dua arah ada.</li>
+            </ol>
+            <span class="answer">$\lim_{x\to1}f(x)=3$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 2</span><strong>Dua arah berbeda</strong></div>
+          <div class="example-body">
+            <p class="example-q">Diberikan $g(x)=\begin{cases}1,&x&lt;2\\3,&x&gt;2\end{cases}$. Tentukan $\lim_{x\to2}g(x)$.</p>
+            <ol class="steps">
+              <li>Dari kiri: $\lim_{x\to2^-}g(x)=1$.</li>
+              <li>Dari kanan: $\lim_{x\to2^+}g(x)=3$.</li>
+              <li>Karena $1\neq3$, limit dua arah tidak ada.</li>
+            </ol>
+            <span class="answer">limit tidak ada</span>
+          </div>
+        </div>
+
+        <p>Perhatikan bahwa nilai $g(2)$ tidak ditulis. Limit tetap bisa dibicarakan meskipun titik itu tidak terdefinisiâ€”yang dibaca hanya perilaku dari kiri dan kanan.</p>
+      </section>
+
+      <section id="substitusi" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">03</span>
+          <div>
+            <h2>Teorema &amp; substitusi</h2>
+            <p class="sec-sub">Langkah pertama selalu sama: coba masukkan nilainya.</p>
+          </div>
+        </div>
+
+        <p>Jika $f$ adalah fungsi polinomial atau rasional dan penyebutnya tidak nol di $x=c$, maka limit dapat dihitung dengan substitusi langsung. Sifat-sifat limit menjaga operasi penjumlahan, pengurangan, perkalian, pembagian, dan pangkat tetap berlaku.</p>
+
+        <div class="formula-card">
+          <p class="formula-title">sifat limit</p>
+          <p>$\lim(f\pm g)=\lim f\pm\lim g$ &nbsp;Â·&nbsp; $\lim(fg)=\lim f\cdot\lim g$</p>
+          <p>$\lim\dfrac{f}{g}=\dfrac{\lim f}{\lim g}$ asalkan $\lim g\neq0$</p>
+          <p>$\lim [f(x)]^n=[\lim f(x)]^n$</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh</span><strong>Substitusi langsung</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $\lim_{x\to2}(x^2+3x)$.</p>
+            <p>Substitusikan $x=2$: $2^2+3(2)=4+6=10$.</p>
+            <span class="answer">$10$</span>
+          </div>
+        </div>
+
+        <h3>Kalau hasilnya $0/0$</h3>
+        <p>Bentuk $0/0$ disebut bentuk tak tentu. Artinya kita belum bisa menyimpulkan apa-apa; fungsinya harus diubah dulu. Tiga strategi yang paling sering dipakai:</p>
+        <div class="two-col">
+          <div class="mini-card">
+            <h3>1 Â· Faktorkan</h3>
+            <p>Cocok untuk polinomial. Contoh: $\frac{x^2-4}{x-2}=\frac{(x-2)(x+2)}{x-2}=x+2$ untuk $x\neq2$.</p>
+          </div>
+          <div class="mini-card">
+            <h3>2 Â· Kalikan sekawan</h3>
+            <p>Cocok jika ada akar. Contoh: $\frac{\sqrt{x+1}-1}{x}$ dikali $\frac{\sqrt{x+1}+1}{\sqrt{x+1}+1}$.</p>
+          </div>
+        </div>
+        <div class="mini-card" style="margin:12px 0">
+          <h3>3 Â· Samakan penyebut atau pakai identitas</h3>
+          <p>Untuk pecahan bertingkat, gabungkan penyebutnya. Untuk trigonometri, gunakan identitas Pythagoras atau sudut ganda.</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 1</span><strong>Faktorkan</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $\lim_{x\to2}\dfrac{x^2-4}{x-2}$.</p>
+            <ol class="steps">
+              <li>Substitusi memberi $\frac{4-4}{2-2}=\frac00$â€”bentuk tak tentu.</li>
+              <li>Faktorkan: $x^2-4=(x-2)(x+2)$.</li>
+              <li>Untuk $x\neq2$, $\frac{(x-2)(x+2)}{x-2}=x+2$.</li>
+              <li>$\lim_{x\to2}(x+2)=4$.</li>
+            </ol>
+            <span class="answer">$4$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 2</span><strong>Kalikan sekawan</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $\lim_{x\to0}\dfrac{\sqrt{x+1}-1}{x}$.</p>
+            <ol class="steps">
+              <li>Substitusi memberi $\frac{\sqrt1-1}{0}=\frac00$.</li>
+              <li>Kalikan pembilang dan penyebut dengan $\sqrt{x+1}+1$.</li>
+              <li>Pembilang menjadi $(x+1)-1=x$; penyebut menjadi $x(\sqrt{x+1}+1)$.</li>
+              <li>Coret $x$: $\frac{1}{\sqrt{x+1}+1}$. Substitusi $x=0$ memberi $\frac{1}{2}$.</li>
+            </ol>
+            <span class="answer">$\frac12$</span>
+          </div>
+        </div>
+
+        <div class="callout callout--warn" data-label="ingat">
+          <p>$\frac00$ bukan nilai limit. Setelah disederhanakan, bentuk baru boleh disubstitusi. Kalau masih $0/0$, cari manipulasi lainâ€”jangan menyerah dan menulis â€œ0â€.</p>
+        </div>
+      </section>
+
+      <section id="trigonometri" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">04</span>
+          <div>
+            <h2>Limit trigonometri</h2>
+            <p class="sec-sub">Enam rumus dasar, dengan satu syarat penting: sudut dalam radian.</p>
+          </div>
+        </div>
+
+        <div class="formula-card formula-card--plum">
+          <p class="formula-title">rumus dasar</p>
+          <p>$\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1$ &nbsp;Â·&nbsp; $\displaystyle\lim_{x\to0}\frac{\tan x}{x}=1$</p>
+          <p>$\displaystyle\lim_{x\to0}\frac{1-\cos x}{x}=0$ &nbsp;Â·&nbsp; $\displaystyle\lim_{x\to0}\frac{1-\cos(ax)}{x^2}=\frac{a^2}{2}$</p>
+          <p>$\displaystyle\lim_{x\to0}\frac{\sin(ax)}{x}=a$ &nbsp;Â·&nbsp; $\displaystyle\lim_{x\to0}\frac{\sin(ax)}{\sin(bx)}=\frac{a}{b}$</p>
+        </div>
+
+        <p>Kuncinya adalah memunculkan bentuk $\frac{\sin u}{u}$ dengan $u$ yang sama di pembilang dan penyebut. Kalikan atau bagi dengan konstanta yang tepat agar bentuknya cocok.</p>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 1</span><strong>Koefisien di dalam sinus</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $\lim_{x\to0}\dfrac{\sin4x}{x}$.</p>
+            <ol class="steps">
+              <li>Tulis ulang agar penyebutnya sama dengan argumen sinus: $\frac{\sin4x}{x}=4\cdot\frac{\sin4x}{4x}$.</li>
+              <li>Saat $x\to0$, $4x\to0$, sehingga $\frac{\sin4x}{4x}\to1$.</li>
+              <li>Hasilnya $4\cdot1=4$.</li>
+            </ol>
+            <span class="answer">$4$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 2</span><strong>Dua sinus</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $\lim_{x\to0}\dfrac{\sin3x}{\sin2x}$.</p>
+            <ol class="steps">
+              <li>Bagi dan kalikan agar muncul $\frac{\sin3x}{3x}$ dan $\frac{2x}{\sin2x}$.</li>
+              <li>$\frac{\sin3x}{\sin2x}=\frac{\sin3x}{3x}\cdot\frac{2x}{\sin2x}\cdot\frac32$.</li>
+              <li>Kedua limit pertama menuju 1, sehingga hasilnya $\frac32$.</li>
+            </ol>
+            <span class="answer">$\frac32$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 3</span><strong>Identitas cosinus</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $\lim_{x\to0}\dfrac{1-\cos2x}{x^2}$.</p>
+            <ol class="steps">
+              <li>Gunakan $1-\cos u=2\sin^2\frac u2$, sehingga $1-\cos2x=2\sin^2x$.</li>
+              <li>Bentuknya menjadi $2\left(\frac{\sin x}{x}\right)^2$.</li>
+              <li>Karena $\frac{\sin x}{x}\to1$, hasilnya $2\cdot1^2=2$.</li>
+            </ol>
+            <span class="answer">$2$</span>
+          </div>
+        </div>
+
+        <div class="callout callout--gold" data-label="radian">
+          <p>Rumus $\lim_{x\to0}\frac{\sin x}{x}=1$ hanya berlaku jika $x$ diukur dalam radian. Jika memakai derajat, akan muncul faktor $\frac{\pi}{180}$.</p>
+        </div>
+      </section>
+
+      <section id="tak-hingga" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">05</span>
+          <div>
+            <h2>Tak hingga &amp; asimtot</h2>
+            <p class="sec-sub">Dua gagasan berbeda: $x$ yang membesar tanpa batas, dan nilai fungsi yang membesar tanpa batas.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="def-card">
+            <span class="def-label">limit di titik tak hingga</span>
+            <p>$\displaystyle\lim_{x\to\infty}f(x)$</p>
+            <p>Membaca nilai $f(x)$ ketika $x$ membesar tanpa batas. Hasilnya bisa bilangan real, $+\infty$, atau $-\infty$.</p>
+          </div>
+          <div class="def-card">
+            <span class="def-label">limit tak berhingga</span>
+            <p>$\displaystyle\lim_{x\to c}f(x)=\pm\infty$</p>
+            <p>Membaca nilai $f(x)$ yang membesar/mengecil tanpa batas ketika $x$ mendekati $c$. Sering memunculkan asimtot tegak.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <p class="formula-title">aturan pangkat tertinggi Â· $x\to\infty$</p>
+          <p>Pangkat pembilang &lt; penyebut â†’ limit $0$.</p>
+          <p>Pangkat pembilang = penyebut â†’ perbandingan koefisien pangkat tertinggi.</p>
+          <p>Pangkat pembilang &gt; penyebut â†’ menuju $\pm\infty$ (tergantung tanda).</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 1</span><strong>Pangkat sama</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $\lim_{x\to\infty}\dfrac{3x^2+4x-1}{2x^2-5x+3}$.</p>
+            <ol class="steps">
+              <li>Bagi pembilang dan penyebut dengan $x^2$.</li>
+              <li>$\frac{3+4/x-1/x^2}{2-5/x+3/x^2}$.</li>
+              <li>Saat $x\to\infty$, semua suku berpenyebut $x$ menuju 0.</li>
+              <li>Hasilnya $\frac32$.</li>
+            </ol>
+            <span class="answer">$\frac32$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 2</span><strong>Asimtot tegak</strong></div>
+          <div class="example-body">
+            <p class="example-q">Untuk $f(x)=\dfrac{1}{x-2}$, tentukan limit kiri dan kanan di $x=2$, lalu asimtot tegaknya.</p>
+            <ol class="steps">
+              <li>Dari kiri, $x-2$ negatif dan mendekati 0: $\lim_{x\to2^-}\frac{1}{x-2}=-\infty$.</li>
+              <li>Dari kanan, $x-2$ positif dan mendekati 0: $\lim_{x\to2^+}\frac{1}{x-2}=+\infty$.</li>
+              <li>Karena limitnya tak berhingga di sekitar $x=2$, garis $x=2$ adalah asimtot tegak.</li>
+            </ol>
+            <span class="answer">$-\infty$ dan $+\infty$ Â· asimtot $x=2$</span>
+          </div>
+        </div>
+
+        <figure class="figure-card">
+          <svg viewBox="0 0 560 310" role="img" aria-labelledby="asymTitle asymDesc">
+            <title id="asymTitle">Grafik y = 1/(x-2) dan asimtot tegak x = 2</title>
+            <desc id="asymDesc">Hiperbola dengan asimtot tegak di x sama dengan 2 dan asimtot datar y sama dengan 0.</desc>
+            <rect width="560" height="310" fill="#fffdf7"/>
+            <g stroke="#3c5f8c" stroke-width=".7" opacity=".18">
+              <path d="M50 50h480M50 100h480M50 150h480M50 200h480M50 250h480"/>
+              <path d="M100 20v270M150 20v270M200 20v270M250 20v270M300 20v270M350 20v270M400 20v270M450 20v270M500 20v270"/>
+            </g>
+            <path d="M50 155h480M300 20v270" stroke="#2f3330" stroke-width="1.4"/>
+            <path d="M530 155l-8-3v6ZM300 20l-3 8h6Z" fill="#2f3330"/>
+            <text x="536" y="159" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#62685f">x</text>
+            <text x="306" y="18" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#62685f">y</text>
+            <path d="M300 20v270" stroke="#a95741" stroke-width="1.4" stroke-dasharray="5 4"/>
+            <text x="310" y="282" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#a95741">x = 2</text>
+            <path d="M50 155h480" stroke="#68774f" stroke-width="1.2" stroke-dasharray="5 4" opacity=".8"/>
+            <path d="M312 54C360 90 390 130 440 148M288 256C240 220 210 180 160 162" fill="none" stroke="#3c5f8c" stroke-width="2.6"/>
+            <text x="445" y="140" font-family="'Fraunces',serif" font-size="13" font-style="italic" fill="#3c5f8c">x â†’ 2âº</text>
+            <text x="115" y="186" font-family="'Fraunces',serif" font-size="13" font-style="italic" fill="#3c5f8c">x â†’ 2â»</text>
+            <text x="52" y="292" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">nilai meledak di sekitar asimtot; limit dua arah tidak ada</text>
+          </svg>
+          <figcaption>Asimtot tegak $x=2$ muncul karena penyebut menuju nol, tetapi nilai fungsinya tidak menuju satu bilangan real.</figcaption>
+        </figure>
+
+        <div class="callout callout--warn" data-label="bedakan">
+          <p>Penyebut nol belum tentu asimtot. Pada $\frac{x^2-1}{x-1}$, penyebut nol di $x=1$, tetapi setelah disederhanakan bentuknya $x+1$ dan limitnya 2. Yang muncul adalah lubang, bukan asimtot.</p>
+        </div>
+      </section>
+
+      <section id="kontinuitas" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">06</span>
+          <div>
+            <h2>Kontinuitas</h2>
+            <p class="sec-sub">Grafik yang bisa digambar tanpa mengangkat pensilâ€”dengan syarat yang bisa diperiksa.</p>
+          </div>
+        </div>
+
+        <p>Fungsi $f$ kontinu di $x=c$ jika tiga hal berikut terpenuhi:</p>
+        <ol>
+          <li>$f(c)$ terdefinisi.</li>
+          <li>$\lim_{x\to c}f(x)$ ada.</li>
+          <li>$\lim_{x\to c}f(x)=f(c)$.</li>
+        </ol>
+
+        <div class="formula-card formula-card--green">
+          <p class="formula-title">tiga syarat</p>
+          <p class="formula-lead">$f(c)$ ada &nbsp;âˆ§&nbsp; $\lim_{x\to c}f(x)$ ada &nbsp;âˆ§&nbsp; $\lim_{x\to c}f(x)=f(c)$</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 1</span><strong>Kontinu</strong></div>
+          <div class="example-body">
+            <p class="example-q">Periksa kontinuitas $f(x)=x+2$ di $x=1$.</p>
+            <ol class="steps">
+              <li>$f(1)=1+2=3$â€”nilai fungsi ada.</li>
+              <li>$\lim_{x\to1}(x+2)=3$â€”limit ada.</li>
+              <li>Limit sama dengan nilai fungsi, jadi ketiga syarat terpenuhi.</li>
+            </ol>
+            <span class="answer">kontinu di $x=1$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 2</span><strong>Lubang yang bisa ditambal</strong></div>
+          <div class="example-body">
+            <p class="example-q">Periksa kontinuitas $f(x)=\dfrac{x^2-1}{x-1}$ di $x=1$.</p>
+            <ol class="steps">
+              <li>$f(1)=\frac{1-1}{1-1}=\frac00$, sehingga $f(1)$ tidak terdefinisi.</li>
+              <li>Namun untuk $x\neq1$, $\frac{(x-1)(x+1)}{x-1}=x+1$, sehingga limitnya 2.</li>
+              <li>Syarat pertama gagal. Fungsi tidak kontinu di $x=1$, tetapi ketidakkontinuan ini bisa dihilangkan dengan mendefinisikan $f(1)=2$.</li>
+            </ol>
+            <span class="answer">tidak kontinu Â· lubang dapat dihilangkan</span>
+          </div>
+        </div>
+
+        <h3>Tiga jenis ketidakkontinuan</h3>
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>Jenis</th><th>Ciri</th><th>Contoh</th></tr></thead>
+            <tbody>
+              <tr><td>Lubang (removable)</td><td>Limit ada, tetapi nilai fungsi tidak ada atau berbeda</td><td>$\frac{x^2-1}{x-1}$ di $x=1$</td></tr>
+              <tr><td>Loncat (jump)</td><td>Limit kiri dan kanan ada, tetapi berbeda</td><td>fungsi potongan di titik sambungan</td></tr>
+              <tr><td>Tak berhingga</td><td>Nilai fungsi menuju $\pm\infty$</td><td>$\frac1{x^2}$ di $x=0$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--info" data-label="jembatan ke turunan">
+          <p>Kontinuitas adalah syarat minimum agar grafik â€œmasuk akalâ€ di sekitar titik. Turunan nanti menuntut syarat yang lebih kuat lagi: grafiknya harus mulus, bukan hanya tersambung.</p>
+        </div>
+      </section>
+
+      <section id="latihan" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">07</span>
+          <div>
+            <h2>Latihan</h2>
+            <p class="sec-sub">Tujuh soal campuranâ€”substitusi, $0/0$, trigonometri, tak hingga, dan kontinuitas.</p>
+          </div>
+        </div>
+
+        <div class="practice">
+          <div class="practice-head">
+            <div><h3>Limit campuran</h3><p>tutup pembahasan dulu, kerjakan sendiri</p></div>
+            <button class="solutions-toggle" type="button" data-toggle-solutions aria-expanded="false">Buka semua</button>
+          </div>
+          <ol>
+            <li>
+              <p class="q-line">Hitung $\lim_{x\to2}(x^2+3x)$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body"><p>Substitusi langsung: $2^2+3(2)=4+6=10$.</p></div></details>
+            </li>
+            <li>
+              <p class="q-line">Hitung $\lim_{x\to3}\dfrac{x^2-9}{x-3}$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body"><p>Substitusi memberi $0/0$. Faktorkan: $x^2-9=(x-3)(x+3)$, lalu coret $x-3$ untuk $x\neq3$. Limitnya $\lim_{x\to3}(x+3)=6$.</p></div></details>
+            </li>
+            <li>
+              <p class="q-line">Diberikan $f(x)=\begin{cases}x+2,&x&lt;1\\2x+1,&x\ge1\end{cases}$. Tentukan $\lim_{x\to1}f(x)$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body"><p>Limit kiri $=1+2=3$; limit kanan $=2(1)+1=3$. Keduanya sama, jadi limitnya 3.</p></div></details>
+            </li>
+            <li>
+              <p class="q-line">Hitung $\lim_{x\to0}\dfrac{\sin5x}{3x}$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body"><p>$\frac{\sin5x}{3x}=\frac{5}{3}\cdot\frac{\sin5x}{5x}\to\frac53\cdot1=\frac53$.</p></div></details>
+            </li>
+            <li>
+              <p class="q-line">Hitung $\lim_{x\to\infty}\dfrac{4x^2-3x+5}{2x^2+7x-1}$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body"><p>Pangkat tertinggi pembilang dan penyebut sama, yaitu 2. Bandingkan koefisiennya: $\frac42=2$.</p></div></details>
+            </li>
+            <li>
+              <p class="q-line">Untuk $f(x)=\dfrac{3}{x-4}$, tentukan limit kiri dan kanan di $x=4$, lalu asimtot tegaknya.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body"><p>Dari kiri, $x-4$ negatif mendekati nol: $\lim_{x\to4^-}f(x)=-\infty$. Dari kanan, $x-4$ positif mendekati nol: $\lim_{x\to4^+}f(x)=+\infty$. Asimtot tegaknya $x=4$.</p></div></details>
+            </li>
+            <li>
+              <p class="q-line">Diberikan $f(x)=\begin{cases}x^2+1,&x\neq2\\7,&x=2\end{cases}$. Periksa kontinuitas di $x=2$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body"><p>$f(2)=7$. Limitnya $\lim_{x\to2}(x^2+1)=4+1=5$. Limit ada, tetapi tidak sama dengan $f(2)$, jadi $f$ tidak kontinu di $x=2$. Ketidakkontinuan ini bisa dihilangkan dengan mengubah definisi menjadi $f(2)=5$.</p></div></details>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="rangkuman" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">08</span>
+          <div>
+            <h2>Rangkuman</h2>
+            <p class="sec-sub">Bekal terakhir sebelum arsip UTS.</p>
+          </div>
+        </div>
+        <ul>
+          <li>Limit membaca nilai yang didekati, bukan nilai fungsi di titik itu.</li>
+          <li>Limit dua arah ada jika limit kiri dan kanan sama.</li>
+          <li>Substitusi langsung adalah langkah pertama; $0/0$ berarti perlu faktor, sekawan, atau identitas.</li>
+          <li>Limit trigonometri dasar memakai radian dan bentuk $\frac{\sin u}{u}\to1$.</li>
+          <li>Limit di tak hingga memakai pangkat tertinggi; limit tak berhingga dapat memunculkan asimtot tegak.</li>
+          <li>Kontinu memerlukan $f(c)$ ada, limit ada, dan keduanya sama.</li>
+        </ul>
+        <div class="callout callout--ok" data-label="selanjutnya">
+          <p>Setelah ini, buka <a href="uts-2025.html">arsip UTS 2025</a> dan coba kerjakan empat soalnya tanpa melihat pembahasan. Modul ini sudah memberi semua alat yang dibutuhkan.</p>
+        </div>
+      </section>
+
+      <div class="end-nav">
+        <a href="materi-3.html"><span>â† materi 03</span><strong>Fungsi &amp; Bilangan Khusus</strong></a>
+        <a class="next" href="uts-2025.html"><span>selanjutnya Â· arsip</span><strong>UTS Gasal 2025/2026 â†’</strong></a>
+      </div>
+
+      <p class="source-note">Sumber materi: <a href="assets/pdf/materi-4-limit.pdf" target="_blank" rel="noopener">Week 4 â€” Limit (PDF)</a>. Contoh tambahan disusun untuk menjembatani materi dengan arsip UTS.</p>
+    </article>
+  </div>
+
+  <footer class="site-foot">
+    <span>Modul 04 Â· Limit</span>
+    <span class="mono">batas &amp; bentuk Â· kalkulus reguler</span>
+  </footer>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script src="modul.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materi 1 â€” Bilangan &amp; Representasi | Modul Kalkulus</title>
+<meta name="description" content="Modul bilangan dan representasi: beda bilangan dan angka, peta himpunan Nâ€“Zâ€“Qâ€“Râ€“C, sifat bilangan, garis bilangan, bidang koordinat, operasi, dan akar.">
+<meta name="theme-color" content="#f6f1e6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100;1,9..144,300..900,100&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modul.css">
+<link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body class="doc-page">
+<div id="readProgress" class="read-progress" aria-hidden="true"><span></span></div>
+<main class="shell doc-shell">
+
+  <header class="site-head">
+    <a class="brand" href="index.html" aria-label="Batas dan Bentuk, kembali ke beranda">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40">
+          <rect width="40" height="40" rx="8" fill="#fffdf7"/>
+          <path d="M7 20h26M20 33V7" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 9l6 16 6-16" fill="none" stroke="#3c5f8c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="17" cy="25" r="2.2" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <span class="brand-word">batas<span>.</span></span>
+    </a>
+    <div class="head-meta">
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Latihan</a>
+        <a href="modul.html" aria-current="page">Modul</a>
+        <a class="nav-uts" href="uts-2025.html">UTS 2025</a>
+      </nav>
+      <span class="stamp-badge">Materi 1 / 4</span>
+    </div>
+  </header>
+
+  <section class="module-hero" style="--chapter-ink:#7a5a24;--chapter-soft:#f6eedb;--chapter-accent:#a67c3f">
+    <div class="module-hero-copy">
+      <div class="eyebrow-row">
+        <span class="chapter-pill">Materi 01 Â· Bilangan</span>
+        <span class="eyebrow-note">Week 1 Â· fondasi</span>
+      </div>
+      <h1>Bilangan itu konsep,<br><em>angka</em> itu simbol.</h1>
+      <p class="lede">Sebelum masuk ke fungsi dan limit, kita rapikan dulu bahan bakunya. Dari â€œapa bedanya bilangan dan angkaâ€ sampai membaca posisi di garis bilangan dan bidang koordinat.</p>
+      <div class="module-meta">
+        <span class="meta-chip"><b>7</b> bagian</span>
+        <span class="meta-chip">Â± <b>12</b> menit</span>
+        <span class="meta-chip"><b>4</b> latihan</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#bilangan-angka">Mulai membaca
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="modul.html">Kembali ke indeks</a>
+      </div>
+    </div>
+
+    <aside class="hero-summary" aria-label="Ringkasan materi 1">
+      <div class="summary-paper">
+        <div class="summary-label"><span>peta singkat</span><span>01 / 04</span></div>
+        <div class="summary-big summary-big--sm">$\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$</div>
+        <p class="summary-caption">Setiap bilangan asli adalah bilangan bulat; setiap bilangan bulat adalah rasional; setiap rasional adalah real.</p>
+        <div class="summary-rule"></div>
+        <ul class="summary-list">
+          <li>Bilangan = konsep, angka = lambang</li>
+          <li>Himpunan tersusun berlapis</li>
+          <li>Titik, garis, dan bidang adalah representasi</li>
+        </ul>
+        <span class="summary-stamp">week 1 Â· bilangan</span>
+      </div>
+    </aside>
+  </section>
+
+  <div class="doc-layout">
+    <aside class="doc-toc" aria-label="Daftar isi materi 1">
+      <div class="toc-box">
+        <div class="toc-head"><strong>Daftar isi</strong><span>01</span></div>
+        <ol class="toc-list">
+          <li><a href="#bilangan-angka"><span class="toc-no">01</span>Bilangan vs angka</a></li>
+          <li><a href="#himpunan"><span class="toc-no">02</span>Peta himpunan bilangan</a></li>
+          <li><a href="#sifat"><span class="toc-no">03</span>Sifat yang sering tertukar</a></li>
+          <li><a href="#representasi"><span class="toc-no">04</span>Representasi bilangan</a></li>
+          <li><a href="#operasi"><span class="toc-no">05</span>Operasi &amp; akar</a></li>
+          <li><a href="#latihan"><span class="toc-no">06</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">07</span>Rangkuman</a></li>
+        </ol>
+        <div class="toc-foot">Buka latihan setelah membaca. Pembahasan ada di balik tombol, jadi kamu bisa mencoba dulu.</div>
+      </div>
+    </aside>
+
+    <article class="lesson">
+      <details class="toc-mobile">
+        <summary>Daftar isi materi 01</summary>
+        <ol class="toc-list">
+          <li><a href="#bilangan-angka"><span class="toc-no">01</span>Bilangan vs angka</a></li>
+          <li><a href="#himpunan"><span class="toc-no">02</span>Peta himpunan bilangan</a></li>
+          <li><a href="#sifat"><span class="toc-no">03</span>Sifat yang sering tertukar</a></li>
+          <li><a href="#representasi"><span class="toc-no">04</span>Representasi bilangan</a></li>
+          <li><a href="#operasi"><span class="toc-no">05</span>Operasi &amp; akar</a></li>
+          <li><a href="#latihan"><span class="toc-no">06</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">07</span>Rangkuman</a></li>
+        </ol>
+      </details>
+
+      <div class="lesson-intro">
+        <span class="lesson-intro-mark" aria-hidden="true">âˆ«</span>
+        <p><strong>Yang perlu dibawa dari halaman ini:</strong> kamu bisa menempatkan sebuah bilangan di himpunan yang tepat, membedakan representasi dari bilangan itu sendiri, dan tidak panik saat melihat akar atau urutan operasi yang panjang.</p>
+      </div>
+
+      <section id="bilangan-angka" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">01</span>
+          <div>
+            <h2>Bilangan vs angka</h2>
+            <p class="sec-sub">Dua kata yang sehari-hari dipakai bergantian, padahal perannya berbeda.</p>
+          </div>
+        </div>
+
+        <p><strong>Bilangan</strong> adalah konsep matematika untuk menyatakan pencacahan, pengukuran, dan nilai atau posisi suatu objek. <strong>Angka</strong> adalah simbol yang dipakai untuk menuliskan bilangan itu. Jadi â€œlimaâ€ adalah bilangan; â€œ5â€, â€œVâ€, atau â€œÙ¥â€ adalah cara menuliskannya.</p>
+
+        <div class="two-col">
+          <div class="def-card">
+            <span class="def-label">bilangan</span>
+            <p><strong>Konsep abstrak.</strong> Ia menjawab â€œberapa banyak?â€, â€œseberapa panjang?â€, atau â€œdi posisi mana?â€.</p>
+            <p>Contoh: banyak buku di meja, suhu udara, panjang kabel.</p>
+          </div>
+          <div class="def-card">
+            <span class="def-label">angka</span>
+            <p><strong>Lambang tertulis.</strong> Ia adalah representasi dari bilangan, bukan bilangan itu sendiri.</p>
+            <p>Contoh: $5$, $\mathrm{V}$, $Ù¥$, atau $101_2$ bisa sama-sama mewakili lima.</p>
+          </div>
+        </div>
+
+        <p>Dalam kehidupan sehari-hari, bilangan muncul dalam tiga peran yang sering bercampur:</p>
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead>
+              <tr><th>Peran</th><th>Contoh</th><th>Yang dibaca</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pencacahan</td><td>5 buku</td><td>jumlah benda</td></tr>
+              <tr><td>Pengukuran</td><td>2 meter</td><td>ukuran panjang</td></tr>
+              <tr><td>Nilai / posisi</td><td>$-3^\circ\mathrm{C}$</td><td>nilai suhu terhadap titik acuan</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--info" data-label="inti konsep">
+          <p>Bilangan adalah <strong>apa</strong> yang ingin kita nyatakan; angka adalah <strong>bagaimana</strong> kita menuliskannya. Satu bilangan bisa punya banyak angka; satu angka bisa dipakai untuk banyak bilangan.</p>
+        </div>
+
+        <p>Kalkulus nanti bekerja dengan bilangan real, tetapi representasinya tetap penting: grafik fungsi, garis bilangan untuk pertidaksamaan, dan bidang koordinat untuk membaca limit. Semuanya berawal dari kemampuan menempatkan bilangan di tempat yang benar.</p>
+      </section>
+
+      <section id="himpunan" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">02</span>
+          <div>
+            <h2>Peta himpunan bilangan</h2>
+            <p class="sec-sub">Bukan daftar hafalan: himpunan-himpunan ini bersarang, dari yang paling kecil ke yang paling luas.</p>
+          </div>
+        </div>
+
+        <p>Bayangkan beberapa kotak yang dimasukkan satu ke dalam yang lain. Bilangan asli ada di dalam bilangan cacah, bilangan cacah ada di dalam bilangan bulat, dan seterusnya. Setiap kali kotak melebar, aturannya makin longgar.</p>
+
+        <figure class="figure-card">
+          <svg viewBox="0 0 560 330" role="img" aria-labelledby="setTitle setDesc">
+            <title id="setTitle">Diagram bersarang himpunan bilangan</title>
+            <desc id="setDesc">Bilangan kompleks memuat bilangan real, yang memuat bilangan rasional, bilangan bulat, dan bilangan asli. Bilangan irasional berada di dalam real tetapi di luar rasional; bilangan imajiner berada di dalam kompleks tetapi di luar real.</desc>
+            <rect width="560" height="330" fill="#fffdf7"/>
+            <rect x="17" y="17" width="526" height="296" rx="20" fill="#f2e9ef" stroke="#2f3330" stroke-width="1.8"/>
+            <text x="33" y="40" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#7b5d75">â„‚ kompleks</text>
+            <rect x="48" y="53" width="464" height="235" rx="17" fill="#e8eef5" stroke="#2f3330" stroke-width="1.8"/>
+            <text x="64" y="76" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#3c5f8c">â„ real</text>
+            <rect x="84" y="88" width="392" height="173" rx="14" fill="#eef1e3" stroke="#2f3330" stroke-width="1.8"/>
+            <text x="100" y="111" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#5c6845">â„š rasional</text>
+            <rect x="124" y="120" width="312" height="113" rx="12" fill="#f5e7bd" stroke="#2f3330" stroke-width="1.8"/>
+            <text x="140" y="143" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#7a5a24">â„¤ bulat</text>
+            <rect x="166" y="151" width="228" height="49" rx="9" fill="#f6e7df" stroke="#2f3330" stroke-width="1.8"/>
+            <text x="280" y="172" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#a83f28">â„• asli</text>
+            <text x="280" y="188" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#a83f28">{1, 2, 3, â€¦}</text>
+
+            <text x="392" y="112" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#5c6845">0, negatif â†’ â„¤</text>
+            <text x="392" y="145" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7a5a24">pecahan â†’ â„š</text>
+            <text x="452" y="78" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#3c5f8c">âˆš2, Ï€, e â†’ â„âˆ–â„š</text>
+            <text x="418" y="40" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7b5d75">i, 2 + 3i â†’ â„‚âˆ–â„</text>
+
+            <path d="M476 235c25 0 35 16 35 32" fill="none" stroke="#7d8379" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="17" y="326" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#7d8379">setiap lapisan memuat semua lapisan di dalamnya</text>
+          </svg>
+          <figcaption>Diagram bersarang: N âŠ‚ W âŠ‚ Z âŠ‚ Q âŠ‚ R âŠ‚ C. Bilangan irasional dan imajiner menempati â€œsisaâ€ di dalam lapisan yang lebih luas.</figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead>
+              <tr><th>Himpunan</th><th>Notasi</th><th>Anggota / contoh</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Asli</td><td class="num">$\mathbb{N}=\{1,2,3,\dots\}$</td><td>1, 7, 2026</td></tr>
+              <tr><td>Cacah</td><td class="num">$\mathbb{W}=\{0,1,2,\dots\}$</td><td>0, 1, 2, 3</td></tr>
+              <tr><td>Bulat</td><td class="num">$\mathbb{Z}=\{\dots,-2,-1,0,1,2,\dots\}$</td><td>âˆ’4, 0, 13</td></tr>
+              <tr><td>Rasional</td><td class="num">$\mathbb{Q}=\left\{\frac{a}{b}\mid a,b\in\mathbb{Z},\ b\neq0\right\}$</td><td>$\frac{1}{2}$, 0,75, 0,333â€¦</td></tr>
+              <tr><td>Irasional</td><td class="num">$\mathbb{R}\setminus\mathbb{Q}$</td><td>$\sqrt{2}$, $\pi$, $e$</td></tr>
+              <tr><td>Real</td><td class="num">$\mathbb{R}$</td><td>semua bilangan di garis bilangan</td></tr>
+              <tr><td>Kompleks</td><td class="num">$\mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\}$</td><td>$3+2i$, $-4i$, $i=\sqrt{-1}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--warn" data-label="hati-hati">
+          <p><strong>Bilangan real bukan hanya bilangan rasional.</strong> $\sqrt{2}$ dan $\pi$ tidak bisa ditulis sebagai pecahan bulat, tetapi tetap punya tempat di garis bilangan. Desimalnya tidak berhenti dan tidak berulang.</p>
+        </div>
+
+        <h3>Cara cepat mengklasifikasikan</h3>
+        <ol>
+          <li>Cek apakah bilangan itu bulat. Kalau ya, ia otomatis rasional dan real.</li>
+          <li>Kalau bukan bulat, cek apakah bisa ditulis sebagai $\frac{a}{b}$ dengan $a,b$ bulat. Contoh: $0{,}75=\frac{3}{4}$ dan $0{,}333\ldots=\frac{1}{3}$.</li>
+          <li>Kalau tidak bisa, ia irasionalâ€”selama masih di garis bilangan. Contoh: $\sqrt{2}$, $\pi$, $e$.</li>
+          <li>Kalau melibatkan $\sqrt{-1}$, ia masuk ke bilangan kompleks, bukan real.</li>
+        </ol>
+      </section>
+
+      <section id="sifat" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">03</span>
+          <div>
+            <h2>Sifat yang sering tertukar</h2>
+            <p class="sec-sub">Tiga kasus kecil yang sering muncul di soal pilihan ganda.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="mini-card">
+            <h3>0 bukan prima, bukan komposit</h3>
+            <p>Bilangan prima punya tepat dua faktor positif: 1 dan dirinya sendiri. Nol punya tak hingga faktor dan tidak memenuhi definisi; satu hanya punya satu faktor.</p>
+          </div>
+          <div class="mini-card">
+            <h3>1 bukan prima</h3>
+            <p>1 hanya punya satu faktor positif, yaitu 1. Karena itu 1 tidak termasuk prima maupun komposit.</p>
+          </div>
+        </div>
+
+        <div class="callout callout--gold" data-label="fakta cepat">
+          <p>2 adalah satu-satunya bilangan prima genap. Semua bilangan prima lain ganjil. Bilangan komposit punya lebih dari dua faktor positif, misalnya $4=1\cdot4=2\cdot2$.</p>
+        </div>
+
+        <h3>Rasional atau irasional?</h3>
+        <p>Kuncinya bukan â€œada akar atau tidakâ€, tetapi â€œbisa ditulis sebagai pecahan bulat atau tidakâ€. $\sqrt{9}$ terlihat seperti akar, tetapi nilainya 3â€”jadi rasional. Sebaliknya, $\pi$ tidak punya bentuk pecahan bulat yang tepat.</p>
+        <div class="formula-card formula-card--green">
+          <p class="formula-title">contoh cepat</p>
+          <p>$\frac{1}{2}$ rasional Â· $0{,}75=\frac{3}{4}$ rasional Â· $0{,}333\ldots=\frac{1}{3}$ rasional</p>
+          <p>$\sqrt{3}$ irasional Â· $\pi$ irasional Â· $\sqrt{9}=3$ rasional</p>
+        </div>
+      </section>
+
+      <section id="representasi" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">04</span>
+          <div>
+            <h2>Representasi bilangan</h2>
+            <p class="sec-sub">Bilangan yang sama bisa muncul sebagai titik, posisi di garis, atau daerah di bidang.</p>
+          </div>
+        </div>
+
+        <p>Representasi dipakai untuk menunjukkan <strong>posisi</strong>, <strong>hubungan antar nilai</strong>, dan <strong>daerah</strong> yang memenuhi suatu kondisi. Inilah jembatan dari bilangan ke fungsi, limit, turunan, dan integral.</p>
+
+        <div class="tag-row">
+          <span class="tag">bilangan</span><span class="tag">â†’ fungsi</span><span class="tag">â†’ limit</span><span class="tag">â†’ turunan</span><span class="tag">â†’ integral</span>
+        </div>
+
+        <div class="two-col">
+          <div class="def-card">
+            <span class="def-label">1 Â· titik</span>
+            <p>Pasangan koordinat $(x,y)$ menyatakan posisi pada bidang. Contoh: $(2,3)$ berarti 2 satuan ke kanan dan 3 satuan ke atas.</p>
+          </div>
+          <div class="def-card">
+            <span class="def-label">2 Â· garis bilangan</span>
+            <p>Setiap bilangan real dapat ditempatkan sebagai satu titik pada garis. Urutan kiriâ€“kanan menunjukkan nilai yang lebih kecil atau lebih besar.</p>
+          </div>
+        </div>
+
+        <div class="def-card">
+          <span class="def-label">3 Â· bidang</span>
+          <p>Pertidaksamaan seperti $x+y\ge3$ menghasilkan <em>daerah</em>, bukan satu titik. Gambar garis $x+y=3$ sebagai batas, lalu arsir sisi yang memenuhi.</p>
+        </div>
+
+        <figure class="figure-card">
+          <svg viewBox="0 0 560 300" role="img" aria-labelledby="repTitle repDesc">
+            <title id="repTitle">Tiga representasi bilangan</title>
+            <desc id="repDesc">Titik (2,3) pada bidang koordinat, titik-titik pada garis bilangan, dan daerah yang memenuhi x + y lebih besar atau sama dengan 3.</desc>
+            <rect width="560" height="300" fill="#fffdf7"/>
+
+            <g transform="translate(20 24)">
+              <text x="0" y="0" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#3c5f8c">TITIK</text>
+              <path d="M20 16v190M20 206h160" stroke="#2f3330" stroke-width="1.4"/>
+              <path d="M180 206l-7-3v6ZM20 16l-3 7h6Z" fill="#2f3330"/>
+              <g stroke="#3c5f8c" stroke-width=".7" opacity=".45">
+                <path d="M50 206v-20M80 206v-20M110 206v-20M140 206v-20M170 206v-20"/>
+                <path d="M20 176h20M20 146h20M20 116h20M20 86h20M20 56h20"/>
+              </g>
+              <text x="20" y="222" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#62685f">0</text>
+              <text x="80" y="222" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#62685f">1</text>
+              <text x="140" y="222" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#62685f">2</text>
+              <text x="175" y="222" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#62685f">x</text>
+              <path d="M140 206V116M140 116H20" stroke="#a95741" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <circle cx="140" cy="116" r="4.5" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+              <text x="140" y="106" text-anchor="middle" font-family="'Fraunces',serif" font-size="13" font-style="italic" fill="#2f3330">(2, 3)</text>
+              <text x="39" y="236" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#7d8379">2 satuan kanan, 3 satuan atas</text>
+            </g>
+
+            <g transform="translate(198 24)">
+              <text x="0" y="0" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#68774f">GARIS BILANGAN</text>
+              <path d="M8 106h150" stroke="#2f3330" stroke-width="1.4"/>
+              <path d="M158 106l-7-3v6ZM8 106l7-3v6Z" fill="#2f3330"/>
+              <g fill="#a95741" stroke="#2f3330" stroke-width="1">
+                <circle cx="35" cy="106" r="4"/><circle cx="65" cy="106" r="4"/><circle cx="95" cy="106" r="4"/><circle cx="125" cy="106" r="4"/>
+              </g>
+              <g font-family="'Spline Sans Mono',monospace" font-size="7" fill="#62685f" text-anchor="middle">
+                <text x="35" y="122">âˆ’2</text><text x="65" y="122">âˆ’1</text><text x="95" y="122">0</text><text x="125" y="122">1</text><text x="150" y="122">2</text>
+              </g>
+              <text x="0" y="149" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#7d8379">urutan Â· jarak Â· pertidaksamaan</text>
+              <rect x="8" y="162" width="142" height="30" rx="4" fill="#eef1e3" stroke="#68774f" stroke-width="1"/>
+              <text x="18" y="181" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#5c6845">âˆ’2 &lt; 0 &lt; 1 &lt; 2</text>
+            </g>
+
+            <g transform="translate(372 24)">
+              <text x="0" y="0" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#7b5d75">BIDANG</text>
+              <path d="M18 16v170M18 186h154" stroke="#2f3330" stroke-width="1.4"/>
+              <path d="M172 186l-7-3v6ZM18 16l-3 7h6Z" fill="#2f3330"/>
+              <path d="M24 174L154 44" stroke="#7b5d75" stroke-width="1.6"/>
+              <path d="M24 174L154 44L154 174Z" fill="#7b5d75" fill-opacity=".12" stroke="none"/>
+              <path d="M154 44v130H24" fill="none" stroke="#7b5d75" stroke-width="1" stroke-dasharray="3 4"/>
+              <text x="110" y="32" font-family="'Fraunces',serif" font-size="12" font-style="italic" fill="#7b5d75">x + y â‰¥ 3</text>
+              <text x="128" y="200" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#62685f">x</text>
+              <text x="9" y="27" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#62685f">y</text>
+              <text x="92" y="151" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#6b5a78">daerah</text>
+              <text x="92" y="162" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#6b5a78">penyelesaian</text>
+            </g>
+            <text x="20" y="288" font-family="'Spline Sans Mono',monospace" font-size="7" fill="#7d8379">representasi berbeda, objek matematisnya tetap saling terhubung</text>
+          </svg>
+          <figcaption>Tiga cara membaca bilangan: sebagai titik, sebagai urutan pada garis, dan sebagai daerah yang memenuhi pertidaksamaan.</figcaption>
+        </figure>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh</span><strong>Membaca posisi titik</strong></div>
+          <div class="example-body">
+            <p class="example-q">Tentukan koordinat titik yang bergerak 3 satuan ke kanan dan 2 satuan ke atas dari titik asal.</p>
+            <ol class="steps">
+              <li>Mulai dari titik asal $(0,0)$.</li>
+              <li>Gerak horizontal ke kanan menambah nilai $x$: $0+3=3$.</li>
+              <li>Gerak vertikal ke atas menambah nilai $y$: $0+2=2$.</li>
+            </ol>
+            <span class="answer">$(x,y)=(3,2)$</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="operasi" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">05</span>
+          <div>
+            <h2>Operasi &amp; akar</h2>
+            <p class="sec-sub">Urutan operasi dan penyederhanaan bentuk akarâ€”dua keterampilan yang langsung dipakai di limit.</p>
+          </div>
+        </div>
+
+        <p>Kerjakan kurung lebih dulu, lalu pangkat atau akar, kemudian perkalian/pembagian dari kiri ke kanan, dan terakhir penjumlahan/pengurangan dari kiri ke kanan. Tanda negatif di depan kurung berlaku untuk <em>semua</em> suku di dalamnya.</p>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 1</span><strong>Urutan operasi</strong></div>
+          <div class="example-body">
+            <p class="example-q">Sederhanakan $5-3(2-6)+4$.</p>
+            <ol class="steps">
+              <li>Kerjakan kurung: $2-6=-4$.</li>
+              <li>Kalikan: $3(-4)=-12$, sehingga bentuknya menjadi $5-(-12)+4$.</li>
+              <li>Ubah pengurangan bilangan negatif menjadi penjumlahan: $5+12+4=21$.</li>
+            </ol>
+            <span class="answer">$21$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 2</span><strong>Menyederhanakan akar</strong></div>
+          <div class="example-body">
+            <p class="example-q">Sederhanakan $\sqrt{50}$ dan $(\sqrt5+\sqrt3)(\sqrt5-\sqrt3)$.</p>
+            <ol class="steps">
+              <li>Untuk $\sqrt{50}$, cari faktor kuadrat sempurna: $50=25\cdot2$.</li>
+              <li>$\sqrt{50}=\sqrt{25}\sqrt{2}=5\sqrt2$.</li>
+              <li>Untuk bentuk sekawan, gunakan $(a+b)(a-b)=a^2-b^2$ dengan $a=\sqrt5$, $b=\sqrt3$.</li>
+              <li>$(\sqrt5+\sqrt3)(\sqrt5-\sqrt3)=5-3=2$.</li>
+            </ol>
+            <span class="answer">$5\sqrt2$ dan $2$</span>
+          </div>
+        </div>
+
+        <div class="callout callout--info" data-label="bekal ke limit">
+          <p>Bentuk sekawan seperti $(\sqrt5+\sqrt3)(\sqrt5-\sqrt3)=2$ akan muncul lagi saat menyelesaikan limit bentuk $0/0$ yang melibatkan akar. Menyederhanakan lebih dulu sering menghindarkan kita dari pembagian oleh nol.</p>
+        </div>
+      </section>
+
+      <section id="latihan" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">06</span>
+          <div>
+            <h2>Latihan</h2>
+            <p class="sec-sub">Coba tanpa membuka pembahasan dulu. Empat soal ini mengikuti gaya latihan di slide Week 1.</p>
+          </div>
+        </div>
+
+        <div class="practice">
+          <div class="practice-head">
+            <div><h3>Empat soal, satu halaman</h3><p>klik â€œbuka semuaâ€ kalau sudah selesai</p></div>
+            <button class="solutions-toggle" type="button" data-toggle-solutions aria-expanded="false">Buka semua</button>
+          </div>
+          <ol>
+            <li>
+              <p class="q-line">Tentukan semua kategori yang sesuai untuk bilangan berikut: $7$, $-4$, $0$, $\frac35$, $\sqrt2$, $\pi$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$7$: asli, cacah, bulat, rasional, real.</p>
+                <p>$-4$: bulat, rasional, real (bukan asli/cacah).</p>
+                <p>$0$: cacah, bulat, rasional, real (bukan asli).</p>
+                <p>$\frac35$: rasional, real (bukan bulat).</p>
+                <p>$\sqrt2$ dan $\pi$: irasional, real (bukan rasional).</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Kelompokkan ke rasional atau irasional: $\frac12$, $0{,}75$, $\sqrt3$, $\pi$, $0{,}3333\ldots$, $\sqrt9$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>Rasional: $\frac12$, $0{,}75=\frac34$, $0{,}3333\ldots=\frac13$, dan $\sqrt9=3$.</p>
+                <p>Irasional: $\sqrt3$ dan $\pi$. Keduanya tidak dapat ditulis sebagai pecahan bulat.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Tentukan prima atau komposit: $2$, $9$, $13$, $15$, $21$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>Prima: $2$ dan $13$. Masing-masing punya tepat dua faktor positif.</p>
+                <p>Komposit: $9=3\cdot3$, $15=3\cdot5$, $21=3\cdot7$. Semuanya punya lebih dari dua faktor positif.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Sederhanakan: (a) $5-3(2-6)+4$; (b) $\sqrt{50}$; (c) $(\sqrt5+\sqrt3)(\sqrt5-\sqrt3)$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>(a) $5-3(-4)+4=5+12+4=21$.</p>
+                <p>(b) $\sqrt{50}=\sqrt{25\cdot2}=5\sqrt2$.</p>
+                <p>(c) Gunakan $(a+b)(a-b)=a^2-b^2$: $5-3=2$.</p>
+              </div></details>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="rangkuman" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">07</span>
+          <div>
+            <h2>Rangkuman</h2>
+            <p class="sec-sub">Empat kalimat untuk dibawa ke modul berikutnya.</p>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Bilangan</strong> adalah konsep; <strong>angka</strong> adalah simbol yang menuliskannya.</li>
+          <li>Himpunan bilangan bersarang: $\mathbb{N}\subset\mathbb{W}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C}$.</li>
+          <li>Garis bilangan menunjukkan urutan; bidang koordinat menunjukkan posisi dan daerah penyelesaian.</li>
+          <li>Urutan operasi dan bentuk sekawan akan berguna langsung saat menyelesaikan limit bentuk $0/0$.</li>
+        </ul>
+        <div class="callout callout--ok" data-label="cek diri">
+          <p>Bisa menjelaskan mengapa $\sqrt9$ rasional tetapi $\sqrt3$ irasional? Kalau belum, buka kembali bagian â€œSifat yang sering tertukarâ€ sebelum lanjut.</p>
+        </div>
+      </section>
+
+      <div class="end-nav">
+        <a href="modul.html"><span>â† sebelumnya</span><strong>Indeks modul</strong></a>
+        <a class="next" href="materi-2.html"><span>selanjutnya Â· materi 02</span><strong>Trigonometri â†’</strong></a>
+      </div>
+
+      <p class="source-note">Sumber materi: <a href="assets/pdf/materi-1-bilangan.pdf" target="_blank" rel="noopener">Week 1 â€” Bilangan dan Representasi Bilangan (PDF)</a>. Halaman ini adalah rangkuman ulang, bukan salinan slide.</p>
+    </article>
+  </div>
+
+  <footer class="site-foot">
+    <span>Modul 01 Â· Bilangan &amp; Representasi</span>
+    <span class="mono">batas &amp; bentuk Â· kalkulus reguler</span>
+  </footer>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script src="modul.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

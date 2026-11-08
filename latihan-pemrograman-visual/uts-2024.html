@@ -1,0 +1,2267 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soal &amp; Pembahasan Resmi UTS Pemrograman Visual 2024/2025 â€” UMS</title>
+<meta name="description" content="Halaman latihan dan pembahasan lengkap naskah asli UTS Gasal 2024/2025 Pemrograman Visual Informatika UMS. Dilengkapi simulator esai, kuis 10 kasus, visualizer diagram UML, dan kunci jawaban sempurna.">
+<meta name="theme-color" content="#f2b544">
+<meta name="author" content="voltakyy">
+<meta property="og:title" content="Soal &amp; Pembahasan Resmi UTS Pemrograman Visual 2024/2025 â€” UMS">
+<meta property="og:description" content="Pembahasan naskah asli UTS Pemrograman Visual 2024/2025 UMS: Diagram UML, Inheritance, Function vs Procedure, dan Simulator Ujian.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://voltakyy.github.io/latihan-pemrograman-visual/uts-2024.html">
+<meta property="og:image" content="https://voltakyy.github.io/latihan-pemrograman-visual/favicon.svg">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://voltakyy.github.io/latihan-pemrograman-visual/uts-2024.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* =========================================================
+   Gaya Khusus Halaman Latihan UTS 2024 (Studio Paper Neo-Brutalist)
+   ========================================================= */
+
+/* Navigasi Khusus Top Header */
+.exam-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: all .15s ease;
+}
+.nav-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+  background: var(--mustard-soft);
+}
+.nav-pill.active {
+  background: var(--mustard);
+  color: var(--ink);
+}
+
+/* Tabs Bar */
+.exam-tabs-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(246, 240, 228, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--ink);
+  margin-top: 18px;
+  padding: 10px 0;
+}
+.exam-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.exam-tabs::-webkit-scrollbar { display: none; }
+.tab-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--card);
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  white-space: nowrap;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  transition: all .15s ease;
+}
+.tab-trigger:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--ink);
+  color: var(--ink);
+}
+.tab-trigger.active {
+  background: var(--tomato);
+  color: #fffdf7;
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(1px, 1px);
+}
+.tab-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(36,34,31,.12);
+  color: inherit;
+}
+.tab-trigger.active .tab-badge {
+  background: rgba(255,255,255,.25);
+  color: #fff;
+}
+
+/* Tab Panes */
+.exam-pane {
+  display: none;
+  animation: fadeIn .2s ease-out;
+  padding-top: 24px;
+}
+.exam-pane.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Kartu Naskah Resmi */
+.official-header-card {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 26px clamp(18px, 4vw, 32px);
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.official-header-card::before {
+  content: "NASKAH UTS ASLI 2024/2025";
+  position: absolute;
+  top: 14px;
+  right: -32px;
+  background: var(--mustard);
+  border: 1.5px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 38px;
+  transform: rotate(18deg);
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  letter-spacing: .08em;
+}
+.univ-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+.univ-logo-box {
+  width: 58px;
+  height: 58px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--teal);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 20px;
+  box-shadow: 3px 3px 0 var(--ink);
+  flex-shrink: 0;
+}
+.univ-titles h1 {
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.univ-titles p {
+  margin: 2px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.exam-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+.meta-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+.meta-val {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+.guidance-box {
+  border-left: 4px solid var(--tomato);
+  background: var(--tomato-soft);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+.guidance-box strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: var(--tomato);
+}
+
+/* Kotak Soal & Pembahasan */
+.q-post {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 26px clamp(18px, 3.5vw, 32px);
+  margin-bottom: 26px;
+  position: relative;
+}
+.q-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 18px;
+}
+.q-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.badge-qno {
+  background: var(--ink);
+  color: #fffdf7;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 15px;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+.badge-score {
+  background: var(--mustard);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.badge-cpmk {
+  background: var(--teal-soft);
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+.q-statement {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+.q-statement-sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* Bagian Solusi & Pembahasan */
+.solution-card {
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 14px;
+  padding: 20px clamp(14px, 3vw, 24px);
+  margin-top: 18px;
+}
+.sol-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.sol-content h4 {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 750;
+  margin: 16px 0 8px;
+  color: var(--ink);
+}
+.sol-content p, .sol-content li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.sol-content ul, .sol-content ol {
+  margin: 8px 0 16px 20px;
+  padding: 0;
+}
+.sol-content code {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  background: var(--card);
+  border: 1px solid rgba(36,34,31,.25);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--tomato);
+}
+.code-window {
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  background: #1e1e24;
+  color: #f3ecdc;
+  margin: 14px 0 18px;
+  overflow: hidden;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.code-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: #2b2b34;
+  border-bottom: 1px solid #3c3c46;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #a4a4b2;
+}
+.code-dots {
+  display: flex;
+  gap: 5px;
+}
+.code-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #555;
+}
+.code-dots span:nth-child(1) { background: #ff5f56; }
+.code-dots span:nth-child(2) { background: #ffbd2e; }
+.code-dots span:nth-child(3) { background: #27c93f; }
+.code-window pre {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+/* Tabel Rubrik & Analisis */
+.rubrik-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 2px 2px 0 var(--ink);
+  overscroll-behavior-x: contain;
+}
+.rubrik-table-wrap .rubrik-table {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  min-width: 520px;
+}
+.rubrik-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--card);
+}
+.rubrik-table th {
+  background: var(--paper-deep);
+  border-bottom: 1.5px solid var(--ink);
+  padding: 8px 12px;
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.rubrik-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(36,34,31,.15);
+  vertical-align: top;
+}
+.rubrik-table tr:last-child td { border-bottom: none; }
+
+/* Interactive Simulator (Tab Latihan) */
+.essay-sim-card {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 24px clamp(16px, 3.5vw, 28px);
+  margin-bottom: 24px;
+}
+.sim-textarea {
+  width: 100%;
+  min-height: 110px;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: var(--font);
+  font-size: 14px;
+  background: #fff;
+  color: var(--ink);
+  resize: vertical;
+  margin: 10px 0 14px;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,.08);
+}
+.sim-textarea:focus {
+  outline: none;
+  border-color: var(--tomato);
+  box-shadow: 0 0 0 3px var(--tomato-soft);
+}
+.sim-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.score-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.score-slider-wrap input[type=range] {
+  cursor: pointer;
+  accent-color: var(--tomato);
+}
+.score-val-badge {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--tomato);
+  min-width: 48px;
+  text-align: right;
+}
+
+/* Score Sticky Summary Bar */
+.exam-score-bar {
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  background: var(--mustard);
+  box-shadow: 5px 5px 0 var(--ink);
+  padding: 16px 22px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.score-info h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.score-info p {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  font-family: var(--mono);
+}
+.score-tally-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.score-big-num {
+  font-family: var(--display);
+  font-size: 2.2rem;
+  font-weight: 850;
+  line-height: 1;
+}
+.grade-pill {
+  padding: 4px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Quiz Option Buttons */
+.mc-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 14px 0;
+}
+.mc-opt-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  background: var(--card);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: all .15s ease;
+}
+.mc-opt-btn:hover {
+  background: var(--mustard-soft);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.mc-opt-btn.correct {
+  background: var(--teal-soft) !important;
+  border-color: var(--teal) !important;
+  color: var(--teal) !important;
+  font-weight: 700;
+}
+.mc-opt-btn.wrong {
+  background: var(--tomato-soft) !important;
+  border-color: var(--tomato) !important;
+  color: var(--tomato) !important;
+  opacity: .85;
+}
+.mc-key {
+  font-family: var(--mono);
+  font-weight: 700;
+  background: var(--paper-deep);
+  border: 1px solid var(--ink);
+  padding: 2px 7px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+/* Diagram Container & Switcher */
+.diagram-stage {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 26px;
+}
+.diagram-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.diag-btn {
+  padding: 8px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  background: var(--paper);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: all .15s ease;
+}
+.diag-btn:hover {
+  background: var(--mustard-soft);
+}
+.diag-btn.active {
+  background: var(--mustard);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.diagram-canvas {
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+  text-align: center;
+}
+.diagram-canvas svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Breakpoints untuk Mencegah Horizontal Flow & Shift */
+@media (max-width: 640px) {
+  .site-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .exam-nav {
+    width: 100%;
+    gap: 8px;
+  }
+  .univ-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .exam-score-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .score-tally-box {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .sim-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .score-slider-wrap {
+    width: 100%;
+  }
+  .score-slider-wrap input[type=range] {
+    flex: 1;
+  }
+  .official-header-card {
+    padding: 20px 16px;
+  }
+  .official-header-card::before {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .nav-pill {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .tab-trigger {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .q-statement {
+    font-size: 1.1rem;
+  }
+}
+
+/* Print Sheet A4 Styles */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  body::before, .site-head, .exam-nav, .exam-tabs-wrap, .exam-score-bar, .sim-actions, .sim-textarea, .no-print, .btn {
+    display: none !important;
+  }
+  .shell {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .exam-pane {
+    display: none !important;
+  }
+  #pane-cheatsheet {
+    display: block !important;
+    padding: 0 !important;
+  }
+  .print-a4-paper {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+  .q-post, .official-header-card {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #666 !important;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--mustard);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.back-to-top:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+  background: #ffd269;
+}
+.back-to-top:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+</style>
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+<main class="shell" id="main-content">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="site-head">
+    <a class="brand" href="index.html" aria-label="Kembali ke Beranda Ruang Visual">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40">
+          <rect x="2" y="13" width="21" height="21" rx="6" fill="#2b8a79" stroke="#24221f" stroke-width="2.5"/>
+          <rect x="9" y="7" width="21" height="21" rx="6" fill="#f2b544" stroke="#24221f" stroke-width="2.5"/>
+          <rect x="16" y="1" width="21" height="21" rx="6" fill="#dd5a3a" stroke="#24221f" stroke-width="2.5"/>
+        </svg>
+      </span>
+      <span class="brand-text">ruang <em>visual</em></span>
+    </a>
+    
+    <div class="exam-nav">
+      <a href="index.html" class="nav-pill" title="Ke Bank Soal Pilihan Ganda 31 Soal">
+        <span>â†</span> Bank Soal 31
+      </a>
+      <a href="uts-2026.html" class="nav-pill" style="background:var(--teal); color:#fff;" title="Halaman Khusus Latihan UTS 2026">
+        <span>ðŸš€</span> Latihan UTS 2026
+      </a>
+      <a href="docs/uts-2024-pemrograman-visual.pdf" target="_blank" class="nav-pill" style="background:var(--mustard-soft);" title="Buka Naskah Asli PDF">
+        <span>ðŸ“„</span> Naskah PDF Asli
+      </a>
+      <span class="stamp-badge">UTS 2024 RESMI</span>
+    </div>
+  </header>
+
+  <!-- ================= HERO & INFO NASKAH ================= -->
+  <section class="official-header-card" style="margin-top:20px;">
+    <div class="univ-brand">
+      <div class="univ-logo-box">UMS</div>
+      <div class="univ-titles">
+        <h1>UNIVERSITAS MUHAMMADIYAH SURAKARTA</h1>
+        <p>FAKULTAS KOMUNIKASI DAN INFORMATIKA Â· PROGRAM STUDI INFORMATIKA</p>
+      </div>
+    </div>
+
+    <div class="exam-meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">Mata Uji</span>
+        <span class="meta-val">Pemrograman Visual</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Hari / Tanggal</span>
+        <span class="meta-val">Senin, 04 November 2024</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Waktu &amp; Sesi</span>
+        <span class="meta-val">90 Menit Â· Jam Ke-4 (Sesi 4)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Semester / Kelas</span>
+        <span class="meta-val">1 / ABCD</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Dosen Penguji</span>
+        <span class="meta-val">1. Maryam, S.Kom., M.Eng.<br>2. Widi Widayat, S.Kom., M.Eng.</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sifat Ujian &amp; Skor</span>
+        <span class="meta-val">Tertutup (Closed Book) Â· 100 Poin</span>
+      </div>
+    </div>
+
+    <div class="guidance-box">
+      <strong>Petunjuk Pengerjaan Resmi:</strong>
+      1. Mulailah dengan membaca Basmallah. Â· 2. Percaya pada kemampuan diri, bersikap jujur dan tidak perlu mencontek. Â· 3. Ujian bersifat tertutup. Â· 4. Segala bentuk kecurangan berakibat risiko nilai ujian kosong.
+    </div>
+  </section>
+
+  <!-- ================= TABS NAVIGATION ================= -->
+  <div class="exam-tabs-wrap">
+    <div class="exam-tabs" role="tablist">
+      <button class="tab-trigger active" onclick="switchExamTab('solusi', this)" role="tab" aria-selected="true">
+        <span>ðŸ“</span> Bedah 5 Soal &amp; Kunci Dosen <span class="tab-badge">100 Poin</span>
+      </button>
+      <button class="tab-trigger" onclick="switchExamTab('latihan', this)" role="tab" aria-selected="false">
+        <span>ðŸŽ¯</span> Arena Latihan &amp; Simulasi Esai <span class="tab-badge">Interaktif</span>
+      </button>
+      <button class="tab-trigger" onclick="switchExamTab('kuis', this)" role="tab" aria-selected="false">
+        <span>âš¡</span> Kuis Kasus UTS <span class="tab-badge">10 Soal</span>
+      </button>
+      <button class="tab-trigger" onclick="switchExamTab('diagram', this)" role="tab" aria-selected="false">
+        <span>ðŸ“</span> Visualizer Diagram UML &amp; Alice 3 <span class="tab-badge">Lab</span>
+      </button>
+      <button class="tab-trigger" onclick="switchExamTab('cheatsheet', this)" role="tab" aria-selected="false">
+        <span>ðŸ–¨ï¸</span> Catatan Ringkas A4 <span class="tab-badge">Siap Cetak</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= TAB 1: BEDAH 5 SOAL & KUNCI DOSEN ================= -->
+  <div id="pane-solusi" class="exam-pane active">
+
+    <!-- SOAL 1 -->
+    <article class="q-post">
+      <div class="q-post-header">
+        <div class="q-badge-group">
+          <span class="badge-qno">SOAL 01</span>
+          <span class="badge-score">Bobot: 20 Poin</span>
+          <span class="badge-cpmk">CPMK 1 (Analisis Algoritma)</span>
+        </div>
+      </div>
+
+      <h2 class="q-statement">"Apa itu Class? Dan apa itu Object?<br>Berikan penjelasan beserta dengan contohnya!"</h2>
+
+      <div class="solution-card">
+        <span class="sol-tag">Kunci Jawaban Sempurna (Sesuai Modul SPADA UMS P3 &amp; P4)</span>
+        <div class="sol-content">
+          <h4>1. Pengertian Class (Blueprint / Template)</h4>
+          <p>
+            Berdasarkan modul resmi SPADA UMS Pertemuan 3 &amp; 4: <strong>Class</strong> adalah sebuah <em>blueprint</em> (cetak biru) atau template yang mendefinisikan struktur data (<strong>property</strong>) dan perilaku (<strong>method</strong>) yang dimiliki oleh objek. Class belum memiliki wujud fisik di memori komputer sebelum objek di-instansiasi.
+          </p>
+          <p>
+            <em>Representasi di Alice 3:</em> Class terletak di bagian <strong>Gallery</strong> (contoh: Class <code>Robot</code>, Class <code>Bunny</code>, atau Class <code>Penguin</code>).
+          </p>
+          <p>
+            <em>Analogi:</em> Denah arsitektur rumah atau resep kue martabak. Denah tersebut memuat ukuran dan rancangan ruangan, tetapi belum bisa ditinggali karena belum berwujud fisik.
+          </p>
+
+          <h4>2. Pengertian Object (Instance)</h4>
+          <p>
+            <strong>Object</strong> adalah <em>instance</em> (wujud nyata) konkret yang diciptakan berdasarkan sebuah class (prinsip <em>One Class, Many Objects</em>). Ketika sebuah object dibuat (menggunakan operator <code>new</code> pada Java atau ditempatkan di <strong>Scene</strong> pada Alice 3), ruang memori komputer dialokasikan untuk menyimpan nilai-nilai property objek tersebut.
+          </p>
+          <p>
+            <em>Representasi di Alice 3:</em> Objek berada di dalam <strong>Scene</strong>. Dari 1 Class <code>Bunny</code> di Gallery, kita dapat membuat objek <code>bunny</code> dan <code>bunny2</code> di Scene dengan nilai posisi, orientasi, atau warna yang berbeda (<em>Same Class, Different Objects</em>).
+          </p>
+          <p>
+            <em>Analogi:</em> Rumah nyata yang sudah dibangun dari denah, atau kue martabak matang yang siap dimakan.
+          </p>
+
+          <h4>3. Contoh Riil dalam Kode</h4>
+          <div class="code-window">
+            <div class="code-bar">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Contoh OOP Java / Alice 3 Concept</span>
+            </div>
+            <pre><code>// 1. CLASS (Cetak Biru)
+class Mobil {
+    String merk;
+    String warna;
+    int kecepatan;
+
+    void maju() {
+        kecepatan += 10;
+        System.out.println(merk + " melaju cepat!");
+    }
+}
+
+// 2. OBJECT (Wujud Nyata di Memori)
+public class Main {
+    public static void main(String[] args) {
+        // Objek 1
+        Mobil mobilAvanza = new Mobil();
+        mobilAvanza.merk = "Toyota Avanza";
+        mobilAvanza.warna = "Hitam";
+        mobilAvanza.maju();
+
+        // Objek 2 (Dibuat dari Class yang sama, data berbeda)
+        Mobil mobilBrio = new Mobil();
+        mobilBrio.merk = "Honda Brio";
+        mobilBrio.warna = "Kuning";
+    }
+}</code></pre>
+          </div>
+
+          <div class="rubrik-table-wrap">
+<table class="rubrik-table">
+            <thead>
+              <tr>
+                <th>Aspek Penilaian</th>
+                <th>Poin Maks</th>
+                <th>Kriteria</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Definisi Class</td>
+                <td>6 Poin</td>
+                <td>Menyebut blueprint/cetak biru, mendefinisikan atribut &amp; method.</td>
+              </tr>
+              <tr>
+                <td>Definisi Object</td>
+                <td>6 Poin</td>
+                <td>Menyebut instance/wujud nyata, menempati memori dengan keyword <code>new</code>.</td>
+              </tr>
+              <tr>
+                <td>Contoh &amp; Analogi</td>
+                <td>8 Poin</td>
+                <td>Menyertakan contoh class dan minimal 1-2 objek konkret yang jelas.</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SOAL 2 -->
+    <article class="q-post">
+      <div class="q-post-header">
+        <div class="q-badge-group">
+          <span class="badge-qno">SOAL 02</span>
+          <span class="badge-score">Bobot: 20 Poin</span>
+          <span class="badge-cpmk">CPMK 2 (Implementasi Perangkat Lunak)</span>
+        </div>
+      </div>
+
+      <h2 class="q-statement">
+        "Dalam sebuah class ataupun object terdapat property dan method yang melengkapinya. Apa itu property? Dan apa itu method?<br>
+        Buatlah sebuah class dilengkapi dengan property dan method-nya!<br>
+        <span style="color:var(--tomato); font-size:1rem;">(note: minimal memiliki 4 property dan 4 method)</span>"
+      </h2>
+
+      <div class="solution-card">
+        <span class="sol-tag">Kunci Jawaban Sempurna (Sesuai Modul SPADA UMS P3 &amp; P4)</span>
+        <div class="sol-content">
+          <h4>1. Perbedaan Property dan Method</h4>
+          <ul>
+            <li>
+              <strong>Property (Data / Keadaan / State):</strong> Data atau keadaan yang dimiliki oleh sebuah object yang menunjukkan <em>"apa yang dimiliki (what it has)"</em>. Pada Alice 3, property dikelola di <strong>Panel Properties</strong> (contoh: <code>color</code>, <code>position</code>, <code>orientation</code>, <code>size</code>, <code>speed</code>). Nilai property dapat berbeda antar-objek dan dapat berubah selama program berjalan.
+            </li>
+            <li>
+              <strong>Method (Perilaku / Aksi / Behavior):</strong> Tindakan atau aksi yang dapat dilakukan oleh sebuah object yang menunjukkan <em>"apa yang dapat dilakukan (what it does)"</em>. Pada Alice 3, method disusun di <strong>Code Editor</strong> (contoh: <code>move()</code>, <code>turn()</code>, <code>stop()</code>, <code>say()</code>, <code>jump()</code>). Method dapat menerima parameter untuk menghasilkan behavior tertentu.
+            </li>
+          </ul>
+
+          <h4>2. Implementasi Class: <code>KarakterGame</code> (4 Property &amp; 4 Method)</h4>
+          <p>Berikut adalah contoh class yang memenuhi kriteria soal secara presisi:</p>
+
+          <div class="code-window">
+            <div class="code-bar">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>KarakterGame.java (4 Property &amp; 4 Method)</span>
+            </div>
+            <pre><code>public class KarakterGame {
+    // ==========================================
+    // 4 PROPERTY (Atribut / Data Karakter)
+    // ==========================================
+    String nama;              // Property 1: Nama karakter
+    int nyawa;                // Property 2: Poin kesehatan (HP)
+    int level;                // Property 3: Tingkatan karakter
+    int kekuatanSerang;       // Property 4: Besaran damage serangan
+
+    // ==========================================
+    // 4 METHOD (Aksi / Perilaku Karakter)
+    // ==========================================
+    // Method 1: Menyerang target lawan
+    void serangMusuh(String target) {
+        System.out.println(nama + " menebas " + target + " sebesar " + kekuatanSerang + " damage!");
+    }
+
+    // Method 2: Menerima pengurangan nyawa
+    void terimaDamage(int damage) {
+        nyawa -= damage;
+        if (nyawa < 0) nyawa = 0;
+        System.out.println(nama + " terkena hit! Sisa nyawa: " + nyawa);
+    }
+
+    // Method 3: Memulihkan nyawa dengan ramuan
+    void minumPotion(int heal) {
+        nyawa += heal;
+        System.out.println(nama + " meminum potion. Nyawa bertambah menjadi: " + nyawa);
+    }
+
+    // Method 4: Menaikkan level dan status
+    void naikLevel() {
+        level += 1;
+        kekuatanSerang += 15;
+        System.out.println("LEVEL UP! " + nama + " kini Level " + level);
+    }
+}</code></pre>
+          </div>
+
+          <div class="rubrik-table-wrap">
+<table class="rubrik-table">
+            <thead>
+              <tr>
+                <th>Komponen Jawaban</th>
+                <th>Target Minimum</th>
+                <th>Status Pemenuhan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Definisi Property &amp; Method</td>
+                <td>Konsep jelas</td>
+                <td>Dijelaskan sebagai karakteristik (state) vs aksi (behavior).</td>
+              </tr>
+              <tr>
+                <td>Jumlah Property</td>
+                <td>Minimal 4</td>
+                <td>4 Terpenuhi: <code>nama</code>, <code>nyawa</code>, <code>level</code>, <code>kekuatanSerang</code>.</td>
+              </tr>
+              <tr>
+                <td>Jumlah Method</td>
+                <td>Minimal 4</td>
+                <td>4 Terpenuhi: <code>serangMusuh()</code>, <code>terimaDamage()</code>, <code>minumPotion()</code>, <code>naikLevel()</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SOAL 3 -->
+    <article class="q-post">
+      <div class="q-post-header">
+        <div class="q-badge-group">
+          <span class="badge-qno">SOAL 03</span>
+          <span class="badge-score">Bobot: 25 Poin</span>
+          <span class="badge-cpmk">CPMK 2 (Inheritance &amp; Diagram UML)</span>
+        </div>
+      </div>
+
+      <h2 class="q-statement">
+        "Perhatikan gambar diagram di bawah ini :<br>
+        <span style="font-size:1.05rem; font-weight:600; color:var(--ink-soft);">
+          Tiga class terpisah: <code>Mahasiswa</code>, <code>Petani</code>, dan <code>Pedagang</code>.
+        </span><br>
+        Dengan menggunakan konsep pewarisan / inheritance, buatlah sebuah class baru sebagai parent class yang mewadahi class-class di atas. Kemudian gambarkan ulang diagram di atas dengan memanfaatkan konsep pewarisan. Berikan penjelasan singkatnya!"
+      </h2>
+
+      <div class="solution-card">
+        <span class="sol-tag">Kunci Jawaban Sempurna (100% Nilai Penuh)</span>
+        <div class="sol-content">
+          <h4>1. Analisis Redundansi (Atribut &amp; Method Bersama)</h4>
+          <p>
+            Jika kita amati ketiga diagram pada soal sebelum inheritance:
+          </p>
+          <ul>
+            <li><strong>Atribut yang sama persis di ke-3 class:</strong> <code>nama</code>, <code>usia</code>, <code>gender</code>, <code>alamat</code>.</li>
+            <li><strong>Method yang sama persis di ke-3 class:</strong> <code>berjalan()</code>, <code>makan()</code>.</li>
+          </ul>
+
+          <h4>2. Pembentukan Parent Class (Superclass)</h4>
+          <p>
+            Kita ciptakan satu Parent Class bernama: <strong style="color:var(--teal); font-size:1.1rem;"><code>Manusia</code></strong> (atau <code>Orang</code> / <code>Person</code>).
+          </p>
+          <ul>
+            <li><strong>Property Parent (<code>Manusia</code>):</strong> <code>+ nama</code>, <code>+ usia</code>, <code>+ gender</code>, <code>+ alamat</code></li>
+            <li><strong>Method Parent (<code>Manusia</code>):</strong> <code>+ berjalan()</code>, <code>+ makan()</code></li>
+          </ul>
+
+          <h4>3. Spesialisasi Child Classes (Subclasses)</h4>
+          <p>Ketiga class anak hanya perlu menyimpan atribut dan method yang <strong>khas / unik</strong> miliknya:</p>
+          <ul>
+            <li>
+              <strong>Class <code>Mahasiswa</code> (extends <code>Manusia</code>):</strong><br>
+              <em>Property unik:</em> <code>+ kampus</code>, <code>+ prodi</code>, <code>+ ipk</code><br>
+              <em>Method unik:</em> <code>+ mengerjakanTugas()</code>, <code>+ belajar()</code>
+            </li>
+            <li>
+              <strong>Class <code>Petani</code> (extends <code>Manusia</code>):</strong><br>
+              <em>Property unik:</em> <code>+ hasilTani</code><br>
+              <em>Method unik:</em> <code>+ bertani()</code>
+            </li>
+            <li>
+              <strong>Class <code>Pedagang</code> (extends <code>Manusia</code>):</strong><br>
+              <em>Property unik:</em> <code>+ penjualan</code>, <code>+ toko</code>, <code>+ alamatToko</code><br>
+              <em>Method unik:</em> <code>+ berdagang()</code>, <code>+ menawar()</code>
+            </li>
+          </ul>
+
+          <h4>4. Diagram UML Inheritance Hasil Rekonstruksi</h4>
+          <div class="diagram-canvas" style="background:#fff; border:2px solid var(--ink); border-radius:12px; padding:18px;">
+            <svg viewBox="0 0 760 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Panah UML Generalization (Hollow Closed Triangle) -->
+                <marker id="umlArrow" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="14" markerHeight="14" orient="auto">
+                  <polygon points="0 2, 16 8, 0 14" fill="#fff" stroke="#24221f" stroke-width="2"/>
+                </marker>
+              </defs>
+
+              <!-- PARENT CLASS: MANUSIA -->
+              <g transform="translate(260, 20)">
+                <rect width="240" height="150" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(4px 4px 0 #24221f)"/>
+                <path d="M0 0h240v32a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#2b8a79"/>
+                <text x="120" y="21" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">&lt;&lt;Parent / Superclass&gt;&gt;</text>
+                <text x="120" y="52" font-family="'Bricolage Grotesque', sans-serif" font-size="17" font-weight="800" fill="#24221f" text-anchor="middle">Manusia</text>
+                <line x1="0" y1="62" x2="240" y2="62" stroke="#24221f" stroke-width="1.8"/>
+                <text x="16" y="80" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ nama</text>
+                <text x="16" y="96" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ usia</text>
+                <text x="120" y="80" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ gender</text>
+                <text x="120" y="96" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ alamat</text>
+                <line x1="0" y1="108" x2="240" y2="108" stroke="#24221f" stroke-width="1.8"/>
+                <text x="16" y="126" font-family="'JetBrains Mono', monospace" font-size="11" fill="#2b8a79" font-weight="700">+ berjalan()</text>
+                <text x="120" y="126" font-family="'JetBrains Mono', monospace" font-size="11" fill="#2b8a79" font-weight="700">+ makan()</text>
+              </g>
+
+              <!-- GARIS INHERITANCE KE 3 ANAK -->
+              <!-- Garis Utama dari Manusia ke Bawah -->
+              <line x1="380" y1="172" x2="380" y2="215" stroke="#24221f" stroke-width="2.5"/>
+              <!-- Garis Horizontal Penghubung 3 Class -->
+              <line x1="120" y1="215" x2="640" y2="215" stroke="#24221f" stroke-width="2.5"/>
+
+              <!-- Panah ke Manusia -->
+              <line x1="380" y1="215" x2="380" y2="175" stroke="#24221f" stroke-width="2.5" marker-end="url(#umlArrow)"/>
+
+              <!-- Garis turun ke Mahasiswa -->
+              <line x1="120" y1="215" x2="120" y2="255" stroke="#24221f" stroke-width="2.5"/>
+              <!-- Garis turun ke Petani -->
+              <line x1="380" y1="215" x2="380" y2="255" stroke="#24221f" stroke-width="2.5"/>
+              <!-- Garis turun ke Pedagang -->
+              <line x1="640" y1="215" x2="640" y2="255" stroke="#24221f" stroke-width="2.5"/>
+
+              <!-- CHILD 1: MAHASISWA -->
+              <g transform="translate(15, 255)">
+                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+                <path d="M0 0h210v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#f2b544"/>
+                <text x="105" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="800" fill="#24221f" text-anchor="middle">Mahasiswa</text>
+                <text x="105" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#5f5a50" text-anchor="middle">extends Manusia</text>
+                <line x1="0" y1="54" x2="210" y2="54" stroke="#24221f" stroke-width="1.8"/>
+                <text x="14" y="74" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ kampus</text>
+                <text x="14" y="94" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ prodi</text>
+                <text x="14" y="114" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ ipk</text>
+                <line x1="0" y1="126" x2="210" y2="126" stroke="#24221f" stroke-width="1.8"/>
+                <text x="14" y="146" font-family="'JetBrains Mono', monospace" font-size="11" fill="#dd5a3a" font-weight="700">+ mengerjakanTugas()</text>
+                <text x="14" y="168" font-family="'JetBrains Mono', monospace" font-size="11" fill="#dd5a3a" font-weight="700">+ belajar()</text>
+              </g>
+
+              <!-- CHILD 2: PETANI -->
+              <g transform="translate(275, 255)">
+                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+                <path d="M0 0h210v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#9fc3d8"/>
+                <text x="105" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="800" fill="#24221f" text-anchor="middle">Petani</text>
+                <text x="105" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#5f5a50" text-anchor="middle">extends Manusia</text>
+                <line x1="0" y1="54" x2="210" y2="54" stroke="#24221f" stroke-width="1.8"/>
+                <text x="14" y="74" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ hasilTani</text>
+                <line x1="0" y1="126" x2="210" y2="126" stroke="#24221f" stroke-width="1.8"/>
+                <text x="14" y="146" font-family="'JetBrains Mono', monospace" font-size="11" fill="#2b8a79" font-weight="700">+ bertani()</text>
+              </g>
+
+              <!-- CHILD 3: PEDAGANG -->
+              <g transform="translate(535, 255)">
+                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+                <path d="M0 0h210v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#fbe8e1"/>
+                <text x="105" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="800" fill="#24221f" text-anchor="middle">Pedagang</text>
+                <text x="105" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#5f5a50" text-anchor="middle">extends Manusia</text>
+                <line x1="0" y1="54" x2="210" y2="54" stroke="#24221f" stroke-width="1.8"/>
+                <text x="14" y="74" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ penjualan</text>
+                <text x="14" y="94" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ toko</text>
+                <text x="14" y="114" font-family="'JetBrains Mono', monospace" font-size="11" fill="#24221f">+ alamatToko</text>
+                <line x1="0" y1="126" x2="210" y2="126" stroke="#24221f" stroke-width="1.8"/>
+                <text x="14" y="146" font-family="'JetBrains Mono', monospace" font-size="11" fill="#7d5a86" font-weight="700">+ berdagang()</text>
+                <text x="14" y="168" font-family="'JetBrains Mono', monospace" font-size="11" fill="#7d5a86" font-weight="700">+ menawar()</text>
+              </g>
+            </svg>
+          </div>
+
+          <h4>5. Penjelasan Singkat Prinsip Inheritance</h4>
+          <p>
+            Dengan pewarisan, kode menjadi jauh lebih ringkas, efisien, dan terstruktur dengan mematuhi prinsip <strong>DRY (Don't Repeat Yourself)</strong>. Properti umum seperti <code>nama, usia, gender, alamat</code> serta method <code>berjalan(), makan()</code> cukup dideklarasikan satu kali saja di dalam superclass <code>Manusia</code>. Ketiga class turunan (<code>Mahasiswa</code>, <code>Petani</code>, dan <code>Pedagang</code>) secara otomatis mewarisi seluruh kemampuan tersebut lewat relasi <em>"is-a"</em> (seorang Mahasiswa adalah Manusia). Jika di kemudian hari ada penambahan atribut manusia seperti <code>nik</code>, kita cukup mengubah di <code>Manusia</code> tanpa perlu menyentuh ketiga subclass.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- SOAL 4 -->
+    <article class="q-post">
+      <div class="q-post-header">
+        <div class="q-badge-group">
+          <span class="badge-qno">SOAL 04</span>
+          <span class="badge-score">Bobot: 20 Poin</span>
+          <span class="badge-cpmk">CPMK 2 (Functions vs Procedures Alice 3)</span>
+        </div>
+      </div>
+
+      <h2 class="q-statement">
+        "Apa yang kamu ketahui mengenai functions dan procedures? Jelaskan perbedaan antara functions dan procedures!<br>
+        Buatlah contoh functions dan procedures (minimal 2)!<br>
+        <span style="color:var(--teal); font-size:1rem;">(Kamu bisa mengambil contoh dari ALICE 3)</span>"
+      </h2>
+
+      <div class="solution-card">
+        <span class="sol-tag">Kunci Jawaban Sempurna (100% Nilai Penuh)</span>
+        <div class="sol-content">
+          <h4>1. Penjelasan &amp; Perbedaan Mendasar</h4>
+          <p>
+            Dalam Pemrograman Visual (khususnya <strong>Alice 3</strong> dan OOP Java), method terbagi menjadi dua kategori utama berdasarkan ada atau tidaknya nilai balik (<em>return value</em>):
+          </p>
+          <div class="rubrik-table-wrap">
+<table class="rubrik-table">
+            <thead>
+              <tr>
+                <th>Pembeda</th>
+                <th>Procedure (Prosedur)</th>
+                <th>Function (Fungsi)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Nilai Balik (Return Value)</strong></td>
+                <td><strong>TIDAK MENGEMBALIKAN NILAI</strong> (bertipe <code>void</code>).</td>
+                <td><strong>MENGEMBALIKAN NILAI</strong> (bertipe Boolean, Double, String, Objek, dsb).</td>
+              </tr>
+              <tr>
+                <td><strong>Tujuan Utama</strong></td>
+                <td>Melakukan aksi fisik, gerakan animasi, perubahan visual objek, atau suara.</td>
+                <td>Menjawab pertanyaan mengenai kondisi/keadaan objek atau menghitung nilai.</td>
+              </tr>
+              <tr>
+                <td><strong>Cara Pemanggilan</strong></td>
+                <td>Dapat berdiri sendiri sebagai satu baris perintah utuh.</td>
+                <td>Harus ditampung ke dalam variabel, dipakai dalam rumus, atau sebagai syarat percabangan (<code>if</code>).</td>
+              </tr>
+              <tr>
+                <td><strong>Efek Samping (Side Effects)</strong></td>
+                <td>Mengubah status objek di scene (misal koordinat X/Y/Z, rotasi yaw/pitch).</td>
+                <td>Tidak mengubah status visual objek (hanya query baca data).</td>
+              </tr>
+              <tr>
+                <td><strong>Analogi Kehidupan Sehari-hari</strong></td>
+                <td>"Tolong bersihkan papan tulis!" (Perintah aksi nyata).</td>
+                <td>"Berapa sisa spidol di meja?" (Pertanyaan mencari informasi/nilai).</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+
+          <h4>2. Contoh Procedures di ALICE 3 (Minimal 2 Contoh)</h4>
+          <ol>
+            <li>
+              <code>this.alice.move(Direction.FORWARD, 2.0);</code><br>
+              <em>Penjelasan:</em> Menggerakkan karakter <code>alice</code> maju ke depan sejauh 2 meter di dunia 3D. Menghasilkan animasi visual langsung tanpa menghasilkan nilai return.
+            </li>
+            <li>
+              <code>this.alice.say("Selamat datang di UMS!");</code><br>
+              <em>Penjelasan:</em> Menampilkan balon teks percakapan kartun di atas kepala <code>alice</code>. Ini adalah tindakan murni (prosedur) visual.
+            </li>
+            <li>
+              <em>(Alternatif):</em> <code>this.alice.turn(Direction.RIGHT, 0.25);</code> (Memutar tubuh karakter 90 derajat ke kanan).
+            </li>
+          </ol>
+
+          <h4>3. Contoh Functions di ALICE 3 (Minimal 2 Contoh)</h4>
+          <ol>
+            <li>
+              <code>this.alice.getDistanceTo(this.rabbit);</code><br>
+              <em>Penjelasan:</em> Menghitung dan mengembalikan angka desimal (bertipe <code>Double</code>) yang menyatakan jarak antara posisi karakter <code>alice</code> dengan <code>rabbit</code>.
+            </li>
+            <li>
+              <code>this.alice.getHeight();</code><br>
+              <em>Penjelasan:</em> Mengukur tinggi fisik karakter <code>alice</code> dan mengembalikan nilai angka <code>Double</code>.
+            </li>
+            <li>
+              <em>(Alternatif):</em> <code>this.alice.isCollidingWith(this.rock);</code> (Mengembalikan nilai logika <code>Boolean</code>: <code>true</code> jika bersentuhan atau <code>false</code> jika tidak).
+            </li>
+          </ol>
+
+          <div class="code-window">
+            <div class="code-bar">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Penerapan Function di Dalam Percabangan (Alice 3 / Java)</span>
+            </div>
+            <pre><code>// Function getDistanceTo() dipakai sebagai syarat kondisi:
+if (this.alice.getDistanceTo(this.rabbit) < 1.5) {
+    // Procedure say() dipanggil sebagai aksi:
+    this.alice.say("Halo kelinci lucu!");
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SOAL 5 -->
+    <article class="q-post">
+      <div class="q-post-header">
+        <div class="q-badge-group">
+          <span class="badge-qno">SOAL 05</span>
+          <span class="badge-score">Bobot: 15 Poin</span>
+          <span class="badge-cpmk">CPMK 1 (Perulangan / Looping)</span>
+        </div>
+      </div>
+
+      <h2 class="q-statement">
+        "Apa yang dimaksud dengan perulangan? Berikan contoh implementasinya dan jelaskan!"
+      </h2>
+
+      <div class="solution-card">
+        <span class="sol-tag">Kunci Jawaban Sempurna (Sesuai Modul SPADA UMS P5)</span>
+        <div class="sol-content">
+          <h4>1. Pengertian Perulangan (Looping / Iteration)</h4>
+          <p>
+            Berdasarkan Modul SPADA UMS Pertemuan 5, <strong>Perulangan (Loop)</strong> adalah struktur kontrol algoritma pemrograman yang digunakan untuk mengeksekusi satu atau sekumpulan instruksi secara berulang-ulang tanpa perlu menuliskan kode yang sama berulang kali:
+          </p>
+          <ul>
+            <li><strong>Counted Loop (<code>count up to</code> di Alice 3 / <code>for</code> di Java):</strong> Perulangan dengan jumlah iterasi yang sudah diketahui secara pasti sejak awal.</li>
+            <li><strong>Conditional Loop (<code>while</code> di Alice 3 / Java):</strong> Perulangan bersyarat yang terus berjalan selama kondisi logika masih bernilai <code>true</code>.</li>
+            <li><strong>Kombinasi dengan Control Statement:</strong> Sering digabungkan dengan blok <code>do in order</code> (eksekusi berurutan satu per satu) dan <code>do together</code> (eksekusi simultan bersamaan).</li>
+          </ul>
+          <p>
+            <em>Manfaat Utama:</em> Mencegah duplikasi kode (DRY), menghemat memori, menyederhanakan kode, serta mempermudah otomasi tugas animasi (seperti Bunny melompat berulang kali).
+          </p>
+
+          <h4>2. Contoh Implementasi di ALICE 3 (Count Loop)</h4>
+          <p>Skenario: Membuat karakter bergerak mengelilingi lapangan persegi 4 sisi.</p>
+          <div class="code-window">
+            <div class="code-bar">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Alice 3 â€” Count Loop Block</span>
+            </div>
+            <pre><code>count 4 {
+    this.alice.move(Direction.FORWARD, 2.0);
+    this.alice.turn(Direction.RIGHT, 0.25);
+}</code></pre>
+          </div>
+          <p>
+            <strong>Penjelasan Cara Kerja:</strong><br>
+            Blok di atas menggunakan <code>count 4</code>. Di dalam blok terdapat 2 perintah: maju 2 meter dan berbelok ke kanan 0.25 putaran (90 derajat). Komputer mengulang kedua perintah ini sebanyak 4 kali putaran, sehingga karakter membentuk lintasan persegi empat dan kembali menghadap ke arah awal. Tanpa loop, kita harus menulis 8 baris instruksi yang sama berulang kali.
+          </p>
+
+          <h4>3. Contoh Implementasi di Java (For Loop)</h4>
+          <div class="code-window">
+            <div class="code-bar">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span>Java For Loop</span>
+            </div>
+            <pre><code>for (int i = 1; i <= 5; i++) {
+    System.out.println("Latihan visual ke-" + i);
+}</code></pre>
+          </div>
+          <p>
+            <strong>Tabel Trace Eksekusi:</strong>
+          </p>
+          <div class="rubrik-table-wrap">
+<table class="rubrik-table">
+            <thead>
+              <tr>
+                <th>Iterasi</th>
+                <th>Nilai i</th>
+                <th>Kondisi (i &lt;= 5)</th>
+                <th>Output Layar</th>
+                <th>Langkah Akhir (i++)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>1</td><td>1 &lt;= 5 (True)</td><td>Latihan visual ke-1</td><td>i menjadi 2</td></tr>
+              <tr><td>2</td><td>2</td><td>2 &lt;= 5 (True)</td><td>Latihan visual ke-2</td><td>i menjadi 3</td></tr>
+              <tr><td>3</td><td>3</td><td>3 &lt;= 5 (True)</td><td>Latihan visual ke-3</td><td>i menjadi 4</td></tr>
+              <tr><td>4</td><td>4</td><td>4 &lt;= 5 (True)</td><td>Latihan visual ke-4</td><td>i menjadi 5</td></tr>
+              <tr><td>5</td><td>5</td><td>5 &lt;= 5 (True)</td><td>Latihan visual ke-5</td><td>i menjadi 6</td></tr>
+              <tr><td>Selesai</td><td>6</td><td>6 &lt;= 5 (False)</td><td>Loop Berhenti</td><td>Keluar loop</td></tr>
+            </tbody>
+          </table>
+</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ================= TAB 2: ARENA LATIHAN & SIMULASI ESAI ================= -->
+  <div id="pane-latihan" class="exam-pane">
+
+    <div class="exam-score-bar">
+      <div class="score-info">
+        <h3>Prediksi Nilai Simulasi UTS 2024</h3>
+        <p>Ketik jawabanmu, buka kunci dosen, lalu nilai dirimu sendiri dengan jujur (0â€“100 Poin)</p>
+      </div>
+      <div class="score-tally-box">
+        <div>
+          <span style="font-family:var(--mono); font-size:11px; display:block; text-align:right;">TOTAL SKOR</span>
+          <span id="liveTotalScore" class="score-big-num">0</span> <span style="font-size:1.1rem; font-weight:700;">/ 100</span>
+        </div>
+        <div id="liveGradePill" class="grade-pill">BELUM DINILAI</div>
+      </div>
+    </div>
+
+    <!-- SIMULATOR SOAL 1 -->
+    <div class="essay-sim-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span class="badge-qno">LATIHAN 01 (Max: 20 Poin)</span>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--ink-soft);">CPMK 1</span>
+      </div>
+      <p style="font-weight:700; margin:0 0 8px;">Soal: Apa itu Class? Dan apa itu Object? Berikan penjelasan beserta dengan contohnya!</p>
+      <textarea id="essay1" class="sim-textarea" placeholder="Tuliskan pemahamanmu di sini... (misal: Class adalah cetak biru...)"></textarea>
+      
+      <div class="sim-actions">
+        <button class="btn btn-small" type="button" onclick="toggleKey('key1', this)">
+          Lihat Kunci &amp; Rubrik <span>ðŸ‘ï¸</span>
+        </button>
+        <div class="score-slider-wrap">
+          <label style="font-size:12px; font-weight:700;">Nilai Mandiri:</label>
+          <input type="range" id="scoreRange1" min="0" max="20" value="0" oninput="updateExamScore()">
+          <span id="scoreText1" class="score-val-badge">0 / 20</span>
+        </div>
+      </div>
+
+      <div id="key1" class="solution-card" style="display:none; margin-top:14px;">
+        <p style="font-size:13px; line-height:1.6; margin:0;">
+          <strong>Checklist Penilaian:</strong><br>
+          âœ“ Menyebut Class sebagai blueprint/template/cetakan (5 Poin)<br>
+          âœ“ Menyebut Object sebagai instance/wujud konkret yang menempati memori (5 Poin)<br>
+          âœ“ Menjelaskan analogi / perbedaan status eksekusi (5 Poin)<br>
+          âœ“ Memberikan contoh class dan objek yang dibuat darinya (5 Poin)
+        </p>
+      </div>
+    </div>
+
+    <!-- SIMULATOR SOAL 2 -->
+    <div class="essay-sim-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span class="badge-qno">LATIHAN 02 (Max: 20 Poin)</span>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--ink-soft);">CPMK 2</span>
+      </div>
+      <p style="font-weight:700; margin:0 0 8px;">Soal: Apa itu property dan apa itu method? Buat sebuah class dengan minimal 4 property dan 4 method!</p>
+      <textarea id="essay2" class="sim-textarea" placeholder="Tuliskan definisi dan class rancanganmu lengkap dengan minimal 4 atribut dan 4 method..."></textarea>
+      
+      <div class="sim-actions">
+        <button class="btn btn-small" type="button" onclick="toggleKey('key2', this)">
+          Lihat Kunci &amp; Rubrik <span>ðŸ‘ï¸</span>
+        </button>
+        <div class="score-slider-wrap">
+          <label style="font-size:12px; font-weight:700;">Nilai Mandiri:</label>
+          <input type="range" id="scoreRange2" min="0" max="20" value="0" oninput="updateExamScore()">
+          <span id="scoreText2" class="score-val-badge">0 / 20</span>
+        </div>
+      </div>
+
+      <div id="key2" class="solution-card" style="display:none; margin-top:14px;">
+        <p style="font-size:13px; line-height:1.6; margin:0;">
+          <strong>Checklist Penilaian:</strong><br>
+          âœ“ Definisi property sebagai variabel/karakteristik/state (4 Poin)<br>
+          âœ“ Definisi method sebagai tindakan/perilaku/behavior (4 Poin)<br>
+          âœ“ Ada minimal 4 property dengan tipe data yang masuk akal (6 Poin)<br>
+          âœ“ Ada minimal 4 method yang relevan dengan class (6 Poin)
+        </p>
+      </div>
+    </div>
+
+    <!-- SIMULATOR SOAL 3 -->
+    <div class="essay-sim-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span class="badge-qno">LATIHAN 03 (Max: 25 Poin)</span>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--ink-soft);">CPMK 2</span>
+      </div>
+      <p style="font-weight:700; margin:0 0 8px;">Soal: Buat parent class untuk Mahasiswa, Petani, dan Pedagang. Gambarkan ulang dan jelaskan!</p>
+      <textarea id="essay3" class="sim-textarea" placeholder="Tuliskan nama parent class yang kamu pilih, sebutkan atribut & method apa saja yang ditarik ke atas, serta jelaskan alasannya..."></textarea>
+      
+      <div class="sim-actions">
+        <button class="btn btn-small" type="button" onclick="toggleKey('key3', this)">
+          Lihat Kunci &amp; Rubrik <span>ðŸ‘ï¸</span>
+        </button>
+        <div class="score-slider-wrap">
+          <label style="font-size:12px; font-weight:700;">Nilai Mandiri:</label>
+          <input type="range" id="scoreRange3" min="0" max="25" value="0" oninput="updateExamScore()">
+          <span id="scoreText3" class="score-val-badge">0 / 25</span>
+        </div>
+      </div>
+
+      <div id="key3" class="solution-card" style="display:none; margin-top:14px;">
+        <p style="font-size:13px; line-height:1.6; margin:0;">
+          <strong>Checklist Penilaian:</strong><br>
+          âœ“ Nama Parent Class tepat: <code>Manusia</code> / <code>Orang</code> / <code>Person</code> (5 Poin)<br>
+          âœ“ Memindahkan 4 property bersama (nama, usia, gender, alamat) ke parent (5 Poin)<br>
+          âœ“ Memindahkan 2 method bersama (berjalan, makan) ke parent (5 Poin)<br>
+          âœ“ Subclass hanya menyisakan atribut/method unik (5 Poin)<br>
+          âœ“ Penjelasan konsep inheritance (DRY, code reuse, maintenance) (5 Poin)
+        </p>
+      </div>
+    </div>
+
+    <!-- SIMULATOR SOAL 4 -->
+    <div class="essay-sim-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span class="badge-qno">LATIHAN 04 (Max: 20 Poin)</span>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--ink-soft);">CPMK 2</span>
+      </div>
+      <p style="font-weight:700; margin:0 0 8px;">Soal: Jelaskan perbedaan functions dan procedures, serta berikan masing-masing 2 contoh dari Alice 3!</p>
+      <textarea id="essay4" class="sim-textarea" placeholder="Tuliskan perbedaan return value & tujuan, lalu tuliskan 2 contoh procedure dan 2 contoh function di Alice 3..."></textarea>
+      
+      <div class="sim-actions">
+        <button class="btn btn-small" type="button" onclick="toggleKey('key4', this)">
+          Lihat Kunci &amp; Rubrik <span>ðŸ‘ï¸</span>
+        </button>
+        <div class="score-slider-wrap">
+          <label style="font-size:12px; font-weight:700;">Nilai Mandiri:</label>
+          <input type="range" id="scoreRange4" min="0" max="20" value="0" oninput="updateExamScore()">
+          <span id="scoreText4" class="score-val-badge">0 / 20</span>
+        </div>
+      </div>
+
+      <div id="key4" class="solution-card" style="display:none; margin-top:14px;">
+        <p style="font-size:13px; line-height:1.6; margin:0;">
+          <strong>Checklist Penilaian:</strong><br>
+          âœ“ Perbedaan return value (Procedure void vs Function mengembalikan nilai) (6 Poin)<br>
+          âœ“ 2 Contoh Procedure Alice 3 (misal: <code>move()</code>, <code>say()</code>, <code>turn()</code>) (7 Poin)<br>
+          âœ“ 2 Contoh Function Alice 3 (misal: <code>getDistanceTo()</code>, <code>getHeight()</code>) (7 Poin)
+        </p>
+      </div>
+    </div>
+
+    <!-- SIMULATOR SOAL 5 -->
+    <div class="essay-sim-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span class="badge-qno">LATIHAN 05 (Max: 15 Poin)</span>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--ink-soft);">CPMK 1</span>
+      </div>
+      <p style="font-weight:700; margin:0 0 8px;">Soal: Apa yang dimaksud perulangan? Berikan contoh implementasi dan jelaskan!</p>
+      <textarea id="essay5" class="sim-textarea" placeholder="Tuliskan definisi perulangan, contoh kode (Alice 3 count loop atau Java for/while), dan jelaskan alur eksekusinya..."></textarea>
+      
+      <div class="sim-actions">
+        <button class="btn btn-small" type="button" onclick="toggleKey('key5', this)">
+          Lihat Kunci &amp; Rubrik <span>ðŸ‘ï¸</span>
+        </button>
+        <div class="score-slider-wrap">
+          <label style="font-size:12px; font-weight:700;">Nilai Mandiri:</label>
+          <input type="range" id="scoreRange5" min="0" max="15" value="0" oninput="updateExamScore()">
+          <span id="scoreText5" class="score-val-badge">0 / 15</span>
+        </div>
+      </div>
+
+      <div id="key5" class="solution-card" style="display:none; margin-top:14px;">
+        <p style="font-size:13px; line-height:1.6; margin:0;">
+          <strong>Checklist Penilaian:</strong><br>
+          âœ“ Definisi perulangan sebagai kontrol iterasi instruksi (5 Poin)<br>
+          âœ“ Contoh implementasi sintaks valid (Count loop / For / While) (5 Poin)<br>
+          âœ“ Penjelasan alur eksekusi langkah demi langkah hingga berhenti (5 Poin)
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= TAB 3: KUIS KASUS UTS (10 SOAL) ================= -->
+  <div id="pane-kuis" class="exam-pane">
+
+    <div class="exam-score-bar" style="background:var(--teal-soft); border-color:var(--teal);">
+      <div class="score-info">
+        <h3 style="color:var(--teal);">Kuis Kasus &amp; Jebakan UTS 2024</h3>
+        <p>10 Soal pilihan ganda yang menguji ketelitian konsep naskah ujian resmi UMS</p>
+      </div>
+      <div class="score-tally-box">
+        <div>
+          <span style="font-family:var(--mono); font-size:11px; display:block; text-align:right;">SKOR KUIS</span>
+          <span id="quizScoreNum" class="score-big-num">0</span> <span style="font-size:1.1rem; font-weight:700;">/ 10</span>
+        </div>
+        <button class="btn btn-small" onclick="resetQuiz()">Ulangi Kuis â†º</button>
+      </div>
+    </div>
+
+    <div id="quizContainer">
+      <!-- 10 Interactive MC Questions Generated via JavaScript -->
+    </div>
+
+  </div>
+
+  <!-- ================= TAB 4: VISUALIZER DIAGRAM UML ================= -->
+  <div id="pane-diagram" class="exam-pane">
+
+    <div class="diagram-stage">
+      <h3 style="margin:0 0 8px; font-family:var(--display); font-size:1.3rem;">Visualizer Inheritance Soal No. 3</h3>
+      <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:18px;">
+        Bandingkan kondisi diagram sebelum vs sesudah menerapkan konsep pewarisan (inheritance) untuk class Mahasiswa, Petani, dan Pedagang.
+      </p>
+
+      <div class="diagram-controls">
+        <button id="btnDiagBefore" class="diag-btn" onclick="toggleDiagramView('before')">
+          1. Sebelum Inheritance (Duplikasi 33 Atribut)
+        </button>
+        <button id="btnDiagAfter" class="diag-btn active" onclick="toggleDiagramView('after')">
+          2. Sesudah Inheritance (Superclass Manusia) âœ¨
+        </button>
+        <button id="btnHighlight" class="diag-btn" style="background:var(--mustard-soft);" onclick="toggleCommonHighlight()">
+          ðŸ” Sorot Atribut Bersama
+        </button>
+      </div>
+
+      <div id="diagramContainer" class="diagram-canvas">
+        <!-- SVG Interactive View Rendered Here -->
+      </div>
+
+      <div class="solution-card" style="margin-top:20px;">
+        <h4 style="margin:0 0 6px;">Ringkasan Efisiensi:</h4>
+        <p style="font-size:13.5px; line-height:1.6; margin:0;">
+          Sebelum inheritance, atribut <code>nama</code>, <code>usia</code>, <code>gender</code>, <code>alamat</code> dan method <code>berjalan()</code>, <code>makan()</code> ditulis <strong>3 kali</strong> secara berulang pada masing-masing box class. Setelah menerapkan inheritance dengan parent <code>Manusia</code>, penulisan kode terduplikasi berkurang sebesar <strong>66%</strong>!
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= TAB 5: CATATAN RINGKAS A4 (SIAP CETAK) ================= -->
+  <div id="pane-cheatsheet" class="exam-pane">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;" class="no-print">
+      <div>
+        <h3 style="margin:0; font-family:var(--display);">Ringkasan 1 Halaman A4 â€” Siap Cetak / PDF</h3>
+        <p style="margin:2px 0 0; font-size:13px; color:var(--ink-soft);">Format bersih untuk belajar kilat sebelum masuk ruang ujian</p>
+      </div>
+      <button class="btn btn-primary" onclick="window.print()">
+        <span>ðŸ–¨ï¸ Cetak / Simpan PDF (Ctrl+P)</span>
+      </button>
+    </div>
+
+    <div class="official-header-card print-a4-paper" style="background:#fff;">
+      <div style="text-align:center; border-bottom:2px solid #24221f; padding-bottom:12px; margin-bottom:14px;">
+        <h2 style="font-family:var(--display); font-size:18px; margin:0;">RINGKASAN CEPAT UTS PEMROGRAMAN VISUAL 2024/2025</h2>
+        <p style="font-family:var(--mono); font-size:11px; margin:4px 0 0;">Informatika Universitas Muhammadiyah Surakarta Â· Gasal 2024/2025</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap:16px;">
+        <!-- Kiri: Soal 1 & 2 -->
+        <div>
+          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
+            <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--tomato); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 1: CLASS VS OBJECT</strong>
+            <p style="font-size:12px; line-height:1.5; margin:0;">
+              â€¢ <strong>Class:</strong> Blueprint / cetak biru / rancangan data &amp; perilaku. Belum memakan memori fisik.<br>
+              â€¢ <strong>Object:</strong> Instance nyata dari class, dibuat dengan operator <code>new</code>, menempati Heap Memory.<br>
+              â€¢ <em>Analogi:</em> Denah arsitektur rumah (Class) vs Rumah fisik yang dihuni (Object).
+            </p>
+          </div>
+
+          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
+            <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--tomato); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 2: PROPERTY VS METHOD</strong>
+            <p style="font-size:12px; line-height:1.5; margin:0 0 6px;">
+              â€¢ <strong>Property:</strong> Variabel / data / atribut keadaan objek (<em>state</em>).<br>
+              â€¢ <strong>Method:</strong> Instruksi / aksi / tindakan yang dilakukan objek (<em>behavior</em>).
+            </p>
+            <div style="font-family:var(--mono); font-size:11px; background:#eee; padding:6px; border-radius:4px;">
+              Class Mobil:<br>
+              - 4 Prop: merk, warna, kecepatan, kapasitasBensin<br>
+              - 4 Method: akselerasi(), rem(), isiBensin(), klakson()
+            </div>
+          </div>
+
+          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; background:#fffdf7;">
+            <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--tomato); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 5: PERULANGAN (LOOPING)</strong>
+            <p style="font-size:12px; line-height:1.5; margin:0;">
+              Struktur kontrol eksekusi berulang untuk mencegah duplikasi kode.<br>
+              â€¢ <strong>Alice 3 Count:</strong> <code>count 4 { alice.move(FORWARD, 1.0); }</code><br>
+              â€¢ <strong>Java For:</strong> <code>for(int i=0; i&lt;4; i++) { ... }</code>
+            </p>
+          </div>
+        </div>
+
+        <!-- Kanan: Soal 3 & 4 -->
+        <div>
+          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
+            <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--teal); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 3: INHERITANCE (MAHASISWA, PETANI, PEDAGANG)</strong>
+            <p style="font-size:12px; line-height:1.5; margin:0 0 6px;">
+              Parent Class: <strong style="color:var(--teal);">Manusia</strong><br>
+              â€¢ Atribut Bersama: <code>+ nama, usia, gender, alamat</code><br>
+              â€¢ Method Bersama: <code>+ berjalan(), makan()</code>
+            </p>
+            <p style="font-size:11.5px; line-height:1.45; margin:0; border-top:1px dashed #bbb; padding-top:4px;">
+              â€¢ <strong>Mahasiswa:</strong> +kampus, prodi, ipk | tugas(), belajar()<br>
+              â€¢ <strong>Petani:</strong> +hasilTani | bertani()<br>
+              â€¢ <strong>Pedagang:</strong> +penjualan, toko, alamatToko | berdagang(), menawar()
+            </p>
+          </div>
+
+          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; background:#fffdf7;">
+            <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--teal); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 4: ALICE 3 PROCEDURES VS FUNCTIONS</strong>
+            <div class="rubrik-table-wrap">
+<table style="width:100%; font-size:11px; border-collapse:collapse; margin-top:4px;">
+              <tr style="background:#eee;">
+                <th style="padding:4px; text-align:left;">Procedures (Void)</th>
+                <th style="padding:4px; text-align:left;">Functions (Return Val)</th>
+              </tr>
+              <tr>
+                <td style="padding:4px; border-bottom:1px solid #ddd;">â€¢ Tidak ada return value</td>
+                <td style="padding:4px; border-bottom:1px solid #ddd;">â€¢ Mengembalikan nilai (Double, Bool)</td>
+              </tr>
+              <tr>
+                <td style="padding:4px; border-bottom:1px solid #ddd;">â€¢ Melakukan aksi/animasi</td>
+                <td style="padding:4px; border-bottom:1px solid #ddd;">â€¢ Menjawab kondisi/mengukur</td>
+              </tr>
+              <tr>
+                <td style="padding:4px;">
+                  1. <code>alice.move(FORWARD, 2)</code><br>
+                  2. <code>alice.say("Halo")</code>
+                </td>
+                <td style="padding:4px;">
+                  1. <code>alice.getDistanceTo(obj)</code><br>
+                  2. <code>alice.getHeight()</code>
+                </td>
+              </tr>
+            </table>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; font-family:var(--mono); font-size:10px; color:#666; margin-top:16px; border-top:1px solid #ddd; padding-top:6px;">
+        Disusun untuk Persiapan UTS Pemrograman Visual Gasal 2024/2025 Â· Ruang Visual UMS
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+/* =========================================================
+   LOGIKA INTERAKTIF HALAMAN UTS 2024
+   ========================================================= */
+
+// 1. Tab Switching Logic
+function switchExamTab(tabId, btnElement) {
+  document.querySelectorAll('.exam-pane').forEach(pane => pane.classList.remove('active'));
+  document.querySelectorAll('.tab-trigger').forEach(btn => btn.classList.remove('active'));
+
+  const targetPane = document.getElementById('pane-' + tabId);
+  if (targetPane) targetPane.classList.add('active');
+  if (btnElement) {
+    btnElement.classList.add('active');
+    btnElement.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
+
+  // Trigger re-render diagram jika tab diagram dibuka
+  if (tabId === 'diagram') {
+    renderDiagram();
+  }
+}
+
+// 2. Toggle Kunci & Rubrik
+function toggleKey(keyId, btn) {
+  const el = document.getElementById(keyId);
+  if (!el) return;
+  if (el.style.display === 'none' || el.style.display === '') {
+    el.style.display = 'block';
+    btn.innerHTML = 'Tutup Kunci <span>âœ•</span>';
+  } else {
+    el.style.display = 'none';
+    btn.innerHTML = 'Lihat Kunci & Rubrik <span>ðŸ‘ï¸</span>';
+  }
+}
+
+// 3. Live Score Calculation for Essay Simulation
+function updateExamScore() {
+  const s1 = parseInt(document.getElementById('scoreRange1').value) || 0;
+  const s2 = parseInt(document.getElementById('scoreRange2').value) || 0;
+  const s3 = parseInt(document.getElementById('scoreRange3').value) || 0;
+  const s4 = parseInt(document.getElementById('scoreRange4').value) || 0;
+  const s5 = parseInt(document.getElementById('scoreRange5').value) || 0;
+
+  document.getElementById('scoreText1').innerText = s1 + ' / 20';
+  document.getElementById('scoreText2').innerText = s2 + ' / 20';
+  document.getElementById('scoreText3').innerText = s3 + ' / 25';
+  document.getElementById('scoreText4').innerText = s4 + ' / 20';
+  document.getElementById('scoreText5').innerText = s5 + ' / 15';
+
+  const total = s1 + s2 + s3 + s4 + s5;
+  document.getElementById('liveTotalScore').innerText = total;
+
+  const gradePill = document.getElementById('liveGradePill');
+  if (total >= 85) {
+    gradePill.innerText = 'PREDIKSI NILAI: A (SANGAT SIAP)';
+    gradePill.style.background = '#2b8a79';
+    gradePill.style.color = '#fff';
+  } else if (total >= 75) {
+    gradePill.innerText = 'PREDIKSI NILAI: AB (BAGUS)';
+    gradePill.style.background = '#9fc3d8';
+    gradePill.style.color = '#24221f';
+  } else if (total >= 65) {
+    gradePill.innerText = 'PREDIKSI NILAI: B (CUKUP)';
+    gradePill.style.background = '#f2b544';
+    gradePill.style.color = '#24221f';
+  } else if (total >= 50) {
+    gradePill.innerText = 'PREDIKSI NILAI: C (PERLU EVALUASI)';
+    gradePill.style.background = '#dd5a3a';
+    gradePill.style.color = '#fff';
+  } else {
+    gradePill.innerText = 'PREDIKSI NILAI: D/E (BELUM SIAP)';
+    gradePill.style.background = '#fffdf7';
+    gradePill.style.color = '#24221f';
+  }
+
+  // Simpan nilai ke LocalStorage
+  localStorage.setItem('uts2024_sim_scores', JSON.stringify({s1, s2, s3, s4, s5}));
+}
+
+// 4. Diagram Visualizer Logic (Before vs After)
+let currentDiagMode = 'after';
+let isHighlighted = false;
+
+function toggleDiagramView(mode) {
+  currentDiagMode = mode;
+  document.getElementById('btnDiagBefore').classList.toggle('active', mode === 'before');
+  document.getElementById('btnDiagAfter').classList.toggle('active', mode === 'after');
+  renderDiagram();
+}
+
+function toggleCommonHighlight() {
+  isHighlighted = !isHighlighted;
+  const btn = document.getElementById('btnHighlight');
+  btn.style.background = isHighlighted ? 'var(--mustard)' : 'var(--mustard-soft)';
+  renderDiagram();
+}
+
+function renderDiagram() {
+  const container = document.getElementById('diagramContainer');
+  if (!container) return;
+
+  const hlColor = isHighlighted ? '#ff5f56' : '#24221f';
+  const hlBg = isHighlighted ? '#fff0eb' : '#fffdf7';
+  const hlWeight = isHighlighted ? '800' : '400';
+
+  if (currentDiagMode === 'before') {
+    // 3 Class Terpisah Redundan
+    container.innerHTML = `
+      <svg viewBox="0 0 760 300" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <text x="380" y="24" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="700" fill="#dd5a3a" text-anchor="middle">
+          âŒ KONDISI AWAL (REDUNDAN): 3 Class Terpisah Tanpa Inheritance
+        </text>
+
+        <!-- MAHASISWA -->
+        <g transform="translate(20, 45)">
+          <rect width="220" height="235" rx="8" fill="${hlBg}" stroke="#24221f" stroke-width="2.5"/>
+          <path d="M0 0h220v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#f2b544"/>
+          <text x="110" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="14" font-weight="800" fill="#24221f" text-anchor="middle">Mahasiswa</text>
+          <line x1="0" y1="28" x2="220" y2="28" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="46" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ nama (duplikat)</text>
+          <text x="12" y="62" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ usia (duplikat)</text>
+          <text x="12" y="78" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ gender (duplikat)</text>
+          <text x="12" y="94" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ alamat (duplikat)</text>
+          <text x="12" y="110" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ kampus</text>
+          <text x="12" y="126" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ prodi</text>
+          <text x="12" y="142" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ ipk</text>
+          <line x1="0" y1="152" x2="220" y2="152" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="170" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ berjalan() (duplikat)</text>
+          <text x="12" y="186" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ makan() (duplikat)</text>
+          <text x="12" y="202" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ mengerjakanTugas()</text>
+          <text x="12" y="218" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ belajar()</text>
+        </g>
+
+        <!-- PETANI -->
+        <g transform="translate(270, 45)">
+          <rect width="220" height="235" rx="8" fill="${hlBg}" stroke="#24221f" stroke-width="2.5"/>
+          <path d="M0 0h220v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#9fc3d8"/>
+          <text x="110" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="14" font-weight="800" fill="#24221f" text-anchor="middle">Petani</text>
+          <line x1="0" y1="28" x2="220" y2="28" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="46" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ nama (duplikat)</text>
+          <text x="12" y="62" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ usia (duplikat)</text>
+          <text x="12" y="78" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ gender (duplikat)</text>
+          <text x="12" y="94" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ alamat (duplikat)</text>
+          <text x="12" y="110" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ hasilTani</text>
+          <line x1="0" y1="152" x2="220" y2="152" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="170" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ berjalan() (duplikat)</text>
+          <text x="12" y="186" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ makan() (duplikat)</text>
+          <text x="12" y="202" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ bertani()</text>
+        </g>
+
+        <!-- PEDAGANG -->
+        <g transform="translate(520, 45)">
+          <rect width="220" height="235" rx="8" fill="${hlBg}" stroke="#24221f" stroke-width="2.5"/>
+          <path d="M0 0h220v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#fbe8e1"/>
+          <text x="110" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="14" font-weight="800" fill="#24221f" text-anchor="middle">Pedagang</text>
+          <line x1="0" y1="28" x2="220" y2="28" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="46" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ nama (duplikat)</text>
+          <text x="12" y="62" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ usia (duplikat)</text>
+          <text x="12" y="78" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ gender (duplikat)</text>
+          <text x="12" y="94" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ alamat (duplikat)</text>
+          <text x="12" y="110" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ penjualan</text>
+          <text x="12" y="126" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ toko</text>
+          <text x="12" y="142" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ alamatToko</text>
+          <line x1="0" y1="152" x2="220" y2="152" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="170" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ berjalan() (duplikat)</text>
+          <text x="12" y="186" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="${hlColor}" font-weight="${hlWeight}">+ makan() (duplikat)</text>
+          <text x="12" y="202" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ berdagang()</text>
+          <text x="12" y="218" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ menawar()</text>
+        </g>
+      </svg>
+    `;
+  } else {
+    // Sesudah Inheritance dengan Parent Manusia
+    container.innerHTML = `
+      <svg viewBox="0 0 760 460" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <text x="380" y="20" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="700" fill="#2b8a79" text-anchor="middle">
+          âœ¨ SESUDAH INHERITANCE: 1 Superclass Manusia + 3 Subclass Rapi & Bersih
+        </text>
+
+        <!-- PARENT MANUSIA -->
+        <g transform="translate(250, 35)">
+          <rect width="260" height="150" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(4px 4px 0 #24221f)"/>
+          <path d="M0 0h260v32a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#2b8a79"/>
+          <text x="130" y="21" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">&lt;&lt;Parent Class&gt;&gt;</text>
+          <text x="130" y="52" font-family="'Bricolage Grotesque', sans-serif" font-size="18" font-weight="800" fill="#24221f" text-anchor="middle">Manusia</text>
+          <line x1="0" y1="62" x2="260" y2="62" stroke="#24221f" stroke-width="1.8"/>
+          <text x="14" y="80" font-family="'JetBrains Mono', monospace" font-size="11" fill="${hlColor}" font-weight="${hlWeight}">+ nama</text>
+          <text x="14" y="98" font-family="'JetBrains Mono', monospace" font-size="11" fill="${hlColor}" font-weight="${hlWeight}">+ usia</text>
+          <text x="135" y="80" font-family="'JetBrains Mono', monospace" font-size="11" fill="${hlColor}" font-weight="${hlWeight}">+ gender</text>
+          <text x="135" y="98" font-family="'JetBrains Mono', monospace" font-size="11" fill="${hlColor}" font-weight="${hlWeight}">+ alamat</text>
+          <line x1="0" y1="108" x2="260" y2="108" stroke="#24221f" stroke-width="1.8"/>
+          <text x="14" y="126" font-family="'JetBrains Mono', monospace" font-size="11" fill="${hlColor}" font-weight="${hlWeight}">+ berjalan()</text>
+          <text x="135" y="126" font-family="'JetBrains Mono', monospace" font-size="11" fill="${hlColor}" font-weight="${hlWeight}">+ makan()</text>
+        </g>
+
+        <!-- Garis Inheritance -->
+        <line x1="380" y1="185" x2="380" y2="230" stroke="#24221f" stroke-width="2.5"/>
+        <line x1="125" y1="230" x2="635" y2="230" stroke="#24221f" stroke-width="2.5"/>
+
+        <!-- Panah Segitiga Kosong UML -->
+        <polygon points="370,202 390,202 380,186" fill="#fff" stroke="#24221f" stroke-width="2.5"/>
+
+        <line x1="125" y1="230" x2="125" y2="260" stroke="#24221f" stroke-width="2.5"/>
+        <line x1="380" y1="230" x2="380" y2="260" stroke="#24221f" stroke-width="2.5"/>
+        <line x1="635" y1="230" x2="635" y2="260" stroke="#24221f" stroke-width="2.5"/>
+
+        <!-- SUBCLASS 1: MAHASISWA -->
+        <g transform="translate(20, 260)">
+          <rect width="210" height="180" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5"/>
+          <path d="M0 0h210v26a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#f2b544"/>
+          <text x="105" y="18" font-family="'Bricolage Grotesque', sans-serif" font-size="14" font-weight="800" fill="#24221f" text-anchor="middle">Mahasiswa</text>
+          <text x="105" y="38" font-family="'JetBrains Mono', monospace" font-size="9" fill="#5f5a50" text-anchor="middle">&lt;mewarisi Manusia&gt;</text>
+          <line x1="0" y1="46" x2="210" y2="46" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="66" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ kampus</text>
+          <text x="12" y="84" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ prodi</text>
+          <text x="12" y="102" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ ipk</text>
+          <line x1="0" y1="114" x2="210" y2="114" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="134" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#dd5a3a" font-weight="700">+ mengerjakanTugas()</text>
+          <text x="12" y="154" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#dd5a3a" font-weight="700">+ belajar()</text>
+        </g>
+
+        <!-- SUBCLASS 2: PETANI -->
+        <g transform="translate(275, 260)">
+          <rect width="210" height="180" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5"/>
+          <path d="M0 0h210v26a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#9fc3d8"/>
+          <text x="105" y="18" font-family="'Bricolage Grotesque', sans-serif" font-size="14" font-weight="800" fill="#24221f" text-anchor="middle">Petani</text>
+          <text x="105" y="38" font-family="'JetBrains Mono', monospace" font-size="9" fill="#5f5a50" text-anchor="middle">&lt;mewarisi Manusia&gt;</text>
+          <line x1="0" y1="46" x2="210" y2="46" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="66" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ hasilTani</text>
+          <line x1="0" y1="114" x2="210" y2="114" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="134" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#2b8a79" font-weight="700">+ bertani()</text>
+        </g>
+
+        <!-- SUBCLASS 3: PEDAGANG -->
+        <g transform="translate(530, 260)">
+          <rect width="210" height="180" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5"/>
+          <path d="M0 0h210v26a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#fbe8e1"/>
+          <text x="105" y="18" font-family="'Bricolage Grotesque', sans-serif" font-size="14" font-weight="800" fill="#24221f" text-anchor="middle">Pedagang</text>
+          <text x="105" y="38" font-family="'JetBrains Mono', monospace" font-size="9" fill="#5f5a50" text-anchor="middle">&lt;mewarisi Manusia&gt;</text>
+          <line x1="0" y1="46" x2="210" y2="46" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="66" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ penjualan</text>
+          <text x="12" y="84" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ toko</text>
+          <text x="12" y="102" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#24221f">+ alamatToko</text>
+          <line x1="0" y1="114" x2="210" y2="114" stroke="#24221f" stroke-width="1.8"/>
+          <text x="12" y="134" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#7d5a86" font-weight="700">+ berdagang()</text>
+          <text x="12" y="154" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#7d5a86" font-weight="700">+ menawar()</text>
+        </g>
+      </svg>
+    `;
+  }
+}
+
+// 5. 10 Soal Kuis Pilihan Ganda Kasus UTS 2024
+const QUIZ_QUESTIONS = [
+  {
+    q: "Pada Soal 1 UTS 2024, mengapa pendeklarasian class 'Mobil' belum menghabiskan memori komputer untuk data mobil?",
+    opts: [
+      "Karena class belum di-compile oleh compiler Java.",
+      "Karena class hanya cetak biru (blueprint); memori baru dialokasikan saat objek dibuat dengan operator 'new'.",
+      "Karena class harus diubah menjadi file gambar terlebih dahulu di Alice 3.",
+      "Karena komputer menunggu perintah perulangan selesai dijalankan."
+    ],
+    ans: 1,
+    exp: "Tepat! Class hanya mendefinisikan tipe data dan struktur. Alokasi memori konkret (di ruang Heap) baru terjadi ketika instansiasi objek dijalankan dengan kata kunci 'new'."
+  },
+  {
+    q: "Pada Soal 2, syarat minimal untuk pembuatan class adalah memiliki 4 property dan 4 method. Manakah pasangan yang paling tepat menggambarkan perbedaan keduanya?",
+    opts: [
+      "Property adalah aksi gerak (behavior), sedangkan method adalah variabel penyimpan data (state).",
+      "Property hanya bisa bernilai angka, sedangkan method hanya bisa bernilai teks.",
+      "Property adalah data/karakteristik (apa yang dimiliki objek), sedangkan method adalah perilaku/aksi (apa yang bisa dilakukan objek).",
+      "Property dan method adalah istilah yang sama dan bisa saling menggantikan."
+    ],
+    ans: 2,
+    exp: "Benar! Property mewakili atribut/state (misal: 'nama', 'nyawa'), sedangkan method mewakili perilaku/tindakan (misal: 'serangMusuh()', 'minumPotion()')."
+  },
+  {
+    q: "Perhatikan diagram pada Soal 3. Mengapa class 'Manusia' adalah nama parent class yang paling tepat untuk Mahasiswa, Petani, dan Pedagang?",
+    opts: [
+      "Karena memenuhi relasi pewarisan 'is-a': Mahasiswa is-a Manusia, Petani is-a Manusia, dan Pedagang is-a Manusia.",
+      "Karena kata Manusia lebih pendek daripada kata Mahasiswa.",
+      "Karena hanya class Manusia yang boleh memiliki method makan().",
+      "Karena diagram UML melarang penggunaan bahasa Inggris."
+    ],
+    ans: 0,
+    exp: "Benar! Inheritance selalu mematuhi konsep generalisasi 'is-a' (adalah seorang). Mahasiswa, Petani, dan Pedagang semuanya adalah spesialisasi dari entitas Manusia."
+  },
+  {
+    q: "Jika method 'berjalan()' dan 'makan()' sudah dipindahkan ke class parent 'Manusia', apakah objek Mahasiswa (m1) masih bisa memanggil 'm1.berjalan()'?",
+    opts: [
+      "Tidak bisa, karena method tersebut sudah dihapus dari class Mahasiswa.",
+      "Bisa, karena class Mahasiswa mewarisi (extends) seluruh property dan method dari parent Manusia.",
+      "Hanya bisa jika method tersebut ditulis ulang di dalam class Mahasiswa.",
+      "Bisa, tetapi harus membayar lisensi baru di Alice 3."
+    ],
+    ans: 1,
+    exp: "Tepat sekali! Seluruh anggota non-private pada superclass secara otomatis diwariskan ke subclass sehingga dapat langsung dipanggil tanpa perlu penulisan ulang."
+  },
+  {
+    q: "Pada diagram UML standar, simbol panah apakah yang digunakan untuk menghubungkan Subclass (anak) ke Superclass (induk)?",
+    opts: [
+      "Garis putus-putus dengan mata panah terbuka.",
+      "Garis lurus tebal dengan panah segitiga tertutup kosong (hollow closed triangle) menunjuk ke arah Superclass.",
+      "Garis dengan belah ketupat hitam di ujungnya.",
+      "Panah melengkung berputar dua arah."
+    ],
+    ans: 1,
+    exp: "Sempurna! Standar notasi UML untuk Generalization/Inheritance adalah garis lurus yang berujung panah segitiga tertutup berongga (kosong/putih) yang mengarah ke parent class."
+  },
+  {
+    q: "Pada Soal 4 mengenai Alice 3, manakah di antara perintah berikut yang merupakan contoh 'Procedure'?",
+    opts: [
+      "this.alice.getDistanceTo(this.rabbit);",
+      "this.alice.getHeight();",
+      "this.alice.move(Direction.FORWARD, 2.0);",
+      "this.alice.isCollidingWith(this.rock);"
+    ],
+    ans: 2,
+    exp: "Benar! 'this.alice.move()' adalah Procedure karena melakukan aksi fisik/animasi gerak langsung tanpa mengembalikan nilai balik (void)."
+  },
+  {
+    q: "Mengapa kode 'Double jarak = this.alice.move(Direction.FORWARD, 1.0);' akan menghasilkan ERROR di Alice 3 / Java?",
+    opts: [
+      "Karena karakter Alice tidak bisa bergerak maju sejauh 1 meter.",
+      "Karena 'move()' adalah Procedure (bertipe void/tidak mengembalikan nilai), sehingga hasilnya tidak bisa ditampung ke dalam variabel Double.",
+      "Karena variabel Double hanya boleh digunakan di dalam class Pedagang.",
+      "Karena Alice 3 mengharuskan penulisan dalam bahasa Indonesia."
+    ],
+    ans: 1,
+    exp: "Tepat! Prosedur bertipe 'void' yang berarti hampa/tanpa nilai balik. Hanya Function (seperti getDistanceTo) yang menghasilkan nilai yang bisa ditampung variabel."
+  },
+  {
+    q: "Manakah method di Alice 3 yang bertindak sebagai 'Function' dengan nilai balik Boolean (true / false)?",
+    opts: [
+      "this.alice.turn(Direction.LEFT, 0.5);",
+      "this.alice.say('Awas!');",
+      "this.alice.isCollidingWith(this.boulder);",
+      "this.alice.setPaint(Color.RED);"
+    ],
+    ans: 2,
+    exp: "Benar! 'isCollidingWith()' memeriksa apakah objek bersentuhan atau tidak, lalu mengembalikan nilai Boolean (true jika menabrak, false jika tidak)."
+  },
+  {
+    q: "Pada Soal 5, apa yang terjadi jika blok kode Alice 3 berikut dijalankan: 'count 3 { alice.turn(Direction.RIGHT, 0.25); }'?",
+    opts: [
+      "Alice akan berputar 3 kali penuh (1080 derajat).",
+      "Alice akan berputar ke kanan 90 derajat sebanyak 3 kali (total 270 derajat).",
+      "Alice akan langsung meloncat ke atas sejauh 3 meter.",
+      "Alice tidak bergerak sama sekali karena perulangan count membutuhkan variabel i."
+    ],
+    ans: 1,
+    exp: "Tepat! 0.25 putaran sama dengan 90 derajat (seperempat lingkaran). Karena diulang 3 kali oleh count 3, maka Alice berputar 3 x 90 = 270 derajat ke kanan."
+  },
+  {
+    q: "Apa keuntungan paling utama dari penggunaan struktur perulangan (loop) dibandingkan menulis instruksi secara manual berulang kali?",
+    opts: [
+      "Membuat komputer menjadi panas dan bekerja lebih keras.",
+      "Mencegah duplikasi kode, mempermudah pengubahan jumlah iterasi secara dinamis, dan kode lebih ringkas.",
+      "Membuat program hanya bisa dijalankan satu kali.",
+      "Mengharuskan pemrogram menggunakan class Manusia."
+    ],
+    ans: 1,
+    exp: "Luar biasa! Looping memangkas redundansi kode, mencegah human error saat menyalin baris instruksi, serta membuat program dinamis dan mudah dikelola."
+  }
+];
+
+let userQuizAnswers = {};
+
+function initQuiz() {
+  const container = document.getElementById('quizContainer');
+  if (!container) return;
+
+  container.innerHTML = QUIZ_QUESTIONS.map((q, idx) => `
+    <div class="q-post" id="quizCard${idx}" style="margin-bottom:20px;">
+      <div class="q-post-header" style="margin-bottom:12px; padding-bottom:8px;">
+        <span class="badge-qno">KASUS ${idx + 1} / 10</span>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--ink-soft);">UTS 2024 Concept Check</span>
+      </div>
+      <h3 style="font-size:1.05rem; margin:0 0 12px; font-family:var(--display);">${q.q}</h3>
+      <div class="mc-grid">
+        ${q.opts.map((opt, optIdx) => `
+          <button class="mc-opt-btn" id="optBtn_${idx}_${optIdx}" onclick="answerQuizQuestion(${idx}, ${optIdx})">
+            <span class="mc-key">${String.fromCharCode(65 + optIdx)}</span>
+            <span>${opt}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div id="quizExp${idx}" class="solution-card" style="display:none; margin-top:12px;"></div>
+    </div>
+  `).join('');
+}
+
+function answerQuizQuestion(qIdx, selectedOpt) {
+  const qData = QUIZ_QUESTIONS[qIdx];
+  const isCorrect = selectedOpt === qData.ans;
+  userQuizAnswers[qIdx] = isCorrect;
+
+  // Disable all buttons in this card and colorize
+  for (let i = 0; i < qData.opts.length; i++) {
+    const btn = document.getElementById(`optBtn_${qIdx}_${i}`);
+    btn.disabled = true;
+    if (i === qData.ans) {
+      btn.classList.add('correct');
+    } else if (i === selectedOpt) {
+      btn.classList.add('wrong');
+    }
+  }
+
+  // Show explanation
+  const expBox = document.getElementById(`quizExp${qIdx}`);
+  expBox.style.display = 'block';
+  expBox.innerHTML = `
+    <strong style="color:${isCorrect ? 'var(--teal)' : 'var(--tomato)'}; font-family:var(--display);">
+      ${isCorrect ? 'âœ… JAWABAN BENAR!' : 'âŒ KURANG TEPAT!'}
+    </strong>
+    <p style="margin:6px 0 0; font-size:13px; line-height:1.5;">${qData.exp}</p>
+  `;
+
+  // Update Score
+  let score = 0;
+  Object.values(userQuizAnswers).forEach(val => { if (val) score++; });
+  document.getElementById('quizScoreNum').innerText = score;
+}
+
+function resetQuiz() {
+  userQuizAnswers = {};
+  document.getElementById('quizScoreNum').innerText = '0';
+  initQuiz();
+}
+
+// 6. Inisialisasi Saat Halaman Dimuat
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz();
+  renderDiagram();
+
+  // Load Sim Scores from LocalStorage
+  const saved = localStorage.getItem('uts2024_sim_scores');
+  if (saved) {
+    try {
+      const data = JSON.parse(saved);
+      document.getElementById('scoreRange1').value = data.s1 || 0;
+      document.getElementById('scoreRange2').value = data.s2 || 0;
+      document.getElementById('scoreRange3').value = data.s3 || 0;
+      document.getElementById('scoreRange4').value = data.s4 || 0;
+      document.getElementById('scoreRange5').value = data.s5 || 0;
+      updateExamScore();
+    } catch(e) {}
+  }
+
+  // Auto-save essay textarea text
+  for (let i = 1; i <= 5; i++) {
+    const txt = document.getElementById('essay' + i);
+    if (txt) {
+      const savedText = localStorage.getItem('uts2024_essay_' + i);
+      if (savedText) txt.value = savedText;
+      txt.addEventListener('input', () => {
+        localStorage.setItem('uts2024_essay_' + i, txt.value);
+      });
+    }
+  }
+
+  const btnTop = document.getElementById('btnBackToTop');
+  if (btnTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btnTop.style.display = 'flex';
+      } else {
+        btnTop.style.display = 'none';
+      }
+    });
+    btnTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+</script>
+
+<button id="btnBackToTop" class="back-to-top" title="Kembali ke atas" aria-label="Kembali ke atas">â†‘</button>
+
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+
+

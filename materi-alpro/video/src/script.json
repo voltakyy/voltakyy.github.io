@@ -1,0 +1,46 @@
+{
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-4%",
+  "scenes": [
+    {
+      "id": "s1",
+      "chapter": "PEMBUKA",
+      "text": "Computational Thinking. Sebuah cara berpikir untuk memecahkan masalah secara terstruktur, logis, dan sistematis, sehingga solusinya bisa dijalankan oleh komputer, maupun oleh manusia."
+    },
+    {
+      "id": "s2",
+      "chapter": "EMPAT PILAR",
+      "text": "Ada empat pilar utama. Dekomposisi, pengenalan pola, abstraksi, dan perancangan algoritma. Mari kita bahas satu per satu, dengan contoh nyata."
+    },
+    {
+      "id": "s3",
+      "chapter": "PILAR 01",
+      "text": "Pilar pertama, dekomposisi. Masalah besar dipecah menjadi bagian kecil yang lebih mudah dikelola. Menyiapkan hidangan pesta, misalnya, dibagi menjadi perencanaan, pengadaan, persiapan, memasak, dan penyajian."
+    },
+    {
+      "id": "s4",
+      "chapter": "PILAR 02",
+      "text": "Pilar kedua, pengenalan pola. Kita mencari kesamaan dan keteraturan dari pengalaman sebelumnya. Rendang butuh berjam-jam, tumis sayur cukup lima belas menit. Dan satu tamu rata-rata menghabiskan satu setengah porsi lauk."
+    },
+    {
+      "id": "s5",
+      "chapter": "PILAR 03",
+      "text": "Pilar ketiga, abstraksi. Fokus pada hal yang benar-benar penting, dan abaikan detail yang tidak berpengaruh. Pada aplikasi e-commerce, keamanan transaksi dan akurasi harga adalah prioritas. Live streaming dan gamifikasi bisa menyusul."
+    },
+    {
+      "id": "s6",
+      "chapter": "PILAR 04",
+      "text": "Pilar keempat, perancangan algoritma. Langkah-langkah disusun berurutan dan logis. Proses checkout: cek stok, hitung total tagihan, buat invoice, panggil payment gateway, lalu verifikasi pembayaran."
+    },
+    {
+      "id": "s7",
+      "chapter": "STUDI KASUS",
+      "text": "Keempat pilar bekerja bersama. Menentukan rute tercepat ke kantor: perjalanan dipecah menjadi beberapa etape, pola kemacetan jam tujuh dikenali, detail yang tidak relevan diabaikan, lalu langkahnya disusun. Berangkat setengah tujuh, ambil jalan pintas A, naik kereta pukul tujuh, tiba tepat waktu."
+    },
+    {
+      "id": "s8",
+      "chapter": "PENUTUP",
+      "text": "Computational thinking bukan hanya untuk programmer. Ini keterampilan memecahkan masalah yang bisa dipakai di bisnis, sains, pendidikan, dan kehidupan sehari-hari."
+    }
+  ]
+}

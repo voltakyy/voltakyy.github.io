@@ -1,0 +1,602 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan â€” materi-fungsi</title>
+<meta name="description" content="Dua belas soal fungsi bertingkat dari mudah ke sulit, lengkap dengan langkah penyelesaian yang tidak dilewati.">
+<meta name="theme-color" content="#f7f6f0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="assets/tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+<a class="skip" href="#utama">Lompat ke isi</a>
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html" aria-label="materi-fungsi, beranda">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="5" fill="#fffefa"/>
+        <g stroke="#1f4e79" stroke-opacity=".2" stroke-width=".8">
+          <path d="M0 8h32M0 16h32M0 24h32M8 0v32M16 0v32M24 0v32"/>
+        </g>
+        <path d="M4 27c5 0 6-18 11-18s5 12 9 12" fill="none" stroke="#1f4e79" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="15" cy="9" r="2.6" fill="#b03a26" stroke="#fffefa" stroke-width="1.2"/>
+      </svg>
+      <span class="brand-word">fungsi<i>.</i></span>
+    </a>
+
+    <nav class="topnav" aria-label="Navigasi utama">
+      <a href="dasar.html">Dasar</a>
+      <a href="bentuk.html">Bentuk</a>
+      <a href="lanjut.html">Lanjut</a>
+      <a href="latihan.html" aria-current="page">Latihan</a>
+      <a href="ringkasan.html">Ringkasan</a>
+    </nav>
+
+    <span class="readchip" data-readchip title="Progres bagian yang sudah ditandai">
+      <span class="bar"><span></span></span>
+      <b>0/15</b> selesai
+    </span>
+  </div>
+</header>
+
+<main id="utama" class="shell">
+  <div class="page">
+
+    <aside class="rail" aria-label="Isi halaman latihan">
+      <p class="rail-title">Latihan Â· 12 soal</p>
+      <ol>
+        <li><a href="#mudah"><span class="n">01</span><span>Mudah Â· soal 1â€“4</span></a></li>
+        <li><a href="#sedang"><span class="n">05</span><span>Sedang Â· soal 5â€“8</span></a></li>
+        <li><a href="#sulit"><span class="n">09</span><span>Sulit Â· soal 9â€“12</span></a></li>
+      </ol>
+      <p class="rail-note">Kerjakan dulu di kertas, baru buka langkahnya. Membaca langkah sebelum mencoba membuat semuanya terasa mudah â€” padahal belum tentu bisa diulang sendiri.</p>
+    </aside>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div class="crumbs">
+          <a href="index.html">Beranda</a><span>/</span><span>Latihan</span>
+        </div>
+        <p class="kicker">Latihan Â· 12 soal bertingkat</p>
+        <h1>Uji pemahaman</h1>
+        <p class="lede">Empat soal mudah, empat sedang, empat sulit. Setiap soal punya langkah lengkap â€” bukan hanya jawaban akhir. Buka langkahnya hanya setelah kamu mencoba sendiri.</p>
+      </div>
+
+      <div class="quiz-bar">
+        <p><b data-score>0 dari 12</b> soal sudah dibuka</p>
+        <button class="btn btn-ghost btn-sm" data-reset-quiz>Ulangi dari awal</button>
+      </div>
+
+      <div class="quiz-list" data-quiz>
+
+        <p class="q-group" id="mudah">Mudah Â· soal 1â€“4</p>
+
+        <article class="q-card" data-q="1">
+          <div class="q-head">
+            <span class="q-num">soal 01</span>
+            <span class="q-level mudah">mudah</span>
+          </div>
+          <div class="q-body">
+            <p>Diketahui $f(x)=2x^2-3x+1$. Hitung $f(-2)$.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">tulis rumusnya</span>
+                <p>$f(x)=2x^2-3x+1$</p>
+              </li>
+              <li>
+                <span class="step-label">ganti setiap $x$ dengan $-2$</span>
+                <p>$f(-2)=2(-2)^2-3(-2)+1$</p>
+              </li>
+              <li>
+                <span class="step-label">hitung kuadratnya dulu</span>
+                <p>$(-2)^2=4$, sehingga $2\cdot4=8$</p>
+              </li>
+              <li>
+                <span class="step-label">hitung suku tengah</span>
+                <p>$-3\cdot(-2)=+6$</p>
+              </li>
+              <li>
+                <span class="step-label">jumlahkan</span>
+                <p>$8+6+1=15$</p>
+              </li>
+            </ol>
+            <span class="answer">$f(-2)=15$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="2">
+          <div class="q-head">
+            <span class="q-num">soal 02</span>
+            <span class="q-level mudah">mudah</span>
+          </div>
+          <div class="q-body">
+            <p>Tentukan domain dari $f(x)=\dfrac{1}{x-5}$ dan $g(x)=\sqrt{2x-8}$.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">cari larangan pada $f$</span>
+                <p>Pecahan tidak boleh berpenyebut nol, jadi $x-5\neq0$.</p>
+                <p>$x\neq5$</p>
+              </li>
+              <li>
+                <span class="step-label">tulis domain $f$</span>
+                <p>$D_f=\mathbb{R}\setminus\{5\}$</p>
+              </li>
+              <li>
+                <span class="step-label">cari syarat pada $g$</span>
+                <p>Isi akar kuadrat tidak boleh negatif: $2x-8\ge0$.</p>
+              </li>
+              <li>
+                <span class="step-label">selesaikan pertidaksamaannya</span>
+                <p>$2x\ge8 \Rightarrow x\ge4$</p>
+                <p>$D_g=[4,\infty)$</p>
+              </li>
+            </ol>
+            <span class="answer">$D_f=\mathbb{R}\setminus\{5\}$, &nbsp; $D_g=[4,\infty)$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="3">
+          <div class="q-head">
+            <span class="q-num">soal 03</span>
+            <span class="q-level mudah">mudah</span>
+          </div>
+          <div class="q-body">
+            <p>Relasi $R=\{(1,2),(2,3),(1,5),(3,4)\}$. Apakah $R$ sebuah fungsi?</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">kumpulkan input yang muncul</span>
+                <p>Inputnya $1$, $2$, $1$, $3$ â€” jadi $x=1$ muncul dua kali.</p>
+              </li>
+              <li>
+                <span class="step-label">periksa output untuk $x=1$</span>
+                <p>Ada $(1,2)$ dan $(1,5)$: satu input, dua output berbeda.</p>
+              </li>
+              <li>
+                <span class="step-label">simpulkan</span>
+                <p>Syarat fungsi dilanggar â€” setiap input harus punya tepat satu output. Jadi $R$ bukan fungsi.</p>
+              </li>
+            </ol>
+            <span class="answer">bukan fungsi</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="4">
+          <div class="q-head">
+            <span class="q-num">soal 04</span>
+            <span class="q-level mudah">mudah</span>
+          </div>
+          <div class="q-body">
+            <p>Apakah persamaan $x^2+y^2=25$ menyatakan $y$ sebagai fungsi dari $x$?</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">selesaikan untuk $y$</span>
+                <p>$y^2=25-x^2$</p>
+                <p>$y=\pm\sqrt{25-x^2}$</p>
+              </li>
+              <li>
+                <span class="step-label">uji satu nilai $x$</span>
+                <p>Ambil $x=0$: $y=5$ dan $y=-5$ sama-sama memenuhi.</p>
+              </li>
+              <li>
+                <span class="step-label">terjemahkan ke grafik</span>
+                <p>Grafiknya lingkaran berjari-jari $5$. Garis vertikal $x=0$ memotongnya di dua titik, jadi uji garis vertikal gagal.</p>
+              </li>
+            </ol>
+            <span class="answer">bukan fungsi dari $x$</span>
+          </div>
+        </article>
+
+        <p class="q-group" id="sedang">Sedang Â· soal 5â€“8</p>
+
+        <article class="q-card" data-q="5">
+          <div class="q-head">
+            <span class="q-num">soal 05</span>
+            <span class="q-level sedang">sedang</span>
+          </div>
+          <div class="q-body">
+            <p>Garis lurus melalui titik $(2,-1)$ dan $(5,8)$. Tentukan rumus fungsinya.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">hitung gradien</span>
+                <p>$m=\dfrac{y_2-y_1}{x_2-x_1}=\dfrac{8-(-1)}{5-2}=\dfrac{9}{3}=3$</p>
+              </li>
+              <li>
+                <span class="step-label">pakai satu titik, misalnya $(2,-1)$</span>
+                <p>$y-y_1=m(x-x_1)$</p>
+                <p>$y+1=3(x-2)$</p>
+              </li>
+              <li>
+                <span class="step-label">jabarkan</span>
+                <p>$y+1=3x-6$</p>
+                <p>$y=3x-7$</p>
+              </li>
+              <li>
+                <span class="step-label">periksa dengan titik kedua</span>
+                <p>$f(5)=15-7=8$ âœ“</p>
+              </li>
+            </ol>
+            <span class="answer">$f(x)=3x-7$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="6">
+          <div class="q-head">
+            <span class="q-num">soal 06</span>
+            <span class="q-level sedang">sedang</span>
+          </div>
+          <div class="q-body">
+            <p>Diketahui $f(x)=x^2-6x+5$. Tentukan titik puncak, range, dan akar-akarnya.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">baca koefisiennya</span>
+                <p>$a=1$, $b=-6$, $c=5$</p>
+              </li>
+              <li>
+                <span class="step-label">cari absis puncak</span>
+                <p>$x_p=-\dfrac{b}{2a}=-\dfrac{-6}{2}=3$</p>
+              </li>
+              <li>
+                <span class="step-label">cari ordinat puncak</span>
+                <p>$y_p=f(3)=9-18+5=-4$</p>
+                <p>Puncaknya $(3,-4)$.</p>
+              </li>
+              <li>
+                <span class="step-label">tentukan arah parabola</span>
+                <p>$a=1&gt;0$, terbuka ke atas, jadi $(3,-4)$ adalah titik minimum dan range-nya $[-4,\infty)$.</p>
+              </li>
+              <li>
+                <span class="step-label">faktorkan untuk mencari akar</span>
+                <p>$x^2-6x+5=0$</p>
+                <p>$(x-1)(x-5)=0$</p>
+                <p>$x=1$ atau $x=5$</p>
+              </li>
+            </ol>
+            <span class="answer">puncak $(3,-4)$, range $[-4,\infty)$, akar $1$ dan $5$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="7">
+          <div class="q-head">
+            <span class="q-num">soal 07</span>
+            <span class="q-level sedang">sedang</span>
+          </div>
+          <div class="q-body">
+            <p>Tentukan asimtot dan domain dari $f(x)=\dfrac{2x+1}{x-3}$.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">domain: penyebut tidak boleh nol</span>
+                <p>$x-3\neq0 \Rightarrow x\neq3$</p>
+                <p>$D=\mathbb{R}\setminus\{3\}$</p>
+              </li>
+              <li>
+                <span class="step-label">asimtot tegak</span>
+                <p>Di $x=3$ penyebut nol sedangkan pembilang $2(3)+1=7\neq0$. Jadi $x=3$ asimtot tegak.</p>
+              </li>
+              <li>
+                <span class="step-label">bandingkan derajat</span>
+                <p>Pembilang dan penyebut sama-sama berderajat satu.</p>
+              </li>
+              <li>
+                <span class="step-label">ambil rasio koefisien depan</span>
+                <p>$y=\dfrac{2}{1}=2$, jadi $y=2$ asimtot datar.</p>
+              </li>
+            </ol>
+            <span class="answer">$x=3$ dan $y=2$; &nbsp; $D=\mathbb{R}\setminus\{3\}$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="8">
+          <div class="q-head">
+            <span class="q-num">soal 08</span>
+            <span class="q-level sedang">sedang</span>
+          </div>
+          <div class="q-body">
+            <p>Tentukan himpunan penyelesaian dari $|2x-5|=7$.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">pecah menjadi dua kasus</span>
+                <p>Nilai mutlak $7$ bisa berasal dari $7$ atau $-7$.</p>
+                <p>$2x-5=7$ &nbsp;atau&nbsp; $2x-5=-7$</p>
+              </li>
+              <li>
+                <span class="step-label">selesaikan kasus pertama</span>
+                <p>$2x=12 \Rightarrow x=6$</p>
+              </li>
+              <li>
+                <span class="step-label">selesaikan kasus kedua</span>
+                <p>$2x=-2 \Rightarrow x=-1$</p>
+              </li>
+              <li>
+                <span class="step-label">periksa keduanya</span>
+                <p>$|2(6)-5|=|7|=7$ âœ“</p>
+                <p>$|2(-1)-5|=|-7|=7$ âœ“</p>
+              </li>
+            </ol>
+            <span class="answer">$x=-1$ atau $x=6$</span>
+          </div>
+        </article>
+
+        <p class="q-group" id="sulit">Sulit Â· soal 9â€“12</p>
+
+        <article class="q-card" data-q="9">
+          <div class="q-head">
+            <span class="q-num">soal 09</span>
+            <span class="q-level sulit">sulit</span>
+          </div>
+          <div class="q-body">
+            <p>Tentukan penyelesaian dari $\sqrt{x+3}=x-3$.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">tulis syarat sebelum menguadratkan</span>
+                <p>Isi akar: $x+3\ge0 \Rightarrow x\ge-3$.</p>
+                <p>Ruas kanan harus tak negatif karena hasil akar selalu $\ge0$: $x-3\ge0 \Rightarrow x\ge3$.</p>
+                <p>Gabungan syarat: $x\ge3$.</p>
+              </li>
+              <li>
+                <span class="step-label">kuadratkan kedua ruas</span>
+                <p>$x+3=(x-3)^2$</p>
+                <p>$x+3=x^2-6x+9$</p>
+              </li>
+              <li>
+                <span class="step-label">susun menjadi persamaan kuadrat</span>
+                <p>$0=x^2-7x+6$</p>
+                <p>$0=(x-1)(x-6)$</p>
+                <p>$x=1$ atau $x=6$</p>
+              </li>
+              <li>
+                <span class="step-label">saring dengan syarat</span>
+                <p>$x=1$ gugur karena tidak memenuhi $x\ge3$.</p>
+                <p>$x=6$ memenuhi.</p>
+              </li>
+              <li>
+                <span class="step-label">periksa langsung</span>
+                <p>$\sqrt{6+3}=\sqrt9=3$ dan $6-3=3$ âœ“</p>
+                <p>Untuk $x=1$: $\sqrt4=2$ tetapi $1-3=-2$ âœ—</p>
+              </li>
+            </ol>
+            <span class="answer">$x=6$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="10">
+          <div class="q-head">
+            <span class="q-num">soal 10</span>
+            <span class="q-level sulit">sulit</span>
+          </div>
+          <div class="q-body">
+            <p>Diketahui $f(x)=x^2-4$ dengan domain $x\ge0$. Tentukan $f^{-1}(x)$ beserta domain dan range-nya, lalu hitung $f^{-1}(5)$.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">pastikan bijektif pada domain itu</span>
+                <p>Untuk $x\ge0$, $x^2$ selalu naik, jadi $f$ injektif. Nilai terkecilnya $f(0)=-4$ dan naik terus, jadi range $f=[-4,\infty)$.</p>
+              </li>
+              <li>
+                <span class="step-label">tulis $y=f(x)$ lalu tukar $x$ dan $y$</span>
+                <p>$y=x^2-4$</p>
+                <p>$x=y^2-4$</p>
+              </li>
+              <li>
+                <span class="step-label">selesaikan untuk $y$</span>
+                <p>$y^2=x+4$</p>
+                <p>$y=\pm\sqrt{x+4}$</p>
+              </li>
+              <li>
+                <span class="step-label">pilih tanda sesuai domain asal</span>
+                <p>Domain asal $x\ge0$ berarti output invers juga $\ge0$, jadi ambil tanda positif.</p>
+                <p>$f^{-1}(x)=\sqrt{x+4}$</p>
+              </li>
+              <li>
+                <span class="step-label">tukar domain dan range</span>
+                <p>$D_{f^{-1}}=R_f=[-4,\infty)$</p>
+                <p>$R_{f^{-1}}=D_f=[0,\infty)$</p>
+              </li>
+              <li>
+                <span class="step-label">hitung $f^{-1}(5)$</span>
+                <p>$f^{-1}(5)=\sqrt{5+4}=\sqrt9=3$</p>
+                <p>Periksa: $f(3)=9-4=5$ âœ“</p>
+              </li>
+            </ol>
+            <span class="answer">$f^{-1}(x)=\sqrt{x+4}$, $D=[-4,\infty)$, $R=[0,\infty)$; &nbsp; $f^{-1}(5)=3$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="11">
+          <div class="q-head">
+            <span class="q-num">soal 11</span>
+            <span class="q-level sulit">sulit</span>
+          </div>
+          <div class="q-body">
+            <p>Diketahui $f(x)=\sqrt{x}$ dan $g(x)=\dfrac{1}{x-2}$. Tentukan $(f\circ g)(x)$ dan $(g\circ f)(x)$ beserta domain masing-masing.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">$(f\circ g)(x)$: masukkan $g$ ke dalam $f$</span>
+                <p>$(f\circ g)(x)=f\left(\dfrac{1}{x-2}\right)=\sqrt{\dfrac{1}{x-2}}$</p>
+              </li>
+              <li>
+                <span class="step-label">domain $(f\circ g)$: dua syarat</span>
+                <p>Syarat 1, masuk ke $g$: $x\neq2$.</p>
+                <p>Syarat 2, hasil $g$ masuk ke $f$: $\dfrac{1}{x-2}\ge0$. Pecahan bertanda positif tepat ketika penyebutnya positif, jadi $x-2&gt;0$.</p>
+                <p>$x&gt;2$</p>
+              </li>
+              <li>
+                <span class="step-label">$(g\circ f)(x)$: masukkan $f$ ke dalam $g$</span>
+                <p>$(g\circ f)(x)=g(\sqrt{x})=\dfrac{1}{\sqrt{x}-2}$</p>
+              </li>
+              <li>
+                <span class="step-label">domain $(g\circ f)$: dua syarat</span>
+                <p>Syarat 1, masuk ke $f$: $x\ge0$.</p>
+                <p>Syarat 2, hasil $f$ masuk ke $g$: $\sqrt{x}\neq2$, yaitu $x\neq4$.</p>
+                <p>Gabungan: $x\ge0$ dan $x\neq4$.</p>
+              </li>
+            </ol>
+            <span class="answer">$(f\circ g)(x)=\sqrt{\dfrac{1}{x-2}}$, $D=(2,\infty)$; &nbsp; $(g\circ f)(x)=\dfrac{1}{\sqrt{x}-2}$, $D=[0,4)\cup(4,\infty)$</span>
+          </div>
+        </article>
+
+        <article class="q-card" data-q="12">
+          <div class="q-head">
+            <span class="q-num">soal 12</span>
+            <span class="q-level sulit">sulit</span>
+          </div>
+          <div class="q-body">
+            <p>Diketahui $f(x)=-x^2+4x$. Tentukan apakah $f$ genap, ganjil, atau bukan keduanya; lalu tentukan interval naik, interval turun, dan range-nya.</p>
+          </div>
+          <div class="q-tools">
+            <button class="btn btn-ghost btn-sm" data-reveal aria-expanded="false">Lihat langkah</button>
+            <button class="btn btn-ghost btn-sm" data-self="ok">sudah benar</button>
+            <button class="btn btn-ghost btn-sm" data-self="no">belum tepat</button>
+          </div>
+          <div class="q-answer" hidden>
+            <ol class="steps">
+              <li>
+                <span class="step-label">uji dengan $-x$</span>
+                <p>$f(-x)=-(-x)^2+4(-x)=-x^2-4x$</p>
+              </li>
+              <li>
+                <span class="step-label">bandingkan dengan $f(x)$ dan $-f(x)$</span>
+                <p>$f(x)=-x^2+4x$, sedangkan $f(-x)=-x^2-4x$ â€” tidak sama, jadi bukan genap.</p>
+                <p>$-f(x)=x^2-4x$ â€” juga tidak sama, jadi bukan ganjil.</p>
+              </li>
+              <li>
+                <span class="step-label">cari puncak</span>
+                <p>$x_p=-\dfrac{b}{2a}=-\dfrac{4}{2(-1)}=2$</p>
+                <p>$y_p=f(2)=-4+8=4$</p>
+              </li>
+              <li>
+                <span class="step-label">tentukan arah parabola</span>
+                <p>$a=-1&lt;0$, terbuka ke bawah. Jadi naik sebelum puncak dan turun sesudahnya.</p>
+              </li>
+              <li>
+                <span class="step-label">tulis interval dan range</span>
+                <p>Naik pada $(-\infty,2]$, turun pada $[2,\infty)$.</p>
+                <p>Nilai terbesar adalah $4$, jadi range $(-\infty,4]$.</p>
+              </li>
+            </ol>
+            <span class="answer">bukan keduanya; naik di $(-\infty,2]$, turun di $[2,\infty)$; range $(-\infty,4]$</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="done-row">
+        <a class="btn btn-primary" href="ringkasan.html">Buka ringkasan</a>
+        <span class="done-note">atau kembali ke <a href="dasar.html">bagian 01</a> kalau ada yang masih kabur</span>
+      </div>
+
+      <nav class="nextprev" aria-label="Navigasi halaman">
+        <a class="np" href="lanjut.html#sifat">
+          <span>sebelumnya</span>
+          <b>Bagian 15 Â· Genap, ganjil, monoton</b>
+        </a>
+        <a class="np next" href="ringkasan.html">
+          <span>selanjutnya</span>
+          <b>Ringkasan Â· seluruh materi</b>
+        </a>
+      </nav>
+
+    </div>
+  </div>
+</main>
+
+<footer class="shell">
+  <div class="foot">
+    <span>materi-fungsi Â· latihan</span>
+    <span><a href="https://github.com/voltakyy/materi-fungsi">sumber di GitHub</a></span>
+  </div>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,223 @@
+/* =========================================================
+   RUANG BELAJAR UMS — UNIVERSAL PORTAL TOPBAR
+   Tactile Academic Studio Design System
+   Compatible with light paper and dark academic themes
+   ========================================================= */
+
+:root {
+  --portal-bar-bg: #fffdf7;
+  --portal-bar-ink: #24221f;
+  --portal-bar-muted: #5f5a50;
+  --portal-bar-border: #24221f;
+  --portal-bar-accent: #0e7490;
+  --portal-bar-shadow: 2px 2px 0 #24221f;
+  --portal-font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --portal-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* If parent has dark theme */
+[data-theme="dark"], .theme-dark, body.dark-mode, [class*="dark-theme"] {
+  --portal-bar-bg: #151e30;
+  --portal-bar-ink: #f8fafc;
+  --portal-bar-muted: #94a3b8;
+  --portal-bar-border: #334155;
+  --portal-bar-accent: #38bdf8;
+  --portal-bar-shadow: 2px 2px 0 #020617;
+}
+
+#ums-portal-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background: var(--portal-bar-bg);
+  color: var(--portal-bar-ink);
+  border-bottom: 2px solid var(--portal-bar-border);
+  font-family: var(--portal-font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ums-portal-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ums-portal-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ums-portal-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--portal-bar-bg);
+  color: var(--portal-bar-ink);
+  border: 1.5px solid var(--portal-bar-border);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  box-shadow: var(--portal-bar-shadow);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  white-space: nowrap;
+}
+
+.ums-portal-home-link:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--portal-bar-border);
+  color: var(--portal-bar-accent);
+}
+
+.ums-portal-home-link:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--portal-bar-border);
+}
+
+.ums-portal-crumb-sep {
+  color: var(--portal-bar-muted);
+  font-weight: 400;
+  font-size: 13px;
+  user-select: none;
+}
+
+.ums-portal-current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--portal-bar-ink);
+  letter-spacing: -0.01em;
+}
+
+.ums-portal-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Switcher Dropdown */
+.ums-portal-dropdown {
+  position: relative;
+}
+
+.ums-portal-dropbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--portal-bar-bg);
+  color: var(--portal-bar-ink);
+  border: 1.5px solid var(--portal-bar-border);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: var(--portal-bar-shadow);
+  font-family: inherit;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.ums-portal-dropbtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--portal-bar-border);
+}
+
+.ums-portal-dropbtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--portal-bar-border);
+}
+
+.ums-portal-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 260px;
+  background: var(--portal-bar-bg);
+  border: 2px solid var(--portal-bar-border);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 var(--portal-bar-border);
+  padding: 6px;
+  z-index: 100000;
+  list-style: none;
+  margin: 0;
+}
+
+.ums-portal-menu.active {
+  display: block;
+  animation: umsMenuIn 0.15s ease-out;
+}
+
+@keyframes umsMenuIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ums-portal-menu-header {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--portal-bar-muted);
+  padding: 6px 10px 4px;
+}
+
+.ums-portal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  color: var(--portal-bar-ink);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  transition: background 0.12s ease;
+}
+
+.ums-portal-item:hover, .ums-portal-item:focus-visible {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--portal-bar-accent);
+  outline: none;
+}
+
+[data-theme="dark"] .ums-portal-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ums-portal-item.current {
+  background: rgba(14, 116, 144, 0.12);
+  font-weight: 800;
+}
+
+.ums-portal-item-tag {
+  font-family: var(--portal-font-mono);
+  font-size: 10px;
+  color: var(--portal-bar-muted);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .ums-portal-inner {
+    padding: 6px 10px;
+  }
+  .ums-portal-crumb-sep, .ums-portal-current-badge span:last-child {
+    display: none;
+  }
+}
+

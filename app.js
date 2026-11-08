@@ -1,57 +1,85 @@
 /**
- * RUANG BELAJAR INFORMATIKA UMS
- * iOS 18 Cupertino Light Interaction Script
+ * RUANG BELAJAR UMS — ACADEMIC STUDIO CORE SCRIPT
+ * Fast, bug-free filtering, theme switching, and keyboard shortcuts
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Theme Switching
+  const htmlEl = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const storedTheme = localStorage.getItem('ums_portal_theme') || 'light';
+  
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    localStorage.setItem('ums_portal_theme', theme);
+  }
+  
+  applyTheme(storedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  }
+
+  // Live Search & Filtering
   const searchInput = document.getElementById('courseSearch');
-  const segmentButtons = document.querySelectorAll('.segment-btn');
-  const cards = document.querySelectorAll('.ios-card');
+  const filterTabs = document.querySelectorAll('.filter-tab-btn');
+  const courseCards = document.querySelectorAll('.course-card');
+  const dockItems = document.querySelectorAll('.dock-item');
   const emptyState = document.getElementById('emptyState');
   const resetBtn = document.getElementById('resetSearch');
 
   let activeCategory = 'all';
   let searchQuery = '';
 
-  function filterCards() {
-    let visibleCount = 0;
+  function filterItems() {
+    let visibleCards = 0;
     const q = searchQuery.toLowerCase().trim();
 
-    cards.forEach(card => {
-      const cardCategory = card.dataset.category || '';
-      const cardText = (card.innerText || '').toLowerCase();
+    // Filter Cards
+    courseCards.forEach(card => {
+      const categories = (card.dataset.category || '').toLowerCase().split(' ');
+      const text = (card.innerText || '').toLowerCase();
 
-      // Check category match
-      const matchesCategory = (activeCategory === 'all') || (cardCategory === activeCategory) || (card.classList.contains('card-roadmap'));
-
-      // Check search query match
-      const matchesSearch = !q || cardText.includes(q);
+      const matchesCategory = (activeCategory === 'all') || categories.includes(activeCategory);
+      const matchesSearch = !q || text.includes(q);
 
       if (matchesCategory && matchesSearch) {
         card.style.display = 'flex';
-        visibleCount++;
+        visibleCards++;
       } else {
         card.style.display = 'none';
       }
     });
 
+    // Filter Dock items
+    dockItems.forEach(dock => {
+      const categories = (dock.dataset.category || '').toLowerCase().split(' ');
+      const text = (dock.innerText || '').toLowerCase();
+
+      const matchesCategory = (activeCategory === 'all') || categories.includes(activeCategory);
+      const matchesSearch = !q || text.includes(q);
+
+      dock.style.display = (matchesCategory && matchesSearch) ? 'flex' : 'none';
+    });
+
+    // Handle Empty State
     if (emptyState) {
-      if (visibleCount === 0) {
-        emptyState.classList.add('visible');
-      } else {
-        emptyState.classList.remove('visible');
-      }
+      emptyState.style.display = visibleCards === 0 ? 'block' : 'none';
     }
   }
 
-  // Live search input
+  // Search input listeners
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
-      filterCards();
+      filterItems();
     });
 
-    // Keyboard shortcut '/' to focus search, 'Esc' to clear
+    // Keyboard shortcut '/' to focus search, 'Escape' to clear
     document.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== searchInput) {
         e.preventDefault();
@@ -61,37 +89,37 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.value = '';
         searchQuery = '';
         searchInput.blur();
-        filterCards();
+        filterItems();
       }
     });
   }
 
-  // Segmented control tabs
-  segmentButtons.forEach(btn => {
+  // Category filter tabs
+  filterTabs.forEach(btn => {
     btn.addEventListener('click', () => {
-      segmentButtons.forEach(b => {
+      filterTabs.forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
       });
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
       activeCategory = btn.dataset.filter || 'all';
-      filterCards();
+      filterItems();
     });
   });
 
-  // Reset button in empty state
+  // Reset search button
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       if (searchInput) searchInput.value = '';
       searchQuery = '';
       activeCategory = 'all';
-      segmentButtons.forEach(b => {
+      filterTabs.forEach(b => {
         const isAll = b.dataset.filter === 'all';
         b.classList.toggle('active', isAll);
         b.setAttribute('aria-selected', isAll ? 'true' : 'false');
       });
-      filterCards();
+      filterItems();
       if (searchInput) searchInput.focus();
     });
   }

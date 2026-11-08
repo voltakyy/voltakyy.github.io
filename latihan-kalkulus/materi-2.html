@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materi 2 â€” Trigonometri | Modul Kalkulus</title>
+<meta name="description" content="Modul trigonometri: segitiga siku-siku, derajat dan radian, unit circle, nilai sudut istimewa, delapan kelompok identitas, dan latihan bertahap.">
+<meta name="theme-color" content="#f6f1e6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100;1,9..144,300..900,100&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modul.css">
+<link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body class="doc-page">
+<div id="readProgress" class="read-progress" aria-hidden="true"><span></span></div>
+<main class="shell doc-shell">
+
+  <header class="site-head">
+    <a class="brand" href="index.html" aria-label="Batas dan Bentuk, kembali ke beranda">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40">
+          <rect width="40" height="40" rx="8" fill="#fffdf7"/>
+          <path d="M7 20h26M20 33V7" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 9l6 16 6-16" fill="none" stroke="#3c5f8c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="17" cy="25" r="2.2" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <span class="brand-word">batas<span>.</span></span>
+    </a>
+    <div class="head-meta">
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Latihan</a>
+        <a href="modul.html" aria-current="page">Modul</a>
+        <a class="nav-uts" href="uts-2025.html">UTS 2025</a>
+      </nav>
+      <span class="stamp-badge">Materi 2 / 4</span>
+    </div>
+  </header>
+
+  <section class="module-hero" style="--chapter-ink:#336b64;--chapter-soft:#e7f0ec;--chapter-accent:#4f857d">
+    <div class="module-hero-copy">
+      <div class="eyebrow-row">
+        <span class="chapter-pill">Materi 02 Â· Trigonometri</span>
+        <span class="eyebrow-note">Week 2 Â· sudut &amp; lingkaran</span>
+      </div>
+      <h1>Dari segitiga,<br>ke <em>lingkaran satuan</em>.</h1>
+      <p class="lede">Trigonometri bukan cuma tabel hafalan. Ia adalah cara membaca sudut: mula-mula lewat perbandingan sisi, lalu diperluas ke seluruh bidang koordinat lewat unit circle.</p>
+      <div class="module-meta">
+        <span class="meta-chip"><b>7</b> bagian</span>
+        <span class="meta-chip">Â± <b>15</b> menit</span>
+        <span class="meta-chip"><b>5</b> latihan</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#segitiga">Mulai membaca
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="modul.html">Kembali ke indeks</a>
+      </div>
+    </div>
+
+    <aside class="hero-summary" aria-label="Ringkasan materi 2">
+      <div class="summary-paper">
+        <div class="summary-label"><span>peta singkat</span><span>02 / 04</span></div>
+        <div class="summary-big">$(\cos\theta,\ \sin\theta)$</div>
+        <p class="summary-caption">Pada unit circle, koordinat titik $P$ langsung menyimpan nilai cosinus dan sinus sudut $\theta$.</p>
+        <div class="summary-rule"></div>
+        <ul class="summary-list">
+          <li>180Â° = Ï€ radian</li>
+          <li>Tanda bergantung kuadran</li>
+          <li>Identitas mengubah bentuk, bukan nilai</li>
+        </ul>
+        <span class="summary-stamp">week 2 Â· trigonometri</span>
+      </div>
+    </aside>
+  </section>
+
+  <div class="doc-layout">
+    <aside class="doc-toc" aria-label="Daftar isi materi 2">
+      <div class="toc-box">
+        <div class="toc-head"><strong>Daftar isi</strong><span>02</span></div>
+        <ol class="toc-list">
+          <li><a href="#segitiga"><span class="toc-no">01</span>Segitiga &amp; enam rasio</a></li>
+          <li><a href="#radian"><span class="toc-no">02</span>Derajat &amp; radian</a></li>
+          <li><a href="#unit-circle"><span class="toc-no">03</span>Unit circle</a></li>
+          <li><a href="#istimewa"><span class="toc-no">04</span>Nilai istimewa</a></li>
+          <li><a href="#identitas"><span class="toc-no">05</span>Delapan identitas</a></li>
+          <li><a href="#latihan"><span class="toc-no">06</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">07</span>Rangkuman</a></li>
+        </ol>
+        <div class="toc-foot">Saat membaca tabel sudut, perhatikan posisi kuadran. Banyak kesalahan bukan di angkanya, tetapi di tandanya.</div>
+      </div>
+    </aside>
+
+    <article class="lesson">
+      <details class="toc-mobile">
+        <summary>Daftar isi materi 02</summary>
+        <ol class="toc-list">
+          <li><a href="#segitiga"><span class="toc-no">01</span>Segitiga &amp; enam rasio</a></li>
+          <li><a href="#radian"><span class="toc-no">02</span>Derajat &amp; radian</a></li>
+          <li><a href="#unit-circle"><span class="toc-no">03</span>Unit circle</a></li>
+          <li><a href="#istimewa"><span class="toc-no">04</span>Nilai istimewa</a></li>
+          <li><a href="#identitas"><span class="toc-no">05</span>Delapan identitas</a></li>
+          <li><a href="#latihan"><span class="toc-no">06</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">07</span>Rangkuman</a></li>
+        </ol>
+      </details>
+
+      <div class="lesson-intro">
+        <span class="lesson-intro-mark" aria-hidden="true">Î¸</span>
+        <p><strong>Target halaman ini:</strong> kamu bisa berpindah antara derajat dan radian, menentukan tanda nilai trigonometri tanpa kalkulator, dan memilih identitas yang tepat saat bentuk soalnya berubah.</p>
+      </div>
+
+      <section id="segitiga" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">01</span>
+          <div>
+            <h2>Segitiga &amp; enam rasio</h2>
+            <p class="sec-sub">Definisi awal trigonometri: membandingkan sisi-sisi pada segitiga siku-siku.</p>
+          </div>
+        </div>
+
+        <p>Misalkan $r$ adalah sisi miring (hipotenusa), $a$ sisi di samping sudut $\theta$, dan $b$ sisi di depan sudut $\theta$. Dari sini lahir tiga rasio utama dan tiga kebalikannya.</p>
+
+        <figure class="figure-card">
+          <svg viewBox="0 0 560 285" role="img" aria-labelledby="triTitle triDesc">
+            <title id="triTitle">Segitiga siku-siku dan sisi-sisinya</title>
+            <desc id="triDesc">Segitiga dengan sisi samping a, sisi depan b, sisi miring r, dan sudut theta di kiri bawah.</desc>
+            <rect width="560" height="285" fill="#fffdf7"/>
+            <path d="M76 228H356V65Z" fill="#e8eef5" stroke="#2f3330" stroke-width="2"/>
+            <path d="M76 228h44v-19h-25v19" fill="none" stroke="#2f3330" stroke-width="1.2"/>
+            <path d="M99 228a28 28 0 0 0 25-12" fill="none" stroke="#a95741" stroke-width="2"/>
+            <text x="109" y="215" font-family="'Fraunces',serif" font-size="16" font-style="italic" fill="#a95741">Î¸</text>
+            <text x="210" y="251" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#3c5f8c">a Â· samping</text>
+            <text x="369" y="153" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#a95741">b Â· depan</text>
+            <text x="195" y="127" font-family="'Spline Sans Mono',monospace" font-size="10" fill="#68774f" transform="rotate(-33 195 127)">r Â· miring</text>
+            <text x="418" y="88" font-family="'Fraunces',serif" font-size="20" font-style="italic" fill="#3c5f8c">sin Î¸ = b/r</text>
+            <text x="418" y="120" font-family="'Fraunces',serif" font-size="20" font-style="italic" fill="#3c5f8c">cos Î¸ = a/r</text>
+            <text x="418" y="152" font-family="'Fraunces',serif" font-size="20" font-style="italic" fill="#3c5f8c">tan Î¸ = b/a</text>
+            <text x="76" y="46" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">SEGITIGA SIKU-SIKU</text>
+            <text x="76" y="270" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">rÂ² = aÂ² + bÂ²</text>
+          </svg>
+          <figcaption>Ingat posisi relatif terhadap sudut, bukan letak gambar. Sisi â€œdepanâ€ selalu berhadapan dengan sudut yang sedang dibaca.</figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>Rasio</th><th>Definisi</th><th>Kebalikannya</th></tr></thead>
+            <tbody>
+              <tr><td>Sinus</td><td>$\sin\theta=\dfrac{b}{r}$</td><td>$\csc\theta=\dfrac{r}{b}$</td></tr>
+              <tr><td>Cosinus</td><td>$\cos\theta=\dfrac{a}{r}$</td><td>$\sec\theta=\dfrac{r}{a}$</td></tr>
+              <tr><td>Tangen</td><td>$\tan\theta=\dfrac{b}{a}=\dfrac{\sin\theta}{\cos\theta}$</td><td>$\cot\theta=\dfrac{a}{b}=\dfrac{\cos\theta}{\sin\theta}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh</span><strong>Segitiga 3â€“4â€“5</strong></div>
+          <div class="example-body">
+            <p class="example-q">Sebuah segitiga siku-siku punya sisi depan 3, sisi samping 4, dan sisi miring 5. Tentukan keenam rasio untuk sudut di antara sisi samping dan sisi miring.</p>
+            <ol class="steps">
+              <li>$\sin\theta=\frac35$, $\cos\theta=\frac45$, $\tan\theta=\frac34$.</li>
+              <li>Kebalikannya: $\csc\theta=\frac53$, $\sec\theta=\frac54$, $\cot\theta=\frac43$.</li>
+              <li>Cek Pythagoras: $3^2+4^2=9+16=25=5^2$.</li>
+            </ol>
+            <span class="answer">sin 3/5 Â· cos 4/5 Â· tan 3/4</span>
+          </div>
+        </div>
+
+        <div class="callout callout--info" data-label="ingat">
+          <p>$\tan\theta$ tidak terdefinisi saat $\cos\theta=0$, karena pembaginya nol. Ini akan muncul lagi di limit trigonometri: sebelum substitusi, cek dulu apakah bentuknya terdefinisi.</p>
+        </div>
+      </section>
+
+      <section id="radian" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">02</span>
+          <div>
+            <h2>Derajat &amp; radian</h2>
+            <p class="sec-sub">Dua satuan untuk besaran yang sama. Kalkulus lebih sering memakai radian.</p>
+          </div>
+        </div>
+
+        <p>Satu putaran penuh adalah $360^\circ$ atau $2\pi$ radian. Karena itu setengah putaran, $180^\circ$, sama dengan $\pi$ radian.</p>
+
+        <div class="formula-card">
+          <p class="formula-title">konversi</p>
+          <p class="formula-lead">$180^\circ=\pi\ \text{rad}$</p>
+          <p>$\text{radian}=\text{derajat}\times\dfrac{\pi}{180}$</p>
+          <p>$\text{derajat}=\text{radian}\times\dfrac{180}{\pi}$</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>Derajat</th><th>Radian</th><th>Derajat</th><th>Radian</th></tr></thead>
+            <tbody>
+              <tr><td class="num">0Â°</td><td class="num">0</td><td class="num">120Â°</td><td class="num">$2\pi/3$</td></tr>
+              <tr><td class="num">30Â°</td><td class="num">$\pi/6$</td><td class="num">135Â°</td><td class="num">$3\pi/4$</td></tr>
+              <tr><td class="num">45Â°</td><td class="num">$\pi/4$</td><td class="num">150Â°</td><td class="num">$5\pi/6$</td></tr>
+              <tr><td class="num">60Â°</td><td class="num">$\pi/3$</td><td class="num">180Â°</td><td class="num">$\pi$</td></tr>
+              <tr><td class="num">90Â°</td><td class="num">$\pi/2$</td><td class="num">360Â°</td><td class="num">$2\pi$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="two-col">
+          <div class="example" style="margin:0">
+            <div class="example-head"><span class="ex-label">contoh</span><strong>Derajat â†’ radian</strong></div>
+            <div class="example-body">
+              <p class="example-q">Ubah $60^\circ$ ke radian.</p>
+              <p>$60^\circ\times\dfrac{\pi}{180^\circ}=\dfrac{60\pi}{180}=\dfrac{\pi}{3}$.</p>
+              <span class="answer">$\pi/3$ rad</span>
+            </div>
+          </div>
+          <div class="example" style="margin:0">
+            <div class="example-head"><span class="ex-label">contoh</span><strong>Radian â†’ derajat</strong></div>
+            <div class="example-body">
+              <p class="example-q">Ubah $\dfrac{7\pi}{6}$ ke derajat.</p>
+              <p>$\dfrac{7\pi}{6}\times\dfrac{180^\circ}{\pi}=\dfrac{7\cdot180^\circ}{6}=210^\circ$.</p>
+              <span class="answer">$210^\circ$</span>
+            </div>
+          </div>
+        </div>
+
+        <p>Mengapa radian? Karena dengan radian, rumus turunan dan limit trigonometri menjadi bersih: $\lim_{x\to0}\frac{\sin x}{x}=1$ hanya berlaku jika $x$ diukur dalam radian. Kalau memakai derajat, akan muncul faktor tambahan $\frac{\pi}{180}$.</p>
+      </section>
+
+      <section id="unit-circle" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">03</span>
+          <div>
+            <h2>Unit circle</h2>
+            <p class="sec-sub">Memperluas trigonometri dari segitiga ke semua sudut di bidang koordinat.</p>
+          </div>
+        </div>
+
+        <p>Ambil lingkaran berjari-jari 1 berpusat di titik asal. Setiap sudut $\theta$ menentukan satu titik $P$ pada lingkaran. Karena jari-jarinya 1, koordinat $P$ langsung menjadi nilai cosinus dan sinus:</p>
+
+        <div class="formula-card">
+          <p class="formula-title">koordinat pada unit circle</p>
+          <p class="formula-lead">$P(x,y)=(\cos\theta,\ \sin\theta)$</p>
+          <p>$\cos\theta=x$ (horizontal) &nbsp;Â·&nbsp; $\sin\theta=y$ (vertikal)</p>
+        </div>
+
+        <figure class="figure-card">
+          <svg viewBox="0 0 560 340" role="img" aria-labelledby="unitTitle unitDesc">
+            <title id="unitTitle">Unit circle dan koordinat titik</title>
+            <desc id="unitDesc">Lingkaran berjari-jari satu dengan titik P pada kuadran pertama. Koordinat P adalah cos theta dan sin theta. Sudut positif berlawanan arah jarum jam.</desc>
+            <rect width="560" height="340" fill="#fffdf7"/>
+            <g stroke="#3c5f8c" stroke-width=".65" opacity=".25">
+              <path d="M40 60h480M40 110h480M40 160h480M40 210h480M40 260h480"/>
+              <path d="M90 20v300M140 20v300M190 20v300M240 20v300M290 20v300M340 20v300M390 20v300M440 20v300M490 20v300"/>
+            </g>
+            <circle cx="280" cy="170" r="118" fill="#e8eef5" fill-opacity=".58" stroke="#2f3330" stroke-width="2"/>
+            <path d="M130 170h300M280 30v280" stroke="#2f3330" stroke-width="1.4"/>
+            <path d="M430 170l-8-3v6ZM280 30l-3 8h6Z" fill="#2f3330"/>
+            <text x="438" y="174" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#62685f">x</text>
+            <text x="286" y="25" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#62685f">y</text>
+
+            <path d="M280 170L368 91" stroke="#a95741" stroke-width="2.2"/>
+            <circle cx="368" cy="91" r="5" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+            <path d="M368 91V170M368 91H280" stroke="#a95741" stroke-width="1.1" stroke-dasharray="4 4"/>
+            <path d="M308 170A28 28 0 0 0 301 151" fill="none" stroke="#2f3330" stroke-width="1.4"/>
+            <text x="318" y="162" font-family="'Fraunces',serif" font-size="15" font-style="italic" fill="#2f3330">Î¸</text>
+            <text x="378" y="100" font-family="'Fraunces',serif" font-size="15" font-style="italic" fill="#2f3330">P(cos Î¸, sin Î¸)</text>
+            <text x="356" y="146" text-anchor="end" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#a95741">sin Î¸</text>
+            <text x="300" y="106" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#a95741">cos Î¸</text>
+            <text x="286" y="88" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#3c5f8c">1</text>
+
+            <text x="184" y="75" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">KUADRAN II</text>
+            <text x="348" y="75" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">KUADRAN I</text>
+            <text x="184" y="275" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">KUADRAN III</text>
+            <text x="348" y="275" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">KUADRAN IV</text>
+
+            <path d="M410 205A135 135 0 0 0 410 139" fill="none" stroke="#68774f" stroke-width="1.6"/>
+            <path d="M410 129l-6 12h12Z" fill="#68774f"/>
+            <text x="420" y="150" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#68774f">arah positif</text>
+            <text x="420" y="162" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#68774f">berlawanan jarum jam</text>
+          </svg>
+          <figcaption>$P$ berada pada lingkaran berjari-jari 1, sehingga $\cos^2\theta+\sin^2\theta=1$â€”identitas Pythagoras versi unit circle.</figcaption>
+        </figure>
+
+        <h3>Tanda di setiap kuadran</h3>
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>Kuadran</th><th>Sudut</th><th>sin</th><th>cos</th><th>tan</th></tr></thead>
+            <tbody>
+              <tr><td>I</td><td class="num">0Â°â€“90Â°</td><td>+</td><td>+</td><td>+</td></tr>
+              <tr><td>II</td><td class="num">90Â°â€“180Â°</td><td>+</td><td>âˆ’</td><td>âˆ’</td></tr>
+              <tr><td>III</td><td class="num">180Â°â€“270Â°</td><td>âˆ’</td><td>âˆ’</td><td>+</td></tr>
+              <tr><td>IV</td><td class="num">270Â°â€“360Â°</td><td>âˆ’</td><td>+</td><td>âˆ’</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--ok" data-label="cara ingat">
+          <p><strong>Semua</strong> positif di kuadran I, <strong>S</strong>inus positif di II, <strong>T</strong>angen positif di III, <strong>C</strong>osinus positif di IV. Setelah itu, nilai absolutnya mengikuti sudut acuan terhadap sumbu $x$.</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh</span><strong>Sudut di kuadran II</strong></div>
+          <div class="example-body">
+            <p class="example-q">Tentukan $\sin\frac{2\pi}{3}$, $\cos\frac{2\pi}{3}$, dan $\tan\frac{2\pi}{3}$.</p>
+            <ol class="steps">
+              <li>$\frac{2\pi}{3}=120^\circ$, berada di kuadran II. Sudut acuannya $180^\circ-120^\circ=60^\circ$.</li>
+              <li>Di kuadran II, sinus positif dan cosinus negatif.</li>
+              <li>$\sin120^\circ=\sin60^\circ=\frac{\sqrt3}{2}$.</li>
+              <li>$\cos120^\circ=-\cos60^\circ=-\frac12$.</li>
+              <li>$\tan120^\circ=\frac{\sin120^\circ}{\cos120^\circ}=\frac{\sqrt3/2}{-1/2}=-\sqrt3$.</li>
+            </ol>
+            <span class="answer">$\sin=\frac{\sqrt3}{2}$ Â· $\cos=-\frac12$ Â· $\tan=-\sqrt3$</span>
+          </div>
+        </div>
+
+        <p>Nilai $\sin\theta$ dan $\cos\theta$ selalu berada di antara $-1$ dan $1$. Keduanya juga periodik: $\sin(\theta+2\pi)=\sin\theta$ dan $\cos(\theta+2\pi)=\cos\theta$.</p>
+      </section>
+
+      <section id="istimewa" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">04</span>
+          <div>
+            <h2>Nilai istimewa</h2>
+            <p class="sec-sub">Sudut yang muncul terus-menerus. Hafalkan polanya, bukan baris tabelnya.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>$\theta$</th><th>Derajat</th><th>$\sin\theta$</th><th>$\cos\theta$</th><th>$\tan\theta$</th></tr></thead>
+            <tbody>
+              <tr><td class="num">$0$</td><td class="num">0Â°</td><td class="num">$0$</td><td class="num">$1$</td><td class="num">$0$</td></tr>
+              <tr><td class="num">$\pi/6$</td><td class="num">30Â°</td><td class="num">$1/2$</td><td class="num">$\sqrt3/2$</td><td class="num">$1/\sqrt3$</td></tr>
+              <tr><td class="num">$\pi/4$</td><td class="num">45Â°</td><td class="num">$\sqrt2/2$</td><td class="num">$\sqrt2/2$</td><td class="num">$1$</td></tr>
+              <tr><td class="num">$\pi/3$</td><td class="num">60Â°</td><td class="num">$\sqrt3/2$</td><td class="num">$1/2$</td><td class="num">$\sqrt3$</td></tr>
+              <tr><td class="num">$\pi/2$</td><td class="num">90Â°</td><td class="num">$1$</td><td class="num">$0$</td><td class="num">tidak terdefinisi</td></tr>
+              <tr><td class="num">$2\pi/3$</td><td class="num">120Â°</td><td class="num">$\sqrt3/2$</td><td class="num">$-1/2$</td><td class="num">$-\sqrt3$</td></tr>
+              <tr><td class="num">$3\pi/4$</td><td class="num">135Â°</td><td class="num">$\sqrt2/2$</td><td class="num">$-\sqrt2/2$</td><td class="num">$-1$</td></tr>
+              <tr><td class="num">$5\pi/6$</td><td class="num">150Â°</td><td class="num">$1/2$</td><td class="num">$-\sqrt3/2$</td><td class="num">$-1/\sqrt3$</td></tr>
+              <tr><td class="num">$\pi$</td><td class="num">180Â°</td><td class="num">$0$</td><td class="num">$-1$</td><td class="num">$0$</td></tr>
+              <tr><td class="num">$3\pi/2$</td><td class="num">270Â°</td><td class="num">$-1$</td><td class="num">$0$</td><td class="num">tidak terdefinisi</td></tr>
+              <tr><td class="num">$2\pi$</td><td class="num">360Â°</td><td class="num">$0$</td><td class="num">$1$</td><td class="num">$0$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--gold" data-label="pola">
+          <p>Untuk $0,\frac{\pi}{6},\frac{\pi}{4},\frac{\pi}{3},\frac{\pi}{2}$, nilai sinus mengikuti pola $\frac{\sqrt0}{2},\frac{\sqrt1}{2},\frac{\sqrt2}{2},\frac{\sqrt3}{2},\frac{\sqrt4}{2}$. Nilai cosinus adalah kebalikan urutannya.</p>
+        </div>
+      </section>
+
+      <section id="identitas" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">05</span>
+          <div>
+            <h2>Delapan keluarga identitas</h2>
+            <p class="sec-sub">Identitas bukan rumus baru yang berdiri sendiri; semuanya saling menurunkan.</p>
+          </div>
+        </div>
+
+        <p>Identitas dipakai untuk mengubah bentuk agar lebih mudah dihitung. Saat menyelesaikan limit trigonometri, sering kali satu identitas Pythagoras sudah cukup untuk menghilangkan bentuk $0/0$.</p>
+
+        <div class="two-col">
+          <div class="formula-card formula-card--green">
+            <p class="formula-title">1 Â· Pythagoras</p>
+            <p>$\sin^2x+\cos^2x=1$</p>
+            <p>$1+\tan^2x=\sec^2x$</p>
+            <p>$1+\cot^2x=\csc^2x$</p>
+          </div>
+          <div class="formula-card">
+            <p class="formula-title">2 Â· ganjilâ€“genap</p>
+            <p>$\sin(-x)=-\sin x$</p>
+            <p>$\cos(-x)=\cos x$</p>
+            <p>$\tan(-x)=-\tan x$</p>
+          </div>
+          <div class="formula-card">
+            <p class="formula-title">3 Â· sudut komplemen</p>
+            <p>$\sin\left(\frac{\pi}{2}-x\right)=\cos x$</p>
+            <p>$\cos\left(\frac{\pi}{2}-x\right)=\sin x$</p>
+            <p>$\tan\left(\frac{\pi}{2}-x\right)=\cot x$</p>
+          </div>
+          <div class="formula-card formula-card--warm">
+            <p class="formula-title">4 Â· sudut ganda</p>
+            <p>$\sin2x=2\sin x\cos x$</p>
+            <p>$\cos2x=\cos^2x-\sin^2x$</p>
+            <p>$\cos2x=2\cos^2x-1=1-2\sin^2x$</p>
+          </div>
+          <div class="formula-card">
+            <p class="formula-title">5 Â· jumlah &amp; selisih sudut</p>
+            <p>$\sin(x+y)=\sin x\cos y+\cos x\sin y$</p>
+            <p>$\cos(x+y)=\cos x\cos y-\sin x\sin y$</p>
+            <p>$\tan(x+y)=\dfrac{\tan x+\tan y}{1-\tan x\tan y}$</p>
+          </div>
+          <div class="formula-card">
+            <p class="formula-title">6 Â· setengah sudut</p>
+            <p>$\sin\left(\frac{x}{2}\right)=\pm\sqrt{\dfrac{1-\cos x}{2}}$</p>
+            <p>$\cos\left(\frac{x}{2}\right)=\pm\sqrt{\dfrac{1+\cos x}{2}}$</p>
+          </div>
+        </div>
+
+        <div class="formula-card formula-card--plum">
+          <p class="formula-title">7 Â· jumlah ke perkalian</p>
+          <p>$\sin x+\sin y=2\sin\left(\dfrac{x+y}{2}\right)\cos\left(\dfrac{x-y}{2}\right)$</p>
+          <p>$\cos x+\cos y=2\cos\left(\dfrac{x+y}{2}\right)\cos\left(\dfrac{x-y}{2}\right)$</p>
+          <p>$\cos x-\cos y=-2\sin\left(\dfrac{x+y}{2}\right)\sin\left(\dfrac{x-y}{2}\right)$</p>
+        </div>
+
+        <div class="formula-card formula-card--warm">
+          <p class="formula-title">8 Â· perkalian ke jumlah</p>
+          <p>$\sin x\sin y=\frac12[\cos(x-y)-\cos(x+y)]$</p>
+          <p>$\cos x\cos y=\frac12[\cos(x-y)+\cos(x+y)]$</p>
+          <p>$\sin x\cos y=\frac12[\sin(x+y)+\sin(x-y)]$</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh</span><strong>Membuktikan identitas</strong></div>
+          <div class="example-body">
+            <p class="example-q">Buktikan $(1+\sin z)(1-\sin z)=\dfrac{1}{\sec^2 z}$.</p>
+            <ol class="steps">
+              <li>Ruas kiri adalah bentuk $(a+b)(a-b)=a^2-b^2$: $1-\sin^2z$.</li>
+              <li>Dengan identitas Pythagoras, $1-\sin^2z=\cos^2z$.</li>
+              <li>Karena $\sec z=\frac{1}{\cos z}$, maka $\frac{1}{\sec^2z}=\cos^2z$.</li>
+            </ol>
+            <span class="answer">kedua ruas sama dengan $\cos^2z$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh</span><strong>Menyederhanakan ekspresi</strong></div>
+          <div class="example-body">
+            <p class="example-q">Sederhanakan $\sec t-\sin t\tan t$.</p>
+            <ol class="steps">
+              <li>Ubah ke sinus dan cosinus: $\frac{1}{\cos t}-\sin t\cdot\frac{\sin t}{\cos t}$.</li>
+              <li>Samakan penyebut: $\frac{1-\sin^2t}{\cos t}$.</li>
+              <li>Gunakan $1-\sin^2t=\cos^2t$: $\frac{\cos^2t}{\cos t}=\cos t$.</li>
+            </ol>
+            <span class="answer">$\cos t$</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="latihan" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">06</span>
+          <div>
+            <h2>Latihan</h2>
+            <p class="sec-sub">Lima soal bergaya â€œgameâ€ Week 2, tapi dengan pembahasan lengkap.</p>
+          </div>
+        </div>
+
+        <div class="practice">
+          <div class="practice-head">
+            <div><h3>Sudut, nilai, dan identitas</h3><p>kerjakan dulu, buka pembahasan setelahnya</p></div>
+            <button class="solutions-toggle" type="button" data-toggle-solutions aria-expanded="false">Buka semua</button>
+          </div>
+          <ol>
+            <li>
+              <p class="q-line">Ubah ke radian: $30^\circ$, $45^\circ$, $-60^\circ$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$30^\circ\cdot\frac{\pi}{180}=\frac{\pi}{6}$.</p>
+                <p>$45^\circ\cdot\frac{\pi}{180}=\frac{\pi}{4}$.</p>
+                <p>$-60^\circ\cdot\frac{\pi}{180}=-\frac{\pi}{3}$.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Ubah ke derajat: $\frac{7\pi}{6}$, $\frac{3\pi}{4}$, $-\frac{\pi}{3}$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$\frac{7\pi}{6}\cdot\frac{180^\circ}{\pi}=210^\circ$.</p>
+                <p>$\frac{3\pi}{4}\cdot\frac{180^\circ}{\pi}=135^\circ$.</p>
+                <p>$-\frac{\pi}{3}\cdot\frac{180^\circ}{\pi}=-60^\circ$.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Hitung: $\tan\frac{\pi}{6}$, $\sec\pi$, $\sec\frac{3\pi}{4}$, $\csc\frac{\pi}{2}$, $\cot\frac{\pi}{4}$, $\tan\left(-\frac{\pi}{4}\right)$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$\tan\frac{\pi}{6}=\frac{1}{\sqrt3}=\frac{\sqrt3}{3}$.</p>
+                <p>$\sec\pi=\frac{1}{\cos\pi}=\frac{1}{-1}=-1$.</p>
+                <p>$\sec\frac{3\pi}{4}=\frac{1}{-\sqrt2/2}=-\sqrt2$.</p>
+                <p>$\csc\frac{\pi}{2}=\frac{1}{\sin(\pi/2)}=1$.</p>
+                <p>$\cot\frac{\pi}{4}=\frac{\cos(\pi/4)}{\sin(\pi/4)}=1$.</p>
+                <p>$\tan(-\frac{\pi}{4})=-\tan\frac{\pi}{4}=-1$.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Tentukan $\sin\theta$, $\cos\theta$, dan $\tan\theta$ untuk $\theta=\frac{5\pi}{6}$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$\frac{5\pi}{6}=150^\circ$ berada di kuadran II. Sudut acuannya $30^\circ$.</p>
+                <p>$\sin150^\circ=\sin30^\circ=\frac12$.</p>
+                <p>$\cos150^\circ=-\cos30^\circ=-\frac{\sqrt3}{2}$.</p>
+                <p>$\tan150^\circ=\frac{1/2}{-\sqrt3/2}=-\frac{1}{\sqrt3}=-\frac{\sqrt3}{3}$.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Buktikan: (a) $(\sec t-1)(\sec t+1)=\tan^2t$; (b) $\dfrac{\sec^2t-1}{\sec^2t}=\sin^2t$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>(a) Ruas kiri $=\sec^2t-1$. Dari $1+\tan^2t=\sec^2t$, maka $\sec^2t-1=\tan^2t$.</p>
+                <p>(b) $\sec^2t-1=\tan^2t=\frac{\sin^2t}{\cos^2t}$. Karena $\sec^2t=\frac{1}{\cos^2t}$, hasil baginya adalah $\sin^2t$.</p>
+              </div></details>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="rangkuman" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">07</span>
+          <div>
+            <h2>Rangkuman</h2>
+            <p class="sec-sub">Bekal sebelum masuk ke limit trigonometri.</p>
+          </div>
+        </div>
+        <ul>
+          <li>Enam rasio berasal dari tiga sisi segitiga; kebalikannya hanya membalik pembilang dan penyebut.</li>
+          <li>$180^\circ=\pi$ rad. Di kalkulus, sudut hampir selalu dalam radian.</li>
+          <li>Pada unit circle, $P=(\cos\theta,\sin\theta)$ dan $\cos^2\theta+\sin^2\theta=1$.</li>
+          <li>Tanda nilai trigonometri ditentukan kuadran; nilai absolutnya ditentukan sudut acuan.</li>
+          <li>Identitas Pythagoras dan sudut ganda adalah dua alat yang paling sering dipakai untuk merapikan limit trigonometri.</li>
+        </ul>
+        <div class="callout callout--ok" data-label="cek diri">
+          <p>Bisa menentukan tanda $\cos\frac{5\pi}{6}$ tanpa melihat tabel? Kalau belum, latih lagi tabel kuadran sebelum lanjut ke modul fungsi.</p>
+        </div>
+      </section>
+
+      <div class="end-nav">
+        <a href="materi-1.html"><span>â† materi 01</span><strong>Bilangan &amp; Representasi</strong></a>
+        <a class="next" href="materi-3.html"><span>selanjutnya Â· materi 03</span><strong>Fungsi &amp; Bilangan Khusus â†’</strong></a>
+      </div>
+
+      <p class="source-note">Sumber materi: <a href="assets/pdf/materi-2-trigonometri.pdf" target="_blank" rel="noopener">Week 2 â€” Trigonometri (PDF)</a>. Tabel dan identitas disusun ulang dari slide, dengan penjelasan tambahan.</p>
+    </article>
+  </div>
+
+  <footer class="site-foot">
+    <span>Modul 02 Â· Trigonometri</span>
+    <span class="mono">batas &amp; bentuk Â· kalkulus reguler</span>
+  </footer>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script src="modul.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

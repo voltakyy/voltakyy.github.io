@@ -1,0 +1,1580 @@
+﻿<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Soal &amp; Pembahasan Lengkap UTS Gasal 2026/2027 â€” Algoritma &amp; Pemrograman UMS</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Dark Mode Palette */
+      --bg-page: #0b0f17;
+      --bg-surface: #111827;
+      --bg-surface-elevated: #162032;
+      --bg-surface-card: #131c2e;
+      --bg-hover: #1e2c44;
+      --border-color: #22324d;
+      --border-subtle: #19263c;
+
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #8da2be;
+      --text-subtle: #64748b;
+
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --primary-light: rgba(16, 185, 129, 0.15);
+      --primary-border: rgba(16, 185, 129, 0.35);
+
+      --accent-blue: #3b82f6;
+      --blue-bg: rgba(59, 130, 246, 0.12);
+      --blue-border: rgba(59, 130, 246, 0.35);
+
+      --accent-amber: #f59e0b;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --amber-border: rgba(245, 158, 11, 0.35);
+
+      --accent-rose: #f43f5e;
+      --rose-bg: rgba(244, 63, 94, 0.12);
+      --rose-border: rgba(244, 63, 94, 0.35);
+
+      --accent-cyan: #06b6d4;
+      --cyan-bg: rgba(6, 182, 212, 0.12);
+      --cyan-border: rgba(6, 182, 212, 0.35);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    [data-theme="light"] {
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --bg-surface-card: #ffffff;
+      --bg-hover: #e2e8f0;
+      --border-color: #e2e8f0;
+      --border-subtle: #edf2f7;
+
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+
+      --primary: #059669;
+      --primary-hover: #047857;
+      --primary-light: #ecfdf5;
+      --primary-border: #a7f3d0;
+
+      --accent-blue: #2563eb;
+      --blue-bg: #eff6ff;
+      --blue-border: #bfdbfe;
+
+      --accent-amber: #d97706;
+      --amber-bg: #fffbeb;
+      --amber-border: #fde68a;
+
+      --accent-rose: #e11d48;
+      --rose-bg: #fff1f2;
+      --rose-border: #fecdd3;
+
+      --accent-cyan: #0891b2;
+      --cyan-bg: #ecfeff;
+      --cyan-border: #a5f3fc;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-inline-size: 0; }
+    html, body {
+      max-width: 100vw;
+      overflow-x: clip;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Header */
+    .top-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+    }
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nav-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav-link-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-hover);
+      border-color: var(--border-color);
+    }
+    .active-page {
+      background: var(--primary-light) !important;
+      border-color: var(--primary) !important;
+      color: var(--primary) !important;
+      font-weight: 700 !important;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--bg-hover);
+      border-color: var(--primary-border);
+    }
+
+    /* Subnav Quick Navigation */
+    .subnav-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      overflow-x: auto;
+      scrollbar-width: none;
+      position: sticky;
+      top: 63px;
+      z-index: 90;
+    }
+    .subnav-bar::-webkit-scrollbar { display: none; }
+    .subnav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 6px;
+    }
+    .subnav-link {
+      padding: 10px 14px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .subnav-link:hover {
+      color: var(--text-main);
+      border-bottom-color: var(--primary);
+    }
+
+    /* Main Container */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Cards */
+    .article-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .article-card h1, .article-card h2 {
+      font-family: var(--font-heading);
+      color: var(--text-main);
+    }
+    .article-card h2 {
+      font-size: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-card h3 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      color: var(--primary);
+      margin: 20px 0 10px;
+    }
+    .article-card h4 {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-main);
+      margin: 14px 0 6px;
+    }
+    .article-card p {
+      margin-bottom: 12px;
+      color: var(--text-body);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .article-card ul, .article-card ol {
+      margin: 0 0 16px 22px;
+    }
+    .article-card li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .article-card code {
+      font-family: var(--font-mono);
+      background: var(--bg-surface-elevated);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--accent-cyan);
+      font-size: 0.9em;
+      border: 1px solid var(--border-color);
+    }
+    .article-card pre {
+      background: #0d131f;
+      color: #e2e8f0;
+      border: 1px solid var(--border-color);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 12px 0 18px;
+    }
+
+    /* Table Styles */
+    .academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 12px 0 20px;
+    }
+    .academic-table th {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .academic-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-body);
+      vertical-align: top;
+    }
+    .academic-table tr:hover td {
+      background: var(--bg-hover);
+    }
+
+    /* Callout Boxes */
+    .callout {
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary);
+      background: var(--bg-surface-elevated);
+      margin: 16px 0;
+    }
+    .callout.info {
+      background: var(--blue-bg);
+      border-color: var(--blue-border);
+      border-left-color: var(--accent-blue);
+    }
+    .callout.warning {
+      background: var(--amber-bg);
+      border-color: var(--amber-border);
+      border-left-color: var(--accent-amber);
+    }
+    .callout.danger {
+      background: var(--rose-bg);
+      border-color: var(--rose-border);
+      border-left-color: var(--accent-rose);
+    }
+    .callout.success {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      border-left-color: var(--primary);
+    }
+    .callout-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Scan Gallery */
+    .scan-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      margin: 20px 0;
+    }
+    .scan-card {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+    .scan-img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: top;
+      cursor: zoom-in;
+      transition: transform 0.2s ease;
+      background: #0f172a;
+    }
+    .scan-img:hover {
+      transform: scale(1.02);
+    }
+    .scan-label {
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-surface-card);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--primary-border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* Tracing Ruler Visualizer */
+    .ruler-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 4px;
+      padding: 12px 0;
+      margin: 16px 0;
+    }
+    .ruler-cell {
+      min-width: 44px;
+      height: 72px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 4px;
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .ruler-cell.active-slice {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+    }
+    .ruler-cell.active-step {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.2);
+    }
+    .ruler-cell .pos-idx {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+    .ruler-cell .char-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .ruler-cell .neg-idx {
+      font-size: 10px;
+      color: var(--accent-cyan);
+    }
+
+    /* Interactive Inputs & Buttons */
+    .input-field {
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-field:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-emerald {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-emerald:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Print Format */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .top-header, .subnav-bar, .theme-toggle-btn, .no-print, .btn-action {
+        display: none !important;
+      }
+      .main-content {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      .article-card {
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px !important;
+      }
+      pre {
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+      code {
+        color: #0f172a !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-actions .nav-link-btn { display: none; }
+      .header-inner { padding: 10px 14px; }
+      .brand-subtitle { display: none; }
+      .scan-gallery { grid-template-columns: 1fr; }
+      .scan-img { height: 260px; }
+      .main-content { padding: 16px 12px 40px; }
+      .article-card { padding: 16px 14px; }
+    }
+  </style>
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-header no-print">
+    <div class="header-inner">
+      <a href="index.html" class="brand-group">
+        <div class="brand-logo">âš¡</div>
+        <div class="brand-title">
+          <span>ALPRO UMS</span>
+          <span class="brand-subtitle">Algoritma &amp; Pemrograman Python</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="index.html" class="nav-link-btn" title="Kembali ke Portal Belajar Utama">
+          <span>ðŸ </span> Portal Utama
+        </a>
+        <a href="uts-2026.html" class="nav-link-btn active-page" title="Halaman Khusus Soal &amp; Pembahasan UTS 2026/2027 (Terbaru)">
+          <span>ðŸš€</span> Page UTS 2026
+        </a>
+        <a href="uts-2025.html" class="nav-link-btn" style="border:1px solid #3b82f6;" title="Halaman Khusus Soal &amp; Pembahasan UTS 2025/2026">
+          <span>ðŸŽ¯</span> Page UTS 2025
+        </a>
+        <a href="uts-2024.html" class="nav-link-btn" style="border:1px solid #f59e0b;" title="Halaman Khusus Soal &amp; Pembahasan UTS 2024/2025">
+          <span>ðŸ“œ</span> Page UTS 2024
+        </a>
+        <a href="https://github.com/voltakyy/materi-lohim" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Portal Logika dan Himpunan UMS">
+          <span>ðŸ“</span> Lohim UMS
+        </a>
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Ganti Mode Gelap / Terang">
+          <span id="theme-icon">ðŸŒ™</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Quick Navigation Bar -->
+  <nav class="subnav-bar no-print">
+    <div class="subnav-inner">
+      <a href="#lembar-soal" class="subnav-link"><span>ðŸ“¸</span> Naskah Pindaian Asli</a>
+      <a href="#soal-1" class="subnav-link"><span>ðŸ“</span> Soal 1: Standar Deviasi &amp; Bug Fixing</a>
+      <a href="#soal-2" class="subnav-link"><span>â±ï¸</span> Soal 2: Algoritma Denda Keterlambatan</a>
+      <a href="#soal-3" class="subnav-link"><span>ðŸ§ª</span> Soal 3: Tracing NIM Slicing 2026</a>
+      <a href="#sim-nim" class="subnav-link"><span>âš¡</span> Simulator Interaktif NIM</a>
+      <a href="#cheatsheet" class="subnav-link"><span>ðŸ“„</span> Ringkasan Siap Cetak</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- Hero Banner UTS 2026 -->
+    <div class="article-card" style="border-left: 5px solid #10b981; background: linear-gradient(to right, var(--bg-surface-card), var(--bg-surface-elevated)); margin-bottom: 24px;">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+        <span style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">ARSIP RESMI TERBARU</span>
+        <span style="background:rgba(59,130,246,0.15); color:#3b82f6; border:1px solid rgba(59,130,246,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">GASAL 2026/2027</span>
+        <span style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">BUKU TERTUTUP Â· KELAS REGULER INFORMATIKA UMS</span>
+      </div>
+
+      <h1 style="font-size:26px; color:var(--text-main); margin-bottom:10px;">ðŸš€ Soal &amp; Pembahasan Lengkap UTS Gasal 2026/2027</h1>
+      <p style="color:var(--text-body); font-size:14.5px; line-height:1.7; margin-bottom:14px;">
+        Bedah tuntas materi ujian resmi <strong>Algoritma dan Pemrograman (Python)</strong> Program Studi Informatika UMS untuk Semester Gasal 2026/2027. Mengupas tuntas 3 pokok uji: <strong>Perbaikan Bug Algoritma Standar Deviasi</strong>, <strong>Translasi Pseudocode Denda Loop ke Python &amp; Simulasi NIM</strong>, serta <strong>Tracing String Slicing &amp; Operator Precedence Format Baru</strong> dengan akurasi 100% tanpa kesalahan!
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; padding-top:12px; border-top:1px solid var(--border-subtle);">
+        <a href="#lembar-soal" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:700; background:#10b981; color:#fff; border-radius:8px;">
+          <span>ðŸ“¸</span> Lihat 3 Pindaian Soal Asli
+        </a>
+        <a href="uts-2025.html" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:600; background:var(--bg-surface-elevated); color:var(--text-main); border:1px solid var(--border-color); border-radius:8px;">
+          <span>ðŸŽ¯</span> Arsip UTS 2025
+        </a>
+        <a href="uts-2024.html" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:600; background:var(--bg-surface-elevated); color:var(--text-main); border:1px solid var(--border-color); border-radius:8px;">
+          <span>ðŸ“œ</span> Arsip UTS 2024
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 1: Pindaian Lembar Soal Asli 2026 -->
+    <article class="article-card" id="lembar-soal">
+      <h2>ðŸ“¸ Pindaian Lembar Soal Asli UTS Gasal 2026/2027</h2>
+      <p style="color:var(--text-muted); font-size:13.5px; margin-bottom:16px;">
+        Dokumentasi pindaian naskah resmi ujian yang diujikan kepada mahasiswa. Klik gambar untuk membuka dalam resolusi penuh:
+      </p>
+
+      <div class="scan-gallery">
+        <!-- Foto 1 -->
+        <div class="scan-card">
+          <a href="repotif_arsip_alpro/UTS_2026_Soal_1_StandarDeviasi.jpg" target="_blank">
+            <img src="repotif_arsip_alpro/UTS_2026_Soal_1_StandarDeviasi.jpg" alt="Lembar Soal 1 UTS 2026 - Standar Deviasi" class="scan-img">
+          </a>
+          <div class="scan-label">
+            <span>ðŸ“„ Soal 1: Standar Deviasi &amp; Bug Fixing</span>
+            <a href="repotif_arsip_alpro/UTS_2026_Soal_1_StandarDeviasi.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar â†—</a>
+          </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="scan-card">
+          <a href="repotif_arsip_alpro/UTS_2026_Soal_2_DendaLoop.jpg" target="_blank">
+            <img src="repotif_arsip_alpro/UTS_2026_Soal_2_DendaLoop.jpg" alt="Lembar Soal 2 UTS 2026 - Denda Keterlambatan" class="scan-img">
+          </a>
+          <div class="scan-label">
+            <span>ðŸ“„ Soal 2: Denda Loop &amp; 2 Digit NIM</span>
+            <a href="repotif_arsip_alpro/UTS_2026_Soal_2_DendaLoop.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar â†—</a>
+          </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="scan-card">
+          <a href="repotif_arsip_alpro/UTS_2026_Soal_3_TracingNIM.jpg" target="_blank">
+            <img src="repotif_arsip_alpro/UTS_2026_Soal_3_TracingNIM.jpg" alt="Lembar Soal 3 UTS 2026 - Tracing Slicing NIM Baru" class="scan-img">
+          </a>
+          <div class="scan-label">
+            <span>ðŸ“„ Soal 3: Tracing Slicing NIM 2026</span>
+            <a href="repotif_arsip_alpro/UTS_2026_Soal_3_TracingNIM.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar â†—</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ========================================== -->
+    <!-- SOAL 1: STANDAR DEVIASI & BUG FIXING       -->
+    <!-- ========================================== -->
+    <article class="article-card" id="soal-1">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
+        <h2 style="font-size:20px; margin:0; color:#10b981;">ðŸ“Œ Soal 1: Analisis Standar Deviasi &amp; Perbaikan Algoritma (Bug Fixing)</h2>
+        <span style="background:var(--primary-light); color:#10b981; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--primary-border);">Bobot: 35 Poin Â· Analisis &amp; Desain Algoritma</span>
+      </div>
+
+      <!-- Teks Soal Asli -->
+      <div class="callout info">
+        <div class="callout-title">ðŸ“ Teks Asli Soal Ujian:</div>
+        <p style="margin:0 0 8px;">
+          Dalam analisis data, standar deviasi digunakan untuk mengukur sebaran data terhadap nilai rata-ratanya. Diberikan kumpulan <em>N</em> data berupa array <code>X = [xâ‚€, xâ‚, ..., x_{N-1}]</code>. Formula untuk menghitung rata-rata (xÌ„) dan standar deviasi sampel (<em>s</em>) adalah sebagai berikut:
+        </p>
+      </div>
+
+      <!-- Formula Rumus Matematika -->
+      <div class="formula-box">
+        <div style="font-weight:700; color:var(--primary);">1. Rumus Rata-rata (Mean Sample):</div>
+        <div style="font-size:17px; padding-left:12px;">xÌ„ = (1 / N) * âˆ‘áµ¢â‚Œâ‚€^{N-1} xáµ¢</div>
+        <div style="font-weight:700; color:var(--primary); margin-top:8px;">2. Rumus Standar Deviasi Sampel (Sample Standard Deviation):</div>
+        <div style="font-size:17px; padding-left:12px;">s = âˆš[ (1 / (N - 1)) * âˆ‘áµ¢â‚Œâ‚€^{N-1} (xáµ¢ - xÌ„)Â² ]</div>
+      </div>
+
+      <p style="font-size:14px; color:var(--text-body); margin:14px 0 10px;">
+        Seorang mahasiswa membuat algoritma untuk menghitung standar deviasi tersebut. Namun, setelah diuji, hasil perhitungan algoritma tersebut selalu salah. <strong>Perbaiki algoritma tersebut dan tulis ulang secara lengkap dan beri penjelasan singkat.</strong>
+      </p>
+
+      <!-- Kode Algoritma Mahasiswa yang Rusak -->
+      <h3 style="color:#ef4444;">âŒ Algoritma Asli Mahasiswa (Mengandung Bug &amp; Kesalahan Fatal):</h3>
+      <pre><code class="language-text">FUNCTION HitungStandarDeviasi(X, N)
+# X adalah array data dan N adalah jumlah data
+START
+  # Hitung total dan rata-rata keseluruhan data
+  FOR i = 0 TO N - 1
+    total &lt;- total + X[i]        # âš ï¸ BUG 1: Variabel 'total' tidak diinisialisasi nilai awalnya!
+  END FOR
+  rata_rata &lt;- total / N
+
+  # Hitung akumulasi selisih kuadrat dari rata-rata
+  total_kuadrat &lt;- 0
+  FOR i = 0 TO N                 # âš ï¸ BUG 2: Batas 'TO N' melampaui indeks array (Index Out of Bounds)!
+    selisih &lt;- X[i] - rata_rata
+    total_kuadrat &lt;- total_kuadrat + (selisih * selisih)
+  END FOR
+
+  # Hitung akar kuadrat varians dan kembalikan hasil
+  varians &lt;- total_kuadrat / (N - 1)
+  s &lt;- varians ** 0.5
+  RETURN                         # âš ï¸ BUG 3: RETURN kosong tanpa mengembalikan nilai s!
+ENDFUNCTION</code></pre>
+
+      <!-- Analisis 4 Bug Kritis -->
+      <h3 style="color:var(--text-main); margin-top:24px;">ðŸ” Bedah Kritis 4 Penyebab Algoritma Selalu Salah:</h3>
+
+      <table class="academic-table">
+        <thead>
+          <tr>
+            <th style="width:160px;">Titik Kesalahan</th>
+            <th>Baris Rusak</th>
+            <th>Konsekuensi Error / Dampak Fatal</th>
+            <th>Perbaikan yang Tepat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:#ef4444;">Bug 1: Akumulator Tanpa Inisialisasi</strong></td>
+            <td><code>FOR i = 0 TO N - 1<br>&nbsp;&nbsp;total &lt;- total + X[i]</code></td>
+            <td>
+              Variabel <code>total</code> langsung dibaca nilainya pada iterasi pertama padahal belum diberi nilai awal. Di Python akan melempar <code>NameError: name 'total' is not defined</code>. Pada bahasa kompilasi (C/C++), ia akan berisi <em>garbage value</em> sehingga nilai rata-rata melenceng liar.
+            </td>
+            <td>
+              Wajib menambahkan inisialisasi:<br>
+              <code>total &lt;- 0</code> tepat sebelum loop pertama.
+            </td>
+          </tr>
+          <tr>
+            <td><strong style="color:#ef4444;">Bug 2: Off-by-One / Index Out of Bounds</strong></td>
+            <td><code>FOR i = 0 TO N</code> (pada loop kedua)</td>
+            <td>
+              Array <code>X</code> berukuran <em>N</em> memiliki indeks sah dari <code>0</code> sampai <code>N - 1</code>. Menjalankan loop sampai <code>N</code> berarti ada <em>N + 1</em> perulangan, yang akan memicu <code>IndexError: list index out of range</code> saat mengakses <code>X[N]</code>. Selain itu, jika tidak crash, perhitungan selisih kuadrat akan menjumlahkan elemen fiktif ke-<em>(N+1)</em> yang merusak rumus varians.
+            </td>
+            <td>
+              Ubah batas perulangan menjadi:<br>
+              <code>FOR i = 0 TO N - 1</code> (sama seperti loop pertama).
+            </td>
+          </tr>
+          <tr>
+            <td><strong style="color:#ef4444;">Bug 3: Return Value Kosong</strong></td>
+            <td><code>RETURN</code></td>
+            <td>
+              Fungsi tidak mengembalikan hasil perhitungan apa pun (di Python bernilai <code>None</code>). Program pemanggil tidak akan pernah mendapatkan nilai standar deviasi <code>s</code> yang telah dihitung dengan susah payah.
+            </td>
+            <td>
+              Ubah menjadi:<br>
+              <code>RETURN s</code> agar nilai standar deviasi dikembalikan kepada pemanggil.
+            </td>
+          </tr>
+          <tr>
+            <td><strong style="color:#f59e0b;">Bug 4 (Edge Case): Pembagian dengan Nol</strong></td>
+            <td><code>varians &lt;- total_kuadrat / (N - 1)</code></td>
+            <td>
+              Jika data sampel hanya berjumlah 1 (<em>N = 1</em>) atau kosong (<em>N = 0</em>), maka <code>(N - 1) = 0</code>. Ini akan menyebabkan crash seketika karena <code>ZeroDivisionError</code>.
+            </td>
+            <td>
+              Tambahkan validasi awal (guard clause):<br>
+              <code>IF N &lt;= 1 THEN RETURN 0</code> (karena standar deviasi memerlukan minimal 2 data sampel).
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Algoritma Perbaikan Lengkap -->
+      <h3 style="color:#10b981;">âœ… Algoritma yang Telah Diperbaiki Secara Lengkap (Pseudocode Sempurna):</h3>
+      <pre><code class="language-text">FUNCTION HitungStandarDeviasi(X, N)
+# X adalah array data dan N adalah jumlah data
+START
+  # 0. Validasi kondisi batas (mencegah ZeroDivisionError jika N &lt;= 1)
+  IF N &lt;= 1 THEN
+    RETURN 0
+  END IF
+
+  # 1. Inisialisasi akumulator total dan hitung rata-rata
+  total &lt;- 0
+  FOR i = 0 TO N - 1
+    total &lt;- total + X[i]
+  END FOR
+  rata_rata &lt;- total / N
+
+  # 2. Inisialisasi total selisih kuadrat dari rata-rata (indeks 0 s.d. N - 1)
+  total_kuadrat &lt;- 0
+  FOR i = 0 TO N - 1
+    selisih &lt;- X[i] - rata_rata
+    total_kuadrat &lt;- total_kuadrat + (selisih * selisih)
+  END FOR
+
+  # 3. Hitung varians sampel dan akar kuadrat (standar deviasi)
+  varians &lt;- total_kuadrat / (N - 1)
+  s &lt;- varians ** 0.5
+
+  # 4. Kembalikan nilai hasil standar deviasi
+  RETURN s
+ENDFUNCTION</code></pre>
+
+      <!-- Implementasi Python Lengkap -->
+      <h3 style="color:var(--accent-blue);">ðŸ Implementasi Program Python Bersih &amp; Terverifikasi:</h3>
+      <pre><code class="language-python">def hitung_standar_deviasi(X, N):
+    """
+    Menghitung rata-rata dan standar deviasi sampel data X.
+    Parameter:
+      X (list): daftar bilangan numerik
+      N (int): jumlah elemen data (len(X))
+    Mengembalikan:
+      float: nilai standar deviasi sampel (s)
+    """
+    # 0. Penanganan jumlah data tidak mencukupi untuk varians sampel
+    if N &lt;= 1:
+        return 0.0
+
+    # 1. Hitung total dan rata-rata
+    total = 0
+    for i in range(N):
+        total += X[i]
+    rata_rata = total / N
+
+    # 2. Akumulasi jumlah kuadrat selisih
+    total_kuadrat = 0
+    for i in range(N):
+        selisih = X[i] - rata_rata
+        total_kuadrat += selisih * selisih
+
+    # 3. Hitung varians sampel dan standar deviasi
+    varians = total_kuadrat / (N - 1)
+    s = varians ** 0.5
+    return s
+
+
+# === CONTOH PENGUJIAN / DRY RUN ===
+data_uji = [4, 8, 6, 5, 7]
+n_data = len(data_uji)
+
+hasil_s = hitung_standar_deviasi(data_uji, n_data)
+print(f"Data: {data_uji}")
+print(f"Jumlah Sampel (N) : {n_data}")
+print(f"Standar Deviasi (s) : {hasil_s:.4f}")
+# Output: Standar Deviasi (s) : 1.5811</code></pre>
+
+      <!-- Dry Run Table -->
+      <h3 style="color:var(--text-main);">ðŸ“Š Tabel Uji Coba Langkah demi Langkah (Manual Trace):</h3>
+      <p style="font-size:13.5px; color:var(--text-muted);">
+        Misalkan diberikan sampel data <code>X = [4, 8, 6, 5, 7]</code> dengan <code>N = 5</code>:
+      </p>
+      <ul style="font-size:13.5px; color:var(--text-body);">
+        <li><strong>Tahap 1 (Rata-rata):</strong> Total = <code>4 + 8 + 6 + 5 + 7 = 30</code>. Rata-rata <code>xÌ„ = 30 / 5 = 6.0</code>.</li>
+        <li><strong>Tahap 2 (Selisih Kuadrat):</strong>
+          <table class="academic-table" style="max-width:650px; margin:10px 0;">
+            <thead>
+              <tr><th>Indeks (i)</th><th>Nilai X[i]</th><th>Selisih (X[i] - xÌ„)</th><th>Kuadrat Selisih (X[i] - xÌ„)Â²</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>4</td><td>4 - 6.0 = -2.0</td><td>(-2.0)Â² = 4.0</td></tr>
+              <tr><td>1</td><td>8</td><td>8 - 6.0 = +2.0</td><td>(+2.0)Â² = 4.0</td></tr>
+              <tr><td>2</td><td>6</td><td>6 - 6.0 = 0.0</td><td>(0.0)Â² = 0.0</td></tr>
+              <tr><td>3</td><td>5</td><td>5 - 6.0 = -1.0</td><td>(-1.0)Â² = 1.0</td></tr>
+              <tr><td>4</td><td>7</td><td>7 - 6.0 = +1.0</td><td>(+1.0)Â² = 1.0</td></tr>
+              <tr style="font-weight:700; background:var(--primary-light);">
+                <td colspan="3">Jumlah Total Kuadrat (âˆ‘):</td><td>10.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li><strong>Tahap 3 (Varians):</strong> <code>varians = 10.0 / (5 - 1) = 10.0 / 4 = 2.5</code>.</li>
+        <li><strong>Tahap 4 (Akar Kuadrat):</strong> <code>s = âˆš2.5 â‰ˆ 1.58113883</code>. Hasil terbukti identik dengan modul <code>statistics.stdev</code> bawaan Python!</li>
+      </ul>
+
+      <!-- Interactive Widget: Standar Deviasi Live -->
+      <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:var(--radius-sm); border:1px solid var(--primary-border); margin-top:20px;">
+        <div style="font-weight:700; color:#10b981; font-size:14px; margin-bottom:8px;">âš¡ Kalkulator Standar Deviasi &amp; Step Trace Langsung:</div>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Masukkan angka data dipisahkan spasi atau koma untuk melihat perhitungan real-time:</p>
+        
+        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
+          <input type="text" id="stdevInput" value="4, 8, 6, 5, 7" class="input-field" style="width:280px;" oninput="hitungStdevLive()">
+          <button class="btn-action btn-emerald" onclick="hitungStdevLive()">Hitung Standar Deviasi</button>
+        </div>
+
+        <div id="stdevResultBox" style="font-size:13px; color:var(--text-body); background:var(--bg-surface-card); padding:14px; border-radius:6px; border:1px solid var(--border-color);"></div>
+      </div>
+    </article>
+
+    <!-- ========================================== -->
+    <!-- SOAL 2: DENDA KETERLAMBATAN                -->
+    <!-- ========================================== -->
+    <article class="article-card" id="soal-2">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
+        <h2 style="font-size:20px; margin:0; color:#3b82f6;">ðŸ“Œ Soal 2: Algoritma Denda Keterlambatan &amp; Simulasi NIM</h2>
+        <span style="background:var(--blue-bg); color:#3b82f6; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--blue-border);">Bobot: 30 Poin Â· Perulangan WHILE &amp; I/O</span>
+      </div>
+
+      <!-- Teks Soal Asli -->
+      <div class="callout info">
+        <div class="callout-title">ðŸ“ Teks Asli Soal Ujian:</div>
+        <p style="margin:0 0 8px;">Terdapat algoritma berikut ini:</p>
+        <pre style="margin:8px 0;"><code class="language-text">START
+  INPUT hari_terlambat
+  total_denda &lt;- 0
+  hari &lt;- 1
+  WHILE hari &lt;= jumlah_hari DO
+    total_denda &lt;- total_denda + 2000
+    hari &lt;- hari + 1
+  END WHILE
+  OUTPUT total_denda
+END</code></pre>
+        <p style="margin:8px 0 0; font-weight:700; color:var(--text-main);">
+          Pertanyaan:<br>
+          a. Terjemahkan algoritma menjadi program Python.<br>
+          b. Jika program dijalankan dan input hari terlambat sama dengan dua digit terakhir NIM anda, tentukan tampilan program.
+        </p>
+      </div>
+
+      <!-- Catatan Analisis Typo di Naskah -->
+      <div class="callout warning">
+        <div class="callout-title">ðŸ’¡ Catatan Telaah Kritis Algoritma:</div>
+        <p style="margin:0; font-size:13.5px;">
+          Pada naskah asli, terdapat sedikit inkonsistensi penamaan variabel: baris awal menginput <code>hari_terlambat</code>, namun di baris perulangan tertulis <code>WHILE hari &lt;= jumlah_hari DO</code>. Dalam konteks logika algoritma, variabel <code>jumlah_hari</code> tersebut mengacu langsung pada <code>hari_terlambat</code>. Menyebutkan catatan ini pada lembar jawaban menunjukkan ketelitian analitis tingkat tinggi!
+        </p>
+      </div>
+
+      <!-- Bagian a: Terjemahan Python -->
+      <h3 style="color:#3b82f6;">a. Terjemahan Algoritma Menjadi Program Python:</h3>
+      <p style="font-size:14px; margin-bottom:8px;">
+        Program Python ditulis secara presisi mengikuti setiap baris pseudocode di atas:
+      </p>
+
+      <pre><code class="language-python"># Program Menghitung Denda Keterlambatan
+# Terjemahan resmi dari pseudocode
+
+# 1. INPUT hari_terlambat
+hari_terlambat = int(input("Masukkan hari terlambat: "))
+
+# 2. Inisialisasi akumulator total_denda dan pencacah hari
+total_denda = 0
+hari = 1
+
+# 3. WHILE hari &lt;= hari_terlambat DO
+while hari &lt;= hari_terlambat:
+    total_denda = total_denda + 2000
+    hari = hari + 1
+
+# 4. OUTPUT total_denda
+print("Total denda:", total_denda)</code></pre>
+
+      <h4 style="color:var(--text-main);">Penjelasan Baris Program:</h4>
+      <ul style="font-size:13.5px; color:var(--text-body);">
+        <li><code>int(input(...))</code>: Menerima input dari pengguna dan mengubah tipe datanya dari teks (string) menjadi bilangan bulat (integer).</li>
+        <li><code>total_denda = 0</code>: Mengatur nilai awal saldo denda sebesar 0 rupiah.</li>
+        <li><code>hari = 1</code>: Inisialisasi variabel pencacah iterasi dimulai dari hari ke-1.</li>
+        <li><code>while hari &lt;= hari_terlambat:</code>: Blok perulangan akan terus berputar selama nilai <code>hari</code> belum melampaui jumlah hari terlambat.</li>
+        <li><code>total_denda = total_denda + 2000</code>: Menambahkan denda sebesar Rp 2.000 per hari keterlambatan.</li>
+        <li><code>hari = hari + 1</code>: Melangkah ke hari berikutnya (mencegah loop tak hingga / <em>infinite loop</em>).</li>
+        <li><code>print(...)</code>: Mencetak hasil akhir akumulasi denda ke layar konsol.</li>
+      </ul>
+
+      <!-- Bagian b: Simulasi Dua Digit NIM -->
+      <h3 style="color:#f59e0b; margin-top:24px;">b. Penentuan Tampilan Program Sesuai Dua Digit Terakhir NIM:</h3>
+      <p style="font-size:14px; margin-bottom:12px;">
+        Setiap mahasiswa akan memiliki tampilan program yang unik tergantung dua digit terakhir dari Nomor Induk Mahasiswa (NIM) masing-masing. Rumus matematis total dendanya adalah:
+      </p>
+      <div class="formula-box" style="border-color:var(--amber-border);">
+        <div style="font-size:16px; font-weight:700; color:#f59e0b;">Total Denda = (Dua Digit Terakhir NIM) Ã— Rp 2.000</div>
+      </div>
+
+      <h4 style="color:var(--text-main);">Contoh Kasus 1: NIM L200260089 (Dua digit terakhir = 89)</h4>
+      <p style="font-size:13.5px;">Jika mahasiswa dengan NIM berakhiran <strong>89</strong> menjalankan program:</p>
+      <ul>
+        <li>Jumlah iterasi: Loop <code>while</code> berputar sebanyak <strong>89 kali</strong> (hari 1 sampai hari 89).</li>
+        <li>Akumulasi denda: <code>89 Ã— 2000 = 178000</code>.</li>
+        <li>Tampilan persis pada layar terminal/konsol:</li>
+      </ul>
+      <pre style="background:#020617; border:1px solid #334155; color:#38bdf8;"><code>Masukkan hari terlambat: 89
+Total denda: 178000</code></pre>
+
+      <h4 style="color:var(--text-main);">Contoh Kasus 2: NIM L200240005 (Dua digit terakhir = 05 atau 5)</h4>
+      <p style="font-size:13.5px;">Jika input adalah <strong>5</strong> hari:</p>
+      <ul>
+        <li>Jumlah iterasi: 5 kali perulangan.</li>
+        <li>Akumulasi denda: <code>5 Ã— 2000 = 10000</code>.</li>
+        <li>Tampilan layar konsol:</li>
+      </ul>
+      <pre style="background:#020617; border:1px solid #334155; color:#38bdf8;"><code>Masukkan hari terlambat: 5
+Total denda: 10000</code></pre>
+
+      <h4 style="color:var(--text-main);">Contoh Kasus Khusus: NIM L200240100 (Dua digit terakhir = 00)</h4>
+      <p style="font-size:13.5px;">Jika input adalah <strong>0</strong>:</p>
+      <ul>
+        <li>Kondisi <code>hari &lt;= hari_terlambat</code> (yaitu <code>1 &lt;= 0</code>) langsung bernilai <strong>False</strong> sejak awal.</li>
+        <li>Blok di dalam <code>while</code> tidak dieksekusi sama sekali (0 iterasi).</li>
+        <li>Tampilan layar konsol:</li>
+      </ul>
+      <pre style="background:#020617; border:1px solid #334155; color:#38bdf8;"><code>Masukkan hari terlambat: 0
+Total denda: 0</code></pre>
+
+      <!-- Interactive Widget: Simulator Denda While Loop -->
+      <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:var(--radius-sm); border:1px solid var(--blue-border); margin-top:20px;">
+        <div style="font-weight:700; color:#3b82f6; font-size:14px; margin-bottom:8px;">â±ï¸ Simulator Interaktif Denda Keterlambatan NIM:</div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
+          <label style="font-size:13px; font-weight:700; color:var(--text-main);">2 Digit Terakhir NIM Anda:</label>
+          <input type="number" id="inputDigitNimDenda" value="89" min="0" max="99" class="input-field" style="width:100px;" oninput="simulasiDendaLive()">
+          <button class="btn-action" style="background:#3b82f6; color:#fff;" onclick="simulasiDendaLive()">Simulasikan Konsol</button>
+        </div>
+
+        <div id="outputDendaConsole" style="font-family:var(--font-mono); font-size:13px; background:#020617; color:#38bdf8; padding:14px; border-radius:6px; border:1px solid #334155;"></div>
+      </div>
+    </article>
+
+    <!-- ========================================== -->
+    <!-- SOAL 3: TRACING SLICING NIM 2026           -->
+    <!-- ========================================== -->
+    <article class="article-card" id="soal-3">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
+        <h2 style="font-size:20px; margin:0; color:#f59e0b;">ðŸ“Œ Soal 3: Tracing Variabel String Slicing &amp; Operator Precedence 2026</h2>
+        <span style="background:var(--amber-bg); color:#f59e0b; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--amber-border);">Bobot: 35 Poin Â· String Manipulation &amp; Arithmetic</span>
+      </div>
+
+      <!-- Teks Soal Asli -->
+      <div class="callout info">
+        <div class="callout-title">ðŸ“ Teks Asli Soal Ujian:</div>
+        <p style="margin:0 0 8px;">
+          Pada program di bawah ini, gantilah teks <code>'L200101010'</code> dengan NIM saudara sendiri. Berapakah nilai yang tersimpan di variabel <strong>a, b, c, e, f, g, dan h</strong> setelah program dijalankan? <em>(Catatan: variabel d dihitung sebagai perantara).</em>
+        </p>
+      </div>
+
+      <!-- Kode Program Asli -->
+      <pre><code class="language-python">Z = 'L200101010' # ganti L200101010 dengan NIM saudara
+a = Z[1::4]
+b = 2 * a + Z[-2]
+c = int(a) + 2
+d = c % 10 - 3
+e = c // 20 - 15
+f = d > 5 or e < 0
+g = e + d ** 2
+h = c - 2 * e</code></pre>
+
+      <!-- Ruler Indeks String Visual -->
+      <h3 style="color:var(--text-main);">ðŸ“ Peta Indeks String NIM (Format 10 Karakter):</h3>
+      <p style="font-size:13.5px; color:var(--text-muted);">
+        Setiap karakter dalam string <code>Z</code> memiliki indeks positif (dari kiri: 0 sampai 9) dan indeks negatif (dari kanan: -10 sampai -1). Kotak hijau menunjukkan karakter yang terambil oleh ekspresi slicing <code>Z[1::4]</code>:
+      </p>
+
+      <div class="ruler-container" id="rulerNimDisplay">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Analisis Per Baris Lengkap -->
+      <h3 style="color:var(--primary); margin-top:20px;">ðŸ”¬ Analisis Eksekusi Baris demi Baris:</h3>
+
+      <div style="display:flex; flex-direction:column; gap:14px; margin:16px 0;">
+        
+        <!-- Baris 1: Slicing a -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #10b981;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#10b981; font-size:14px; margin-bottom:4px;">1. a = Z[1::4]</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            Slicing string berformat <code>[start:stop:step]</code> dengan <code>start = 1</code> dan lompatan <code>step = 4</code>. Mengambil karakter pada indeks:
+            <br>â€¢ Indeks <strong>1</strong>: <code>Z[1]</code>
+            <br>â€¢ Indeks <strong>1 + 4 = 5</strong>: <code>Z[5]</code>
+            <br>â€¢ Indeks <strong>5 + 4 = 9</strong>: <code>Z[9]</code>
+            <br>Hasilnya berupa <strong>string 3 karakter</strong>: <code>a = Z[1] + Z[5] + Z[9]</code>.
+            <br><em>Contoh pada NIM default 'L200101010':</em> <code>Z[1]='2'</code>, <code>Z[5]='0'</code>, <code>Z[9]='0'</code> â†’ <code>a = '200'</code> (tipe: <code>str</code>).
+          </p>
+        </div>
+
+        <!-- Baris 2: b -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #f43f5e;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#f43f5e; font-size:14px; margin-bottom:4px;">2. b = 2 * a + Z[-2] &nbsp; âš ï¸ PERANGKAP DUPLIKASI STRING</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            Karena <code>a</code> bertipe string, operator <code>*</code> adalah <strong>replikasi teks (string repetition)</strong>, BUKAN perkalian angka!
+            <br>â€¢ <code>2 * a</code> menduplikasi string <code>a</code> dua kali (misal <code>2 * '200' = '200200'</code>).
+            <br>â€¢ <code>Z[-2]</code> adalah karakter indeks ke-2 dari belakang (indeks 8), misal <code>'1'</code>.
+            <br>â€¢ Operator <code>+</code> menggabungkan kedua string (concatenation).
+            <br><em>Hasil:</em> <code>b = '2002001'</code> (tipe: <code>str</code>, berupa string 7 karakter!).
+          </p>
+        </div>
+
+        <!-- Baris 3: c -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #3b82f6;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#3b82f6; font-size:14px; margin-bottom:4px;">3. c = int(a) + 2</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            String <code>a</code> dikonversi menjadi bilangan bulat melalui <code>int(a)</code>, lalu ditambah 2.
+            <br><em>Contoh:</em> <code>int('200') + 2 = 202</code> (tipe: <code>int</code>).
+          </p>
+        </div>
+
+        <!-- Baris 4: d (Perantara) -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #64748b;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#94a3b8; font-size:14px; margin-bottom:4px;">4. d = c % 10 - 3 &nbsp; (Variabel Perantara)</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            Sesuai presedensi operator aritmatika, operasi modulo <code>%</code> dikerjakan terlebih dahulu daripada pengurangan <code>-</code>.
+            <br>â€¢ <code>c % 10</code> menghasilkan sisa pembagian 10 (digit terakhir dari <code>c</code>, misal <code>202 % 10 = 2</code>).
+            <br>â€¢ Lalu dikurangi 3: <code>2 - 3 = -1</code> (tipe: <code>int</code>).
+          </p>
+        </div>
+
+        <!-- Baris 5: e -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #06b6d4;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#06b6d4; font-size:14px; margin-bottom:4px;">5. e = c // 20 - 15</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            Operator <code>//</code> adalah pembagian bulat (*floor division*), memiliki prioritas lebih tinggi dari pengurangan <code>-</code>.
+            <br>â€¢ <code>c // 20</code> (misal <code>202 // 20 = 10</code>).
+            <br>â€¢ Lalu dikurangi 15: <code>10 - 15 = -5</code> (tipe: <code>int</code>).
+          </p>
+        </div>
+
+        <!-- Baris 6: f -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #a855f7;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#a855f7; font-size:14px; margin-bottom:4px;">6. f = d > 5 or e < 0</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            Operator relasional <code>&gt;</code> dan <code>&lt;</code> dievaluasi mendahului operator logika <code>or</code>:
+            <br>â€¢ Evaluasi kiri: <code>d &gt; 5</code> â†’ <code>-1 &gt; 5</code> bernilai <code>False</code>.
+            <br>â€¢ Evaluasi kanan: <code>e &lt; 0</code> â†’ <code>-5 &lt; 0</code> bernilai <code>True</code>.
+            <br>â€¢ Operasi disjungsi: <code>False or True</code> menghasilkan <code>True</code> (tipe: <code>bool</code>).
+          </p>
+        </div>
+
+        <!-- Baris 7: g -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #eab308;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#eab308; font-size:14px; margin-bottom:4px;">7. g = e + d ** 2</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            Operator pemangkatan <code>**</code> memiliki presedensi paling tinggi:
+            <br>â€¢ <code>d ** 2</code> dihitung pertama kali: <code>(-1)Â² = 1</code>.
+            <br>â€¢ Lalu dijumlahkan dengan <code>e</code>: <code>-5 + 1 = -4</code> (tipe: <code>int</code>).
+          </p>
+        </div>
+
+        <!-- Baris 8: h -->
+        <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #22c55e;">
+          <div style="font-family:var(--font-mono); font-weight:700; color:#22c55e; font-size:14px; margin-bottom:4px;">8. h = c - 2 * e</div>
+          <p style="font-size:13.5px; margin:0; color:var(--text-body);">
+            Perkalian <code>2 * e</code> dihitung terlebih dahulu: <code>2 * (-5) = -10</code>.
+            <br>Pengurangan dengan bilangan negatif menjadi penjumlahan: <code>c - (-10) = 202 + 10 = 212</code> (tipe: <code>int</code>).
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Tabel Ringkasan Jawaban Resmi -->
+      <h3 style="color:var(--text-main);">ðŸ“‹ Tabel Hasil Tracing Resmi 2026:</h3>
+      <table class="academic-table">
+        <thead>
+          <tr>
+            <th>Variabel</th>
+            <th>Ekspresi Kode</th>
+            <th>Nilai (NIM Default: L200101010)</th>
+            <th>Nilai (NIM Anda: L200260089)</th>
+            <th>Tipe Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>a</code></td>
+            <td><code>Z[1::4]</code></td>
+            <td><strong style="color:#10b981;">'200'</strong></td>
+            <td><strong style="color:#10b981;">'269'</strong></td>
+            <td><code>str</code></td>
+          </tr>
+          <tr style="background:rgba(244,63,94,0.08);">
+            <td><code>b</code></td>
+            <td><code>2 * a + Z[-2]</code></td>
+            <td><strong style="color:#f43f5e;">'2002001'</strong></td>
+            <td><strong style="color:#f43f5e;">'2692698'</strong></td>
+            <td><code>str</code></td>
+          </tr>
+          <tr>
+            <td><code>c</code></td>
+            <td><code>int(a) + 2</code></td>
+            <td><strong>202</strong></td>
+            <td><strong>271</strong></td>
+            <td><code>int</code></td>
+          </tr>
+          <tr style="color:var(--text-muted); font-size:12px;">
+            <td><em>d (perantara)</em></td>
+            <td><code>c % 10 - 3</code></td>
+            <td><em>-1</em></td>
+            <td><em>-2</em></td>
+            <td><code>int</code></td>
+          </tr>
+          <tr>
+            <td><code>e</code></td>
+            <td><code>c // 20 - 15</code></td>
+            <td><strong>-5</strong></td>
+            <td><strong>-2</strong></td>
+            <td><code>int</code></td>
+          </tr>
+          <tr>
+            <td><code>f</code></td>
+            <td><code>d > 5 or e < 0</code></td>
+            <td><strong style="color:#38bdf8;">True</strong></td>
+            <td><strong style="color:#38bdf8;">True</strong></td>
+            <td><code>bool</code></td>
+          </tr>
+          <tr>
+            <td><code>g</code></td>
+            <td><code>e + d ** 2</code></td>
+            <td><strong>-4</strong></td>
+            <td><strong>2</strong></td>
+            <td><code>int</code></td>
+          </tr>
+          <tr>
+            <td><code>h</code></td>
+            <td><code>c - 2 * e</code></td>
+            <td><strong>212</strong></td>
+            <td><strong>275</strong></td>
+            <td><code>int</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Simulator Interaktif NIM 2026 -->
+      <div id="sim-nim" style="background:var(--bg-surface-elevated); padding:20px; border-radius:var(--radius-sm); border:1px solid var(--amber-border); margin-top:24px;">
+        <div style="font-weight:700; color:#f59e0b; font-size:15px; margin-bottom:8px;">âš¡ Simulator Interaktif Tracing NIM 2026 (Live):</div>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+          Ketikkan NIM saudara sendiri di bawah ini. Penggaris indeks dan seluruh tabel variabel akan diperbarui secara otomatis dan instan:
+        </p>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:14px;">
+          <label style="font-size:13px; font-weight:700; color:var(--text-main);">NIM Saudara:</label>
+          <input type="text" id="nimInput2026" value="L200260089" maxlength="10" class="input-field" style="width:180px; font-size:15px;" oninput="updateNimSimulator2026()">
+          <span style="font-size:12px; color:var(--text-muted);">(Format standar UMS: 10 karakter, misal L200260089)</span>
+        </div>
+
+        <div id="nimOutputTable2026" style="overflow-x:auto;"></div>
+      </div>
+    </article>
+
+    <!-- ========================================== -->
+    <!-- RINGKASAN CHEATSHEET A4 SIAP CETAK        -->
+    <!-- ========================================== -->
+    <article class="article-card" id="cheatsheet">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
+        <h2 style="font-size:20px; margin:0; color:#a855f7;">ðŸ“„ Ringkasan Cepat Siap Cetak (A4 Cheatsheet UTS 2026)</h2>
+        <button class="btn-action" style="background:#a855f7; color:#fff;" onclick="window.print()">
+          <span>ðŸ–¨ï¸</span> Cetak / Simpan PDF (Ctrl + P)
+        </button>
+      </div>
+
+      <div style="background:#ffffff; color:#0f172a; padding:20px 24px; border-radius:8px; border:1px solid #cbd5e1; font-size:12.5px; line-height:1.5;">
+        <div style="text-align:center; border-bottom:2px solid #0f172a; padding-bottom:6px; margin-bottom:12px;">
+          <h3 style="margin:0; font-size:16px; color:#0f172a; font-weight:800;">RINGKASAN INTISARI JAWABAN UTS GASAL 2026/2027 â€” ALPRO UMS</h3>
+          <p style="margin:3px 0 0; font-size:11px; color:#475569;">Program Studi Informatika Â· Universitas Muhammadiyah Surakarta</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+          
+          <!-- Box Soal 1 -->
+          <div style="border:1px solid #94a3b8; border-radius:6px; padding:10px 12px; background:#f8fafc;">
+            <div style="font-weight:800; font-size:12px; color:#1e3a8a; border-bottom:1px solid #cbd5e1; padding-bottom:4px; margin-bottom:6px;">
+              SOAL 1: 4 KESALAHAN ALGORITMA STANDAR DEVIASI
+            </div>
+            <ul style="margin-left:16px; margin-bottom:0; font-size:11.5px; color:#1e293b;">
+              <li><strong>Bug 1:</strong> <code>total</code> belum diinisialisasi <code>total &lt;- 0</code> sebelum loop.</li>
+              <li><strong>Bug 2:</strong> Loop kedua <code>FOR i = 0 TO N</code> melampaui indeks array (harus <code>0 TO N - 1</code>).</li>
+              <li><strong>Bug 3:</strong> Baris akhir hanya <code>RETURN</code> kosong tanpa mengembalikan <code>s</code> (harus <code>RETURN s</code>).</li>
+              <li><strong>Bug 4:</strong> Perlu penanganan <code>IF N &lt;= 1 THEN RETURN 0</code> agar tidak <em>division by zero</em>.</li>
+            </ul>
+          </div>
+
+          <!-- Box Soal 2 -->
+          <div style="border:1px solid #94a3b8; border-radius:6px; padding:10px 12px; background:#f8fafc;">
+            <div style="font-weight:800; font-size:12px; color:#1e3a8a; border-bottom:1px solid #cbd5e1; padding-bottom:4px; margin-bottom:6px;">
+              SOAL 2: DENDA LOOP &amp; 2 DIGIT NIM
+            </div>
+            <div style="font-size:11px; font-family:var(--font-mono); background:#e2e8f0; padding:6px; border-radius:4px; margin-bottom:6px; color:#0f172a;">
+              hari_terlambat = int(input("Masukkan hari terlambat: "))<br>
+              total_denda = 0; hari = 1<br>
+              while hari &lt;= hari_terlambat:<br>
+              &nbsp;&nbsp;total_denda += 2000; hari += 1<br>
+              print("Total denda:", total_denda)
+            </div>
+            <div style="font-size:11.5px; color:#1e293b;">
+              <strong>Rumus Denda:</strong> <code>n Ã— Rp 2.000</code>.<br>
+              Contoh NIM akhiran <code>89</code> â†’ Total denda: <strong>178000</strong>.
+            </div>
+          </div>
+
+          <!-- Box Soal 3 -->
+          <div style="border:1px solid #94a3b8; border-radius:6px; padding:10px 12px; background:#f8fafc; grid-column:1 / -1;">
+            <div style="font-weight:800; font-size:12px; color:#1e3a8a; border-bottom:1px solid #cbd5e1; padding-bottom:4px; margin-bottom:6px;">
+              SOAL 3: RUMUS TRACING SLICING NIM 2026
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px; font-size:11.5px; color:#1e293b;">
+              <div>â€¢ <code>a = Z[1::4]</code> : Slicing indeks 1, 5, 9 (string 3 karakter)</div>
+              <div>â€¢ <code>b = 2 * a + Z[-2]</code> : Duplikasi string (string 7 karakter)</div>
+              <div>â€¢ <code>c = int(a) + 2</code> : Konversi integer ditambah 2</div>
+              <div>â€¢ <code>d = c % 10 - 3</code> : Modulo 10 lalu dikurang 3</div>
+              <div>â€¢ <code>e = c // 20 - 15</code> : Floor division lalu dikurang 15</div>
+              <div>â€¢ <code>f = d > 5 or e < 0</code> : Evaluasi logika boolean</div>
+              <div>â€¢ <code>g = e + d ** 2</code> : Pangkat dihitung sebelum tambah</div>
+              <div>â€¢ <code>h = c - 2 * e</code> : Perkalian dihitung sebelum kurang</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="app-footer no-print" style="border-top:1px solid var(--border-color); background:var(--bg-surface); padding:20px; font-size:13px; color:var(--text-muted);">
+    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+      <span>Mata Kuliah: Algoritma &amp; Pemrograman (TIF3221303) â€” UMS</span>
+      <span>Arsip Resmi Ujian Gasal 2026/2027</span>
+    </div>
+  </footer>
+
+  <!-- Interactive Logic Scripts -->
+  <script>
+    // Theme Switcher with localStorage
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('alpro_theme', next);
+      const icon = document.getElementById('theme-icon');
+      if (icon) icon.textContent = next === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+    }
+
+    // Soal 1 Live Calculator
+    function hitungStdevLive() {
+      const input = document.getElementById('stdevInput');
+      const resultBox = document.getElementById('stdevResultBox');
+      if (!input || !resultBox) return;
+
+      const raw = input.value.split(/[\s,]+/).filter(x => x.trim() !== '');
+      const nums = raw.map(Number).filter(x => !isNaN(x));
+
+      if (nums.length <= 1) {
+        resultBox.innerHTML = `<span style="color:#ef4444; font-weight:700;">âš ï¸ Masukkan minimal 2 angka numerik valid (Contoh: 4, 8, 6, 5, 7)</span>`;
+        return;
+      }
+
+      const N = nums.length;
+      let total = 0;
+      for (let i = 0; i < N; i++) total += nums[i];
+      const mean = total / N;
+
+      let totalKuadrat = 0;
+      let tableRows = '';
+      for (let i = 0; i < N; i++) {
+        const diff = nums[i] - mean;
+        const sq = diff * diff;
+        totalKuadrat += sq;
+        tableRows += `<tr><td>${i}</td><td>${nums[i]}</td><td>${diff.toFixed(3)}</td><td>${sq.toFixed(3)}</td></tr>`;
+      }
+
+      const varians = totalKuadrat / (N - 1);
+      const stdev = Math.sqrt(varians);
+
+      resultBox.innerHTML = `
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-bottom:12px;">
+          <div><strong>Jumlah Data (N):</strong> ${N}</div>
+          <div><strong>Rata-rata (xÌ„):</strong> ${mean.toFixed(3)}</div>
+          <div><strong>Varians Sampel (sÂ²):</strong> ${varians.toFixed(4)}</div>
+          <div><strong style="color:#10b981;">Standar Deviasi (s):</strong> <span style="font-size:16px; font-weight:800; color:#10b981;">${stdev.toFixed(4)}</span></div>
+        </div>
+        <div style="font-weight:700; margin-bottom:6px; font-size:12px; color:var(--text-muted);">Tabel Trace Selisih Kuadrat Tiap Elemen:</div>
+        <div style="max-height:180px; overflow-y:auto;">
+          <table class="academic-table" style="margin:0; font-size:12px;">
+            <thead><tr><th>i</th><th>X[i]</th><th>X[i] - xÌ„</th><th>(X[i] - xÌ„)Â²</th></tr></thead>
+            <tbody>${tableRows}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    // Soal 2 Simulator Live
+    function simulasiDendaLive() {
+      const input = document.getElementById('inputDigitNimDenda');
+      const outBox = document.getElementById('outputDendaConsole');
+      if (!input || !outBox) return;
+
+      const n = parseInt(input.value, 10);
+      if (isNaN(n) || n < 0) {
+        outBox.innerHTML = 'Input tidak valid. Masukkan angka &gt;= 0.';
+        return;
+      }
+
+      let totalDenda = 0;
+      let hari = 1;
+      let traceSteps = '';
+      
+      while (hari <= n) {
+        totalDenda += 2000;
+        if (hari <= 3 || hari >= n - 1) {
+          traceSteps += `[Iterasi hari ${hari}] total_denda = Rp ${totalDenda.toLocaleString('id-ID')}\n`;
+        } else if (hari === 4 && n > 5) {
+          traceSteps += `... (melewati iterasi hari ke-4 s.d. ${n-2}) ...\n`;
+        }
+        hari += 1;
+      }
+
+      outBox.innerHTML = `
+$ python denda.py
+Masukkan hari terlambat: <strong>${n}</strong>
+${traceSteps ? '\n--- TRACE PERULANGAN WHILE ---\n' + traceSteps + '------------------------------\n' : ''}
+<strong>Total denda: ${totalDenda}</strong>
+(Terbilang: Rp ${totalDenda.toLocaleString('id-ID')})
+      `.trim().replace(/\n/g, '<br>');
+    }
+
+    // Soal 3 Slicing & Tracing Simulator 2026
+    function updateNimSimulator2026() {
+      const input = document.getElementById('nimInput2026');
+      const tableDiv = document.getElementById('nimOutputTable2026');
+      const rulerDiv = document.getElementById('rulerNimDisplay');
+      if (!input || !tableDiv || !rulerDiv) return;
+
+      const raw = input.value.trim().toUpperCase() || 'L200260089';
+      const Z = raw.padEnd(10, '0').substring(0, 10);
+
+      // Render Ruler
+      let rulerHtml = '';
+      for (let i = 0; i < 10; i++) {
+        const isSlice = (i === 1 || i === 5 || i === 9);
+        const isSecondLast = (i === 8);
+        const cls = isSlice ? 'active-slice' : (isSecondLast ? 'active-step' : '');
+        rulerHtml += `
+          <div class="ruler-cell ${cls}" title="Indeks ${i} / -${10 - i}">
+            <span class="pos-idx">${i}</span>
+            <span class="char-val">${Z[i]}</span>
+            <span class="neg-idx">-${10 - i}</span>
+          </div>
+        `;
+      }
+      rulerDiv.innerHTML = rulerHtml;
+
+      // Tracing variables
+      const a = Z[1] + Z[5] + Z[9]; // string
+      const b = a + a + Z[8];       // string repetition & concatenation
+      const c = parseInt(a, 10) + 2; // integer
+      const d = (c % 10) - 3;        // intermediate int
+      const e = Math.floor(c / 20) - 15; // int
+      const f = (d > 5) || (e < 0);  // boolean
+      const g = e + Math.pow(d, 2);  // int
+      const h = c - (2 * e);         // int
+
+      tableDiv.innerHTML = `
+        <table class="academic-table" style="margin:0;">
+          <thead>
+            <tr>
+              <th>Variabel</th>
+              <th>Ekspresi Kode</th>
+              <th>Nilai Hasil</th>
+              <th>Tipe Data</th>
+              <th>Keterangan / Langkah Eksekusi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:rgba(16,185,129,0.1);">
+              <td><code>a</code></td>
+              <td><code>Z[1::4]</code></td>
+              <td><strong style="color:#10b981; font-size:15px;">'${a}'</strong></td>
+              <td><code>str</code></td>
+              <td>Karakter indeks 1 (${Z[1]}), 5 (${Z[5]}), 9 (${Z[9]}) digabung jadi string 3 karakter</td>
+            </tr>
+            <tr style="background:rgba(244,63,94,0.12);">
+              <td><code>b</code></td>
+              <td><code>2 * a + Z[-2]</code></td>
+              <td><strong style="color:#f43f5e; font-size:15px;">'${b}'</strong></td>
+              <td><code>str</code></td>
+              <td>âš ï¸ Duplikasi string: '${a}' + '${a}' + '${Z[8]}' (bukan perkalian angka!)</td>
+            </tr>
+            <tr>
+              <td><code>c</code></td>
+              <td><code>int(a) + 2</code></td>
+              <td><strong style="font-size:15px;">${c}</strong></td>
+              <td><code>int</code></td>
+              <td>Konversi integer '${a}' (${parseInt(a,10)}) ditambah 2 = ${c}</td>
+            </tr>
+            <tr style="color:var(--text-muted); font-size:12px;">
+              <td><em>d (perantara)</em></td>
+              <td><code>c % 10 - 3</code></td>
+              <td><em>${d}</em></td>
+              <td><code>int</code></td>
+              <td>${c} % 10 = ${c % 10}; lalu dikurang 3 = ${d}</td>
+            </tr>
+            <tr>
+              <td><code>e</code></td>
+              <td><code>c // 20 - 15</code></td>
+              <td><strong style="font-size:15px;">${e}</strong></td>
+              <td><code>int</code></td>
+              <td>Pembagian bulat ${c} // 20 = ${Math.floor(c/20)}; dikurang 15 = ${e}</td>
+            </tr>
+            <tr>
+              <td><code>f</code></td>
+              <td><code>d &gt; 5 or e &lt; 0</code></td>
+              <td><strong style="color:#38bdf8; font-size:15px;">${f ? 'True' : 'False'}</strong></td>
+              <td><code>bool</code></td>
+              <td>(${d} &gt; 5) is ${d > 5}; (${e} &lt; 0) is ${e < 0}; or â†’ ${f ? 'True' : 'False'}</td>
+            </tr>
+            <tr>
+              <td><code>g</code></td>
+              <td><code>e + d ** 2</code></td>
+              <td><strong style="font-size:15px;">${g}</strong></td>
+              <td><code>int</code></td>
+              <td>${e} + (${d})Â² = ${e} + ${Math.pow(d,2)} = ${g}</td>
+            </tr>
+            <tr>
+              <td><code>h</code></td>
+              <td><code>c - 2 * e</code></td>
+              <td><strong style="font-size:15px;">${h}</strong></td>
+              <td><code>int</code></td>
+              <td>${c} - (2 * ${e}) = ${c} - (${2*e}) = ${h}</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+    }
+
+    // Initialize all widgets on load
+    window.addEventListener('DOMContentLoaded', () => {
+      hitungStdevLive();
+      simulasiDendaLive();
+      updateNimSimulator2026();
+
+      const savedTheme = localStorage.getItem('alpro_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const icon = document.getElementById('theme-icon');
+        if (icon) icon.textContent = savedTheme === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+      }
+    });
+  </script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+
+

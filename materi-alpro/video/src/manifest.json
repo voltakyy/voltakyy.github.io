@@ -1,0 +1,89 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "total": 130.9,
+  "totalAudio": 122.75,
+  "scenes": [
+    {
+      "id": "s1",
+      "chapter": "PEMBUKA",
+      "audio": "D:\\video-algo\\build\\audio\\s1.mp3",
+      "audioDur": 12.86,
+      "lead": 0.35,
+      "start": 0.0,
+      "dur": 13.76,
+      "narrationStart": 0.35
+    },
+    {
+      "id": "s2",
+      "chapter": "EMPAT PILAR",
+      "audio": "D:\\video-algo\\build\\audio\\s2.mp3",
+      "audioDur": 12.62,
+      "lead": 0.35,
+      "start": 13.76,
+      "dur": 13.52,
+      "narrationStart": 14.11
+    },
+    {
+      "id": "s3",
+      "chapter": "PILAR 01",
+      "audio": "D:\\video-algo\\build\\audio\\s3.mp3",
+      "audioDur": 17.18,
+      "lead": 0.35,
+      "start": 27.28,
+      "dur": 18.08,
+      "narrationStart": 27.63
+    },
+    {
+      "id": "s4",
+      "chapter": "PILAR 02",
+      "audio": "D:\\video-algo\\build\\audio\\s4.mp3",
+      "audioDur": 15.72,
+      "lead": 0.35,
+      "start": 45.36,
+      "dur": 16.62,
+      "narrationStart": 45.71
+    },
+    {
+      "id": "s5",
+      "chapter": "PILAR 03",
+      "audio": "D:\\video-algo\\build\\audio\\s5.mp3",
+      "audioDur": 17.28,
+      "lead": 0.35,
+      "start": 61.98,
+      "dur": 18.18,
+      "narrationStart": 62.33
+    },
+    {
+      "id": "s6",
+      "chapter": "PILAR 04",
+      "audio": "D:\\video-algo\\build\\audio\\s6.mp3",
+      "audioDur": 15.5,
+      "lead": 0.35,
+      "start": 80.16,
+      "dur": 16.4,
+      "narrationStart": 80.51
+    },
+    {
+      "id": "s7",
+      "chapter": "STUDI KASUS",
+      "audio": "D:\\video-algo\\build\\audio\\s7.mp3",
+      "audioDur": 20.57,
+      "lead": 0.35,
+      "start": 96.56,
+      "dur": 21.47,
+      "narrationStart": 96.91
+    },
+    {
+      "id": "s8",
+      "chapter": "PENUTUP",
+      "audio": "D:\\video-algo\\build\\audio\\s8.mp3",
+      "audioDur": 11.02,
+      "lead": 0.35,
+      "start": 118.03,
+      "dur": 12.57,
+      "narrationStart": 118.38
+    }
+  ]
+}

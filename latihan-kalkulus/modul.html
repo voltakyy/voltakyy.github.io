@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul Kalkulus â€” Materi 1â€“4 &amp; Arsip UTS</title>
+<meta name="description" content="Modul pendamping UTS Kalkulus Reguler: bilangan, trigonometri, fungsi, limit, arsip UTS Gasal 2025/2026, plus cheat sheet A5 satu muka.">
+<meta name="theme-color" content="#f6f1e6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100;1,9..144,300..900,100&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modul.css">
+<link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body class="doc-page">
+<main class="shell doc-shell">
+
+  <header class="site-head">
+    <a class="brand" href="index.html" aria-label="Batas dan Bentuk, kembali ke beranda">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40">
+          <rect width="40" height="40" rx="8" fill="#fffdf7"/>
+          <path d="M7 20h26M20 33V7" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 9l6 16 6-16" fill="none" stroke="#3c5f8c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="17" cy="25" r="2.2" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <span class="brand-word">batas<span>.</span></span>
+    </a>
+    <div class="head-meta">
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Latihan</a>
+        <a href="modul.html" aria-current="page">Modul</a>
+        <a class="nav-uts" href="uts-2025.html">UTS 2025</a>
+      </nav>
+      <span class="stamp-badge">4 modul + 2 ekstra</span>
+    </div>
+  </header>
+
+  <section class="hub-hero">
+    <div class="hub-hero-copy">
+      <p class="kicker"><span class="kicker-box" aria-hidden="true">âˆ«</span> modul pendamping Â· kalkulus reguler</p>
+      <h1>Baca dulu,<br><em>baru hitung.</em></h1>
+      <p class="lede">Empat modul yang merangkai ulang materi Week 1â€“4â€”bukan salinan slide, tapi penjelasan yang bisa dibaca ulang saat belajar. Ditutup dengan arsip UTS tahun lalu, pembahasan lengkapnya, dan cheat sheet A5 satu muka.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="materi-1.html">
+          Mulai dari materi 1
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="index.html">Langsung latihan 35 soal</a>
+      </div>
+      <div class="module-meta">
+        <span class="meta-chip"><b>4</b> modul materi</span>
+        <span class="meta-chip"><b>1</b> arsip UTS</span>
+        <span class="meta-chip"><b>35</b> soal latihan</span>
+      </div>
+    </div>
+
+    <figure class="hub-figure">
+      <div class="hub-board" aria-label="Peta isi modul">
+        <div class="hub-board-grid">
+          <div class="hub-board-cell">
+            <span>01 Â· bilangan</span>
+            <strong>N âŠ‚ Z âŠ‚ Q âŠ‚ R</strong>
+            <small>dari angka ke representasi</small>
+          </div>
+          <div class="hub-board-cell">
+            <span>02 Â· trigonometri</span>
+            <strong>(cos Î¸, sin Î¸)</strong>
+            <small>segitiga, radian, identitas</small>
+          </div>
+          <div class="hub-board-cell">
+            <span>03 Â· fungsi</span>
+            <strong>f : A â†’ B</strong>
+            <small>domain, invers, modulo</small>
+          </div>
+          <div class="hub-board-cell">
+            <span>04 Â· limit</span>
+            <strong>lim f(x) = L</strong>
+            <small>0/0, tak hingga, kontinu</small>
+          </div>
+        </div>
+        <div class="hub-board-note">
+          <span>satu alur: bilangan â†’ fungsi â†’ limit</span>
+          <b>UTS 2025 â†’</b>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <section class="hub-intro" aria-labelledby="hubIntroTitle">
+    <div>
+      <p class="section-kicker">cara membaca</p>
+      <h2 id="hubIntroTitle">Konsep dulu, contoh kedua, latihan terakhir.</h2>
+      <p>Tiap halaman disusun dengan pola yang sama: definisi singkat, contoh yang dikerjakan utuh, lalu soal latihan dengan pembahasan yang bisa dibuka-tutup. Jadi kamu bisa berhenti di tengah, mencoba sendiri, baru mengecek langkahnya.</p>
+    </div>
+    <div class="hub-legend">
+      <strong>Urutan yang disarankan</strong>
+      Materi 1 â†’ 2 â†’ 3 â†’ 4 â†’ arsip UTS â†’ latihan 35 soal. Kalau waktu mepet, buka arsip UTS dulu untuk melihat bentuk soalnya, lalu balik ke modul yang masih goyah.
+    </div>
+  </section>
+
+  <section class="hub-grid" aria-label="Daftar modul">
+    <a class="hub-card hub-card--1" href="materi-1.html">
+      <span class="hub-card-top">
+        <span class="hub-card-no">MATERI 01</span>
+        <span class="hub-card-type">bilangan</span>
+      </span>
+      <h3>Bilangan &amp; Representasi</h3>
+      <p>Dari â€œbilangan itu konsep, angka itu simbolâ€ sampai membaca posisi di garis bilangan dan bidang koordinat.</p>
+      <ul>
+        <li>Bilangan vs angka</li>
+        <li>Himpunan N, W, Z, Q, R, C</li>
+        <li>Titik, garis, bidang, akar</li>
+      </ul>
+      <span class="hub-card-foot"><span>7 bagian Â· 4 latihan</span><span>Baca â†’</span></span>
+    </a>
+
+    <a class="hub-card hub-card--2" href="materi-2.html">
+      <span class="hub-card-top">
+        <span class="hub-card-no">MATERI 02</span>
+        <span class="hub-card-type">trigonometri</span>
+      </span>
+      <h3>Trigonometri</h3>
+      <p>Enam rasio, jembatan derajatâ€“radian, unit circle, nilai istimewa, dan delapan keluarga identitas.</p>
+      <ul>
+        <li>sin, cos, tan, sec, csc, cot</li>
+        <li>Tanda di tiap kuadran</li>
+        <li>Identitas &amp; sudut rangkap</li>
+      </ul>
+      <span class="hub-card-foot"><span>7 bagian Â· 5 latihan</span><span>Baca â†’</span></span>
+    </a>
+
+    <a class="hub-card hub-card--3" href="materi-3.html">
+      <span class="hub-card-top">
+        <span class="hub-card-no">MATERI 03</span>
+        <span class="hub-card-type">fungsi</span>
+      </span>
+      <h3>Fungsi &amp; Bilangan Khusus</h3>
+      <p>Relasi yang rapi, domainâ€“kodomainâ€“range, invers, komposisi, floor, modulo, faktorial, log, dan rekursi.</p>
+      <ul>
+        <li>Injektif, surjektif, bijektif</li>
+        <li>Invers dan komposisi</li>
+        <li>Modulo bilangan negatif</li>
+      </ul>
+      <span class="hub-card-foot"><span>8 bagian Â· 6 latihan</span><span>Baca â†’</span></span>
+    </a>
+
+    <a class="hub-card hub-card--4" href="materi-4.html">
+      <span class="hub-card-top">
+        <span class="hub-card-no">MATERI 04</span>
+        <span class="hub-card-type">limit</span>
+      </span>
+      <h3>Limit</h3>
+      <p>Nilai yang didekati, bukan selalu nilai fungsi. Dari limit kiriâ€“kanan sampai asimtot dan kontinuitas.</p>
+      <ul>
+        <li>Substitusi &amp; bentuk 0/0</li>
+        <li>Limit trigonometri</li>
+        <li>Tak hingga &amp; kontinuitas</li>
+      </ul>
+      <span class="hub-card-foot"><span>8 bagian Â· 7 latihan</span><span>Baca â†’</span></span>
+    </a>
+  </section>
+
+  <a class="hub-uts" href="uts-2025.html">
+    <span class="hub-uts-seal" aria-hidden="true">ARSIP<br>UTS</span>
+    <div>
+      <span class="hub-uts-kicker">acuan utama Â· kalkulus</span>
+      <h3>UTS Gasal 2025/2026</h3>
+      <p>Empat soal, 100 poin, 90 menit. Lembar asli, kunci ringkas, dan pembahasan langkah demi langkahâ€”termasuk jebakan limit yang kelihatan mudah.</p>
+    </div>
+    <span class="hub-uts-cta">Buka arsip â†’</span>
+  </a>
+
+  <a class="hub-uts hub-cheat" href="cheat-sheet.html">
+    <span class="hub-uts-seal" aria-hidden="true">A5<br>1 MUKA</span>
+    <div>
+      <h3>Cheat Sheet A5 â€” satu muka</h3>
+      <p>Lembar izin yang sudah dipadatkan: empat tipe soal UTS, rumus wajib, contoh cepat, dan checklist jebakan. Siap dicetak A5 portrait.</p>
+    </div>
+    <span class="hub-uts-cta">Buka / cetak â†’</span>
+  </a>
+
+  <section class="roadmap" aria-labelledby="roadmapTitle">
+    <p class="roadmap-title" id="roadmapTitle">alur belajar</p>
+    <div class="roadmap-flow">
+      <span class="roadmap-step"><span>01</span>Bilangan</span>
+      <span class="roadmap-arrow">â†’</span>
+      <span class="roadmap-step"><span>02</span>Trigonometri</span>
+      <span class="roadmap-arrow">â†’</span>
+      <span class="roadmap-step"><span>03</span>Fungsi</span>
+      <span class="roadmap-arrow">â†’</span>
+      <span class="roadmap-step"><span>04</span>Limit</span>
+      <span class="roadmap-arrow">â†’</span>
+      <span class="roadmap-step"><span>UTS</span>Arsip 2025</span>
+      <span class="roadmap-arrow">â†’</span>
+      <span class="roadmap-step"><span>35</span>Latihan</span>
+    </div>
+    <p class="roadmap-note">Modul ini dibuat dari PDF perkuliahan Week 1â€“4 dan PDF UTS Gasal 2025/2026. Tautan PDF sumber tersedia di bagian bawah setiap halaman.</p>
+  </section>
+
+  <footer class="site-foot">
+    <span>Modul pendamping Â· Kalkulus Reguler</span>
+    <span class="mono">dibaca pelan-pelan Â· boleh diulang</span>
+  </footer>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script src="modul.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

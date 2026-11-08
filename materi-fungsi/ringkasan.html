@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ringkasan â€” materi-fungsi</title>
+<meta name="description" content="Semua definisi, syarat, bentuk grafik, dan aturan fungsi dalam satu halaman. Ringkasan lengkap 15 bagian materi fungsi.">
+<meta name="theme-color" content="#f7f6f0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="assets/tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+<a class="skip" href="#utama">Lompat ke isi</a>
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html" aria-label="materi-fungsi, beranda">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="5" fill="#fffefa"/>
+        <g stroke="#1f4e79" stroke-opacity=".2" stroke-width=".8">
+          <path d="M0 8h32M0 16h32M0 24h32M8 0v32M16 0v32M24 0v32"/>
+        </g>
+        <path d="M4 27c5 0 6-18 11-18s5 12 9 12" fill="none" stroke="#1f4e79" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="15" cy="9" r="2.6" fill="#b03a26" stroke="#fffefa" stroke-width="1.2"/>
+      </svg>
+      <span class="brand-word">fungsi<i>.</i></span>
+    </a>
+
+    <nav class="topnav" aria-label="Navigasi utama">
+      <a href="dasar.html">Dasar</a>
+      <a href="bentuk.html">Bentuk</a>
+      <a href="lanjut.html">Lanjut</a>
+      <a href="latihan.html">Latihan</a>
+      <a href="ringkasan.html" aria-current="page">Ringkasan</a>
+    </nav>
+
+    <span class="readchip" data-readchip title="Progres bagian yang sudah ditandai">
+      <span class="bar"><span></span></span>
+      <b>0/15</b> selesai
+    </span>
+  </div>
+</header>
+
+<main id="utama" class="shell">
+  <div class="page">
+
+    <aside class="rail" aria-label="Isi ringkasan">
+      <p class="rail-title">Ringkasan</p>
+      <ol>
+        <li><a href="#peta"><span class="n">01</span><span>Peta konsep</span></a></li>
+        <li><a href="#istilah"><span class="n">02</span><span>Notasi &amp; istilah</span></a></li>
+        <li><a href="#bentuk"><span class="n">03</span><span>Bentuk fungsi</span></a></li>
+        <li><a href="#aturan"><span class="n">04</span><span>Aturan operasi</span></a></li>
+        <li><a href="#uji"><span class="n">05</span><span>Uji cepat</span></a></li>
+        <li><a href="#jebakan"><span class="n">06</span><span>Jebakan umum</span></a></li>
+        <li><a href="#urutan"><span class="n">07</span><span>Urutan materi</span></a></li>
+      </ol>
+      <p class="rail-note">Halaman ini untuk dibaca ulang, bukan untuk dipelajari pertama kali. Kalau ada baris yang terasa asing, kembali ke bagian yang disebut di kolom kanan.</p>
+    </aside>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div class="crumbs">
+          <a href="index.html">Beranda</a><span>/</span><span>Ringkasan</span>
+        </div>
+        <p class="kicker">Ringkasan Â· seluruh materi</p>
+        <h1>Semua yang perlu diingat</h1>
+        <p class="lede">Satu halaman berisi definisi, syarat, bentuk grafik, dan aturan operasi dari 15 bagian. Kalau kamu hanya punya sepuluh menit sebelum ujian, baca ini dari atas ke bawah.</p>
+      </div>
+
+      <section class="sec" id="peta">
+        <div class="sec-head">
+          <span class="sec-no">01</span>
+          <div>
+            <h2>Peta konsep</h2>
+            <p class="sec-sub">Tiga lapis: pondasi, bentuk, lalu operasi. Setiap lapis hanya masuk akal kalau lapis sebelumnya sudah jelas.</p>
+          </div>
+        </div>
+
+        <div class="concept-map">
+          <div class="cm-band">
+            <span class="cm-label">1 &middot; pondasi</span>
+            <div class="cm-flow">
+              <span class="cm-node">relasi</span>
+              <span class="cm-link" aria-hidden="true">&rarr;</span>
+              <span class="cm-node cm-key">fungsi<small>satu input, satu output</small></span>
+              <span class="cm-link" aria-hidden="true">&rarr;</span>
+              <span class="cm-node">notasi $f(x)$</span>
+              <span class="cm-link" aria-hidden="true">&rarr;</span>
+              <span class="cm-node">domain &middot; kodomain &middot; range</span>
+            </div>
+          </div>
+          <div class="cm-band">
+            <span class="cm-label">2 &middot; bentuk</span>
+            <div class="cm-flow">
+              <span class="cm-node">linear</span>
+              <span class="cm-node">kuadrat</span>
+              <span class="cm-node">rasional</span>
+              <span class="cm-node">akar</span>
+              <span class="cm-node">mutlak</span>
+              <span class="cm-node">sepotong</span>
+            </div>
+          </div>
+          <div class="cm-band">
+            <span class="cm-label">3 &middot; operasi</span>
+            <div class="cm-flow">
+              <span class="cm-node">jenis pemetaan<small>injektif &middot; surjektif &middot; bijektif</small></span>
+              <span class="cm-node cm-red">invers<small>butuh bijektif</small></span>
+              <span class="cm-node cm-green">komposisi<small>urutan berpengaruh</small></span>
+              <span class="cm-node">sifat<small>genap &middot; ganjil &middot; monoton</small></span>
+            </div>
+          </div>
+          <p class="cm-note">tiap lapis memakai hasil lapis di atasnya &mdash; bukan tiga topik terpisah</p>
+        </div>
+
+        <p>Lapis 1 menjawab &ldquo;apa itu fungsi&rdquo;. Lapis 2 memberi contoh konkret berupa rumus dan grafik. Lapis 3 mengubah fungsi menjadi bahan operasi: dibalik, disambung, atau diperiksa sifatnya.</p>
+
+        <div class="note">
+          <span class="note-label">kalau waktu tinggal sedikit</span>
+          <p>Hafalkan lapis 1 dan lapis 3. Lapis 2 bisa dilihat lagi di grafik kapan saja, tetapi salah memahami domain akan membuat semua soal invers dan komposisi ikut salah.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="istilah">
+        <div class="sec-head">
+          <span class="sec-no">02</span>
+          <div>
+            <h2>Notasi dan istilah</h2>
+            <p class="sec-sub">Enam kata yang muncul di hampir setiap soal. Artinya harus tepat, bukan sekadar familiar.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Istilah</th><th>Arti</th><th>Contoh pada $f(x)=x^2$</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>fungsi</td><td>aturan yang memberi tepat satu output untuk tiap input</td><td>setiap $x$ punya satu nilai $x^2$</td></tr>
+              <tr><td>domain $D_f$</td><td>himpunan semua input yang boleh masuk</td><td>$\mathbb{R}$</td></tr>
+              <tr><td>kodomain</td><td>himpunan tujuan yang ditetapkan, boleh lebih besar dari hasil</td><td>$\mathbb{R}$</td></tr>
+              <tr><td>range $R_f$</td><td>himpunan output yang benar-benar muncul</td><td>$[0,\infty)$</td></tr>
+              <tr><td>$f(x)$</td><td>nilai fungsi di $x$, bukan $f$ dikali $x$</td><td>$f(3)=9$</td></tr>
+              <tr><td>$f^{-1}(x)$</td><td>fungsi invers, bukan kebalikan $\frac{1}{f(x)}$</td><td>$f^{-1}(x)=\sqrt{x}$ untuk $x\ge0$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="formula">
+          <div class="formula-head"><span>notasi</span><span>penulisan fungsi</span></div>
+          <div class="formula-body">$f:A\to B,\qquad x\mapsto f(x)$</div>
+          <div class="formula-foot">Dibaca: $f$ memetakan himpunan $A$ ke himpunan $B$, dan anggota $x$ dipetakan ke $f(x)$. Tanda $\mapsto$ menunjukkan pasangan satu anggota.</div>
+        </div>
+      </section>
+
+      <section class="sec" id="bentuk">
+        <div class="sec-head">
+          <span class="sec-no">03</span>
+          <div>
+            <h2>Enam bentuk fungsi</h2>
+            <p class="sec-sub">Kenali rumusnya, langsung tahu bentuk grafik dan di mana domainnya bisa bermasalah.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Bentuk</th><th>Rumus umum</th><th>Domain khas</th><th>Ciri grafik</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>linear</td><td>$f(x)=mx+c$</td><td>$\mathbb{R}$</td><td>garis lurus, gradien $m$</td></tr>
+              <tr><td>kuadrat</td><td>$f(x)=ax^2+bx+c$</td><td>$\mathbb{R}$</td><td>parabola, puncak di $x=-\frac{b}{2a}$</td></tr>
+              <tr><td>rasional</td><td>$f(x)=\frac{p(x)}{q(x)}$</td><td>semua $x$ dengan $q(x)\neq0$</td><td>punya asimtot tegak di $q(x)=0$</td></tr>
+              <tr><td>akar</td><td>$f(x)=\sqrt{u(x)}$</td><td>$u(x)\ge0$</td><td>setengah parabola, mulai dari titik nol</td></tr>
+              <tr><td>mutlak</td><td>$f(x)=|x|$</td><td>$\mathbb{R}$</td><td>huruf V, patah di titik asal</td></tr>
+              <tr><td>sepotong</td><td>$f(x)=\begin{cases}\ldots & x&lt;a\\ \ldots & x\ge a\end{cases}$</td><td>gabungan syarat tiap cabang</td><td>beberapa potongan, bisa melompat</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel panel-tight">
+            <span class="chip chip-blue">puncak</span>
+            <p style="margin:10px 0 6px;font-family:var(--mono);font-size:.88rem">$x_p=-\dfrac{b}{2a}$</p>
+            <p style="margin:0;font-size:.9rem;color:var(--muted)">Untuk $a&gt;0$ puncak adalah nilai minimum, range $[y_p,\infty)$. Untuk $a&lt;0$ puncak nilai maksimum, range $(-\infty,y_p]$.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">asimtot</span>
+            <p style="margin:10px 0 6px;font-family:var(--mono);font-size:.88rem">$x=a$ &nbsp;Â·&nbsp; $y=\dfrac{p}{q}$</p>
+            <p style="margin:0;font-size:.9rem;color:var(--muted)">Tegak saat penyebut nol dan pembilang tidak. Datar saat derajat pembilang sama dengan penyebut â€” ambil rasio koefisien depan.</p>
+          </div>
+        </div>
+
+        <div class="note">
+          <span class="note-label">ingat</span>
+          <p>Domain selalu ditentukan lebih dulu, sebelum menyederhanakan rumus. Menyederhanakan bisa menghapus titik yang sebenarnya terlarang â€” misalnya $\frac{x^2-1}{x-1}$ boleh disederhanakan menjadi $x+1$, tetapi $x=1$ tetap tidak boleh masuk domain aslinya.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="aturan">
+        <div class="sec-head">
+          <span class="sec-no">04</span>
+          <div>
+            <h2>Aturan operasi</h2>
+            <p class="sec-sub">Empat rumus yang paling sering dipakai, masing-masing dengan syaratnya.</p>
+          </div>
+        </div>
+
+        <div class="formula">
+          <div class="formula-head"><span>komposisi</span><span>menyambung dua fungsi</span></div>
+          <div class="formula-body">$(f\circ g)(x)=f\big(g(x)\big)$</div>
+          <div class="formula-foot">Kerjakan $g$ lebih dulu. Domainnya butuh dua syarat: $x\in D_g$ dan $g(x)\in D_f$.</div>
+        </div>
+
+        <div class="formula">
+          <div class="formula-head"><span>invers</span><span>membatalkan fungsi</span></div>
+          <div class="formula-body">$f^{-1}\big(f(x)\big)=x$ &nbsp;Â·&nbsp; $f\big(f^{-1}(y)\big)=y$</div>
+          <div class="formula-foot">Hanya ada kalau $f$ bijektif. Prosedurnya: tulis $y=f(x)$, tukar $x$ dan $y$, selesaikan $y$.</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Sifat</th><th>Syarat</th><th>Konsekuensi pada domain dan range</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>invers</td><td>$f$ bijektif</td><td>$D_{f^{-1}}=R_f$ dan $R_{f^{-1}}=D_f$</td></tr>
+              <tr><td>komposisi $f\circ g$</td><td>$x\in D_g$ dan $g(x)\in D_f$</td><td>domain bisa menyempit atau berubah</td></tr>
+              <tr><td>komposisi $g\circ f$</td><td>$x\in D_f$ dan $f(x)\in D_g$</td><td>umumnya berbeda dari $f\circ g$</td></tr>
+              <tr><td>genap</td><td>$f(-x)=f(x)$, domain simetris</td><td>grafik simetris terhadap sumbu $y$</td></tr>
+              <tr><td>ganjil</td><td>$f(-x)=-f(x)$, domain simetris</td><td>grafik simetris terhadap titik asal</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sec" id="uji">
+        <div class="sec-head">
+          <span class="sec-no">05</span>
+          <div>
+            <h2>Uji cepat</h2>
+            <p class="sec-sub">Kalau lupa rumusnya, ingat pertanyaannya dulu â€” cara memeriksa biasanya mengikuti.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Yang ditanya</th><th>Cara memeriksa</th><th>Yang membatalkan</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>apakah relasi itu fungsi?</td><td>garis vertikal: potong grafik sekali saja</td><td>satu $x$ dengan dua $y$</td></tr>
+              <tr><td>injektif?</td><td>garis horizontal: potong grafik sekali saja</td><td>$f(a)=f(b)$ dengan $a\neq b$</td></tr>
+              <tr><td>surjektif?</td><td>selesaikan $y=f(x)$ untuk $x$</td><td>ada $y$ di kodomain tanpa asal</td></tr>
+              <tr><td>genap atau ganjil?</td><td>hitung $f(-x)$, bandingkan dengan $f(x)$</td><td>domain tidak simetris</td></tr>
+              <tr><td>monoton?</td><td>ambil $x_1&lt;x_2$, bandingkan $f(x_1)$ dan $f(x_2)$</td><td>arah berubah di tengah interval</td></tr>
+              <tr><td>domain?</td><td>cari larangan: penyebut nol, isi akar negatif, log $\le0$</td><td>menyederhanakan sebelum memeriksa</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <span class="note-label">urutan yang aman</span>
+          <p>Domain dulu, lalu bentuk, lalu operasi. Tiga langkah itu menyelesaikan hampir semua soal fungsi, termasuk soal yang terlihat rumit.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="jebakan">
+        <div class="sec-head">
+          <span class="sec-no">06</span>
+          <div>
+            <h2>Delapan jebakan umum</h2>
+            <p class="sec-sub">Semuanya sudah muncul sebagai peringatan di bagian materi. Di sini dikumpulkan supaya bisa dicek sekilas.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel panel-tight">
+            <span class="chip chip-red">01</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">$f(x)$ dianggap perkalian.</strong> $f(3)$ berarti masukkan $3$ ke fungsi, bukan $f$ dikali $3$.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">02</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">Domain diabaikan.</strong> Rumus boleh sederhana, tetapi titik terlarang tetap terlarang.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">03</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">Range dianggap sama dengan kodomain.</strong> Kodomain adalah tujuan, range adalah yang benar-benar tercapai.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">04</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">Menguadratkan tanpa syarat.</strong> Persamaan radikal wajib diperiksa ulang; solusi palsu sering muncul.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">05</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">$f^{-1}(x)$ dianggap $\frac{1}{f(x)}$.</strong> Invers membalik arah, kebalikan membalik nilai.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">06</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">Komposisi dikira perkalian.</strong> $(f\circ g)(x)=f(g(x))$, bukan $f(x)\cdot g(x)$.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">07</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">Urutan komposisi ditukar.</strong> Umumnya $f\circ g\neq g\circ f$, dan domainnya pun bisa berbeda.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-red">08</span>
+            <p style="margin:9px 0 0;font-size:.92rem;color:var(--muted)"><strong style="color:var(--ink)">â€œBukan genapâ€ dianggap â€œganjilâ€.</strong> Ada kategori ketiga: tidak keduanya, misalnya $x^2+x$.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="urutan">
+        <div class="sec-head">
+          <span class="sec-no">07</span>
+          <div>
+            <h2>Urutan materi</h2>
+            <p class="sec-sub">Lima belas bagian, tiga bab. Klik kalau ada yang perlu dibaca ulang.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="panel panel-tight">
+            <span class="chip chip-blue">Bab 01 Â· Dasar</span>
+            <ol style="margin:10px 0 0;padding-left:1.2em;font-size:.9rem;line-height:1.75">
+              <li><a href="dasar.html#definisi">Definisi &amp; notasi</a></li>
+              <li><a href="dasar.html#domain">Domain, kodomain, range</a></li>
+              <li><a href="dasar.html#bukan-fungsi">Kapan relasi bukan fungsi</a></li>
+              <li><a href="dasar.html#substitusi">Notasi &amp; substitusi</a></li>
+              <li><a href="dasar.html#grafik">Grafik &amp; uji garis vertikal</a></li>
+            </ol>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-blue">Bab 02 Â· Bentuk</span>
+            <ol style="margin:10px 0 0;padding-left:1.2em;font-size:.9rem;line-height:1.75">
+              <li><a href="bentuk.html#linear">Fungsi linear</a></li>
+              <li><a href="bentuk.html#kuadrat">Fungsi kuadrat</a></li>
+              <li><a href="bentuk.html#rasional">Fungsi rasional</a></li>
+              <li><a href="bentuk.html#akar">Fungsi akar</a></li>
+              <li><a href="bentuk.html#mutlak">Nilai mutlak</a></li>
+              <li><a href="bentuk.html#sepotong">Fungsi sepotong</a></li>
+            </ol>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-blue">Bab 03 Â· Lanjut</span>
+            <ol style="margin:10px 0 0;padding-left:1.2em;font-size:.9rem;line-height:1.75">
+              <li><a href="lanjut.html#jenis">Injektif, surjektif, bijektif</a></li>
+              <li><a href="lanjut.html#invers">Fungsi invers</a></li>
+              <li><a href="lanjut.html#komposisi">Komposisi fungsi</a></li>
+              <li><a href="lanjut.html#sifat">Genap, ganjil, monoton</a></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="recap">
+          <h3>Tiga hal yang paling menentukan nilai</h3>
+          <ul>
+            <li><strong>Domain lebih dulu.</strong> Satu titik terlarang yang terlewat membatalkan seluruh jawaban.</li>
+            <li><strong>Periksa hasil.</strong> Masukkan kembali jawaban ke persamaan asal â€” terutama untuk soal radikal, mutlak, dan invers.</li>
+            <li><strong>Tulis langkah, bukan hanya hasil.</strong> Langkah yang runtut membuat kesalahan mudah ditemukan sendiri.</li>
+          </ul>
+        </div>
+
+        <div class="done-row">
+          <a class="btn btn-primary" href="latihan.html">Kerjakan 12 soal</a>
+          <a class="btn btn-ghost" href="index.html#peta">Kembali ke peta belajar</a>
+        </div>
+      </section>
+
+      <nav class="nextprev" aria-label="Navigasi halaman">
+        <a class="np" href="latihan.html">
+          <span>sebelumnya</span>
+          <b>Latihan Â· 12 soal bertingkat</b>
+        </a>
+        <a class="np next" href="dasar.html#definisi">
+          <span>ulang dari awal</span>
+          <b>Bagian 01 Â· Definisi &amp; notasi</b>
+        </a>
+      </nav>
+
+    </div>
+  </div>
+</main>
+
+<footer class="shell">
+  <div class="foot">
+    <span>materi-fungsi Â· ringkasan</span>
+    <span><a href="https://github.com/voltakyy/materi-fungsi">sumber di GitHub</a></span>
+  </div>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

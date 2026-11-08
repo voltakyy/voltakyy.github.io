@@ -1,0 +1,416 @@
+/* =========================================================
+   Cheat Sheet A5 — UTS Kalkulus
+   Satu muka. Ukuran cetak: A5 portrait 148 × 210 mm.
+   ========================================================= */
+
+.cheat-page{
+  background-attachment:scroll;
+}
+.cheat-shell{
+  width:min(1040px,100%);
+  margin:0 auto;
+  padding:22px clamp(15px,3vw,30px) 42px;
+}
+.cheat-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding-bottom:14px;
+  border-bottom:2px solid var(--ink);
+}
+.cheat-toolbar-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.cheat-toolbar-note{
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.cheat-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
+  gap:clamp(22px,4vw,46px);
+  align-items:end;
+  padding:34px 0 26px;
+}
+.cheat-intro h1{
+  margin:0 0 10px;
+  font-family:var(--display);
+  font-size:clamp(2.1rem,4.4vw,3.35rem);
+  font-weight:600;
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.cheat-intro p:not(.section-kicker){
+  max-width:60ch;
+  margin:0;
+  font-size:.88rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+.cheat-print-steps{
+  display:grid;
+  gap:6px;
+  padding:12px 14px;
+  border:1.5px solid var(--ink);
+  border-radius:6px;
+  background:var(--card);
+  box-shadow:4px 4px 0 var(--cobalt);
+}
+.cheat-print-steps span{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  font-size:.76rem;
+  line-height:1.4;
+}
+.cheat-print-steps b{
+  flex:0 0 auto;
+  font-family:var(--mono);
+  font-size:7.5px;
+  color:var(--coral);
+}
+
+/* ---------- kertas A5 ---------- */
+.a5-sheet{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  width:148mm;
+  height:210mm;
+  margin:0 auto;
+  padding:5mm 5.5mm 4mm;
+  overflow:hidden;
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:6.35pt;
+  line-height:1.2;
+  background:#fffdf6;
+  border:1.5px solid var(--ink);
+  box-shadow:12px 12px 0 rgba(28,42,46,.18);
+}
+.a5-sheet::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(36,84,155,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(36,84,155,.045) 1px,transparent 1px);
+  background-size:5mm 5mm;
+}
+.a5-sheet > *{position:relative;z-index:1}
+
+.cs-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:5mm;
+  padding-bottom:1.5mm;
+  border-bottom:1.4pt solid var(--ink);
+}
+.cs-kicker{
+  margin:0 0 .7mm;
+  font-family:var(--mono);
+  font-size:5.2pt;
+  letter-spacing:.12em;
+  color:var(--coral);
+}
+.cs-title{
+  margin:0;
+  font-family:var(--display);
+  font-size:14.5pt;
+  font-weight:600;
+  line-height:.95;
+  letter-spacing:-.04em;
+}
+.cs-sub{
+  margin:.8mm 0 0;
+  font-family:var(--mono);
+  font-size:5.3pt;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.cs-meta{
+  flex:0 0 auto;
+  text-align:right;
+  font-family:var(--mono);
+  font-size:5.2pt;
+  line-height:1.45;
+  color:var(--muted);
+}
+.cs-meta b{color:var(--coral);font-weight:600}
+.cs-meta span{font-size:4.9pt;color:var(--faint)}
+
+.cs-map{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1mm;
+  margin:1.3mm 0 1.6mm;
+}
+.cs-map div{
+  display:flex;
+  align-items:center;
+  gap:1.2mm;
+  padding:.6mm 1mm;
+  border:.6pt solid rgba(28,42,46,.55);
+  font-family:var(--mono);
+  font-size:5.1pt;
+  letter-spacing:.015em;
+  white-space:nowrap;
+  background:rgba(227,235,248,.5);
+}
+.cs-map b{color:var(--cobalt);font-weight:600}
+.cs-map span{margin-left:auto;color:var(--coral);font-weight:600}
+
+.cs-cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4mm;
+  flex:1;
+  min-height:0;
+}
+.cs-col{
+  display:flex;
+  flex-direction:column;
+  gap:1.4mm;
+  min-width:0;
+}
+
+.cs-block{
+  padding-top:1mm;
+  border-top:1.1pt solid var(--ink);
+}
+.cs-block h2{
+  display:flex;
+  align-items:center;
+  gap:1.4mm;
+  margin:0 0 .8mm;
+  font-family:var(--mono);
+  font-size:5.95pt;
+  font-weight:600;
+  letter-spacing:.045em;
+  line-height:1.15;
+  text-transform:uppercase;
+}
+.cs-block h2 span{
+  display:inline-grid;
+  place-items:center;
+  width:3.4mm;
+  height:3.4mm;
+  flex:0 0 auto;
+  border-radius:50%;
+  background:var(--ink);
+  color:var(--card);
+  font-size:4.7pt;
+  letter-spacing:0;
+}
+.cs-block p{margin:0 0 .55mm}
+.cs-block b{font-weight:600}
+.cs-block--cobalt{border-top-color:var(--cobalt)}
+.cs-block--cobalt h2 span{background:var(--cobalt)}
+.cs-block--coral{border-top-color:var(--coral)}
+.cs-block--coral h2 span{background:var(--coral)}
+.cs-block--olive{border-top-color:var(--olive)}
+.cs-block--olive h2 span{background:var(--olive)}
+.cs-block--gold{border-top-color:#b78324}
+.cs-block--gold h2 span{background:#b78324}
+.cs-block--plum{border-top-color:var(--plum)}
+.cs-block--plum h2 span{background:var(--plum)}
+
+.cs-formula{
+  padding:.65mm 1.2mm;
+  border-left:1.4pt solid var(--cobalt);
+  background:rgba(227,235,248,.56);
+  font-family:var(--mono);
+  font-size:5.95pt;
+  line-height:1.38;
+}
+.cs-formula--warm{
+  border-left-color:var(--coral);
+  background:rgba(251,232,225,.68);
+}
+.cs-mono{font-family:var(--mono);font-size:6.05pt}
+.a5-sheet sub,.a5-sheet sup{font-size:70%;line-height:0}
+
+.cs-table{
+  width:100%;
+  margin:.6mm 0 .9mm;
+  border-collapse:collapse;
+  font-family:var(--mono);
+  font-size:5.5pt;
+  line-height:1.1;
+}
+.cs-table th,.cs-table td{
+  padding:.35mm .3mm;
+  border:.45pt solid rgba(28,42,46,.38);
+  text-align:center;
+}
+.cs-table thead th{background:rgba(227,235,248,.8);font-weight:600}
+.cs-table tbody th{background:rgba(251,232,225,.55);font-weight:600}
+
+.cs-check{
+  margin:.2mm 0 .8mm;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:.35mm;
+}
+.cs-check li{
+  position:relative;
+  padding-left:3.2mm;
+  line-height:1.22;
+}
+.cs-check li::before{
+  content:'□';
+  position:absolute;
+  left:0;
+  top:-.2mm;
+  font-family:var(--mono);
+  font-size:6.7pt;
+  color:var(--coral);
+}
+.cs-check--two{
+  grid-template-columns:1fr 1fr;
+  column-gap:3mm;
+}
+.cs-alur{
+  margin:.6mm 0 0!important;
+  padding-top:.7mm;
+  border-top:.5pt dashed rgba(28,42,46,.4);
+  font-size:6.2pt;
+}
+.cs-alur b{color:var(--coral)}
+
+.cs-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:4mm;
+  margin-top:1.2mm;
+  padding-top:1mm;
+  border-top:.8pt solid var(--ink);
+  font-family:var(--mono);
+  font-size:4.9pt;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+
+/* ---------- legenda layar ---------- */
+.cheat-legend{
+  display:grid;
+  grid-template-columns:minmax(180px,.55fr) minmax(0,1.45fr);
+  gap:28px;
+  margin:34px auto 0;
+  padding:18px 20px;
+  border:1.5px solid var(--ink);
+  border-radius:7px;
+  background:rgba(255,253,246,.7);
+}
+.cheat-legend h2{
+  margin:0;
+  font-family:var(--display);
+  font-size:1.35rem;
+  font-weight:600;
+  letter-spacing:-.03em;
+}
+.cheat-legend-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.cheat-legend-grid div{
+  padding-left:10px;
+  border-left:2px solid var(--coral);
+}
+.cheat-legend-grid div:nth-child(2){border-left-color:var(--cobalt)}
+.cheat-legend-grid div:nth-child(3){border-left-color:var(--olive)}
+.cheat-legend-grid b{
+  display:block;
+  margin-bottom:3px;
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.cheat-legend-grid span{
+  display:block;
+  font-size:.74rem;
+  line-height:1.55;
+  color:var(--muted);
+}
+.cheat-page-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:24px;
+  padding-top:14px;
+  border-top:1px dashed rgba(28,42,46,.35);
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.cheat-page-foot a{text-decoration:none;color:var(--muted)}
+.cheat-page-foot a:hover{color:var(--coral)}
+
+/* ---------- responsif layar ---------- */
+@media (max-width:760px){
+  .cheat-toolbar-note{display:none}
+  .cheat-intro{grid-template-columns:1fr;align-items:start;padding-top:26px}
+  .cheat-print-steps{max-width:none}
+  .cheat-legend{grid-template-columns:1fr;gap:16px}
+  .cheat-legend-grid{grid-template-columns:1fr}
+}
+@media screen and (max-width:620px){
+  .cheat-shell{padding-left:10px;padding-right:10px}
+  .a5-sheet{zoom:.63;margin:0 auto}
+}
+@media screen and (max-width:430px){
+  .a5-sheet{zoom:.58}
+  .cheat-toolbar-actions{gap:6px}
+}
+
+/* ---------- cetak: hanya kertas A5 ---------- */
+@page{
+  size:A5 portrait;
+  margin:0;
+}
+@media print{
+  html,body{
+    width:148mm;
+    height:210mm;
+    margin:0!important;
+    padding:0!important;
+    background:#fff!important;
+    overflow:hidden;
+  }
+  .no-print{display:none!important}
+  .cheat-shell{
+    width:148mm;
+    margin:0;
+    padding:0;
+  }
+  .a5-sheet{
+    width:148mm;
+    height:210mm;
+    margin:0;
+    padding:5mm 5.5mm 4mm;
+    border:0;
+    box-shadow:none;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .cs-block{break-inside:avoid;page-break-inside:avoid}
+  .cs-formula,.cs-table,.cs-check li{break-inside:avoid;page-break-inside:avoid}
+  .a5-sheet::before{display:none}
+  .cs-block,.cs-formula,.cs-table,.cs-check li{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}

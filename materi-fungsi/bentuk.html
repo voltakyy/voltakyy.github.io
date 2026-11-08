@@ -1,0 +1,1379 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bentuk-bentuk fungsi â€” materi-fungsi</title>
+<meta name="description" content="Fungsi linear, kuadrat, rasional, akar, nilai mutlak, dan fungsi sepotong: ciri rumus, bentuk grafik, domain, dan range.">
+<meta name="theme-color" content="#f7f6f0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="assets/tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+<a class="skip" href="#utama">Lompat ke isi</a>
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html" aria-label="materi-fungsi, beranda">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="5" fill="#fffefa"/>
+        <g stroke="#1f4e79" stroke-opacity=".2" stroke-width=".8">
+          <path d="M0 8h32M0 16h32M0 24h32M8 0v32M16 0v32M24 0v32"/>
+        </g>
+        <path d="M4 27c5 0 6-18 11-18s5 12 9 12" fill="none" stroke="#1f4e79" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="15" cy="9" r="2.6" fill="#b03a26" stroke="#fffefa" stroke-width="1.2"/>
+      </svg>
+      <span class="brand-word">fungsi<i>.</i></span>
+    </a>
+
+    <nav class="topnav" aria-label="Navigasi utama">
+      <a href="dasar.html">Dasar</a>
+      <a href="bentuk.html" aria-current="page">Bentuk</a>
+      <a href="lanjut.html">Lanjut</a>
+      <a href="latihan.html">Latihan</a>
+      <a href="ringkasan.html">Ringkasan</a>
+    </nav>
+
+    <span class="readchip" data-readchip title="Progres bagian yang sudah ditandai">
+      <span class="bar"><span></span></span>
+      <b>0/15</b> selesai
+    </span>
+  </div>
+</header>
+
+<main id="utama" class="shell">
+  <div class="page">
+
+    <aside class="rail" aria-label="Isi bab 02">
+      <p class="rail-title">Bab 02 Â· Bentuk</p>
+      <ol>
+        <li><a href="#linear" data-for="06"><span class="n">06</span><span>Fungsi linear</span></a></li>
+        <li><a href="#kuadrat" data-for="07"><span class="n">07</span><span>Fungsi kuadrat</span></a></li>
+        <li><a href="#rasional" data-for="08"><span class="n">08</span><span>Fungsi rasional</span></a></li>
+        <li><a href="#akar" data-for="09"><span class="n">09</span><span>Fungsi akar</span></a></li>
+        <li><a href="#mutlak" data-for="10"><span class="n">10</span><span>Nilai mutlak</span></a></li>
+        <li><a href="#sepotong" data-for="11"><span class="n">11</span><span>Fungsi sepotong</span></a></li>
+      </ol>
+      <p class="rail-note">Enam bentuk yang paling sering muncul. Setiap bentuk punya ciri grafik dan jebakannya sendiri.</p>
+    </aside>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div class="crumbs">
+          <a href="index.html">Beranda</a><span>/</span><span>Bab 02 Â· Bentuk</span>
+        </div>
+        <p class="kicker">Bab 02 Â· bagian 06 dari 15</p>
+        <h1>Enam wajah fungsi</h1>
+        <p class="lede">Setelah tahu apa itu fungsi, pertanyaan berikutnya: seperti apa bentuknya? Enam bagian di bab ini membedah bentuk yang paling sering keluar di soal â€” dan yang paling sering tertukar.</p>
+      </div>
+
+      <section class="sec" id="linear" data-lesson="06">
+
+        <div class="sec-head">
+          <span class="sec-no">06</span>
+          <div>
+            <h2>Fungsi linear</h2>
+            <p class="sec-sub">Garis lurus: satu kemiringan, satu titik potong.</p>
+          </div>
+        </div>
+
+        <div class="inti">
+          <span class="kicker">satu kalimat inti</span>
+          <p>Linear berarti <em>perubahan yang tetap</em>. Setiap kali $x$ naik satu, $y$ berubah dengan jumlah yang sama.</p>
+        </div>
+
+        <p>Fungsi linear adalah fungsi yang grafiknya garis lurus. Bentuk umumnya:</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>bentuk umum</span><span>fungsi linear</span></div>
+          <div class="formula-body">$f(x)=mx+c$</div>
+          <div class="formula-foot">$m$ adalah <strong>kemiringan</strong> (slope): seberapa cepat $y$ berubah. $c$ adalah <strong>titik potong sumbu $y$</strong>: nilai $f(0)$.</div>
+        </div>
+
+        <p>Kedua angka itu punya arti yang sangat konkret. Kalau $f(x)=3x+2$, maka:</p>
+
+        <div class="deflist">
+          <dt>$m=3$</dt>
+          <dd>Setiap $x$ bertambah $1$, $y$ bertambah $3$. Kalau $x$ bertambah $2$, $y$ bertambah $6$.</dd>
+
+          <dt>$c=2$</dt>
+          <dd>Saat $x=0$, $y=2$. Grafik memotong sumbu $y$ di titik $(0,2)$.</dd>
+        </div>
+
+        <p>Karena itu, linear dipakai untuk apa saja yang berubah dengan laju tetap: tarif parkir per jam, konversi suhu, biaya listrik per kWh, atau jarak yang ditempuh dengan kecepatan konstan.</p>
+
+        <figure class="fig">
+          <div class="fig-frame">
+            <svg viewBox="0 0 520 400" role="img" aria-labelledby="linTitle linDesc">
+              <title id="linTitle">Tiga garis linear dengan kemiringan berbeda</title>
+              <desc id="linDesc">Garis biru naik dengan kemiringan 2, garis merah turun dengan kemiringan negatif 1, dan garis hijau mendatar dengan kemiringan 0.</desc>
+              <defs>
+                <pattern id="g6" width="26" height="26" patternUnits="userSpaceOnUse">
+                  <path d="M26 0H0v26" fill="none" stroke="#1f4e79" stroke-opacity=".06"/>
+                </pattern>
+              </defs>
+              <rect width="520" height="400" fill="#f7f6f0"/>
+              <rect width="520" height="400" fill="url(#g6)"/>
+
+              <line x1="34" y1="200" x2="490" y2="200" stroke="#16212c" stroke-width="1.1"/>
+              <line x1="260" y1="24" x2="260" y2="376" stroke="#16212c" stroke-width="1.1"/>
+              <path d="M490 200l-8-4v8ZM260 24l-4 8h8Z" fill="#16212c"/>
+              <text x="482" y="216" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">x</text>
+              <text x="270" y="34" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">y</text>
+
+              <line x1="200" y1="320" x2="340" y2="40" stroke="#1f4e79" stroke-width="2"/>
+              <line x1="200" y1="70" x2="380" y2="250" stroke="#b03a26" stroke-width="2"/>
+              <line x1="80" y1="140" x2="440" y2="140" stroke="#2f6b4f" stroke-width="2"/>
+
+              <circle cx="260" cy="140" r="4" fill="#2f6b4f"/>
+
+              <g font-family="'IBM Plex Mono',monospace" font-size="9">
+                <text x="346" y="46" fill="#1f4e79">m = 2</text>
+                <text x="386" y="246" fill="#b03a26">m = âˆ’1</text>
+                <text x="404" y="132" fill="#2f6b4f">m = 0</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption><b>Kemiringan menentukan arah.</b> $m&gt;0$ naik, $m&lt;0$ turun, $m=0$ mendatar. Yang berubah hanya kecuramannya; bentuknya tetap garis lurus.</figcaption>
+        </figure>
+
+        <h3>Menghitung kemiringan</h3>
+
+        <p>Kalau kamu punya dua titik pada garis, kemiringan adalah <strong>perubahan $y$ dibagi perubahan $x$</strong>:</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>rumus</span><span>kemiringan dari dua titik</span></div>
+          <div class="formula-body">$m=\dfrac{y_2-y_1}{x_2-x_1}$</div>
+          <div class="formula-foot">Urutan titiknya bebas, asal konsisten: kalau pembilang memakai $y_2-y_1$, penyebut harus $x_2-x_1$.</div>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 1</span>
+            <strong>Menyusun persamaan dari dua titik</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Tentukan rumus fungsi linear yang melalui $(1,3)$ dan $(4,9)$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">hitung kemiringan</span>
+                <p>$m=\dfrac{9-3}{4-1}=\dfrac{6}{3}=2$</p>
+              </li>
+              <li>
+                <span class="step-label">pakai satu titik untuk mencari $c$</span>
+                <p>Substitusi $(1,3)$ ke $y=2x+c$:</p>
+                <p>$3=2(1)+c$</p>
+                <p>$c=1$</p>
+              </li>
+              <li>
+                <span class="step-label">periksa dengan titik kedua</span>
+                <p>$f(4)=2(4)+1=9$ âœ“</p>
+              </li>
+            </ol>
+            <span class="answer">$f(x)=2x+1$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 2</span>
+            <strong>Membaca arti kemiringan</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Tarif parkir mengikuti $f(t)=3000t+2000$, dengan $t$ dalam jam dan $f(t)$ dalam rupiah. Jelaskan arti setiap angka.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">baca $c=2000$</span>
+                <p>Biaya masuk di jam ke-$0$ adalah Rp2.000. Ini biaya tetap, tidak bergantung lama parkir.</p>
+              </li>
+              <li>
+                <span class="step-label">baca $m=3000$</span>
+                <p>Setiap tambahan satu jam dikenakan Rp3.000.</p>
+              </li>
+              <li>
+                <span class="step-label">uji dengan angka</span>
+                <p>$f(0)=2000$, $f(1)=5000$, $f(3)=11000$.</p>
+              </li>
+            </ol>
+            <span class="answer">Biaya tetap Rp2.000 ditambah Rp3.000 per jam.</span>
+          </div>
+        </div>
+
+        <h3>Tiga kasus khusus</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Bentuk</th><th>Grafik</th><th>Catatan</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$f(x)=mx$ dengan $c=0$</td><td>garis lewat titik asal</td><td>proporsional: naik dua kali lipat input, naik dua kali lipat output</td></tr>
+              <tr><td>$f(x)=c$ dengan $m=0$</td><td>garis horizontal</td><td>disebut fungsi konstan; range-nya hanya satu nilai</td></tr>
+              <tr><td>$x=k$</td><td>garis vertikal</td><td><strong>bukan fungsi</strong>, karena satu $x$ punya banyak $y$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="trap">
+          <span class="trap-label">sering keliru</span>
+          <p><strong>Menukar $\Delta x$ dan $\Delta y$.</strong> Kemiringan adalah â€œnaik dibagi kananâ€, bukan â€œkanan dibagi naikâ€. Kalau hasilnya terasa aneh â€” misalnya jalan mendatar jadi sangat curam â€” periksa urutannya.</p>
+          <p><strong>Mengira $m$ negatif berarti grafiknya â€œsalahâ€.</strong> Tidak. $m$ negatif hanya berarti garis turun dari kiri ke kanan.</p>
+        </div>
+
+        <details class="check">
+          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <div class="check-body">
+            <p><strong>1.</strong> Tentukan kemiringan garis melalui $(2,1)$ dan $(6,9)$.</p>
+            <p style="color:var(--green)">$m=\dfrac{9-1}{6-2}=\dfrac{8}{4}=2$.</p>
+
+            <p style="margin-top:14px"><strong>2.</strong> $f(x)=-2x+5$. Naik atau turun? Berapa $f(3)$?</p>
+            <p style="color:var(--green)">Turun karena $m=-2&lt;0$. $f(3)=-2(3)+5=-1$.</p>
+
+            <p style="margin-top:14px"><strong>3.</strong> Apakah $x=4$ adalah fungsi?</p>
+            <p style="color:var(--green)">Bukan fungsi $y$ terhadap $x$. Satu nilai $x$ punya tak hingga nilai $y$.</p>
+          </div>
+        </details>
+
+        <div class="recap">
+          <h3>Rangkuman bagian 06</h3>
+          <ul>
+            <li>$f(x)=mx+c$: $m$ kemiringan, $c$ titik potong sumbu $y$.</li>
+            <li>$m=\dfrac{y_2-y_1}{x_2-x_1}$ â€” perubahan $y$ dibagi perubahan $x$.</li>
+            <li>Domain dan range fungsi linear (dengan $m\neq 0$) adalah $\mathbb{R}$.</li>
+            <li>$m=0$ memberi garis horizontal; garis vertikal bukan fungsi.</li>
+            <li>Linear cocok untuk segala hal yang berubah dengan laju tetap.</li>
+          </ul>
+        </div>
+
+        <div class="done-row">
+          <button class="btn btn-ghost mark-done" data-done="06" aria-pressed="false"><span>Tandai sudah paham</span></button>
+          <span class="done-note">progres tersimpan di browser ini</span>
+        </div>
+
+      </section>
+
+      <section class="sec" id="kuadrat" data-lesson="07">
+
+        <div class="sec-head">
+          <span class="sec-no">07</span>
+          <div>
+            <h2>Fungsi kuadrat</h2>
+            <p class="sec-sub">Parabola: satu titik puncak, satu sumbu simetri, dua kemungkinan arah.</p>
+          </div>
+        </div>
+
+        <div class="inti">
+          <span class="kicker">satu kalimat inti</span>
+          <p>Kuadrat itu <em>lengkungan</em>. Semua pertanyaan tentangnya bermuara ke satu titik: puncaknya di mana, dan terbuka ke arah mana.</p>
+        </div>
+
+        <p>Fungsi kuadrat adalah fungsi berderajat dua:</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>bentuk umum</span><span>fungsi kuadrat</span></div>
+          <div class="formula-body">$f(x)=ax^2+bx+c,\qquad a\neq 0$</div>
+          <div class="formula-foot">Kalau $a=0$, suku $x^2$ hilang dan fungsinya berubah jadi linear. Karena itu $a\neq0$ wajib.</div>
+        </div>
+
+        <p>Grafiknya selalu parabola. Hanya ada dua kemungkinan arah: terbuka ke atas kalau $a&gt;0$, terbuka ke bawah kalau $a&lt;0$. Tidak ada parabola yang terbuka ke samping selama kita membicarakan $y$ sebagai fungsi dari $x$.</p>
+
+        <h3>Titik puncak: kunci semua jawaban</h3>
+
+        <p>Puncak parabola adalah titik terendah (kalau terbuka ke atas) atau titik tertinggi (kalau terbuka ke bawah). Koordinat $x$-nya selalu:</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>rumus</span><span>sumbu simetri</span></div>
+          <div class="formula-body">$x_p=-\dfrac{b}{2a}$</div>
+          <div class="formula-foot">Nilai $y$ puncaknya didapat dengan memasukkan $x_p$ ke rumus fungsi. Garis $x=x_p$ adalah sumbu simetri: parabola kiri dan kanan adalah cerminan.</div>
+        </div>
+
+        <p>Rumus itu bukan hafalan ajaib. Ia berasal dari melengkapi kuadrat, dan itu sebabnya hasilnya selalu di tengah-tengah antara dua akar (kalau akarnya ada).</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 1</span>
+            <strong>Membedah satu parabola secara lengkap</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Untuk $f(x)=x^2-6x+5$, tentukan arah terbuka, titik puncak, sumbu simetri, titik potong sumbu $x$, dan range.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">arah terbuka</span>
+                <p>$a=1&gt;0$, jadi parabola terbuka ke atas dan punya nilai minimum.</p>
+              </li>
+              <li>
+                <span class="step-label">cari $x$ puncak</span>
+                <p>$x_p=-\dfrac{-6}{2(1)}=3$</p>
+              </li>
+              <li>
+                <span class="step-label">cari $y$ puncak</span>
+                <p>$f(3)=3^2-6(3)+5=9-18+5=-4$</p>
+                <p>Puncak: $(3,-4)$.</p>
+              </li>
+              <li>
+                <span class="step-label">cari titik potong sumbu $x$</span>
+                <p>$x^2-6x+5=0$</p>
+                <p>$(x-1)(x-5)=0$</p>
+                <p>$x=1$ atau $x=5$.</p>
+              </li>
+              <li>
+                <span class="step-label">tentukan range</span>
+                <p>Nilai terkecil adalah $-4$ (di puncak), dan tidak ada batas atas.</p>
+              </li>
+            </ol>
+            <span class="answer">$D_f=\mathbb{R},\qquad R_f=[-4,\infty)$</span>
+          </div>
+        </div>
+
+        <figure class="fig">
+          <div class="fig-frame">
+            <svg viewBox="0 0 480 460" role="img" aria-labelledby="parTitle parDesc">
+              <title id="parTitle">Parabola f x sama dengan x kuadrat minus 6x plus 5</title>
+              <desc id="parDesc">Parabola terbuka ke atas dengan puncak di tiga koma negatif empat, memotong sumbu x di satu dan lima.</desc>
+              <defs>
+                <pattern id="g7" width="25" height="25" patternUnits="userSpaceOnUse">
+                  <path d="M25 0H0v25" fill="none" stroke="#1f4e79" stroke-opacity=".06"/>
+                </pattern>
+              </defs>
+              <rect width="480" height="460" fill="#f7f6f0"/>
+              <rect width="480" height="460" fill="url(#g7)"/>
+
+              <line x1="20" y1="300" x2="460" y2="300" stroke="#16212c" stroke-width="1.1"/>
+              <line x1="60" y1="50" x2="60" y2="440" stroke="#16212c" stroke-width="1.1"/>
+              <path d="M460 300l-8-4v8ZM60 50l-4 8h8Z" fill="#16212c"/>
+
+              <line x1="210" y1="70" x2="210" y2="450" stroke="#55636f" stroke-width="1" stroke-dasharray="5 5"/>
+
+              <polyline points="60,140 110,300 160,396 210,428 260,396 310,300 360,140"
+                        fill="none" stroke="#1f4e79" stroke-width="2.2"/>
+
+              <circle cx="210" cy="428" r="5" fill="#b03a26"/>
+              <circle cx="110" cy="300" r="4.5" fill="#1f4e79"/>
+              <circle cx="310" cy="300" r="4.5" fill="#1f4e79"/>
+
+              <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">
+                <text x="452" y="316">x</text>
+                <text x="70" y="60">y</text>
+                <text x="104" y="318">1</text>
+                <text x="304" y="318">5</text>
+                <text x="216" y="70">x = 3</text>
+              </g>
+              <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#b03a26">
+                <text x="222" y="440">(3, âˆ’4)</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption><b>Semua informasi dalam satu gambar.</b> Puncak $(3,-4)$ memberi range; dua titik potong $x=1$ dan $x=5$ memberi akar; garis putus-putus $x=3$ adalah sumbu simetri.</figcaption>
+        </figure>
+
+        <h3>Tiga bentuk penulisan</h3>
+
+        <p>Parabola yang sama bisa ditulis dengan tiga cara. Masing-masing menonjolkan informasi yang berbeda â€” pilih yang paling cocok dengan pertanyaannya.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Bentuk</th><th>Rumus</th><th>Langsung memberi</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Standar</strong></td><td>$ax^2+bx+c$</td><td>titik potong sumbu $y$ di $c$</td></tr>
+              <tr><td><strong>Puncak</strong></td><td>$a(x-h)^2+k$</td><td>puncak $(h,k)$ tanpa menghitung</td></tr>
+              <tr><td><strong>Faktor</strong></td><td>$a(x-r_1)(x-r_2)$</td><td>akar $r_1$ dan $r_2$ langsung terlihat</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Mengubah standar ke bentuk puncak disebut <strong>melengkapi kuadrat</strong>. Prosedurnya: keluarkan $a$ dari dua suku pertama, tambahkan dan kurangkan kuadrat setengah koefisien $x$, lalu rapikan.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 2</span>
+            <strong>Melengkapi kuadrat dengan $a\neq 1$</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Ubah $f(x)=2x^2-8x+3$ ke bentuk puncak, lalu tentukan range-nya.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">keluarkan $a=2$ dari dua suku pertama</span>
+                <p>$f(x)=2(x^2-4x)+3$</p>
+              </li>
+              <li>
+                <span class="step-label">lengkapi kuadrat di dalam kurung</span>
+                <p>$x^2-4x=(x-2)^2-4$</p>
+                <p>$f(x)=2\big((x-2)^2-4\big)+3$</p>
+              </li>
+              <li>
+                <span class="step-label">jabarkan kembali</span>
+                <p>$f(x)=2(x-2)^2-8+3$</p>
+                <p>$f(x)=2(x-2)^2-5$</p>
+              </li>
+              <li>
+                <span class="step-label">baca puncak dan arah</span>
+                <p>Puncak $(2,-5)$. Karena $a=2&gt;0$, parabola terbuka ke atas.</p>
+              </li>
+            </ol>
+            <span class="answer">$f(x)=2(x-2)^2-5,\qquad R_f=[-5,\infty)$</span>
+          </div>
+        </div>
+
+        <h3>Akar dan diskriminan</h3>
+
+        <p>Titik potong sumbu $x$ adalah solusi $ax^2+bx+c=0$. Banyaknya solusi nyata ditentukan oleh diskriminan $D=b^2-4ac$.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Diskriminan</th><th>Arti pada grafik</th><th>Jumlah akar nyata</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$D&gt;0$</td><td>parabola memotong sumbu $x$ di dua titik</td><td>dua akar berbeda</td></tr>
+              <tr><td>$D=0$</td><td>parabola menyinggung sumbu $x$ di puncak</td><td>satu akar (kembar)</td></tr>
+              <tr><td>$D&lt;0$</td><td>parabola tidak menyentuh sumbu $x$</td><td>tidak ada akar nyata</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <span class="note-label">hubungan dengan range</span>
+          <p>Kalau $D&lt;0$ dan $a&gt;0$, parabola seluruhnya di atas sumbu $x$. Artinya range-nya tidak memuat $0$, misalnya $[2,\infty)$. Ini cara cepat memeriksa apakah jawaban range-mu masuk akal.</p>
+        </div>
+
+        <div class="trap">
+          <span class="trap-label">sering keliru</span>
+          <p><strong>Menukar $x$ dan $y$ puncak.</strong> $x_p=-\frac{b}{2a}$ memberi posisi <em>horizontal</em>. Untuk mendapat $y$, substitusikan $x_p$ ke rumus. Menulis puncak sebagai $(-4,3)$ padahal seharusnya $(3,-4)$ adalah kesalahan yang sangat sering terjadi.</p>
+          <p><strong>Mengira puncak selalu nilai minimum.</strong> Kalau $a&lt;0$, puncak adalah nilai <em>maksimum</em> dan range-nya $(-\infty,k]$.</p>
+        </div>
+
+        <details class="check">
+          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <div class="check-body">
+            <p><strong>1.</strong> Tentukan puncak $f(x)=x^2+4x+1$.</p>
+            <p style="color:var(--green)">$x_p=-\frac{4}{2}=-2$. $f(-2)=4-8+1=-3$. Puncak $(-2,-3)$.</p>
+
+            <p style="margin-top:14px"><strong>2.</strong> $f(x)=-x^2+2x+3$. Berapa nilai maksimumnya?</p>
+            <p style="color:var(--green)">$x_p=-\frac{2}{2(-1)}=1$. $f(1)=-1+2+3=4$. Maksimum $4$, range $(-\infty,4]$.</p>
+
+            <p style="margin-top:14px"><strong>3.</strong> $f(x)=x^2+2x+5$. Berapa akar nyatanya?</p>
+            <p style="color:var(--green)">$D=4-20=-16&lt;0$, jadi tidak ada akar nyata. Parabola tidak menyentuh sumbu $x$.</p>
+          </div>
+        </details>
+
+        <div class="recap">
+          <h3>Rangkuman bagian 07</h3>
+          <ul>
+            <li>$f(x)=ax^2+bx+c$ dengan $a\neq0$; grafiknya parabola.</li>
+            <li>$a&gt;0$ terbuka ke atas (punya minimum), $a&lt;0$ terbuka ke bawah (punya maksimum).</li>
+            <li>Puncak di $x=-\frac{b}{2a}$; substitusikan untuk mendapat $y$-nya.</li>
+            <li>Bentuk puncak $a(x-h)^2+k$ memberi puncak $(h,k)$ langsung.</li>
+            <li>Diskriminan $D=b^2-4ac$ menentukan jumlah titik potong sumbu $x$.</li>
+          </ul>
+        </div>
+
+        <div class="done-row">
+          <button class="btn btn-ghost mark-done" data-done="07" aria-pressed="false"><span>Tandai sudah paham</span></button>
+          <span class="done-note">progres tersimpan di browser ini</span>
+        </div>
+
+      </section>
+
+      <section class="sec" id="rasional" data-lesson="08">
+
+        <div class="sec-head">
+          <span class="sec-no">08</span>
+          <div>
+            <h2>Fungsi rasional</h2>
+            <p class="sec-sub">Pecahan polinomial: domain berlubang, grafik punya asimtot.</p>
+          </div>
+        </div>
+
+        <div class="inti">
+          <span class="kicker">satu kalimat inti</span>
+          <p>Rasional itu <em>pembagian dua polinomial</em>. Semua keanehan grafiknya berasal dari satu larangan: penyebut tidak boleh nol.</p>
+        </div>
+
+        <p>Fungsi rasional berbentuk $\dfrac{P(x)}{Q(x)}$ dengan $P$ dan $Q$ polinomial dan $Q(x)\neq 0$. Karena penyebut tidak boleh nol, domainnya selalu â€œ$\mathbb{R}$ dikurangi beberapa titikâ€.</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>bentuk umum</span><span>fungsi rasional</span></div>
+          <div class="formula-body">$f(x)=\dfrac{P(x)}{Q(x)},\qquad Q(x)\neq 0$</div>
+          <div class="formula-foot">Titik-titik yang membuat $Q(x)=0$ dikeluarkan dari domain. Di sekitar titik itu, grafik biasanya meledak ke atas atau ke bawah.</div>
+        </div>
+
+        <figure class="fig">
+          <div class="fig-frame">
+            <svg viewBox="0 0 520 400" role="img" aria-labelledby="hypTitle hypDesc">
+              <title id="hypTitle">Grafik y sama dengan 1 per x dengan dua cabang</title>
+              <desc id="hypDesc">Dua cabang hiperbola di kuadran satu dan tiga, dengan sumbu x dan sumbu y sebagai asimtot.</desc>
+              <defs>
+                <pattern id="g8" width="26" height="26" patternUnits="userSpaceOnUse">
+                  <path d="M26 0H0v26" fill="none" stroke="#1f4e79" stroke-opacity=".06"/>
+                </pattern>
+              </defs>
+              <rect width="520" height="400" fill="#f7f6f0"/>
+              <rect width="520" height="400" fill="url(#g8)"/>
+
+              <line x1="26" y1="200" x2="496" y2="200" stroke="#16212c" stroke-width="1.1"/>
+              <line x1="260" y1="24" x2="260" y2="376" stroke="#16212c" stroke-width="1.1"/>
+              <path d="M496 200l-8-4v8ZM260 24l-4 8h8Z" fill="#16212c"/>
+
+              <line x1="260" y1="30" x2="260" y2="370" stroke="#b03a26" stroke-width="1" stroke-dasharray="5 5"/>
+              <line x1="34" y1="200" x2="486" y2="200" stroke="#b03a26" stroke-width="1" stroke-dasharray="5 5"/>
+
+              <polyline points="274,86 280,120 288,143 300,160 320,173 340,180 380,187 420,190 500,193"
+                        fill="none" stroke="#1f4e79" stroke-width="2.2"/>
+              <polyline points="246,314 240,280 232,257 220,240 200,227 180,220 140,213 100,210 20,207"
+                        fill="none" stroke="#1f4e79" stroke-width="2.2"/>
+
+              <text x="392" y="176" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = 1/x</text>
+              <text x="268" y="40" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">x = 0</text>
+              <text x="410" y="192" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">y = 0</text>
+            </svg>
+          </div>
+          <figcaption><b>Dua cabang, bukan satu garis.</b> Di $x=0$ fungsinya tidak terdefinisi. Grafik mendekati sumbu $y$ dan sumbu $x$ tanpa pernah menyentuhnya â€” dua garis itu disebut asimtot.</figcaption>
+        </figure>
+
+        <h3>Domain: keluarkan titik yang membuat penyebut nol</h3>
+
+        <p>Ini langkah pertama dan paling menentukan. Tanpa domain yang benar, semua analisis berikutnya salah alamat.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 1</span>
+            <strong>Domain dengan penyebut berfaktor</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Tentukan domain $f(x)=\dfrac{x+2}{x^2-4}$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">faktorkan penyebut</span>
+                <p>$x^2-4=(x-2)(x+2)$</p>
+              </li>
+              <li>
+                <span class="step-label">cari pembuat nol</span>
+                <p>$(x-2)(x+2)=0 \Rightarrow x=2$ atau $x=-2$</p>
+              </li>
+              <li>
+                <span class="step-label">keluarkan dari domain</span>
+                <p>Kedua nilai itu membuat pembagian dengan nol.</p>
+              </li>
+            </ol>
+            <span class="answer">$D_f=\mathbb{R}\setminus\{-2,\,2\}$</span>
+            <p style="margin-top:14px;font-size:.92rem;color:var(--muted)">Perhatikan: pembilang juga memuat $(x+2)$. Faktor yang sama di atas dan di bawah <strong>tidak</strong> menghapus larangan di $x=-2$. Yang terjadi justru lubang â€” kita bahas di bawah.</p>
+          </div>
+        </div>
+
+        <h3>Asimtot: garis yang didekati, bukan disentuh</h3>
+
+        <div class="grid-2">
+          <div class="panel panel-tight">
+            <span class="chip chip-red">asimtot vertikal</span>
+            <p style="margin:10px 0 0;font-size:.94rem;color:var(--muted)">Terjadi di $x$ yang membuat penyebut nol <strong>tetapi pembilang tidak nol</strong>. Grafik meledak ke $\pm\infty$ di dekat garis itu.</p>
+          </div>
+          <div class="panel panel-tight">
+            <span class="chip chip-blue">asimtot horizontal</span>
+            <p style="margin:10px 0 0;font-size:.94rem;color:var(--muted)">Perilaku saat $x\to\pm\infty$. Ditentukan dengan membandingkan derajat pembilang dan penyebut.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Derajat</th><th>Asimtot horizontal</th><th>Contoh</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>pembilang &lt; penyebut</td><td>$y=0$</td><td>$\dfrac{1}{x^2+1}$</td></tr>
+              <tr><td>pembilang $=$ penyebut</td><td>$y=\dfrac{\text{koefisien depan atas}}{\text{koefisien depan bawah}}$</td><td>$\dfrac{3x+1}{x-2}\to y=3$</td></tr>
+              <tr><td>pembilang &gt; penyebut</td><td>tidak ada asimtot horizontal</td><td>$\dfrac{x^2}{x+1}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 2</span>
+            <strong>Analisis lengkap satu fungsi rasional</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Analisis $f(x)=\dfrac{2x+1}{x-1}$: domain, asimtot, titik potong, lalu sketsa.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">domain</span>
+                <p>$x-1\neq0 \Rightarrow x\neq1$.</p>
+              </li>
+              <li>
+                <span class="step-label">asimtot vertikal</span>
+                <p>Di $x=1$, pembilang $2(1)+1=3\neq0$. Jadi $x=1$ adalah asimtot vertikal.</p>
+              </li>
+              <li>
+                <span class="step-label">asimtot horizontal</span>
+                <p>Derajat atas $=$ derajat bawah $=1$. Rasio koefisien depan: $\dfrac{2}{1}=2$. Jadi $y=2$.</p>
+              </li>
+              <li>
+                <span class="step-label">titik potong sumbu $y$</span>
+                <p>$f(0)=\dfrac{1}{-1}=-1$. Titik $(0,-1)$.</p>
+              </li>
+              <li>
+                <span class="step-label">titik potong sumbu $x$</span>
+                <p>$2x+1=0 \Rightarrow x=-\dfrac12$. Titik $\left(-\dfrac12,0\right)$.</p>
+              </li>
+            </ol>
+            <span class="answer">$D_f=\mathbb{R}\setminus\{1\},\quad$ VA $x=1,\quad$ HA $y=2$</span>
+          </div>
+        </div>
+
+        <h3>Lubang: saat faktor yang sama tidak menyelamatkan</h3>
+
+        <p>Kalau pembilang dan penyebut punya faktor yang sama, grafiknya menyerupai garis atau kurva sederhana â€” tapi ada satu titik yang bolong. Titik itu <strong>tetap keluar dari domain</strong>.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 3</span>
+            <strong>Menyederhanakan tanpa menghapus lubang</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Sederhanakan $f(x)=\dfrac{x^2-1}{x-1}$ dan tentukan domainnya.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">faktorkan pembilang</span>
+                <p>$x^2-1=(x-1)(x+1)$</p>
+              </li>
+              <li>
+                <span class="step-label">tulis ulang</span>
+                <p>$f(x)=\dfrac{(x-1)(x+1)}{x-1}$</p>
+              </li>
+              <li>
+                <span class="step-label">coret faktor yang sama â€” dengan syarat</span>
+                <p>Pencoretan sah hanya kalau $x-1\neq0$, yaitu $x\neq1$.</p>
+                <p>$f(x)=x+1$ untuk $x\neq1$.</p>
+              </li>
+              <li>
+                <span class="step-label">tandai lubangnya</span>
+                <p>Grafiknya garis $y=x+1$ dengan satu titik bolong di $(1,2)$.</p>
+              </li>
+            </ol>
+            <span class="answer">$f(x)=x+1,\quad x\neq1;\qquad D_f=\mathbb{R}\setminus\{1\}$</span>
+          </div>
+        </div>
+
+        <figure class="fig">
+          <div class="fig-frame">
+            <svg viewBox="0 0 480 300" role="img" aria-labelledby="holeTitle holeDesc">
+              <title id="holeTitle">Garis dengan lubang di titik satu koma dua</title>
+              <desc id="holeDesc">Garis lurus naik dengan lingkaran kosong pada titik satu koma dua.</desc>
+              <defs>
+                <pattern id="g8b" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M24 0H0v24" fill="none" stroke="#1f4e79" stroke-opacity=".06"/>
+                </pattern>
+              </defs>
+              <rect width="480" height="300" fill="#f7f6f0"/>
+              <rect width="480" height="300" fill="url(#g8b)"/>
+              <line x1="30" y1="220" x2="450" y2="220" stroke="#16212c" stroke-width="1"/>
+              <line x1="80" y1="30" x2="80" y2="270" stroke="#16212c" stroke-width="1"/>
+              <line x1="110" y1="200" x2="430" y2="60" stroke="#1f4e79" stroke-width="2"/>
+              <circle cx="220" cy="152" r="6" fill="#f7f6f0" stroke="#b03a26" stroke-width="2"/>
+              <text x="232" y="146" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#b03a26">lubang di (1, 2)</text>
+              <text x="300" y="196" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = x + 1</text>
+            </svg>
+          </div>
+          <figcaption><b>Garis lurus, tapi tetap bukan garis utuh.</b> Satu titik hilang di $x=1$. Kalau digambar tanpa lubang, domain yang kamu klaim salah.</figcaption>
+        </figure>
+
+        <div class="trap">
+          <span class="trap-label">sering keliru</span>
+          <p><strong>Mencoret faktor lalu lupa domain aslinya.</strong> Penyederhanaan mengubah bentuk, bukan domain. Domain ditentukan dari penyebut <em>sebelum</em> dicoret.</p>
+          <p><strong>Mengira grafik rasional boleh menyentuh asimtot vertikal.</strong> Tidak. Di $x$ itu fungsinya tidak terdefinisi, jadi tidak ada titik sama sekali.</p>
+        </div>
+
+        <details class="check">
+          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <div class="check-body">
+            <p><strong>1.</strong> Tentukan domain $f(x)=\dfrac{3}{x^2-9}$.</p>
+            <p style="color:var(--green)">$x^2-9=0 \Rightarrow x=\pm3$. Jadi $D_f=\mathbb{R}\setminus\{-3,3\}$.</p>
+
+            <p style="margin-top:14px"><strong>2.</strong> Apa asimtot horizontal $f(x)=\dfrac{4x^2+1}{2x^2-5}$?</p>
+            <p style="color:var(--green)">Derajat sama, rasio koefisien depan $\frac{4}{2}=2$. Asimtot $y=2$.</p>
+
+            <p style="margin-top:14px"><strong>3.</strong> $f(x)=\dfrac{x^2-4}{x-2}$. Apakah $f(2)$ terdefinisi?</p>
+            <p style="color:var(--green)">Tidak. Setelah disederhanakan $f(x)=x+2$ untuk $x\neq2$, tapi di $x=2$ tetap ada lubang.</p>
+          </div>
+        </details>
+
+        <div class="recap">
+          <h3>Rangkuman bagian 08</h3>
+          <ul>
+            <li>Rasional $=\dfrac{P(x)}{Q(x)}$; domain selalu mengeluarkan pembuat nol $Q(x)$.</li>
+            <li>Asimtot vertikal muncul saat penyebut nol dan pembilang tidak nol.</li>
+            <li>Asimtot horizontal dibaca dari perbandingan derajat pembilang dan penyebut.</li>
+            <li>Faktor yang sama menghasilkan lubang, bukan penghapusan domain.</li>
+            <li>Sketsa urut: domain â†’ asimtot â†’ titik potong â†’ cabang.</li>
+          </ul>
+        </div>
+
+        <div class="done-row">
+          <button class="btn btn-ghost mark-done" data-done="08" aria-pressed="false"><span>Tandai sudah paham</span></button>
+          <span class="done-note">progres tersimpan di browser ini</span>
+        </div>
+
+      </section>
+
+      <section class="sec" id="akar" data-lesson="09">
+
+        <div class="sec-head">
+          <span class="sec-no">09</span>
+          <div>
+            <h2>Fungsi akar</h2>
+            <p class="sec-sub">Setengah parabola yang tumbuh pelan, dan jebakan tanda saat menyelesaikan persamaan.</p>
+          </div>
+        </div>
+
+        <div class="inti">
+          <span class="kicker">satu kalimat inti</span>
+          <p>Akar kuadrat selalu mengeluarkan nilai <em>non-negatif</em>. $\sqrt{9}=3$, bukan $\pm3$. Tanda $\pm$ muncul saat menyelesaikan persamaan, bukan saat menghitung akar.</p>
+        </div>
+
+        <p>Fungsi akar paling dasar adalah $f(x)=\sqrt{x}$. Ia hanya menerima $x\ge0$, karena di bilangan real tidak ada akar kuadrat dari bilangan negatif. Hasilnya juga selalu $\ge0$.</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>bentuk dasar</span><span>fungsi akar</span></div>
+          <div class="formula-body">$f(x)=\sqrt{x}\qquad D_f=[0,\infty),\quad R_f=[0,\infty)$</div>
+          <div class="formula-foot">Grafiknya setengah parabola yang rebah: naik cepat di awal, lalu makin landai. Bentuk ini adalah kebalikan dari $y=x^2$ pada $x\ge0$.</div>
+        </div>
+
+        <figure class="fig">
+          <div class="fig-frame">
+            <svg viewBox="0 0 740 330" role="img" aria-labelledby="rootTitle rootDesc">
+              <title id="rootTitle">Grafik akar x dan grafik akar x minus 3 plus 1</title>
+              <desc id="rootDesc">Panel kiri menunjukkan kurva akar x mulai dari titik asal. Panel kanan menunjukkan kurva yang bergeser tiga ke kanan dan satu ke atas.</desc>
+              <defs>
+                <pattern id="g9" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M24 0H0v24" fill="none" stroke="#1f4e79" stroke-opacity=".06"/>
+                </pattern>
+              </defs>
+              <rect width="740" height="330" fill="#f7f6f0"/>
+              <rect width="740" height="330" fill="url(#g9)"/>
+
+              <!-- panel 1 -->
+              <line x1="40" y1="250" x2="350" y2="250" stroke="#16212c" stroke-width="1"/>
+              <line x1="90" y1="40" x2="90" y2="290" stroke="#16212c" stroke-width="1"/>
+              <polyline points="90,250 130,210 170,194 210,181 250,170 290,160 330,150"
+                        fill="none" stroke="#1f4e79" stroke-width="2.2"/>
+              <circle cx="90" cy="250" r="4" fill="#1f4e79"/>
+              <text x="300" y="270" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">y = âˆšx</text>
+              <text x="196" y="316" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#2f6b4f">mulai di (0, 0)</text>
+
+              <!-- panel 2 -->
+              <line x1="400" y1="250" x2="710" y2="250" stroke="#16212c" stroke-width="1"/>
+              <line x1="450" y1="40" x2="450" y2="290" stroke="#16212c" stroke-width="1"/>
+              <line x1="450" y1="210" x2="660" y2="210" stroke="#b03a26" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="450" y1="210" x2="450" y2="250" stroke="#b03a26" stroke-width="1" stroke-dasharray="4 4"/>
+              <polyline points="450,210 490,170 530,154 570,141 610,130 650,120"
+                        fill="none" stroke="#1f4e79" stroke-width="2.2"/>
+              <circle cx="450" cy="210" r="4" fill="#b03a26"/>
+              <text x="620" y="270" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">y = âˆš(xâˆ’3) + 1</text>
+              <text x="556" y="316" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">mulai di (3, 1)</text>
+            </svg>
+          </div>
+          <figcaption><b>Pergeseran mengikuti titik mulainya.</b> Kurva kanan adalah kurva kiri yang digeser $3$ ke kanan dan $1$ ke atas. Domain dan range ikut bergeser.</figcaption>
+        </figure>
+
+        <h3>Domain dan range fungsi akar</h3>
+
+        <p>Untuk $f(x)=\sqrt{u(x)}$, syaratnya $u(x)\ge0$. Setelah domain ketemu, range-nya mengikuti titik awal kurva.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 1</span>
+            <strong>Akar dengan pergeseran</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Tentukan domain dan range $f(x)=\sqrt{2x-6}+1$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">syarat isi akar</span>
+                <p>$2x-6\ge0$</p>
+                <p>$2x\ge6$</p>
+                <p>$x\ge3$</p>
+              </li>
+              <li>
+                <span class="step-label">tentukan titik awal</span>
+                <p>Saat $x=3$, isi akar $=0$, sehingga $f(3)=0+1=1$.</p>
+              </li>
+              <li>
+                <span class="step-label">tentukan arah dan batas range</span>
+                <p>Akar selalu $\ge0$, jadi $f(x)\ge1$. Nilai $1$ tercapai di $x=3$.</p>
+              </li>
+            </ol>
+            <span class="answer">$D_f=[3,\infty),\qquad R_f=[1,\infty)$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 2</span>
+            <strong>Isi akar berupa kuadrat</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Tentukan domain $g(x)=\sqrt{x^2-4}$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">tulis syaratnya</span>
+                <p>$x^2-4\ge0$</p>
+              </li>
+              <li>
+                <span class="step-label">faktorkan</span>
+                <p>$(x-2)(x+2)\ge0$</p>
+              </li>
+              <li>
+                <span class="step-label">uji tanda pada garis bilangan</span>
+                <p>Di $x&lt;-2$ hasilnya positif; di antara $-2$ dan $2$ hasilnya negatif; di $x&gt;2$ positif lagi.</p>
+              </li>
+              <li>
+                <span class="step-label">ambil daerah non-negatif</span>
+                <p>Termasuk titik $x=-2$ dan $x=2$, karena hasilnya $0$.</p>
+              </li>
+            </ol>
+            <span class="answer">$D_g=(-\infty,-2]\cup[2,\infty)$</span>
+          </div>
+        </div>
+
+        <h3>Menyelesaikan persamaan akar</h3>
+
+        <p>Langkah standarnya: kuadratkan kedua ruas. Tapi mengkuadratkan bisa <strong>memunculkan solusi palsu</strong>, karena $(-3)^2=3^2$ padahal $-3\neq3$. Karena itu setiap jawaban wajib diperiksa ke persamaan asli.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 3</span>
+            <strong>Persamaan akar dengan solusi palsu</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Selesaikan $\sqrt{2x+3}=x$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">tentukan syarat dulu</span>
+                <p>Isi akar: $2x+3\ge0 \Rightarrow x\ge-\dfrac32$.</p>
+                <p>Ruas kanan juga harus $\ge0$, karena hasil akar tidak pernah negatif: $x\ge0$.</p>
+                <p>Gabungan syarat: $x\ge0$.</p>
+              </li>
+              <li>
+                <span class="step-label">kuadratkan kedua ruas</span>
+                <p>$2x+3=x^2$</p>
+              </li>
+              <li>
+                <span class="step-label">susun persamaan kuadrat</span>
+                <p>$x^2-2x-3=0$</p>
+                <p>$(x-3)(x+1)=0$</p>
+                <p>$x=3$ atau $x=-1$.</p>
+              </li>
+              <li>
+                <span class="step-label">periksa ke syarat dan ke persamaan asli</span>
+                <p>$x=3$: $\sqrt{9}=3$ âœ“</p>
+                <p>$x=-1$: $\sqrt{1}=1$, padahal ruas kanan $-1$. âœ—</p>
+              </li>
+              <li>
+                <span class="step-label">buang solusi palsu</span>
+                <p>$x=-1$ muncul hanya karena pengkuadratan, bukan karena memenuhi persamaan asli.</p>
+              </li>
+            </ol>
+            <span class="answer">$x=3$</span>
+          </div>
+        </div>
+
+        <div class="trap">
+          <span class="trap-label">sering keliru</span>
+          <p><strong>$\sqrt{a+b}\neq\sqrt{a}+\sqrt{b}$.</strong> Uji dengan $a=b=9$: $\sqrt{18}\approx4{,}24$, sedangkan $3+3=6$. Akar tidak â€œmembagiâ€ penjumlahan.</p>
+          <p><strong>Menulis $\sqrt{9}=\pm3$.</strong> Simbol $\sqrt{\ }$ didefinisikan sebagai akar non-negatif. Yang punya dua jawaban adalah persamaan $x^2=9$.</p>
+        </div>
+
+        <details class="check">
+          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <div class="check-body">
+            <p><strong>1.</strong> Domain dan range $f(x)=\sqrt{x-5}$?</p>
+            <p style="color:var(--green)">$x-5\ge0 \Rightarrow D_f=[5,\infty)$. Akar $\ge0$, jadi $R_f=[0,\infty)$.</p>
+
+            <p style="margin-top:14px"><strong>2.</strong> Selesaikan $\sqrt{x+6}=x$.</p>
+            <p style="color:var(--green)">Kuadratkan: $x+6=x^2 \Rightarrow x^2-x-6=0 \Rightarrow (x-3)(x+2)=0$. Periksa: $x=3$ âœ“, $x=-2$ âœ—. Jawaban $x=3$.</p>
+
+            <p style="margin-top:14px"><strong>3.</strong> Apakah $\sqrt{25}=5$ dan $\sqrt{25}=-5$ keduanya benar?</p>
+            <p style="color:var(--green)">Hanya $5$. Simbol akar kuadrat memberi nilai non-negatif.</p>
+          </div>
+        </details>
+
+        <div class="recap">
+          <h3>Rangkuman bagian 09</h3>
+          <ul>
+            <li>$\sqrt{u(x)}$ menuntut $u(x)\ge0$; hasilnya selalu non-negatif.</li>
+            <li>Domain akar = daerah yang membuat isi akar tidak negatif.</li>
+            <li>Range ditentukan oleh titik awal kurva setelah pergeseran.</li>
+            <li>Menyelesaikan persamaan akar: kuadratkan, lalu <strong>periksa</strong> setiap jawaban.</li>
+            <li>$\sqrt{a+b}$ tidak sama dengan $\sqrt a+\sqrt b$.</li>
+          </ul>
+        </div>
+
+        <div class="done-row">
+          <button class="btn btn-ghost mark-done" data-done="09" aria-pressed="false"><span>Tandai sudah paham</span></button>
+          <span class="done-note">progres tersimpan di browser ini</span>
+        </div>
+
+      </section>
+
+      <section class="sec" id="mutlak" data-lesson="10">
+
+        <div class="sec-head">
+          <span class="sec-no">10</span>
+          <div>
+            <h2>Nilai mutlak</h2>
+            <p class="sec-sub">Jarak, bukan tanda. Dari situ semua aturannya masuk akal.</p>
+          </div>
+        </div>
+
+        <div class="inti">
+          <span class="kicker">satu kalimat inti</span>
+          <p>$|x|$ adalah <em>jarak</em> $x$ dari nol. Jarak tidak pernah negatif, jadi hasil nilai mutlak selalu $\ge0$.</p>
+        </div>
+
+        <p>Nilai mutlak sering diajarkan sebagai â€œbuang tanda negatifâ€. Itu benar secara hasil, tapi tidak menjelaskan apa pun. Cara yang lebih masuk akal: nilai mutlak mengukur <strong>jarak pada garis bilangan</strong>.</p>
+
+        <p>$|5|=5$ karena $5$ berjarak $5$ dari nol. $|-5|=5$ karena $-5$ juga berjarak $5$ dari nol. Arahnya berbeda, jaraknya sama.</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>definisi</span><span>nilai mutlak</span></div>
+          <div class="formula-body">$|x|=\begin{cases}x, & x\ge0\\[2pt]-x, & x&lt;0\end{cases}$</div>
+          <div class="formula-foot">Perhatikan baris kedua: kalau $x$ negatif, maka $-x$ justru positif. Jadi hasilnya selalu non-negatif.</div>
+        </div>
+
+        <p>Dari definisi ini, $f(x)=|x|$ punya domain $\mathbb{R}$ dan range $[0,\infty)$. Grafiknya berbentuk huruf V dengan titik terendah di $(0,0)$.</p>
+
+        <div class="fig-row">
+          <figure class="fig">
+            <div class="fig-frame">
+              <svg viewBox="0 0 360 300" role="img" aria-labelledby="absTitle absDesc">
+                <title id="absTitle">Grafik nilai mutlak berbentuk V</title>
+                <desc id="absDesc">Dua garis lurus bertemu di titik asal, membentuk huruf V dengan puncak di nol koma nol.</desc>
+                <defs>
+                  <pattern id="g10" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <path d="M24 0H0v24" fill="none" stroke="#1f4e79" stroke-opacity=".06"/>
+                  </pattern>
+                </defs>
+                <rect width="360" height="300" fill="#f7f6f0"/>
+                <rect width="360" height="300" fill="url(#g10)"/>
+                <line x1="20" y1="230" x2="340" y2="230" stroke="#16212c" stroke-width="1"/>
+                <line x1="180" y1="30" x2="180" y2="280" stroke="#16212c" stroke-width="1"/>
+                <polyline points="45,95 90,140 135,185 180,230 225,185 270,140 315,95"
+                          fill="none" stroke="#1f4e79" stroke-width="2.2"/>
+                <circle cx="180" cy="230" r="4" fill="#b03a26"/>
+                <text x="186" y="248" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#b03a26">(0, 0)</text>
+                <text x="300" y="86" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = |x|</text>
+              </svg>
+            </div>
+            <figcaption><b>V dengan titik terendah di nol.</b> Kiri dan kanan adalah cerminan, karena jarak ke kiri dan ke kanan sama.</figcaption>
+          </figure>
+
+          <figure class="fig">
+            <div class="fig-frame">
+              <svg viewBox="0 0 520 220" role="img" aria-labelledby="ineqTitle ineqDesc">
+                <title id="ineqTitle">Garis bilangan untuk x minus 2 kurang dari 3</title>
+                <desc id="ineqDesc">Daerah antara negatif satu dan lima diberi warna, dengan kedua ujung berupa titik kosong.</desc>
+                <rect width="520" height="220" fill="#f7f6f0"/>
+                <rect width="520" height="220" fill="url(#g10)"/>
+                <line x1="60" y1="110" x2="470" y2="110" stroke="#16212c" stroke-width="1.2"/>
+                <line x1="110" y1="110" x2="410" y2="110" stroke="#1f4e79" stroke-width="4" stroke-opacity=".3"/>
+                <g stroke="#16212c" stroke-width="1">
+                  <line x1="110" y1="104" x2="110" y2="116"/><line x1="160" y1="104" x2="160" y2="116"/>
+                  <line x1="210" y1="104" x2="210" y2="116"/><line x1="260" y1="104" x2="260" y2="116"/>
+                  <line x1="310" y1="104" x2="310" y2="116"/><line x1="360" y1="104" x2="360" y2="116"/>
+                  <line x1="410" y1="104" x2="410" y2="116"/>
+                </g>
+                <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f" text-anchor="middle">
+                  <text x="110" y="134">âˆ’1</text><text x="160" y="134">0</text><text x="210" y="134">1</text>
+                  <text x="260" y="134">2</text><text x="310" y="134">3</text><text x="360" y="134">4</text>
+                  <text x="410" y="134">5</text>
+                </g>
+                <circle cx="110" cy="110" r="6" fill="#f7f6f0" stroke="#b03a26" stroke-width="2"/>
+                <circle cx="410" cy="110" r="6" fill="#f7f6f0" stroke="#b03a26" stroke-width="2"/>
+                <text x="260" y="180" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">|x âˆ’ 2| &lt; 3  â†’  âˆ’1 &lt; x &lt; 5</text>
+              </svg>
+            </div>
+            <figcaption><b>â€œKurang dariâ€ berarti di antara.</b> Jarak $x$ ke $2$ kurang dari $3$, jadi $x$ berada dalam radius $3$ dari titik $2$.</figcaption>
+          </figure>
+        </div>
+
+        <h3>Membaca $|x-a|$ sebagai jarak</h3>
+
+        <p>Bentuk $|x-a|$ berarti â€œjarak $x$ ke $a$â€. Ini mengubah soal aljabar menjadi soal geometri, dan biasanya jauh lebih cepat.</p>
+
+        <div class="deflist">
+          <dt>$|x-3|=2$</dt>
+          <dd>Titik yang jaraknya $2$ dari $3$: yaitu $1$ dan $5$.</dd>
+
+          <dt>$|x+4|=1$</dt>
+          <dd>Perhatikan tandanya: $|x+4|=|x-(-4)|$. Jadi jarak ke $-4$ sama dengan $1$: $x=-5$ atau $x=-3$.</dd>
+
+          <dt>$|x-2|&lt;3$</dt>
+          <dd>Semua titik yang jaraknya ke $2$ kurang dari $3$: interval $(-1,5)$.</dd>
+
+          <dt>$|x-2|&gt;3$</dt>
+          <dd>Semua titik yang jaraknya ke $2$ lebih dari $3$: $x&lt;-1$ atau $x&gt;5$.</dd>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Bentuk</th><th>Arti</th><th>Penyelesaian</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$|x-a|=b$</td><td>jarak tepat $b$</td><td>$x=a-b$ atau $x=a+b$</td></tr>
+              <tr><td>$|x-a|&lt;b$</td><td>jarak kurang dari $b$</td><td>$a-b&lt;x&lt;a+b$ (di antara)</td></tr>
+              <tr><td>$|x-a|&gt;b$</td><td>jarak lebih dari $b$</td><td>$x&lt;a-b$ atau $x&gt;a+b$ (di luar)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <span class="note-label">cara mengingat</span>
+          <p><strong>â€œKurang dari = di antara, lebih dari = di luar.â€</strong> Kalau bingung, uji satu angka. Untuk $|x|&lt;3$, coba $x=0$: benar, dan $0$ memang di antara $-3$ dan $3$.</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 1</span>
+            <strong>Pertidaksamaan nilai mutlak</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Selesaikan $|2x-1|\le5$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">ubah ke bentuk â€œdi antaraâ€</span>
+                <p>$-5\le 2x-1\le 5$</p>
+              </li>
+              <li>
+                <span class="step-label">tambahkan $1$ ke semua ruas</span>
+                <p>$-4\le 2x\le 6$</p>
+              </li>
+              <li>
+                <span class="step-label">bagi semua ruas dengan $2$</span>
+                <p>$-2\le x\le 3$</p>
+              </li>
+              <li>
+                <span class="step-label">periksa ujungnya</span>
+                <p>$x=-2$: $|{-5}|=5$ âœ“. $x=3$: $|5|=5$ âœ“.</p>
+              </li>
+            </ol>
+            <span class="answer">$-2\le x\le 3$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 2</span>
+            <strong>Persamaan dengan dua kemungkinan</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Selesaikan $|x-3|=2x$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">tentukan syarat</span>
+                <p>Ruas kiri tidak pernah negatif, jadi ruas kanan juga harus non-negatif: $2x\ge0 \Rightarrow x\ge0$.</p>
+              </li>
+              <li>
+                <span class="step-label">pecah menjadi dua kasus</span>
+                <p>Kasus 1: $x-3=2x \Rightarrow -3=x$.</p>
+                <p>Kasus 2: $-(x-3)=2x \Rightarrow -x+3=2x \Rightarrow x=1$.</p>
+              </li>
+              <li>
+                <span class="step-label">saring dengan syarat</span>
+                <p>$x=-3$ melanggar $x\ge0$, jadi dibuang.</p>
+              </li>
+              <li>
+                <span class="step-label">periksa</span>
+                <p>$x=1$: $|1-3|=2$ dan $2(1)=2$ âœ“.</p>
+              </li>
+            </ol>
+            <span class="answer">$x=1$</span>
+          </div>
+        </div>
+
+        <div class="trap">
+          <span class="trap-label">sering keliru</span>
+          <p><strong>$|a+b|\neq|a|+|b|$.</strong> Ambil $a=2$, $b=-5$: $|{-3}|=3$, sedangkan $|2|+|{-5}|=7$. Kesamaan hanya berlaku kalau $a$ dan $b$ bertanda sama.</p>
+          <p><strong>$\sqrt{x^2}=x$?</strong> Tidak selalu. $\sqrt{x^2}=|x|$. Untuk $x=-3$, hasilnya $3$, bukan $-3$.</p>
+        </div>
+
+        <details class="check">
+          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <div class="check-body">
+            <p><strong>1.</strong> Selesaikan $|x+1|=4$.</p>
+            <p style="color:var(--green)">Jarak ke $-1$ sama dengan $4$: $x=-5$ atau $x=3$.</p>
+
+            <p style="margin-top:14px"><strong>2.</strong> Selesaikan $|x-4|&gt;2$.</p>
+            <p style="color:var(--green)">Jarak ke $4$ lebih dari $2$: $x&lt;2$ atau $x&gt;6$.</p>
+
+            <p style="margin-top:14px"><strong>3.</strong> Hitung $|{-7}|+|3|$ dan $|{-7}+3|$.</p>
+            <p style="color:var(--green)">$7+3=10$, sedangkan $|{-4}|=4$. Keduanya berbeda â€” bukti bahwa nilai mutlak tidak boleh dipisah sembarangan.</p>
+          </div>
+        </details>
+
+        <div class="recap">
+          <h3>Rangkuman bagian 10</h3>
+          <ul>
+            <li>$|x|$ adalah jarak $x$ ke $0$, dan selalu $\ge0$.</li>
+            <li>$|x-a|$ adalah jarak $x$ ke $a$.</li>
+            <li>$|x-a|&lt;b$ â†’ di antara; $|x-a|&gt;b$ â†’ di luar.</li>
+            <li>Persamaan nilai mutlak biasanya punya dua kasus; periksa syaratnya.</li>
+            <li>$|a+b|\neq|a|+|b|$ dan $\sqrt{x^2}=|x|$.</li>
+          </ul>
+        </div>
+
+        <div class="done-row">
+          <button class="btn btn-ghost mark-done" data-done="10" aria-pressed="false"><span>Tandai sudah paham</span></button>
+          <span class="done-note">progres tersimpan di browser ini</span>
+        </div>
+
+      </section>
+
+      <section class="sec" id="sepotong" data-lesson="11">
+
+        <div class="sec-head">
+          <span class="sec-no">11</span>
+          <div>
+            <h2>Fungsi sepotong</h2>
+            <p class="sec-sub">Satu fungsi, beberapa rumus. Yang berubah hanya wilayah berlakunya.</p>
+          </div>
+        </div>
+
+        <div class="inti">
+          <span class="kicker">satu kalimat inti</span>
+          <p>Fungsi sepotong memilih rumus berdasarkan <em>di mana</em> input berada. Tetap satu fungsi, selama setiap input hanya masuk ke satu aturan.</p>
+        </div>
+
+        <p>Semua fungsi yang kita bahas sejauh ini memakai satu rumus untuk seluruh domain. Fungsi sepotong (piecewise) melonggarkan itu: rumusnya boleh berbeda di wilayah yang berbeda.</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>bentuk umum</span><span>fungsi sepotong</span></div>
+          <div class="formula-body">$f(x)=\begin{cases}f_1(x), & x\in D_1\\[2pt]f_2(x), & x\in D_2\\[2pt]\vdots & \vdots\end{cases}$</div>
+          <div class="formula-foot">Syaratnya: setiap $x$ di domain masuk ke <strong>tepat satu</strong> wilayah. Kalau ada wilayah yang tumpang tindih, fungsi bisa bercabang â€” dan itu melanggar aturan dasar.</div>
+        </div>
+
+        <p>Nilai mutlak yang kita bahas di bagian 10 sebenarnya adalah fungsi sepotong:</p>
+
+        <div class="formula">
+          <div class="formula-head"><span>contoh yang sudah dikenal</span><span>nilai mutlak</span></div>
+          <div class="formula-body">$|x|=\begin{cases}x, & x\ge0\\[2pt]-x, & x<0\end{cases}$</div>
+        </div>
+
+        <figure class="fig">
+          <div class="fig-frame">
+            <svg viewBox="0 0 520 360" role="img" aria-labelledby="pwTitle pwDesc">
+              <title id="pwTitle">Grafik fungsi sepotong dengan lompatan di x sama dengan satu</title>
+              <desc id="pwDesc">Parabola untuk x kurang dari satu berakhir dengan titik kosong, lalu garis naik mulai dari titik penuh di x sama dengan satu.</desc>
+              <defs>
+                <pattern id="g11" width="25" height="25" patternUnits="userSpaceOnUse">
+                  <path d="M25 0H0v25" fill="none" stroke="#1f4e79" stroke-opacity=".06"/>
+                </pattern>
+              </defs>
+              <rect width="520" height="360" fill="#f7f6f0"/>
+              <rect width="520" height="360" fill="url(#g11)"/>
+
+              <line x1="60" y1="300" x2="500" y2="300" stroke="#16212c" stroke-width="1"/>
+              <line x1="260" y1="40" x2="260" y2="340" stroke="#16212c" stroke-width="1"/>
+              <path d="M500 300l-8-4v8ZM260 40l-4 8h8Z" fill="#16212c"/>
+
+              <polyline points="160,100 210,250 260,300 310,250"
+                        fill="none" stroke="#1f4e79" stroke-width="2.2"/>
+              <circle cx="310" cy="250" r="5" fill="#f7f6f0" stroke="#1f4e79" stroke-width="2"/>
+
+              <polyline points="310,200 360,150 410,100 460,50"
+                        fill="none" stroke="#b03a26" stroke-width="2.2"/>
+              <circle cx="310" cy="200" r="5" fill="#b03a26"/>
+
+              <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">
+                <text x="492" y="316">x</text>
+                <text x="270" y="50">y</text>
+                <text x="304" y="320">1</text>
+              </g>
+              <text x="176" y="92" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = xÂ²</text>
+              <text x="380" y="140" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#b03a26">y = x + 1</text>
+              <text x="322" y="196" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">(1, 2) ikut</text>
+              <text x="322" y="266" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#1f4e79">(1, 1) tidak ikut</text>
+            </svg>
+          </div>
+          <figcaption><b>Titik penuh ikut, titik kosong tidak.</b> Di $x=1$ fungsinya melompat dari $1$ ke $2$. Lompatan itu sah â€” fungsi tidak harus menyambung.</figcaption>
+        </figure>
+
+        <p>Perhatikan grafik di atas: di $x=1$, ada dua titik yang berdekatan. Titik $(1,1)$ <strong>kosong</strong> karena rumus $x^2$ hanya berlaku untuk $x&lt;1$. Titik $(1,2)$ <strong>penuh</strong> karena rumus $x+1$ berlaku untuk $x\ge1$. Jadi $f(1)=2$, bukan $1$.</p>
+
+        <h3>Menghitung nilai fungsi sepotong</h3>
+
+        <p>Kuncinya satu: <strong>periksa wilayah dulu, baru pilih rumus</strong>. Jangan langsung substitusi ke rumus yang paling atas.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 1</span>
+            <strong>Empat nilai, dua rumus</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Diketahui $f(x)=\begin{cases}x^2, & x&lt;1\\ x+1, & x\ge1\end{cases}$. Hitung $f(0)$, $f(1)$, $f(3)$, dan $f(-2)$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">$x=0$ masuk wilayah mana?</span>
+                <p>$0&lt;1$, jadi pakai $x^2$: $f(0)=0$.</p>
+              </li>
+              <li>
+                <span class="step-label">$x=1$ â€” perhatikan tanda sama dengan</span>
+                <p>$1\ge1$, jadi pakai $x+1$: $f(1)=2$.</p>
+              </li>
+              <li>
+                <span class="step-label">$x=3$</span>
+                <p>$3\ge1$: $f(3)=4$.</p>
+              </li>
+              <li>
+                <span class="step-label">$x=-2$</span>
+                <p>$-2&lt;1$: $f(-2)=(-2)^2=4$.</p>
+              </li>
+            </ol>
+            <span class="answer">$f(0)=0,\quad f(1)=2,\quad f(3)=4,\quad f(-2)=4$</span>
+          </div>
+        </div>
+
+        <h3>Domain dan range</h3>
+
+        <p>Domain fungsi sepotong adalah <strong>gabungan semua wilayah</strong>. Range adalah gabungan semua nilai yang dihasilkan tiap potongan â€” dan hasilnya boleh terputus-putus.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 2</span>
+            <strong>Range yang terputus</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Tentukan domain dan range $f(x)=\begin{cases}x^2, & x&lt;1\\ x+1, & x\ge1\end{cases}$.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">domain</span>
+                <p>Wilayah pertama $x&lt;1$, wilayah kedua $x\ge1$. Gabungannya menutup semua bilangan real.</p>
+                <p>$D_f=\mathbb{R}$.</p>
+              </li>
+              <li>
+                <span class="step-label">range potongan pertama</span>
+                <p>$x^2$ untuk $x&lt;1$ menghasilkan $[0,1)$. Nilai $1$ tidak termasuk karena $x=1$ tidak dipakai di sini.</p>
+              </li>
+              <li>
+                <span class="step-label">range potongan kedua</span>
+                <p>$x+1$ untuk $x\ge1$ menghasilkan $[2,\infty)$.</p>
+              </li>
+              <li>
+                <span class="step-label">gabungkan</span>
+                <p>Antara $1$ dan $2$ tidak ada nilai yang tercapai â€” itulah lompatannya.</p>
+              </li>
+            </ol>
+            <span class="answer">$R_f=[0,1)\cup[2,\infty)$</span>
+          </div>
+        </div>
+
+        <h3>Contoh nyata: tarif bertingkat</h3>
+
+        <p>Fungsi sepotong paling sering muncul di soal cerita karena banyak aturan nyata memang bertingkat.</p>
+
+        <div class="example">
+          <div class="example-head">
+            <span class="ex-label">contoh 3</span>
+            <strong>Tarif parkir</strong>
+          </div>
+          <div class="example-body">
+            <p class="example-q">Parkir Rp5.000 untuk 3 jam pertama, lalu Rp3.000 per jam berikutnya. Tulis fungsinya untuk $t$ jam.</p>
+            <ol class="steps">
+              <li>
+                <span class="step-label">tentukan wilayah</span>
+                <p>$0&lt;t\le3$ dan $t&gt;3$.</p>
+              </li>
+              <li>
+                <span class="step-label">tulis potongan pertama</span>
+                <p>Untuk $0&lt;t\le3$: $f(t)=5000$.</p>
+              </li>
+              <li>
+                <span class="step-label">tulis potongan kedua</span>
+                <p>Untuk $t&gt;3$: $f(t)=5000+3000(t-3)$.</p>
+              </li>
+              <li>
+                <span class="step-label">uji satu nilai</span>
+                <p>$t=5$: $5000+3000(2)=11000$.</p>
+              </li>
+            </ol>
+            <span class="answer">$f(t)=\begin{cases}5000, & 0&lt;t\le3\\ 5000+3000(t-3), & t&gt;3\end{cases}$</span>
+          </div>
+        </div>
+
+        <div class="trap">
+          <span class="trap-label">sering keliru</span>
+          <p><strong>Dua wilayah memuat titik yang sama.</strong> Menulis $x\le1$ di potongan pertama dan $x\ge1$ di potongan kedua membuat $x=1$ punya dua nilai. Selalu pastikan hanya satu yang memakai tanda â€œsama denganâ€.</p>
+          <p><strong>Lupa memeriksa wilayah sebelum substitusi.</strong> Ini penyebab utama jawaban salah, bukan aljabarnya.</p>
+        </div>
+
+        <details class="check">
+          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <div class="check-body">
+            <p><strong>1.</strong> $f(x)=\begin{cases}2x, & x&lt;0\\ x^2, & x\ge0\end{cases}$. Hitung $f(-1)$ dan $f(0)$.</p>
+            <p style="color:var(--green)">$f(-1)=2(-1)=-2$; $f(0)=0^2=0$.</p>
+
+            <p style="margin-top:14px"><strong>2.</strong> Mengapa $|x|$ disebut fungsi sepotong?</p>
+            <p style="color:var(--green)">Karena rumusnya berbeda untuk $x\ge0$ dan $x&lt;0$: $x$ dan $-x$.</p>
+
+            <p style="margin-top:14px"><strong>3.</strong> Apakah fungsi sepotong harus menyambung di batas wilayah?</p>
+            <p style="color:var(--green)">Tidak. Lompatan diperbolehkan; yang tidak boleh adalah satu input punya dua output.</p>
+          </div>
+        </details>
+
+        <div class="recap">
+          <h3>Rangkuman bagian 11</h3>
+          <ul>
+            <li>Fungsi sepotong memakai rumus berbeda di wilayah berbeda.</li>
+            <li>Setiap input harus masuk tepat satu wilayah â€” tidak boleh tumpang tindih.</li>
+            <li>Hitung nilai: tentukan wilayah dulu, baru substitusi.</li>
+            <li>Domain = gabungan wilayah; range = gabungan hasil tiap potongan.</li>
+            <li>Titik penuh ikut, titik kosong tidak. Lompatan sah.</li>
+          </ul>
+        </div>
+
+        <div class="done-row">
+          <button class="btn btn-ghost mark-done" data-done="11" aria-pressed="false"><span>Tandai sudah paham</span></button>
+          <span class="done-note">progres tersimpan di browser ini</span>
+        </div>
+
+      </section>
+
+      <nav class="nextprev" aria-label="Navigasi halaman">
+        <a class="np" href="#mutlak">
+          <span>sebelumnya</span>
+          <b>Bagian 10 Â· Nilai mutlak</b>
+        </a>
+        <a class="np next" href="lanjut.html">
+          <span>lanjut ke bab 03</span>
+          <b>Membalik dan menggabung</b>
+        </a>
+      </nav>
+
+    </div>
+  </div>
+</main>
+
+<footer class="shell">
+  <div class="foot">
+    <span>materi-fungsi Â· bab 02</span>
+    <span><a href="https://github.com/voltakyy/materi-fungsi">sumber di GitHub</a></span>
+  </div>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

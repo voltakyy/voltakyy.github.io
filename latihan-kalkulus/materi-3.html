@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materi 3 â€” Fungsi &amp; Bilangan Khusus | Modul Kalkulus</title>
+<meta name="description" content="Modul fungsi: definisi dan notasi, domainâ€“kodomainâ€“range, injektifâ€“surjektifâ€“bijektif, invers, komposisi, floor, ceiling, modulo, faktorial, eksponen, logaritma, dan rekursi.">
+<meta name="theme-color" content="#f6f1e6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100;1,9..144,300..900,100&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modul.css">
+<link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body class="doc-page">
+<div id="readProgress" class="read-progress" aria-hidden="true"><span></span></div>
+<main class="shell doc-shell">
+
+  <header class="site-head">
+    <a class="brand" href="index.html" aria-label="Batas dan Bentuk, kembali ke beranda">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40">
+          <rect width="40" height="40" rx="8" fill="#fffdf7"/>
+          <path d="M7 20h26M20 33V7" stroke="#2f3330" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 9l6 16 6-16" fill="none" stroke="#3c5f8c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="17" cy="25" r="2.2" fill="#a95741" stroke="#2f3330" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <span class="brand-word">batas<span>.</span></span>
+    </a>
+    <div class="head-meta">
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Latihan</a>
+        <a href="modul.html" aria-current="page">Modul</a>
+        <a class="nav-uts" href="uts-2025.html">UTS 2025</a>
+      </nav>
+      <span class="stamp-badge">Materi 3 / 4</span>
+    </div>
+  </header>
+
+  <section class="module-hero" style="--chapter-ink:#7d4a60;--chapter-soft:#f4e9ee;--chapter-accent:#916074">
+    <div class="module-hero-copy">
+      <div class="eyebrow-row">
+        <span class="chapter-pill">Materi 03 Â· Fungsi</span>
+        <span class="eyebrow-note">Week 3 Â· relasi &amp; aturan</span>
+      </div>
+      <h1>Setiap input,<br><em>tepat satu</em> output.</h1>
+      <p class="lede">Fungsi adalah relasi yang disiplin. Dari aturan itu lahir domain, range, invers, komposisi, sampai fungsi-fungsi khusus seperti floor, modulo, dan logaritma.</p>
+      <div class="module-meta">
+        <span class="meta-chip"><b>8</b> bagian</span>
+        <span class="meta-chip">Â± <b>17</b> menit</span>
+        <span class="meta-chip"><b>6</b> latihan</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#definisi">Mulai membaca
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="modul.html">Kembali ke indeks</a>
+      </div>
+    </div>
+
+    <aside class="hero-summary" aria-label="Ringkasan materi 3">
+      <div class="summary-paper">
+        <div class="summary-label"><span>peta singkat</span><span>03 / 04</span></div>
+        <div class="summary-big">$f:A\to B$</div>
+        <p class="summary-caption">Domain adalah bahan yang boleh masuk; kodomain adalah tujuan yang mungkin; range adalah hasil yang benar-benar tercapai.</p>
+        <div class="summary-rule"></div>
+        <ul class="summary-list">
+          <li>Injektif: output berbeda untuk input berbeda</li>
+          <li>Invers hanya ada jika pemetaan satu-ke-satu</li>
+          <li>Modulo selalu bersisa non-negatif</li>
+        </ul>
+        <span class="summary-stamp">week 3 Â· fungsi</span>
+      </div>
+    </aside>
+  </section>
+
+  <div class="doc-layout">
+    <aside class="doc-toc" aria-label="Daftar isi materi 3">
+      <div class="toc-box">
+        <div class="toc-head"><strong>Daftar isi</strong><span>03</span></div>
+        <ol class="toc-list">
+          <li><a href="#definisi"><span class="toc-no">01</span>Definisi &amp; notasi fungsi</a></li>
+          <li><a href="#domain"><span class="toc-no">02</span>Domain, kodomain, range</a></li>
+          <li><a href="#jenis"><span class="toc-no">03</span>Injektif, surjektif, bijektif</a></li>
+          <li><a href="#invers"><span class="toc-no">04</span>Invers</a></li>
+          <li><a href="#komposisi"><span class="toc-no">05</span>Komposisi</a></li>
+          <li><a href="#khusus"><span class="toc-no">06</span>Bilangan khusus</a></li>
+          <li><a href="#latihan"><span class="toc-no">07</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">08</span>Rangkuman</a></li>
+        </ol>
+        <div class="toc-foot">Saat membaca rumus fungsi, selalu tanyakan: domainnya apa, kodomainnya apa, dan hasil mana yang benar-benar mungkin?</div>
+      </div>
+    </aside>
+
+    <article class="lesson">
+      <details class="toc-mobile">
+        <summary>Daftar isi materi 03</summary>
+        <ol class="toc-list">
+          <li><a href="#definisi"><span class="toc-no">01</span>Definisi &amp; notasi fungsi</a></li>
+          <li><a href="#domain"><span class="toc-no">02</span>Domain, kodomain, range</a></li>
+          <li><a href="#jenis"><span class="toc-no">03</span>Injektif, surjektif, bijektif</a></li>
+          <li><a href="#invers"><span class="toc-no">04</span>Invers</a></li>
+          <li><a href="#komposisi"><span class="toc-no">05</span>Komposisi</a></li>
+          <li><a href="#khusus"><span class="toc-no">06</span>Bilangan khusus</a></li>
+          <li><a href="#latihan"><span class="toc-no">07</span>Latihan</a></li>
+          <li><a href="#rangkuman"><span class="toc-no">08</span>Rangkuman</a></li>
+        </ol>
+      </details>
+
+      <div class="lesson-intro">
+        <span class="lesson-intro-mark" aria-hidden="true">f</span>
+        <p><strong>Target halaman ini:</strong> kamu bisa menentukan domain dan range, memeriksa apakah suatu fungsi punya invers, menyusun komposisi, dan menghitung fungsi khusus dengan benarâ€”terutama modulo untuk bilangan negatif.</p>
+      </div>
+
+      <section id="definisi" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">01</span>
+          <div>
+            <h2>Definisi &amp; notasi fungsi</h2>
+            <p class="sec-sub">Fungsi adalah relasi dengan aturan yang tidak boleh bercabang.</p>
+          </div>
+        </div>
+
+        <p>Fungsi $f$ dari himpunan $A$ ke himpunan $B$, ditulis $f:A\to B$, adalah relasi yang memasangkan <strong>setiap elemen $A$</strong> dengan <strong>tepat satu elemen $B$</strong>.</p>
+
+        <div class="formula-card">
+          <p class="formula-title">notasi</p>
+          <p class="formula-lead">$f:x\mapsto f(x)$</p>
+          <p>$x$ adalah input (variabel bebas); $f(x)$ adalah output (variabel terikat).</p>
+        </div>
+
+        <figure class="figure-card">
+          <svg viewBox="0 0 560 300" role="img" aria-labelledby="fungsiTitle fungsiDesc">
+            <title id="fungsiTitle">Diagram panah sebuah fungsi</title>
+            <desc id="fungsiDesc">Himpunan A berisi a, b, c dipetakan ke himpunan B berisi 1, 2, 3, 4. Semua elemen A punya satu panah. Range-nya adalah 1 dan 3.</desc>
+            <rect width="560" height="300" fill="#fffdf7"/>
+            <ellipse cx="145" cy="150" rx="92" ry="112" fill="#f4e9ee" stroke="#2f3330" stroke-width="2"/>
+            <ellipse cx="417" cy="150" rx="92" ry="112" fill="#e8eef5" stroke="#2f3330" stroke-width="2"/>
+            <text x="145" y="39" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="11" fill="#7d4a60">A Â· domain</text>
+            <text x="417" y="39" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="11" fill="#3c5f8c">B Â· kodomain</text>
+            <g fill="#2f3330">
+              <circle cx="109" cy="92" r="5"/><circle cx="109" cy="150" r="5"/><circle cx="109" cy="208" r="5"/>
+              <circle cx="385" cy="78" r="5"/><circle cx="385" cy="126" r="5"/><circle cx="385" cy="174" r="5"/><circle cx="385" cy="222" r="5"/>
+            </g>
+            <g font-family="'Fraunces',serif" font-size="17" font-style="italic" fill="#2f3330">
+              <text x="127" y="98">a</text><text x="127" y="156">b</text><text x="127" y="214">c</text>
+              <text x="366" y="84">1</text><text x="366" y="132">2</text><text x="366" y="180">3</text><text x="366" y="228">4</text>
+            </g>
+            <g stroke="#3c5f8c" stroke-width="1.8" fill="none">
+              <path d="M116 92C200 82 280 78 376 78" marker-end="url(#arrowF)"/>
+              <path d="M116 150C200 150 270 174 376 174" marker-end="url(#arrowF)"/>
+              <path d="M116 208C210 236 290 90 376 80" marker-end="url(#arrowF)"/>
+            </g>
+            <defs>
+              <marker id="arrowF" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0l6 3-6 3Z" fill="#3c5f8c"/></marker>
+            </defs>
+            <text x="145" y="286" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">setiap input punya satu panah</text>
+            <text x="417" y="286" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="8" fill="#7d8379">4 tidak pernah dicapai</text>
+          </svg>
+          <figcaption>Contoh: $f(a)=1$, $f(b)=3$, $f(c)=1$. Dua input boleh berbagi output; yang dilarang adalah satu input punya dua output.</figcaption>
+        </figure>
+
+        <p>Pada contoh di atas, domainnya $A=\{a,b,c\}$, kodomainnya $B=\{1,2,3,4\}$, dan range-nya $\{1,3\}$â€”hanya nilai yang benar-benar keluar dari fungsi.</p>
+
+        <div class="callout callout--warn" data-label="bukan fungsi">
+          <p>Relasi yang memetakan satu elemen $A$ ke dua elemen berbeda di $B$ bukan fungsi. Begitu pula relasi yang meninggalkan salah satu elemen $A$ tanpa pasangan.</p>
+        </div>
+      </section>
+
+      <section id="domain" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">02</span>
+          <div>
+            <h2>Domain, kodomain, range</h2>
+            <p class="sec-sub">Tiga istilah yang sering tertukar, padahal batasnya jelas.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>Istilah</th><th>Arti</th><th>Contoh pada $f(x)=x^2+1$</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Domain</strong></td><td>semua input yang boleh masuk</td><td>$\mathbb{R}$ jika tidak dibatasi</td></tr>
+              <tr><td><strong>Kodomain</strong></td><td>himpunan tujuan yang dipilih</td><td>$\mathbb{R}$</td></tr>
+              <tr><td><strong>Range</strong></td><td>semua output yang benar-benar tercapai</td><td>$[1,\infty)$</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Untuk fungsi kuadrat $f(x)=x^2+1$, nilai terkecilnya adalah 1 (saat $x=0$), dan untuk $x$ besar nilai $f(x)$ membesar tanpa batas. Jadi range-nya $[1,\infty)$, bukan seluruh $\mathbb{R}$.</p>
+
+        <div class="two-col">
+          <div class="example" style="margin:0">
+            <div class="example-head"><span class="ex-label">contoh</span><strong>Domain dari penyebut</strong></div>
+            <div class="example-body">
+              <p class="example-q">Tentukan domain $f(x)=\dfrac{1}{x-2}$.</p>
+              <p>Penyebut tidak boleh nol: $x-2\neq0$, sehingga $x\neq2$.</p>
+              <span class="answer">$D_f=\mathbb{R}\setminus\{2\}$</span>
+            </div>
+          </div>
+          <div class="example" style="margin:0">
+            <div class="example-head"><span class="ex-label">contoh</span><strong>Domain dari akar</strong></div>
+            <div class="example-body">
+              <p class="example-q">Tentukan domain $g(x)=\sqrt{x-3}$.</p>
+              <p>Di bilangan real, isi akar harus non-negatif: $x-3\ge0$.</p>
+              <span class="answer">$D_g=[3,\infty)$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout--info" data-label="bekal uts">
+          <p>Untuk fungsi kuadrat $f(x)=ax^2+bx+c$ dengan $a&gt;0$, range-nya $[y_{\min},\infty)$ dengan $y_{\min}=c-\frac{b^2}{4a}$. Untuk $a&lt;0$, range-nya $(-\infty,y_{\max}]$.</p>
+        </div>
+      </section>
+
+      <section id="jenis" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">03</span>
+          <div>
+            <h2>Injektif, surjektif, bijektif</h2>
+            <p class="sec-sub">Tiga tingkat â€œkerapianâ€ sebuah pemetaan.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="def-card">
+            <span class="def-label">injektif Â· satu-ke-satu</span>
+            <p>Tidak ada dua input berbeda yang menghasilkan output sama.</p>
+            <p>$f(a)=f(b)\Rightarrow a=b$.</p>
+            <p>Uji garis horizontal: setiap garis horizontal memotong grafik paling banyak satu kali.</p>
+          </div>
+          <div class="def-card">
+            <span class="def-label">surjektif Â· pada</span>
+            <p>Setiap elemen kodomain merupakan hasil dari setidaknya satu input.</p>
+            <p>Kuncinya: $\text{range}=\text{kodomain}$.</p>
+          </div>
+        </div>
+
+        <div class="def-card">
+          <span class="def-label">bijektif Â· korespondensi satu-satu</span>
+          <p>Injektif sekaligus surjektif. Setiap input punya output unik, dan setiap output di kodomain tercapai tepat satu kali.</p>
+          <p>Fungsi bijektif punya invers yang juga merupakan fungsi dari kodomain kembali ke domain.</p>
+        </div>
+
+        <h3>Contoh dengan rumus</h3>
+        <ul>
+          <li>$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^2+1$ <strong>bukan injektif</strong>, karena $f(2)=f(-2)=5$.</li>
+          <li>$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x-1$ <strong>injektif</strong>, karena $a-1=b-1$ hanya jika $a=b$.</li>
+          <li>$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^2$ <strong>tidak surjektif</strong> ke $\mathbb{R}$, karena bilangan negatif tidak pernah tercapai.</li>
+          <li>$f:\mathbb{R}\to[0,\infty)$, $f(x)=x^2$ <strong>surjektif</strong> terhadap kodomain yang dipilih, karena setiap bilangan non-negatif punya akar real.</li>
+        </ul>
+
+        <div class="callout callout--gold" data-label="perhatikan kodomain">
+          <p>Sifat surjektif bergantung pada kodomain yang dipilih. $f(x)=x^2$ tidak surjektif ke $\mathbb{R}$, tetapi surjektif ke $[0,\infty)$. Saat soal menyebut â€œfungsi padaâ€, periksa kodomainnya.</p>
+        </div>
+      </section>
+
+      <section id="invers" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">04</span>
+          <div>
+            <h2>Invers</h2>
+            <p class="sec-sub">Membalik proses: dari output kembali ke input asal.</p>
+          </div>
+        </div>
+
+        <p>Jika $f$ memetakan $x$ ke $y=f(x)$, invers $f^{-1}$ menerima $y$ dan mengembalikan $x$. Invers sebagai fungsi hanya ada jika $f$ <strong>injektif</strong> pada domain yang dipilihâ€”kalau dua input berbeda menghasilkan output sama, kita tidak tahu harus kembali ke yang mana.</p>
+
+        <div class="formula-card formula-card--green">
+          <p class="formula-title">hubungan</p>
+          <p class="formula-lead">$y=f(x)\quad\Longleftrightarrow\quad x=f^{-1}(y)$</p>
+          <p>Pada notasi $x$: $f^{-1}(x)$ adalah hasil menukar $y$ dengan $x$ setelah persamaan diselesaikan.</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 1</span><strong>Invers fungsi linear</strong></div>
+          <div class="example-body">
+            <p class="example-q">Tentukan invers $f(x)=2x+3$.</p>
+            <ol class="steps">
+              <li>Tulis $y=2x+3$.</li>
+              <li>Selesaikan untuk $x$: $2x=y-3$, jadi $x=\frac{y-3}{2}$.</li>
+              <li>Tukar nama variabel: $f^{-1}(x)=\frac{x-3}{2}$.</li>
+              <li>Cek: $f^{-1}(f(x))=\frac{(2x+3)-3}{2}=x$.</li>
+            </ol>
+            <span class="answer">$f^{-1}(x)=\frac{x-3}{2}$</span>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh 2</span><strong>Invers fungsi rasional</strong></div>
+          <div class="example-body">
+            <p class="example-q">Tentukan invers $f(x)=\dfrac{3x-2}{x+1}$, $x\neq-1$.</p>
+            <ol class="steps">
+              <li>Tulis $y=\frac{3x-2}{x+1}$, lalu kalikan silang: $y(x+1)=3x-2$.</li>
+              <li>Kumpulkan suku $x$: $yx+y=3x-2\Rightarrow x(y-3)=-2-y$.</li>
+              <li>$x=\frac{-2-y}{y-3}=\frac{y+2}{3-y}$.</li>
+              <li>Tukar variabel: $f^{-1}(x)=\frac{x+2}{3-x}$, dengan $x\neq3$.</li>
+            </ol>
+            <span class="answer">$f^{-1}(x)=\frac{x+2}{3-x}$</span>
+          </div>
+        </div>
+
+        <div class="callout callout--info" data-label="domain invers">
+          <p>Domain $f^{-1}$ sama dengan range $f$. Pada contoh 1, range $f$ adalah $\mathbb{R}$, jadi domain $f^{-1}$ juga $\mathbb{R}$. Pada contoh 2, range $f$ adalah $\mathbb{R}\setminus\{3\}$, sehingga $x=3$ harus dikeluarkan dari domain invers.</p>
+        </div>
+      </section>
+
+      <section id="komposisi" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">05</span>
+          <div>
+            <h2>Komposisi</h2>
+            <p class="sec-sub">Dua fungsi yang disambung: output yang pertama menjadi input yang kedua.</p>
+          </div>
+        </div>
+
+        <p>Komposisi $f$ dan $g$ ditulis $(f\circ g)(x)=f(g(x))$. Kerjakan fungsi yang paling dekat dengan $x$ terlebih dahuluâ€”di sini $g$â€”lalu masukkan hasilnya ke $f$.</p>
+
+        <div class="figure-card">
+          <svg viewBox="0 0 560 190" role="img" aria-labelledby="kompTitle kompDesc">
+            <title id="kompTitle">Alur komposisi fungsi</title>
+            <desc id="kompDesc">x masuk ke fungsi g menghasilkan g(x), lalu masuk ke fungsi f menghasilkan f(g(x)).</desc>
+            <rect width="560" height="190" fill="#fffdf7"/>
+            <circle cx="76" cy="94" r="28" fill="#f4e9ee" stroke="#2f3330" stroke-width="1.6"/>
+            <text x="76" y="100" text-anchor="middle" font-family="'Fraunces',serif" font-size="18" font-style="italic">x</text>
+            <circle cx="254" cy="94" r="42" fill="#e8eef5" stroke="#2f3330" stroke-width="1.6"/>
+            <text x="254" y="100" text-anchor="middle" font-family="'Fraunces',serif" font-size="18" font-style="italic">g(x)</text>
+            <circle cx="455" cy="94" r="52" fill="#eef1e3" stroke="#2f3330" stroke-width="1.6"/>
+            <text x="455" y="100" text-anchor="middle" font-family="'Fraunces',serif" font-size="18" font-style="italic">f(g(x))</text>
+            <path d="M106 94h100" stroke="#3c5f8c" stroke-width="1.8" marker-end="url(#arrowK)"/>
+            <path d="M298 94h100" stroke="#3c5f8c" stroke-width="1.8" marker-end="url(#arrowK)"/>
+            <defs><marker id="arrowK" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0l6 3-6 3Z" fill="#3c5f8c"/></marker></defs>
+            <text x="156" y="82" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#3c5f8c">g</text>
+            <text x="348" y="82" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="9" fill="#3c5f8c">f</text>
+            <text x="280" y="168" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="7.5" fill="#7d8379">langkah 1: masukkan x ke g Â· langkah 2: masukkan g(x) ke f</text>
+          </svg>
+          <figcaption>Urutan penting: $(f\circ g)(x)$ tidak sama dengan $(g\circ f)(x)$ pada umumnya.</figcaption>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh</span><strong>Dua arah komposisi</strong></div>
+          <div class="example-body">
+            <p class="example-q">Diberikan $f(x)=x-1$ dan $g(x)=x^2+1$. Tentukan $(f\circ g)(x)$ dan $(g\circ f)(x)$, lalu hitung masing-masing di $x=2$.</p>
+            <ol class="steps">
+              <li>$(f\circ g)(x)=f(g(x))=f(x^2+1)=(x^2+1)-1=x^2$.</li>
+              <li>$(g\circ f)(x)=g(f(x))=g(x-1)=(x-1)^2+1=x^2-2x+2$.</li>
+              <li>$(f\circ g)(2)=2^2=4$.</li>
+              <li>$(g\circ f)(2)=2^2-2(2)+2=2$.</li>
+            </ol>
+            <span class="answer">hasilnya berbeda: 4 dan 2</span>
+          </div>
+        </div>
+
+        <p>Komposisi juga berhubungan dengan invers: jika $f$ dan $g$ bijektif, maka $(f\circ g)^{-1}=g^{-1}\circ f^{-1}$â€”urutan dibalik, seperti membuka dua lapis pakaian dari luar ke dalam.</p>
+      </section>
+
+      <section id="khusus" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">06</span>
+          <div>
+            <h2>Bilangan khusus</h2>
+            <p class="sec-sub">Enam fungsi yang sering muncul di soal: floor, ceiling, modulo, faktorial, eksponensial, logaritma, dan rekursi.</p>
+          </div>
+        </div>
+
+        <h3>Floor dan ceiling</h3>
+        <p>$\lfloor x\rfloor$ adalah bilangan bulat terbesar yang $\le x$; $\lceil x\rceil$ adalah bilangan bulat terkecil yang $\ge x$. Untuk bilangan negatif, arahnya tetap mengikuti definisiâ€”bukan sekadar â€œbuang desimalâ€.</p>
+        <div class="table-wrap">
+          <table class="key-table">
+            <thead><tr><th>$x$</th><th>$\lfloor x\rfloor$</th><th>$\lceil x\rceil$</th></tr></thead>
+            <tbody>
+              <tr><td class="num">3,5</td><td class="num">3</td><td class="num">4</td></tr>
+              <tr><td class="num">0,5</td><td class="num">0</td><td class="num">1</td></tr>
+              <tr><td class="num">4,8</td><td class="num">4</td><td class="num">5</td></tr>
+              <tr><td class="num">âˆ’0,5</td><td class="num">âˆ’1</td><td class="num">0</td></tr>
+              <tr><td class="num">âˆ’3,5</td><td class="num">âˆ’4</td><td class="num">âˆ’3</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Modulo</h3>
+        <p>Untuk bilangan bulat $a$ dan modulus $m&gt;0$, hasil bagi dan sisa memenuhi</p>
+        <div class="formula-card">
+          <p class="formula-lead">$a=mq+r,\qquad 0\le r&lt;m$</p>
+          <p>$q$ adalah hasil bagi bulat; $r$ adalah sisa pembagian. Syarat $0\le r&lt;m$ membuat hasil modulo selalu unik dan non-negatif.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="example" style="margin:0">
+            <div class="example-head"><span class="ex-label">positif</span><strong>$25\bmod7$</strong></div>
+            <div class="example-body">
+              <p>$25=7\cdot3+4$, dengan $0\le4&lt;7$.</p>
+              <span class="answer">$25\bmod7=4$</span>
+            </div>
+          </div>
+          <div class="example" style="margin:0">
+            <div class="example-head"><span class="ex-label">negatif</span><strong>$-25\bmod7$</strong></div>
+            <div class="example-body">
+              <p>$-25=7(-4)+3$, dengan $0\le3&lt;7$.</p>
+              <p>Jika memakai $q=-3$, sisanya $-4$â€”tidak memenuhi syarat.</p>
+              <span class="answer">$-25\bmod7=3$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout--warn" data-label="jebakan">
+          <p>Untuk bilangan negatif, gunakan $q$ yang membuat sisa berada di $0\le r&lt;m$. Bukan â€œtanda ikut bilangan awalâ€.</p>
+        </div>
+
+        <h3>Faktorial, eksponensial, logaritma</h3>
+        <div class="two-col">
+          <div class="formula-card">
+            <p class="formula-title">faktorial</p>
+            <p>$n!=1\cdot2\cdots(n-1)\cdot n$ untuk $n&gt;0$, dan $0!=1$.</p>
+            <p>$5!=120$ Â· $3!=6$ Â· $1!=1$.</p>
+          </div>
+          <div class="formula-card formula-card--warm">
+            <p class="formula-title">eksponensial</p>
+            <p>$a^n= \underbrace{a\cdots a}_{n\text{ kali}}$, $a^0=1$, $a^{-n}=\dfrac{1}{a^n}$.</p>
+            <p>$2^3=8$ Â· $3^{-2}=\frac19$.</p>
+          </div>
+          <div class="formula-card formula-card--green">
+            <p class="formula-title">logaritma</p>
+            <p>$y=\log_a x\iff x=a^y$ dengan $a&gt;0$, $a\neq1$, $x&gt;0$.</p>
+            <p>$\log_2 8=3$ Â· $\log_{10}100=2$ Â· $\log_5 1=0$.</p>
+          </div>
+          <div class="formula-card formula-card--plum">
+            <p class="formula-title">rekursif</p>
+            <p>$f(n)=n\cdot f(n-1)$ untuk $n&gt;0$, dengan $f(0)=1$.</p>
+            <p>$5!=5\cdot4!=5\cdot4\cdot3!=120$.</p>
+          </div>
+        </div>
+
+        <div class="callout callout--info" data-label="inti">
+          <p>Logaritma adalah operasi kebalikan dari eksponen: pertanyaannya â€œbasis $a$ harus dipangkatkan berapa agar menghasilkan $x$?â€. Rekursi adalah fungsi yang memanggil dirinya sendiri dengan kasus dasar yang menghentikan proses.</p>
+        </div>
+
+        <div class="example">
+          <div class="example-head"><span class="ex-label">contoh gabungan</span><strong>Modulo dan faktorial</strong></div>
+          <div class="example-body">
+            <p class="example-q">Hitung $3612\bmod45$ dan $5!$.</p>
+            <ol class="steps">
+              <li>$45\cdot80=3600$, sehingga $3612=45\cdot80+12$.</li>
+              <li>Karena $0\le12&lt;45$, maka $3612\bmod45=12$.</li>
+              <li>$5!=1\cdot2\cdot3\cdot4\cdot5=120$.</li>
+            </ol>
+            <span class="answer">12 dan 120</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="latihan" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">07</span>
+          <div>
+            <h2>Latihan</h2>
+            <p class="sec-sub">Enam soal yang menutup seluruh modulâ€”termasuk dua jebakan modulo dan invers.</p>
+          </div>
+        </div>
+
+        <div class="practice">
+          <div class="practice-head">
+            <div><h3>Fungsi, invers, bilangan khusus</h3><p>coba dulu sebelum membuka langkahnya</p></div>
+            <button class="solutions-toggle" type="button" data-toggle-solutions aria-expanded="false">Buka semua</button>
+          </div>
+          <ol>
+            <li>
+              <p class="q-line">Tentukan invers $f(x)=2x+3$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$y=2x+3\Rightarrow x=\frac{y-3}{2}$. Setelah menukar variabel, $f^{-1}(x)=\frac{x-3}{2}$.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Diberikan $f(x)=x^2+1$ dengan domain $\mathbb{R}$ dan kodomain $\mathbb{R}$. Apakah $f$ injektif? Surjektif? Punya invers?</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>Tidak injektif: $f(2)=f(-2)=5$ padahal $2\neq-2$.</p>
+                <p>Tidak surjektif ke $\mathbb{R}$: range-nya $[1,\infty)$, sehingga bilangan negatif tidak tercapai.</p>
+                <p>Karena tidak injektif pada seluruh $\mathbb{R}$, $f$ tidak punya invers fungsi pada domain tersebut. Jika domain dibatasi menjadi $x\ge0$, fungsinya injektif dan inversnya $f^{-1}(x)=\sqrt{x-1}$.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Diberikan $f(x)=x-1$ dan $g(x)=x^2+1$. Tentukan $(f\circ g)(x)$, $(g\circ f)(x)$, dan nilainya di $x=2$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$(f\circ g)(x)=f(x^2+1)=x^2$; di $x=2$ hasilnya 4.</p>
+                <p>$(g\circ f)(x)=g(x-1)=(x-1)^2+1=x^2-2x+2$; di $x=2$ hasilnya 2.</p>
+                <p>Keduanya berbeda, jadi komposisi tidak komutatif.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Hitung $\lfloor3{,}5\rfloor$, $\lceil3{,}5\rceil$, $\lfloor-0{,}5\rfloor$, $\lceil-0{,}5\rceil$, $\lfloor-3{,}5\rfloor$, $\lceil-3{,}5\rceil$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$\lfloor3{,}5\rfloor=3$, $\lceil3{,}5\rceil=4$.</p>
+                <p>$\lfloor-0{,}5\rfloor=-1$, $\lceil-0{,}5\rceil=0$.</p>
+                <p>$\lfloor-3{,}5\rfloor=-4$, $\lceil-3{,}5\rceil=-3$.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Hitung $25\bmod7$, $16\bmod4$, dan $-25\bmod7$. Jelaskan langkah untuk kasus negatif.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$25=7\cdot3+4\Rightarrow25\bmod7=4$.</p>
+                <p>$16=4\cdot4+0\Rightarrow16\bmod4=0$.</p>
+                <p>$-25=7(-4)+3$ dengan $0\le3&lt;7$, jadi $-25\bmod7=3$. Pilihan $q=-3$ memberi sisa $-4$ yang tidak memenuhi syarat.</p>
+              </div></details>
+            </li>
+            <li>
+              <p class="q-line">Hitung $\log_2 8$, $\log_{10}100$, $\log_5 1$, dan $5!$.</p>
+              <details class="solution"><summary>Pembahasan</summary><div class="solution-body">
+                <p>$\log_2 8=3$ karena $2^3=8$.</p>
+                <p>$\log_{10}100=2$ karena $10^2=100$.</p>
+                <p>$\log_5 1=0$ karena $5^0=1$.</p>
+                <p>$5!=1\cdot2\cdot3\cdot4\cdot5=120$.</p>
+              </div></details>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="rangkuman" class="lesson-block">
+        <div class="sec-head">
+          <span class="sec-no">08</span>
+          <div>
+            <h2>Rangkuman</h2>
+            <p class="sec-sub">Lima gagasan yang akan terus dipakai sampai limit dan turunan.</p>
+          </div>
+        </div>
+        <ul>
+          <li>Fungsi memasangkan setiap elemen domain dengan tepat satu elemen kodomain.</li>
+          <li>Domain adalah input yang boleh; range adalah output yang benar-benar tercapai.</li>
+          <li>Invers sebagai fungsi memerlukan sifat injektif pada domain yang dipilih.</li>
+          <li>Komposisi dikerjakan dari fungsi terdekat ke $x$, dan umumnya tidak komutatif.</li>
+          <li>Modulo memakai sisa $0\le r&lt;m$, termasuk untuk bilangan negatif.</li>
+        </ul>
+        <div class="callout callout--ok" data-label="cek diri">
+          <p>Bisa menjelaskan mengapa $f(x)=x^2$ tidak punya invers pada domain $\mathbb{R}$, tetapi punya invers pada domain $x\ge0$? Kalau bisa, kamu siap ke limit.</p>
+        </div>
+      </section>
+
+      <div class="end-nav">
+        <a href="materi-2.html"><span>â† materi 02</span><strong>Trigonometri</strong></a>
+        <a class="next" href="materi-4.html"><span>selanjutnya Â· materi 04</span><strong>Limit â†’</strong></a>
+      </div>
+
+      <p class="source-note">Sumber materi: <a href="assets/pdf/materi-3-fungsi.pdf" target="_blank" rel="noopener">Week 3 â€” Fungsi dan Bilangan (PDF)</a>. Contoh domainâ€“range kuadrat ditambahkan sebagai jembatan ke UTS.</p>
+    </article>
+  </div>
+
+  <footer class="site-foot">
+    <span>Modul 03 Â· Fungsi &amp; Bilangan Khusus</span>
+    <span class="mono">batas &amp; bentuk Â· kalkulus reguler</span>
+  </footer>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script src="modul.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+

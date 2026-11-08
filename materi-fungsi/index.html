@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>materi-fungsi â€” belajar fungsi dari nol</title>
+<meta name="description" content="Belajar fungsi dari nol: definisi dan notasi, domainâ€“kodomainâ€“range, grafik, fungsi linear sampai sepotong, invers, dan komposisi. Dijelaskan runtut dengan visual.">
+<meta name="theme-color" content="#f7f6f0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<link rel="stylesheet" href="assets/tema.css">
+  <link rel="stylesheet" href="autoscroll.css">
+</head>
+<body>
+<a class="skip" href="#utama">Lompat ke isi</a>
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html" aria-label="materi-fungsi, beranda">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="5" fill="#fffefa"/>
+        <g stroke="#1f4e79" stroke-opacity=".2" stroke-width=".8">
+          <path d="M0 8h32M0 16h32M0 24h32M8 0v32M16 0v32M24 0v32"/>
+        </g>
+        <path d="M4 27c5 0 6-18 11-18s5 12 9 12" fill="none" stroke="#1f4e79" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="15" cy="9" r="2.6" fill="#b03a26" stroke="#fffefa" stroke-width="1.2"/>
+      </svg>
+      <span class="brand-word">fungsi<i>.</i></span>
+    </a>
+
+    <nav class="topnav" aria-label="Navigasi utama">
+      <a href="dasar.html">Dasar</a>
+      <a href="bentuk.html">Bentuk</a>
+      <a href="lanjut.html">Lanjut</a>
+      <a href="latihan.html">Latihan</a>
+      <a href="ringkasan.html">Ringkasan</a>
+    </nav>
+
+    <span class="readchip" data-readchip title="Progres bagian yang sudah ditandai">
+      <span class="bar"><span></span></span>
+      <b>0/15</b> selesai
+    </span>
+  </div>
+</header>
+
+<main id="utama" class="shell">
+
+  <section class="hero">
+    <div>
+      <p class="kicker">Matematika dasar Â· 15 bagian</p>
+      <h1>Satu input,<br><em>satu output.</em></h1>
+      <p class="lede">Fungsi cuma aturan yang tidak boleh bercabang. Kalau kamu bisa membaca satu panah, kamu sudah setengah paham. Sisanya: notasi, domain, grafik, lalu invers dan komposisi.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="dasar.html#definisi">
+          Mulai dari definisi
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#peta">Lihat peta belajar</a>
+      </div>
+    </div>
+
+    <div class="hero-fig">
+      <div class="fig-frame">
+        <svg viewBox="0 0 440 360" role="img" aria-labelledby="heroTitle heroDesc">
+          <title id="heroTitle">Diagram panah: setiap input dipetakan ke tepat satu output</title>
+          <desc id="heroDesc">Himpunan A berisi 1, 2, 3 dipetakan ke himpunan B berisi 2, 4, 6. Tiap anggota A punya satu panah keluar.</desc>
+          <defs>
+            <pattern id="heroGrid" width="22" height="22" patternUnits="userSpaceOnUse">
+              <path d="M22 0H0v22" fill="none" stroke="#1f4e79" stroke-opacity=".08" stroke-width="1"/>
+            </pattern>
+            <marker id="heroArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+              <path d="M0 0l6 3-6 3Z" fill="#1f4e79"/>
+            </marker>
+          </defs>
+
+          <rect width="440" height="360" fill="#f7f6f0"/>
+          <rect width="440" height="360" fill="url(#heroGrid)"/>
+
+          <ellipse cx="108" cy="184" rx="62" ry="102" fill="rgba(31,78,121,.05)" stroke="#1f4e79" stroke-width="1.4"/>
+          <ellipse cx="332" cy="184" rx="62" ry="102" fill="rgba(176,58,38,.035)" stroke="#b03a26" stroke-width="1.4" stroke-opacity=".75"/>
+
+          <text x="108" y="62" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1.4" fill="#55636f">A Â· DOMAIN</text>
+          <text x="332" y="62" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1.4" fill="#55636f">B Â· KODOMAIN</text>
+
+          <g fill="#16212c">
+            <circle cx="86" cy="128" r="4.5"/>
+            <circle cx="86" cy="184" r="4.5"/>
+            <circle cx="86" cy="240" r="4.5"/>
+            <circle cx="310" cy="128" r="4.5"/>
+            <circle cx="310" cy="184" r="4.5"/>
+            <circle cx="310" cy="240" r="4.5"/>
+          </g>
+
+          <g font-family="'Newsreader',serif" font-size="19" font-style="italic" fill="#16212c">
+            <text x="62" y="135" text-anchor="end">1</text>
+            <text x="62" y="191" text-anchor="end">2</text>
+            <text x="62" y="247" text-anchor="end">3</text>
+            <text x="334" y="135">2</text>
+            <text x="334" y="191">4</text>
+            <text x="334" y="247">6</text>
+          </g>
+
+          <g fill="none" stroke="#1f4e79" stroke-width="1.6" marker-end="url(#heroArrow)">
+            <path d="M92 128C150 128 240 124 302 126"/>
+            <path d="M92 184C150 184 240 184 302 184"/>
+            <path d="M92 240C150 240 240 244 302 242"/>
+          </g>
+
+          <g stroke="#b03a26" stroke-width="1.2" stroke-dasharray="3 3" fill="none">
+            <path d="M92 128H86M310 126V128"/>
+          </g>
+
+          <text x="220" y="312" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing=".6" fill="#55636f">setiap input keluar tepat satu panah</text>
+          <text x="220" y="330" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing=".6" fill="#b03a26">tidak ada cabang, tidak ada input yatim</text>
+        </svg>
+      </div>
+      <div class="cap">
+        <span>f(1)=2 Â· f(2)=4 Â· f(3)=6</span>
+        <span>fungsi</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stat-row">
+    <div class="stat"><b>15</b><span>bagian materi</span></div>
+    <div class="stat"><b>3</b><span>bab berurutan</span></div>
+    <div class="stat"><b data-total-done>0 dari 15</b><span>sudah kamu tandai</span></div>
+  </div>
+
+  <section class="roadmap" id="peta">
+    <div class="roadmap-head">
+      <h2>Peta belajar</h2>
+      <span class="kicker">urut dari atas</span>
+    </div>
+
+    <div class="roadmap-grid">
+      <a class="rm-card" href="dasar.html">
+        <div class="rm-top">
+          <span class="rm-no">BAB 01</span>
+          <span class="chip">5 bagian</span>
+        </div>
+        <h3>Dasar: apa itu fungsi</h3>
+        <p>Diagram panah, notasi $f(x)$, domain dan range, kapan sebuah relasi gagal jadi fungsi, sampai uji garis vertikal.</p>
+        <div class="rm-meta" data-chapter="dasar">
+          <span class="rm-bar"><i></i></span>
+          <b>0/5</b>
+        </div>
+      </a>
+
+      <a class="rm-card" href="bentuk.html">
+        <div class="rm-top">
+          <span class="rm-no">BAB 02</span>
+          <span class="chip">6 bagian</span>
+        </div>
+        <h3>Bentuk-bentuk fungsi</h3>
+        <p>Linear, kuadrat, rasional, akar, nilai mutlak, dan fungsi sepotong â€” masing-masing dengan ciri grafiknya.</p>
+        <div class="rm-meta" data-chapter="bentuk">
+          <span class="rm-bar"><i></i></span>
+          <b>0/6</b>
+        </div>
+      </a>
+
+      <a class="rm-card" href="lanjut.html">
+        <div class="rm-top">
+          <span class="rm-no">BAB 03</span>
+          <span class="chip">4 bagian</span>
+        </div>
+        <h3>Membalik dan menggabung</h3>
+        <p>Injektifâ€“surjektifâ€“bijektif, invers, komposisi, lalu sifat genapâ€“ganjil dan monoton.</p>
+        <div class="rm-meta" data-chapter="lanjut">
+          <span class="rm-bar"><i></i></span>
+          <b>0/4</b>
+        </div>
+      </a>
+
+      <a class="rm-card" href="latihan.html">
+        <div class="rm-top">
+          <span class="rm-no">LATIHAN</span>
+          <span class="chip">12 soal</span>
+        </div>
+        <h3>Uji pemahaman</h3>
+        <p>Soal bertingkat dari mudah ke sulit. Setiap soal punya langkah lengkap, bukan cuma jawaban akhir.</p>
+        <div class="rm-meta">
+          <span class="rm-bar"><i style="width:0"></i></span>
+          <b>mandiri</b>
+        </div>
+      </a>
+
+      <a class="rm-card" href="ringkasan.html">
+        <div class="rm-top">
+          <span class="rm-no">RINGKASAN</span>
+          <span class="chip">1 halaman</span>
+        </div>
+        <h3>Sebelum ujian</h3>
+        <p>Semua definisi, syarat, dan bentuk grafik dalam satu lembar. Cocok dibaca ulang 10 menit sebelum masuk.</p>
+        <div class="rm-meta">
+          <span class="rm-bar"><i style="width:0"></i></span>
+          <b>ulang cepat</b>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec" style="margin-top:56px">
+    <div class="sec-head">
+      <span class="sec-no">+</span>
+      <div>
+        <h2>Cara memakai web ini</h2>
+        <p class="sec-sub">Tiga kebiasaan kecil yang membuat materi ini benar-benar masuk.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="panel panel-tight">
+        <span class="chip chip-blue">01</span>
+        <h3 style="margin:10px 0 6px">Baca intinya dulu</h3>
+        <p style="font-size:.92rem;color:var(--muted);margin:0">Tiap bagian dibuka satu kalimat inti. Kalau kalimat itu sudah masuk, sisa halaman cuma memperjelas.</p>
+      </div>
+      <div class="panel panel-tight">
+        <span class="chip chip-blue">02</span>
+        <h3 style="margin:10px 0 6px">Kerjakan contohnya</h3>
+        <p style="font-size:.92rem;color:var(--muted);margin:0">Tutup jawabannya, coba sendiri di kertas, baru bandingkan langkah. Membaca saja terasa paham, padahal belum.</p>
+      </div>
+      <div class="panel panel-tight">
+        <span class="chip chip-blue">03</span>
+        <h3 style="margin:10px 0 6px">Tandai yang selesai</h3>
+        <p style="font-size:.92rem;color:var(--muted);margin:0">Tombol di akhir bagian menyimpan progres di browser ini, jadi kamu tahu harus lanjut dari mana.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="note-label">catatan</span>
+      <p>Progres disimpan lokal di perangkatmu, bukan di server. Kalau membuka dari browser atau perangkat lain, hitungannya mulai dari nol lagi.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="shell">
+  <div class="foot">
+    <span>materi-fungsi Â· dibuat untuk belajar, bukan menghafal</span>
+    <span><a href="https://github.com/voltakyy/materi-fungsi">sumber di GitHub</a></span>
+  </div>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script src="autoscroll.js" defer></script>
+  
+  <script src="../shared/portal-nav.js" defer></script>
+</body>
+</html>
+
+
