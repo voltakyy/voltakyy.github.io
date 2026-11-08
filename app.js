@@ -1,13 +1,13 @@
 /**
- * RUANG BELAJAR UMS — ACADEMIC STUDIO CORE SCRIPT
- * Fast, bug-free filtering, theme switching, and keyboard shortcuts
+ * RUANG BELAJAR UMS — MODERN TECH DEVELOPER SCRIPT
+ * Raycast/Linear style command search, keyboard shortcuts, and dark/light persistence
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Theme Switching
+  // Theme Switching (Default: Dark)
   const htmlEl = document.documentElement;
   const themeToggle = document.getElementById('themeToggle');
-  const storedTheme = localStorage.getItem('ums_portal_theme') || 'light';
+  const storedTheme = localStorage.getItem('ums_portal_theme') || 'dark';
   
   function applyTheme(theme) {
     htmlEl.setAttribute('data-theme', theme);
@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const current = htmlEl.getAttribute('data-theme') || 'light';
+      const current = htmlEl.getAttribute('data-theme') || 'dark';
       const next = current === 'dark' ? 'light' : 'dark';
       applyTheme(next);
     });
   }
 
-  // Live Search & Filtering
+  // Live Spotlight Search & Filtering
   const searchInput = document.getElementById('courseSearch');
-  const filterTabs = document.querySelectorAll('.filter-tab-btn');
+  const filterPills = document.querySelectorAll('.filter-pill');
   const courseCards = document.querySelectorAll('.course-card');
   const dockItems = document.querySelectorAll('.dock-item');
   const emptyState = document.getElementById('emptyState');
@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
       filterItems();
     });
 
-    // Keyboard shortcut '/' to focus search, 'Escape' to clear
+    // Keyboard shortcuts: '/' or 'Cmd+K / Ctrl+K' to focus search, 'Escape' to clear
     document.addEventListener('keydown', (e) => {
-      if (e.key === '/' && document.activeElement !== searchInput) {
+      if ((e.key === '/' || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) && document.activeElement !== searchInput) {
         e.preventDefault();
         searchInput.focus();
         searchInput.select();
@@ -95,9 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Category filter tabs
-  filterTabs.forEach(btn => {
+  filterPills.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterTabs.forEach(b => {
+      filterPills.forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
       });
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (searchInput) searchInput.value = '';
       searchQuery = '';
       activeCategory = 'all';
-      filterTabs.forEach(b => {
+      filterPills.forEach(b => {
         const isAll = b.dataset.filter === 'all';
         b.classList.toggle('active', isAll);
         b.setAttribute('aria-selected', isAll ? 'true' : 'false');
