@@ -196,9 +196,15 @@
 
 @media (max-width: 640px) {
   .ums-portal-inner {
-    padding: 8px 14px;
+    padding: 8px 12px;
   }
   .ums-portal-crumb-sep, .ums-portal-current-badge span:last-child {
     display: none;
+  }
+  .ums-portal-menu {
+    right: 0;
+    left: auto;
+    width: min(320px, calc(100vw - 24px));
+    min-width: 0;
   }
 }

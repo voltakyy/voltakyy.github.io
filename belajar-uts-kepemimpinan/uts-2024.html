@@ -27,27 +27,27 @@
    ========================================================= */
 
 :root {
-  --paper: #f6f0e4;
-  --paper-deep: #efe5d1;
-  --card: #fffdf7;
-  --ink: #24221f;
-  --ink-soft: #5f5a50;
-  --ink-faint: #8a8377;
-  --mustard: #f2b544;
-  --mustard-soft: #fdf2d4;
+  --paper: #fafbfc;
+  --paper-deep: #f0f4f8;
+  --card: #ffffff;
+  --ink: #1a202c;
+  --ink-soft: #4a5568;
+  --ink-faint: #718096;
+  --mustard: #00a67e;
+  --mustard-soft: #e6f7f3;
   --tomato: #dd5a3a;
   --tomato-soft: #fbe8e1;
-  --teal: #2b8a79;
-  --teal-soft: #e5f2ee;
-  --blue: #9fc3d8;
-  --blue-soft: #e8f1f5;
-  --plum: #7d5a86;
-  --plum-soft: #f0e9f2;
-  --font: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --display: 'Bricolage Grotesque', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --teal: #0066cc;
+  --teal-soft: #e0f2fe;
+  --blue: #0066cc;
+  --blue-soft: #e0f2fe;
+  --plum: #00a67e;
+  --plum-soft: #e6f7f3;
+  --font: 'Inter', -apple-system, sans-serif;
+  --display: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
-  --radius: 20px;
-  --shadow: 7px 7px 0 var(--ink);
+  --radius: 16px;
+  --shadow: 0 4px 16px rgba(0, 102, 204, 0.08);
 }
 
 *, *::before, *::after {
@@ -69,26 +69,13 @@ body {
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.55;
-  background:
-    radial-gradient(circle at 8% -4%, rgba(242,181,68,.28), transparent 34rem),
-    radial-gradient(circle at 96% 4%, rgba(159,195,216,.32), transparent 30rem),
-    radial-gradient(circle at 50% 110%, rgba(43,138,121,.14), transparent 36rem),
-    var(--paper);
+  background: #fafbfc;
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(36,34,31,.12) 1px, transparent 1.6px);
-  background-size: 26px 26px;
-  opacity: .24;
-}
+body::before { display: none; }
 
 [hidden] { display: none !important; }
 button { font: inherit; color: inherit; }
@@ -150,10 +137,10 @@ img, svg { max-width: 100%; height: auto; }
   height: 42px;
   flex: 0 0 auto;
   padding: 4px;
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   background: var(--card);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   display: grid;
   place-items: center;
 }
@@ -182,20 +169,20 @@ img, svg { max-width: 100%; height: auto; }
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 999px;
   background: var(--card);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
   transition: all .15s ease;
   cursor: pointer;
 }
 .nav-pill:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   background: var(--mustard-soft);
 }
 .nav-pill.active {
@@ -207,18 +194,18 @@ img, svg { max-width: 100%; height: auto; }
   font-size: 10px;
   letter-spacing: .04em;
   padding: 6px 12px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 6px;
   background: var(--mustard-soft);
-  transform: rotate(2deg);
-  box-shadow: 2px 2px 0 var(--ink);
+  transform: none;
+  box-shadow: none;
   white-space: nowrap;
   font-weight: 700;
 }
 
 /* ---------- Official Header Card ---------- */
 .official-header-card {
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -233,7 +220,7 @@ img, svg { max-width: 100%; height: auto; }
   top: 14px;
   right: -32px;
   background: var(--mustard);
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   font-family: var(--mono);
   font-size: 9px;
   font-weight: 800;
@@ -253,7 +240,7 @@ img, svg { max-width: 100%; height: auto; }
 .univ-logo-box {
   width: 58px;
   height: 58px;
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   background: var(--teal);
   color: #fff;
@@ -262,7 +249,7 @@ img, svg { max-width: 100%; height: auto; }
   font-family: var(--display);
   font-weight: 850;
   font-size: 21px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   flex-shrink: 0;
 }
 .univ-titles h1 {
@@ -285,7 +272,7 @@ img, svg { max-width: 100%; height: auto; }
   gap: 12px;
   margin-bottom: 18px;
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 14px 18px;
 }
@@ -352,7 +339,7 @@ img, svg { max-width: 100%; height: auto; }
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   background: var(--card);
   font-family: var(--display);
@@ -360,7 +347,7 @@ img, svg { max-width: 100%; height: auto; }
   font-weight: 750;
   color: var(--ink-soft);
   cursor: pointer;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   white-space: nowrap;
   flex: 0 0 auto;
   flex-shrink: 0;
@@ -375,7 +362,7 @@ img, svg { max-width: 100%; height: auto; }
   background: var(--tomato);
   color: #fffdf7;
   border-color: var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   transform: translate(1px, 1px);
 }
 .tab-badge {
@@ -408,7 +395,7 @@ img, svg { max-width: 100%; height: auto; }
 
 /* ---------- Question & Solution Cards ---------- */
 .q-post {
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -445,13 +432,13 @@ img, svg { max-width: 100%; height: auto; }
 .badge-score {
   background: var(--mustard);
   color: var(--ink);
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   font-family: var(--mono);
   font-weight: 700;
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 8px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
 }
 .badge-cpmk {
   background: var(--teal-soft);
@@ -475,7 +462,7 @@ img, svg { max-width: 100%; height: auto; }
 /* Solution Box */
 .solution-card {
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 20px clamp(14px, 3vw, 24px);
   margin-top: 18px;
@@ -516,13 +503,13 @@ img, svg { max-width: 100%; height: auto; }
 
 /* Code / Skeleton Box */
 .code-window {
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   background: #1e1e24;
   color: #f3ecdc;
   margin: 14px 0 18px;
   overflow: hidden;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .code-bar {
   display: flex;
@@ -560,14 +547,14 @@ img, svg { max-width: 100%; height: auto; }
 /* Callout Boxes */
 .def-box {
   background: var(--card);
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-left: 5px solid var(--teal);
   border-radius: 8px;
   padding: 12px 16px;
   margin: 12px 0 16px;
   font-size: 14px;
   line-height: 1.6;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
 }
 .def-box.gold {
   border-left-color: var(--mustard);
@@ -619,10 +606,10 @@ img, svg { max-width: 100%; height: auto; }
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin: 16px 0;
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   background: var(--card);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
   overscroll-behavior-x: contain;
 }
 .rubrik-table {
@@ -662,7 +649,7 @@ img, svg { max-width: 100%; height: auto; }
   justify-content: center;
   gap: 8px;
   padding: 11px 20px;
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   background: var(--card);
   color: var(--ink);
@@ -671,7 +658,7 @@ img, svg { max-width: 100%; height: auto; }
   font-weight: 750;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   transition: all .15s ease;
 }
 .btn:hover {
@@ -701,18 +688,18 @@ img, svg { max-width: 100%; height: auto; }
 }
 .btn-ghost:hover {
   background: var(--card);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .btn-small {
   padding: 8px 14px;
   border-radius: 8px;
   font-size: .84rem;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
 }
 
 /* ---------- Simulator Tab (Tab 2) ---------- */
 .exam-score-bar {
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   background: var(--mustard);
   box-shadow: 5px 5px 0 var(--ink);
@@ -748,13 +735,13 @@ img, svg { max-width: 100%; height: auto; }
 }
 .grade-pill {
   padding: 6px 16px;
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 999px;
   background: var(--card);
   font-family: var(--mono);
   font-weight: 800;
   font-size: 13px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
   white-space: nowrap;
 }
 
@@ -763,10 +750,10 @@ img, svg { max-width: 100%; height: auto; }
   align-items: center;
   gap: 12px;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 10px 18px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   margin-bottom: 22px;
   flex-wrap: wrap;
 }
@@ -788,7 +775,7 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 .essay-sim-card {
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -798,7 +785,7 @@ img, svg { max-width: 100%; height: auto; }
 .sim-textarea {
   width: 100%;
   min-height: 125px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 12px 14px;
   font-family: var(--font);
@@ -827,7 +814,7 @@ img, svg { max-width: 100%; height: auto; }
   align-items: center;
   gap: 10px;
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   padding: 6px 14px;
   border-radius: 8px;
 }
@@ -858,20 +845,20 @@ img, svg { max-width: 100%; height: auto; }
   width: 100%;
   text-align: left;
   padding: 12px 16px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   background: var(--card);
   cursor: pointer;
   font-size: 14px;
   line-height: 1.45;
   color: var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
   transition: all .15s ease;
 }
 .mc-opt-btn:hover {
   background: var(--mustard-soft);
   transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .mc-opt-btn.correct {
   background: var(--teal-soft) !important;
@@ -898,7 +885,7 @@ img, svg { max-width: 100%; height: auto; }
 
 /* ---------- Diagram Stage (Tab 5) ---------- */
 .diagram-stage {
-  border: 2px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -914,14 +901,14 @@ img, svg { max-width: 100%; height: auto; }
 }
 .diag-btn {
   padding: 8px 16px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   background: var(--paper);
   font-family: var(--display);
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: none;
   transition: all .15s ease;
 }
 .diag-btn:hover {
@@ -934,7 +921,7 @@ img, svg { max-width: 100%; height: auto; }
 }
 .diagram-canvas {
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 20px;
   overflow-x: auto;
@@ -951,8 +938,8 @@ img, svg { max-width: 100%; height: auto; }
   border-radius: 50%;
   background: var(--mustard);
   color: var(--ink);
-  border: 2px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   font-size: 20px;
   font-weight: 800;
   cursor: pointer;
@@ -1924,7 +1911,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
 
   <!-- ================= TAB 6: CATATAN RINGKAS A4 (SIAP CETAK) ================= -->
   <div id="pane-cheatsheet" class="exam-pane">
-    <div class="official-header-card print-a4-paper" style="border:2px solid var(--ink); background:#fffdf7; padding:22px;">
+    <div class="official-header-card print-a4-paper" style="border: 1px solid #e2e8f0; background:#fffdf7; padding:22px;">
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--ink); padding-bottom:12px; margin-bottom:14px;">
         <div>
           <span style="font-family:var(--mono); font-size:10px; font-weight:700; color:var(--teal); text-transform:uppercase;">Ringkasan Hafalan 1 Jam Jelang Ujian</span>
@@ -1938,7 +1925,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
 
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:14px;">
         <!-- Box 1 -->
-        <div style="border:1.5px solid var(--ink); border-radius:10px; padding:12px; background:#fff;">
+        <div style="border: 1px solid #e2e8f0; border-radius:10px; padding:12px; background:#fff;">
           <strong style="display:block; font-family:var(--mono); font-size:11px; color:var(--tomato); border-bottom:1px solid #ddd; padding-bottom:4px; margin-bottom:6px;">
             SOAL 1: DEFINISI &amp; TUGAS POKOK KEPEMIMPINAN
           </strong>
@@ -1951,7 +1938,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
         </div>
 
         <!-- Box 2 -->
-        <div style="border:1.5px solid var(--ink); border-radius:10px; padding:12px; background:#fff;">
+        <div style="border: 1px solid #e2e8f0; border-radius:10px; padding:12px; background:#fff;">
           <strong style="display:block; font-family:var(--mono); font-size:11px; color:var(--mustard); border-bottom:1px solid #ddd; padding-bottom:4px; margin-bottom:6px;">
             SOAL 2: AQIDAH, AKHLAQ &amp; KONFLIK
           </strong>
@@ -1964,7 +1951,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
         </div>
 
         <!-- Box 3 -->
-        <div style="border:1.5px solid var(--ink); border-radius:10px; padding:12px; background:#fff;">
+        <div style="border: 1px solid #e2e8f0; border-radius:10px; padding:12px; background:#fff;">
           <strong style="display:block; font-family:var(--mono); font-size:11px; color:var(--teal); border-bottom:1px solid #ddd; padding-bottom:4px; margin-bottom:6px;">
             SOAL 3: 3 TANTANGAN &amp; SOLUSI
           </strong>
@@ -1976,7 +1963,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
         </div>
 
         <!-- Box 4 -->
-        <div style="border:1.5px solid var(--ink); border-radius:10px; padding:12px; background:#fff;">
+        <div style="border: 1px solid #e2e8f0; border-radius:10px; padding:12px; background:#fff;">
           <strong style="display:block; font-family:var(--mono); font-size:11px; color:var(--plum); border-bottom:1px solid #ddd; padding-bottom:4px; margin-bottom:6px;">
             SOAL 4: 8 SKILL ADAIR &amp; STAR
           </strong>

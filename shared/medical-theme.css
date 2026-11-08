@@ -1,6 +1,7 @@
 /* =========================================================
    RUANG BELAJAR UMS — MASTER MEDICAL-CLINIC DESIGN SYSTEM
    Exact tokens & aesthetic from https://www.uupm.cc/demo/medical-clinic
+   Applied universally across all 7 courses and 31 pages
    ========================================================= */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
@@ -9,8 +10,9 @@
 html,
 html[data-theme],
 html[data-theme="dark"],
-html[data-theme="light"] {
-  /* Medical Clinic Colors */
+html[data-theme="light"],
+body {
+  /* Medical Clinic Primary & Secondary Palette */
   --color-primary: #0066cc !important;
   --color-primary-hover: #0052a3 !important;
   --color-secondary: #00a67e !important;
@@ -21,21 +23,24 @@ html[data-theme="light"] {
   --color-warning: #f59e0b !important;
   --color-error: #ef4444 !important;
 
+  /* Backgrounds */
   --color-bg: #fafbfc !important;
   --color-bg-alt: #f0f4f8 !important;
   --color-bg-card: #ffffff !important;
   --color-bg-dark: #1e3a5f !important;
 
+  /* Typography Colors */
   --color-text: #1a202c !important;
   --color-text-muted: #4a5568 !important;
   --color-text-subtle: #718096 !important;
   --color-border: #e2e8f0 !important;
 
-  /* Aliases for Studio Paper / Neo-brutalist courses */
+  /* Aliases for Studio Paper Neo-Brutalist Courses (Kepemimpinan, EAP, Visual) */
   --paper: #fafbfc !important;
   --paper-deep: #f0f4f8 !important;
   --paper-2: #f0f4f8 !important;
   --paper-3: #e2e8f0 !important;
+  --paper-soft: #ffffff !important;
   --card: #ffffff !important;
   --ink: #1a202c !important;
   --ink-soft: #4a5568 !important;
@@ -47,20 +52,21 @@ html[data-theme="light"] {
   --border-color: #e2e8f0 !important;
   --border-subtle: #edf2f7 !important;
 
-  /* Cyber-academic (Alpro & Lohim) color overrides */
+  /* Cyber-Academic Palette Overrides (Alpro, Lohim) */
   --bg-page: #fafbfc !important;
   --bg-surface: #ffffff !important;
   --bg-surface-elevated: #f0f4f8 !important;
   --bg-surface-card: #ffffff !important;
-  --bg-hover: #f0f4f8 !important;
+  --bg-hover: #e0f2fe !important;
   --text-main: #1a202c !important;
   --text-body: #4a5568 !important;
+  --text-subtle: #a0aec0 !important;
   --primary: #0066cc !important;
   --primary-hover: #0052a3 !important;
   --primary-light: rgba(0, 102, 204, 0.08) !important;
   --primary-border: rgba(0, 102, 204, 0.25) !important;
 
-  /* Theme accent palette mapped to Medical Clinic */
+  /* Color accents mapped to Medical Clinic */
   --teal: #0066cc !important;
   --teal-soft: #e0f2fe !important;
   --mustard: #00a67e !important;
@@ -81,6 +87,10 @@ html[data-theme="light"] {
   --olive-soft: #e6f7f3 !important;
   --green: #00a67e !important;
   --green-soft: #e6f7f3 !important;
+  --accent-emerald: #00a67e !important;
+  --accent-amber: #f59e0b !important;
+  --accent-rose: #ef4444 !important;
+  --accent-cyan: #0284c7 !important;
 
   /* Shadows — sleek medical clinic blue-tinted elevation */
   --shadow: 0 4px 16px rgba(0, 102, 204, 0.08) !important;
@@ -95,7 +105,7 @@ html[data-theme="light"] {
   --radius-lg: 16px !important;
   --radius-full: 9999px !important;
 
-  /* Fonts */
+  /* Typography */
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
@@ -105,7 +115,7 @@ html[data-theme="light"] {
 }
 
 /* =========================================================
-   GLOBAL RESET & BASE CANVAS
+   GLOBAL RESET & BASE CANVAS (APPLIES TO ALL PAGES)
    ========================================================= */
 html, body {
   background-color: #fafbfc !important;
@@ -115,26 +125,57 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Eliminate all retro yellow dot grids, pseudo-element patterns */
+body::before,
+body::after,
+.shell::before,
+.shell::after,
+main::before,
+main::after,
+#stage::before,
+#stage::after {
+  display: none !important;
+  content: none !important;
+  background-image: none !important;
+}
+
 h1, h2, h3, h4, h5, h6,
 .brand-title, .section-title, .hero-title, .card-title,
-.exam-title, .modal-title, .site-title {
+.exam-title, .modal-title, .site-title, .brand-text {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
   color: #1a202c !important;
   letter-spacing: -0.02em;
 }
 
-p, li, span, td, th, div {
+p, li, span, td, div {
   color: inherit;
 }
 
-/* Remove retro graph lines / background grids from submodules */
-body::before, body::after, .shell::before, .shell::after {
-  background-image: none !important;
+/* =========================================================
+   HEADERS & NAVIGATION BARS ACROSS ALL COURSES
+   ========================================================= */
+.site-head,
+.topbar,
+.top-header,
+header.site-head,
+header.topbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-radius: 0 0 16px 16px !important;
+  padding: 16px 24px !important;
+  margin-bottom: 24px !important;
+  box-shadow: 0 2px 10px rgba(0, 102, 204, 0.04) !important;
+}
+
+.brand-mark {
+  background: rgba(0, 102, 204, 0.08) !important;
+  border: 1px solid rgba(0, 102, 204, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
 }
 
 /* =========================================================
-   CARD & CONTAINER OVERRIDES
-   Transforms all neo-brutalist / dark cards into Medical Clinic cards
+   CARD & CONTAINER OVERRIDES (MEDICAL CLINIC SURFACES)
    ========================================================= */
 .card,
 .hero-card,
@@ -142,8 +183,16 @@ body::before, body::after, .shell::before, .shell::after {
 .trust-card,
 .quiz-card,
 .flashcard,
+.case-card,
 .exam-card,
 .module-box,
+.modul-card,
+.materi-card,
+.concept-card,
+.practice-card,
+.topic-card,
+.guide-card,
+.arena-card,
 .arena-question-card,
 .article-card,
 .theory-card,
@@ -163,7 +212,13 @@ body::before, body::after, .shell::before, .shell::after {
 .timer-box,
 .exam-alert-banner,
 .alert-card,
-.stat-card {
+.stat-card,
+.screen,
+.box,
+.def-card,
+.glossary-card,
+.nim-tester,
+.trace-table-wrap {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 16px !important;
@@ -176,13 +231,16 @@ body::before, body::after, .shell::before, .shell::after {
 .service-card:hover,
 .quiz-card:hover,
 .article-card:hover,
-.arena-question-card:hover {
+.arena-question-card:hover,
+.case-card:hover,
+.modul-card:hover,
+.flashcard:hover {
   border-color: #0066cc !important;
   box-shadow: 0 10px 28px rgba(0, 102, 204, 0.12) !important;
 }
 
 /* =========================================================
-   BUTTONS & CALLS TO ACTION
+   BUTTONS & CALLS TO ACTION (MEDICAL CLINIC BUTTONS)
    ========================================================= */
 button.btn-primary,
 .btn-primary,
@@ -191,7 +249,12 @@ a.btn-primary,
 button.action-btn,
 .btn-submit-exam,
 .btn-teal,
-.btn-emerald {
+.btn-emerald,
+.btn-score,
+.btn-generate,
+.btn-sim-start,
+.cta-btn,
+.btn-run {
   background: #0066cc !important;
   color: #ffffff !important;
   border: 1px solid #0066cc !important;
@@ -205,13 +268,15 @@ button.action-btn,
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
+  padding: 10px 20px !important;
 }
 
 button.btn-primary:hover,
 .btn-primary:hover,
 .btn-uts-primary:hover,
 button.action-btn:hover,
-.btn-submit-exam:hover {
+.btn-submit-exam:hover,
+.btn-sim-start:hover {
   background: #0052a3 !important;
   border-color: #0052a3 !important;
   box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35) !important;
@@ -223,7 +288,9 @@ button.btn-secondary,
 a.btn-secondary,
 .btn-uts-secondary,
 .btn-outline,
-.btn-ghost {
+.btn-ghost,
+.btn-reset,
+.btn-clear {
   background: #ffffff !important;
   color: #0066cc !important;
   border: 1.5px solid #0066cc !important;
@@ -237,6 +304,7 @@ a.btn-secondary,
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
+  padding: 10px 20px !important;
 }
 
 button.btn-secondary:hover,
@@ -248,7 +316,7 @@ button.btn-secondary:hover,
 }
 
 /* =========================================================
-   BADGES & PILLS
+   BADGES & PILLS (CLINICAL ROUNDED PILLS)
    ========================================================= */
 .badge,
 .badge-teal,
@@ -263,19 +331,27 @@ button.btn-secondary:hover,
 .chapter-pill,
 .challenge-tag,
 .ios-tag,
-.chip {
+.chip,
+.nav-pill,
+.stamp-badge,
+.status-badge,
+.filter-chip,
+.filter-pill,
+.tag {
   border-radius: 50px !important;
   font-weight: 600 !important;
   font-size: 12px !important;
   letter-spacing: 0.02em !important;
-  padding: 4px 12px !important;
+  padding: 5px 14px !important;
   border: 1px solid rgba(0, 102, 204, 0.18) !important;
   background: rgba(0, 102, 204, 0.08) !important;
   color: #0066cc !important;
   box-shadow: none !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 4px !important;
+  gap: 5px !important;
+  transform: none !important;
+  text-decoration: none !important;
 }
 
 .badge-mustard, .badge-teal, .badge-score {
@@ -290,12 +366,24 @@ button.btn-secondary:hover,
   color: #ef4444 !important;
 }
 
+.nav-pill:hover, .stamp-badge:hover {
+  background: #0066cc !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+.nav-pill.active {
+  background: #0066cc !important;
+  color: #ffffff !important;
+}
+
 /* =========================================================
-   TABS & NAVIGATION
+   TABS & NAVIGATION STRIPS
    ========================================================= */
 .tab-nav,
 .nav-tabs,
-.tab-strip {
+.tab-strip,
+.exam-nav {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 14px !important;
@@ -303,6 +391,7 @@ button.btn-secondary:hover,
   box-shadow: 0 2px 8px rgba(0, 102, 204, 0.04) !important;
   display: flex !important;
   gap: 6px !important;
+  flex-wrap: wrap !important;
 }
 
 .tab-btn,
@@ -341,7 +430,8 @@ table,
 .academic-table,
 .truth-table,
 .cs-table,
-.deep-table {
+.deep-table,
+.rubric-table {
   width: 100% !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
@@ -349,6 +439,7 @@ table,
   border: 1px solid #e2e8f0 !important;
   border-radius: 12px !important;
   overflow: hidden !important;
+  margin: 16px 0 !important;
 }
 
 th {
@@ -405,7 +496,6 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15) !important;
 }
 
-/* Radio & Checkbox styling */
 input[type="radio"],
 input[type="checkbox"] {
   accent-color: #0066cc !important;
@@ -413,12 +503,41 @@ input[type="checkbox"] {
 }
 
 /* =========================================================
-   CODE BLOCKS & MONOSPACE
+   MATH & FORMULAS (KATEX / KALKULUS / FUNGSI)
    ========================================================= */
-pre, code, kbd, samp {
-  font-family: 'JetBrains Mono', monospace !important;
+.katex-display,
+.math-block,
+.formula-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 4px solid #0066cc !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  margin: 14px 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.04) !important;
+  color: #1a202c !important;
+  overflow-x: auto !important;
 }
 
+/* =========================================================
+   TIMERS & SIMULATION HEADERS
+   ========================================================= */
+.kki-timer-box,
+.timer-pill,
+.timer-display,
+.exam-timer {
+  background: #ffffff !important;
+  border: 1.5px solid #0066cc !important;
+  color: #0066cc !important;
+  border-radius: 50px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 700 !important;
+  padding: 6px 14px !important;
+}
+
+/* =========================================================
+   CODE BLOCKS
+   ========================================================= */
 pre {
   background: #1e293b !important;
   color: #f8fafc !important;
@@ -442,78 +561,93 @@ pre code {
 }
 
 /* =========================================================
-   AUDIO PLAYER & VOCABULARY VAULT (EAP)
+   MOBILE RESPONSIVENESS & ZERO-OVERFLOW SAFEGUARDS
    ========================================================= */
-.audio-player-box,
-.custom-audio-player {
-  background: #f0f4f8 !important;
-  border: 1px solid #cbd5e1 !important;
-  border-radius: 16px !important;
-  padding: 16px !important;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.06) !important;
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  min-inline-size: 0;
 }
 
-/* =========================================================
-   MATH FORMULA CONTAINERS (KATEX / KALKULUS / FUNGSI)
-   ========================================================= */
-.katex-display,
-.math-block,
-.formula-box {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-left: 4px solid #0066cc !important;
-  border-radius: 12px !important;
-  padding: 14px 18px !important;
-  margin: 14px 0 !important;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.04) !important;
+html, body {
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+  margin: 0 !important;
+  -webkit-text-size-adjust: 100% !important;
+}
+
+.shell, main, .screen, .container, #main-content, .topbar-in, .header-inner {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure code, formulas, and wide tables never cause horizontal page scroll */
+pre, code, .katex-display, .math-block, .formula-box, .code-panel, pre code {
+  max-width: 100% !important;
   overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
-/* =========================================================
-   TIMERS & SIMULATION HEADERS
-   ========================================================= */
-.kki-timer-box,
-.timer-pill,
-.timer-display {
-  background: #ffffff !important;
-  border: 1.5px solid #0066cc !important;
-  color: #0066cc !important;
-  border-radius: 50px !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-weight: 700 !important;
+table, .academic-table, .truth-table, .cs-table, .deep-table, .rubric-table {
+  max-width: 100% !important;
 }
 
-/* =========================================================
-   MODALS & OVERLAYS
-   ========================================================= */
-.modal-backdrop,
-.vocab-vault-modal {
-  background: rgba(30, 58, 95, 0.5) !important;
-  backdrop-filter: blur(4px) !important;
+@media (max-width: 768px) {
+  body {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Padding containment for shells on mobile */
+  .shell {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    width: 100% !important;
+  }
+
+  /* Table responsive wrap and zero-overflow */
+  table, .academic-table, .truth-table, .cs-table, .deep-table, .rubric-table, .rubrik-table {
+    min-width: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Nav headers and pills on mobile: smooth swipeable row */
+  .head-meta, .exam-nav, .tab-nav, .nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    padding-bottom: 6px !important;
+    scrollbar-width: none;
+  }
+  .head-meta::-webkit-scrollbar, .exam-nav::-webkit-scrollbar, .tab-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-pill, .tab-btn, .badge {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Tap target height */
+  button, .btn, .btn-primary, .btn-secondary, a.btn-primary, a.btn-secondary, .tab-btn, .nav-pill {
+    min-height: 40px !important;
+    touch-action: manipulation;
+  }
+
+  /* Break long words / URLs cleanly */
+  p, li, span, h1, h2, h3, h4, td, div {
+    overflow-wrap: break-word !important;
+  }
+
+  /* Flex containers that might overflow */
+  .hero-actions, .filter-group, .action-buttons {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
 }
 
-.modal-dialog,
-.vocab-modal-content {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 20px !important;
-  box-shadow: 0 20px 50px rgba(0, 102, 204, 0.18) !important;
-}
-
-/* =========================================================
-   SCROLLBAR MODERNIZATION
-   ========================================================= */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f0f4f8;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}

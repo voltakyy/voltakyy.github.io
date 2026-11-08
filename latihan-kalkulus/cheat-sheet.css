@@ -57,10 +57,10 @@
   display:grid;
   gap:6px;
   padding:12px 14px;
-  border:1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius:6px;
   background:var(--card);
-  box-shadow:4px 4px 0 var(--cobalt);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .cheat-print-steps span{
   display:flex;
@@ -91,8 +91,8 @@
   font-size:6.35pt;
   line-height:1.2;
   background:#fffdf6;
-  border:1.5px solid var(--ink);
-  box-shadow:12px 12px 0 rgba(28,42,46,.18);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .a5-sheet::before{
   content:'';
@@ -310,7 +310,7 @@
   gap:28px;
   margin:34px auto 0;
   padding:18px 20px;
-  border:1.5px solid var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius:7px;
   background:rgba(255,253,246,.7);
 }
