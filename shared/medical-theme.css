@@ -1,7 +1,7 @@
 /* =========================================================
    RUANG BELAJAR UMS — MASTER MEDICAL-CLINIC DESIGN SYSTEM
    Exact tokens & aesthetic from https://www.uupm.cc/demo/medical-clinic
-   Applied universally across all 7 courses and all pages
+   Applied universally across all repositories and pages
    ========================================================= */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
@@ -32,7 +32,7 @@ body {
   --color-text-subtle: #718096 !important;
   --color-border: #e2e8f0 !important;
 
-  /* Aliases for Studio Paper Neo-Brutalist Courses (Kepemimpinan, EAP, Visual) */
+  /* Compatibility Aliases */
   --paper: #fafbfc !important;
   --paper-deep: #f0f4f8 !important;
   --paper-2: #f0f4f8 !important;
@@ -50,7 +50,6 @@ body {
   --border-color: #e2e8f0 !important;
   --border-subtle: #edf2f7 !important;
 
-  /* Cyber-Academic Palette Overrides (Alpro, Lohim) */
   --bg-page: #fafbfc !important;
   --bg-surface: #ffffff !important;
   --bg-surface-elevated: #f0f4f8 !important;
@@ -64,7 +63,6 @@ body {
   --primary-light: rgba(0, 102, 204, 0.08) !important;
   --primary-border: rgba(0, 102, 204, 0.25) !important;
 
-  /* Color accents mapped to Medical Clinic */
   --teal: #0066cc !important;
   --teal-soft: #e0f2fe !important;
   --mustard: #00a67e !important;
@@ -90,7 +88,7 @@ body {
   --accent-rose: #ef4444 !important;
   --accent-cyan: #0284c7 !important;
 
-  /* Shadows — sleek medical clinic blue-tinted elevation */
+  /* Shadows */
   --shadow: 0 4px 16px rgba(0, 102, 204, 0.08) !important;
   --shadow-sm: 0 2px 8px rgba(0, 102, 204, 0.05) !important;
   --shadow-md: 0 6px 20px rgba(0, 102, 204, 0.09) !important;
@@ -112,36 +110,24 @@ body {
   --radius-pill: 999px !important;
 }
 
-/* Base Body Resets */
-html {
-  font-family: var(--font);
-  background-color: #fafbfc !important;
-  color: #1a202c !important;
-  overflow-x: clip !important;
-  max-width: 100vw !important;
-}
-
-body {
-  font-family: var(--font) !important;
+html, body {
   background: #fafbfc !important;
   background-color: #fafbfc !important;
   background-image: none !important;
   color: #1a202c !important;
+  font-family: 'Inter', sans-serif !important;
   line-height: 1.6 !important;
-  overflow-x: clip !important;
   max-width: 100vw !important;
-  margin: 0 !important;
+  overflow-x: clip !important;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6,
-.site-title, .portal-hero-title, .univ-titles h1, .univ-titles h2 {
-  font-family: var(--display) !important;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   color: #1a202c !important;
   letter-spacing: -0.02em !important;
 }
 
-/* Total Elimination of Pseudo-Element Ribbons & Brutalist Badges */
+/* Eradicate All Ribbons */
 .official-header-card::before,
 .official-header-card::after,
 .site-head::before,
@@ -152,21 +138,175 @@ body::before,
 body::after {
   display: none !important;
   content: none !important;
-  background: none !important;
-  border: none !important;
-  transform: none !important;
 }
 
-/* Header & Official Cards */
-.official-header-card,
-.site-head,
-.course-hero {
+/* =========================================================
+   UNIVERSAL SITE HEADER (FLAWLESS SPACING & ALIGNMENT)
+   ========================================================= */
+.site-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  padding: 14px 24px !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.06) !important;
+  margin-top: 14px !important;
+  margin-bottom: 24px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  flex-wrap: wrap !important;
+  box-sizing: border-box !important;
+}
+
+.brand,
+.brand-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+}
+
+.brand-mark,
+.brand-badge {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #f0f4f8 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 4px !important;
+  box-shadow: 0 2px 6px rgba(0, 102, 204, 0.05) !important;
+  flex-shrink: 0 !important;
+  font-size: 22px !important;
+}
+
+.brand-word,
+.brand-title {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 20px !important;
+  color: #1a202c !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+.brand-word span {
+  color: #0066cc !important;
+}
+
+.brand-sub {
+  color: #718096 !important;
+  font-size: 12px !important;
+  margin: 2px 0 0 !important;
+}
+
+.head-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.site-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.site-nav a {
+  padding: 7px 14px !important;
+  border-radius: 999px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #4a5568 !important;
+  text-decoration: none !important;
+  border: 1px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.site-nav a:hover {
+  background: #f0f4f8 !important;
+  color: #0066cc !important;
+}
+
+.site-nav a[aria-current="page"] {
+  background: #e0f2fe !important;
+  color: #0066cc !important;
+  border-color: rgba(0, 102, 204, 0.25) !important;
+  font-weight: 700 !important;
+}
+
+.nav-uts {
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  padding: 7px 16px !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.nav-uts:hover {
+  background: #0052a3 !important;
+  color: #ffffff !important;
+}
+
+.stamp-badge,
+.head-note,
+.eyebrow-note {
+  background: #e6f7f3 !important;
+  color: #00a67e !important;
+  border: 1px solid rgba(0, 166, 126, 0.25) !important;
+  border-radius: 999px !important;
+  padding: 5px 12px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+.nav-pill {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #4a5568 !important;
+  border-radius: 999px !important;
+  padding: 6px 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.15s ease !important;
+}
+
+.nav-pill:hover {
+  background: #f0f4f8 !important;
+  color: #0066cc !important;
+  border-color: #cbd5e1 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* =========================================================
+   EXAM & OFFICIAL HEADER CARDS
+   ========================================================= */
+.official-header-card {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 16px !important;
   box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08) !important;
-  position: relative !important;
-  overflow: hidden !important;
+  padding: 24px 28px !important;
+  margin-bottom: 24px !important;
 }
 
 .univ-brand {
@@ -174,6 +314,8 @@ body::after {
   display: flex !important;
   align-items: center !important;
   gap: 16px !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 18px !important;
 }
 
 .univ-logo-box {
@@ -186,17 +328,6 @@ body::after {
   font-weight: 800 !important;
 }
 
-.univ-titles h1 {
-  font-size: clamp(1.2rem, 3vw, 1.6rem) !important;
-  font-weight: 800 !important;
-  color: #1a202c !important;
-}
-
-.univ-titles p {
-  color: #718096 !important;
-  font-size: 13px !important;
-}
-
 .exam-meta-grid {
   border: 1px solid #e2e8f0 !important;
   background: #f8fafc !important;
@@ -205,39 +336,15 @@ body::after {
 }
 
 .meta-item {
-  border-right: 1px solid #e2e8f0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
+  border-color: #e2e8f0 !important;
   padding: 12px 16px !important;
 }
 
-.meta-label {
-  color: #718096 !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-}
-
-.meta-val {
-  color: #1a202c !important;
-  font-weight: 700 !important;
-}
-
-.guidance-box {
-  background: #f0fdf4 !important;
-  border: 1px solid #bbf7d0 !important;
-  border-left: 4px solid #00a67e !important;
-  border-radius: 12px !important;
-  color: #166534 !important;
-}
-
-.guidance-title {
-  color: #00a67e !important;
-  font-weight: 700 !important;
-}
-
-/* Tabs & Segmented Switchers */
-.exam-tabs-wrap {
+/* =========================================================
+   TABS & SEGMENTED SWITCHERS
+   ========================================================= */
+.exam-tabs-wrap,
+.tab-nav {
   position: sticky !important;
   top: 48px !important;
   z-index: 50 !important;
@@ -246,28 +353,24 @@ body::after {
   -webkit-backdrop-filter: blur(12px) !important;
   border-bottom: 1px solid #e2e8f0 !important;
   padding: 10px 0 !important;
-}
-
-.exam-tabs {
   display: flex !important;
   gap: 8px !important;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch !important;
   scrollbar-width: none !important;
-  padding-bottom: 2px !important;
 }
 
-.exam-tabs::-webkit-scrollbar { display: none !important; }
+.exam-tabs-wrap::-webkit-scrollbar,
+.tab-nav::-webkit-scrollbar { display: none !important; }
 
 .tab-trigger,
-.nav-pill,
 .tab-btn {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   color: #4a5568 !important;
   border-radius: 10px !important;
   padding: 9px 18px !important;
-  font-family: var(--display) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
   box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04) !important;
@@ -275,10 +378,12 @@ body::after {
   cursor: pointer !important;
   white-space: nowrap !important;
   flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
 }
 
 .tab-trigger:hover,
-.nav-pill:hover,
 .tab-btn:hover {
   background: #f0f4f8 !important;
   color: #0066cc !important;
@@ -288,7 +393,6 @@ body::after {
 }
 
 .tab-trigger.active,
-.nav-pill.active,
 .tab-btn.active {
   background: #0066cc !important;
   color: #ffffff !important;
@@ -298,29 +402,82 @@ body::after {
   font-weight: 700 !important;
 }
 
-.tab-trigger.active .tab-badge,
-.tab-btn.active .tab-badge {
-  background: rgba(255, 255, 255, 0.25) !important;
-  color: #ffffff !important;
+/* =========================================================
+   ALERTS & CALLOUTS (EAP & GENERAL)
+   ========================================================= */
+.exam-alert-banner,
+.callout,
+.guidance-box {
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  border-left: 4px solid #0066cc !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05) !important;
+  color: #1e3a8a !important;
+  padding: 16px 20px !important;
+  margin: 18px 0 24px !important;
 }
 
-.tab-badge {
-  background: #e2e8f0 !important;
+.exam-alert-banner strong {
+  color: #0066cc !important;
+}
+
+/* =========================================================
+   BADGES & PILLS
+   ========================================================= */
+.badge {
+  border-radius: 999px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 5px 12px !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.badge-mustard,
+.badge-success {
+  background: #e6f7f3 !important;
+  color: #00a67e !important;
+  border: 1px solid rgba(0, 166, 126, 0.25) !important;
+}
+
+.badge-teal,
+.badge-blue,
+.badge-primary {
+  background: #e0f2fe !important;
+  color: #0066cc !important;
+  border: 1px solid rgba(0, 102, 204, 0.25) !important;
+}
+
+.badge-plum {
+  background: #f0f4f8 !important;
   color: #4a5568 !important;
-  border-radius: 6px !important;
-  font-size: 10.5px !important;
-  padding: 2px 7px !important;
-  font-weight: 600 !important;
+  border: 1px solid #e2e8f0 !important;
 }
 
-/* Question & Content Cards */
+.badge-tomato,
+.badge-danger {
+  background: #fee2e2 !important;
+  color: #ef4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+}
+
+/* =========================================================
+   CARDS & CONTENT BLOCKS
+   ========================================================= */
+.card,
+.quick-nav-card,
+.stat-box,
 .q-card,
 .case-study-card,
-.card,
 .materi-card,
 .concept-card,
 .sim-card,
-.soal-card {
+.soal-card,
+.polaroid {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 14px !important;
@@ -328,14 +485,21 @@ body::after {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
 }
 
+.card:hover,
+.quick-nav-card:hover,
 .q-card:hover,
-.case-study-card:hover,
-.materi-card:hover {
+.case-study-card:hover {
   border-color: #cbd5e1 !important;
   box-shadow: 0 6px 20px rgba(0, 102, 204, 0.09) !important;
 }
 
-/* Buttons */
+.quick-nav-card:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 .btn,
 .btn-primary,
 .action-btn {
@@ -343,11 +507,11 @@ body::after {
   color: #ffffff !important;
   border: none !important;
   border-radius: 10px !important;
-  font-family: var(--display) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-weight: 700 !important;
   box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2) !important;
-  transition: all 0.2s ease !important;
   min-height: 40px !important;
+  padding: 8px 20px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -370,6 +534,7 @@ body::after {
   color: #0066cc !important;
   border: 1px solid #e2e8f0 !important;
   box-shadow: none !important;
+  border-radius: 10px !important;
 }
 
 .btn-secondary:hover,
@@ -379,103 +544,36 @@ body::after {
   color: #0052a3 !important;
 }
 
-/* Badges & Pills */
-.pill,
-.badge,
-.tag,
-.key-badge {
-  border-radius: 999px !important;
-  font-family: var(--mono) !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  padding: 3px 10px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 5px !important;
-  box-shadow: none !important;
-}
-
-.pill-primary, .tag-teal, .badge-primary {
-  background: #e0f2fe !important;
-  color: #0066cc !important;
-  border: 1px solid rgba(0, 102, 204, 0.2) !important;
-}
-
-.pill-secondary, .tag-green, .badge-success {
-  background: #e6f7f3 !important;
-  color: #00a67e !important;
-  border: 1px solid rgba(0, 166, 126, 0.2) !important;
-}
-
-/* AutoScroll Dock Overhaul */
+/* =========================================================
+   AUTOSCROLL DOCK
+   ========================================================= */
 #autoScrollControl,
-.autoscroll-panel {
+.autoscroll-panel,
+.autoscroll-dock {
   position: fixed !important;
-  bottom: 20px !important;
-  left: 20px !important;
-  z-index: 99999 !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  left: max(18px, env(safe-area-inset-left)) !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  z-index: 9000 !important;
+  background: rgba(255, 255, 255, 0.96) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 999px !important;
   box-shadow: 0 8px 30px rgba(0, 102, 204, 0.16) !important;
-  padding: 6px 14px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
+  padding: 8px 14px !important;
 }
 
-#autoScrollPlayBtn,
-.as-btn {
+.as-play {
   background: #0066cc !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 50% !important;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3) !important;
-  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25) !important;
 }
 
-#autoScrollPlayBtn:hover,
-.as-btn:hover {
-  background: #0052a3 !important;
-}
-
-#autoScrollSpeed,
-.as-speed {
-  background: #e0f2fe !important;
-  color: #0066cc !important;
-  border: 1px solid rgba(0, 102, 204, 0.2) !important;
-  border-radius: 999px !important;
-  font-family: var(--mono) !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-}
-
-/* Code & Pre Blocks */
-pre, code {
-  font-family: var(--mono) !important;
-}
-
-pre {
-  background: #f8fafc !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 12px !important;
-  padding: 16px !important;
-  overflow-x: auto !important;
-  color: #1e293b !important;
-}
-
-code:not(pre code) {
-  background: #f1f5f9 !important;
-  color: #0066cc !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 6px !important;
-  padding: 2px 6px !important;
-  font-size: 0.9em !important;
-}
-
-/* Tables & Mobile Safeguards */
+/* =========================================================
+   TABLES & RESPONSIVENESS
+   ========================================================= */
 table {
   width: 100% !important;
   border-collapse: separate !important;
@@ -483,17 +581,15 @@ table {
   border: 1px solid #e2e8f0 !important;
   border-radius: 12px !important;
   overflow: hidden !important;
-  margin: 16px 0 !important;
 }
 
 th {
   background: #f8fafc !important;
   color: #1a202c !important;
-  font-family: var(--display) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-weight: 700 !important;
   padding: 12px 16px !important;
   border-bottom: 1px solid #e2e8f0 !important;
-  text-align: left !important;
 }
 
 td {
@@ -502,45 +598,18 @@ td {
   color: #4a5568 !important;
 }
 
-tr:last-child td {
-  border-bottom: none !important;
-}
-
-tr:hover td {
-  background: #f8fafc !important;
-}
-
-/* Mobile Line / Overflow Fixes */
 @media (max-width: 768px) {
-  .exam-tabs-wrap {
+  .site-head {
+    padding: 14px 16px !important;
+  }
+  .exam-tabs-wrap,
+  .tab-nav {
     top: 44px !important;
   }
-  
-  .univ-brand {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-  
-  .exam-meta-grid {
-    grid-template-columns: 1fr !important;
-  }
-  
-  .meta-item {
-    border-right: none !important;
-  }
-  
   table {
     display: block !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
     min-width: 0 !important;
-  }
-  
-  #autoScrollControl,
-  .autoscroll-panel {
-    bottom: 12px !important;
-    left: 12px !important;
-    right: 12px !important;
-    justify-content: center !important;
   }
 }
