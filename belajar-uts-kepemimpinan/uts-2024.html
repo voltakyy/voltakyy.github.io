@@ -17,8 +17,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3.5">
 
 <style>
 /* =========================================================
@@ -214,26 +214,12 @@ img, svg { max-width: 100%; height: auto; }
   position: relative;
   overflow: hidden;
 }
-.official-header-card::before {
-  content: "NASKAH UTS ASLI 2024/2025";
-  position: absolute;
-  top: 14px;
-  right: -32px;
-  background: var(--mustard);
-  border: 1px solid #e2e8f0;
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 800;
-  padding: 4px 38px;
-  transform: rotate(18deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,.15);
-  letter-spacing: .08em;
-}
+.official-header-card::before { display: none !important; }
 .univ-brand {
   display: flex;
   align-items: center;
   gap: 16px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 18px;
   margin-bottom: 18px;
 }
@@ -321,7 +307,7 @@ img, svg { max-width: 100%; height: auto; }
   z-index: 40;
   background: rgba(246, 240, 228, 0.94);
   backdrop-filter: blur(8px);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-top: 18px;
   padding: 10px 0;
 }
@@ -355,15 +341,15 @@ img, svg { max-width: 100%; height: auto; }
 }
 .tab-trigger:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   color: var(--ink);
 }
 .tab-trigger.active {
-  background: var(--tomato);
-  color: #fffdf7;
-  border-color: var(--ink);
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
-  transform: translate(1px, 1px);
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border-color: #0066cc !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
+  transform: none !important;
 }
 .tab-badge {
   font-family: var(--mono);
@@ -410,7 +396,7 @@ img, svg { max-width: 100%; height: auto; }
   gap: 14px;
   flex-wrap: wrap;
   padding-bottom: 14px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-bottom: 18px;
 }
 .q-badge-group {
@@ -621,7 +607,7 @@ img, svg { max-width: 100%; height: auto; }
 }
 .rubrik-table th {
   background: var(--paper-deep);
-  border-bottom: 1.5px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding: 10px 14px;
   text-align: left;
   font-family: var(--mono);
@@ -663,11 +649,11 @@ img, svg { max-width: 100%; height: auto; }
 }
 .btn:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .btn:active {
   transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .btn-primary {
   background: var(--mustard);
@@ -702,7 +688,7 @@ img, svg { max-width: 100%; height: auto; }
   border: 1px solid #e2e8f0;
   border-radius: 14px;
   background: var(--mustard);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   padding: 18px 24px;
   margin-bottom: 24px;
   display: flex;
@@ -876,7 +862,7 @@ img, svg { max-width: 100%; height: auto; }
   font-family: var(--mono);
   font-weight: 700;
   background: var(--paper-deep);
-  border: 1px solid var(--ink);
+  border: 1px solid #e2e8f0;
   padding: 2px 7px;
   border-radius: 5px;
   flex-shrink: 0;
@@ -917,7 +903,7 @@ img, svg { max-width: 100%; height: auto; }
 .diag-btn.active {
   background: var(--mustard);
   transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .diagram-canvas {
   background: var(--paper);
@@ -951,12 +937,12 @@ img, svg { max-width: 100%; height: auto; }
 }
 .back-to-top:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   background: #ffd269;
 }
 .back-to-top:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 
 /* ---------- Responsive Breakpoints ---------- */
@@ -999,9 +985,7 @@ img, svg { max-width: 100%; height: auto; }
   .official-header-card {
     padding: 20px 16px;
   }
-  .official-header-card::before {
-    display: none;
-  }
+  .official-header-card::before { display: none !important; }
 }
 @media (max-width: 420px) {
   .nav-pill {
@@ -1046,7 +1030,7 @@ img, svg { max-width: 100%; height: auto; }
   }
 }
 </style>
-  <link rel="stylesheet" href="../shared/medical-theme.css">
+  <link rel="stylesheet" href="../shared/medical-theme.css?v=3.5">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
@@ -1764,7 +1748,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
         <svg viewBox="0 0 760 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
           <!-- Flow Box 1: Konflik Muncul -->
           <g transform="translate(15, 60)">
-            <rect width="155" height="130" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+            <rect width="155" height="130" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
             <path d="M0 0h155v26a10 10 0 0 0-10-10H10a10 10 0 0 0-10 10Z" fill="#dd5a3a"/>
             <text x="77" y="18" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">1. SITUASI KONFLIK</text>
             <text x="12" y="52" font-family="'Instrument Sans', sans-serif" font-size="12" font-weight="700" fill="#24221f">• Perbedaan Ego</text>
@@ -1779,7 +1763,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
 
           <!-- Flow Box 2: Filter Aqidah -->
           <g transform="translate(210, 35)">
-            <rect width="165" height="180" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+            <rect width="165" height="180" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
             <path d="M0 0h165v26a10 10 0 0 0-10-10H10a10 10 0 0 0-10 10Z" fill="#f2b544"/>
             <text x="82" y="18" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#24221f" text-anchor="middle">2. FILTER AQIDAH</text>
             <text x="12" y="48" font-family="'Instrument Sans', sans-serif" font-size="12" font-weight="700" fill="#24221f">Menentukan ARAH:</text>
@@ -1797,7 +1781,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
 
           <!-- Flow Box 3: Filter Akhlaq -->
           <g transform="translate(415, 35)">
-            <rect width="165" height="180" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+            <rect width="165" height="180" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
             <path d="M0 0h165v26a10 10 0 0 0-10-10H10a10 10 0 0 0-10 10Z" fill="#2b8a79"/>
             <text x="82" y="18" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">3. INSTRUMEN AKHLAQ</text>
             <text x="12" y="48" font-family="'Instrument Sans', sans-serif" font-size="12" font-weight="700" fill="#24221f">Menentukan CARA:</text>
@@ -1815,7 +1799,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
 
           <!-- Flow Box 4: Solusi Maslahat -->
           <g transform="translate(620, 60)">
-            <rect width="130" height="130" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+            <rect width="130" height="130" rx="10" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
             <path d="M0 0h130v26a10 10 0 0 0-10-10H10a10 10 0 0 0-10 10Z" fill="#9fc3d8"/>
             <text x="65" y="18" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#24221f" text-anchor="middle">4. KEPUTUSAN</text>
             <text x="10" y="52" font-family="'Instrument Sans', sans-serif" font-size="12" font-weight="700" fill="#24221f">✓ Maslahat Umat</text>
@@ -1912,7 +1896,7 @@ tersebut diadopsi resmi oleh organisasi untuk kepanitiaan periode berikutnya.</c
   <!-- ================= TAB 6: CATATAN RINGKAS A4 (SIAP CETAK) ================= -->
   <div id="pane-cheatsheet" class="exam-pane">
     <div class="official-header-card print-a4-paper" style="border: 1px solid #e2e8f0; background:#fffdf7; padding:22px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--ink); padding-bottom:12px; margin-bottom:14px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid #e2e8f0; padding-bottom:12px; margin-bottom:14px;">
         <div>
           <span style="font-family:var(--mono); font-size:10px; font-weight:700; color:var(--teal); text-transform:uppercase;">Ringkasan Hafalan 1 Jam Jelang Ujian</span>
           <h2 style="font-size:1.35rem; margin:2px 0 0; font-family:var(--display);">LEMBAR RESUME CEPAT UTS KKI 2024</h2>

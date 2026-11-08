@@ -17,8 +17,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3.5">
 
 <style>
 /* =========================================================
@@ -67,7 +67,7 @@
   z-index: 40;
   background: rgba(246, 240, 228, 0.94);
   backdrop-filter: blur(8px);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-top: 18px;
   padding: 10px 0;
 }
@@ -101,15 +101,15 @@
 }
 .tab-trigger:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   color: var(--ink);
 }
 .tab-trigger.active {
-  background: var(--tomato);
-  color: #fffdf7;
-  border-color: var(--ink);
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
-  transform: translate(1px, 1px);
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border-color: #0066cc !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
+  transform: none !important;
 }
 .tab-badge {
   font-family: var(--mono);
@@ -149,26 +149,12 @@
   position: relative;
   overflow: hidden;
 }
-.official-header-card::before {
-  content: "NASKAH UTS ASLI 2024/2025";
-  position: absolute;
-  top: 14px;
-  right: -32px;
-  background: var(--mustard);
-  border: 1px solid #e2e8f0;
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-  padding: 4px 38px;
-  transform: rotate(18deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,.15);
-  letter-spacing: .08em;
-}
+.official-header-card::before { display: none !important; }
 .univ-brand {
   display: flex;
   align-items: center;
   gap: 16px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 18px;
   margin-bottom: 18px;
 }
@@ -260,7 +246,7 @@
   gap: 14px;
   flex-wrap: wrap;
   padding-bottom: 14px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-bottom: 18px;
 }
 .q-badge-group {
@@ -431,7 +417,7 @@
 }
 .rubrik-table th {
   background: var(--paper-deep);
-  border-bottom: 1.5px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding: 8px 12px;
   text-align: left;
   font-family: var(--mono);
@@ -508,7 +494,7 @@
   border: 1px solid #e2e8f0;
   border-radius: 14px;
   background: var(--mustard);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   padding: 16px 22px;
   margin-bottom: 24px;
   display: flex;
@@ -595,7 +581,7 @@
   font-family: var(--mono);
   font-weight: 700;
   background: var(--paper-deep);
-  border: 1px solid var(--ink);
+  border: 1px solid #e2e8f0;
   padding: 2px 7px;
   border-radius: 5px;
   flex-shrink: 0;
@@ -636,7 +622,7 @@
 .diag-btn.active {
   background: var(--mustard);
   transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .diagram-canvas {
   background: var(--paper);
@@ -691,9 +677,7 @@
   .official-header-card {
     padding: 20px 16px;
   }
-  .official-header-card::before {
-    display: none;
-  }
+  .official-header-card::before { display: none !important; }
 }
 @media (max-width: 420px) {
   .nav-pill {
@@ -767,16 +751,16 @@
 }
 .back-to-top:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   background: #ffd269;
 }
 .back-to-top:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 </style>
-  <link rel="stylesheet" href="autoscroll.css">
-  <link rel="stylesheet" href="../shared/medical-theme.css">
+  <link rel="stylesheet" href="autoscroll.css?v=3.5">
+  <link rel="stylesheet" href="../shared/medical-theme.css?v=3.5">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
@@ -1160,7 +1144,7 @@ public class Main {
 
               <!-- PARENT CLASS: MANUSIA -->
               <g transform="translate(260, 20)">
-                <rect width="240" height="150" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(4px 4px 0 #24221f)"/>
+                <rect width="240" height="150" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
                 <path d="M0 0h240v32a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#2b8a79"/>
                 <text x="120" y="21" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">&lt;&lt;Parent / Superclass&gt;&gt;</text>
                 <text x="120" y="52" font-family="'Bricolage Grotesque', sans-serif" font-size="17" font-weight="800" fill="#24221f" text-anchor="middle">Manusia</text>
@@ -1192,7 +1176,7 @@ public class Main {
 
               <!-- CHILD 1: MAHASISWA -->
               <g transform="translate(15, 255)">
-                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
                 <path d="M0 0h210v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#f2b544"/>
                 <text x="105" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="800" fill="#24221f" text-anchor="middle">Mahasiswa</text>
                 <text x="105" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#5f5a50" text-anchor="middle">extends Manusia</text>
@@ -1207,7 +1191,7 @@ public class Main {
 
               <!-- CHILD 2: PETANI -->
               <g transform="translate(275, 255)">
-                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
                 <path d="M0 0h210v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#9fc3d8"/>
                 <text x="105" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="800" fill="#24221f" text-anchor="middle">Petani</text>
                 <text x="105" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#5f5a50" text-anchor="middle">extends Manusia</text>
@@ -1219,7 +1203,7 @@ public class Main {
 
               <!-- CHILD 3: PEDAGANG -->
               <g transform="translate(535, 255)">
-                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(3px 3px 0 #24221f)"/>
+                <rect width="210" height="200" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
                 <path d="M0 0h210v28a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#fbe8e1"/>
                 <text x="105" y="19" font-family="'Bricolage Grotesque', sans-serif" font-size="15" font-weight="800" fill="#24221f" text-anchor="middle">Pedagang</text>
                 <text x="105" y="44" font-family="'JetBrains Mono', monospace" font-size="10" fill="#5f5a50" text-anchor="middle">extends Manusia</text>
@@ -1681,7 +1665,7 @@ if (this.alice.getDistanceTo(this.rabbit) < 1.5) {
     </div>
 
     <div class="official-header-card print-a4-paper" style="background:#fff;">
-      <div style="text-align:center; border-bottom:2px solid #24221f; padding-bottom:12px; margin-bottom:14px;">
+      <div style="text-align:center; border-bottom: 1px solid #e2e8f0; padding-bottom:12px; margin-bottom:14px;">
         <h2 style="font-family:var(--display); font-size:18px; margin:0;">RINGKASAN CEPAT UTS PEMROGRAMAN VISUAL 2024/2025</h2>
         <p style="font-family:var(--mono); font-size:11px; margin:4px 0 0;">Informatika Universitas Muhammadiyah Surakarta · Gasal 2024/2025</p>
       </div>
@@ -1689,7 +1673,7 @@ if (this.alice.getDistanceTo(this.rabbit) < 1.5) {
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap:16px;">
         <!-- Kiri: Soal 1 & 2 -->
         <div>
-          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
+          <div style="border: 1px solid #e2e8f0; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
             <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--tomato); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 1: CLASS VS OBJECT</strong>
             <p style="font-size:12px; line-height:1.5; margin:0;">
               • <strong>Class:</strong> Blueprint / cetak biru / rancangan data &amp; perilaku. Belum memakan memori fisik.<br>
@@ -1698,7 +1682,7 @@ if (this.alice.getDistanceTo(this.rabbit) < 1.5) {
             </p>
           </div>
 
-          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
+          <div style="border: 1px solid #e2e8f0; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
             <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--tomato); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 2: PROPERTY VS METHOD</strong>
             <p style="font-size:12px; line-height:1.5; margin:0 0 6px;">
               • <strong>Property:</strong> Variabel / data / atribut keadaan objek (<em>state</em>).<br>
@@ -1711,7 +1695,7 @@ if (this.alice.getDistanceTo(this.rabbit) < 1.5) {
             </div>
           </div>
 
-          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; background:#fffdf7;">
+          <div style="border: 1px solid #e2e8f0; border-radius:8px; padding:10px; background:#fffdf7;">
             <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--tomato); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 5: PERULANGAN (LOOPING)</strong>
             <p style="font-size:12px; line-height:1.5; margin:0;">
               Struktur kontrol eksekusi berulang untuk mencegah duplikasi kode.<br>
@@ -1723,7 +1707,7 @@ if (this.alice.getDistanceTo(this.rabbit) < 1.5) {
 
         <!-- Kanan: Soal 3 & 4 -->
         <div>
-          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
+          <div style="border: 1px solid #e2e8f0; border-radius:8px; padding:10px; margin-bottom:12px; background:#fffdf7;">
             <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--teal); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 3: INHERITANCE (MAHASISWA, PETANI, PEDAGANG)</strong>
             <p style="font-size:12px; line-height:1.5; margin:0 0 6px;">
               Parent Class: <strong style="color:var(--teal);">Manusia</strong><br>
@@ -1737,7 +1721,7 @@ if (this.alice.getDistanceTo(this.rabbit) < 1.5) {
             </p>
           </div>
 
-          <div style="border:1.5px solid #24221f; border-radius:8px; padding:10px; background:#fffdf7;">
+          <div style="border: 1px solid #e2e8f0; border-radius:8px; padding:10px; background:#fffdf7;">
             <strong style="display:block; font-size:12px; font-family:var(--mono); color:var(--teal); border-bottom:1px solid #ccc; padding-bottom:3px; margin-bottom:6px;">SOAL 4: ALICE 3 PROCEDURES VS FUNCTIONS</strong>
             <div class="rubrik-table-wrap">
 <table style="width:100%; font-size:11px; border-collapse:collapse; margin-top:4px;">
@@ -1960,7 +1944,7 @@ function renderDiagram() {
 
         <!-- PARENT MANUSIA -->
         <g transform="translate(250, 35)">
-          <rect width="260" height="150" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(4px 4px 0 #24221f)"/>
+          <rect width="260" height="150" rx="8" fill="#fffdf7" stroke="#24221f" stroke-width="2.5" filter="drop-shadow(box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);)"/>
           <path d="M0 0h260v32a8 8 0 0 0-8-8H8a8 8 0 0 0-8 8Z" fill="#2b8a79"/>
           <text x="130" y="21" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">&lt;&lt;Parent Class&gt;&gt;</text>
           <text x="130" y="52" font-family="'Bricolage Grotesque', sans-serif" font-size="18" font-weight="800" fill="#24221f" text-anchor="middle">Manusia</text>

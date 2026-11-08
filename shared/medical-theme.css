@@ -174,6 +174,87 @@ header.topbar {
   box-shadow: none !important;
 }
 
+/* Official Header Card & University Brand */
+.official-header-card {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 102, 204, 0.05) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.official-header-card::before {
+  display: none !important;
+}
+.univ-brand {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+.univ-logo-box {
+  background: #0066cc !important;
+  border: 1px solid #0066cc !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2) !important;
+}
+.exam-meta-grid {
+  background: #f0f4f8 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+}
+.meta-val {
+  color: #1a202c !important;
+}
+.guidance-box {
+  background: rgba(0, 102, 204, 0.06) !important;
+  border-left: 4px solid #0066cc !important;
+  border-radius: 0 10px 10px 0 !important;
+  color: #1a202c !important;
+}
+.guidance-box strong {
+  color: #0066cc !important;
+}
+
+/* Exam Tabs & Triggers */
+.exam-tabs, .tab-strip, .tab-nav {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  padding: 6px !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.04) !important;
+}
+.tab-trigger {
+  background: transparent !important;
+  color: #4a5568 !important;
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+.tab-trigger:hover {
+  background: #f0f4f8 !important;
+  color: #0066cc !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: none !important;
+  transform: translateY(-1px) !important;
+}
+.tab-trigger.active {
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border-color: #0066cc !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
+  transform: none !important;
+}
+.tab-trigger.active .tab-badge {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+.tab-badge {
+  background: rgba(0, 102, 204, 0.08) !important;
+  color: #0066cc !important;
+  border-radius: 50px !important;
+}
+
 /* =========================================================
    CARD & CONTAINER OVERRIDES (MEDICAL CLINIC SURFACES)
    ========================================================= */

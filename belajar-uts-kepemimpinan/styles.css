@@ -292,7 +292,7 @@ h1 .h1-question {
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--card);
-  box-shadow: 10px 11px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   transform: rotate(1.4deg);
   transition: transform .3s ease;
 }
@@ -339,7 +339,7 @@ h1 .h1-question {
   justify-content: space-between;
   gap: 16px;
   padding-bottom: 14px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
 }
 .syllabus-head h2 {
   margin: 0;
@@ -423,7 +423,7 @@ h1 .h1-question {
   flex-wrap: wrap;
   margin-top: 4px;
   padding-top: 14px;
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid #e2e8f0;
   font-family: var(--mono);
   font-size: 10.5px;
   color: var(--ink-soft);
@@ -506,26 +506,12 @@ h1 .h1-question {
   position: relative;
   overflow: hidden;
 }
-.official-header-card::before {
-  content: attr(data-stamp);
-  position: absolute;
-  top: 14px;
-  right: -32px;
-  background: var(--mustard);
-  border: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 800;
-  padding: 4px 38px;
-  transform: rotate(18deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,.15);
-  letter-spacing: .08em;
-}
+.official-header-card::before { display: none !important; }
 .univ-brand {
   display: flex;
   align-items: center;
   gap: 16px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 18px;
   margin-bottom: 18px;
 }
@@ -613,7 +599,7 @@ h1 .h1-question {
   z-index: 40;
   background: rgba(246, 240, 228, 0.94);
   backdrop-filter: blur(8px);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-top: 18px;
   padding: 10px 0;
 }
@@ -651,11 +637,11 @@ h1 .h1-question {
   color: var(--ink);
 }
 .tab-trigger.active {
-  background: var(--tomato);
-  color: #fffdf7;
-  border-color: var(--ink);
-  box-shadow: var(--shadow-sm);
-  transform: translate(1px, 1px);
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border-color: #0066cc !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
+  transform: none !important;
 }
 .tab-badge {
   font-family: var(--mono);
@@ -702,7 +688,7 @@ h1 .h1-question {
   gap: 14px;
   flex-wrap: wrap;
   padding-bottom: 14px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-bottom: 18px;
 }
 .q-badge-group {
@@ -913,7 +899,7 @@ h1 .h1-question {
 }
 .rubrik-table th {
   background: var(--paper-deep);
-  border-bottom: 1.5px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding: 10px 14px;
   text-align: left;
   font-family: var(--mono);
@@ -970,7 +956,7 @@ summary::after {
   transition: transform .2s ease;
 }
 details[open] summary {
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   background: var(--mustard-soft);
 }
 details[open] summary::after {
@@ -1278,7 +1264,7 @@ details[open] summary::after {
   font-family: var(--mono);
   font-weight: 700;
   background: var(--paper-deep);
-  border: 1px solid var(--ink);
+  border: 1px solid #e2e8f0;
   padding: 2px 7px;
   border-radius: 5px;
   flex-shrink: 0;
@@ -1319,7 +1305,7 @@ details[open] summary::after {
 .diag-btn.active {
   background: var(--mustard);
   transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .diagram-canvas {
   background: var(--paper);
@@ -1355,7 +1341,7 @@ details[open] summary::after {
 }
 .btn:active {
   transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 .btn-primary { background: var(--mustard); }
 .btn-primary:hover { background: #f7c45c; }
@@ -1393,7 +1379,7 @@ details[open] summary::after {
 }
 .back-to-top:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 
 /* ---------- Responsive Breakpoints ---------- */
@@ -1436,9 +1422,7 @@ details[open] summary::after {
   .official-header-card {
     padding: 20px 16px;
   }
-  .official-header-card::before {
-    display: none;
-  }
+  .official-header-card::before { display: none !important; }
   .syllabus {
     padding: 18px 14px;
     margin: 20px 0;

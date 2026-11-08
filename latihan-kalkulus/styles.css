@@ -101,7 +101,7 @@ svg {
   justify-content: space-between;
   gap: 20px;
   padding: 2px 0 16px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .brand {
@@ -274,7 +274,7 @@ h1 em {
   gap: 8px;
   margin: 22px 0 0;
   padding: 7px 11px;
-  border: 1.5px dashed var(--ink);
+  border: 1px solid #e2e8f0;
   border-radius: 4px;
   background: #f9e8a8;
   font-family: var(--mono);
@@ -399,7 +399,7 @@ h1 em {
   justify-content: space-between;
   gap: 20px;
   padding-bottom: 14px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .section-kicker {
@@ -442,8 +442,8 @@ h1 em {
 .topic-card {
   min-width: 0;
   padding: 14px 16px 13px;
-  border-right: 1.5px solid var(--ink);
-  border-bottom: 1.5px solid var(--ink);
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
   background: var(--tint);
 }
 
@@ -520,7 +520,7 @@ h1 em {
   flex-wrap: wrap;
   margin-top: 14px;
   padding-top: 11px;
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid #e2e8f0;
   font-family: var(--mono);
   font-size: 9px;
   color: var(--muted);
@@ -581,7 +581,7 @@ h1 em {
   flex-wrap: wrap;
   margin-top: 38px;
   padding-top: 13px;
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid #e2e8f0;
   font-size: 10px;
   color: var(--faint);
 }
@@ -681,7 +681,7 @@ h1 em {
   display: block;
   width: 0;
   height: 100%;
-  border-right: 1.5px solid var(--ink);
+  border-right: 1px solid #e2e8f0;
   background: var(--cobalt);
   transition: width .35s ease;
 }
@@ -1175,7 +1175,7 @@ h1 em {
   width: min(430px, 100%);
   height: 100%;
   overflow-y: auto;
-  border-left: 2px solid var(--ink);
+  border-left: 1px solid #e2e8f0;
   background: var(--paper);
   background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 24px 24px;
@@ -1192,7 +1192,7 @@ h1 em {
   justify-content: space-between;
   gap: 14px;
   padding: 17px 19px 14px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   background: var(--paper);
 }
 
@@ -1347,7 +1347,7 @@ h1 em {
   gap: 14px;
   margin-top: 20px;
   padding-bottom: 17px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .score-line strong {
@@ -1413,7 +1413,7 @@ h1 em {
   display: block;
   height: 100%;
   width: 0;
-  border-right: 1.5px solid var(--ink);
+  border-right: 1px solid #e2e8f0;
   background: var(--dot);
   transition: width .7s ease
 }
@@ -1762,7 +1762,7 @@ h1 em {
 
   .topic-card {
     border-right: 0;
-    border-bottom: 1.5px solid var(--ink)
+    border-bottom: 1px solid #e2e8f0;
   }
 
   .topic-card:last-child {

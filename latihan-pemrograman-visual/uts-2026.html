@@ -18,8 +18,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3.5">
 
 <style>
 /* =========================================================
@@ -66,7 +66,7 @@
   z-index: 40;
   background: rgba(246, 240, 228, 0.96);
   backdrop-filter: blur(8px);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-top: 18px;
   padding: 10px 0;
 }
@@ -100,15 +100,15 @@
 }
 .tab-trigger:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   color: var(--ink);
 }
 .tab-trigger.active {
-  background: var(--teal);
-  color: #fffdf7;
-  border-color: var(--ink);
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
-  transform: translate(1px, 1px);
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border-color: #0066cc !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
+  transform: none !important;
 }
 .tab-badge {
   font-family: var(--mono);
@@ -146,27 +146,12 @@
   position: relative;
   overflow: hidden;
 }
-.official-header-card::before {
-  content: "MODUL RESMI UMS P1–P7";
-  position: absolute;
-  top: 14px;
-  right: -32px;
-  background: var(--teal);
-  color: #fff;
-  border: 1px solid #e2e8f0;
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-  padding: 4px 38px;
-  transform: rotate(18deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,.15);
-  letter-spacing: .08em;
-}
+.official-header-card::before { display: none !important; }
 .univ-brand {
   display: flex;
   align-items: center;
   gap: 16px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 18px;
   margin-bottom: 18px;
 }
@@ -307,7 +292,7 @@
   gap: 14px;
   flex-wrap: wrap;
   padding-bottom: 14px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   margin-bottom: 18px;
 }
 .q-badge-group {
@@ -470,7 +455,7 @@
 }
 .rubrik-table th {
   background: var(--paper-deep);
-  border-bottom: 1.5px solid var(--ink);
+  border-bottom: 1px solid #e2e8f0;
   padding: 8px 12px;
   text-align: left;
   font-family: var(--mono);
@@ -546,7 +531,7 @@
   border: 1px solid #e2e8f0;
   border-radius: 14px;
   background: var(--mustard);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   padding: 16px 22px;
   margin-bottom: 24px;
   display: flex;
@@ -633,7 +618,7 @@
   font-family: var(--mono);
   font-weight: 700;
   background: var(--paper-deep);
-  border: 1px solid var(--ink);
+  border: 1px solid #e2e8f0;
   padding: 2px 7px;
   border-radius: 5px;
   flex-shrink: 0;
@@ -680,9 +665,7 @@
   .official-header-card {
     padding: 20px 16px;
   }
-  .official-header-card::before {
-    display: none;
-  }
+  .official-header-card::before { display: none !important; }
 }
 @media (max-width: 420px) {
   .nav-pill {
@@ -732,16 +715,16 @@
 }
 .back-to-top:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   background: #ffd269;
 }
 .back-to-top:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
 }
 </style>
-  <link rel="stylesheet" href="autoscroll.css">
-  <link rel="stylesheet" href="../shared/medical-theme.css">
+  <link rel="stylesheet" href="autoscroll.css?v=3.5">
+  <link rel="stylesheet" href="../shared/medical-theme.css?v=3.5">
 </head>
 <body>
 <div id="readProgressBar" style="position:fixed; top:0; left:0; height:5px; width:0%; background:var(--teal); z-index:99999; transition:width 0.1s ease;"></div>
@@ -1836,7 +1819,7 @@ say "Hello!"</code></pre>
         
         <!-- Alice 3 Biped Hierarchy -->
         <div style="border: 1px solid #e2e8f0; border-radius:12px; background:var(--paper); padding:16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid var(--ink); padding-bottom:8px; margin-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid #e2e8f0; padding-bottom:8px; margin-bottom:12px;">
             <strong style="font-family:var(--mono); color:var(--teal); font-size:13px;">1. HIERARKI ALICE 3</strong>
             <span style="background:var(--teal-soft); color:var(--teal); font-size:10px; font-family:var(--mono); padding:2px 8px; border-radius:4px; font-weight:700;">VISUAL MODEL</span>
           </div>
@@ -1853,7 +1836,7 @@ say "Hello!"</code></pre>
 
         <!-- Java extends & super -->
         <div style="border: 1px solid #e2e8f0; border-radius:12px; background:var(--paper); padding:16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid var(--ink); padding-bottom:8px; margin-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid #e2e8f0; padding-bottom:8px; margin-bottom:12px;">
             <strong style="font-family:var(--mono); color:var(--tomato); font-size:13px;">2. SINTAKS JAVA OOP</strong>
             <span style="background:var(--tomato-soft); color:var(--tomato); font-size:10px; font-family:var(--mono); padding:2px 8px; border-radius:4px; font-weight:700;">NETLIFY DOSEN</span>
           </div>
@@ -1893,27 +1876,27 @@ say "Hello!"</code></pre>
     </div>
 
     <div class="official-header-card" style="background:#fff;">
-      <div style="text-align:center; border-bottom:2px solid #24221f; padding-bottom:8px; margin-bottom:10px;">
+      <div style="text-align:center; border-bottom: 1px solid #e2e8f0; padding-bottom:8px; margin-bottom:10px;">
         <h2 style="font-family:var(--display); font-size:16px; margin:0;">RINGKASAN RESMI UTS PEMROGRAMAN VISUAL 2026/2027</h2>
         <p style="font-family:var(--mono); font-size:10.5px; margin:2px 0 0;">Teknik Informatika Universitas Muhammadiyah Surakarta · Sesuai PRD &amp; Modul Kuliah</p>
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap:10px; font-size:11px; line-height:1.45;">
-        <div style="border:1.5px solid #24221f; border-radius:6px; padding:7px; background:#fffdf7;">
+        <div style="border: 1px solid #e2e8f0; border-radius:6px; padding:7px; background:#fffdf7;">
           <strong style="color:var(--tomato); font-family:var(--mono);">1. CLASS &amp; OBJECT</strong><br>
           • <strong>Class:</strong> Blueprint / template (contoh: Class Robot, Gallery Bunny).<br>
           • <strong>Object:</strong> Instance nyata (Robot A, B, C / Scene bunny, bunny2).<br>
           • <strong>Same Class Different Objects:</strong> Beda position, orientation, size, color.
         </div>
 
-        <div style="border:1.5px solid #24221f; border-radius:6px; padding:7px; background:#fffdf7;">
+        <div style="border: 1px solid #e2e8f0; border-radius:6px; padding:7px; background:#fffdf7;">
           <strong style="color:var(--tomato); font-family:var(--mono);">2. PROPERTY &amp; METHOD</strong><br>
           • <strong>Property:</strong> Data/keadaan (what it has: color, position, speed, size).<br>
           • <strong>Method:</strong> Perilaku/aksi (what it does: move, turn, jump, say).<br>
           • <strong>Parameter:</strong> Direction, Steps, Revolutions (0.25 rev ≈ 90°).
         </div>
 
-        <div style="border:1.5px solid #24221f; border-radius:6px; padding:7px; background:#fffdf7;">
+        <div style="border: 1px solid #e2e8f0; border-radius:6px; padding:7px; background:#fffdf7;">
           <strong style="color:var(--teal); font-family:var(--mono);">3. SEQUENCE &amp; KONTROL</strong><br>
           • <strong>Sequence:</strong> Susunan instruksi membentuk behavior.<br>
           • <strong>do in order:</strong> Berurutan satu per satu.<br>
@@ -1921,21 +1904,21 @@ say "Hello!"</code></pre>
           • <strong>count up to:</strong> Counted loop | <strong>while:</strong> Conditional loop.
         </div>
 
-        <div style="border:1.5px solid #24221f; border-radius:6px; padding:7px; background:#fffdf7;">
+        <div style="border: 1px solid #e2e8f0; border-radius:6px; padding:7px; background:#fffdf7;">
           <strong style="color:var(--teal); font-family:var(--mono);">4. PROCEDURE VS FUNCTION</strong><br>
           • <strong>Procedure:</strong> Aksi murni / void (contoh: <code>bunny.jump()</code>).<br>
           • <strong>Function:</strong> Ada nilai balik (contoh: <code>getDistanceTo()</code>).<br>
           • <strong>Procedural Abstraction:</strong> Mengemas instruksi rumit jadi <code>jump()</code>.
         </div>
 
-        <div style="border:1.5px solid #24221f; border-radius:6px; padding:7px; background:#fffdf7;">
+        <div style="border: 1px solid #e2e8f0; border-radius:6px; padding:7px; background:#fffdf7;">
           <strong style="color:var(--tomato); font-family:var(--mono);">5. HIERARCHY &amp; INHERITANCE</strong><br>
           • <strong>Superclass Animal:</strong> Diwarisi Bird (fly), Rabbit (jump), Fish (swim).<br>
           • <strong>Biped:</strong> Diwarisi Bunny &amp; MarchHare.<br>
           • <strong>Penguin:</strong> Inherited move/turn + Specific <code>waddle()</code>.
         </div>
 
-        <div style="border:1.5px solid #24221f; border-radius:6px; padding:7px; background:#fffdf7;">
+        <div style="border: 1px solid #e2e8f0; border-radius:6px; padding:7px; background:#fffdf7;">
           <strong style="color:var(--teal); font-family:var(--mono);">6. EXTENDS &amp; SUPER (JAVA)</strong><br>
           • <strong>extends:</strong> Deklarasi pewarisan (<code>Car extends Vehicle</code>).<br>
           • <strong>super.method():</strong> Panggil method parent saat override.<br>
