@@ -5,34 +5,34 @@
 
 :root{
   /* kertas & tinta */
-  --paper:#f7f6f0;
-  --paper-2:#efeee6;
-  --paper-3:#e6e5db;
-  --card:#fffefa;
-  --ink:#16212c;
-  --body:#33404d;
-  --muted:#55636f;
-  --faint:#6d7a86;
+  --paper: #fafbfc;
+  --paper-2: #f0f4f8;
+  --paper-3: #e2e8f0;
+  --card: #ffffff;
+  --ink: #1a202c;
+  --body: #4a5568;
+  --muted: #718096;
+  --faint: #a0aec0;
 
-  --line:rgba(22,33,44,.17);
-  --line-soft:rgba(22,33,44,.09);
-  --edge:rgba(22,33,44,.42);
+  --line: #e2e8f0;
+  --line-soft: #edf2f7;
+  --edge: #cbd5e1;
 
   /* aksen */
-  --blue:#1f4e79;
-  --blue-deep:#163a5b;
-  --blue-soft:#e4ecf4;
+  --blue: #0066cc;
+  --blue-deep: #0052a3;
+  --blue-soft: #e0f2fe;
   --red:#b03a26;
   --red-deep:#8c2b1a;
   --red-soft:#f7e5df;
-  --green:#2f6b4f;
-  --green-soft:#e3ede7;
+  --green: #00a67e;
+  --green-soft: #e6f7f3;
   --amber:#9a6b21;
   --amber-soft:#f6ecd6;
 
   /* tipografi */
-  --display:'Newsreader',Georgia,'Times New Roman',serif;
-  --sans:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  --display: 'Plus Jakarta Sans', Georgia, serif;
+  --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --mono:'IBM Plex Mono',Consolas,monospace;
 
   --grid-minor:rgba(31,78,121,.055);
@@ -40,8 +40,8 @@
 
   --r:4px;
   --r-lg:7px;
-  --shadow:0 1px 2px rgba(22,33,44,.04),0 18px 34px -30px rgba(22,33,44,.45);
-  --shadow-lift:0 2px 6px rgba(22,33,44,.06),0 26px 44px -30px rgba(22,33,44,.42);
+  --shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
+  --shadow-lift: 0 12px 32px rgba(0, 102, 204, 0.12);
 
   --shell:1160px;
   --rail:224px;

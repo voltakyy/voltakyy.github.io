@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Soal &amp; Pembahasan Lengkap UTS Gasal 2026/2027 â€” Algoritma &amp; Pemrograman UMS</title>
+  <title>Soal &amp; Pembahasan Lengkap UTS Gasal 2026/2027 — Algoritma &amp; Pemrograman UMS</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +16,16 @@
       --font-mono: 'JetBrains Mono', monospace;
 
       /* Dark Mode Palette */
-      --bg-page: #0b0f17;
-      --bg-surface: #111827;
-      --bg-surface-elevated: #162032;
-      --bg-surface-card: #131c2e;
+      --bg-page: #fafbfc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f0f4f8;
+      --bg-surface-card: #ffffff;
       --bg-hover: #1e2c44;
-      --border-color: #22324d;
+      --border-color: #e2e8f0;
       --border-subtle: #19263c;
 
-      --text-main: #f8fafc;
-      --text-body: #cbd5e1;
+      --text-main: #1a202c;
+      --text-body: #4a5568;
       --text-muted: #8da2be;
       --text-subtle: #64748b;
 
@@ -578,6 +578,7 @@
     }
   </style>
   <link rel="stylesheet" href="autoscroll.css">
+  <link rel="stylesheet" href="../shared/medical-theme.css">
 </head>
 <body>
 
@@ -585,7 +586,7 @@
   <header class="top-header no-print">
     <div class="header-inner">
       <a href="index.html" class="brand-group">
-        <div class="brand-logo">âš¡</div>
+        <div class="brand-logo">⚡</div>
         <div class="brand-title">
           <span>ALPRO UMS</span>
           <span class="brand-subtitle">Algoritma &amp; Pemrograman Python</span>
@@ -594,22 +595,22 @@
 
       <div class="header-actions">
         <a href="index.html" class="nav-link-btn" title="Kembali ke Portal Belajar Utama">
-          <span>ðŸ </span> Portal Utama
+          <span>🏠</span> Portal Utama
         </a>
         <a href="uts-2026.html" class="nav-link-btn active-page" title="Halaman Khusus Soal &amp; Pembahasan UTS 2026/2027 (Terbaru)">
-          <span>ðŸš€</span> Page UTS 2026
+          <span>🚀</span> Page UTS 2026
         </a>
         <a href="uts-2025.html" class="nav-link-btn" style="border:1px solid #3b82f6;" title="Halaman Khusus Soal &amp; Pembahasan UTS 2025/2026">
-          <span>ðŸŽ¯</span> Page UTS 2025
+          <span>🎯</span> Page UTS 2025
         </a>
         <a href="uts-2024.html" class="nav-link-btn" style="border:1px solid #f59e0b;" title="Halaman Khusus Soal &amp; Pembahasan UTS 2024/2025">
-          <span>ðŸ“œ</span> Page UTS 2024
+          <span>📜</span> Page UTS 2024
         </a>
         <a href="https://github.com/voltakyy/materi-lohim" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Portal Logika dan Himpunan UMS">
-          <span>ðŸ“</span> Lohim UMS
+          <span>📐</span> Lohim UMS
         </a>
         <button class="theme-toggle-btn" onclick="toggleTheme()" title="Ganti Mode Gelap / Terang">
-          <span id="theme-icon">ðŸŒ™</span>
+          <span id="theme-icon">🌙</span>
         </button>
       </div>
     </div>
@@ -618,12 +619,12 @@
   <!-- Sticky Quick Navigation Bar -->
   <nav class="subnav-bar no-print">
     <div class="subnav-inner">
-      <a href="#lembar-soal" class="subnav-link"><span>ðŸ“¸</span> Naskah Pindaian Asli</a>
-      <a href="#soal-1" class="subnav-link"><span>ðŸ“</span> Soal 1: Standar Deviasi &amp; Bug Fixing</a>
-      <a href="#soal-2" class="subnav-link"><span>â±ï¸</span> Soal 2: Algoritma Denda Keterlambatan</a>
-      <a href="#soal-3" class="subnav-link"><span>ðŸ§ª</span> Soal 3: Tracing NIM Slicing 2026</a>
-      <a href="#sim-nim" class="subnav-link"><span>âš¡</span> Simulator Interaktif NIM</a>
-      <a href="#cheatsheet" class="subnav-link"><span>ðŸ“„</span> Ringkasan Siap Cetak</a>
+      <a href="#lembar-soal" class="subnav-link"><span>📸</span> Naskah Pindaian Asli</a>
+      <a href="#soal-1" class="subnav-link"><span>📐</span> Soal 1: Standar Deviasi &amp; Bug Fixing</a>
+      <a href="#soal-2" class="subnav-link"><span>⏱️</span> Soal 2: Algoritma Denda Keterlambatan</a>
+      <a href="#soal-3" class="subnav-link"><span>🧪</span> Soal 3: Tracing NIM Slicing 2026</a>
+      <a href="#sim-nim" class="subnav-link"><span>⚡</span> Simulator Interaktif NIM</a>
+      <a href="#cheatsheet" class="subnav-link"><span>📄</span> Ringkasan Siap Cetak</a>
     </div>
   </nav>
 
@@ -634,30 +635,30 @@
       <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
         <span style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">ARSIP RESMI TERBARU</span>
         <span style="background:rgba(59,130,246,0.15); color:#3b82f6; border:1px solid rgba(59,130,246,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">GASAL 2026/2027</span>
-        <span style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">BUKU TERTUTUP Â· KELAS REGULER INFORMATIKA UMS</span>
+        <span style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700;">BUKU TERTUTUP · KELAS REGULER INFORMATIKA UMS</span>
       </div>
 
-      <h1 style="font-size:26px; color:var(--text-main); margin-bottom:10px;">ðŸš€ Soal &amp; Pembahasan Lengkap UTS Gasal 2026/2027</h1>
+      <h1 style="font-size:26px; color:var(--text-main); margin-bottom:10px;">🚀 Soal &amp; Pembahasan Lengkap UTS Gasal 2026/2027</h1>
       <p style="color:var(--text-body); font-size:14.5px; line-height:1.7; margin-bottom:14px;">
         Bedah tuntas materi ujian resmi <strong>Algoritma dan Pemrograman (Python)</strong> Program Studi Informatika UMS untuk Semester Gasal 2026/2027. Mengupas tuntas 3 pokok uji: <strong>Perbaikan Bug Algoritma Standar Deviasi</strong>, <strong>Translasi Pseudocode Denda Loop ke Python &amp; Simulasi NIM</strong>, serta <strong>Tracing String Slicing &amp; Operator Precedence Format Baru</strong> dengan akurasi 100% tanpa kesalahan!
       </p>
 
       <div style="display:flex; flex-wrap:wrap; gap:10px; padding-top:12px; border-top:1px solid var(--border-subtle);">
         <a href="#lembar-soal" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:700; background:#10b981; color:#fff; border-radius:8px;">
-          <span>ðŸ“¸</span> Lihat 3 Pindaian Soal Asli
+          <span>📸</span> Lihat 3 Pindaian Soal Asli
         </a>
         <a href="uts-2025.html" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:600; background:var(--bg-surface-elevated); color:var(--text-main); border:1px solid var(--border-color); border-radius:8px;">
-          <span>ðŸŽ¯</span> Arsip UTS 2025
+          <span>🎯</span> Arsip UTS 2025
         </a>
         <a href="uts-2024.html" class="nav-link-btn" style="padding:8px 16px; font-size:13px; font-weight:600; background:var(--bg-surface-elevated); color:var(--text-main); border:1px solid var(--border-color); border-radius:8px;">
-          <span>ðŸ“œ</span> Arsip UTS 2024
+          <span>📜</span> Arsip UTS 2024
         </a>
       </div>
     </div>
 
     <!-- Section 1: Pindaian Lembar Soal Asli 2026 -->
     <article class="article-card" id="lembar-soal">
-      <h2>ðŸ“¸ Pindaian Lembar Soal Asli UTS Gasal 2026/2027</h2>
+      <h2>📸 Pindaian Lembar Soal Asli UTS Gasal 2026/2027</h2>
       <p style="color:var(--text-muted); font-size:13.5px; margin-bottom:16px;">
         Dokumentasi pindaian naskah resmi ujian yang diujikan kepada mahasiswa. Klik gambar untuk membuka dalam resolusi penuh:
       </p>
@@ -669,8 +670,8 @@
             <img src="repotif_arsip_alpro/UTS_2026_Soal_1_StandarDeviasi.jpg" alt="Lembar Soal 1 UTS 2026 - Standar Deviasi" class="scan-img">
           </a>
           <div class="scan-label">
-            <span>ðŸ“„ Soal 1: Standar Deviasi &amp; Bug Fixing</span>
-            <a href="repotif_arsip_alpro/UTS_2026_Soal_1_StandarDeviasi.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar â†—</a>
+            <span>📄 Soal 1: Standar Deviasi &amp; Bug Fixing</span>
+            <a href="repotif_arsip_alpro/UTS_2026_Soal_1_StandarDeviasi.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar ↗</a>
           </div>
         </div>
 
@@ -680,8 +681,8 @@
             <img src="repotif_arsip_alpro/UTS_2026_Soal_2_DendaLoop.jpg" alt="Lembar Soal 2 UTS 2026 - Denda Keterlambatan" class="scan-img">
           </a>
           <div class="scan-label">
-            <span>ðŸ“„ Soal 2: Denda Loop &amp; 2 Digit NIM</span>
-            <a href="repotif_arsip_alpro/UTS_2026_Soal_2_DendaLoop.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar â†—</a>
+            <span>📄 Soal 2: Denda Loop &amp; 2 Digit NIM</span>
+            <a href="repotif_arsip_alpro/UTS_2026_Soal_2_DendaLoop.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar ↗</a>
           </div>
         </div>
 
@@ -691,8 +692,8 @@
             <img src="repotif_arsip_alpro/UTS_2026_Soal_3_TracingNIM.jpg" alt="Lembar Soal 3 UTS 2026 - Tracing Slicing NIM Baru" class="scan-img">
           </a>
           <div class="scan-label">
-            <span>ðŸ“„ Soal 3: Tracing Slicing NIM 2026</span>
-            <a href="repotif_arsip_alpro/UTS_2026_Soal_3_TracingNIM.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar â†—</a>
+            <span>📄 Soal 3: Tracing Slicing NIM 2026</span>
+            <a href="repotif_arsip_alpro/UTS_2026_Soal_3_TracingNIM.jpg" target="_blank" style="color:var(--primary); font-size:12px; text-decoration:none;">Perbesar ↗</a>
           </div>
         </div>
       </div>
@@ -703,24 +704,24 @@
     <!-- ========================================== -->
     <article class="article-card" id="soal-1">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
-        <h2 style="font-size:20px; margin:0; color:#10b981;">ðŸ“Œ Soal 1: Analisis Standar Deviasi &amp; Perbaikan Algoritma (Bug Fixing)</h2>
-        <span style="background:var(--primary-light); color:#10b981; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--primary-border);">Bobot: 35 Poin Â· Analisis &amp; Desain Algoritma</span>
+        <h2 style="font-size:20px; margin:0; color:#10b981;">📌 Soal 1: Analisis Standar Deviasi &amp; Perbaikan Algoritma (Bug Fixing)</h2>
+        <span style="background:var(--primary-light); color:#10b981; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--primary-border);">Bobot: 35 Poin · Analisis &amp; Desain Algoritma</span>
       </div>
 
       <!-- Teks Soal Asli -->
       <div class="callout info">
-        <div class="callout-title">ðŸ“ Teks Asli Soal Ujian:</div>
+        <div class="callout-title">📝 Teks Asli Soal Ujian:</div>
         <p style="margin:0 0 8px;">
-          Dalam analisis data, standar deviasi digunakan untuk mengukur sebaran data terhadap nilai rata-ratanya. Diberikan kumpulan <em>N</em> data berupa array <code>X = [xâ‚€, xâ‚, ..., x_{N-1}]</code>. Formula untuk menghitung rata-rata (xÌ„) dan standar deviasi sampel (<em>s</em>) adalah sebagai berikut:
+          Dalam analisis data, standar deviasi digunakan untuk mengukur sebaran data terhadap nilai rata-ratanya. Diberikan kumpulan <em>N</em> data berupa array <code>X = [x₀, x₁, ..., x_{N-1}]</code>. Formula untuk menghitung rata-rata (x̄) dan standar deviasi sampel (<em>s</em>) adalah sebagai berikut:
         </p>
       </div>
 
       <!-- Formula Rumus Matematika -->
       <div class="formula-box">
         <div style="font-weight:700; color:var(--primary);">1. Rumus Rata-rata (Mean Sample):</div>
-        <div style="font-size:17px; padding-left:12px;">xÌ„ = (1 / N) * âˆ‘áµ¢â‚Œâ‚€^{N-1} xáµ¢</div>
+        <div style="font-size:17px; padding-left:12px;">x̄ = (1 / N) * ∑ᵢ₌₀^{N-1} xᵢ</div>
         <div style="font-weight:700; color:var(--primary); margin-top:8px;">2. Rumus Standar Deviasi Sampel (Sample Standard Deviation):</div>
-        <div style="font-size:17px; padding-left:12px;">s = âˆš[ (1 / (N - 1)) * âˆ‘áµ¢â‚Œâ‚€^{N-1} (xáµ¢ - xÌ„)Â² ]</div>
+        <div style="font-size:17px; padding-left:12px;">s = √[ (1 / (N - 1)) * ∑ᵢ₌₀^{N-1} (xᵢ - x̄)² ]</div>
       </div>
 
       <p style="font-size:14px; color:var(--text-body); margin:14px 0 10px;">
@@ -728,19 +729,19 @@
       </p>
 
       <!-- Kode Algoritma Mahasiswa yang Rusak -->
-      <h3 style="color:#ef4444;">âŒ Algoritma Asli Mahasiswa (Mengandung Bug &amp; Kesalahan Fatal):</h3>
+      <h3 style="color:#ef4444;">❌ Algoritma Asli Mahasiswa (Mengandung Bug &amp; Kesalahan Fatal):</h3>
       <pre><code class="language-text">FUNCTION HitungStandarDeviasi(X, N)
 # X adalah array data dan N adalah jumlah data
 START
   # Hitung total dan rata-rata keseluruhan data
   FOR i = 0 TO N - 1
-    total &lt;- total + X[i]        # âš ï¸ BUG 1: Variabel 'total' tidak diinisialisasi nilai awalnya!
+    total &lt;- total + X[i]        # ⚠️ BUG 1: Variabel 'total' tidak diinisialisasi nilai awalnya!
   END FOR
   rata_rata &lt;- total / N
 
   # Hitung akumulasi selisih kuadrat dari rata-rata
   total_kuadrat &lt;- 0
-  FOR i = 0 TO N                 # âš ï¸ BUG 2: Batas 'TO N' melampaui indeks array (Index Out of Bounds)!
+  FOR i = 0 TO N                 # ⚠️ BUG 2: Batas 'TO N' melampaui indeks array (Index Out of Bounds)!
     selisih &lt;- X[i] - rata_rata
     total_kuadrat &lt;- total_kuadrat + (selisih * selisih)
   END FOR
@@ -748,11 +749,11 @@ START
   # Hitung akar kuadrat varians dan kembalikan hasil
   varians &lt;- total_kuadrat / (N - 1)
   s &lt;- varians ** 0.5
-  RETURN                         # âš ï¸ BUG 3: RETURN kosong tanpa mengembalikan nilai s!
+  RETURN                         # ⚠️ BUG 3: RETURN kosong tanpa mengembalikan nilai s!
 ENDFUNCTION</code></pre>
 
       <!-- Analisis 4 Bug Kritis -->
-      <h3 style="color:var(--text-main); margin-top:24px;">ðŸ” Bedah Kritis 4 Penyebab Algoritma Selalu Salah:</h3>
+      <h3 style="color:var(--text-main); margin-top:24px;">🔍 Bedah Kritis 4 Penyebab Algoritma Selalu Salah:</h3>
 
       <table class="academic-table">
         <thead>
@@ -812,7 +813,7 @@ ENDFUNCTION</code></pre>
       </table>
 
       <!-- Algoritma Perbaikan Lengkap -->
-      <h3 style="color:#10b981;">âœ… Algoritma yang Telah Diperbaiki Secara Lengkap (Pseudocode Sempurna):</h3>
+      <h3 style="color:#10b981;">✅ Algoritma yang Telah Diperbaiki Secara Lengkap (Pseudocode Sempurna):</h3>
       <pre><code class="language-text">FUNCTION HitungStandarDeviasi(X, N)
 # X adalah array data dan N adalah jumlah data
 START
@@ -844,7 +845,7 @@ START
 ENDFUNCTION</code></pre>
 
       <!-- Implementasi Python Lengkap -->
-      <h3 style="color:var(--accent-blue);">ðŸ Implementasi Program Python Bersih &amp; Terverifikasi:</h3>
+      <h3 style="color:var(--accent-blue);">🐍 Implementasi Program Python Bersih &amp; Terverifikasi:</h3>
       <pre><code class="language-python">def hitung_standar_deviasi(X, N):
     """
     Menghitung rata-rata dan standar deviasi sampel data X.
@@ -887,36 +888,36 @@ print(f"Standar Deviasi (s) : {hasil_s:.4f}")
 # Output: Standar Deviasi (s) : 1.5811</code></pre>
 
       <!-- Dry Run Table -->
-      <h3 style="color:var(--text-main);">ðŸ“Š Tabel Uji Coba Langkah demi Langkah (Manual Trace):</h3>
+      <h3 style="color:var(--text-main);">📊 Tabel Uji Coba Langkah demi Langkah (Manual Trace):</h3>
       <p style="font-size:13.5px; color:var(--text-muted);">
         Misalkan diberikan sampel data <code>X = [4, 8, 6, 5, 7]</code> dengan <code>N = 5</code>:
       </p>
       <ul style="font-size:13.5px; color:var(--text-body);">
-        <li><strong>Tahap 1 (Rata-rata):</strong> Total = <code>4 + 8 + 6 + 5 + 7 = 30</code>. Rata-rata <code>xÌ„ = 30 / 5 = 6.0</code>.</li>
+        <li><strong>Tahap 1 (Rata-rata):</strong> Total = <code>4 + 8 + 6 + 5 + 7 = 30</code>. Rata-rata <code>x̄ = 30 / 5 = 6.0</code>.</li>
         <li><strong>Tahap 2 (Selisih Kuadrat):</strong>
           <table class="academic-table" style="max-width:650px; margin:10px 0;">
             <thead>
-              <tr><th>Indeks (i)</th><th>Nilai X[i]</th><th>Selisih (X[i] - xÌ„)</th><th>Kuadrat Selisih (X[i] - xÌ„)Â²</th></tr>
+              <tr><th>Indeks (i)</th><th>Nilai X[i]</th><th>Selisih (X[i] - x̄)</th><th>Kuadrat Selisih (X[i] - x̄)²</th></tr>
             </thead>
             <tbody>
-              <tr><td>0</td><td>4</td><td>4 - 6.0 = -2.0</td><td>(-2.0)Â² = 4.0</td></tr>
-              <tr><td>1</td><td>8</td><td>8 - 6.0 = +2.0</td><td>(+2.0)Â² = 4.0</td></tr>
-              <tr><td>2</td><td>6</td><td>6 - 6.0 = 0.0</td><td>(0.0)Â² = 0.0</td></tr>
-              <tr><td>3</td><td>5</td><td>5 - 6.0 = -1.0</td><td>(-1.0)Â² = 1.0</td></tr>
-              <tr><td>4</td><td>7</td><td>7 - 6.0 = +1.0</td><td>(+1.0)Â² = 1.0</td></tr>
+              <tr><td>0</td><td>4</td><td>4 - 6.0 = -2.0</td><td>(-2.0)² = 4.0</td></tr>
+              <tr><td>1</td><td>8</td><td>8 - 6.0 = +2.0</td><td>(+2.0)² = 4.0</td></tr>
+              <tr><td>2</td><td>6</td><td>6 - 6.0 = 0.0</td><td>(0.0)² = 0.0</td></tr>
+              <tr><td>3</td><td>5</td><td>5 - 6.0 = -1.0</td><td>(-1.0)² = 1.0</td></tr>
+              <tr><td>4</td><td>7</td><td>7 - 6.0 = +1.0</td><td>(+1.0)² = 1.0</td></tr>
               <tr style="font-weight:700; background:var(--primary-light);">
-                <td colspan="3">Jumlah Total Kuadrat (âˆ‘):</td><td>10.0</td>
+                <td colspan="3">Jumlah Total Kuadrat (∑):</td><td>10.0</td>
               </tr>
             </tbody>
           </table>
         </li>
         <li><strong>Tahap 3 (Varians):</strong> <code>varians = 10.0 / (5 - 1) = 10.0 / 4 = 2.5</code>.</li>
-        <li><strong>Tahap 4 (Akar Kuadrat):</strong> <code>s = âˆš2.5 â‰ˆ 1.58113883</code>. Hasil terbukti identik dengan modul <code>statistics.stdev</code> bawaan Python!</li>
+        <li><strong>Tahap 4 (Akar Kuadrat):</strong> <code>s = √2.5 ≈ 1.58113883</code>. Hasil terbukti identik dengan modul <code>statistics.stdev</code> bawaan Python!</li>
       </ul>
 
       <!-- Interactive Widget: Standar Deviasi Live -->
       <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:var(--radius-sm); border:1px solid var(--primary-border); margin-top:20px;">
-        <div style="font-weight:700; color:#10b981; font-size:14px; margin-bottom:8px;">âš¡ Kalkulator Standar Deviasi &amp; Step Trace Langsung:</div>
+        <div style="font-weight:700; color:#10b981; font-size:14px; margin-bottom:8px;">⚡ Kalkulator Standar Deviasi &amp; Step Trace Langsung:</div>
         <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Masukkan angka data dipisahkan spasi atau koma untuk melihat perhitungan real-time:</p>
         
         <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
@@ -933,13 +934,13 @@ print(f"Standar Deviasi (s) : {hasil_s:.4f}")
     <!-- ========================================== -->
     <article class="article-card" id="soal-2">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
-        <h2 style="font-size:20px; margin:0; color:#3b82f6;">ðŸ“Œ Soal 2: Algoritma Denda Keterlambatan &amp; Simulasi NIM</h2>
-        <span style="background:var(--blue-bg); color:#3b82f6; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--blue-border);">Bobot: 30 Poin Â· Perulangan WHILE &amp; I/O</span>
+        <h2 style="font-size:20px; margin:0; color:#3b82f6;">📌 Soal 2: Algoritma Denda Keterlambatan &amp; Simulasi NIM</h2>
+        <span style="background:var(--blue-bg); color:#3b82f6; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--blue-border);">Bobot: 30 Poin · Perulangan WHILE &amp; I/O</span>
       </div>
 
       <!-- Teks Soal Asli -->
       <div class="callout info">
-        <div class="callout-title">ðŸ“ Teks Asli Soal Ujian:</div>
+        <div class="callout-title">📝 Teks Asli Soal Ujian:</div>
         <p style="margin:0 0 8px;">Terdapat algoritma berikut ini:</p>
         <pre style="margin:8px 0;"><code class="language-text">START
   INPUT hari_terlambat
@@ -960,7 +961,7 @@ END</code></pre>
 
       <!-- Catatan Analisis Typo di Naskah -->
       <div class="callout warning">
-        <div class="callout-title">ðŸ’¡ Catatan Telaah Kritis Algoritma:</div>
+        <div class="callout-title">💡 Catatan Telaah Kritis Algoritma:</div>
         <p style="margin:0; font-size:13.5px;">
           Pada naskah asli, terdapat sedikit inkonsistensi penamaan variabel: baris awal menginput <code>hari_terlambat</code>, namun di baris perulangan tertulis <code>WHILE hari &lt;= jumlah_hari DO</code>. Dalam konteks logika algoritma, variabel <code>jumlah_hari</code> tersebut mengacu langsung pada <code>hari_terlambat</code>. Menyebutkan catatan ini pada lembar jawaban menunjukkan ketelitian analitis tingkat tinggi!
         </p>
@@ -1007,14 +1008,14 @@ print("Total denda:", total_denda)</code></pre>
         Setiap mahasiswa akan memiliki tampilan program yang unik tergantung dua digit terakhir dari Nomor Induk Mahasiswa (NIM) masing-masing. Rumus matematis total dendanya adalah:
       </p>
       <div class="formula-box" style="border-color:var(--amber-border);">
-        <div style="font-size:16px; font-weight:700; color:#f59e0b;">Total Denda = (Dua Digit Terakhir NIM) Ã— Rp 2.000</div>
+        <div style="font-size:16px; font-weight:700; color:#f59e0b;">Total Denda = (Dua Digit Terakhir NIM) × Rp 2.000</div>
       </div>
 
       <h4 style="color:var(--text-main);">Contoh Kasus 1: NIM L200260089 (Dua digit terakhir = 89)</h4>
       <p style="font-size:13.5px;">Jika mahasiswa dengan NIM berakhiran <strong>89</strong> menjalankan program:</p>
       <ul>
         <li>Jumlah iterasi: Loop <code>while</code> berputar sebanyak <strong>89 kali</strong> (hari 1 sampai hari 89).</li>
-        <li>Akumulasi denda: <code>89 Ã— 2000 = 178000</code>.</li>
+        <li>Akumulasi denda: <code>89 × 2000 = 178000</code>.</li>
         <li>Tampilan persis pada layar terminal/konsol:</li>
       </ul>
       <pre style="background:#020617; border:1px solid #334155; color:#38bdf8;"><code>Masukkan hari terlambat: 89
@@ -1024,7 +1025,7 @@ Total denda: 178000</code></pre>
       <p style="font-size:13.5px;">Jika input adalah <strong>5</strong> hari:</p>
       <ul>
         <li>Jumlah iterasi: 5 kali perulangan.</li>
-        <li>Akumulasi denda: <code>5 Ã— 2000 = 10000</code>.</li>
+        <li>Akumulasi denda: <code>5 × 2000 = 10000</code>.</li>
         <li>Tampilan layar konsol:</li>
       </ul>
       <pre style="background:#020617; border:1px solid #334155; color:#38bdf8;"><code>Masukkan hari terlambat: 5
@@ -1042,7 +1043,7 @@ Total denda: 0</code></pre>
 
       <!-- Interactive Widget: Simulator Denda While Loop -->
       <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:var(--radius-sm); border:1px solid var(--blue-border); margin-top:20px;">
-        <div style="font-weight:700; color:#3b82f6; font-size:14px; margin-bottom:8px;">â±ï¸ Simulator Interaktif Denda Keterlambatan NIM:</div>
+        <div style="font-weight:700; color:#3b82f6; font-size:14px; margin-bottom:8px;">⏱️ Simulator Interaktif Denda Keterlambatan NIM:</div>
         <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
           <label style="font-size:13px; font-weight:700; color:var(--text-main);">2 Digit Terakhir NIM Anda:</label>
           <input type="number" id="inputDigitNimDenda" value="89" min="0" max="99" class="input-field" style="width:100px;" oninput="simulasiDendaLive()">
@@ -1058,13 +1059,13 @@ Total denda: 0</code></pre>
     <!-- ========================================== -->
     <article class="article-card" id="soal-3">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
-        <h2 style="font-size:20px; margin:0; color:#f59e0b;">ðŸ“Œ Soal 3: Tracing Variabel String Slicing &amp; Operator Precedence 2026</h2>
-        <span style="background:var(--amber-bg); color:#f59e0b; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--amber-border);">Bobot: 35 Poin Â· String Manipulation &amp; Arithmetic</span>
+        <h2 style="font-size:20px; margin:0; color:#f59e0b;">📌 Soal 3: Tracing Variabel String Slicing &amp; Operator Precedence 2026</h2>
+        <span style="background:var(--amber-bg); color:#f59e0b; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; border:1px solid var(--amber-border);">Bobot: 35 Poin · String Manipulation &amp; Arithmetic</span>
       </div>
 
       <!-- Teks Soal Asli -->
       <div class="callout info">
-        <div class="callout-title">ðŸ“ Teks Asli Soal Ujian:</div>
+        <div class="callout-title">📝 Teks Asli Soal Ujian:</div>
         <p style="margin:0 0 8px;">
           Pada program di bawah ini, gantilah teks <code>'L200101010'</code> dengan NIM saudara sendiri. Berapakah nilai yang tersimpan di variabel <strong>a, b, c, e, f, g, dan h</strong> setelah program dijalankan? <em>(Catatan: variabel d dihitung sebagai perantara).</em>
         </p>
@@ -1082,7 +1083,7 @@ g = e + d ** 2
 h = c - 2 * e</code></pre>
 
       <!-- Ruler Indeks String Visual -->
-      <h3 style="color:var(--text-main);">ðŸ“ Peta Indeks String NIM (Format 10 Karakter):</h3>
+      <h3 style="color:var(--text-main);">📏 Peta Indeks String NIM (Format 10 Karakter):</h3>
       <p style="font-size:13.5px; color:var(--text-muted);">
         Setiap karakter dalam string <code>Z</code> memiliki indeks positif (dari kiri: 0 sampai 9) dan indeks negatif (dari kanan: -10 sampai -1). Kotak hijau menunjukkan karakter yang terambil oleh ekspresi slicing <code>Z[1::4]</code>:
       </p>
@@ -1092,7 +1093,7 @@ h = c - 2 * e</code></pre>
       </div>
 
       <!-- Analisis Per Baris Lengkap -->
-      <h3 style="color:var(--primary); margin-top:20px;">ðŸ”¬ Analisis Eksekusi Baris demi Baris:</h3>
+      <h3 style="color:var(--primary); margin-top:20px;">🔬 Analisis Eksekusi Baris demi Baris:</h3>
 
       <div style="display:flex; flex-direction:column; gap:14px; margin:16px 0;">
         
@@ -1101,22 +1102,22 @@ h = c - 2 * e</code></pre>
           <div style="font-family:var(--font-mono); font-weight:700; color:#10b981; font-size:14px; margin-bottom:4px;">1. a = Z[1::4]</div>
           <p style="font-size:13.5px; margin:0; color:var(--text-body);">
             Slicing string berformat <code>[start:stop:step]</code> dengan <code>start = 1</code> dan lompatan <code>step = 4</code>. Mengambil karakter pada indeks:
-            <br>â€¢ Indeks <strong>1</strong>: <code>Z[1]</code>
-            <br>â€¢ Indeks <strong>1 + 4 = 5</strong>: <code>Z[5]</code>
-            <br>â€¢ Indeks <strong>5 + 4 = 9</strong>: <code>Z[9]</code>
+            <br>• Indeks <strong>1</strong>: <code>Z[1]</code>
+            <br>• Indeks <strong>1 + 4 = 5</strong>: <code>Z[5]</code>
+            <br>• Indeks <strong>5 + 4 = 9</strong>: <code>Z[9]</code>
             <br>Hasilnya berupa <strong>string 3 karakter</strong>: <code>a = Z[1] + Z[5] + Z[9]</code>.
-            <br><em>Contoh pada NIM default 'L200101010':</em> <code>Z[1]='2'</code>, <code>Z[5]='0'</code>, <code>Z[9]='0'</code> â†’ <code>a = '200'</code> (tipe: <code>str</code>).
+            <br><em>Contoh pada NIM default 'L200101010':</em> <code>Z[1]='2'</code>, <code>Z[5]='0'</code>, <code>Z[9]='0'</code> → <code>a = '200'</code> (tipe: <code>str</code>).
           </p>
         </div>
 
         <!-- Baris 2: b -->
         <div style="background:var(--bg-surface-elevated); padding:14px 16px; border-radius:8px; border-left:4px solid #f43f5e;">
-          <div style="font-family:var(--font-mono); font-weight:700; color:#f43f5e; font-size:14px; margin-bottom:4px;">2. b = 2 * a + Z[-2] &nbsp; âš ï¸ PERANGKAP DUPLIKASI STRING</div>
+          <div style="font-family:var(--font-mono); font-weight:700; color:#f43f5e; font-size:14px; margin-bottom:4px;">2. b = 2 * a + Z[-2] &nbsp; ⚠️ PERANGKAP DUPLIKASI STRING</div>
           <p style="font-size:13.5px; margin:0; color:var(--text-body);">
             Karena <code>a</code> bertipe string, operator <code>*</code> adalah <strong>replikasi teks (string repetition)</strong>, BUKAN perkalian angka!
-            <br>â€¢ <code>2 * a</code> menduplikasi string <code>a</code> dua kali (misal <code>2 * '200' = '200200'</code>).
-            <br>â€¢ <code>Z[-2]</code> adalah karakter indeks ke-2 dari belakang (indeks 8), misal <code>'1'</code>.
-            <br>â€¢ Operator <code>+</code> menggabungkan kedua string (concatenation).
+            <br>• <code>2 * a</code> menduplikasi string <code>a</code> dua kali (misal <code>2 * '200' = '200200'</code>).
+            <br>• <code>Z[-2]</code> adalah karakter indeks ke-2 dari belakang (indeks 8), misal <code>'1'</code>.
+            <br>• Operator <code>+</code> menggabungkan kedua string (concatenation).
             <br><em>Hasil:</em> <code>b = '2002001'</code> (tipe: <code>str</code>, berupa string 7 karakter!).
           </p>
         </div>
@@ -1135,8 +1136,8 @@ h = c - 2 * e</code></pre>
           <div style="font-family:var(--font-mono); font-weight:700; color:#94a3b8; font-size:14px; margin-bottom:4px;">4. d = c % 10 - 3 &nbsp; (Variabel Perantara)</div>
           <p style="font-size:13.5px; margin:0; color:var(--text-body);">
             Sesuai presedensi operator aritmatika, operasi modulo <code>%</code> dikerjakan terlebih dahulu daripada pengurangan <code>-</code>.
-            <br>â€¢ <code>c % 10</code> menghasilkan sisa pembagian 10 (digit terakhir dari <code>c</code>, misal <code>202 % 10 = 2</code>).
-            <br>â€¢ Lalu dikurangi 3: <code>2 - 3 = -1</code> (tipe: <code>int</code>).
+            <br>• <code>c % 10</code> menghasilkan sisa pembagian 10 (digit terakhir dari <code>c</code>, misal <code>202 % 10 = 2</code>).
+            <br>• Lalu dikurangi 3: <code>2 - 3 = -1</code> (tipe: <code>int</code>).
           </p>
         </div>
 
@@ -1145,8 +1146,8 @@ h = c - 2 * e</code></pre>
           <div style="font-family:var(--font-mono); font-weight:700; color:#06b6d4; font-size:14px; margin-bottom:4px;">5. e = c // 20 - 15</div>
           <p style="font-size:13.5px; margin:0; color:var(--text-body);">
             Operator <code>//</code> adalah pembagian bulat (*floor division*), memiliki prioritas lebih tinggi dari pengurangan <code>-</code>.
-            <br>â€¢ <code>c // 20</code> (misal <code>202 // 20 = 10</code>).
-            <br>â€¢ Lalu dikurangi 15: <code>10 - 15 = -5</code> (tipe: <code>int</code>).
+            <br>• <code>c // 20</code> (misal <code>202 // 20 = 10</code>).
+            <br>• Lalu dikurangi 15: <code>10 - 15 = -5</code> (tipe: <code>int</code>).
           </p>
         </div>
 
@@ -1155,9 +1156,9 @@ h = c - 2 * e</code></pre>
           <div style="font-family:var(--font-mono); font-weight:700; color:#a855f7; font-size:14px; margin-bottom:4px;">6. f = d > 5 or e < 0</div>
           <p style="font-size:13.5px; margin:0; color:var(--text-body);">
             Operator relasional <code>&gt;</code> dan <code>&lt;</code> dievaluasi mendahului operator logika <code>or</code>:
-            <br>â€¢ Evaluasi kiri: <code>d &gt; 5</code> â†’ <code>-1 &gt; 5</code> bernilai <code>False</code>.
-            <br>â€¢ Evaluasi kanan: <code>e &lt; 0</code> â†’ <code>-5 &lt; 0</code> bernilai <code>True</code>.
-            <br>â€¢ Operasi disjungsi: <code>False or True</code> menghasilkan <code>True</code> (tipe: <code>bool</code>).
+            <br>• Evaluasi kiri: <code>d &gt; 5</code> → <code>-1 &gt; 5</code> bernilai <code>False</code>.
+            <br>• Evaluasi kanan: <code>e &lt; 0</code> → <code>-5 &lt; 0</code> bernilai <code>True</code>.
+            <br>• Operasi disjungsi: <code>False or True</code> menghasilkan <code>True</code> (tipe: <code>bool</code>).
           </p>
         </div>
 
@@ -1166,8 +1167,8 @@ h = c - 2 * e</code></pre>
           <div style="font-family:var(--font-mono); font-weight:700; color:#eab308; font-size:14px; margin-bottom:4px;">7. g = e + d ** 2</div>
           <p style="font-size:13.5px; margin:0; color:var(--text-body);">
             Operator pemangkatan <code>**</code> memiliki presedensi paling tinggi:
-            <br>â€¢ <code>d ** 2</code> dihitung pertama kali: <code>(-1)Â² = 1</code>.
-            <br>â€¢ Lalu dijumlahkan dengan <code>e</code>: <code>-5 + 1 = -4</code> (tipe: <code>int</code>).
+            <br>• <code>d ** 2</code> dihitung pertama kali: <code>(-1)² = 1</code>.
+            <br>• Lalu dijumlahkan dengan <code>e</code>: <code>-5 + 1 = -4</code> (tipe: <code>int</code>).
           </p>
         </div>
 
@@ -1183,7 +1184,7 @@ h = c - 2 * e</code></pre>
       </div>
 
       <!-- Tabel Ringkasan Jawaban Resmi -->
-      <h3 style="color:var(--text-main);">ðŸ“‹ Tabel Hasil Tracing Resmi 2026:</h3>
+      <h3 style="color:var(--text-main);">📋 Tabel Hasil Tracing Resmi 2026:</h3>
       <table class="academic-table">
         <thead>
           <tr>
@@ -1256,7 +1257,7 @@ h = c - 2 * e</code></pre>
 
       <!-- Simulator Interaktif NIM 2026 -->
       <div id="sim-nim" style="background:var(--bg-surface-elevated); padding:20px; border-radius:var(--radius-sm); border:1px solid var(--amber-border); margin-top:24px;">
-        <div style="font-weight:700; color:#f59e0b; font-size:15px; margin-bottom:8px;">âš¡ Simulator Interaktif Tracing NIM 2026 (Live):</div>
+        <div style="font-weight:700; color:#f59e0b; font-size:15px; margin-bottom:8px;">⚡ Simulator Interaktif Tracing NIM 2026 (Live):</div>
         <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
           Ketikkan NIM saudara sendiri di bawah ini. Penggaris indeks dan seluruh tabel variabel akan diperbarui secara otomatis dan instan:
         </p>
@@ -1276,16 +1277,16 @@ h = c - 2 * e</code></pre>
     <!-- ========================================== -->
     <article class="article-card" id="cheatsheet">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
-        <h2 style="font-size:20px; margin:0; color:#a855f7;">ðŸ“„ Ringkasan Cepat Siap Cetak (A4 Cheatsheet UTS 2026)</h2>
+        <h2 style="font-size:20px; margin:0; color:#a855f7;">📄 Ringkasan Cepat Siap Cetak (A4 Cheatsheet UTS 2026)</h2>
         <button class="btn-action" style="background:#a855f7; color:#fff;" onclick="window.print()">
-          <span>ðŸ–¨ï¸</span> Cetak / Simpan PDF (Ctrl + P)
+          <span>🖨️</span> Cetak / Simpan PDF (Ctrl + P)
         </button>
       </div>
 
       <div style="background:#ffffff; color:#0f172a; padding:20px 24px; border-radius:8px; border:1px solid #cbd5e1; font-size:12.5px; line-height:1.5;">
         <div style="text-align:center; border-bottom:2px solid #0f172a; padding-bottom:6px; margin-bottom:12px;">
-          <h3 style="margin:0; font-size:16px; color:#0f172a; font-weight:800;">RINGKASAN INTISARI JAWABAN UTS GASAL 2026/2027 â€” ALPRO UMS</h3>
-          <p style="margin:3px 0 0; font-size:11px; color:#475569;">Program Studi Informatika Â· Universitas Muhammadiyah Surakarta</p>
+          <h3 style="margin:0; font-size:16px; color:#0f172a; font-weight:800;">RINGKASAN INTISARI JAWABAN UTS GASAL 2026/2027 — ALPRO UMS</h3>
+          <p style="margin:3px 0 0; font-size:11px; color:#475569;">Program Studi Informatika · Universitas Muhammadiyah Surakarta</p>
         </div>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
@@ -1316,8 +1317,8 @@ h = c - 2 * e</code></pre>
               print("Total denda:", total_denda)
             </div>
             <div style="font-size:11.5px; color:#1e293b;">
-              <strong>Rumus Denda:</strong> <code>n Ã— Rp 2.000</code>.<br>
-              Contoh NIM akhiran <code>89</code> â†’ Total denda: <strong>178000</strong>.
+              <strong>Rumus Denda:</strong> <code>n × Rp 2.000</code>.<br>
+              Contoh NIM akhiran <code>89</code> → Total denda: <strong>178000</strong>.
             </div>
           </div>
 
@@ -1327,14 +1328,14 @@ h = c - 2 * e</code></pre>
               SOAL 3: RUMUS TRACING SLICING NIM 2026
             </div>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px; font-size:11.5px; color:#1e293b;">
-              <div>â€¢ <code>a = Z[1::4]</code> : Slicing indeks 1, 5, 9 (string 3 karakter)</div>
-              <div>â€¢ <code>b = 2 * a + Z[-2]</code> : Duplikasi string (string 7 karakter)</div>
-              <div>â€¢ <code>c = int(a) + 2</code> : Konversi integer ditambah 2</div>
-              <div>â€¢ <code>d = c % 10 - 3</code> : Modulo 10 lalu dikurang 3</div>
-              <div>â€¢ <code>e = c // 20 - 15</code> : Floor division lalu dikurang 15</div>
-              <div>â€¢ <code>f = d > 5 or e < 0</code> : Evaluasi logika boolean</div>
-              <div>â€¢ <code>g = e + d ** 2</code> : Pangkat dihitung sebelum tambah</div>
-              <div>â€¢ <code>h = c - 2 * e</code> : Perkalian dihitung sebelum kurang</div>
+              <div>• <code>a = Z[1::4]</code> : Slicing indeks 1, 5, 9 (string 3 karakter)</div>
+              <div>• <code>b = 2 * a + Z[-2]</code> : Duplikasi string (string 7 karakter)</div>
+              <div>• <code>c = int(a) + 2</code> : Konversi integer ditambah 2</div>
+              <div>• <code>d = c % 10 - 3</code> : Modulo 10 lalu dikurang 3</div>
+              <div>• <code>e = c // 20 - 15</code> : Floor division lalu dikurang 15</div>
+              <div>• <code>f = d > 5 or e < 0</code> : Evaluasi logika boolean</div>
+              <div>• <code>g = e + d ** 2</code> : Pangkat dihitung sebelum tambah</div>
+              <div>• <code>h = c - 2 * e</code> : Perkalian dihitung sebelum kurang</div>
             </div>
           </div>
 
@@ -1346,7 +1347,7 @@ h = c - 2 * e</code></pre>
 
   <footer class="app-footer no-print" style="border-top:1px solid var(--border-color); background:var(--bg-surface); padding:20px; font-size:13px; color:var(--text-muted);">
     <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
-      <span>Mata Kuliah: Algoritma &amp; Pemrograman (TIF3221303) â€” UMS</span>
+      <span>Mata Kuliah: Algoritma &amp; Pemrograman (TIF3221303) — UMS</span>
       <span>Arsip Resmi Ujian Gasal 2026/2027</span>
     </div>
   </footer>
@@ -1356,12 +1357,12 @@ h = c - 2 * e</code></pre>
     // Theme Switcher with localStorage
     function toggleTheme() {
       const html = document.documentElement;
-      const current = html.getAttribute('data-theme') || 'dark';
+      const current = html.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('alpro_theme', next);
       const icon = document.getElementById('theme-icon');
-      if (icon) icon.textContent = next === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+      if (icon) icon.textContent = next === 'dark' ? '🌙' : '☀️';
     }
 
     // Soal 1 Live Calculator
@@ -1374,7 +1375,7 @@ h = c - 2 * e</code></pre>
       const nums = raw.map(Number).filter(x => !isNaN(x));
 
       if (nums.length <= 1) {
-        resultBox.innerHTML = `<span style="color:#ef4444; font-weight:700;">âš ï¸ Masukkan minimal 2 angka numerik valid (Contoh: 4, 8, 6, 5, 7)</span>`;
+        resultBox.innerHTML = `<span style="color:#ef4444; font-weight:700;">⚠️ Masukkan minimal 2 angka numerik valid (Contoh: 4, 8, 6, 5, 7)</span>`;
         return;
       }
 
@@ -1398,14 +1399,14 @@ h = c - 2 * e</code></pre>
       resultBox.innerHTML = `
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-bottom:12px;">
           <div><strong>Jumlah Data (N):</strong> ${N}</div>
-          <div><strong>Rata-rata (xÌ„):</strong> ${mean.toFixed(3)}</div>
-          <div><strong>Varians Sampel (sÂ²):</strong> ${varians.toFixed(4)}</div>
+          <div><strong>Rata-rata (x̄):</strong> ${mean.toFixed(3)}</div>
+          <div><strong>Varians Sampel (s²):</strong> ${varians.toFixed(4)}</div>
           <div><strong style="color:#10b981;">Standar Deviasi (s):</strong> <span style="font-size:16px; font-weight:800; color:#10b981;">${stdev.toFixed(4)}</span></div>
         </div>
         <div style="font-weight:700; margin-bottom:6px; font-size:12px; color:var(--text-muted);">Tabel Trace Selisih Kuadrat Tiap Elemen:</div>
         <div style="max-height:180px; overflow-y:auto;">
           <table class="academic-table" style="margin:0; font-size:12px;">
-            <thead><tr><th>i</th><th>X[i]</th><th>X[i] - xÌ„</th><th>(X[i] - xÌ„)Â²</th></tr></thead>
+            <thead><tr><th>i</th><th>X[i]</th><th>X[i] - x̄</th><th>(X[i] - x̄)²</th></tr></thead>
             <tbody>${tableRows}</tbody>
           </table>
         </div>
@@ -1507,7 +1508,7 @@ ${traceSteps ? '\n--- TRACE PERULANGAN WHILE ---\n' + traceSteps + '------------
               <td><code>2 * a + Z[-2]</code></td>
               <td><strong style="color:#f43f5e; font-size:15px;">'${b}'</strong></td>
               <td><code>str</code></td>
-              <td>âš ï¸ Duplikasi string: '${a}' + '${a}' + '${Z[8]}' (bukan perkalian angka!)</td>
+              <td>⚠️ Duplikasi string: '${a}' + '${a}' + '${Z[8]}' (bukan perkalian angka!)</td>
             </tr>
             <tr>
               <td><code>c</code></td>
@@ -1535,14 +1536,14 @@ ${traceSteps ? '\n--- TRACE PERULANGAN WHILE ---\n' + traceSteps + '------------
               <td><code>d &gt; 5 or e &lt; 0</code></td>
               <td><strong style="color:#38bdf8; font-size:15px;">${f ? 'True' : 'False'}</strong></td>
               <td><code>bool</code></td>
-              <td>(${d} &gt; 5) is ${d > 5}; (${e} &lt; 0) is ${e < 0}; or â†’ ${f ? 'True' : 'False'}</td>
+              <td>(${d} &gt; 5) is ${d > 5}; (${e} &lt; 0) is ${e < 0}; or → ${f ? 'True' : 'False'}</td>
             </tr>
             <tr>
               <td><code>g</code></td>
               <td><code>e + d ** 2</code></td>
               <td><strong style="font-size:15px;">${g}</strong></td>
               <td><code>int</code></td>
-              <td>${e} + (${d})Â² = ${e} + ${Math.pow(d,2)} = ${g}</td>
+              <td>${e} + (${d})² = ${e} + ${Math.pow(d,2)} = ${g}</td>
             </tr>
             <tr>
               <td><code>h</code></td>
@@ -1566,7 +1567,7 @@ ${traceSteps ? '\n--- TRACE PERULANGAN WHILE ---\n' + traceSteps + '------------
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
         const icon = document.getElementById('theme-icon');
-        if (icon) icon.textContent = savedTheme === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+        if (icon) icon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
       }
     });
   </script>
@@ -1575,6 +1576,7 @@ ${traceSteps ? '\n--- TRACE PERULANGAN WHILE ---\n' + traceSteps + '------------
   <script src="../shared/portal-nav.js" defer></script>
 </body>
 </html>
+
 
 
 

@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>LOHIM LAB â€” Modern Logic & Set Theory Interactive Master</title>
+<title>LOHIM LAB — Modern Logic & Set Theory Interactive Master</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -17,21 +17,21 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Default Dark Mode (Cyber-Academic) */
-  --bg-page: #0b0f17;
-  --bg-surface: #111827;
-  --bg-surface-elevated: #1a2336;
-  --bg-surface-card: #151e30;
+  --bg-page: #fafbfc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f0f4f8;
+  --bg-surface-card: #ffffff;
   --bg-hover: #222f46;
-  --border-color: #243049;
+  --border-color: #e2e8f0;
   --border-subtle: #192336;
 
-  --text-main: #f8fafc;
-  --text-body: #cbd5e1;
+  --text-main: #1a202c;
+  --text-body: #4a5568;
   --text-muted: #8da2be;
   --text-subtle: #64748b;
 
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
+  --primary: #0066cc;
+  --primary-hover: #0052a3;
   --primary-light: rgba(99, 102, 241, 0.15);
   --primary-border: rgba(99, 102, 241, 0.35);
 
@@ -932,6 +932,7 @@ body {
 
 </style>
   <link rel="stylesheet" href="autoscroll.css">
+  <link rel="stylesheet" href="../shared/medical-theme.css">
 </head>
 <body>
 
@@ -949,7 +950,7 @@ body {
       </div>
       <div class="header-actions">
         <button class="theme-toggle-btn" onclick="toggleTheme()" title="Ganti Tema (Dark / Light)">
-          ðŸŒ“
+          🌓
         </button>
       </div>
     </div>
@@ -957,13 +958,13 @@ body {
     <!-- Sliding Mobile Navigation Tabs -->
     <div class="nav-scroll-container">
       <nav class="nav-tabs" role="tablist" id="mainNavTabs">
-        <button class="nav-tab-btn active" onclick="switchTab('diktat')" id="tabBtn-diktat">ðŸ“– Diktat Kuliah</button>
-        <button class="nav-tab-btn" onclick="switchTab('generator')" id="tabBtn-generator">ðŸŽ² Buat Soal Tabel</button>
-        <button class="nav-tab-btn" onclick="switchTab('drill')" id="tabBtn-drill">âš¡ Truth Table Drill</button>
-        <button class="nav-tab-btn" onclick="switchTab('tree')" id="tabBtn-tree">ðŸŒ² Parse Tree</button>
-        <button class="nav-tab-btn" onclick="switchTab('flashcards')" id="tabBtn-flashcards">ðŸ—‚ï¸ Flashcards</button>
-        <button class="nav-tab-btn" onclick="switchTab('arena')" id="tabBtn-arena">ðŸŽ¯ Simulasi UTS</button>
-        <button class="nav-tab-btn" onclick="switchTab('sandbox')" id="tabBtn-sandbox">ðŸ§ª Logic Sandbox</button>
+        <button class="nav-tab-btn active" onclick="switchTab('diktat')" id="tabBtn-diktat">📖 Diktat Kuliah</button>
+        <button class="nav-tab-btn" onclick="switchTab('generator')" id="tabBtn-generator">🎲 Buat Soal Tabel</button>
+        <button class="nav-tab-btn" onclick="switchTab('drill')" id="tabBtn-drill">⚡ Truth Table Drill</button>
+        <button class="nav-tab-btn" onclick="switchTab('tree')" id="tabBtn-tree">🌲 Parse Tree</button>
+        <button class="nav-tab-btn" onclick="switchTab('flashcards')" id="tabBtn-flashcards">🗂️ Flashcards</button>
+        <button class="nav-tab-btn" onclick="switchTab('arena')" id="tabBtn-arena">🎯 Simulasi UTS</button>
+        <button class="nav-tab-btn" onclick="switchTab('sandbox')" id="tabBtn-sandbox">🧪 Logic Sandbox</button>
       </nav>
     </div>
   </div>
@@ -978,16 +979,16 @@ body {
       <!-- Sticky Sidebar -->
       <aside class="diktat-sidebar">
         <div class="sidebar-title">
-          <span>ðŸ“š</span> Daftar Pertemuan
+          <span>📚</span> Daftar Pertemuan
         </div>
         <ul class="toc-list">
-          <li><a href="#art-kontrak" class="toc-link">ðŸ“‹ Kontrak & Silabus</a></li>
-          <li><a href="#art-p1" class="toc-link">1ï¸âƒ£ P1: Pengenalan Logika</a></li>
-          <li><a href="#art-p2" class="toc-link">2ï¸âƒ£ P2: Logika Proposisional</a></li>
-          <li><a href="#art-p3" class="toc-link">3ï¸âƒ£ P3: Tabel Kebenaran & 5 Perangkai</a></li>
-          <li><a href="#art-p4" class="toc-link">4ï¸âƒ£ P4: Proposisi Majemuk & Tree</a></li>
-          <li><a href="#art-p5" class="toc-link">5ï¸âƒ£ P5: Tautologi & Evaluasi 2â¿</a></li>
-          <li><a href="#art-uts_fokus" class="toc-link" style="color: #f59e0b; font-weight: 700;">ðŸŽ¯ Bedah UTS 2024 (Arsip UMS)</a></li>
+          <li><a href="#art-kontrak" class="toc-link">📋 Kontrak & Silabus</a></li>
+          <li><a href="#art-p1" class="toc-link">1️⃣ P1: Pengenalan Logika</a></li>
+          <li><a href="#art-p2" class="toc-link">2️⃣ P2: Logika Proposisional</a></li>
+          <li><a href="#art-p3" class="toc-link">3️⃣ P3: Tabel Kebenaran & 5 Perangkai</a></li>
+          <li><a href="#art-p4" class="toc-link">4️⃣ P4: Proposisi Majemuk & Tree</a></li>
+          <li><a href="#art-p5" class="toc-link">5️⃣ P5: Tautologi & Evaluasi 2ⁿ</a></li>
+          <li><a href="#art-uts_fokus" class="toc-link" style="color: #f59e0b; font-weight: 700;">🎯 Bedah UTS 2024 (Arsip UMS)</a></li>
         </ul>
       </aside>
 
@@ -995,7 +996,7 @@ body {
       <div class="diktat-body">
         <article id="art-kontrak" class="article-card">
           
-        <span class="section-eyebrow">Slide Pertemuan 1 â€” Halaman 2 s.d. 6</span>
+        <span class="section-eyebrow">Slide Pertemuan 1 — Halaman 2 s.d. 6</span>
         <h2 class="section-heading gold">Kontrak Perkuliahan &amp; Silabus 14 Minggu</h2>
 
         <p>
@@ -1004,20 +1005,20 @@ body {
 
         <div class="article-grid-2">
           <div>
-            <h4>Mekanisme Perkuliahan (Slide 3â€“4)</h4>
+            <h4>Mekanisme Perkuliahan (Slide 3–4)</h4>
             <p>
-              â€¢ <strong>Offline (75%):</strong> Perkuliahan tatap muka di ruang G0301 Kampus 2 UMS.<br>
-              â€¢ <strong>Online (25%):</strong> Melalui SPADA UMS via Zoom / Google Meet.<br>
-              â€¢ <strong>Batas Presensi:</strong> Kehadiran minimal 75% (maksimal tidak hadir 4 kali). Toleransi keterlambatan 10 menit.
+              • <strong>Offline (75%):</strong> Perkuliahan tatap muka di ruang G0301 Kampus 2 UMS.<br>
+              • <strong>Online (25%):</strong> Melalui SPADA UMS via Zoom / Google Meet.<br>
+              • <strong>Batas Presensi:</strong> Kehadiran minimal 75% (maksimal tidak hadir 4 kali). Toleransi keterlambatan 10 menit.
             </p>
           </div>
           <div>
             <h4>Komponen Penilaian Resmi (Slide 5)</h4>
             <p>
-              â€¢ Presensi: <strong>10%</strong><br>
-              â€¢ Tugas-tugas &amp; Kuis: <strong>40%</strong><br>
-              â€¢ Ujian Tengah Semester (UTS): <strong>25%</strong><br>
-              â€¢ Ujian Akhir Semester (UAS): <strong>25%</strong>
+              • Presensi: <strong>10%</strong><br>
+              • Tugas-tugas &amp; Kuis: <strong>40%</strong><br>
+              • Ujian Tengah Semester (UTS): <strong>25%</strong><br>
+              • Ujian Akhir Semester (UAS): <strong>25%</strong>
             </p>
           </div>
         </div>
@@ -1071,21 +1072,21 @@ body {
 
         <article id="art-p1" class="article-card">
           
-        <span class="section-eyebrow">Slide Pertemuan 1 â€” Halaman 8 s.d. 32</span>
+        <span class="section-eyebrow">Slide Pertemuan 1 — Halaman 8 s.d. 32</span>
         <h2 class="section-heading">Pertemuan 1: Pengenalan Logika Matematika</h2>
 
         <p>
-          Kata <strong>Logika</strong> berasal dari bahasa Yunani <em>â€œlogosâ€</em> (kata, ucapan, atau pemikiran). Secara ilmiah, logika didefinisikan sebagai <strong>ilmu tentang metode penalaran yang berhubungan dengan pembuktian validitas suatu argumen</strong>.
+          Kata <strong>Logika</strong> berasal dari bahasa Yunani <em>“logos”</em> (kata, ucapan, atau pemikiran). Secara ilmiah, logika didefinisikan sebagai <strong>ilmu tentang metode penalaran yang berhubungan dengan pembuktian validitas suatu argumen</strong>.
         </p>
 
-        <h3>1. Penalaran Deduktif vs Induktif (Slide 11â€“12)</h3>
+        <h3>1. Penalaran Deduktif vs Induktif (Slide 11–12)</h3>
         <p>
           Dalam matematika dan informatika, logika yang digunakan adalah <strong>penalaran deduktif (deductive reasoning)</strong>, yaitu penarikan kesimpulan khusus (K) yang secara niscaya ditarik dari premis-premis umumnya (P).
         </p>
 
         <div class="slide-example">
           <div class="example-header">
-            <span class="example-tag">Contoh Slide 11 â€” Penalaran Deduktif</span>
+            <span class="example-tag">Contoh Slide 11 — Penalaran Deduktif</span>
             <span class="example-slide-ref">Slide P1 Halaman 11</span>
           </div>
           <div class="example-body">
@@ -1101,14 +1102,14 @@ body {
         <div class="editorial-callout">
           <div class="editorial-callout-title">Peranan Logika dalam Ilmu Komputer (Slide 13)</div>
           <p>
-            â€¢ <strong>Matematika:</strong> Komputasi diskret, aljabar linier, dan teori pembuktian.<br>
-            â€¢ <strong>Elektronika:</strong> Desain gerbang logika (logic gates) dan sirkuit terpadu mikroprosesor.<br>
-            â€¢ <strong>Software Engineering:</strong> Verifikasi program, perancangan algoritma, basis data relasional.<br>
-            â€¢ <strong>Artificial Intelligence:</strong> Expert systems, logic programming (Prolog), automated reasoning.
+            • <strong>Matematika:</strong> Komputasi diskret, aljabar linier, dan teori pembuktian.<br>
+            • <strong>Elektronika:</strong> Desain gerbang logika (logic gates) dan sirkuit terpadu mikroprosesor.<br>
+            • <strong>Software Engineering:</strong> Verifikasi program, perancangan algoritma, basis data relasional.<br>
+            • <strong>Artificial Intelligence:</strong> Expert systems, logic programming (Prolog), automated reasoning.
           </p>
         </div>
 
-        <h3>2. Argumen dan Validitas Logis (Slide 14â€“22)</h3>
+        <h3>2. Argumen dan Validitas Logis (Slide 14–22)</h3>
         <p>
           <strong>Argumen</strong> adalah usaha untuk mencari kebenaran suatu pernyataan (kesimpulan) berdasarkan kebenaran kumpulan pernyataan lain (premis).
         </p>
@@ -1119,7 +1120,7 @@ body {
         <div class="article-grid-2">
           <div class="slide-example">
             <div class="example-header">
-              <span class="example-tag">Contoh 3 â€” Valid Tapi Premis Salah</span>
+              <span class="example-tag">Contoh 3 — Valid Tapi Premis Salah</span>
               <span class="example-slide-ref">Slide P1 Hal 19</span>
             </div>
             <div class="example-body">
@@ -1134,7 +1135,7 @@ body {
 
           <div class="slide-example">
             <div class="example-header">
-              <span class="example-tag">Contoh 5 â€” Sound Argument (Sahih)</span>
+              <span class="example-tag">Contoh 5 — Sound Argument (Sahih)</span>
               <span class="example-slide-ref">Slide P1 Hal 21</span>
             </div>
             <div class="example-body">
@@ -1148,9 +1149,9 @@ body {
           </div>
         </div>
 
-        <h3>3. Logika Klasik Aristoteles: Silogisme (Slide 23â€“26)</h3>
+        <h3>3. Logika Klasik Aristoteles: Silogisme (Slide 23–26)</h3>
         <p>
-          Aristoteles (384â€“322 SM) merumuskan <strong>Silogisme</strong> yang tersusun atas 4 bentuk pernyataan dasar:
+          Aristoteles (384–322 SM) merumuskan <strong>Silogisme</strong> yang tersusun atas 4 bentuk pernyataan dasar:
         </p>
 
         <div class="table-wrap">
@@ -1167,25 +1168,25 @@ body {
           </table></div>
         </div>
 
-        <h3>4. Logika Modern &amp; Logika Banyak Nilai (Slide 27â€“32)</h3>
+        <h3>4. Logika Modern &amp; Logika Banyak Nilai (Slide 27–32)</h3>
         <p>
-          â€¢ <strong>Logika Modern (Bivalent Logic):</strong> Dipelopori oleh De Morgan, George Boole, dan Gottlob Frege. Menganut prinsip dua nilai: <strong>Benar (1 / T)</strong> atau <strong>Salah (0 / F)</strong>. Mendasari gerbang logika dan arsitektur CPU.<br>
-          â€¢ <strong>Many-Valued Logic (Jan Lukasiewicz, 1920):</strong> Mengenalkan nilai ketiga (Netral / Tidak tentu) dengan probabilitas antara 0 hingga 1.<br>
-          â€¢ <strong>Fuzzy Logic (Lofti A. Zadeh, 1973):</strong> Derajat keanggotaan kontinu antara 0 dan 1. Contoh di slide: Suhu air 37Â°C dalam logika biner bernilai salah untuk "Panas" (karena batas 40Â°C), tetapi dalam fuzzy logic memiliki derajat 0,8 panas dan 0,2 dingin.
+          • <strong>Logika Modern (Bivalent Logic):</strong> Dipelopori oleh De Morgan, George Boole, dan Gottlob Frege. Menganut prinsip dua nilai: <strong>Benar (1 / T)</strong> atau <strong>Salah (0 / F)</strong>. Mendasari gerbang logika dan arsitektur CPU.<br>
+          • <strong>Many-Valued Logic (Jan Lukasiewicz, 1920):</strong> Mengenalkan nilai ketiga (Netral / Tidak tentu) dengan probabilitas antara 0 hingga 1.<br>
+          • <strong>Fuzzy Logic (Lofti A. Zadeh, 1973):</strong> Derajat keanggotaan kontinu antara 0 dan 1. Contoh di slide: Suhu air 37°C dalam logika biner bernilai salah untuk "Panas" (karena batas 40°C), tetapi dalam fuzzy logic memiliki derajat 0,8 panas dan 0,2 dingin.
         </p>
       
         </article>
 
         <article id="art-p2" class="article-card">
           
-        <span class="section-eyebrow">Slide Pertemuan 2 â€” Halaman 1 s.d. 24</span>
+        <span class="section-eyebrow">Slide Pertemuan 2 — Halaman 1 s.d. 24</span>
         <h2 class="section-heading">Pertemuan 2: Logika Proposisional</h2>
 
         <p>
           <strong>Proposisi</strong> adalah pernyataan deklaratif yang memiliki nilai kebenaran pasti: <strong>Benar (T / 1) saja</strong> atau <strong>Salah (F / 0) saja</strong>, tetapi tidak dapat keduanya sekaligus.
         </p>
 
-        <h3>1. Analisis Contoh Slide 2.1 s.d. 2.4 (Slide 5â€“7)</h3>
+        <h3>1. Analisis Contoh Slide 2.1 s.d. 2.4 (Slide 5–7)</h3>
         <div class="table-wrap">
           <div class="table-scroll-wrap"><table class="academic-table">
             <thead>
@@ -1194,39 +1195,39 @@ body {
             <tbody>
               <tr><td>"Yogyakarta adalah kota pelajar." (Contoh 2.1)</td><td>Proposisi</td><td><span class="val-t">T (True)</span></td><td>Kalimat deklaratif bernilai faktual benar</td></tr>
               <tr><td>"2 + 2 = 5" (Contoh 2.2)</td><td>Proposisi</td><td><span class="val-f">F (False)</span></td><td>Kalimat deklaratif bernilai faktual salah</td></tr>
-              <tr><td>"Bawakan saya secangkir kopi!" (Contoh 2.3)</td><td>Bukan Proposisi</td><td>â€”</td><td>Kalimat imperatif / perintah</td></tr>
-              <tr><td>"Apakah hari ini ada kuliah?" (Contoh 2.4)</td><td>Bukan Proposisi</td><td>â€”</td><td>Kalimat tanya / interogatif</td></tr>
+              <tr><td>"Bawakan saya secangkir kopi!" (Contoh 2.3)</td><td>Bukan Proposisi</td><td>—</td><td>Kalimat imperatif / perintah</td></tr>
+              <tr><td>"Apakah hari ini ada kuliah?" (Contoh 2.4)</td><td>Bukan Proposisi</td><td>—</td><td>Kalimat tanya / interogatif</td></tr>
             </tbody>
           </table></div>
         </div>
 
-        <h3>2. Proposisi Atomik vs Majemuk (Slide 8â€“14)</h3>
+        <h3>2. Proposisi Atomik vs Majemuk (Slide 8–14)</h3>
         <p>
-          â€¢ <strong>Proposisi Atomik (Sederhana):</strong> Tidak mengandung kata perangkai logika (Contoh 2.5: <em>"Pemuda itu tinggi"</em>).<br>
-          â€¢ <strong>Proposisi Majemuk (Compound):</strong> Gabungan dua atau lebih proposisi atomik menggunakan perangkai logika (Contoh 2.7: <em>"Pemuda itu tinggi dan pemuda itu tampan"</em>).
+          • <strong>Proposisi Atomik (Sederhana):</strong> Tidak mengandung kata perangkai logika (Contoh 2.5: <em>"Pemuda itu tinggi"</em>).<br>
+          • <strong>Proposisi Majemuk (Compound):</strong> Gabungan dua atau lebih proposisi atomik menggunakan perangkai logika (Contoh 2.7: <em>"Pemuda itu tinggi dan pemuda itu tampan"</em>).
         </p>
 
         <div class="slide-example">
           <div class="example-header">
-            <span class="example-tag">Contoh 2.9 &amp; 2.10 â€” Simbolisasi</span>
-            <span class="example-slide-ref">Slide P2 Hal 13â€“14</span>
+            <span class="example-tag">Contoh 2.9 &amp; 2.10 — Simbolisasi</span>
+            <span class="example-slide-ref">Slide P2 Hal 13–14</span>
           </div>
           <div class="example-body">
-            <p>A = Pemuda itu tinggi â€¢ B = Pemuda itu tampan</p>
-            <p>1) Pemuda itu tinggi dan tampan â‡’ <code>A âˆ§ B</code></p>
-            <p>2) Pemuda itu tinggi tetapi tidak tampan â‡’ <code>A âˆ§ Â¬B</code></p>
-            <p>3) Tidak benar bahwa pemuda itu pendek dan tampan â‡’ <code>Â¬(Â¬A âˆ§ B)</code></p>
+            <p>A = Pemuda itu tinggi • B = Pemuda itu tampan</p>
+            <p>1) Pemuda itu tinggi dan tampan ⇒ <code>A ∧ B</code></p>
+            <p>2) Pemuda itu tinggi tetapi tidak tampan ⇒ <code>A ∧ ¬B</code></p>
+            <p>3) Tidak benar bahwa pemuda itu pendek dan tampan ⇒ <code>¬(¬A ∧ B)</code></p>
           </div>
         </div>
 
-        <h3>3. Variabel Proposisional &amp; Evaluasi Nilai (Slide 15â€“22)</h3>
+        <h3>3. Variabel Proposisional &amp; Evaluasi Nilai (Slide 15–22)</h3>
         <p>
           Variabel proposisional dilambangkan dengan huruf besar <code>A, B, C, ...</code>. Jika nilai kebenaran variabel diketahui, nilai proposisi majemuk dapat dihitung secara pasti.
         </p>
         <div class="editorial-callout">
-          <div class="editorial-callout-title">Kaidah Penentuan Nilai â€” Contoh 2.14 (Slide 22)</div>
+          <div class="editorial-callout-title">Kaidah Penentuan Nilai — Contoh 2.14 (Slide 22)</div>
           <p>
-            Jika variabel <strong>A bernilai T</strong> dan <strong>B bernilai F</strong>, maka ekspresi <em>"A atau B"</em> (<code>A âˆ¨ B</code>) bernilai <strong>T</strong>. Untuk mencari seluruh kemungkinan nilai dari pasangan variabel, digunakan instrumen <strong>Tabel Kebenaran (Truth Table)</strong>.
+            Jika variabel <strong>A bernilai T</strong> dan <strong>B bernilai F</strong>, maka ekspresi <em>"A atau B"</em> (<code>A ∨ B</code>) bernilai <strong>T</strong>. Untuk mencari seluruh kemungkinan nilai dari pasangan variabel, digunakan instrumen <strong>Tabel Kebenaran (Truth Table)</strong>.
           </p>
         </div>
       
@@ -1234,25 +1235,25 @@ body {
 
         <article id="art-p3" class="article-card">
           
-        <span class="section-eyebrow">Slide Pertemuan 3 â€” Halaman 1 s.d. 26</span>
+        <span class="section-eyebrow">Slide Pertemuan 3 — Halaman 1 s.d. 26</span>
         <h2 class="section-heading">Pertemuan 3: Tabel Kebenaran &amp; Perangkai Logika</h2>
 
         <p>
           <strong>Tabel Kebenaran</strong> adalah tabel matematis yang menyajikan seluruh kemungkinan kombinasi nilai kebenaran variabel proposisional sederhana beserta hasil evaluasi ekspresi majemuknya.
         </p>
 
-        <h3>1. 5 Perangkai Logika Dasar (Slide 9â€“20)</h3>
+        <h3>1. 5 Perangkai Logika Dasar (Slide 9–20)</h3>
         <div class="table-wrap">
           <div class="table-scroll-wrap"><table class="academic-table">
             <thead>
               <tr><th>Perangkai</th><th>Simbol</th><th>Jenis</th><th>Aturan Nilai Kebenaran</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Tidak / Negasi</strong> (Slide 15)</td><td><code>Â¬</code></td><td>Unary</td><td>Membalikkan nilai. Â¬T = F, Â¬F = T. Hukum negasi ganda: <code>Â¬Â¬A â‰¡ A</code>.</td></tr>
-              <tr><td><strong>Dan / Konjungsi</strong> (Slide 10)</td><td><code>âˆ§</code></td><td>Binary</td><td>Hanya bernilai T jika kedua operan bernilai T. Selain itu bernilai F.</td></tr>
-              <tr><td><strong>Atau / Disjungsi</strong> (Slide 11)</td><td><code>âˆ¨</code></td><td>Binary</td><td>Hanya bernilai F jika kedua operan bernilai F. Selain itu bernilai T.</td></tr>
-              <tr><td><strong>Jika... maka... / Implikasi</strong> (Slide 18)</td><td><code>â†’</code></td><td>Binary</td><td>Hanya bernilai F jika Anteseden = T dan Konsekuen = F (<code>T â†’ F = F</code>).</td></tr>
-              <tr><td><strong>Ekuivalensi / Biimplikasi</strong> (Slide 20)</td><td><code>â†”</code></td><td>Binary</td><td>Bernilai T jika kedua operan bernilai SAMA (keduanya T atau keduanya F).</td></tr>
+              <tr><td><strong>Tidak / Negasi</strong> (Slide 15)</td><td><code>¬</code></td><td>Unary</td><td>Membalikkan nilai. ¬T = F, ¬F = T. Hukum negasi ganda: <code>¬¬A ≡ A</code>.</td></tr>
+              <tr><td><strong>Dan / Konjungsi</strong> (Slide 10)</td><td><code>∧</code></td><td>Binary</td><td>Hanya bernilai T jika kedua operan bernilai T. Selain itu bernilai F.</td></tr>
+              <tr><td><strong>Atau / Disjungsi</strong> (Slide 11)</td><td><code>∨</code></td><td>Binary</td><td>Hanya bernilai F jika kedua operan bernilai F. Selain itu bernilai T.</td></tr>
+              <tr><td><strong>Jika... maka... / Implikasi</strong> (Slide 18)</td><td><code>→</code></td><td>Binary</td><td>Hanya bernilai F jika Anteseden = T dan Konsekuen = F (<code>T → F = F</code>).</td></tr>
+              <tr><td><strong>Ekuivalensi / Biimplikasi</strong> (Slide 20)</td><td><code>↔</code></td><td>Binary</td><td>Bernilai T jika kedua operan bernilai SAMA (keduanya T atau keduanya F).</td></tr>
             </tbody>
           </table></div>
         </div>
@@ -1261,23 +1262,23 @@ body {
           <div class="slide-example">
             <div class="example-header">
               <span class="example-tag">Inclusive-OR vs Exclusive-OR</span>
-              <span class="example-slide-ref">Slide P3 Hal 12â€“14</span>
+              <span class="example-slide-ref">Slide P3 Hal 12–14</span>
             </div>
             <div class="example-body">
-              <p>â€¢ <strong>In-OR (Contoh 3.5):</strong> <em>"You have either pizza or spaghetti."</em> Diizinkan memilih salah satu atau keduanya sekaligus.<br>
-              â€¢ <strong>Ex-OR (Contoh 3.6):</strong> <em>"Saya berada di Yogyakarta atau Surabaya jam 8 malam kemarin."</em> Fisik tidak bisa berada di 2 lokasi bersamaan.</p>
+              <p>• <strong>In-OR (Contoh 3.5):</strong> <em>"You have either pizza or spaghetti."</em> Diizinkan memilih salah satu atau keduanya sekaligus.<br>
+              • <strong>Ex-OR (Contoh 3.6):</strong> <em>"Saya berada di Yogyakarta atau Surabaya jam 8 malam kemarin."</em> Fisik tidak bisa berada di 2 lokasi bersamaan.</p>
             </div>
           </div>
 
           <div class="slide-example">
             <div class="example-header">
-              <span class="example-tag">Negasi sebagai Unary â€” Contoh 3.7</span>
-              <span class="example-slide-ref">Slide P3 Hal 16â€“17</span>
+              <span class="example-tag">Negasi sebagai Unary — Contoh 3.7</span>
+              <span class="example-slide-ref">Slide P3 Hal 16–17</span>
             </div>
             <div class="example-body">
               <p>Kalimat: <em>"Badu pandai atau Badu bodoh."</em><br>
-              A = Badu pandai, B = Badu bodoh. Bentuk logika: <code>A âˆ¨ B</code>.<br>
-              <strong>Peringatan Dosen:</strong> Tidak boleh diubah jadi <code>A âˆ¨ Â¬A</code>, karena Â¬A berarti <em>"Badu tidak pandai"</em>, bukan <em>"Badu bodoh"</em>.</p>
+              A = Badu pandai, B = Badu bodoh. Bentuk logika: <code>A ∨ B</code>.<br>
+              <strong>Peringatan Dosen:</strong> Tidak boleh diubah jadi <code>A ∨ ¬A</code>, karena ¬A berarti <em>"Badu tidak pandai"</em>, bukan <em>"Badu bodoh"</em>.</p>
             </div>
           </div>
         </div>
@@ -1290,7 +1291,7 @@ body {
         <div class="table-wrap">
           <div class="table-scroll-wrap"><table class="academic-table">
             <thead>
-              <tr><th>A</th><th>B</th><th>Â¬A</th><th>Â¬B</th><th>A âˆ§ B</th><th>A âˆ¨ B</th><th>A â†’ B</th><th>A â†” B</th></tr>
+              <tr><th>A</th><th>B</th><th>¬A</th><th>¬B</th><th>A ∧ B</th><th>A ∨ B</th><th>A → B</th><th>A ↔ B</th></tr>
             </thead>
             <tbody>
               <tr><td>T</td><td>T</td><td>F</td><td>F</td><td><span class="val-t">T</span></td><td><span class="val-t">T</span></td><td><span class="val-t">T</span></td><td><span class="val-t">T</span></td></tr>
@@ -1301,17 +1302,17 @@ body {
           </table></div>
         </div>
 
-        <h3>3. Latihan Slide 24 &amp; Hukum Argumen Logika (Slide 25â€“26)</h3>
+        <h3>3. Latihan Slide 24 &amp; Hukum Argumen Logika (Slide 25–26)</h3>
         <div class="table-wrap">
           <div class="table-scroll-wrap"><table class="academic-table">
             <thead>
               <tr><th>Hukum Argumen Logika</th><th>Bentuk Formal Implikasi</th><th>Status Nilai</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Modus Ponens</strong> (Slide 25)</td><td><code>((A â†’ B) âˆ§ A) â†’ B</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
-              <tr><td><strong>Modus Tollens</strong> (Slide 25)</td><td><code>((A â†’ B) âˆ§ Â¬B) â†’ Â¬A</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
-              <tr><td><strong>Silogisme Disjungtif</strong> (Slide 26)</td><td><code>((A âˆ¨ B) âˆ§ Â¬A) â†’ B</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
-              <tr><td><strong>Silogisme Hipotetis</strong> (Slide 26)</td><td><code>((A â†’ B) âˆ§ (B â†’ C)) â†’ (A â†’ C)</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
+              <tr><td><strong>Modus Ponens</strong> (Slide 25)</td><td><code>((A → B) ∧ A) → B</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
+              <tr><td><strong>Modus Tollens</strong> (Slide 25)</td><td><code>((A → B) ∧ ¬B) → ¬A</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
+              <tr><td><strong>Silogisme Disjungtif</strong> (Slide 26)</td><td><code>((A ∨ B) ∧ ¬A) → B</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
+              <tr><td><strong>Silogisme Hipotetis</strong> (Slide 26)</td><td><code>((A → B) ∧ (B → C)) → (A → C)</code></td><td><span class="val-t">Tautologi (Valid)</span></td></tr>
             </tbody>
           </table></div>
         </div>
@@ -1320,7 +1321,7 @@ body {
 
         <article id="art-p4" class="article-card">
           
-        <span class="section-eyebrow">Slide Pertemuan 4 â€” Halaman 1 s.d. 28</span>
+        <span class="section-eyebrow">Slide Pertemuan 4 — Halaman 1 s.d. 28</span>
         <h2 class="section-heading">Pertemuan 4: Proposisi Majemuk &amp; Parse Tree</h2>
 
         <p>
@@ -1334,11 +1335,11 @@ body {
               <tr><th>Urutan Tingkat</th><th>Perangkai</th><th>Nama Operator</th><th>Sifat Evaluasi</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>1 (Tertinggi)</strong></td><td><code>Â¬</code></td><td>Negasi</td><td>Dievaluasi paling awal pada operan terdekat</td></tr>
-              <tr><td><strong>2</strong></td><td><code>âˆ§</code></td><td>Konjungsi</td><td>Mengikat lebih kuat dibanding disjungsi</td></tr>
-              <tr><td><strong>3</strong></td><td><code>âˆ¨</code></td><td>Disjungsi</td><td>Mengikat sebelum implikasi</td></tr>
-              <tr><td><strong>4</strong></td><td><code>â†’</code></td><td>Implikasi</td><td>Mengevaluasi hubungan sebelum ekuivalensi</td></tr>
-              <tr><td><strong>5 (Terendah)</strong></td><td><code>â†”</code></td><td>Ekuivalensi</td><td>Dievaluasi paling akhir sebagai pembagi utama</td></tr>
+              <tr><td><strong>1 (Tertinggi)</strong></td><td><code>¬</code></td><td>Negasi</td><td>Dievaluasi paling awal pada operan terdekat</td></tr>
+              <tr><td><strong>2</strong></td><td><code>∧</code></td><td>Konjungsi</td><td>Mengikat lebih kuat dibanding disjungsi</td></tr>
+              <tr><td><strong>3</strong></td><td><code>∨</code></td><td>Disjungsi</td><td>Mengikat sebelum implikasi</td></tr>
+              <tr><td><strong>4</strong></td><td><code>→</code></td><td>Implikasi</td><td>Mengevaluasi hubungan sebelum ekuivalensi</td></tr>
+              <tr><td><strong>5 (Terendah)</strong></td><td><code>↔</code></td><td>Ekuivalensi</td><td>Dievaluasi paling akhir sebagai pembagi utama</td></tr>
             </tbody>
           </table></div>
         </div>
@@ -1349,12 +1350,12 @@ body {
         </p>
         <div class="formula-block">
           <span class="comment">// Contoh Slide 4.4 & 4.5: Ambiguitas tanpa kurung</span><br>
-          Ekspresi Asli  : A âˆ§ B â†’ C âˆ¨ D<br>
-          Bentuk FPE/wff : ((A âˆ§ B) â†’ (C âˆ¨ D))<br><br>
-          <span class="comment">// Aturan: Negasi menempel langsung tanpa kurung: Â¬A âˆ§ B = ((Â¬A) âˆ§ B)</span>
+          Ekspresi Asli  : A ∧ B → C ∨ D<br>
+          Bentuk FPE/wff : ((A ∧ B) → (C ∨ D))<br><br>
+          <span class="comment">// Aturan: Negasi menempel langsung tanpa kurung: ¬A ∧ B = ((¬A) ∧ B)</span>
         </div>
 
-        <h3>3. Parse Tree / Pohon Penguraian (Slide 15â€“19)</h3>
+        <h3>3. Parse Tree / Pohon Penguraian (Slide 15–19)</h3>
         <p>
           <strong>Parse Tree</strong> memetakan ekspresi majemuk ke dalam struktur hierarkis pohon biner:
         </p>
@@ -1366,13 +1367,13 @@ body {
         </ul>
 
         <div class="tree-diagram">
-          <span class="comment">/* Parse Tree untuk Ekspresi: ((A âˆ§ Â¬B) â†’ Â¬C) */</span><br><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="root">[ â†’ ] (Root / Main Operator)</span><br>
+          <span class="comment">/* Parse Tree untuk Ekspresi: ((A ∧ ¬B) → ¬C) */</span><br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="root">[ → ] (Root / Main Operator)</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;\<br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="branch">[ âˆ§ ]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="branch">[ Â¬ ]</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="branch">[ ∧ ]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="branch">[ ¬ ]</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-          &nbsp;&nbsp;&nbsp;<span class="leaf">( A )</span>&nbsp;&nbsp;<span class="branch">[ Â¬ ]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="leaf">( C )</span><br>
+          &nbsp;&nbsp;&nbsp;<span class="leaf">( A )</span>&nbsp;&nbsp;<span class="branch">[ ¬ ]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="leaf">( C )</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="leaf">( B )</span>
         </div>
@@ -1381,37 +1382,37 @@ body {
 
         <article id="art-p5" class="article-card">
           
-        <span class="section-eyebrow">Slide Pertemuan 5 â€” Halaman 1 s.d. 28</span>
+        <span class="section-eyebrow">Slide Pertemuan 5 — Halaman 1 s.d. 28</span>
         <h2 class="section-heading">Pertemuan 5: Tautologi, Kontradiksi &amp; Contingent</h2>
 
         <p>
           Berdasarkan hasil evaluasi tabel kebenarannya, setiap ekspresi logika proposisional dapat diklasifikasikan ke dalam salah satu dari tiga kategori utama: <strong>Tautologi</strong>, <strong>Kontradiksi</strong>, atau <strong>Contingent</strong>.
         </p>
 
-        <h3>1. Rumus Baris Tabel Kebenaran: 2â¿ (Slide 8)</h3>
+        <h3>1. Rumus Baris Tabel Kebenaran: 2ⁿ (Slide 8)</h3>
         <div class="editorial-callout">
           <div class="editorial-callout-title">Rumus Baris Tabel Kebenaran (Slide 8)</div>
           <p>
             Jumlah baris untuk memuat seluruh kemungkinan nilai variabel dihitung dengan rumus: <strong>2<sup>N</sup></strong> (di mana N = jumlah variabel proposisional unik).<br>
-            â€¢ 2 Variabel (A, B) â‡’ 2<sup>2</sup> = <strong>4 baris</strong>.<br>
-            â€¢ 3 Variabel (A, B, C) â‡’ 2<sup>3</sup> = <strong>8 baris</strong>.<br>
-            â€¢ 4 Variabel (A, B, C, D) â‡’ 2<sup>4</sup> = <strong>16 baris</strong>.
+            • 2 Variabel (A, B) ⇒ 2<sup>2</sup> = <strong>4 baris</strong>.<br>
+            • 3 Variabel (A, B, C) ⇒ 2<sup>3</sup> = <strong>8 baris</strong>.<br>
+            • 4 Variabel (A, B, C, D) ⇒ 2<sup>4</sup> = <strong>16 baris</strong>.
           </p>
         </div>
 
-        <h3>2. Tiga Kategori Evaluasi Logika (Slide 15â€“26)</h3>
+        <h3>2. Tiga Kategori Evaluasi Logika (Slide 15–26)</h3>
         <p>
-          â€¢ <strong>Tautologi (Slide 15):</strong> Ekspresi yang <strong>selalu bernilai True (T)</strong> pada seluruh baris tabel kebenarannya. Menandakan argumen yang valid / sound argument.<br>
-          â€¢ <strong>Kontradiksi (Slide 22):</strong> Kebalikan tautologi, yaitu ekspresi yang <strong>selalu bernilai False (F)</strong> pada seluruh baris tabel kebenarannya.<br>
-          â€¢ <strong>Contingent (Slide 25):</strong> Formula campuran yang memiliki kombinasi nilai <strong>T dan F</strong> pada hasil akhirnya.
+          • <strong>Tautologi (Slide 15):</strong> Ekspresi yang <strong>selalu bernilai True (T)</strong> pada seluruh baris tabel kebenarannya. Menandakan argumen yang valid / sound argument.<br>
+          • <strong>Kontradiksi (Slide 22):</strong> Kebalikan tautologi, yaitu ekspresi yang <strong>selalu bernilai False (F)</strong> pada seluruh baris tabel kebenarannya.<br>
+          • <strong>Contingent (Slide 25):</strong> Formula campuran yang memiliki kombinasi nilai <strong>T dan F</strong> pada hasil akhirnya.
         </p>
 
-        <h3>3. Contoh 5.1 (Slide 6â€“7) â€” Tabel 3 Variabel (8 Baris T-First)</h3>
-        <p>Ekspresi: <code>(A âˆ§ Â¬B) â†’ Â¬C</code> ("Jika Anda ambil matkul Lohim dan tidak paham tautologi, maka Anda tidak lulus")</p>
+        <h3>3. Contoh 5.1 (Slide 6–7) — Tabel 3 Variabel (8 Baris T-First)</h3>
+        <p>Ekspresi: <code>(A ∧ ¬B) → ¬C</code> ("Jika Anda ambil matkul Lohim dan tidak paham tautologi, maka Anda tidak lulus")</p>
         <div class="table-wrap">
           <div class="table-scroll-wrap"><table class="academic-table">
             <thead>
-              <tr><th>A</th><th>B</th><th>C</th><th>Â¬B</th><th>Â¬C</th><th>A âˆ§ Â¬B</th><th style="background:#0F766E;color:#fff">(A âˆ§ Â¬B) â†’ Â¬C</th></tr>
+              <tr><th>A</th><th>B</th><th>C</th><th>¬B</th><th>¬C</th><th>A ∧ ¬B</th><th style="background:#0F766E;color:#fff">(A ∧ ¬B) → ¬C</th></tr>
             </thead>
             <tbody>
               <tr><td>T</td><td>T</td><td>T</td><td>F</td><td>F</td><td>F</td><td><span class="val-t">T</span></td></tr>
@@ -1426,12 +1427,12 @@ body {
           </table></div>
         </div>
 
-        <h3>4. Pembuktian Tautologi 3 Variabel â€” Contoh 5.5 (Slide 16â€“17)</h3>
-        <p>Buktikan bahwa ekspresi <code>(A âˆ§ B) â†’ (C âˆ¨ (Â¬B â†’ Â¬C))</code> adalah Tautologi:</p>
+        <h3>4. Pembuktian Tautologi 3 Variabel — Contoh 5.5 (Slide 16–17)</h3>
+        <p>Buktikan bahwa ekspresi <code>(A ∧ B) → (C ∨ (¬B → ¬C))</code> adalah Tautologi:</p>
         <div class="table-wrap">
           <div class="table-scroll-wrap"><table class="academic-table">
             <thead>
-              <tr><th>A</th><th>B</th><th>C</th><th>A âˆ§ B</th><th>Â¬B â†’ Â¬C</th><th>C âˆ¨ (Â¬B â†’ Â¬C)</th><th class="cell-taut">Hasil Akhir</th></tr>
+              <tr><th>A</th><th>B</th><th>C</th><th>A ∧ B</th><th>¬B → ¬C</th><th>C ∨ (¬B → ¬C)</th><th class="cell-taut">Hasil Akhir</th></tr>
             </thead>
             <tbody>
               <tr><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td class="cell-taut">T</td></tr>
@@ -1445,17 +1446,17 @@ body {
             </tbody>
           </table></div>
         </div>
-        <p style="font-size:13px;color:var(--teal-dark);font-weight:700">âœ“ Seluruh 8 baris bernilai T â‡’ Terbukti TAUTOLOGI (Sound Argument)</p>
+        <p style="font-size:13px;color:var(--teal-dark);font-weight:700">✓ Seluruh 8 baris bernilai T ⇒ Terbukti TAUTOLOGI (Sound Argument)</p>
 
         <h3>5. Pembuktian Kontradiksi &amp; Contingent (Slide 24 &amp; 26)</h3>
         <div class="article-grid-2">
           <div>
             <h4>Contoh 5.9: Kontradiksi (Slide 24)</h4>
-            <p>Ekspresi: <code>((A âˆ¨ B) âˆ§ Â¬A) âˆ§ Â¬B</code></p>
+            <p>Ekspresi: <code>((A ∨ B) ∧ ¬A) ∧ ¬B</code></p>
             <div class="table-wrap">
               <div class="table-scroll-wrap"><table class="academic-table">
                 <thead>
-                  <tr><th>A</th><th>B</th><th>A âˆ¨ B</th><th>Hasil Akhir</th></tr>
+                  <tr><th>A</th><th>B</th><th>A ∨ B</th><th>Hasil Akhir</th></tr>
                 </thead>
                 <tbody>
                   <tr><td>T</td><td>T</td><td>T</td><td class="cell-pivot"><span class="val-f">F</span></td></tr>
@@ -1465,24 +1466,24 @@ body {
                 </tbody>
               </table></div>
             </div>
-            <p style="font-size:12px;color:var(--rose);font-weight:700">âœ“ Seluruh baris bernilai F (KONTRADIKSI)</p>
+            <p style="font-size:12px;color:var(--rose);font-weight:700">✓ Seluruh baris bernilai F (KONTRADIKSI)</p>
           </div>
 
           <div>
             <h4>Contoh 5.10: Contingent (Slide 26)</h4>
-            <p>Ekspresi: <code>((A âˆ§ B) â†’ C) â†’ A</code></p>
+            <p>Ekspresi: <code>((A ∧ B) → C) → A</code></p>
             <div class="table-wrap">
               <div class="table-scroll-wrap"><table class="academic-table">
                 <thead>
                   <tr><th>Baris</th><th>Kombinasi</th><th>Hasil Akhir</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>1â€“4</td><td>A = T</td><td><span class="val-t">T, T, T, T</span></td></tr>
-                  <tr><td>5â€“8</td><td>A = F</td><td><span class="val-f">F, F, F, F</span></td></tr>
+                  <tr><td>1–4</td><td>A = T</td><td><span class="val-t">T, T, T, T</span></td></tr>
+                  <tr><td>5–8</td><td>A = F</td><td><span class="val-f">F, F, F, F</span></td></tr>
                 </tbody>
               </table></div>
             </div>
-            <p style="font-size:12px;color:var(--gold-dark);font-weight:700">âœ“ Campuran 4 T dan 4 F (CONTINGENT)</p>
+            <p style="font-size:12px;color:var(--gold-dark);font-weight:700">✓ Campuran 4 T dan 4 F (CONTINGENT)</p>
           </div>
         </div>
       
@@ -1494,7 +1495,7 @@ body {
     <span class="uts-badge uts-badge-cyan">ARSIP RESMI REPOTIF UMS</span>
     <span class="uts-badge uts-badge-primary">GASAL 2024/2025</span>
   </div>
-  <h2>ðŸŽ¯ Modul Bedah Soal Fokus UTS Logika &amp; Himpunan</h2>
+  <h2>🎯 Modul Bedah Soal Fokus UTS Logika &amp; Himpunan</h2>
   <p>
     Berdasarkan berkas pindaian lembar soal asli <code>repotif_arsip_uts/25_UTS_2024_p1_img1.jpeg</code> dari repositori HIMATIF UMS. Dosen Penguji: <strong>Yudi Wahyu Wibowo, ST, M.Eng</strong> &amp; <strong>Dr. Eng. Yusuf Sulistyo Nugroho</strong>.
   </p>
@@ -1504,7 +1505,7 @@ body {
 <div class="uts-meta-grid">
   <div class="uts-meta-card">
     <div class="label">Waktu &amp; Sifat Ujian</div>
-    <div class="val primary">â±ï¸ 90 Menit (Buku Tertutup)</div>
+    <div class="val primary">⏱️ 90 Menit (Buku Tertutup)</div>
   </div>
   <div class="uts-meta-card">
     <div class="label">Pembagian NIM Ganjil</div>
@@ -1518,51 +1519,51 @@ body {
 
 <!-- ======================= TOPIK 1 ======================= -->
 <div class="uts-topic-section">
-  <h3>ðŸ“Œ Topik 1: Fully Parenthesized Expression (FPE) (Skor: 20 | CPMK 1)</h3>
+  <h3>📌 Topik 1: Fully Parenthesized Expression (FPE) (Skor: 20 | CPMK 1)</h3>
   <p>
     <strong>Instruksi Soal:</strong> <em>Berilah tanda kurung dengan sempurna (Fully Parenthesized Expression (FPE)) pada ekspresi logika berikut sesuai dengan hierarki operatornya!</em>
   </p>
 
   <div class="uts-callout-info">
-    <h4>â­ Aturan Hierarki Presedensi Operator Logika UMS:</h4>
+    <h4>⭐ Aturan Hierarki Presedensi Operator Logika UMS:</h4>
     <ol>
-      <li><strong>Negasi (Â¬)</strong> â€” Prioritas tertinggi, mengikat variabel langsung di sebelah kanannya.</li>
-      <li><strong>Konjungsi (âˆ§)</strong> â€” Pengali logika (And).</li>
-      <li><strong>Disjungsi (âˆ¨)</strong> â€” Penjumlahan logika (Or).</li>
-      <li><strong>Implikasi (â†’)</strong> â€” Relasi sebab-akibat (jika-maka).</li>
-      <li><strong>Biimplikasi (â†”)</strong> â€” Ekuivalensi ganda (prioritas paling rendah).</li>
+      <li><strong>Negasi (¬)</strong> — Prioritas tertinggi, mengikat variabel langsung di sebelah kanannya.</li>
+      <li><strong>Konjungsi (∧)</strong> — Pengali logika (And).</li>
+      <li><strong>Disjungsi (∨)</strong> — Penjumlahan logika (Or).</li>
+      <li><strong>Implikasi (→)</strong> — Relasi sebab-akibat (jika-maka).</li>
+      <li><strong>Biimplikasi (↔)</strong> — Ekuivalensi ganda (prioritas paling rendah).</li>
     </ol>
-    <p>âš ï¸ <strong>Kaidah Wajib FPE:</strong> Setiap perangkai biner (<code>âˆ§, âˆ¨, â†’, â†”</code>) harus memiliki tepat satu pasang tanda kurung pembungkus <code>( ... )</code>.</p>
+    <p>⚠️ <strong>Kaidah Wajib FPE:</strong> Setiap perangkai biner (<code>∧, ∨, →, ↔</code>) harus memiliki tepat satu pasang tanda kurung pembungkus <code>( ... )</code>.</p>
   </div>
 
   <div class="uts-soal-card ganjil">
-    <div class="soal-title">Soal 1.a (NIM Ganjil): <code>A âˆ§ B âˆ¨ C â†’ Â¬D</code></div>
-    <div class="soal-sub">Langkah: 1. Negasi: <code>(Â¬D)</code> &nbsp;|&nbsp; 2. Konjungsi: <code>(A âˆ§ B)</code> &nbsp;|&nbsp; 3. Disjungsi: <code>((A âˆ§ B) âˆ¨ C)</code> &nbsp;|&nbsp; 4. Implikasi utama</div>
-    <div class="soal-ans">Jawaban FPE: <code>(((A âˆ§ B) âˆ¨ C) â†’ (Â¬D))</code></div>
+    <div class="soal-title">Soal 1.a (NIM Ganjil): <code>A ∧ B ∨ C → ¬D</code></div>
+    <div class="soal-sub">Langkah: 1. Negasi: <code>(¬D)</code> &nbsp;|&nbsp; 2. Konjungsi: <code>(A ∧ B)</code> &nbsp;|&nbsp; 3. Disjungsi: <code>((A ∧ B) ∨ C)</code> &nbsp;|&nbsp; 4. Implikasi utama</div>
+    <div class="soal-ans">Jawaban FPE: <code>(((A ∧ B) ∨ C) → (¬D))</code></div>
   </div>
 
   <div class="uts-soal-card genap">
-    <div class="soal-title">Soal 1.b (NIM Genap): <code>Â¬A âˆ§ B â†’ Â¬C âˆ¨ D</code></div>
-    <div class="soal-sub">Langkah: 1. Negasi: <code>(Â¬A)</code> dan <code>(Â¬C)</code> &nbsp;|&nbsp; 2. Konjungsi: <code>((Â¬A) âˆ§ B)</code> &nbsp;|&nbsp; 3. Disjungsi: <code>((Â¬C) âˆ¨ D)</code> &nbsp;|&nbsp; 4. Implikasi</div>
-    <div class="soal-ans">Jawaban FPE: <code>(((Â¬A) âˆ§ B) â†’ ((Â¬C) âˆ¨ D))</code></div>
+    <div class="soal-title">Soal 1.b (NIM Genap): <code>¬A ∧ B → ¬C ∨ D</code></div>
+    <div class="soal-sub">Langkah: 1. Negasi: <code>(¬A)</code> dan <code>(¬C)</code> &nbsp;|&nbsp; 2. Konjungsi: <code>((¬A) ∧ B)</code> &nbsp;|&nbsp; 3. Disjungsi: <code>((¬C) ∨ D)</code> &nbsp;|&nbsp; 4. Implikasi</div>
+    <div class="soal-ans">Jawaban FPE: <code>(((¬A) ∧ B) → ((¬C) ∨ D))</code></div>
   </div>
 
   <div class="uts-soal-card ganjil">
-    <div class="soal-title">Soal 1.c (NIM Ganjil): <code>A âˆ¨ B âˆ§ Â¬C â†” A âˆ¨ Â¬B âˆ§ A â†’ C</code></div>
-    <div class="soal-sub">âš ï¸ Implikasi (â†’) lebih tinggi dibanding Biimplikasi (â†”)! Sisi implikasi: <code>(A âˆ¨ ((Â¬B) âˆ§ A)) â†’ C</code>.</div>
-    <div class="soal-ans">Jawaban FPE: <code>((A âˆ¨ (B âˆ§ (Â¬C))) â†” ((A âˆ¨ ((Â¬B) âˆ§ A)) â†’ C))</code></div>
+    <div class="soal-title">Soal 1.c (NIM Ganjil): <code>A ∨ B ∧ ¬C ↔ A ∨ ¬B ∧ A → C</code></div>
+    <div class="soal-sub">⚠️ Implikasi (→) lebih tinggi dibanding Biimplikasi (↔)! Sisi implikasi: <code>(A ∨ ((¬B) ∧ A)) → C</code>.</div>
+    <div class="soal-ans">Jawaban FPE: <code>((A ∨ (B ∧ (¬C))) ↔ ((A ∨ ((¬B) ∧ A)) → C))</code></div>
   </div>
 
   <div class="uts-soal-card genap">
-    <div class="soal-title">Soal 1.d (NIM Genap): <code>Â¬A âˆ§ B âˆ¨ C â†’ A â†” A âˆ§ B âˆ¨ Â¬C</code></div>
-    <div class="soal-sub">Ruas Kiri: <code>((((Â¬A) âˆ§ B) âˆ¨ C) â†’ A)</code> &nbsp;|&nbsp; Ruas Kanan: <code>((A âˆ§ B) âˆ¨ (Â¬C))</code> &nbsp;|&nbsp; Operator Utama: Biimplikasi (â†”)</div>
-    <div class="soal-ans">Jawaban FPE: <code>(((((Â¬A) âˆ§ B) âˆ¨ C) â†’ A) â†” ((A âˆ§ B) âˆ¨ (Â¬C)))</code></div>
+    <div class="soal-title">Soal 1.d (NIM Genap): <code>¬A ∧ B ∨ C → A ↔ A ∧ B ∨ ¬C</code></div>
+    <div class="soal-sub">Ruas Kiri: <code>((((¬A) ∧ B) ∨ C) → A)</code> &nbsp;|&nbsp; Ruas Kanan: <code>((A ∧ B) ∨ (¬C))</code> &nbsp;|&nbsp; Operator Utama: Biimplikasi (↔)</div>
+    <div class="soal-ans">Jawaban FPE: <code>(((((¬A) ∧ B) ∨ C) → A) ↔ ((A ∧ B) ∨ (¬C)))</code></div>
   </div>
 </div>
 
 <!-- ======================= TOPIK 2 ======================= -->
 <div class="uts-topic-section">
-  <h3>ðŸ“Œ Topik 2: Translasi Bahasa Alami ke Logika &amp; FPE (Skor: 20 | CPMK 1)</h3>
+  <h3>📌 Topik 2: Translasi Bahasa Alami ke Logika &amp; FPE (Skor: 20 | CPMK 1)</h3>
   <p>
     <strong>Instruksi Soal:</strong> <em>Ubahlah pernyataan berikut menjadi sebuah ekspresi logika dan memenuhi FPE!</em>
   </p>
@@ -1574,17 +1575,17 @@ body {
     </blockquote>
     <div class="soal-sub">
       <strong>1. Pendefinisian Variabel Atomik:</strong><br>
-      â€¢ <code>p</code>: Hari ini libur<br>
-      â€¢ <code>q</code>: Cuaca cerah<br>
-      â€¢ <code>r</code>: Saya menemani Ibu pergi ke pasar<br>
-      â€¢ <code>s</code>: Saya menemani Ayah pergi ke bengkel<br>
+      • <code>p</code>: Hari ini libur<br>
+      • <code>q</code>: Cuaca cerah<br>
+      • <code>r</code>: Saya menemani Ibu pergi ke pasar<br>
+      • <code>s</code>: Saya menemani Ayah pergi ke bengkel<br>
       <strong>2. Analisis Struktur Klausa:</strong><br>
-      â€¢ Klausa 1: "Jika libur atau cerah, maka menemani Ibu" &rarr; <code>(p âˆ¨ q) â†’ r</code><br>
-      â€¢ Klausa 2: "Jika tidak libur dan tidak cerah, maka menemani Ayah" &rarr; <code>(Â¬p âˆ§ Â¬q) â†’ s</code><br>
-      â€¢ Penghubung Antar Klausa: "atau" &rarr; <code>âˆ¨</code>
+      • Klausa 1: "Jika libur atau cerah, maka menemani Ibu" &rarr; <code>(p ∨ q) → r</code><br>
+      • Klausa 2: "Jika tidak libur dan tidak cerah, maka menemani Ayah" &rarr; <code>(¬p ∧ ¬q) → s</code><br>
+      • Penghubung Antar Klausa: "atau" &rarr; <code>∨</code>
     </div>
     <div class="soal-ans">
-      Jawaban FPE: <code>(((p âˆ¨ q) â†’ r) âˆ¨ (((Â¬p) âˆ§ (Â¬q)) â†’ s))</code>
+      Jawaban FPE: <code>(((p ∨ q) → r) ∨ (((¬p) ∧ (¬q)) → s))</code>
     </div>
   </div>
 
@@ -1595,24 +1596,24 @@ body {
     </blockquote>
     <div class="soal-sub">
       <strong>1. Pendefinisian Variabel Atomik:</strong><br>
-      â€¢ <code>p</code>: Saya melanjutkan kuliah (maka "tidak melanjutkan kuliah" = <code>Â¬p</code>)<br>
-      â€¢ <code>q</code>: Saya lulus ujian (maka "tidak lulus ujian" = <code>Â¬q</code>)<br>
-      â€¢ <code>r</code>: Saya mendapatkan nilai rendah<br>
-      â€¢ <code>s</code>: Orang tua keberatan<br>
+      • <code>p</code>: Saya melanjutkan kuliah (maka "tidak melanjutkan kuliah" = <code>¬p</code>)<br>
+      • <code>q</code>: Saya lulus ujian (maka "tidak lulus ujian" = <code>¬q</code>)<br>
+      • <code>r</code>: Saya mendapatkan nilai rendah<br>
+      • <code>s</code>: Orang tua keberatan<br>
       <strong>2. Analisis Struktur Kondisi Kanan:</strong><br>
-      â€¢ Sub-kondisi: "tidak lulus dan nilai rendah": <code>(Â¬q âˆ§ r)</code><br>
-      â€¢ Didisjungsikan dengan keberatan orang tua: <code>((Â¬q âˆ§ r) âˆ¨ s)</code><br>
-      â€¢ Penghubung Utama: "jika dan hanya jika" &rarr; Biimplikasi (â†”)
+      • Sub-kondisi: "tidak lulus dan nilai rendah": <code>(¬q ∧ r)</code><br>
+      • Didisjungsikan dengan keberatan orang tua: <code>((¬q ∧ r) ∨ s)</code><br>
+      • Penghubung Utama: "jika dan hanya jika" &rarr; Biimplikasi (↔)
     </div>
     <div class="soal-ans">
-      Jawaban FPE: <code>((Â¬p) â†” (((Â¬q) âˆ§ r) âˆ¨ s))</code>
+      Jawaban FPE: <code>((¬p) ↔ (((¬q) ∧ r) ∨ s))</code>
     </div>
   </div>
 </div>
 
 <!-- ======================= TOPIK 3 ======================= -->
 <div class="uts-topic-section">
-  <h3>ðŸ“Œ Topik 3: Tabel Kebenaran 8 Baris &amp; Analisis Tautologi (Skor: 30 | CPMK 2)</h3>
+  <h3>📌 Topik 3: Tabel Kebenaran 8 Baris &amp; Analisis Tautologi (Skor: 30 | CPMK 2)</h3>
   <p>
     <strong>Instruksi Soal:</strong> <em>Tentukan apakah ekspresi logika berikut ini tautologi, kontradiksi, atau contingent dengan menggunakan Tabel Kebenaran!</em><br>
     Untuk 3 variabel proposisi (<code>A, B, C</code>), wajib menyusun <strong>8 baris kombinasi</strong>: <code>TTT, TTF, TFT, TFF, FTT, FTF, FFT, FFF</code>.
@@ -1625,9 +1626,9 @@ body {
         <span class="soal-title">Soal 3.a (Frege's Axiom)</span>
         <span class="uts-badge" style="background:var(--emerald-bg); color:var(--accent-emerald); border:1px solid var(--emerald-border);">TAUTOLOGI</span>
       </div>
-      <code>(A â†’ (B â†’ C)) â†’ ((A â†’ B) â†’ (A â†’ C))</code>
+      <code>(A → (B → C)) → ((A → B) → (A → C))</code>
       <div class="soal-sub" style="margin-top: 8px;">
-        Kolom Perantara: <code>Bâ†’C</code>, <code>Aâ†’(Bâ†’C)</code>, <code>Aâ†’B</code>, <code>Aâ†’C</code>, <code>(Aâ†’B)â†’(Aâ†’C)</code>.<br>
+        Kolom Perantara: <code>B→C</code>, <code>A→(B→C)</code>, <code>A→B</code>, <code>A→C</code>, <code>(A→B)→(A→C)</code>.<br>
         <strong>Hasil Akhir:</strong> Seluruh 8 baris bernilai Benar (T).
       </div>
     </div>
@@ -1638,9 +1639,9 @@ body {
         <span class="soal-title">Soal 3.b (Silogisme Hipotesis)</span>
         <span class="uts-badge" style="background:var(--emerald-bg); color:var(--accent-emerald); border:1px solid var(--emerald-border);">TAUTOLOGI</span>
       </div>
-      <code>((A â†’ B) âˆ§ (B â†’ C)) â†’ (A â†’ C)</code>
+      <code>((A → B) ∧ (B → C)) → (A → C)</code>
       <div class="soal-sub" style="margin-top: 8px;">
-        Kolom Perantara: <code>Aâ†’B</code>, <code>Bâ†’C</code>, <code>(Aâ†’B)âˆ§(Bâ†’C)</code>, <code>Aâ†’C</code>.<br>
+        Kolom Perantara: <code>A→B</code>, <code>B→C</code>, <code>(A→B)∧(B→C)</code>, <code>A→C</code>.<br>
         <strong>Hasil Akhir:</strong> Seluruh 8 baris bernilai Benar (T).
       </div>
     </div>
@@ -1651,9 +1652,9 @@ body {
         <span class="soal-title">Soal 3.c (Karakteristik Biimplikasi)</span>
         <span class="uts-badge" style="background:var(--emerald-bg); color:var(--accent-emerald); border:1px solid var(--emerald-border);">TAUTOLOGI</span>
       </div>
-      <code>(A â†” B) â†” ((A âˆ§ B) âˆ¨ (Â¬A âˆ§ Â¬B))</code>
+      <code>(A ↔ B) ↔ ((A ∧ B) ∨ (¬A ∧ ¬B))</code>
       <div class="soal-sub" style="margin-top: 8px;">
-        Tabel 4 Baris (2 Variabel): <code>Aâ†”B</code> bernilai T saat (T,T) dan (F,F), tepat sama dengan <code>(Aâˆ§B)âˆ¨(Â¬Aâˆ§Â¬B)</code>.<br>
+        Tabel 4 Baris (2 Variabel): <code>A↔B</code> bernilai T saat (T,T) dan (F,F), tepat sama dengan <code>(A∧B)∨(¬A∧¬B)</code>.<br>
         <strong>Hasil Akhir:</strong> Seluruh 4 baris bernilai Benar (T).
       </div>
     </div>
@@ -1664,10 +1665,10 @@ body {
         <span class="soal-title">Soal 3.d (Negasi Distributif)</span>
         <span class="uts-badge" style="background:var(--rose-bg); color:var(--accent-rose); border:1px solid var(--rose-border);">KONTRADIKSI</span>
       </div>
-      <code>Â¬(A âˆ¨ (B âˆ§ C)) â†” ((A âˆ¨ B) âˆ§ (A âˆ¨ C))</code>
+      <code>¬(A ∨ (B ∧ C)) ↔ ((A ∨ B) ∧ (A ∨ C))</code>
       <div class="soal-sub" style="margin-top: 8px;">
-        Berdasarkan hukum distributif, ruas kanan identik dengan isi kurung ruas kiri: <code>(A âˆ¨ (B âˆ§ C)) â‰¡ ((A âˆ¨ B) âˆ§ (A âˆ¨ C))</code>.<br>
-        Formula ini setara dengan <code>Â¬X â†” X</code> yang selalu bernilai Salah di setiap kondisi.<br>
+        Berdasarkan hukum distributif, ruas kanan identik dengan isi kurung ruas kiri: <code>(A ∨ (B ∧ C)) ≡ ((A ∨ B) ∧ (A ∨ C))</code>.<br>
+        Formula ini setara dengan <code>¬X ↔ X</code> yang selalu bernilai Salah di setiap kondisi.<br>
         <strong>Hasil Akhir:</strong> Seluruh 8 baris bernilai Salah (F).
       </div>
     </div>
@@ -1676,43 +1677,43 @@ body {
 
 <!-- ======================= TOPIK 4 ======================= -->
 <div class="uts-topic-section">
-  <h3>ðŸ“Œ Topik 4: Pembuktian Ekuivalensi &amp; Jebakan Asosiatif (Skor: 30 | CPMK 2)</h3>
+  <h3>📌 Topik 4: Pembuktian Ekuivalensi &amp; Jebakan Asosiatif (Skor: 30 | CPMK 2)</h3>
   <p>
     <strong>Instruksi Soal:</strong> <em>Buktikan ekspresi-ekspresi logika berikut ini ekuivalen dengan tabel kebenaran!</em>
   </p>
 
   <!-- CALLOUT JEBAKAN POPULER -->
   <div class="uts-callout-warning">
-    <h4>âš ï¸ JEBAKAN POPULER UTS UMS (Soal 4.d): Apakah Implikasi Asosiatif?</h4>
+    <h4>⚠️ JEBAKAN POPULER UTS UMS (Soal 4.d): Apakah Implikasi Asosiatif?</h4>
     <p>
-      <strong>Pertanyaan:</strong> Apakah <code>A â†’ (B â†’ C) â‰¡ (A â†’ B) â†’ C</code> ?
+      <strong>Pertanyaan:</strong> Apakah <code>A → (B → C) ≡ (A → B) → C</code> ?
     </p>
     <p>
       <strong style="color:var(--accent-rose); font-size:14px;">JAWABAN: BUKTIKAN TIDAK EKUIVALEN!</strong>
     </p>
     <p>
       Tunjukkan baris penyangkal (Counterexample) saat <code>A = F, B = F, C = F</code>:<br>
-      â€¢ <strong>Ruas Kiri:</strong> <code>F â†’ (F â†’ F) = F â†’ T = T</code> (Benar)<br>
-      â€¢ <strong>Ruas Kanan:</strong> <code>(F â†’ F) â†’ F = T â†’ F = F</code> (Salah)<br>
+      • <strong>Ruas Kiri:</strong> <code>F → (F → F) = F → T = T</code> (Benar)<br>
+      • <strong>Ruas Kanan:</strong> <code>(F → F) → F = T → F = F</code> (Salah)<br>
       Karena terdapat baris dengan nilai kebenaran berbeda, terbukti bahwa <strong>Implikasi TIDAK BERSIFAT ASOSIATIF</strong>. Tanda kurung tidak boleh digeser sembarangan!
     </p>
   </div>
 
   <div class="uts-grid-2col">
     <div class="uts-soal-card primary">
-      <div class="soal-title">Soal 4.b: <code>A â†’ (Â¬A â†’ B) â‰¡ 1</code></div>
+      <div class="soal-title">Soal 4.b: <code>A → (¬A → B) ≡ 1</code></div>
       <div class="soal-sub">
-        Uraian: <code>Â¬A â†’ B â‰¡ A âˆ¨ B</code>.<br>
-        Maka: <code>A â†’ (A âˆ¨ B) â‰¡ Â¬A âˆ¨ (A âˆ¨ B) â‰¡ (Â¬A âˆ¨ A) âˆ¨ B â‰¡ 1 âˆ¨ B â‰¡ 1</code>.<br>
+        Uraian: <code>¬A → B ≡ A ∨ B</code>.<br>
+        Maka: <code>A → (A ∨ B) ≡ ¬A ∨ (A ∨ B) ≡ (¬A ∨ A) ∨ B ≡ 1 ∨ B ≡ 1</code>.<br>
         <strong>Kesimpulan:</strong> Seluruh baris pada tabel bernilai Benar (Terbukti Tautologi = 1).
       </div>
     </div>
 
     <div class="uts-soal-card primary">
-      <div class="soal-title">Soal 4.c: <code>Â¬(Â¬(A âˆ§ B) âˆ¨ B) â‰¡ 0</code></div>
+      <div class="soal-title">Soal 4.c: <code>¬(¬(A ∧ B) ∨ B) ≡ 0</code></div>
       <div class="soal-sub">
-        Uraian: <code>Â¬(A âˆ§ B) âˆ¨ B â‰¡ (Â¬A âˆ¨ Â¬B) âˆ¨ B â‰¡ Â¬A âˆ¨ 1 â‰¡ 1</code>.<br>
-        Maka negasinya: <code>Â¬(1) â‰¡ 0</code>.<br>
+        Uraian: <code>¬(A ∧ B) ∨ B ≡ (¬A ∨ ¬B) ∨ B ≡ ¬A ∨ 1 ≡ 1</code>.<br>
+        Maka negasinya: <code>¬(1) ≡ 0</code>.<br>
         <strong>Kesimpulan:</strong> Seluruh baris pada tabel bernilai Salah (Terbukti Kontradiksi = 0).
       </div>
     </div>
@@ -1729,7 +1730,7 @@ body {
     <div class="drill-container">
       <div class="section-hero">
         <div class="hero-text">
-          <h2>ðŸŽ² Generator Soal Tabel Kebenaran</h2>
+          <h2>🎲 Generator Soal Tabel Kebenaran</h2>
           <p>Dapatkan soal latihan membuat tabel kebenaran lengkap secara acak. Kerjakan di lembar kerja atau kertas, lalu buka kunci jawaban untuk memeriksa langkah demi langkah.</p>
         </div>
       </div>
@@ -1738,7 +1739,7 @@ body {
         <!-- Controls Bar -->
         <div class="gen-controls-bar">
           <button class="btn-primary" onclick="randomNewProblem()">
-            <span>ðŸŽ²</span> Acak Soal Baru
+            <span>🎲</span> Acak Soal Baru
           </button>
           <select id="genVarFilter" class="btn-secondary" onchange="randomNewProblem()" style="min-height:42px;">
             <option value="ALL">Semua Tingkat (2 & 3 Variabel)</option>
@@ -1756,30 +1757,30 @@ body {
             <span style="font-size:11.5px;color:var(--text-subtle);">Mendukung semua variabel & perangkai bebas</span>
           </div>
           <div class="sandbox-input-row">
-            <input type="text" id="customProblemInput" class="sandbox-input" value="(p â†’ q) âˆ§ (q â†’ r)" placeholder="Ketik formula misal: (p âˆ§ q) â†’ (r âˆ¨ s)" onkeyup="if(event.key==='Enter') generateCustomProblem()">
-            <button class="btn-primary btn-generate" onclick="generateCustomProblem()">âš¡ Buat Tabel Kustom</button>
+            <input type="text" id="customProblemInput" class="sandbox-input" value="(p → q) ∧ (q → r)" placeholder="Ketik formula misal: (p ∧ q) → (r ∨ s)" onkeyup="if(event.key==='Enter') generateCustomProblem()">
+            <button class="btn-primary btn-generate" onclick="generateCustomProblem()">⚡ Buat Tabel Kustom</button>
           </div>
 
           <!-- 5-Column Responsive Keypad for Custom Truth Table Problem -->
           <div class="virtual-keys-grid" style="margin-top:8px;">
-            <button class="v-key" onclick="insertGenKey('Â¬')">
-              <span class="v-key-symbol">Â¬</span>
+            <button class="v-key" onclick="insertGenKey('¬')">
+              <span class="v-key-symbol">¬</span>
               <span class="v-key-sub">NOT</span>
             </button>
-            <button class="v-key" onclick="insertGenKey(' âˆ§ ')">
-              <span class="v-key-symbol">âˆ§</span>
+            <button class="v-key" onclick="insertGenKey(' ∧ ')">
+              <span class="v-key-symbol">∧</span>
               <span class="v-key-sub">AND</span>
             </button>
-            <button class="v-key" onclick="insertGenKey(' âˆ¨ ')">
-              <span class="v-key-symbol">âˆ¨</span>
+            <button class="v-key" onclick="insertGenKey(' ∨ ')">
+              <span class="v-key-symbol">∨</span>
               <span class="v-key-sub">OR</span>
             </button>
-            <button class="v-key" onclick="insertGenKey(' â†’ ')">
-              <span class="v-key-symbol">â†’</span>
+            <button class="v-key" onclick="insertGenKey(' → ')">
+              <span class="v-key-symbol">→</span>
               <span class="v-key-sub">IMP</span>
             </button>
-            <button class="v-key" onclick="insertGenKey(' â†” ')">
-              <span class="v-key-symbol">â†”</span>
+            <button class="v-key" onclick="insertGenKey(' ↔ ')">
+              <span class="v-key-symbol">↔</span>
               <span class="v-key-sub">IFF</span>
             </button>
             <button class="v-key" onclick="insertGenKey('(')"><span class="v-key-symbol">(</span><span class="v-key-sub">Open</span></button>
@@ -1790,8 +1791,8 @@ body {
             <button class="v-key" onclick="insertGenKey('s')"><span class="v-key-symbol">s</span><span class="v-key-sub">Var</span></button>
             <button class="v-key" onclick="insertGenKey('t')"><span class="v-key-symbol">t</span><span class="v-key-sub">Var</span></button>
             <button class="v-key" onclick="insertGenKey('u')"><span class="v-key-symbol">u</span><span class="v-key-sub">Var</span></button>
-            <button class="v-key" onclick="backspaceGenKey()"><span class="v-key-symbol">âŒ«</span><span class="v-key-sub">DEL</span></button>
-            <button class="v-key" onclick="clearGenKey()"><span class="v-key-symbol">ðŸ—‘ï¸</span><span class="v-key-sub">Clear</span></button>
+            <button class="v-key" onclick="backspaceGenKey()"><span class="v-key-symbol">⌫</span><span class="v-key-sub">DEL</span></button>
+            <button class="v-key" onclick="clearGenKey()"><span class="v-key-symbol">🗑️</span><span class="v-key-sub">Clear</span></button>
           </div>
 
           <div id="customProblemError" style="display:none;margin-top:10px;" class="drill-feedback-box error"></div>
@@ -1804,23 +1805,23 @@ body {
             <div style="font-size:14px;color:var(--text-body);margin-top:2px;">
               Buatlah tabel kebenaran lengkap dengan urutan baku <strong>T-First</strong> untuk formula proposisi berikut:
             </div>
-            <div class="gen-formula-title" id="genFormulaDisplay">(p âˆ§ Â¬q) â†’ p</div>
+            <div class="gen-formula-title" id="genFormulaDisplay">(p ∧ ¬q) → p</div>
           </div>
           <div id="genVarBadge" style="font-size:12px;background:var(--primary-light);color:var(--primary);padding:4px 12px;border-radius:9999px;font-weight:700;">
-            2 Variabel â€¢ 4 Baris
+            2 Variabel • 4 Baris
           </div>
         </div>
 
         <div id="genProblemNotes" class="callout callout-info" style="margin:12px 0;"></div>
         <!-- Pro-Tip Aliasing Sub-Ekspresi -->
         <div style="background:var(--indigo-bg);border:1px solid var(--indigo-border);border-radius:var(--radius-sm);padding:10px 14px;font-size:12.5px;color:var(--text-main);line-height:1.5;margin-bottom:14px;">
-          ðŸ’¡ <strong>Tips Efisiensi Ujian (Teknik Alias Proposisi):</strong> Untuk formula majemuk yang panjang, beri penamaan variabel pengganti (alias) pada kolom perantara, misalnya namai <code>A = (p â†’ q)</code> atau <code>B = (r âˆ¨ Â¬s)</code>. Kepala kolom evaluasi akhir cukup ditulis <code>A âˆ§ B</code>. Cara ini menghemat ruang, mempercepat penulisan, dan mencegah salah hitung antar baris!
+          💡 <strong>Tips Efisiensi Ujian (Teknik Alias Proposisi):</strong> Untuk formula majemuk yang panjang, beri penamaan variabel pengganti (alias) pada kolom perantara, misalnya namai <code>A = (p → q)</code> atau <code>B = (r ∨ ¬s)</code>. Kepala kolom evaluasi akhir cukup ditulis <code>A ∧ B</code>. Cara ini menghemat ruang, mempercepat penulisan, dan mencegah salah hitung antar baris!
         </div>
 
         <!-- Interactive Practice Area -->
         <div style="margin:18px 0;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
-            <span style="font-size:13px;font-weight:700;color:var(--text-main);">ðŸ“ Lembar Kerja Latihan Mandiri (Isi Tabel):</span>
+            <span style="font-size:13px;font-weight:700;color:var(--text-main);">📝 Lembar Kerja Latihan Mandiri (Isi Tabel):</span>
             <span style="font-size:11.5px;color:var(--text-subtle);">Klik tombol T / F pada setiap sel</span>
           </div>
           <div class="table-scroll-wrap">
@@ -1830,10 +1831,10 @@ body {
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
             <button class="btn-secondary" onclick="checkGenPractice()">
-              <span>âœ…</span> Cek Isian Latihan Saya
+              <span>✅</span> Cek Isian Latihan Saya
             </button>
             <button class="btn-secondary" onclick="resetGenPractice()">
-              <span>ðŸ”„</span> Reset Isian
+              <span>🔄</span> Reset Isian
             </button>
           </div>
           <div id="genPracticeFeedback" class="callout" style="display:none;margin-top:10px;"></div>
@@ -1842,14 +1843,14 @@ body {
         <!-- KUNCI JAWABAN BUKA TUTUP -->
         <div style="margin-top:24px;border-top:1px solid var(--border-color);padding-top:16px;">
           <button class="key-toggle-btn" id="btnToggleKey" onclick="toggleAnswerKey()">
-            <span id="keyIcon">ðŸ‘ï¸</span> <span id="keyBtnText">Buka Kunci Jawaban & Pembahasan Lengkap</span>
+            <span id="keyIcon">👁️</span> <span id="keyBtnText">Buka Kunci Jawaban & Pembahasan Lengkap</span>
           </button>
 
           <!-- Drawer Kunci Jawaban -->
           <div class="answer-key-drawer" id="answerKeyDrawer">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
               <span style="font-size:14px;font-weight:700;color:var(--accent-emerald);">
-                ðŸ”‘ Kunci Jawaban Resmi (Langkah demi Langkah):
+                🔑 Kunci Jawaban Resmi (Langkah demi Langkah):
               </span>
               <div id="keyClassificationBadge"></div>
             </div>
@@ -1861,7 +1862,7 @@ body {
             </div>
 
             <div style="margin-top:12px;font-size:12.5px;color:var(--text-muted);line-height:1.5;">
-              <strong>ðŸ’¡ Catatan Dosen:</strong> Evaluasi selalu diawali dari sub-ekspresi dalam kurung terdalam, kemudian operator negasi, konjungsi/disjungsi, dan diakhiri dengan operator utama di akar formula.
+              <strong>💡 Catatan Dosen:</strong> Evaluasi selalu diawali dari sub-ekspresi dalam kurung terdalam, kemudian operator negasi, konjungsi/disjungsi, dan diakhiri dengan operator utama di akar formula.
             </div>
           </div>
         </div>
@@ -1875,7 +1876,7 @@ body {
     <div class="drill-container">
       <div class="section-hero">
         <div class="hero-text">
-          <h2>âš¡ Interactive Truth Table Drill (Active Matrix)</h2>
+          <h2>⚡ Interactive Truth Table Drill (Active Matrix)</h2>
           <p>Latih kemampuan inferensi Anda dengan mengisi tabel sel per sel secara mandiri, lalu verifikasi jawaban Anda seketika.</p>
         </div>
         <div class="drill-selector" id="drillSelectorBar">
@@ -1887,9 +1888,9 @@ body {
         <div class="drill-formula-bar">
           <div>
             <span style="font-size:11.5px;text-transform:uppercase;color:var(--text-muted);font-weight:700">Formula Logika Target:</span>
-            <div class="formula-display" id="drillFormulaText">p âˆ§ Â¬q</div>
+            <div class="formula-display" id="drillFormulaText">p ∧ ¬q</div>
           </div>
-          <button class="btn-secondary" onclick="toggleDrillHint()">ðŸ’¡ Buka Hint / Tips</button>
+          <button class="btn-secondary" onclick="toggleDrillHint()">💡 Buka Hint / Tips</button>
         </div>
 
         <div id="drillHintBox" class="callout callout-info" style="display:none;margin-bottom:16px;"></div>
@@ -1903,10 +1904,10 @@ body {
 
         <div class="drill-actions">
           <button class="btn-primary" onclick="verifyDrill()">
-            <span>âœ…</span> Periksa Semua Sel Jawaban
+            <span>✅</span> Periksa Semua Sel Jawaban
           </button>
           <button class="btn-secondary" onclick="resetCurrentDrill()">
-            <span>ðŸ”„</span> Reset Isian
+            <span>🔄</span> Reset Isian
           </button>
         </div>
 
@@ -1920,7 +1921,7 @@ body {
     <div class="tree-container">
       <div class="section-hero">
         <div class="hero-text">
-          <h2>ðŸŒ² Parse Tree Studio (AST Generator & Randomizer)</h2>
+          <h2>🌲 Parse Tree Studio (AST Generator & Randomizer)</h2>
           <p>Visualisasikan dekomposisi hierarki pohon sintaksis (Abstract Syntax Tree) logika proposisional dari akar (operator utama) hingga daun atomik. Ketik rumus kustom Anda sendiri atau acak soal baru secara otomatis.</p>
         </div>
       </div>
@@ -1930,7 +1931,7 @@ body {
         <!-- Top Action Bar -->
         <div class="gen-controls-bar" style="margin-bottom:14px;">
           <button class="btn-primary" onclick="randomParseTree()">
-            <span>ðŸŽ²</span> Acak Parse Tree Baru
+            <span>🎲</span> Acak Parse Tree Baru
           </button>
           <select id="treeVarFilter" class="btn-secondary" onchange="randomParseTree()" style="min-height:42px;">
             <option value="ALL">Semua Tingkat (2, 3, & 4+ Variabel)</option>
@@ -1944,10 +1945,10 @@ body {
         <div style="margin-bottom:12px;">
           <span style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px;">Contoh Cepat Soal:</span>
           <div class="drill-selector" style="margin-bottom:0;">
-            <button class="drill-btn" onclick="setTreePreset(0)">UTS: ((p âˆ§ q) âˆ¨ Â¬r) â†’ (s â†” t)</button>
-            <button class="drill-btn" onclick="setTreePreset(1)">Silogisme: (p â†’ q) âˆ§ (q â†’ r)</button>
-            <button class="drill-btn" onclick="setTreePreset(2)">De Morgan: Â¬(p âˆ§ q) â†” (Â¬p âˆ¨ Â¬q)</button>
-            <button class="drill-btn" onclick="setTreePreset(3)">Resolusi: (p âˆ¨ q) âˆ§ (Â¬p âˆ¨ r) â†’ (q âˆ¨ r)</button>
+            <button class="drill-btn" onclick="setTreePreset(0)">UTS: ((p ∧ q) ∨ ¬r) → (s ↔ t)</button>
+            <button class="drill-btn" onclick="setTreePreset(1)">Silogisme: (p → q) ∧ (q → r)</button>
+            <button class="drill-btn" onclick="setTreePreset(2)">De Morgan: ¬(p ∧ q) ↔ (¬p ∨ ¬q)</button>
+            <button class="drill-btn" onclick="setTreePreset(3)">Resolusi: (p ∨ q) ∧ (¬p ∨ r) → (q ∨ r)</button>
           </div>
         </div>
 
@@ -1957,31 +1958,31 @@ body {
             Input Formula Proposisi Kustom:
           </label>
           <div class="sandbox-input-row">
-            <input type="text" id="customTreeInput" class="sandbox-input" value="((p âˆ§ q) âˆ¨ Â¬r) â†’ (s â†” t)" placeholder="Ketik formula misal: (p â†’ q) âˆ§ (q â†’ r)" onkeyup="if(event.key==='Enter') renderCustomTree()">
-            <button class="btn-primary btn-generate" onclick="renderCustomTree()">ðŸŒ² Render Tree</button>
+            <input type="text" id="customTreeInput" class="sandbox-input" value="((p ∧ q) ∨ ¬r) → (s ↔ t)" placeholder="Ketik formula misal: (p → q) ∧ (q → r)" onkeyup="if(event.key==='Enter') renderCustomTree()">
+            <button class="btn-primary btn-generate" onclick="renderCustomTree()">🌲 Render Tree</button>
           </div>
         </div>
 
         <!-- 5-Column Responsive Keypad for Tree -->
         <div class="virtual-keys-grid" style="margin-top:8px;">
-          <button class="v-key" onclick="insertTreeKey('Â¬')">
-            <span class="v-key-symbol">Â¬</span>
+          <button class="v-key" onclick="insertTreeKey('¬')">
+            <span class="v-key-symbol">¬</span>
             <span class="v-key-sub">NOT</span>
           </button>
-          <button class="v-key" onclick="insertTreeKey(' âˆ§ ')">
-            <span class="v-key-symbol">âˆ§</span>
+          <button class="v-key" onclick="insertTreeKey(' ∧ ')">
+            <span class="v-key-symbol">∧</span>
             <span class="v-key-sub">AND</span>
           </button>
-          <button class="v-key" onclick="insertTreeKey(' âˆ¨ ')">
-            <span class="v-key-symbol">âˆ¨</span>
+          <button class="v-key" onclick="insertTreeKey(' ∨ ')">
+            <span class="v-key-symbol">∨</span>
             <span class="v-key-sub">OR</span>
           </button>
-          <button class="v-key" onclick="insertTreeKey(' â†’ ')">
-            <span class="v-key-symbol">â†’</span>
+          <button class="v-key" onclick="insertTreeKey(' → ')">
+            <span class="v-key-symbol">→</span>
             <span class="v-key-sub">IMP</span>
           </button>
-          <button class="v-key" onclick="insertTreeKey(' â†” ')">
-            <span class="v-key-symbol">â†”</span>
+          <button class="v-key" onclick="insertTreeKey(' ↔ ')">
+            <span class="v-key-symbol">↔</span>
             <span class="v-key-sub">IFF</span>
           </button>
           <button class="v-key" onclick="insertTreeKey('(')"><span class="v-key-symbol">(</span><span class="v-key-sub">Open</span></button>
@@ -1992,8 +1993,8 @@ body {
           <button class="v-key" onclick="insertTreeKey('s')"><span class="v-key-symbol">s</span><span class="v-key-sub">Var</span></button>
           <button class="v-key" onclick="insertTreeKey('t')"><span class="v-key-symbol">t</span><span class="v-key-sub">Var</span></button>
           <button class="v-key" onclick="insertTreeKey('u')"><span class="v-key-symbol">u</span><span class="v-key-sub">Var</span></button>
-          <button class="v-key" onclick="backspaceTreeKey()"><span class="v-key-symbol">âŒ«</span><span class="v-key-sub">DEL</span></button>
-          <button class="v-key" onclick="clearTreeKey()"><span class="v-key-symbol">ðŸ—‘ï¸</span><span class="v-key-sub">Clear</span></button>
+          <button class="v-key" onclick="backspaceTreeKey()"><span class="v-key-symbol">⌫</span><span class="v-key-sub">DEL</span></button>
+          <button class="v-key" onclick="clearTreeKey()"><span class="v-key-symbol">🗑️</span><span class="v-key-sub">Clear</span></button>
         </div>
 
         <div id="treeErrorBox" style="display:none;margin-top:12px;" class="drill-feedback-box error"></div>
@@ -2004,7 +2005,7 @@ body {
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;border-bottom:1px solid var(--border-color);padding-bottom:12px;text-align:left;">
           <div>
             <span style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Struktur Pohon Sintaksis:</span>
-            <h3 id="treeDisplayFormula" style="color:var(--text-main);font-family:var(--font-mono);font-size:17px;margin-top:2px;">((p âˆ§ q) âˆ¨ Â¬r) â†’ (s â†” t)</h3>
+            <h3 id="treeDisplayFormula" style="color:var(--text-main);font-family:var(--font-mono);font-size:17px;margin-top:2px;">((p ∧ q) ∨ ¬r) → (s ↔ t)</h3>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;" id="treeBadgesContainer">
           </div>
@@ -2060,10 +2061,10 @@ body {
 
       <!-- Controls -->
       <div class="fc-controls">
-        <button class="btn-secondary" onclick="prevFlashcard()">â¬… Sebelumnya</button>
-        <button class="btn-primary" style="background:var(--accent-emerald)" onclick="markMastered()">âœ… Paham</button>
-        <button class="btn-secondary" onclick="shuffleFlashcards()" title="Acak urutan kartu dengan materi FPE tetap di awal rotasi">ðŸ”€ Acak Dek (FPE Awal)</button>
-        <button class="btn-secondary" onclick="nextFlashcard()">Selanjutnya âž¡</button>
+        <button class="btn-secondary" onclick="prevFlashcard()">⬅ Sebelumnya</button>
+        <button class="btn-primary" style="background:var(--accent-emerald)" onclick="markMastered()">✅ Paham</button>
+        <button class="btn-secondary" onclick="shuffleFlashcards()" title="Acak urutan kartu dengan materi FPE tetap di awal rotasi">🔀 Acak Dek (FPE Awal)</button>
+        <button class="btn-secondary" onclick="nextFlashcard()">Selanjutnya ➡</button>
       </div>
     </div>
   </div>
@@ -2083,7 +2084,7 @@ body {
           </div>
           <div class="stat-chip">
             <span class="stat-label">Streak</span>
-            <span class="stat-val" id="arenaStreak" style="color:var(--accent-amber)">ðŸ”¥ 0</span>
+            <span class="stat-val" id="arenaStreak" style="color:var(--accent-amber)">🔥 0</span>
           </div>
         </div>
 
@@ -2103,7 +2104,7 @@ body {
 
       <div class="arena-question-card">
         <div class="q-badge-row">
-          <span class="q-pert-pill" id="arenaQPill">P1 â€¢ Mudah</span>
+          <span class="q-pert-pill" id="arenaQPill">P1 • Mudah</span>
           <span style="font-size:12px;color:var(--text-subtle);" id="arenaQStatus">Pilih satu opsi jawaban</span>
         </div>
 
@@ -2117,8 +2118,8 @@ body {
         <div class="q-explanation-drawer" id="arenaExplanation"></div>
 
         <div style="display:flex;justify-content:space-between;margin-top:16px;gap:10px;flex-wrap:wrap;">
-          <button class="btn-secondary" style="flex:1;" onclick="prevArenaQ()">â¬… Sebelumnya</button>
-          <button class="btn-primary" style="flex:1;" onclick="nextArenaQ()">Berikutnya âž¡</button>
+          <button class="btn-secondary" style="flex:1;" onclick="prevArenaQ()">⬅ Sebelumnya</button>
+          <button class="btn-primary" style="flex:1;" onclick="nextArenaQ()">Berikutnya ➡</button>
         </div>
 
         <!-- Jump Bar -->
@@ -2131,37 +2132,37 @@ body {
   <div id="tab-sandbox" class="tab-pane">
     <div class="sandbox-card">
       <h2 style="font-family:var(--font-heading);font-size:19px;color:var(--text-main);margin-bottom:6px;">
-        ðŸ§ª Dynamic Logic Truth Table Generator & Analyzer
+        🧪 Dynamic Logic Truth Table Generator & Analyzer
       </h2>
       <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px;">
         Ketik formula proposisional menggunakan variabel <code>p</code>, <code>q</code>, <code>r</code> dan perangkai logika untuk menghasilkan tabel kebenaran lengkap serta analisis Tautologi/Kontradiksi secara instan.
       </p>
 
       <div class="sandbox-input-row">
-        <input type="text" id="sandboxExprInput" class="sandbox-input" value="(p âˆ§ q) â†’ r" placeholder="Ketik formula misal: (p âˆ§ q) â†’ r" onkeyup="if(event.key==='Enter') generateSandboxTable()">
+        <input type="text" id="sandboxExprInput" class="sandbox-input" value="(p ∧ q) → r" placeholder="Ketik formula misal: (p ∧ q) → r" onkeyup="if(event.key==='Enter') generateSandboxTable()">
         <button class="btn-primary btn-generate" onclick="generateSandboxTable()">Generate Tabel</button>
       </div>
 
       <!-- Crisp 5-Column Responsive Keypad -->
       <div class="virtual-keys-grid">
-        <button class="v-key" onclick="insertKey('Â¬')">
-          <span class="v-key-symbol">Â¬</span>
+        <button class="v-key" onclick="insertKey('¬')">
+          <span class="v-key-symbol">¬</span>
           <span class="v-key-sub">NOT</span>
         </button>
-        <button class="v-key" onclick="insertKey(' âˆ§ ')">
-          <span class="v-key-symbol">âˆ§</span>
+        <button class="v-key" onclick="insertKey(' ∧ ')">
+          <span class="v-key-symbol">∧</span>
           <span class="v-key-sub">AND</span>
         </button>
-        <button class="v-key" onclick="insertKey(' âˆ¨ ')">
-          <span class="v-key-symbol">âˆ¨</span>
+        <button class="v-key" onclick="insertKey(' ∨ ')">
+          <span class="v-key-symbol">∨</span>
           <span class="v-key-sub">OR</span>
         </button>
-        <button class="v-key" onclick="insertKey(' â†’ ')">
-          <span class="v-key-symbol">â†’</span>
+        <button class="v-key" onclick="insertKey(' → ')">
+          <span class="v-key-symbol">→</span>
           <span class="v-key-sub">IMP</span>
         </button>
-        <button class="v-key" onclick="insertKey(' â†” ')">
-          <span class="v-key-symbol">â†”</span>
+        <button class="v-key" onclick="insertKey(' ↔ ')">
+          <span class="v-key-symbol">↔</span>
           <span class="v-key-sub">IFF</span>
         </button>
         <button class="v-key" onclick="insertKey('(')"><span class="v-key-symbol">(</span><span class="v-key-sub">Open</span></button>
@@ -2172,8 +2173,8 @@ body {
         <button class="v-key" onclick="insertKey('s')"><span class="v-key-symbol">s</span><span class="v-key-sub">Var</span></button>
         <button class="v-key" onclick="insertKey('t')"><span class="v-key-symbol">t</span><span class="v-key-sub">Var</span></button>
         <button class="v-key" onclick="insertKey('u')"><span class="v-key-symbol">u</span><span class="v-key-sub">Var</span></button>
-        <button class="v-key" onclick="backspaceKey()"><span class="v-key-symbol">âŒ«</span><span class="v-key-sub">DEL</span></button>
-        <button class="v-key" onclick="clearKey()"><span class="v-key-symbol">ðŸ—‘ï¸</span><span class="v-key-sub">Clear</span></button>
+        <button class="v-key" onclick="backspaceKey()"><span class="v-key-symbol">⌫</span><span class="v-key-sub">DEL</span></button>
+        <button class="v-key" onclick="clearKey()"><span class="v-key-symbol">🗑️</span><span class="v-key-sub">Clear</span></button>
       </div>
 
       <div id="sandboxResult"></div>
@@ -2185,10 +2186,10 @@ body {
 <!-- SCRIPTS & APPLICATION DATA -->
 <script>
 // Data Injections
-const QUIZ_DATA = [{"id":"p1_q1","pert":"P1","level":"mudah","isUts":false,"q":"Manakah di antara kalimat berikut yang merupakan <code>PROPOSISI DEKLARATIF</code> yang sah dalam logika matematika?","opts":["Tolong tutup pintu laboratorium informatika itu!","Berapakah hasil perkalian dari 15 Ã— 12?","Surakarta adalah salah satu kota di provinsi Jawa Tengah.","Semoga Anda lulus mata kuliah Logika dengan nilai A!"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Proposisi adalah kalimat deklaratif (pernyataan) yang bernilai <em>Benar</em> atau <em>Salah</em>, tetapi tidak keduanya sekaligus (Slide P1 Halaman 8). Kalimat perintah (A), pertanyaan (B), dan harapan/doa (D) bukan merupakan proposisi."},{"id":"p1_q2","pert":"P1","level":"mudah","isUts":true,"q":"Pernyataan <code>\"17 adalah bilangan genap\"</code> digolongkan sebagai:","opts":["Bukan proposisi karena pernyataannya tidak benar","Proposisi deklaratif dengan nilai kebenaran Salah (F)","Kalimat terbuka karena memuat bilangan","Paradoks logika"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Sebuah kalimat tidak harus selalu benar untuk menjadi proposisi! Syarat proposisi adalah memiliki nilai kebenaran yang pasti. Pernyataan \"17 adalah bilangan genap\" merupakan proposisi yang bernilai SALAH (F) karena 17 adalah bilangan ganjil (Slide P1 Halaman 9)."},{"id":"p1_q3","pert":"P1","level":"sedang","isUts":true,"q":"Mengapa ekspresi matematika <code>\"2x + 7 = 19\"</code> BUKAN merupakan proposisi dalam logika dasar?","opts":["Karena memuat simbol aritmatika tambah (+) dan sama dengan (=)","Karena nilai kebenarannya belum dapat ditentukan sebelum variabel bebas x diberi nilai tertentu (Kalimat Terbuka)","Karena ekspresi tersebut selalu bernilai Salah untuk semua x","Karena tidak ditulis dalam huruf kapital"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Ekspresi ini adalah <em>Kalimat Terbuka</em> (Open Sentence). Jika x = 6 bernilai Benar, jika x = 0 bernilai Salah. Karena nilainya bergantung pada nilai substitusi variabel bebas x, maka ia bukan proposisi sebelum variabelnya dikuantifikasi (Slide P1 Halaman 10)."},{"id":"p1_q4","pert":"P1","level":"sukar","isUts":true,"q":"Pernyataan <code>\"Kalimat di dalam tanda petik ini adalah bohong\"</code> digolongkan sebagai:","opts":["Proposisi bernilai Benar (T)","Proposisi bernilai Salah (F)","Bukan Proposisi (Paradoks Pembohong / Liar Paradox yang melanggar Hukum Ketiga Ditiadakan)","Tautologi Absolut"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Ini adalah paradoks klasik (Liar Paradox). Jika dianggap Benar, artinya kalimat itu bohong (berarti Salah). Jika dianggap Salah, artinya kalimat itu tidak bohong (berarti Benar). Terjadi kontradiksi diri yang melanggar <em>Law of Excluded Middle</em>, sehingga bukan merupakan proposisi (Slide P1 Halaman 12)."},{"id":"p2_q1","pert":"P2","level":"mudah","isUts":true,"q":"Operasi DISJUNGSI INKLUSIF (p âˆ¨ q) bernilai <code>SALAH (F)</code> HANYA JIKA:","opts":["p = T dan q = F","p = F dan q = T","Kedua operan p dan q bernilai Salah (F âˆ¨ F = F)","Salah satu operan bernilai Benar"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Disjungsi inklusif bernilai Benar jika minimal salah satu operannya Benar. Kondisi tunggal bernilai False terjadi saat kedua operan bernilai False: <code>F âˆ¨ F = F</code> (Slide P2 Halaman 14)."},{"id":"p2_q2","pert":"P2","level":"mudah","isUts":false,"q":"Berdasarkan Hukum Negasi Ganda (Involusi), formula <code>Â¬(Â¬p)</code> secara logis ekuivalen (â‰¡) dengan:","opts":["Â¬p","p","Tautologi (T)","Kontradiksi (F)"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Hukum Involusi menyatakan bahwa penyangkalan terhadap suatu negasi akan mengembalikan nilai proposisi aslinya: <code>Â¬(Â¬p) â‰¡ p</code> (Slide P2 Halaman 16)."},{"id":"p2_q3","pert":"P2","level":"sedang","isUts":true,"q":"Diberikan p: \"Mahasiswa belajar giat\", q: \"Mahasiswa lulus ujian\". Bentuk simbolik formal dari pernyataan: <em>\"Meskipun mahasiswa belajar giat, ia tidak lulus ujian\"</em> adalah:","opts":["p â†’ Â¬q","p âˆ§ Â¬q","Â¬(p âˆ§ q)","p âˆ¨ Â¬q"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Dalam logika proposisional, kata hubung bahasa alami seperti \"meskipun\", \"tetapi\", \"namun\", dan \"walaupun\" secara logis berfungsi sebagai perangkai <strong>Konjungsi (âˆ§)</strong> yang menghubungkan dua fakta yang terjadi sekaligus (Slide P2 Contoh 2.4)."},{"id":"p2_q4","pert":"P2","level":"sukar","isUts":true,"q":"Berdasarkan Hukum De Morgan, bentuk negasi yang setara dari kalimat: <em>\"Server database aktif dan koneksi jaringan lancar\"</em> adalah:","opts":["Server database tidak aktif dan koneksi jaringan tidak lancar","Server database tidak aktif atau koneksi jaringan tidak lancar","Jika server database aktif maka koneksi jaringan tidak lancar","Server database aktif tetapi koneksi jaringan terputus"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Hukum De Morgan menyatakan: <code>Â¬(p âˆ§ q) â‰¡ Â¬p âˆ¨ Â¬q</code>. Negasi dari \"p DAN q\" adalah \"BUKAN p ATAU BUKAN q\". Maka: \"Server database tidak aktif ATAU koneksi jaringan tidak lancar\" (Slide P2 Halaman 20)."},{"id":"p3_q1","pert":"P3","level":"mudah","isUts":false,"q":"Sebuah formula proposisi memuat 4 variabel atomik berbeda: <code>p, q, r, s</code>. Berapakah jumlah baris pada tabel kebenarannya?","opts":["8 baris","12 baris","16 baris","32 baris"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Rumus jumlah baris tabel kebenaran adalah <strong>2â¿</strong>, di mana n adalah jumlah variabel proposisional unik. Untuk 4 variabel: 2â´ = <strong>16 baris</strong> (Slide P3 Halaman 6)."},{"id":"p3_q2","pert":"P3","level":"mudah","isUts":true,"q":"Sesuai urutan baku perkuliahan dosen pengampu Reinal Ariyuda (T-First), urutan kombinasi nilai kebenaran untuk 2 variabel (p, q) adalah:","opts":["TT, TF, FT, FF","FF, FT, TF, TT","TF, FT, TT, FF","FT, FF, TT, TF"],"ans":0,"exp":"<strong>Jawaban Benar: A</strong><br>Standar akademik baku yang diterapkan pada perkuliahan ini adalah <strong>T-First (True First)</strong> secara biner terbalik: Baris 1: TT, Baris 2: TF, Baris 3: FT, Baris 4: FF (Slide P3 Halaman 8)."},{"id":"p3_q3","pert":"P3","level":"sedang","isUts":true,"q":"Manakah urutan pengerjaan operator logika (Presedensi) dari prioritas TERTINGGI ke TERENDAH jika tanpa tanda kurung?","opts":["Â¬ (Negasi) â†’ âˆ§ (Konjungsi) â†’ âˆ¨ (Disjungsi) â†’ â†’ (Implikasi) â†’ â†” (Biimplikasi)","âˆ§ (Konjungsi) â†’ âˆ¨ (Disjungsi) â†’ Â¬ (Negasi) â†’ â†” (Biimplikasi) â†’ â†’ (Implikasi)","â†’ (Implikasi) â†’ â†” (Biimplikasi) â†’ âˆ§ (Konjungsi) â†’ âˆ¨ (Disjungsi) â†’ Â¬ (Negasi)","Semua operator memiliki derajat prioritas yang sama dari kiri ke kanan"],"ans":0,"exp":"<strong>Jawaban Benar: A</strong><br>Tingkat presedensi operator logika standar: 1. Negasi (Â¬), 2. Konjungsi (âˆ§), 3. Disjungsi (âˆ¨), 4. Implikasi (â†’), 5. Biimplikasi (â†”) (Slide P3 Halaman 15)."},{"id":"p3_q4","pert":"P3","level":"sukar","isUts":true,"q":"Pada pohon sintaks (parse tree) dari formula: <code>((p âˆ§ q) âˆ¨ Â¬r) â†’ (s â†” t)</code>, simpul yang bertindak sebagai Simpul Akar (Root Node / Main Operator) adalah:","opts":["âˆ§ (Konjungsi)","âˆ¨ (Disjungsi)","â†’ (Implikasi)","â†” (Biimplikasi)"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Root Node pada parse tree adalah operator utama yang dievaluasi paling akhir karena menghubungkan sub-pohon kiri <code>((p âˆ§ q) âˆ¨ Â¬r)</code> dan sub-pohon kanan <code>(s â†” t)</code>. Operator tersebut adalah <strong>Implikasi (â†’)</strong> (Slide P3 Halaman 22)."},{"id":"p4_q1","pert":"P4","level":"mudah","isUts":true,"q":"Operasi IMPLIKASI MATERIAL (p â†’ q) bernilai <code>SALAH (F)</code> HANYA JIKA:","opts":["p = T dan q = T","p = T dan q = F (Anteseden Benar, Konsekuen Salah)","p = F dan q = T","p = F dan q = F"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Ciri khas utama implikasi: bernilai SALAH HANYA pada satu kondisi tunggal, yaitu ketika <strong>Anteseden (syarat) bernilai Benar tetapi Konsekuen (akibat) bernilai Salah (T â†’ F = F)</strong>. Pada kondisi p = F, implikasi selalu bernilai Benar secara vakuus (Slide P4 Halaman 6)."},{"id":"p4_q2","pert":"P4","level":"sedang","isUts":true,"q":"Manakah operasi logika dengan dua input berbeda (T dan F) berikut yang menghasilkan nilai <code>BENAR (T)</code>?","opts":["T âˆ§ F","T â†” F","F â†’ T","T â†’ F"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Mari kita evaluasi seluruh opsi:<br>â€¢ <strong>F â†’ T = T</strong> (Anteseden False selalu menghasilkan implikasi True!).<br>â€¢ T âˆ§ F = F (Konjungsi butuh keduanya True).<br>â€¢ T â†” F = F (Biimplikasi butuh kedua operan bernilai sama).<br>â€¢ T â†’ F = F (Kondisi tunggal implikasi bernilai False).<br><em>Rujukan: Slide P4 Halaman 8 & 14.</em>"},{"id":"p4_q3","pert":"P4","level":"sedang","isUts":true,"q":"Diberikan implikasi: <em>\"Jika hari hujan (p), maka jalanan basah (q)\"</em>. Pernyataan <em>\"Jika jalanan tidak basah (Â¬q), maka hari tidak hujan (Â¬p)\"</em> merupakan variasi bentuk:","opts":["Konvers (Converse)","Invers (Inverse)","Kontraposisi (Contrapositive)","Biimplikasi"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Variasi dari <code>p â†’ q</code>:<br>â€¢ Konvers: <code>q â†’ p</code><br>â€¢ Invers: <code>Â¬p â†’ Â¬q</code><br>â€¢ <strong>Kontraposisi: <code>Â¬q â†’ Â¬p</code></strong>. Kontraposisi adalah satu-satunya variasi yang terbukti secara logis ekuivalen (â‰¡) dengan implikasi aslinya (Slide P4 Halaman 18)."},{"id":"p4_q4","pert":"P4","level":"sedang","isUts":false,"q":"Manakah bentuk ekuivalensi hukum logika dari implikasi <code>p â†’ q</code> menggunakan operator negasi dan disjungsi?","opts":["Â¬p âˆ§ q","Â¬p âˆ¨ q","p âˆ§ Â¬q","Â¬(p âˆ¨ q)"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Hukum Ekuivalensi Implikasi menyatakan bahwa: <code>p â†’ q â‰¡ Â¬p âˆ¨ q</code>. Tabel kebenaran keduanya identik pada seluruh 4 baris: T, F, T, T (Slide P4 Halaman 20)."},{"id":"p4_q5","pert":"P4","level":"sukar","isUts":true,"q":"Pada pernyataan <em>\"Mahasiswa diizinkan ikut ujian (p) HANYA JIKA presensi minimal 75% (q)\"</em>, relasi implikasi formal yang benar adalah:","opts":["q â†’ p (q syarat cukup bagi p)","p â†’ q (q syarat perlu / necessary condition bagi p)","p â†” q (p dan q saling bebas)","Â¬p â†’ q"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Frasa <strong>\"p HANYA JIKA q\"</strong> diterjemahkan secara formal sebagai <code>p â†’ q</code>. Artinya, q (presensi 75%) adalah <em>syarat perlu (necessary condition)</em> untuk p. Tanpa q, p tidak dapat terjadi (Slide P4 Halaman 12)."},{"id":"p4_q6","pert":"P4","level":"sukar","isUts":true,"q":"Diberikan nilai kebenaran variabel: A = T, B = F, C = T. Berapakah nilai kebenaran akhir dari ekspresi: <code>(A âˆ§ Â¬B) â†’ Â¬C</code>?","opts":["Benar (T)","Salah (F)","Tidak dapat ditentukan","Tautologi"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Mari kita evaluasi langkah demi langkah:<br>1. Â¬B = Â¬F = T<br>2. A âˆ§ Â¬B = T âˆ§ T = <strong>T</strong> (Anteseden bernilai T)<br>3. Â¬C = Â¬T = <strong>F</strong> (Konsekuen bernilai F)<br>4. Evaluasi implikasi: T â†’ F = <strong>F</strong>!<br><em>Rujukan: Contoh 5.1 Slide P4 & P5 Halaman 6.</em>"},{"id":"p4_q7","pert":"P4","level":"sedang","isUts":false,"q":"BIIMPLIKASI (p â†” q) bernilai <code>BENAR (T)</code> HANYA JIKA:","opts":["p bernilai Benar dan q bernilai Salah","Kedua proposisi p dan q memiliki nilai kebenaran yang sama (keduanya T atau keduanya F)","Salah satu proposisi bernilai Benar","Anteseden bernilai Salah"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Biimplikasi / Ekuivalensi bernilai Benar jika kedua operan memiliki nilai yang seragam: <code>T â†” T = T</code> dan <code>F â†” F = T</code>. Jika nilainya berlawanan, bernilai False (Slide P4 Halaman 24)."},{"id":"p5_q1","pert":"P5","level":"mudah","isUts":true,"q":"Suatu formula proposisi majemuk yang SELALU bernilai <code>BENAR (T)</code> pada seluruh baris tabel kebenarannya disebut:","opts":["Kontradiksi","Tautologi","Contingent","Falasi"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Tautologi adalah proposisi majemuk yang selalu bernilai True apapun nilai kebenaran dari variabel-variabel penyusunnya (Slide P5 Halaman 15). Menandakan argumen yang valid dan logis."},{"id":"p5_q2","pert":"P5","level":"sedang","isUts":true,"q":"Kaidah inferensi sah <code>MODUS PONENS</code> menyatakan bahwa dari dua premis: <code>p â†’ q</code> dan <code>p</code>, dapat ditarik konklusi yang sah yaitu:","opts":["Â¬p","q","Â¬q","p âˆ§ q"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Modus Ponens (Metode Penegasan Anteseden):<br>Premis 1: p â†’ q<br>Premis 2: p<br><strong>Konklusi: q</strong> (Slide P5 Halaman 18)."},{"id":"p5_q3","pert":"P5","level":"sedang","isUts":true,"q":"Kaidah inferensi sah <code>MODUS TOLLENS</code> menyatakan bahwa dari dua premis: <code>p â†’ q</code> dan <code>Â¬q</code>, dapat ditarik konklusi sah yaitu:","opts":["p","q","Â¬p","Â¬p âˆ¨ q"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Modus Tollens (Metode Penyangkalan Konsekuen):<br>Premis 1: p â†’ q<br>Premis 2: Â¬q<br><strong>Konklusi: Â¬p</strong> (Slide P5 Halaman 20)."},{"id":"p5_q4","pert":"P5","level":"sukar","isUts":true,"q":"Perhatikan penalaran berikut: <em>\"Jika seseorang belajar giat (p), maka ia lulus (q). Ternyata Budi lulus (q). Oleh karena itu, Budi pasti belajar giat (p).\"</em> Penalaran ini tergolong ke dalam kesesatan berpikir (falasi formal) jenis:","opts":["Modus Ponens yang Sah","Menyangkal Anteseden (Denying the Antecedent)","Mengafirmasi Konsekuen (Affirming the Consequent)","Silogisme Disjungtif"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Bentuk argumen: <code>((p â†’ q) âˆ§ q) â†’ p</code> merupakan <strong>Falasi Mengafirmasi Konsekuen (Affirming the Consequent)</strong>. Seseorang bisa saja lulus ujian karena faktor lain meskipun tidak belajar giat (Slide P5 Halaman 23)."},{"id":"p5_q5","pert":"P5","level":"sukar","isUts":true,"q":"Sebuah formula logika yang memuat hasil evaluasi campuran (terdapat baris bernilai Benar dan terdapat baris bernilai Salah) diklasifikasikan sebagai:","opts":["Tautologi","Kontradiksi","Contingent (Kontingensi)","Ekuivalen"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Formula logika yang bukan merupakan tautologi (tidak selalu True) dan bukan pula kontradiksi (tidak selalu False) disebut <strong>Contingent</strong> (Slide P5 Halaman 25)."},{"id":"repotif_uts_1a","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 1.a]</strong><br>Berilah tanda kurung sempurna (Fully Parenthesized Expression / FPE) pada ekspresi logika berikut sesuai hierarki operatornya:<br><code style='color:#a855f7; font-size:1.1em;'>A âˆ§ B âˆ¨ C â†’ Â¬D</code>","opts":["((A âˆ§ B) âˆ¨ (C â†’ (Â¬D)))","(((A âˆ§ B) âˆ¨ C) â†’ (Â¬D))","(A âˆ§ (B âˆ¨ (C â†’ (Â¬D))))","((A âˆ§ (B âˆ¨ C)) â†’ (Â¬D))"],"ans":1,"exp":"<strong>Jawaban Benar: B â€” (((A âˆ§ B) âˆ¨ C) â†’ (Â¬D))</strong><br>Berdasarkan hierarki operator resmi Informatika UMS:<br>1. Negasi (Â¬) mengikat D terlebih dahulu: <code>(Â¬D)</code>.<br>2. Konjungsi (âˆ§) lebih tinggi dari disjungsi: <code>(A âˆ§ B)</code>.<br>3. Disjungsi (âˆ¨) berikutnya: <code>((A âˆ§ B) âˆ¨ C)</code>.<br>4. Implikasi (â†’) hierarki terendah di formula ini: <code>(((A âˆ§ B) âˆ¨ C) â†’ (Â¬D))</code>."},{"id":"repotif_uts_1b","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 1.b]</strong><br>Bentuk FPE yang tepat untuk formula logika berikut adalah:<br><code style='color:#a855f7; font-size:1.1em;'>Â¬A âˆ§ B â†’ Â¬C âˆ¨ D</code>","opts":["((Â¬A) âˆ§ (B â†’ ((Â¬C) âˆ¨ D)))","(Â¬(A âˆ§ B)) â†’ (Â¬(C âˆ¨ D))","(((Â¬A) âˆ§ B) â†’ ((Â¬C) âˆ¨ D))","((Â¬(A âˆ§ B)) â†’ ((Â¬C) âˆ¨ D))"],"ans":2,"exp":"<strong>Jawaban Benar: C â€” (((Â¬A) âˆ§ B) â†’ ((Â¬C) âˆ¨ D))</strong><br>Langkah hirarki presedensi:<br>1. Negasi: <code>(Â¬A)</code> dan <code>(Â¬C)</code>.<br>2. Konjungsi: <code>((Â¬A) âˆ§ B)</code>.<br>3. Disjungsi: <code>((Â¬C) âˆ¨ D)</code>.<br>4. Implikasi utama: <code>(((Â¬A) âˆ§ B) â†’ ((Â¬C) âˆ¨ D))</code>."},{"id":"repotif_uts_3a","pert":"UTS Asli UMS","level":"sulit","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.a]</strong><br>Dengan tabel kebenaran 8 baris, ekspresi logika:<br><code style='color:#38bdf8; font-size:1.05em;'>(A â†’ (B â†’ C)) â†’ ((A â†’ B) â†’ (A â†’ C))</code><br>diklasifikasikan sebagai:","opts":["Kontradiksi (seluruh baris bernilai F)","Tautologi (seluruh 8 baris bernilai T)","Contingent (memiliki nilai T dan F)","Formula Tidak Sah (Invalid WFF)"],"ans":1,"exp":"<strong>Jawaban Benar: B â€” Tautologi</strong><br>Formula ini dikenal dalam logika matematika formal sebagai <em>Frege's Axiom / Self-Distribution of Implication</em>. Dalam tabel kebenaran dengan 8 kombinasi nilai (A, B, C), kolom hasil akhir bernilai Benar (T) di seluruh 8 baris, sehingga formula ini merupakan TAUTOLOGI."},{"id":"repotif_uts_3b","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.b]</strong><br>Formula <code style='color:#38bdf8;'>((A â†’ B) âˆ§ (B â†’ C)) â†’ (A â†’ C)</code> menghasilkan klasifikasi:","opts":["Tautologi (Hukum Silogisme Hipotesis)","Kontradiksi","Contingent","Ekuivalensi Negasi"],"ans":0,"exp":"<strong>Jawaban Benar: A â€” Tautologi</strong><br>Ini adalah bentuk baku dari <em>Hypothetical Syllogism</em> (Silogisme Hipotesis). Jika A mengakibatkan B dan B mengakibatkan C, maka A pasti mengakibatkan C. Seluruh 8 baris tabel kebenarannya bernilai True (Tautologi)."},{"id":"repotif_uts_3d","pert":"UTS Asli UMS","level":"sulit","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.d]</strong><br>Tentukan nilai dari formula biimplikasi berikut:<br><code style='color:#ec4899; font-size:1.05em;'>Â¬(A âˆ¨ (B âˆ§ C)) â†” ((A âˆ¨ B) âˆ§ (A âˆ¨ C))</code>","opts":["Tautologi (karena kedua ruas identik)","Contingent (tergantung nilai C)","Kontradiksi (seluruh baris bernilai F)","Ekuivalen Bersyarat"],"ans":2,"exp":"<strong>Jawaban Benar: C â€” Kontradiksi</strong><br>Perhatikan hukum distributif: <code>(A âˆ¨ (B âˆ§ C)) â‰¡ ((A âˆ¨ B) âˆ§ (A âˆ¨ C))</code>.<br>Misalkan ruas kanan adalah <code>X</code>, maka ruas kiri adalah <code>Â¬X</code>.<br>Ekspresi ini berbentuk <code>Â¬X â†” X</code>. Karena nilai kebenaran X dan Â¬X selalu berlawanan, maka biimplikasinya SELALU SALAH (F) di semua 8 baris (KONTRADIKSI)!"},{"id":"repotif_uts_4d","pert":"UTS Asli UMS","level":"sulit","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 4.d]</strong><br>Apakah perangkai implikasi memenuhi hukum asosiatif: <br><code style='color:#f59e0b;'>A â†’ (B â†’ C) â‰¡ (A â†’ B) â†’ C</code> ?","opts":["Ya, ekuivalen pada semua 8 baris tabel kebenaran","Tidak ekuivalen (Counterexample: saat A=F, B=F, C=F, ruas kiri bernilai T sedangkan ruas kanan bernilai F)","Hanya ekuivalen jika A bernilai Benar","Ya, karena implikasi bersifat transitif"],"ans":1,"exp":"<strong>Jawaban Benar: B â€” Tidak Ekuivalen</strong><br>Implikasi TIDAK BERSIFAT ASOSIATIF!<br>Uji baris saat A=F, B=F, C=F:<br>â€¢ Ruas kiri: F â†’ (F â†’ F) = F â†’ T = <strong>T</strong>.<br>â€¢ Ruas kanan: (F â†’ F) â†’ F = T â†’ F = <strong>F</strong>.<br>Karena nilai kedua ruas berbeda, kedua ekspresi terbukti <strong>TIDAK EKUIVALEN</strong>."},{"id":"repotif_uts_2b","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 2.b]</strong><br>Translasi kalimat ke ekspresi FPE yang benar untuk:<br><em>'Saya tidak akan melanjutkan kuliah (Â¬p) jika dan hanya jika saya tidak lulus ujian (Â¬q) dan mendapatkan nilai rendah (r) atau orang tua keberatan (s)'</em> adalah:","opts":["((Â¬p) â†” (((Â¬q) âˆ§ r) âˆ¨ s))","(Â¬p â†” Â¬q) âˆ§ (r âˆ¨ s)","((Â¬p â†” (Â¬q âˆ§ r)) âˆ¨ s)","Â¬(p â†” ((q âˆ§ r) âˆ¨ s))"],"ans":0,"exp":"<strong>Jawaban Benar: A â€” ((Â¬p) â†” (((Â¬q) âˆ§ r) âˆ¨ s))</strong><br>Pernyataan 'jika dan hanya jika' mengikat seluruh klausa kondisi di sebelah kanannya. Sub-kondisi 'tidak lulus dan nilai rendah' mengikat konjungsi lebih kuat <code>((Â¬q) âˆ§ r)</code>, kemudian didisjungsikan dengan <code>s</code>: <code>(((Â¬q) âˆ§ r) âˆ¨ s)</code>. Seluruhnya dihubungkan dengan <code>(Â¬p)</code> dalam biimplikasi."}];
-const CLIENT_DRILLS = [{"id":"drill1","title":"Drill 1: Negasi & Konjungsi","formula":"p âˆ§ Â¬q","vars":["p","q"],"colNames":["Â¬q","p âˆ§ Â¬q"],"hint":"Ingat: Â¬q membalik nilai q. Kemudian p âˆ§ Â¬q hanya bernilai T jika KEDUA p dan Â¬q bernilai T.","rows":[{"inputs":{"p":true,"q":true},"expected":[false,false]},{"inputs":{"p":true,"q":false},"expected":[true,true]},{"inputs":{"p":false,"q":true},"expected":[false,false]},{"inputs":{"p":false,"q":false},"expected":[true,false]}]},{"id":"drill2","title":"Drill 2: Implikasi Material & Disjungsi","formula":"(p â†’ q) âˆ¨ Â¬p","vars":["p","q"],"colNames":["p â†’ q","Â¬p","(p â†’ q) âˆ¨ Â¬p"],"hint":"Ingat: p â†’ q hanya salah saat T â†’ F. Disjungsi âˆ¨ bernilai T jika minimal salah satu bernilai T.","rows":[{"inputs":{"p":true,"q":true},"expected":[true,false,true]},{"inputs":{"p":true,"q":false},"expected":[false,false,false]},{"inputs":{"p":false,"q":true},"expected":[true,true,true]},{"inputs":{"p":false,"q":false},"expected":[true,true,true]}]},{"id":"drill3","title":"Drill 3: Pembuktian Hukum De Morgan","formula":"Â¬(p âˆ¨ q) â†” (Â¬p âˆ§ Â¬q)","vars":["p","q"],"colNames":["p âˆ¨ q","Â¬(p âˆ¨ q)","Â¬p âˆ§ Â¬q","Hasil Ekuivalensi (â†”)"],"hint":"Periksa apakah kolom Â¬(p âˆ¨ q) bernilai identik dengan Â¬p âˆ§ Â¬q di setiap baris. Jika identik, biimplikasi menghasilkan Tautologi!","rows":[{"inputs":{"p":true,"q":true},"expected":[true,false,false,true]},{"inputs":{"p":true,"q":false},"expected":[true,false,false,true]},{"inputs":{"p":false,"q":true},"expected":[true,false,false,true]},{"inputs":{"p":false,"q":false},"expected":[false,true,true,true]}]},{"id":"drill4","title":"Drill 4: 3-Variabel UTS Challenge","formula":"(p âˆ§ q) â†’ r","vars":["p","q","r"],"colNames":["p âˆ§ q","(p âˆ§ q) â†’ r"],"hint":"8 Baris pola T-First! Perhatikan bahwa (p âˆ§ q) hanya bernilai T pada baris 1 dan baris 2. Implikasi hanya salah saat anteseden T dan konsekuen F.","rows":[{"inputs":{"p":true,"q":true,"r":true},"expected":[true,true]},{"inputs":{"p":true,"q":true,"r":false},"expected":[true,false]},{"inputs":{"p":true,"q":false,"r":true},"expected":[false,true]},{"inputs":{"p":true,"q":false,"r":false},"expected":[false,true]},{"inputs":{"p":false,"q":true,"r":true},"expected":[false,true]},{"inputs":{"p":false,"q":true,"r":false},"expected":[false,true]},{"inputs":{"p":false,"q":false,"r":true},"expected":[false,true]},{"inputs":{"p":false,"q":false,"r":false},"expected":[false,true]}]}];
-const FLASHCARDS = [{"topic":"HIERARKI UTS UMS","badge":"ðŸ›ï¸ Standar UMS","front":"Bagaimana urutan hierarki operator logika resmi di UTS UMS dan bagaimana aturan asosiatifnya?","back":"<strong>Hierarki Operator Logika Resmi Informatika UMS:</strong><br><br>1. <strong>Negasi (Â¬)</strong> â€” Prioritas tertinggi<br>2. <strong>Konjungsi (âˆ§)</strong><br>3. <strong>Disjungsi (âˆ¨)</strong><br>4. <strong>Implikasi (â†’)</strong><br>5. <strong>Biimplikasi (â†”)</strong> â€” Prioritas terendah<br><br>âš ï¸ <em>Aturan Asosiatif:</em> Jika operator bertingkat sama (misal âˆ§ dan âˆ§), pengelompokan kurung dieksekusi dari <strong>kiri ke kanan (left-to-right)</strong>.<br>âš ï¸ <em>Catatan FPE:</em> Setiap operator biner WAJIB memiliki tepat sepasang kurung penutup!","color":"#ec4899"},{"topic":"JEBAKAN UTS UMS","badge":"âš ï¸ Jebakan UTS","front":"Apakah implikasi bersifat asosiatif? Buktikan apakah A â†’ (B â†’ C) â‰¡ (A â†’ B) â†’ C !","back":"<strong>TIDAK EKUIVALEN! (Soal 4.d UTS Gasal UMS)</strong><br><br>Ambil contoh penyangkal saat <code>A = F, B = F, C = F</code>:<br>â€¢ Ruas Kiri: <code>F â†’ (F â†’ F) = F â†’ T = T (Benar)</code><br>â€¢ Ruas Kanan: <code>(F â†’ F) â†’ F = T â†’ F = F (Salah)</code><br><br>ðŸ’¡ Karena nilai kebenarannya berbeda, terbukti bahwa <strong>Implikasi TIDAK BERSIFAT ASOSIATIF</strong>. Jangan pernah memindahkan tanda kurung pada implikasi!","color":"#f59e0b"},{"topic":"P4: FPE & wff (Slide 4.4)","q":"Apa definisi Fully Parentheses Expression (FPE) dan kaitannya dengan Well-Formed Formulae (wff)?","a":"<strong>Fully Parentheses Expression (FPE)</strong> adalah bentuk ekspresi logika proposisional di mana <em>setiap perangkai biner (âˆ§, âˆ¨, â†’, â†”) diapit tanda kurung secara eksplisit dan lengkap</em>.<br><br>â€¢ Rumus yang dibentuk sesuai kaidah gramatika presisi ini disebut <strong>Well-Formed Formulae (wff)</strong>.<br>â€¢ <strong>Fungsi FPE:</strong> Menghilangkan ambiguitas urutan eksekusi secara mutlak sehingga bentuk Parse Tree dapat digambar secara deterministik tanpa keraguan."},{"topic":"P4: Konversi FPE (Slide 4.5)","q":"Bagaimana cara mengubah ekspresi tanpa kurung menjadi bentuk FPE berdasarkan hierarki perangkai? Berikan contohnya!","a":"<strong>Aturan Hierarki Konversi:</strong><br>1. Negasi (Â¬) menempel langsung pada atom: <code>Â¬A âˆ§ B</code> &rarr; <code>((Â¬A) âˆ§ B)</code><br>2. Konjungsi (âˆ§) lalu Disjungsi (âˆ¨)<br>3. Implikasi (â†’) [Right-Associative: dari kanan ke kiri]<br>4. Biimplikasi (â†”)<br><br><strong>Contoh Baku Slide Dosen:</strong><br>â€¢ Ekspresi Asli: <code>A âˆ§ B â†’ C âˆ¨ D</code><br>â€¢ Bentuk FPE/wff: <strong>((A âˆ§ B) â†’ (C âˆ¨ D))</strong><br>â€¢ Contoh lain: <code>p â†’ q âˆ§ r</code> &rarr; <strong>(p â†’ (q âˆ§ r))</strong>"},{"topic":"P4: FPE & Parse Tree (Slide 15-19)","q":"Bagaimana cara menentukan Main Operator (Root) pada ekspresi FPE untuk digambar ke Parse Tree?","a":"Pada ekspresi FPE seperti <code>((A âˆ§ Â¬B) â†’ Â¬C)</code>:<br><br>1. <strong>Main Operator (Root / Akar):</strong> Perangkai yang berada di luar kurung internal terluar adalah Root (pada contoh ini adalah <strong>â†’</strong>).<br>2. <strong>Sub-Pohon Kiri:</strong> Seluruh isi kurung kiri <code>(A âˆ§ Â¬B)</code> menjadi cabang kiri.<br>3. <strong>Sub-Pohon Kanan:</strong> Operan kanan <code>Â¬C</code> menjadi cabang kanan.<br>4. <strong>Daun (Leaves):</strong> Variabel atomik murni (A, B, C). Evaluasi kebenaran berjalan <em>bottom-up</em> dari daun ke akar."},{"topic":"P4: FPE Majemuk 4 Variabel (UTS)","q":"Diberikan ekspresi 4 variabel: Â¬(p âˆ§ q) â†” (r â†’ Â¬s). Tuliskan bentuk baku FPE, tentukan Root Operator, dan gambarkan hierarkinya!","a":"<strong>1. Bentuk Baku FPE (Semua Perangkai Biner & Negasi Diapit Kurung Lengkap):</strong><br>&nbsp;&nbsp;&rarr; <strong>((Â¬(p âˆ§ q)) â†” (r â†’ (Â¬s)))</strong><br><br><strong>2. Dekomposisi Hierarki:</strong><br>â€¢ <strong>Root Operator (Puncak):</strong> Biimplikasi <strong>â†”</strong> terluar.<br>â€¢ <strong>Sub-Pohon Kiri:</strong> <code>(Â¬(p âˆ§ q))</code> &rarr; Negasi Â¬ menaungi konjungsi atomik (p âˆ§ q).<br>â€¢ <strong>Sub-Pohon Kanan:</strong> <code>(r â†’ (Â¬s))</code> &rarr; Implikasi â†’ menaungi atom r dan negasi (Â¬s).<br><br><strong>3. Evaluasi Bottom-Up:</strong> Evaluasi 4 daun atomik (p, q, r, s) &rarr; evaluasi sub-ekspresi dalam kurung &rarr; terakhir diuji kesamaan nilai kebenaran kiri dan kanan pada Root â†”."},{"topic":"Tips Ujian: Penamaan Alias Kolom","q":"Bagaimana teknik penamaan variabel baru (alias kustom seperti A, B, C) untuk proposisi majemuk saat membuat tabel kebenaran? Mengapa sangat disarankan?","a":"<strong>Teknik Substitusi Alias Kolom:</strong><br>Jika menghadapi formula majemuk yang panjang, jangan tulis rumus lengkap di tiap kepala kolom!<br><br><strong>Contoh Penerapan:</strong><br>Formula: <code>((p â†’ q) âˆ§ (r âˆ¨ Â¬s)) â†” (p âˆ§ r)</code><br>â€¢ Kolom 5: Beri nama <strong>A = (p â†’ q)</strong><br>â€¢ Kolom 6: Beri nama <strong>B = (r âˆ¨ Â¬s)</strong><br>â€¢ Kolom 7: Beri nama <strong>C = A âˆ§ B</strong><br>â€¢ Kolom 8 (Kolom Akhir): Cukup tulis <strong>C â†” (p âˆ§ r)</strong><br><br><strong>Manfaat Utama Ujian:</strong><br>1. Menghemat waktu menulis & mencegah tabel melar berantakan.<br>2. Menghitung baris C cukup dengan melihat kolom A dan B (tidak perlu melirik rumus asal).<br>3. Menurunkan risiko human error hingga 90%! Cara resmi yang direkomendasikan asisten dan dosen."},{"topic":"P4: Ekuivalensi Multi-Variabel (3 Var)","q":"Jelaskan Sifat Transitivitas Biimplikasi dengan 3 variabel: ((p â†” q) âˆ§ (q â†” r)) â†’ (p â†” r)! Apakah formula ini selalu Tautologi?","a":"<strong>YA, formula ini adalah TAUTOLOGI MUTLAK</strong> (seluruh 8 baris bernilai Benar/T):<br><br>â€¢ <strong>Sifat Transitivitas:</strong> Jika p setara dengan q, dan q setara dengan r, maka p mutlak setara dengan r.<br>â€¢ <strong>Relasi Ekuivalensi:</strong> Biimplikasi memenuhi 3 sifat relasi ekuivalensi matematika:<br>&nbsp;&nbsp;1. <em>Refleksif:</em> p â†” p<br>&nbsp;&nbsp;2. <em>Simetris:</em> (p â†” q) â‰¡ (q â†” p)<br>&nbsp;&nbsp;3. <em>Transitif:</em> ((p â†” q) âˆ§ (q â†” r)) â†’ (p â†” r)<br>â€¢ Pada tabel 8 baris, saat anteseden (pâ†”q âˆ§ qâ†”r) bernilai T (yaitu saat TTT atau FFF), konsekuen (pâ†”r) selalu bernilai T."},{"topic":"P3: Biimplikasi & Dua Arah","q":"Bagaimana menguraikan operasi Biimplikasi (p â†” q) menjadi dua klausa implikasi searah, dan apa prinsip pembuktiannya?","a":"Operasi Biimplikasi (p â†” q) bermakna <em>'jika dan hanya jika'</em> (kondisi perlu dan cukup).<br><br>â€¢ <strong>Bentuk Uraian Baku:</strong> <strong>(p â†” q) â‰¡ (p â†’ q) âˆ§ (q â†’ p)</strong><br>â€¢ <strong>Prinsip Pembuktian (Slide 3.8):</strong> Untuk membuktikan bahwa p â†” q benar, kita WAJIB membuktikan <em>kedua arah</em>:<br>&nbsp;&nbsp;1. Buktikan arah maju: jika p benar maka q benar (p â†’ q).<br>&nbsp;&nbsp;2. Buktikan arah mundur: jika q benar maka p benar (q â†’ p)."},{"topic":"P3: Negasi Biimplikasi & XOR","q":"Kapan negasi dari Biimplikasi Â¬(p â†” q) bernilai BENAR (T)? Apa hubungannya dengan operator Exclusive OR (XOR)?","a":"Biimplikasi bernilai Benar jika kedua operan bernilai SAMA (Tâ†”T, Fâ†”F).<br><br>Maka negasinya <strong>Â¬(p â†” q)</strong> bernilai <strong>BENAR (T)</strong> saat kedua proposisi memiliki nilai kebenaran <strong>BERBEDA (T dan F)</strong>:<br>â€¢ <strong>Â¬(p â†” q) â‰¡ (p â†” Â¬q) â‰¡ (Â¬p â†” q)</strong><br>â€¢ <strong>Ekuivalen dengan XOR (p âŠ• q):</strong> Bernilai T jika salah satu (tetapi bukan keduanya) bernilai Benar."},{"topic":"P3: Ekuivalensi & Tautologi","q":"Apa syarat formal agar dua proposisi majemuk P dan Q dinyatakan Ekuivalen Logis (P â‰¡ Q) melalui tabel kebenaran?","a":"Dua proposisi P dan Q dinyatakan <strong>Ekuivalen Logis (P â‰¡ Q)</strong> jika dan hanya jika kolom nilai kebenaran keduanya <strong>identik baris demi baris</strong> pada semua kemungkinan kombinasi input.<br><br><strong>Uji Tautologi Biimplikasi (Slide 3.10):</strong><br>Dua formula P dan Q ekuivalen logis <strong>P â‰¡ Q</strong> jika dan hanya jika proposisi biimplikasi <strong>(P â†” Q) merupakan TAUTOLOGI (selalu bernilai True di semua baris)</strong>."},{"topic":"P4: Ambiguitas & Aturan Presedensi FPE","q":"Mengapa ekspresi p â†’ q â†’ r menimbulkan ambiguitas jika tidak diubah ke FPE? Apa aturan standar asosiatifnya?","a":"Tanpa tanda kurung, <code>p â†’ q â†’ r</code> memiliki makna ganda yang tidak ekuivalen:<br>â€¢ <code>((p â†’ q) â†’ r)</code> [Asosiatif Kiri] &ne; <code>(p â†’ (q â†’ r))</code> [Asosiatif Kanan]!<br><br><strong>Standar Logika Matematika:</strong> Implikasi bersifat <strong>Right-Associative</strong> (dikelompokkan dari kanan). Maka bentuk baku FPE-nya adalah <strong>(p â†’ (q â†’ r))</strong>.<br>Dengan FPE, urutan evaluasi menjadi pasti."},{"topic":"P1: Konsep Dasar","q":"Apa definisi dari Proposisi Deklaratif dan apa syarat utamanya?","a":"Proposisi adalah pernyataan deklaratif yang memiliki nilai kebenaran PASTI: <strong>Benar (T)</strong> saja atau <strong>Salah (F)</strong> saja, tetapi tidak keduanya sekaligus.<br><br><em>Bukan Proposisi:</em> Kalimat tanya, perintah, seruan, harapan/doa, dan kalimat terbuka berpeubah bebas (misal: 2x + 5 = 11)."},{"topic":"P1: Penalaran","q":"Apa perbedaan mendasar antara Penalaran Deduktif dan Induktif?","a":"<strong>Deduktif:</strong> Bergerak dari premis umum ke kesimpulan khusus. Jika premis benar dan bentuk valid, kesimpulan <em>pasti mutlak benar 100%</em>.<br><br><strong>Induktif:</strong> Bergerak dari pengamatan khusus ke perampatan umum. Bersifat <em>probabilistik</em> (dapat runtuh jika ditemukan kontra-contoh)."},{"topic":"P2: Proposisi Majemuk","q":"Kapan operasi DISJUNGSI INKLUSIF (p âˆ¨ q) bernilai SALAH (F)?","a":"Disjungsi inklusif bernilai <strong>SALAH HANYA JIKA kedua operannya bernilai SALAH (F âˆ¨ F = F)</strong>.<br><br>Jika minimal salah satu operan bernilai Benar (T), maka hasilnya otomatis Benar."},{"topic":"P3: Implikasi Material","q":"Kapan operasi IMPLIKASI (p â†’ q) bernilai SALAH (F)?","a":"Implikasi p â†’ q bernilai <strong>SALAH HANYA JIKA Anteseden Benar dan Konsekuen Salah (T â†’ F = F)</strong>.<br><br>Jika anteseden bernilai Salah (F â†’ T atau F â†’ F), nilai implikasinya otomatis <strong>BENAR (T)</strong> secara vakus."},{"topic":"P3: Biimplikasi (Dasar)","q":"Kapan operasi BIIMPLIKASI (p â†” q) bernilai BENAR (T)?","a":"Biimplikasi bernilai <strong>BENAR HANYA JIKA kedua proposisi memiliki nilai kebenaran yang SAMA</strong>:<br>â€¢ T â†” T = T<br>â€¢ F â†” F = T<br>Jika nilai keduanya berlawanan (T â†” F atau F â†” T), hasilnya Salah (F)."},{"topic":"P3: Hukum Logika","q":"Sebutkan dua bentuk Hukum De Morgan untuk Negasi Konjungsi dan Disjungsi!","a":"1. <strong>Â¬(p âˆ§ q) â‰¡ Â¬p âˆ¨ Â¬q</strong><br><em>(Negasi konjungsi berubah menjadi disjungsi dari negasi-negasinya)</em><br><br>2. <strong>Â¬(p âˆ¨ q) â‰¡ Â¬p âˆ§ Â¬q</strong><br><em>(Negasi disjungsi berubah menjadi konjungsi dari negasi-negasinya)</em>"},{"topic":"P3: Ekuivalensi Implikasi","q":"Tuliskan bentuk ekuivalensi disjungsi dan kontraposisi dari implikasi p â†’ q!","a":"â€¢ Ekuivalensi Disjungsi: <strong>p â†’ q â‰¡ Â¬p âˆ¨ q</strong><br>â€¢ Kontraposisi: <strong>p â†’ q â‰¡ Â¬q â†’ Â¬p</strong><br><br><em>Peringatan:</em> Konvers (q â†’ p) dan Invers (Â¬p â†’ Â¬q) <strong>TIDAK ekuivalen</strong> dengan p â†’ q!"},{"topic":"P4: Presedensi Operator","q":"Bagaimana urutan hierarki pengerjaan operator logika dari prioritas tertinggi?","a":"1. <strong>Tanda Kurung ( )</strong><br>2. <strong>Negasi (Â¬)</strong><br>3. <strong>Konjungsi (âˆ§)</strong><br>4. <strong>Disjungsi (âˆ¨)</strong><br>5. <strong>Implikasi (â†’)</strong><br>6. <strong>Biimplikasi (â†”)</strong>"},{"topic":"P4: Parse Tree","q":"Pada Parse Tree (Pohon Sintaks), di manakah letak operator logika utama?","a":"Operator logika utama (yang dievaluasi paling terakhir) selalu terletak di <strong>AKAR (ROOT)</strong> pohon paling atas.<br><br>Daun-daun (Leaves) di dasar pohon mewakili variabel proposisi atomik (p, q, r)."},{"topic":"P5: Rumus Tabel Kebenaran","q":"Berapa rumus jumlah baris tabel kebenaran untuk n variabel dan bagaimana urutan T-First untuk 3 variabel?","a":"Rumus: <strong>2â¿ baris</strong> (3 variabel = 2Â³ = 8 baris).<br><br><strong>Pola T-First Baku Dosen:</strong><br>â€¢ Kolom p: 4 True, 4 False (TTTTFFFF)<br>â€¢ Kolom q: 2 True berulang (TTFFTTFF)<br>â€¢ Kolom r: 1 True berselang-seling (TFTFTFTF)"},{"topic":"P5: Kategori Evaluasi","q":"Apa perbedaan antara Tautologi, Kontradiksi, dan Contingent?","a":"â€¢ <strong>Tautologi:</strong> Formula yang SELALU bernilai Benar (T) pada semua baris.<br>â€¢ <strong>Kontradiksi:</strong> Formula yang SELALU bernilai Salah (F) pada semua baris.<br>â€¢ <strong>Contingent (Kontingensi):</strong> Formula yang nilai kebenarannya CAMPURAN (ada minimal satu T dan satu F)."},{"topic":"P5: Kaidah Inferensi","q":"Jelaskan kaidah inferensi Modus Ponens dan Modus Tollens!","a":"â€¢ <strong>Modus Ponens:</strong> Dari premis (p â†’ q) dan (p), kesimpulan sah adalah <strong>q</strong>.<br>â€¢ <strong>Modus Tollens:</strong> Dari premis (p â†’ q) dan (Â¬q), kesimpulan sah adalah <strong>Â¬p</strong>.<br><br><em>Fallacy umum:</em> Mengafirmasi Konsekuen [(p â†’ q) dan (q) âŠ¢ p] adalah penalaran SALAH!"}];
-const TRUTH_TABLE_PROBLEMS = [{"id":"tt_ums_2025_3a","vars":["A","B","C"],"formula":"(A â†’ (B â†’ C)) â†’ ((A â†’ B) â†’ (A â†’ C))","steps":["B â†’ C","A â†’ (B â†’ C)","A â†’ B","A â†’ C","(A â†’ B) â†’ (A â†’ C)","(A â†’ (B â†’ C)) â†’ ((A â†’ B) â†’ (A â†’ C))"],"notes":"ðŸ›ï¸ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.a] Aksioma Distribusi Implikasi (Frege's Axiom). Seluruh 8 baris bernilai Benar (Tautologi)."},{"id":"tt_ums_2025_3b","vars":["A","B","C"],"formula":"((A â†’ B) âˆ§ (B â†’ C)) â†’ (A â†’ C)","steps":["A â†’ B","B â†’ C","(A â†’ B) âˆ§ (B â†’ C)","A â†’ C","((A â†’ B) âˆ§ (B â†’ C)) â†’ (A â†’ C)"],"notes":"ðŸ›ï¸ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.b] Hukum Silogisme Hipotesis (Hypothetical Syllogism). Seluruh 8 baris bernilai Benar (Tautologi)."},{"id":"tt_ums_2025_3c","vars":["A","B"],"formula":"(A â†” B) â†” ((A âˆ§ B) âˆ¨ (Â¬A âˆ§ Â¬B))","steps":["A â†” B","A âˆ§ B","Â¬A","Â¬B","Â¬A âˆ§ Â¬B","(A âˆ§ B) âˆ¨ (Â¬A âˆ§ Â¬B)","(A â†” B) â†” ((A âˆ§ B) âˆ¨ (Â¬A âˆ§ Â¬B))"],"notes":"ðŸ›ï¸ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.c] Ekuivalensi Karakteristik Biimplikasi. Bernilai Tautologi di seluruh 4 baris."},{"id":"tt_ums_2025_3d","vars":["A","B","C"],"formula":"Â¬(A âˆ¨ (B âˆ§ C)) â†” ((A âˆ¨ B) âˆ§ (A âˆ¨ C))","steps":["B âˆ§ C","A âˆ¨ (B âˆ§ C)","Â¬(A âˆ¨ (B âˆ§ C))","A âˆ¨ B","A âˆ¨ C","(A âˆ¨ B) âˆ§ (A âˆ¨ C)","Â¬(A âˆ¨ (B âˆ§ C)) â†” ((A âˆ¨ B) âˆ§ (A âˆ¨ C))"],"notes":"ðŸ›ï¸ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.d] Ekuivalensi Negasi Distributif. Formula ini menghasilkan KONTRADIKSI (seluruh baris False) karena ruas kiri identik dengan Â¬(ruas kanan)."},{"id":"tt_ums_2025_4d","vars":["A","B","C"],"formula":"(A â†’ (B â†’ C)) â†” ((A â†’ B) â†’ C)","steps":["B â†’ C","A â†’ (B â†’ C)","A â†’ B","(A â†’ B) â†’ C","(A â†’ (B â†’ C)) â†” ((A â†’ B) â†’ C)"],"notes":"ðŸ›ï¸ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 4.d] Uji Asosiatif Implikasi. Menghasilkan CONTINGENT (menunjukkan bahwa implikasi TIDAK asosiatif)."},{"id":"tt_p1","vars":["p","q"],"formula":"(p âˆ§ Â¬q) â†’ p","steps":["Â¬q","p âˆ§ Â¬q","(p âˆ§ Â¬q) â†’ p"],"notes":"Evaluasi kolom perantara Â¬q terlebih dahulu, lalu konjungsi (p âˆ§ Â¬q), dan terakhir implikasikan ke p."},{"id":"tt_p2","vars":["p","q"],"formula":"Â¬(p âˆ¨ q) â†” (Â¬p âˆ§ Â¬q)","steps":["p âˆ¨ q","Â¬(p âˆ¨ q)","Â¬p","Â¬q","Â¬p âˆ§ Â¬q","Â¬(p âˆ¨ q) â†” (Â¬p âˆ§ Â¬q)"],"notes":"Pembuktian Hukum De Morgan 1. Periksa apakah kolom Â¬(p âˆ¨ q) identik dengan kolom (Â¬p âˆ§ Â¬q)."},{"id":"tt_p3","vars":["p","q"],"formula":"(p â†’ q) â†” (Â¬p âˆ¨ q)","steps":["p â†’ q","Â¬p","Â¬p âˆ¨ q","(p â†’ q) â†” (Â¬p âˆ¨ q)"],"notes":"Ekuivalensi hukum implikasi material. Hasil akhir berupa Tautologi (semua T)."},{"id":"tt_p4","vars":["p","q"],"formula":"((p âˆ¨ q) âˆ§ Â¬p) â†’ q","steps":["p âˆ¨ q","Â¬p","(p âˆ¨ q) âˆ§ Â¬p","((p âˆ¨ q) âˆ§ Â¬p) â†’ q"],"notes":"Kaidah Silogisme Disjungtif. Buktikan bahwa argumen ini sah (tautologi)."},{"id":"tt_p5","vars":["p","q","r"],"formula":"(p âˆ§ q) â†’ (p âˆ¨ r)","steps":["p âˆ§ q","p âˆ¨ r","(p âˆ§ q) â†’ (p âˆ¨ r)"],"notes":"Soal 3 variabel (8 baris pola T-First). Tentukan apakah hasilnya Tautologi atau Contingent."},{"id":"tt_p6","vars":["p","q","r"],"formula":"((p â†’ q) âˆ§ (q â†’ r)) â†’ (p â†’ r)","steps":["p â†’ q","q â†’ r","p â†’ r","(p â†’ q) âˆ§ (q â†’ r)","((p â†’ q) âˆ§ (q â†’ r)) â†’ (p â†’ r)"],"notes":"Silogisme Hipotetis (Transitivitas Implikasi). 8 baris pembuktian inferensi sah."},{"id":"tt_p7","vars":["p","q"],"formula":"((p â†’ q) âˆ§ Â¬q) â†’ Â¬p","steps":["p â†’ q","Â¬q","Â¬p","(p â†’ q) âˆ§ Â¬q","((p â†’ q) âˆ§ Â¬q) â†’ Â¬p"],"notes":"Kaidah Modus Tollens. Jika p â†’ q dan q salah, maka p harus salah."},{"id":"tt_p8","vars":["p","q"],"formula":"Â¬(p âˆ§ q) â†” (Â¬p âˆ¨ Â¬q)","steps":["p âˆ§ q","Â¬(p âˆ§ q)","Â¬p","Â¬q","Â¬p âˆ¨ Â¬q","Â¬(p âˆ§ q) â†” (Â¬p âˆ¨ Â¬q)"],"notes":"Pembuktian Hukum De Morgan 2 (Negasi Konjungsi)."},{"id":"tt_p9","vars":["p","q"],"formula":"(p â†” q) âˆ§ (p âˆ§ Â¬q)","steps":["p â†” q","Â¬q","p âˆ§ Â¬q","(p â†” q) âˆ§ (p âˆ§ Â¬q)"],"notes":"Uji formula Kontradiksi. Perhatikan bahwa p â†” q dan p âˆ§ Â¬q tidak pernah bernilai Benar bersamaan."},{"id":"tt_p10","vars":["p","q","r"],"formula":"(p âˆ§ Â¬r) â†’ (q âˆ¨ r)","steps":["Â¬r","p âˆ§ Â¬r","q âˆ¨ r","(p âˆ§ Â¬r) â†’ (q âˆ¨ r)"],"notes":"Soal variasi UTS 3 variabel. Implikasi hanya bernilai F saat anteseden T dan konsekuen F."},{"id":"tt_p11","vars":["p","q"],"formula":"Â¬(p â†’ q) â†” (p âˆ§ Â¬q)","steps":["p â†’ q","Â¬(p â†’ q)","Â¬q","p âˆ§ Â¬q","Â¬(p â†’ q) â†” (p âˆ§ Â¬q)"],"notes":"Negasi dari Implikasi Material: ingkaran dari 'jika p maka q' adalah 'p terjadi dan q tidak terjadi'."},{"id":"tt_p12","vars":["p","q","r"],"formula":"(p â†’ (q â†’ r)) â†” ((p âˆ§ q) â†’ r)","steps":["q â†’ r","p â†’ (q â†’ r)","p âˆ§ q","(p âˆ§ q) â†’ r","(p â†’ (q â†’ r)) â†” ((p âˆ§ q) â†’ r)"],"notes":"Hukum Ekspor (Exportation Law). Salah satu formula pembuktian ekuivalensi 3 variabel favorit UTS."}];
+const QUIZ_DATA = [{"id":"p1_q1","pert":"P1","level":"mudah","isUts":false,"q":"Manakah di antara kalimat berikut yang merupakan <code>PROPOSISI DEKLARATIF</code> yang sah dalam logika matematika?","opts":["Tolong tutup pintu laboratorium informatika itu!","Berapakah hasil perkalian dari 15 × 12?","Surakarta adalah salah satu kota di provinsi Jawa Tengah.","Semoga Anda lulus mata kuliah Logika dengan nilai A!"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Proposisi adalah kalimat deklaratif (pernyataan) yang bernilai <em>Benar</em> atau <em>Salah</em>, tetapi tidak keduanya sekaligus (Slide P1 Halaman 8). Kalimat perintah (A), pertanyaan (B), dan harapan/doa (D) bukan merupakan proposisi."},{"id":"p1_q2","pert":"P1","level":"mudah","isUts":true,"q":"Pernyataan <code>\"17 adalah bilangan genap\"</code> digolongkan sebagai:","opts":["Bukan proposisi karena pernyataannya tidak benar","Proposisi deklaratif dengan nilai kebenaran Salah (F)","Kalimat terbuka karena memuat bilangan","Paradoks logika"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Sebuah kalimat tidak harus selalu benar untuk menjadi proposisi! Syarat proposisi adalah memiliki nilai kebenaran yang pasti. Pernyataan \"17 adalah bilangan genap\" merupakan proposisi yang bernilai SALAH (F) karena 17 adalah bilangan ganjil (Slide P1 Halaman 9)."},{"id":"p1_q3","pert":"P1","level":"sedang","isUts":true,"q":"Mengapa ekspresi matematika <code>\"2x + 7 = 19\"</code> BUKAN merupakan proposisi dalam logika dasar?","opts":["Karena memuat simbol aritmatika tambah (+) dan sama dengan (=)","Karena nilai kebenarannya belum dapat ditentukan sebelum variabel bebas x diberi nilai tertentu (Kalimat Terbuka)","Karena ekspresi tersebut selalu bernilai Salah untuk semua x","Karena tidak ditulis dalam huruf kapital"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Ekspresi ini adalah <em>Kalimat Terbuka</em> (Open Sentence). Jika x = 6 bernilai Benar, jika x = 0 bernilai Salah. Karena nilainya bergantung pada nilai substitusi variabel bebas x, maka ia bukan proposisi sebelum variabelnya dikuantifikasi (Slide P1 Halaman 10)."},{"id":"p1_q4","pert":"P1","level":"sukar","isUts":true,"q":"Pernyataan <code>\"Kalimat di dalam tanda petik ini adalah bohong\"</code> digolongkan sebagai:","opts":["Proposisi bernilai Benar (T)","Proposisi bernilai Salah (F)","Bukan Proposisi (Paradoks Pembohong / Liar Paradox yang melanggar Hukum Ketiga Ditiadakan)","Tautologi Absolut"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Ini adalah paradoks klasik (Liar Paradox). Jika dianggap Benar, artinya kalimat itu bohong (berarti Salah). Jika dianggap Salah, artinya kalimat itu tidak bohong (berarti Benar). Terjadi kontradiksi diri yang melanggar <em>Law of Excluded Middle</em>, sehingga bukan merupakan proposisi (Slide P1 Halaman 12)."},{"id":"p2_q1","pert":"P2","level":"mudah","isUts":true,"q":"Operasi DISJUNGSI INKLUSIF (p ∨ q) bernilai <code>SALAH (F)</code> HANYA JIKA:","opts":["p = T dan q = F","p = F dan q = T","Kedua operan p dan q bernilai Salah (F ∨ F = F)","Salah satu operan bernilai Benar"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Disjungsi inklusif bernilai Benar jika minimal salah satu operannya Benar. Kondisi tunggal bernilai False terjadi saat kedua operan bernilai False: <code>F ∨ F = F</code> (Slide P2 Halaman 14)."},{"id":"p2_q2","pert":"P2","level":"mudah","isUts":false,"q":"Berdasarkan Hukum Negasi Ganda (Involusi), formula <code>¬(¬p)</code> secara logis ekuivalen (≡) dengan:","opts":["¬p","p","Tautologi (T)","Kontradiksi (F)"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Hukum Involusi menyatakan bahwa penyangkalan terhadap suatu negasi akan mengembalikan nilai proposisi aslinya: <code>¬(¬p) ≡ p</code> (Slide P2 Halaman 16)."},{"id":"p2_q3","pert":"P2","level":"sedang","isUts":true,"q":"Diberikan p: \"Mahasiswa belajar giat\", q: \"Mahasiswa lulus ujian\". Bentuk simbolik formal dari pernyataan: <em>\"Meskipun mahasiswa belajar giat, ia tidak lulus ujian\"</em> adalah:","opts":["p → ¬q","p ∧ ¬q","¬(p ∧ q)","p ∨ ¬q"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Dalam logika proposisional, kata hubung bahasa alami seperti \"meskipun\", \"tetapi\", \"namun\", dan \"walaupun\" secara logis berfungsi sebagai perangkai <strong>Konjungsi (∧)</strong> yang menghubungkan dua fakta yang terjadi sekaligus (Slide P2 Contoh 2.4)."},{"id":"p2_q4","pert":"P2","level":"sukar","isUts":true,"q":"Berdasarkan Hukum De Morgan, bentuk negasi yang setara dari kalimat: <em>\"Server database aktif dan koneksi jaringan lancar\"</em> adalah:","opts":["Server database tidak aktif dan koneksi jaringan tidak lancar","Server database tidak aktif atau koneksi jaringan tidak lancar","Jika server database aktif maka koneksi jaringan tidak lancar","Server database aktif tetapi koneksi jaringan terputus"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Hukum De Morgan menyatakan: <code>¬(p ∧ q) ≡ ¬p ∨ ¬q</code>. Negasi dari \"p DAN q\" adalah \"BUKAN p ATAU BUKAN q\". Maka: \"Server database tidak aktif ATAU koneksi jaringan tidak lancar\" (Slide P2 Halaman 20)."},{"id":"p3_q1","pert":"P3","level":"mudah","isUts":false,"q":"Sebuah formula proposisi memuat 4 variabel atomik berbeda: <code>p, q, r, s</code>. Berapakah jumlah baris pada tabel kebenarannya?","opts":["8 baris","12 baris","16 baris","32 baris"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Rumus jumlah baris tabel kebenaran adalah <strong>2ⁿ</strong>, di mana n adalah jumlah variabel proposisional unik. Untuk 4 variabel: 2⁴ = <strong>16 baris</strong> (Slide P3 Halaman 6)."},{"id":"p3_q2","pert":"P3","level":"mudah","isUts":true,"q":"Sesuai urutan baku perkuliahan dosen pengampu Reinal Ariyuda (T-First), urutan kombinasi nilai kebenaran untuk 2 variabel (p, q) adalah:","opts":["TT, TF, FT, FF","FF, FT, TF, TT","TF, FT, TT, FF","FT, FF, TT, TF"],"ans":0,"exp":"<strong>Jawaban Benar: A</strong><br>Standar akademik baku yang diterapkan pada perkuliahan ini adalah <strong>T-First (True First)</strong> secara biner terbalik: Baris 1: TT, Baris 2: TF, Baris 3: FT, Baris 4: FF (Slide P3 Halaman 8)."},{"id":"p3_q3","pert":"P3","level":"sedang","isUts":true,"q":"Manakah urutan pengerjaan operator logika (Presedensi) dari prioritas TERTINGGI ke TERENDAH jika tanpa tanda kurung?","opts":["¬ (Negasi) → ∧ (Konjungsi) → ∨ (Disjungsi) → → (Implikasi) → ↔ (Biimplikasi)","∧ (Konjungsi) → ∨ (Disjungsi) → ¬ (Negasi) → ↔ (Biimplikasi) → → (Implikasi)","→ (Implikasi) → ↔ (Biimplikasi) → ∧ (Konjungsi) → ∨ (Disjungsi) → ¬ (Negasi)","Semua operator memiliki derajat prioritas yang sama dari kiri ke kanan"],"ans":0,"exp":"<strong>Jawaban Benar: A</strong><br>Tingkat presedensi operator logika standar: 1. Negasi (¬), 2. Konjungsi (∧), 3. Disjungsi (∨), 4. Implikasi (→), 5. Biimplikasi (↔) (Slide P3 Halaman 15)."},{"id":"p3_q4","pert":"P3","level":"sukar","isUts":true,"q":"Pada pohon sintaks (parse tree) dari formula: <code>((p ∧ q) ∨ ¬r) → (s ↔ t)</code>, simpul yang bertindak sebagai Simpul Akar (Root Node / Main Operator) adalah:","opts":["∧ (Konjungsi)","∨ (Disjungsi)","→ (Implikasi)","↔ (Biimplikasi)"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Root Node pada parse tree adalah operator utama yang dievaluasi paling akhir karena menghubungkan sub-pohon kiri <code>((p ∧ q) ∨ ¬r)</code> dan sub-pohon kanan <code>(s ↔ t)</code>. Operator tersebut adalah <strong>Implikasi (→)</strong> (Slide P3 Halaman 22)."},{"id":"p4_q1","pert":"P4","level":"mudah","isUts":true,"q":"Operasi IMPLIKASI MATERIAL (p → q) bernilai <code>SALAH (F)</code> HANYA JIKA:","opts":["p = T dan q = T","p = T dan q = F (Anteseden Benar, Konsekuen Salah)","p = F dan q = T","p = F dan q = F"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Ciri khas utama implikasi: bernilai SALAH HANYA pada satu kondisi tunggal, yaitu ketika <strong>Anteseden (syarat) bernilai Benar tetapi Konsekuen (akibat) bernilai Salah (T → F = F)</strong>. Pada kondisi p = F, implikasi selalu bernilai Benar secara vakuus (Slide P4 Halaman 6)."},{"id":"p4_q2","pert":"P4","level":"sedang","isUts":true,"q":"Manakah operasi logika dengan dua input berbeda (T dan F) berikut yang menghasilkan nilai <code>BENAR (T)</code>?","opts":["T ∧ F","T ↔ F","F → T","T → F"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Mari kita evaluasi seluruh opsi:<br>• <strong>F → T = T</strong> (Anteseden False selalu menghasilkan implikasi True!).<br>• T ∧ F = F (Konjungsi butuh keduanya True).<br>• T ↔ F = F (Biimplikasi butuh kedua operan bernilai sama).<br>• T → F = F (Kondisi tunggal implikasi bernilai False).<br><em>Rujukan: Slide P4 Halaman 8 & 14.</em>"},{"id":"p4_q3","pert":"P4","level":"sedang","isUts":true,"q":"Diberikan implikasi: <em>\"Jika hari hujan (p), maka jalanan basah (q)\"</em>. Pernyataan <em>\"Jika jalanan tidak basah (¬q), maka hari tidak hujan (¬p)\"</em> merupakan variasi bentuk:","opts":["Konvers (Converse)","Invers (Inverse)","Kontraposisi (Contrapositive)","Biimplikasi"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Variasi dari <code>p → q</code>:<br>• Konvers: <code>q → p</code><br>• Invers: <code>¬p → ¬q</code><br>• <strong>Kontraposisi: <code>¬q → ¬p</code></strong>. Kontraposisi adalah satu-satunya variasi yang terbukti secara logis ekuivalen (≡) dengan implikasi aslinya (Slide P4 Halaman 18)."},{"id":"p4_q4","pert":"P4","level":"sedang","isUts":false,"q":"Manakah bentuk ekuivalensi hukum logika dari implikasi <code>p → q</code> menggunakan operator negasi dan disjungsi?","opts":["¬p ∧ q","¬p ∨ q","p ∧ ¬q","¬(p ∨ q)"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Hukum Ekuivalensi Implikasi menyatakan bahwa: <code>p → q ≡ ¬p ∨ q</code>. Tabel kebenaran keduanya identik pada seluruh 4 baris: T, F, T, T (Slide P4 Halaman 20)."},{"id":"p4_q5","pert":"P4","level":"sukar","isUts":true,"q":"Pada pernyataan <em>\"Mahasiswa diizinkan ikut ujian (p) HANYA JIKA presensi minimal 75% (q)\"</em>, relasi implikasi formal yang benar adalah:","opts":["q → p (q syarat cukup bagi p)","p → q (q syarat perlu / necessary condition bagi p)","p ↔ q (p dan q saling bebas)","¬p → q"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Frasa <strong>\"p HANYA JIKA q\"</strong> diterjemahkan secara formal sebagai <code>p → q</code>. Artinya, q (presensi 75%) adalah <em>syarat perlu (necessary condition)</em> untuk p. Tanpa q, p tidak dapat terjadi (Slide P4 Halaman 12)."},{"id":"p4_q6","pert":"P4","level":"sukar","isUts":true,"q":"Diberikan nilai kebenaran variabel: A = T, B = F, C = T. Berapakah nilai kebenaran akhir dari ekspresi: <code>(A ∧ ¬B) → ¬C</code>?","opts":["Benar (T)","Salah (F)","Tidak dapat ditentukan","Tautologi"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Mari kita evaluasi langkah demi langkah:<br>1. ¬B = ¬F = T<br>2. A ∧ ¬B = T ∧ T = <strong>T</strong> (Anteseden bernilai T)<br>3. ¬C = ¬T = <strong>F</strong> (Konsekuen bernilai F)<br>4. Evaluasi implikasi: T → F = <strong>F</strong>!<br><em>Rujukan: Contoh 5.1 Slide P4 & P5 Halaman 6.</em>"},{"id":"p4_q7","pert":"P4","level":"sedang","isUts":false,"q":"BIIMPLIKASI (p ↔ q) bernilai <code>BENAR (T)</code> HANYA JIKA:","opts":["p bernilai Benar dan q bernilai Salah","Kedua proposisi p dan q memiliki nilai kebenaran yang sama (keduanya T atau keduanya F)","Salah satu proposisi bernilai Benar","Anteseden bernilai Salah"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Biimplikasi / Ekuivalensi bernilai Benar jika kedua operan memiliki nilai yang seragam: <code>T ↔ T = T</code> dan <code>F ↔ F = T</code>. Jika nilainya berlawanan, bernilai False (Slide P4 Halaman 24)."},{"id":"p5_q1","pert":"P5","level":"mudah","isUts":true,"q":"Suatu formula proposisi majemuk yang SELALU bernilai <code>BENAR (T)</code> pada seluruh baris tabel kebenarannya disebut:","opts":["Kontradiksi","Tautologi","Contingent","Falasi"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Tautologi adalah proposisi majemuk yang selalu bernilai True apapun nilai kebenaran dari variabel-variabel penyusunnya (Slide P5 Halaman 15). Menandakan argumen yang valid dan logis."},{"id":"p5_q2","pert":"P5","level":"sedang","isUts":true,"q":"Kaidah inferensi sah <code>MODUS PONENS</code> menyatakan bahwa dari dua premis: <code>p → q</code> dan <code>p</code>, dapat ditarik konklusi yang sah yaitu:","opts":["¬p","q","¬q","p ∧ q"],"ans":1,"exp":"<strong>Jawaban Benar: B</strong><br>Modus Ponens (Metode Penegasan Anteseden):<br>Premis 1: p → q<br>Premis 2: p<br><strong>Konklusi: q</strong> (Slide P5 Halaman 18)."},{"id":"p5_q3","pert":"P5","level":"sedang","isUts":true,"q":"Kaidah inferensi sah <code>MODUS TOLLENS</code> menyatakan bahwa dari dua premis: <code>p → q</code> dan <code>¬q</code>, dapat ditarik konklusi sah yaitu:","opts":["p","q","¬p","¬p ∨ q"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Modus Tollens (Metode Penyangkalan Konsekuen):<br>Premis 1: p → q<br>Premis 2: ¬q<br><strong>Konklusi: ¬p</strong> (Slide P5 Halaman 20)."},{"id":"p5_q4","pert":"P5","level":"sukar","isUts":true,"q":"Perhatikan penalaran berikut: <em>\"Jika seseorang belajar giat (p), maka ia lulus (q). Ternyata Budi lulus (q). Oleh karena itu, Budi pasti belajar giat (p).\"</em> Penalaran ini tergolong ke dalam kesesatan berpikir (falasi formal) jenis:","opts":["Modus Ponens yang Sah","Menyangkal Anteseden (Denying the Antecedent)","Mengafirmasi Konsekuen (Affirming the Consequent)","Silogisme Disjungtif"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Bentuk argumen: <code>((p → q) ∧ q) → p</code> merupakan <strong>Falasi Mengafirmasi Konsekuen (Affirming the Consequent)</strong>. Seseorang bisa saja lulus ujian karena faktor lain meskipun tidak belajar giat (Slide P5 Halaman 23)."},{"id":"p5_q5","pert":"P5","level":"sukar","isUts":true,"q":"Sebuah formula logika yang memuat hasil evaluasi campuran (terdapat baris bernilai Benar dan terdapat baris bernilai Salah) diklasifikasikan sebagai:","opts":["Tautologi","Kontradiksi","Contingent (Kontingensi)","Ekuivalen"],"ans":2,"exp":"<strong>Jawaban Benar: C</strong><br>Formula logika yang bukan merupakan tautologi (tidak selalu True) dan bukan pula kontradiksi (tidak selalu False) disebut <strong>Contingent</strong> (Slide P5 Halaman 25)."},{"id":"repotif_uts_1a","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 1.a]</strong><br>Berilah tanda kurung sempurna (Fully Parenthesized Expression / FPE) pada ekspresi logika berikut sesuai hierarki operatornya:<br><code style='color:#a855f7; font-size:1.1em;'>A ∧ B ∨ C → ¬D</code>","opts":["((A ∧ B) ∨ (C → (¬D)))","(((A ∧ B) ∨ C) → (¬D))","(A ∧ (B ∨ (C → (¬D))))","((A ∧ (B ∨ C)) → (¬D))"],"ans":1,"exp":"<strong>Jawaban Benar: B — (((A ∧ B) ∨ C) → (¬D))</strong><br>Berdasarkan hierarki operator resmi Informatika UMS:<br>1. Negasi (¬) mengikat D terlebih dahulu: <code>(¬D)</code>.<br>2. Konjungsi (∧) lebih tinggi dari disjungsi: <code>(A ∧ B)</code>.<br>3. Disjungsi (∨) berikutnya: <code>((A ∧ B) ∨ C)</code>.<br>4. Implikasi (→) hierarki terendah di formula ini: <code>(((A ∧ B) ∨ C) → (¬D))</code>."},{"id":"repotif_uts_1b","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 1.b]</strong><br>Bentuk FPE yang tepat untuk formula logika berikut adalah:<br><code style='color:#a855f7; font-size:1.1em;'>¬A ∧ B → ¬C ∨ D</code>","opts":["((¬A) ∧ (B → ((¬C) ∨ D)))","(¬(A ∧ B)) → (¬(C ∨ D))","(((¬A) ∧ B) → ((¬C) ∨ D))","((¬(A ∧ B)) → ((¬C) ∨ D))"],"ans":2,"exp":"<strong>Jawaban Benar: C — (((¬A) ∧ B) → ((¬C) ∨ D))</strong><br>Langkah hirarki presedensi:<br>1. Negasi: <code>(¬A)</code> dan <code>(¬C)</code>.<br>2. Konjungsi: <code>((¬A) ∧ B)</code>.<br>3. Disjungsi: <code>((¬C) ∨ D)</code>.<br>4. Implikasi utama: <code>(((¬A) ∧ B) → ((¬C) ∨ D))</code>."},{"id":"repotif_uts_3a","pert":"UTS Asli UMS","level":"sulit","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.a]</strong><br>Dengan tabel kebenaran 8 baris, ekspresi logika:<br><code style='color:#38bdf8; font-size:1.05em;'>(A → (B → C)) → ((A → B) → (A → C))</code><br>diklasifikasikan sebagai:","opts":["Kontradiksi (seluruh baris bernilai F)","Tautologi (seluruh 8 baris bernilai T)","Contingent (memiliki nilai T dan F)","Formula Tidak Sah (Invalid WFF)"],"ans":1,"exp":"<strong>Jawaban Benar: B — Tautologi</strong><br>Formula ini dikenal dalam logika matematika formal sebagai <em>Frege's Axiom / Self-Distribution of Implication</em>. Dalam tabel kebenaran dengan 8 kombinasi nilai (A, B, C), kolom hasil akhir bernilai Benar (T) di seluruh 8 baris, sehingga formula ini merupakan TAUTOLOGI."},{"id":"repotif_uts_3b","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.b]</strong><br>Formula <code style='color:#38bdf8;'>((A → B) ∧ (B → C)) → (A → C)</code> menghasilkan klasifikasi:","opts":["Tautologi (Hukum Silogisme Hipotesis)","Kontradiksi","Contingent","Ekuivalensi Negasi"],"ans":0,"exp":"<strong>Jawaban Benar: A — Tautologi</strong><br>Ini adalah bentuk baku dari <em>Hypothetical Syllogism</em> (Silogisme Hipotesis). Jika A mengakibatkan B dan B mengakibatkan C, maka A pasti mengakibatkan C. Seluruh 8 baris tabel kebenarannya bernilai True (Tautologi)."},{"id":"repotif_uts_3d","pert":"UTS Asli UMS","level":"sulit","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.d]</strong><br>Tentukan nilai dari formula biimplikasi berikut:<br><code style='color:#ec4899; font-size:1.05em;'>¬(A ∨ (B ∧ C)) ↔ ((A ∨ B) ∧ (A ∨ C))</code>","opts":["Tautologi (karena kedua ruas identik)","Contingent (tergantung nilai C)","Kontradiksi (seluruh baris bernilai F)","Ekuivalen Bersyarat"],"ans":2,"exp":"<strong>Jawaban Benar: C — Kontradiksi</strong><br>Perhatikan hukum distributif: <code>(A ∨ (B ∧ C)) ≡ ((A ∨ B) ∧ (A ∨ C))</code>.<br>Misalkan ruas kanan adalah <code>X</code>, maka ruas kiri adalah <code>¬X</code>.<br>Ekspresi ini berbentuk <code>¬X ↔ X</code>. Karena nilai kebenaran X dan ¬X selalu berlawanan, maka biimplikasinya SELALU SALAH (F) di semua 8 baris (KONTRADIKSI)!"},{"id":"repotif_uts_4d","pert":"UTS Asli UMS","level":"sulit","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 4.d]</strong><br>Apakah perangkai implikasi memenuhi hukum asosiatif: <br><code style='color:#f59e0b;'>A → (B → C) ≡ (A → B) → C</code> ?","opts":["Ya, ekuivalen pada semua 8 baris tabel kebenaran","Tidak ekuivalen (Counterexample: saat A=F, B=F, C=F, ruas kiri bernilai T sedangkan ruas kanan bernilai F)","Hanya ekuivalen jika A bernilai Benar","Ya, karena implikasi bersifat transitif"],"ans":1,"exp":"<strong>Jawaban Benar: B — Tidak Ekuivalen</strong><br>Implikasi TIDAK BERSIFAT ASOSIATIF!<br>Uji baris saat A=F, B=F, C=F:<br>• Ruas kiri: F → (F → F) = F → T = <strong>T</strong>.<br>• Ruas kanan: (F → F) → F = T → F = <strong>F</strong>.<br>Karena nilai kedua ruas berbeda, kedua ekspresi terbukti <strong>TIDAK EKUIVALEN</strong>."},{"id":"repotif_uts_2b","pert":"UTS Asli UMS","level":"sedang","isUts":true,"q":"<strong>[UTS Asli UMS 2024/2025 & 2025/2026 - Soal 2.b]</strong><br>Translasi kalimat ke ekspresi FPE yang benar untuk:<br><em>'Saya tidak akan melanjutkan kuliah (¬p) jika dan hanya jika saya tidak lulus ujian (¬q) dan mendapatkan nilai rendah (r) atau orang tua keberatan (s)'</em> adalah:","opts":["((¬p) ↔ (((¬q) ∧ r) ∨ s))","(¬p ↔ ¬q) ∧ (r ∨ s)","((¬p ↔ (¬q ∧ r)) ∨ s)","¬(p ↔ ((q ∧ r) ∨ s))"],"ans":0,"exp":"<strong>Jawaban Benar: A — ((¬p) ↔ (((¬q) ∧ r) ∨ s))</strong><br>Pernyataan 'jika dan hanya jika' mengikat seluruh klausa kondisi di sebelah kanannya. Sub-kondisi 'tidak lulus dan nilai rendah' mengikat konjungsi lebih kuat <code>((¬q) ∧ r)</code>, kemudian didisjungsikan dengan <code>s</code>: <code>(((¬q) ∧ r) ∨ s)</code>. Seluruhnya dihubungkan dengan <code>(¬p)</code> dalam biimplikasi."}];
+const CLIENT_DRILLS = [{"id":"drill1","title":"Drill 1: Negasi & Konjungsi","formula":"p ∧ ¬q","vars":["p","q"],"colNames":["¬q","p ∧ ¬q"],"hint":"Ingat: ¬q membalik nilai q. Kemudian p ∧ ¬q hanya bernilai T jika KEDUA p dan ¬q bernilai T.","rows":[{"inputs":{"p":true,"q":true},"expected":[false,false]},{"inputs":{"p":true,"q":false},"expected":[true,true]},{"inputs":{"p":false,"q":true},"expected":[false,false]},{"inputs":{"p":false,"q":false},"expected":[true,false]}]},{"id":"drill2","title":"Drill 2: Implikasi Material & Disjungsi","formula":"(p → q) ∨ ¬p","vars":["p","q"],"colNames":["p → q","¬p","(p → q) ∨ ¬p"],"hint":"Ingat: p → q hanya salah saat T → F. Disjungsi ∨ bernilai T jika minimal salah satu bernilai T.","rows":[{"inputs":{"p":true,"q":true},"expected":[true,false,true]},{"inputs":{"p":true,"q":false},"expected":[false,false,false]},{"inputs":{"p":false,"q":true},"expected":[true,true,true]},{"inputs":{"p":false,"q":false},"expected":[true,true,true]}]},{"id":"drill3","title":"Drill 3: Pembuktian Hukum De Morgan","formula":"¬(p ∨ q) ↔ (¬p ∧ ¬q)","vars":["p","q"],"colNames":["p ∨ q","¬(p ∨ q)","¬p ∧ ¬q","Hasil Ekuivalensi (↔)"],"hint":"Periksa apakah kolom ¬(p ∨ q) bernilai identik dengan ¬p ∧ ¬q di setiap baris. Jika identik, biimplikasi menghasilkan Tautologi!","rows":[{"inputs":{"p":true,"q":true},"expected":[true,false,false,true]},{"inputs":{"p":true,"q":false},"expected":[true,false,false,true]},{"inputs":{"p":false,"q":true},"expected":[true,false,false,true]},{"inputs":{"p":false,"q":false},"expected":[false,true,true,true]}]},{"id":"drill4","title":"Drill 4: 3-Variabel UTS Challenge","formula":"(p ∧ q) → r","vars":["p","q","r"],"colNames":["p ∧ q","(p ∧ q) → r"],"hint":"8 Baris pola T-First! Perhatikan bahwa (p ∧ q) hanya bernilai T pada baris 1 dan baris 2. Implikasi hanya salah saat anteseden T dan konsekuen F.","rows":[{"inputs":{"p":true,"q":true,"r":true},"expected":[true,true]},{"inputs":{"p":true,"q":true,"r":false},"expected":[true,false]},{"inputs":{"p":true,"q":false,"r":true},"expected":[false,true]},{"inputs":{"p":true,"q":false,"r":false},"expected":[false,true]},{"inputs":{"p":false,"q":true,"r":true},"expected":[false,true]},{"inputs":{"p":false,"q":true,"r":false},"expected":[false,true]},{"inputs":{"p":false,"q":false,"r":true},"expected":[false,true]},{"inputs":{"p":false,"q":false,"r":false},"expected":[false,true]}]}];
+const FLASHCARDS = [{"topic":"HIERARKI UTS UMS","badge":"🏛️ Standar UMS","front":"Bagaimana urutan hierarki operator logika resmi di UTS UMS dan bagaimana aturan asosiatifnya?","back":"<strong>Hierarki Operator Logika Resmi Informatika UMS:</strong><br><br>1. <strong>Negasi (¬)</strong> — Prioritas tertinggi<br>2. <strong>Konjungsi (∧)</strong><br>3. <strong>Disjungsi (∨)</strong><br>4. <strong>Implikasi (→)</strong><br>5. <strong>Biimplikasi (↔)</strong> — Prioritas terendah<br><br>⚠️ <em>Aturan Asosiatif:</em> Jika operator bertingkat sama (misal ∧ dan ∧), pengelompokan kurung dieksekusi dari <strong>kiri ke kanan (left-to-right)</strong>.<br>⚠️ <em>Catatan FPE:</em> Setiap operator biner WAJIB memiliki tepat sepasang kurung penutup!","color":"#ec4899"},{"topic":"JEBAKAN UTS UMS","badge":"⚠️ Jebakan UTS","front":"Apakah implikasi bersifat asosiatif? Buktikan apakah A → (B → C) ≡ (A → B) → C !","back":"<strong>TIDAK EKUIVALEN! (Soal 4.d UTS Gasal UMS)</strong><br><br>Ambil contoh penyangkal saat <code>A = F, B = F, C = F</code>:<br>• Ruas Kiri: <code>F → (F → F) = F → T = T (Benar)</code><br>• Ruas Kanan: <code>(F → F) → F = T → F = F (Salah)</code><br><br>💡 Karena nilai kebenarannya berbeda, terbukti bahwa <strong>Implikasi TIDAK BERSIFAT ASOSIATIF</strong>. Jangan pernah memindahkan tanda kurung pada implikasi!","color":"#f59e0b"},{"topic":"P4: FPE & wff (Slide 4.4)","q":"Apa definisi Fully Parentheses Expression (FPE) dan kaitannya dengan Well-Formed Formulae (wff)?","a":"<strong>Fully Parentheses Expression (FPE)</strong> adalah bentuk ekspresi logika proposisional di mana <em>setiap perangkai biner (∧, ∨, →, ↔) diapit tanda kurung secara eksplisit dan lengkap</em>.<br><br>• Rumus yang dibentuk sesuai kaidah gramatika presisi ini disebut <strong>Well-Formed Formulae (wff)</strong>.<br>• <strong>Fungsi FPE:</strong> Menghilangkan ambiguitas urutan eksekusi secara mutlak sehingga bentuk Parse Tree dapat digambar secara deterministik tanpa keraguan."},{"topic":"P4: Konversi FPE (Slide 4.5)","q":"Bagaimana cara mengubah ekspresi tanpa kurung menjadi bentuk FPE berdasarkan hierarki perangkai? Berikan contohnya!","a":"<strong>Aturan Hierarki Konversi:</strong><br>1. Negasi (¬) menempel langsung pada atom: <code>¬A ∧ B</code> &rarr; <code>((¬A) ∧ B)</code><br>2. Konjungsi (∧) lalu Disjungsi (∨)<br>3. Implikasi (→) [Right-Associative: dari kanan ke kiri]<br>4. Biimplikasi (↔)<br><br><strong>Contoh Baku Slide Dosen:</strong><br>• Ekspresi Asli: <code>A ∧ B → C ∨ D</code><br>• Bentuk FPE/wff: <strong>((A ∧ B) → (C ∨ D))</strong><br>• Contoh lain: <code>p → q ∧ r</code> &rarr; <strong>(p → (q ∧ r))</strong>"},{"topic":"P4: FPE & Parse Tree (Slide 15-19)","q":"Bagaimana cara menentukan Main Operator (Root) pada ekspresi FPE untuk digambar ke Parse Tree?","a":"Pada ekspresi FPE seperti <code>((A ∧ ¬B) → ¬C)</code>:<br><br>1. <strong>Main Operator (Root / Akar):</strong> Perangkai yang berada di luar kurung internal terluar adalah Root (pada contoh ini adalah <strong>→</strong>).<br>2. <strong>Sub-Pohon Kiri:</strong> Seluruh isi kurung kiri <code>(A ∧ ¬B)</code> menjadi cabang kiri.<br>3. <strong>Sub-Pohon Kanan:</strong> Operan kanan <code>¬C</code> menjadi cabang kanan.<br>4. <strong>Daun (Leaves):</strong> Variabel atomik murni (A, B, C). Evaluasi kebenaran berjalan <em>bottom-up</em> dari daun ke akar."},{"topic":"P4: FPE Majemuk 4 Variabel (UTS)","q":"Diberikan ekspresi 4 variabel: ¬(p ∧ q) ↔ (r → ¬s). Tuliskan bentuk baku FPE, tentukan Root Operator, dan gambarkan hierarkinya!","a":"<strong>1. Bentuk Baku FPE (Semua Perangkai Biner & Negasi Diapit Kurung Lengkap):</strong><br>&nbsp;&nbsp;&rarr; <strong>((¬(p ∧ q)) ↔ (r → (¬s)))</strong><br><br><strong>2. Dekomposisi Hierarki:</strong><br>• <strong>Root Operator (Puncak):</strong> Biimplikasi <strong>↔</strong> terluar.<br>• <strong>Sub-Pohon Kiri:</strong> <code>(¬(p ∧ q))</code> &rarr; Negasi ¬ menaungi konjungsi atomik (p ∧ q).<br>• <strong>Sub-Pohon Kanan:</strong> <code>(r → (¬s))</code> &rarr; Implikasi → menaungi atom r dan negasi (¬s).<br><br><strong>3. Evaluasi Bottom-Up:</strong> Evaluasi 4 daun atomik (p, q, r, s) &rarr; evaluasi sub-ekspresi dalam kurung &rarr; terakhir diuji kesamaan nilai kebenaran kiri dan kanan pada Root ↔."},{"topic":"Tips Ujian: Penamaan Alias Kolom","q":"Bagaimana teknik penamaan variabel baru (alias kustom seperti A, B, C) untuk proposisi majemuk saat membuat tabel kebenaran? Mengapa sangat disarankan?","a":"<strong>Teknik Substitusi Alias Kolom:</strong><br>Jika menghadapi formula majemuk yang panjang, jangan tulis rumus lengkap di tiap kepala kolom!<br><br><strong>Contoh Penerapan:</strong><br>Formula: <code>((p → q) ∧ (r ∨ ¬s)) ↔ (p ∧ r)</code><br>• Kolom 5: Beri nama <strong>A = (p → q)</strong><br>• Kolom 6: Beri nama <strong>B = (r ∨ ¬s)</strong><br>• Kolom 7: Beri nama <strong>C = A ∧ B</strong><br>• Kolom 8 (Kolom Akhir): Cukup tulis <strong>C ↔ (p ∧ r)</strong><br><br><strong>Manfaat Utama Ujian:</strong><br>1. Menghemat waktu menulis & mencegah tabel melar berantakan.<br>2. Menghitung baris C cukup dengan melihat kolom A dan B (tidak perlu melirik rumus asal).<br>3. Menurunkan risiko human error hingga 90%! Cara resmi yang direkomendasikan asisten dan dosen."},{"topic":"P4: Ekuivalensi Multi-Variabel (3 Var)","q":"Jelaskan Sifat Transitivitas Biimplikasi dengan 3 variabel: ((p ↔ q) ∧ (q ↔ r)) → (p ↔ r)! Apakah formula ini selalu Tautologi?","a":"<strong>YA, formula ini adalah TAUTOLOGI MUTLAK</strong> (seluruh 8 baris bernilai Benar/T):<br><br>• <strong>Sifat Transitivitas:</strong> Jika p setara dengan q, dan q setara dengan r, maka p mutlak setara dengan r.<br>• <strong>Relasi Ekuivalensi:</strong> Biimplikasi memenuhi 3 sifat relasi ekuivalensi matematika:<br>&nbsp;&nbsp;1. <em>Refleksif:</em> p ↔ p<br>&nbsp;&nbsp;2. <em>Simetris:</em> (p ↔ q) ≡ (q ↔ p)<br>&nbsp;&nbsp;3. <em>Transitif:</em> ((p ↔ q) ∧ (q ↔ r)) → (p ↔ r)<br>• Pada tabel 8 baris, saat anteseden (p↔q ∧ q↔r) bernilai T (yaitu saat TTT atau FFF), konsekuen (p↔r) selalu bernilai T."},{"topic":"P3: Biimplikasi & Dua Arah","q":"Bagaimana menguraikan operasi Biimplikasi (p ↔ q) menjadi dua klausa implikasi searah, dan apa prinsip pembuktiannya?","a":"Operasi Biimplikasi (p ↔ q) bermakna <em>'jika dan hanya jika'</em> (kondisi perlu dan cukup).<br><br>• <strong>Bentuk Uraian Baku:</strong> <strong>(p ↔ q) ≡ (p → q) ∧ (q → p)</strong><br>• <strong>Prinsip Pembuktian (Slide 3.8):</strong> Untuk membuktikan bahwa p ↔ q benar, kita WAJIB membuktikan <em>kedua arah</em>:<br>&nbsp;&nbsp;1. Buktikan arah maju: jika p benar maka q benar (p → q).<br>&nbsp;&nbsp;2. Buktikan arah mundur: jika q benar maka p benar (q → p)."},{"topic":"P3: Negasi Biimplikasi & XOR","q":"Kapan negasi dari Biimplikasi ¬(p ↔ q) bernilai BENAR (T)? Apa hubungannya dengan operator Exclusive OR (XOR)?","a":"Biimplikasi bernilai Benar jika kedua operan bernilai SAMA (T↔T, F↔F).<br><br>Maka negasinya <strong>¬(p ↔ q)</strong> bernilai <strong>BENAR (T)</strong> saat kedua proposisi memiliki nilai kebenaran <strong>BERBEDA (T dan F)</strong>:<br>• <strong>¬(p ↔ q) ≡ (p ↔ ¬q) ≡ (¬p ↔ q)</strong><br>• <strong>Ekuivalen dengan XOR (p ⊕ q):</strong> Bernilai T jika salah satu (tetapi bukan keduanya) bernilai Benar."},{"topic":"P3: Ekuivalensi & Tautologi","q":"Apa syarat formal agar dua proposisi majemuk P dan Q dinyatakan Ekuivalen Logis (P ≡ Q) melalui tabel kebenaran?","a":"Dua proposisi P dan Q dinyatakan <strong>Ekuivalen Logis (P ≡ Q)</strong> jika dan hanya jika kolom nilai kebenaran keduanya <strong>identik baris demi baris</strong> pada semua kemungkinan kombinasi input.<br><br><strong>Uji Tautologi Biimplikasi (Slide 3.10):</strong><br>Dua formula P dan Q ekuivalen logis <strong>P ≡ Q</strong> jika dan hanya jika proposisi biimplikasi <strong>(P ↔ Q) merupakan TAUTOLOGI (selalu bernilai True di semua baris)</strong>."},{"topic":"P4: Ambiguitas & Aturan Presedensi FPE","q":"Mengapa ekspresi p → q → r menimbulkan ambiguitas jika tidak diubah ke FPE? Apa aturan standar asosiatifnya?","a":"Tanpa tanda kurung, <code>p → q → r</code> memiliki makna ganda yang tidak ekuivalen:<br>• <code>((p → q) → r)</code> [Asosiatif Kiri] &ne; <code>(p → (q → r))</code> [Asosiatif Kanan]!<br><br><strong>Standar Logika Matematika:</strong> Implikasi bersifat <strong>Right-Associative</strong> (dikelompokkan dari kanan). Maka bentuk baku FPE-nya adalah <strong>(p → (q → r))</strong>.<br>Dengan FPE, urutan evaluasi menjadi pasti."},{"topic":"P1: Konsep Dasar","q":"Apa definisi dari Proposisi Deklaratif dan apa syarat utamanya?","a":"Proposisi adalah pernyataan deklaratif yang memiliki nilai kebenaran PASTI: <strong>Benar (T)</strong> saja atau <strong>Salah (F)</strong> saja, tetapi tidak keduanya sekaligus.<br><br><em>Bukan Proposisi:</em> Kalimat tanya, perintah, seruan, harapan/doa, dan kalimat terbuka berpeubah bebas (misal: 2x + 5 = 11)."},{"topic":"P1: Penalaran","q":"Apa perbedaan mendasar antara Penalaran Deduktif dan Induktif?","a":"<strong>Deduktif:</strong> Bergerak dari premis umum ke kesimpulan khusus. Jika premis benar dan bentuk valid, kesimpulan <em>pasti mutlak benar 100%</em>.<br><br><strong>Induktif:</strong> Bergerak dari pengamatan khusus ke perampatan umum. Bersifat <em>probabilistik</em> (dapat runtuh jika ditemukan kontra-contoh)."},{"topic":"P2: Proposisi Majemuk","q":"Kapan operasi DISJUNGSI INKLUSIF (p ∨ q) bernilai SALAH (F)?","a":"Disjungsi inklusif bernilai <strong>SALAH HANYA JIKA kedua operannya bernilai SALAH (F ∨ F = F)</strong>.<br><br>Jika minimal salah satu operan bernilai Benar (T), maka hasilnya otomatis Benar."},{"topic":"P3: Implikasi Material","q":"Kapan operasi IMPLIKASI (p → q) bernilai SALAH (F)?","a":"Implikasi p → q bernilai <strong>SALAH HANYA JIKA Anteseden Benar dan Konsekuen Salah (T → F = F)</strong>.<br><br>Jika anteseden bernilai Salah (F → T atau F → F), nilai implikasinya otomatis <strong>BENAR (T)</strong> secara vakus."},{"topic":"P3: Biimplikasi (Dasar)","q":"Kapan operasi BIIMPLIKASI (p ↔ q) bernilai BENAR (T)?","a":"Biimplikasi bernilai <strong>BENAR HANYA JIKA kedua proposisi memiliki nilai kebenaran yang SAMA</strong>:<br>• T ↔ T = T<br>• F ↔ F = T<br>Jika nilai keduanya berlawanan (T ↔ F atau F ↔ T), hasilnya Salah (F)."},{"topic":"P3: Hukum Logika","q":"Sebutkan dua bentuk Hukum De Morgan untuk Negasi Konjungsi dan Disjungsi!","a":"1. <strong>¬(p ∧ q) ≡ ¬p ∨ ¬q</strong><br><em>(Negasi konjungsi berubah menjadi disjungsi dari negasi-negasinya)</em><br><br>2. <strong>¬(p ∨ q) ≡ ¬p ∧ ¬q</strong><br><em>(Negasi disjungsi berubah menjadi konjungsi dari negasi-negasinya)</em>"},{"topic":"P3: Ekuivalensi Implikasi","q":"Tuliskan bentuk ekuivalensi disjungsi dan kontraposisi dari implikasi p → q!","a":"• Ekuivalensi Disjungsi: <strong>p → q ≡ ¬p ∨ q</strong><br>• Kontraposisi: <strong>p → q ≡ ¬q → ¬p</strong><br><br><em>Peringatan:</em> Konvers (q → p) dan Invers (¬p → ¬q) <strong>TIDAK ekuivalen</strong> dengan p → q!"},{"topic":"P4: Presedensi Operator","q":"Bagaimana urutan hierarki pengerjaan operator logika dari prioritas tertinggi?","a":"1. <strong>Tanda Kurung ( )</strong><br>2. <strong>Negasi (¬)</strong><br>3. <strong>Konjungsi (∧)</strong><br>4. <strong>Disjungsi (∨)</strong><br>5. <strong>Implikasi (→)</strong><br>6. <strong>Biimplikasi (↔)</strong>"},{"topic":"P4: Parse Tree","q":"Pada Parse Tree (Pohon Sintaks), di manakah letak operator logika utama?","a":"Operator logika utama (yang dievaluasi paling terakhir) selalu terletak di <strong>AKAR (ROOT)</strong> pohon paling atas.<br><br>Daun-daun (Leaves) di dasar pohon mewakili variabel proposisi atomik (p, q, r)."},{"topic":"P5: Rumus Tabel Kebenaran","q":"Berapa rumus jumlah baris tabel kebenaran untuk n variabel dan bagaimana urutan T-First untuk 3 variabel?","a":"Rumus: <strong>2ⁿ baris</strong> (3 variabel = 2³ = 8 baris).<br><br><strong>Pola T-First Baku Dosen:</strong><br>• Kolom p: 4 True, 4 False (TTTTFFFF)<br>• Kolom q: 2 True berulang (TTFFTTFF)<br>• Kolom r: 1 True berselang-seling (TFTFTFTF)"},{"topic":"P5: Kategori Evaluasi","q":"Apa perbedaan antara Tautologi, Kontradiksi, dan Contingent?","a":"• <strong>Tautologi:</strong> Formula yang SELALU bernilai Benar (T) pada semua baris.<br>• <strong>Kontradiksi:</strong> Formula yang SELALU bernilai Salah (F) pada semua baris.<br>• <strong>Contingent (Kontingensi):</strong> Formula yang nilai kebenarannya CAMPURAN (ada minimal satu T dan satu F)."},{"topic":"P5: Kaidah Inferensi","q":"Jelaskan kaidah inferensi Modus Ponens dan Modus Tollens!","a":"• <strong>Modus Ponens:</strong> Dari premis (p → q) dan (p), kesimpulan sah adalah <strong>q</strong>.<br>• <strong>Modus Tollens:</strong> Dari premis (p → q) dan (¬q), kesimpulan sah adalah <strong>¬p</strong>.<br><br><em>Fallacy umum:</em> Mengafirmasi Konsekuen [(p → q) dan (q) ⊢ p] adalah penalaran SALAH!"}];
+const TRUTH_TABLE_PROBLEMS = [{"id":"tt_ums_2025_3a","vars":["A","B","C"],"formula":"(A → (B → C)) → ((A → B) → (A → C))","steps":["B → C","A → (B → C)","A → B","A → C","(A → B) → (A → C)","(A → (B → C)) → ((A → B) → (A → C))"],"notes":"🏛️ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.a] Aksioma Distribusi Implikasi (Frege's Axiom). Seluruh 8 baris bernilai Benar (Tautologi)."},{"id":"tt_ums_2025_3b","vars":["A","B","C"],"formula":"((A → B) ∧ (B → C)) → (A → C)","steps":["A → B","B → C","(A → B) ∧ (B → C)","A → C","((A → B) ∧ (B → C)) → (A → C)"],"notes":"🏛️ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.b] Hukum Silogisme Hipotesis (Hypothetical Syllogism). Seluruh 8 baris bernilai Benar (Tautologi)."},{"id":"tt_ums_2025_3c","vars":["A","B"],"formula":"(A ↔ B) ↔ ((A ∧ B) ∨ (¬A ∧ ¬B))","steps":["A ↔ B","A ∧ B","¬A","¬B","¬A ∧ ¬B","(A ∧ B) ∨ (¬A ∧ ¬B)","(A ↔ B) ↔ ((A ∧ B) ∨ (¬A ∧ ¬B))"],"notes":"🏛️ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.c] Ekuivalensi Karakteristik Biimplikasi. Bernilai Tautologi di seluruh 4 baris."},{"id":"tt_ums_2025_3d","vars":["A","B","C"],"formula":"¬(A ∨ (B ∧ C)) ↔ ((A ∨ B) ∧ (A ∨ C))","steps":["B ∧ C","A ∨ (B ∧ C)","¬(A ∨ (B ∧ C))","A ∨ B","A ∨ C","(A ∨ B) ∧ (A ∨ C)","¬(A ∨ (B ∧ C)) ↔ ((A ∨ B) ∧ (A ∨ C))"],"notes":"🏛️ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 3.d] Ekuivalensi Negasi Distributif. Formula ini menghasilkan KONTRADIKSI (seluruh baris False) karena ruas kiri identik dengan ¬(ruas kanan)."},{"id":"tt_ums_2025_4d","vars":["A","B","C"],"formula":"(A → (B → C)) ↔ ((A → B) → C)","steps":["B → C","A → (B → C)","A → B","(A → B) → C","(A → (B → C)) ↔ ((A → B) → C)"],"notes":"🏛️ [UTS Asli UMS 2024/2025 & 2025/2026 - Soal 4.d] Uji Asosiatif Implikasi. Menghasilkan CONTINGENT (menunjukkan bahwa implikasi TIDAK asosiatif)."},{"id":"tt_p1","vars":["p","q"],"formula":"(p ∧ ¬q) → p","steps":["¬q","p ∧ ¬q","(p ∧ ¬q) → p"],"notes":"Evaluasi kolom perantara ¬q terlebih dahulu, lalu konjungsi (p ∧ ¬q), dan terakhir implikasikan ke p."},{"id":"tt_p2","vars":["p","q"],"formula":"¬(p ∨ q) ↔ (¬p ∧ ¬q)","steps":["p ∨ q","¬(p ∨ q)","¬p","¬q","¬p ∧ ¬q","¬(p ∨ q) ↔ (¬p ∧ ¬q)"],"notes":"Pembuktian Hukum De Morgan 1. Periksa apakah kolom ¬(p ∨ q) identik dengan kolom (¬p ∧ ¬q)."},{"id":"tt_p3","vars":["p","q"],"formula":"(p → q) ↔ (¬p ∨ q)","steps":["p → q","¬p","¬p ∨ q","(p → q) ↔ (¬p ∨ q)"],"notes":"Ekuivalensi hukum implikasi material. Hasil akhir berupa Tautologi (semua T)."},{"id":"tt_p4","vars":["p","q"],"formula":"((p ∨ q) ∧ ¬p) → q","steps":["p ∨ q","¬p","(p ∨ q) ∧ ¬p","((p ∨ q) ∧ ¬p) → q"],"notes":"Kaidah Silogisme Disjungtif. Buktikan bahwa argumen ini sah (tautologi)."},{"id":"tt_p5","vars":["p","q","r"],"formula":"(p ∧ q) → (p ∨ r)","steps":["p ∧ q","p ∨ r","(p ∧ q) → (p ∨ r)"],"notes":"Soal 3 variabel (8 baris pola T-First). Tentukan apakah hasilnya Tautologi atau Contingent."},{"id":"tt_p6","vars":["p","q","r"],"formula":"((p → q) ∧ (q → r)) → (p → r)","steps":["p → q","q → r","p → r","(p → q) ∧ (q → r)","((p → q) ∧ (q → r)) → (p → r)"],"notes":"Silogisme Hipotetis (Transitivitas Implikasi). 8 baris pembuktian inferensi sah."},{"id":"tt_p7","vars":["p","q"],"formula":"((p → q) ∧ ¬q) → ¬p","steps":["p → q","¬q","¬p","(p → q) ∧ ¬q","((p → q) ∧ ¬q) → ¬p"],"notes":"Kaidah Modus Tollens. Jika p → q dan q salah, maka p harus salah."},{"id":"tt_p8","vars":["p","q"],"formula":"¬(p ∧ q) ↔ (¬p ∨ ¬q)","steps":["p ∧ q","¬(p ∧ q)","¬p","¬q","¬p ∨ ¬q","¬(p ∧ q) ↔ (¬p ∨ ¬q)"],"notes":"Pembuktian Hukum De Morgan 2 (Negasi Konjungsi)."},{"id":"tt_p9","vars":["p","q"],"formula":"(p ↔ q) ∧ (p ∧ ¬q)","steps":["p ↔ q","¬q","p ∧ ¬q","(p ↔ q) ∧ (p ∧ ¬q)"],"notes":"Uji formula Kontradiksi. Perhatikan bahwa p ↔ q dan p ∧ ¬q tidak pernah bernilai Benar bersamaan."},{"id":"tt_p10","vars":["p","q","r"],"formula":"(p ∧ ¬r) → (q ∨ r)","steps":["¬r","p ∧ ¬r","q ∨ r","(p ∧ ¬r) → (q ∨ r)"],"notes":"Soal variasi UTS 3 variabel. Implikasi hanya bernilai F saat anteseden T dan konsekuen F."},{"id":"tt_p11","vars":["p","q"],"formula":"¬(p → q) ↔ (p ∧ ¬q)","steps":["p → q","¬(p → q)","¬q","p ∧ ¬q","¬(p → q) ↔ (p ∧ ¬q)"],"notes":"Negasi dari Implikasi Material: ingkaran dari 'jika p maka q' adalah 'p terjadi dan q tidak terjadi'."},{"id":"tt_p12","vars":["p","q","r"],"formula":"(p → (q → r)) ↔ ((p ∧ q) → r)","steps":["q → r","p → (q → r)","p ∧ q","(p ∧ q) → r","(p → (q → r)) ↔ ((p ∧ q) → r)"],"notes":"Hukum Ekspor (Exportation Law). Salah satu formula pembuktian ekuivalensi 3 variabel favorit UTS."}];
 
 // Tab Switching with Smooth Auto-Centering on Mobile
 function switchTab(tabId) {
@@ -2210,7 +2211,7 @@ function switchTab(tabId) {
 
 // Theme Toggle
 function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('lohim_theme', next);
@@ -2261,21 +2262,21 @@ function parseAndEvalLogic(expr, vars) {
     if (ch === '(' || ch === ')') {
       tokens.push(ch);
       i++;
-    } else if (ch === 'Â¬' || ch === '~' || ch === '!') {
+    } else if (ch === '¬' || ch === '~' || ch === '!') {
       tokens.push('NOT');
       i++;
-    } else if (ch === 'âˆ§' || ch === '&') {
+    } else if (ch === '∧' || ch === '&') {
       tokens.push('AND');
       i++;
-    } else if (ch === 'âˆ¨' || ch === '|') {
+    } else if (ch === '∨' || ch === '|') {
       tokens.push('OR');
       i++;
-    } else if (s.slice(i, i + 3) === '<->' || s.slice(i, i + 3) === '<=>' || ch === 'â†”') {
+    } else if (s.slice(i, i + 3) === '<->' || s.slice(i, i + 3) === '<=>' || ch === '↔') {
       tokens.push('IFF');
-      i += (ch === 'â†”' ? 1 : 3);
-    } else if (s.slice(i, i + 2) === '->' || s.slice(i, i + 2) === '=>' || ch === 'â†’') {
+      i += (ch === '↔' ? 1 : 3);
+    } else if (s.slice(i, i + 2) === '->' || s.slice(i, i + 2) === '=>' || ch === '→') {
       tokens.push('IMP');
-      i += (ch === 'â†’' ? 1 : 2);
+      i += (ch === '→' ? 1 : 2);
     } else if (/[a-zA-Z]/.test(ch)) {
       let id = '';
       while (i < s.length && /[a-zA-Z0-9]/.test(s[i])) {
@@ -2451,7 +2452,7 @@ function generateCustomProblem() {
 
   if (!formula) {
     errBox.style.display = 'block';
-    errBox.innerHTML = '<strong>âš ï¸ Perhatian:</strong> Masukkan formula logika terlebih dahulu.';
+    errBox.innerHTML = '<strong>⚠️ Perhatian:</strong> Masukkan formula logika terlebih dahulu.';
     return;
   }
 
@@ -2481,7 +2482,7 @@ function generateCustomProblem() {
     isKeyOpen = false;
     document.getElementById('answerKeyDrawer').style.display = 'none';
     document.getElementById('btnToggleKey').classList.remove('open');
-    document.getElementById('keyIcon').textContent = 'ðŸ‘ï¸';
+    document.getElementById('keyIcon').textContent = '👁️';
     document.getElementById('keyBtnText').textContent = 'Buka Kunci Jawaban & Pembahasan Lengkap';
     document.getElementById('genPracticeFeedback').style.display = 'none';
 
@@ -2490,7 +2491,7 @@ function generateCustomProblem() {
     document.getElementById('genFormulaDisplay').scrollIntoView({ behavior: 'smooth', block: 'center' });
   } catch (err) {
     errBox.style.display = 'block';
-    errBox.innerHTML = '<strong>âš ï¸ Format Formula Tidak Valid:</strong> ' + err.message + '<br><span style="font-size:11.5px;color:var(--text-muted);">Gunakan perangkai: Â¬ (NOT), âˆ§ (AND), âˆ¨ (OR), â†’ (IF), â†” (IFF) dan variabel huruf bebas (p, q, r, s, t, u, dll.). Pastikan tanda kurung seimbang.</span>';
+    errBox.innerHTML = '<strong>⚠️ Format Formula Tidak Valid:</strong> ' + err.message + '<br><span style="font-size:11.5px;color:var(--text-muted);">Gunakan perangkai: ¬ (NOT), ∧ (AND), ∨ (OR), → (IF), ↔ (IFF) dan variabel huruf bebas (p, q, r, s, t, u, dll.). Pastikan tanda kurung seimbang.</span>';
   }
 }
 
@@ -2522,7 +2523,7 @@ function randomNewProblem() {
   isKeyOpen = false;
   document.getElementById('answerKeyDrawer').style.display = 'none';
   document.getElementById('btnToggleKey').classList.remove('open');
-  document.getElementById('keyIcon').textContent = 'ðŸ‘ï¸';
+  document.getElementById('keyIcon').textContent = '👁️';
   document.getElementById('keyBtnText').textContent = 'Buka Kunci Jawaban & Pembahasan Lengkap';
   document.getElementById('genPracticeFeedback').style.display = 'none';
 
@@ -2532,8 +2533,8 @@ function randomNewProblem() {
 function renderCurrentProblemUI() {
   const p = currentProblem;
   document.getElementById('genFormulaDisplay').textContent = p.formula;
-  document.getElementById('genVarBadge').textContent = `${p.vars.length} Variabel â€¢ ${Math.pow(2, p.vars.length)} Baris`;
-  document.getElementById('genProblemNotes').innerHTML = `<strong>ðŸ“Œ Petunjuk Langkah:</strong> ${p.notes}`;
+  document.getElementById('genVarBadge').textContent = `${p.vars.length} Variabel • ${Math.pow(2, p.vars.length)} Baris`;
+  document.getElementById('genProblemNotes').innerHTML = `<strong>📌 Petunjuk Langkah:</strong> ${p.notes}`;
 
   // Pre-calculate full truth table rows in standard T-First order
   const totalRows = Math.pow(2, p.vars.length);
@@ -2634,13 +2635,13 @@ function checkGenPractice() {
 
   if (allCorrect) {
     fb.className = 'callout callout-success';
-    fb.innerHTML = '<strong>ðŸŽ‰ Hebat! Seluruh tabel kebenaran Anda BENAR 100%!</strong> Anda sudah menguasai langkah inferensi untuk formula ini.';
+    fb.innerHTML = '<strong>🎉 Hebat! Seluruh tabel kebenaran Anda BENAR 100%!</strong> Anda sudah menguasai langkah inferensi untuk formula ini.';
   } else if (missing) {
     fb.className = 'callout callout-warning';
-    fb.innerHTML = '<strong>âš ï¸ Masih ada sel kosong:</strong> Silakan isi semua sel dengan nilai T atau F sebelum memeriksa.';
+    fb.innerHTML = '<strong>⚠️ Masih ada sel kosong:</strong> Silakan isi semua sel dengan nilai T atau F sebelum memeriksa.';
   } else {
     fb.className = 'callout callout-warning';
-    fb.innerHTML = '<strong>âŒ Masih ada sel yang keliru:</strong> Periksa sel yang bergaris merah, atau klik tombol <em>Buka Kunci Jawaban</em> di bawah untuk mencocokkan.';
+    fb.innerHTML = '<strong>❌ Masih ada sel yang keliru:</strong> Periksa sel yang bergaris merah, atau klik tombol <em>Buka Kunci Jawaban</em> di bawah untuk mencocokkan.';
   }
 }
 
@@ -2685,11 +2686,11 @@ function renderKeyTable(p, rows) {
 
   let badge = '';
   if (isTautology) {
-    badge = '<span class="status-badge-box tautology">ðŸŸ¢ TAUTOLOGI (Selalu Benar)</span>';
+    badge = '<span class="status-badge-box tautology">🟢 TAUTOLOGI (Selalu Benar)</span>';
   } else if (isContradiction) {
-    badge = '<span class="status-badge-box contradiction">ðŸ”´ KONTRADIKSI (Selalu Salah)</span>';
+    badge = '<span class="status-badge-box contradiction">🔴 KONTRADIKSI (Selalu Salah)</span>';
   } else {
-    badge = '<span class="status-badge-box contingent">ðŸŸ¡ CONTINGENT (Campuran T & F)</span>';
+    badge = '<span class="status-badge-box contingent">🟡 CONTINGENT (Campuran T & F)</span>';
   }
   document.getElementById('keyClassificationBadge').innerHTML = badge;
 }
@@ -2704,12 +2705,12 @@ function toggleAnswerKey() {
   if (isKeyOpen) {
     drawer.style.display = 'block';
     btn.classList.add('open');
-    icon.textContent = 'ðŸ™ˆ';
+    icon.textContent = '🙈';
     text.textContent = 'Tutup Kunci Jawaban';
   } else {
     drawer.style.display = 'none';
     btn.classList.remove('open');
-    icon.textContent = 'ðŸ‘ï¸';
+    icon.textContent = '👁️';
     text.textContent = 'Buka Kunci Jawaban & Pembahasan Lengkap';
   }
 }
@@ -2820,13 +2821,13 @@ function verifyDrill() {
 
   if (allCorrect) {
     fb.className = 'drill-feedback-box callout callout-success';
-    fb.innerHTML = '<strong>ðŸŽ‰ Sempurna!</strong> Seluruh sel nilai kebenaran telah terisi dengan tepat sesuai aturan logika baku!';
+    fb.innerHTML = '<strong>🎉 Sempurna!</strong> Seluruh sel nilai kebenaran telah terisi dengan tepat sesuai aturan logika baku!';
   } else if (missing) {
     fb.className = 'drill-feedback-box callout callout-warning';
-    fb.innerHTML = '<strong>âš ï¸ Perhatian:</strong> Ada sel yang masih belum diisi (masih bernilai ?). Silakan lengkapi semua baris.';
+    fb.innerHTML = '<strong>⚠️ Perhatian:</strong> Ada sel yang masih belum diisi (masih bernilai ?). Silakan lengkapi semua baris.';
   } else {
     fb.className = 'drill-feedback-box callout callout-warning';
-    fb.innerHTML = '<strong>âŒ Masih ada kekeliruan:</strong> Sel yang berwarna merah memiliki nilai yang belum tepat. Buka Hint untuk tips rumus perangkai!';
+    fb.innerHTML = '<strong>❌ Masih ada kekeliruan:</strong> Sel yang berwarna merah memiliki nilai yang belum tepat. Buka Hint untuk tips rumus perangkai!';
   }
 }
 
@@ -2838,33 +2839,33 @@ function resetCurrentDrill() {
 // 3. PARSE TREE STUDIO (DYNAMIC AST ENGINE & RANDOMIZER)
 // ==========================================
 const RANDOM_TREE_FORMULAS = [
-  { expr: "(((A âˆ§ B) âˆ¨ C) â†’ (Â¬D))", level: "UTS UMS 1.a", note: "ðŸ›ï¸ Soal 1.a UTS Gasal 2024/2025 & 2025/2026: FPE dari A âˆ§ B âˆ¨ C â†’ Â¬D" },
-  { expr: "(((Â¬A) âˆ§ B) â†’ ((Â¬C) âˆ¨ D))", level: "UTS UMS 1.b", note: "ðŸ›ï¸ Soal 1.b UTS Gasal 2024/2025 & 2025/2026: FPE dari Â¬A âˆ§ B â†’ Â¬C âˆ¨ D" },
-  { expr: "((A âˆ¨ (B âˆ§ (Â¬C))) â†” ((A âˆ¨ ((Â¬B) âˆ§ A)) â†’ C))", level: "UTS UMS 1.c", note: "ðŸ›ï¸ Soal 1.c UTS Gasal 2024/2025 & 2025/2026: FPE dari A âˆ¨ B âˆ§ Â¬C â†” A âˆ¨ Â¬B âˆ§ A â†’ C" },
-  { expr: "(((((Â¬A) âˆ§ B) âˆ¨ C) â†’ A) â†” ((A âˆ§ B) âˆ¨ (Â¬C)))", level: "UTS UMS 1.d", note: "ðŸ›ï¸ Soal 1.d UTS Gasal 2024/2025 & 2025/2026: FPE dari Â¬A âˆ§ B âˆ¨ C â†’ A â†” A âˆ§ B âˆ¨ Â¬C" },
-  { expr: "((A â†’ (B â†’ C)) â†’ ((A â†’ B) â†’ (A â†’ C)))", level: "UTS UMS 3.a", note: "ðŸ›ï¸ Soal 3.a UTS Gasal 2024/2025 & 2025/2026: Frege's Axiom Tautology" },
-  { expr: "(((A â†’ B) âˆ§ (B â†’ C)) â†’ (A â†’ C))", level: "UTS UMS 3.b", note: "ðŸ›ï¸ Soal 3.b UTS Gasal 2024/2025 & 2025/2026: Silogisme Hipotesis" },
-  { expr: "((p âˆ§ q) â†’ (r âˆ¨ s))", level: "2", note: "Bentuk Baku FPE Slide 4.5: ((A âˆ§ B) â†’ (C âˆ¨ D))" },
-  { expr: "((p âˆ§ Â¬q) â†’ Â¬r)", level: "3", note: "Bentuk Baku FPE Slide 15: Parse Tree ((A âˆ§ Â¬B) â†’ Â¬C)" },
-  { expr: "(p â†’ (q â†’ r))", level: "3", note: "Bentuk Baku FPE Implikasi Berantai (Right-Associative)" },
-  { expr: "((p âˆ§ q) âˆ¨ Â¬r) â†’ (s â†” t)", level: "COMPLEX", note: "Formula Majemuk FPE UTS: Disjungsi dan Biimplikasi di bawah Implikasi Utama" },
-  { expr: "(p â†’ q) âˆ§ (q â†’ r)", level: "3", note: "Silogisme Hipotetis: Konjungsi dua implikasi kondisional" },
-  { expr: "Â¬(p âˆ§ Â¬q) âˆ¨ r", level: "3", note: "Negasi Majemuk bertingkat dengan Disjungsi" },
-  { expr: "(p âˆ¨ q) âˆ§ Â¬p â†’ q", level: "2", note: "Silogisme Disjungtif (Modus Tollendo Ponens)" },
-  { expr: "Â¬(p âˆ§ q) â†” (Â¬p âˆ¨ Â¬q)", level: "2", note: "Hukum De Morgan (Negasi Konjungsi ekuivalen Disjungsi Negasi)" },
-  { expr: "Â¬(p âˆ¨ q) â†” (Â¬p âˆ§ Â¬q)", level: "2", note: "Hukum De Morgan (Negasi Disjungsi ekuivalen Konjungsi Negasi)" },
-  { expr: "(p â†’ q) â†” (Â¬q â†’ Â¬p)", level: "2", note: "Hukum Kontraposisi (Implikasi ekuivalen dengan Kontraposisinya)" },
-  { expr: "(p â†’ q) â†” (Â¬p âˆ¨ q)", level: "2", note: "Ekuivalensi Material Implikasi sebagai Disjungsi" },
-  { expr: "(p â†’ q) âˆ§ p â†’ q", level: "2", note: "Modus Ponens: Penegasan Anteseden" },
-  { expr: "(p â†’ q) âˆ§ Â¬q â†’ Â¬p", level: "2", note: "Modus Tollens: Penyangkalan Konsekuen" },
-  { expr: "(p âˆ§ q) â†’ (p âˆ¨ r)", level: "3", note: "Penyederhanaan dan Penambahan (Simplification & Addition)" },
-  { expr: "(p â†” q) âˆ§ (q â†” r) â†’ (p â†” r)", level: "3", note: "Hukum Transitivitas Relasi Ekuivalensi Biimplikasi" },
-  { expr: "Â¬(p â†’ q) â†” (p âˆ§ Â¬q)", level: "2", note: "Negasi Implikasi: Hanya bernilai benar jika anteseden benar dan konsekuen salah" },
-  { expr: "(p âˆ¨ q) âˆ§ (Â¬p âˆ¨ r) â†’ (q âˆ¨ r)", level: "3", note: "Aturan Inferensi Resolusi Logika Proposisional" },
-  { expr: "(p âˆ§ (q âˆ¨ r)) â†” ((p âˆ§ q) âˆ¨ (p âˆ§ r))", level: "3", note: "Hukum Distributif Konjungsi terhadap Disjungsi" },
-  { expr: "((p â†’ q) âˆ§ (r â†’ s) âˆ§ (p âˆ¨ r)) â†’ (q âˆ¨ s)", level: "COMPLEX", note: "Dilema Konstruktif: Kombinasi dua premis implikasi dengan disjungsi anteseden" },
-  { expr: "Â¬(p âˆ§ (q âˆ¨ Â¬r)) â†’ (Â¬p âˆ¨ (Â¬q âˆ§ r))", level: "3", note: "De Morgan Majemuk 3 Variabel" },
-  { expr: "(p â†” Â¬q) â†’ Â¬(p â†” q)", level: "2", note: "Sifat Hubungan Negasi pada Biimplikasi" }
+  { expr: "(((A ∧ B) ∨ C) → (¬D))", level: "UTS UMS 1.a", note: "🏛️ Soal 1.a UTS Gasal 2024/2025 & 2025/2026: FPE dari A ∧ B ∨ C → ¬D" },
+  { expr: "(((¬A) ∧ B) → ((¬C) ∨ D))", level: "UTS UMS 1.b", note: "🏛️ Soal 1.b UTS Gasal 2024/2025 & 2025/2026: FPE dari ¬A ∧ B → ¬C ∨ D" },
+  { expr: "((A ∨ (B ∧ (¬C))) ↔ ((A ∨ ((¬B) ∧ A)) → C))", level: "UTS UMS 1.c", note: "🏛️ Soal 1.c UTS Gasal 2024/2025 & 2025/2026: FPE dari A ∨ B ∧ ¬C ↔ A ∨ ¬B ∧ A → C" },
+  { expr: "(((((¬A) ∧ B) ∨ C) → A) ↔ ((A ∧ B) ∨ (¬C)))", level: "UTS UMS 1.d", note: "🏛️ Soal 1.d UTS Gasal 2024/2025 & 2025/2026: FPE dari ¬A ∧ B ∨ C → A ↔ A ∧ B ∨ ¬C" },
+  { expr: "((A → (B → C)) → ((A → B) → (A → C)))", level: "UTS UMS 3.a", note: "🏛️ Soal 3.a UTS Gasal 2024/2025 & 2025/2026: Frege's Axiom Tautology" },
+  { expr: "(((A → B) ∧ (B → C)) → (A → C))", level: "UTS UMS 3.b", note: "🏛️ Soal 3.b UTS Gasal 2024/2025 & 2025/2026: Silogisme Hipotesis" },
+  { expr: "((p ∧ q) → (r ∨ s))", level: "2", note: "Bentuk Baku FPE Slide 4.5: ((A ∧ B) → (C ∨ D))" },
+  { expr: "((p ∧ ¬q) → ¬r)", level: "3", note: "Bentuk Baku FPE Slide 15: Parse Tree ((A ∧ ¬B) → ¬C)" },
+  { expr: "(p → (q → r))", level: "3", note: "Bentuk Baku FPE Implikasi Berantai (Right-Associative)" },
+  { expr: "((p ∧ q) ∨ ¬r) → (s ↔ t)", level: "COMPLEX", note: "Formula Majemuk FPE UTS: Disjungsi dan Biimplikasi di bawah Implikasi Utama" },
+  { expr: "(p → q) ∧ (q → r)", level: "3", note: "Silogisme Hipotetis: Konjungsi dua implikasi kondisional" },
+  { expr: "¬(p ∧ ¬q) ∨ r", level: "3", note: "Negasi Majemuk bertingkat dengan Disjungsi" },
+  { expr: "(p ∨ q) ∧ ¬p → q", level: "2", note: "Silogisme Disjungtif (Modus Tollendo Ponens)" },
+  { expr: "¬(p ∧ q) ↔ (¬p ∨ ¬q)", level: "2", note: "Hukum De Morgan (Negasi Konjungsi ekuivalen Disjungsi Negasi)" },
+  { expr: "¬(p ∨ q) ↔ (¬p ∧ ¬q)", level: "2", note: "Hukum De Morgan (Negasi Disjungsi ekuivalen Konjungsi Negasi)" },
+  { expr: "(p → q) ↔ (¬q → ¬p)", level: "2", note: "Hukum Kontraposisi (Implikasi ekuivalen dengan Kontraposisinya)" },
+  { expr: "(p → q) ↔ (¬p ∨ q)", level: "2", note: "Ekuivalensi Material Implikasi sebagai Disjungsi" },
+  { expr: "(p → q) ∧ p → q", level: "2", note: "Modus Ponens: Penegasan Anteseden" },
+  { expr: "(p → q) ∧ ¬q → ¬p", level: "2", note: "Modus Tollens: Penyangkalan Konsekuen" },
+  { expr: "(p ∧ q) → (p ∨ r)", level: "3", note: "Penyederhanaan dan Penambahan (Simplification & Addition)" },
+  { expr: "(p ↔ q) ∧ (q ↔ r) → (p ↔ r)", level: "3", note: "Hukum Transitivitas Relasi Ekuivalensi Biimplikasi" },
+  { expr: "¬(p → q) ↔ (p ∧ ¬q)", level: "2", note: "Negasi Implikasi: Hanya bernilai benar jika anteseden benar dan konsekuen salah" },
+  { expr: "(p ∨ q) ∧ (¬p ∨ r) → (q ∨ r)", level: "3", note: "Aturan Inferensi Resolusi Logika Proposisional" },
+  { expr: "(p ∧ (q ∨ r)) ↔ ((p ∧ q) ∨ (p ∧ r))", level: "3", note: "Hukum Distributif Konjungsi terhadap Disjungsi" },
+  { expr: "((p → q) ∧ (r → s) ∧ (p ∨ r)) → (q ∨ s)", level: "COMPLEX", note: "Dilema Konstruktif: Kombinasi dua premis implikasi dengan disjungsi anteseden" },
+  { expr: "¬(p ∧ (q ∨ ¬r)) → (¬p ∨ (¬q ∧ r))", level: "3", note: "De Morgan Majemuk 3 Variabel" },
+  { expr: "(p ↔ ¬q) → ¬(p ↔ q)", level: "2", note: "Sifat Hubungan Negasi pada Biimplikasi" }
 ];
 
 function parseTreeAST(expr) {
@@ -2876,11 +2877,11 @@ function parseTreeAST(expr) {
     const ch = s[i];
     if (/\s/.test(ch)) { i++; continue; }
     if (ch === '(' || ch === ')') { tokens.push(ch); i++; }
-    else if (ch === 'Â¬' || ch === '~' || ch === '!') { tokens.push('NOT'); i++; }
-    else if (ch === 'âˆ§' || ch === '&') { tokens.push('AND'); i++; }
-    else if (ch === 'âˆ¨' || ch === '|') { tokens.push('OR'); i++; }
-    else if (s.slice(i, i + 3) === '<->' || s.slice(i, i + 3) === '<=>' || ch === 'â†”') { tokens.push('IFF'); i += (ch === 'â†”' ? 1 : 3); }
-    else if (s.slice(i, i + 2) === '->' || s.slice(i, i + 2) === '=>' || ch === 'â†’') { tokens.push('IMP'); i += (ch === 'â†’' ? 1 : 2); }
+    else if (ch === '¬' || ch === '~' || ch === '!') { tokens.push('NOT'); i++; }
+    else if (ch === '∧' || ch === '&') { tokens.push('AND'); i++; }
+    else if (ch === '∨' || ch === '|') { tokens.push('OR'); i++; }
+    else if (s.slice(i, i + 3) === '<->' || s.slice(i, i + 3) === '<=>' || ch === '↔') { tokens.push('IFF'); i += (ch === '↔' ? 1 : 3); }
+    else if (s.slice(i, i + 2) === '->' || s.slice(i, i + 2) === '=>' || ch === '→') { tokens.push('IMP'); i += (ch === '→' ? 1 : 2); }
     else if (/[a-zA-Z]/.test(ch)) {
       let id = '';
       while (i < s.length && /[a-zA-Z0-9]/.test(s[i])) {
@@ -2900,7 +2901,7 @@ function parseTreeAST(expr) {
     while (pos < tokens.length && tokens[pos] === 'IFF') {
       pos++;
       let right = parseImp();
-      left = { type: 'op', val: 'â†”', name: 'Biimplikasi', left: left, right: right };
+      left = { type: 'op', val: '↔', name: 'Biimplikasi', left: left, right: right };
     }
     return left;
   }
@@ -2910,7 +2911,7 @@ function parseTreeAST(expr) {
     if (pos < tokens.length && tokens[pos] === 'IMP') {
       pos++;
       let right = parseImp();
-      left = { type: 'op', val: 'â†’', name: 'Implikasi', left: left, right: right };
+      left = { type: 'op', val: '→', name: 'Implikasi', left: left, right: right };
     }
     return left;
   }
@@ -2920,7 +2921,7 @@ function parseTreeAST(expr) {
     while (pos < tokens.length && tokens[pos] === 'OR') {
       pos++;
       let right = parseAnd();
-      left = { type: 'op', val: 'âˆ¨', name: 'Disjungsi', left: left, right: right };
+      left = { type: 'op', val: '∨', name: 'Disjungsi', left: left, right: right };
     }
     return left;
   }
@@ -2930,7 +2931,7 @@ function parseTreeAST(expr) {
     while (pos < tokens.length && tokens[pos] === 'AND') {
       pos++;
       let right = parseNot();
-      left = { type: 'op', val: 'âˆ§', name: 'Konjungsi', left: left, right: right };
+      left = { type: 'op', val: '∧', name: 'Konjungsi', left: left, right: right };
     }
     return left;
   }
@@ -2939,7 +2940,7 @@ function parseTreeAST(expr) {
     if (pos < tokens.length && tokens[pos] === 'NOT') {
       pos++;
       const child = parseNot();
-      return { type: 'op', val: 'Â¬', name: 'Negasi', left: child, right: null };
+      return { type: 'op', val: '¬', name: 'Negasi', left: child, right: null };
     }
     return parsePrimary();
   }
@@ -2973,7 +2974,7 @@ function parseTreeAST(expr) {
 function astToExpr(node) {
   if (!node) return '';
   if (node.type === 'var') return node.val;
-  if (node.val === 'Â¬') return 'Â¬' + (node.left.type === 'op' ? '(' + astToExpr(node.left) + ')' : astToExpr(node.left));
+  if (node.val === '¬') return '¬' + (node.left.type === 'op' ? '(' + astToExpr(node.left) + ')' : astToExpr(node.left));
   return '(' + astToExpr(node.left) + ' ' + node.val + ' ' + astToExpr(node.right) + ')';
 }
 
@@ -3016,7 +3017,7 @@ function generateTreeSVG(ast) {
       node.width = 48;
       return 48;
     }
-    if (node.val === 'Â¬') {
+    if (node.val === '¬') {
       const w = measure(node.left);
       node.width = Math.max(w, 48);
       return node.width;
@@ -3039,7 +3040,7 @@ function generateTreeSVG(ast) {
 
     if (node.type === 'var') {
       x = startX + node.width / 2;
-    } else if (node.val === 'Â¬') {
+    } else if (node.val === '¬') {
       layout(node.left, startX, depth + 1, false);
       x = node.left.x;
       lines.push({ x1: x, y1: y, x2: node.left.x, y2: node.left.y });
@@ -3132,7 +3133,7 @@ function renderCustomTree(optionalNote) {
 
   if (!formula) {
     errBox.style.display = 'block';
-    errBox.innerHTML = '<strong>âš ï¸ Perhatian:</strong> Masukkan formula proposisi logika terlebih dahulu.';
+    errBox.innerHTML = '<strong>⚠️ Perhatian:</strong> Masukkan formula proposisi logika terlebih dahulu.';
     return;
   }
 
@@ -3150,20 +3151,20 @@ function renderCustomTree(optionalNote) {
     const badgesContainer = document.getElementById('treeBadgesContainer');
     badgesContainer.innerHTML = `
       <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;background:var(--amber-bg);color:var(--accent-amber);border:1px solid var(--amber-border);font-size:12px;font-weight:700;">
-        ðŸ‘‘ Root: ${metrics.rootName} (${metrics.rootOp || 'Atom'})
+        👑 Root: ${metrics.rootName} (${metrics.rootOp || 'Atom'})
       </span>
       <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;background:var(--indigo-bg);color:var(--accent-indigo);border:1px solid var(--indigo-border);font-size:12px;font-weight:700;">
-        ðŸ“Š Tinggi: ${metrics.depth} Tingkat
+        📊 Tinggi: ${metrics.depth} Tingkat
       </span>
       <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;background:var(--emerald-bg);color:var(--accent-emerald);border:1px solid var(--emerald-border);font-size:12px;font-weight:700;">
-        ðŸƒ ${metrics.vars.length} Daun (${metrics.vars.join(', ')})
+        🍃 ${metrics.vars.length} Daun (${metrics.vars.join(', ')})
       </span>
     `;
 
     // Analysis
     let analysisHtml = '';
     if (optionalNote) {
-      analysisHtml += `<div style="color:var(--accent-amber);font-weight:700;margin-bottom:6px;">ðŸ’¡ ${optionalNote}</div>`;
+      analysisHtml += `<div style="color:var(--accent-amber);font-weight:700;margin-bottom:6px;">💡 ${optionalNote}</div>`;
     }
     if (ast.type === 'op') {
       analysisHtml += `<div><strong>Operator Utama (Root):</strong> Simpul teratas adalah <strong>${metrics.rootName} (${metrics.rootOp})</strong>. Ini adalah perangkai logika terakhir yang dievaluasi saat menghitung nilai kebenaran baris.</div>`;
@@ -3181,7 +3182,7 @@ function renderCustomTree(optionalNote) {
     document.getElementById('treeSvgContainer').innerHTML = svg;
   } catch (err) {
     errBox.style.display = 'block';
-    errBox.innerHTML = `<strong>âš ï¸ Format Formula Tidak Valid:</strong> ${err.message}<br><span style="font-size:11.5px;color:var(--text-muted);">Gunakan perangkai: Â¬ (NOT), âˆ§ (AND), âˆ¨ (OR), â†’ (IF), â†” (IFF) dan variabel huruf bebas (p, q, r, s, t, u, dll.). Pastikan tanda kurung seimbang.</span>`;
+    errBox.innerHTML = `<strong>⚠️ Format Formula Tidak Valid:</strong> ${err.message}<br><span style="font-size:11.5px;color:var(--text-muted);">Gunakan perangkai: ¬ (NOT), ∧ (AND), ∨ (OR), → (IF), ↔ (IFF) dan variabel huruf bebas (p, q, r, s, t, u, dll.). Pastikan tanda kurung seimbang.</span>`;
   }
 }
 
@@ -3204,10 +3205,10 @@ function randomParseTree() {
 
 function setTreePreset(idx) {
   const presets = [
-    { expr: "((p âˆ§ q) âˆ¨ Â¬r) â†’ (s â†” t)", note: "Soal UTS: Implikasi utama menggabungkan disjungsi majemuk dan biimplikasi" },
-    { expr: "(p â†’ q) âˆ§ (q â†’ r)", note: "Silogisme Hipotetis: Konjungsi dua implikasi kondisional berantai" },
-    { expr: "Â¬(p âˆ§ q) â†” (Â¬p âˆ¨ Â¬q)", note: "Hukum De Morgan I: Negasi konjungsi ekuivalen logis dengan disjungsi negasi" },
-    { expr: "(p âˆ¨ q) âˆ§ (Â¬p âˆ¨ r) â†’ (q âˆ¨ r)", note: "Inferensi Resolusi: Basis algoritma pembuktian otomatis Propositional Resolution" }
+    { expr: "((p ∧ q) ∨ ¬r) → (s ↔ t)", note: "Soal UTS: Implikasi utama menggabungkan disjungsi majemuk dan biimplikasi" },
+    { expr: "(p → q) ∧ (q → r)", note: "Silogisme Hipotetis: Konjungsi dua implikasi kondisional berantai" },
+    { expr: "¬(p ∧ q) ↔ (¬p ∨ ¬q)", note: "Hukum De Morgan I: Negasi konjungsi ekuivalen logis dengan disjungsi negasi" },
+    { expr: "(p ∨ q) ∧ (¬p ∨ r) → (q ∨ r)", note: "Inferensi Resolusi: Basis algoritma pembuktian otomatis Propositional Resolution" }
   ];
   if (presets[idx]) {
     document.getElementById('customTreeInput').value = presets[idx].expr;
@@ -3323,7 +3324,7 @@ function filterArenaQuestions() {
 function updateArenaStats() {
   document.getElementById('arenaQNum').textContent = currentQIdx + 1;
   document.getElementById('arenaScore').textContent = arenaScoreVal;
-  document.getElementById('arenaStreak').textContent = 'ðŸ”¥ ' + arenaStreakVal;
+  document.getElementById('arenaStreak').textContent = '🔥 ' + arenaStreakVal;
 }
 
 function renderArenaQuestion() {
@@ -3331,7 +3332,7 @@ function renderArenaQuestion() {
   const q = activeQuestions[currentQIdx];
   updateArenaStats();
 
-  document.getElementById('arenaQPill').textContent = `${q.pert} â€¢ ${q.level.toUpperCase()} ${q.isUts ? 'â€¢ [UTS]' : ''}`;
+  document.getElementById('arenaQPill').textContent = `${q.pert} • ${q.level.toUpperCase()} ${q.isUts ? '• [UTS]' : ''}`;
   document.getElementById('arenaQText').innerHTML = q.q;
 
   const userAns = arenaUserAnswers[q.id];
@@ -3468,7 +3469,7 @@ function generateSandboxTable() {
   }
 
   if (vars.length > 8) {
-    resContainer.innerHTML = `<div class="callout callout-warning"><strong>âš ï¸ Terlalu banyak variabel:</strong> Formula memiliki ${vars.length} variabel (${Math.pow(2, vars.length)} baris). Disarankan maksimal 8 variabel (256 baris) agar browser tetap responsif.</div>`;
+    resContainer.innerHTML = `<div class="callout callout-warning"><strong>⚠️ Terlalu banyak variabel:</strong> Formula memiliki ${vars.length} variabel (${Math.pow(2, vars.length)} baris). Disarankan maksimal 8 variabel (256 baris) agar browser tetap responsif.</div>`;
     return;
   }
 
@@ -3477,7 +3478,7 @@ function generateSandboxTable() {
   try {
     parseAndEvalLogic(expr, dummy);
   } catch (err) {
-    resContainer.innerHTML = `<div class="callout callout-warning"><strong>âš ï¸ Sintaks Formula Tidak Valid:</strong> ${err.message}</div>`;
+    resContainer.innerHTML = `<div class="callout callout-warning"><strong>⚠️ Sintaks Formula Tidak Valid:</strong> ${err.message}</div>`;
     return;
   }
 
@@ -3507,11 +3508,11 @@ function generateSandboxTable() {
 
   let statusBadge = '';
   if (trueCount === totalRows) {
-    statusBadge = '<div class="status-badge-box tautology"><span>ðŸŸ¢</span> <span>TAUTOLOGI (Selalu Benar)</span></div>';
+    statusBadge = '<div class="status-badge-box tautology"><span>🟢</span> <span>TAUTOLOGI (Selalu Benar)</span></div>';
   } else if (falseCount === totalRows) {
-    statusBadge = '<div class="status-badge-box contradiction"><span>ðŸ”´</span> <span>KONTRADIKSI (Selalu Salah)</span></div>';
+    statusBadge = '<div class="status-badge-box contradiction"><span>🔴</span> <span>KONTRADIKSI (Selalu Salah)</span></div>';
   } else {
-    statusBadge = '<div class="status-badge-box contingent"><span>ðŸŸ¡</span> <span>CONTINGENT (Campuran T & F)</span></div>';
+    statusBadge = '<div class="status-badge-box contingent"><span>🟡</span> <span>CONTINGENT (Campuran T & F)</span></div>';
   }
 
   let tableHtml = `
@@ -3558,4 +3559,5 @@ window.addEventListener('DOMContentLoaded', () => {
   <script src="../shared/portal-nav.js" defer></script>
 </body>
 </html>
+
 

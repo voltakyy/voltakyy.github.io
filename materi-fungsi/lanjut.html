@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Membalik dan menggabung â€” materi-fungsi</title>
-<meta name="description" content="Injektif, surjektif, bijektif, fungsi invers, komposisi, serta sifat genapâ€“ganjil dan monoton. Dijelaskan dengan diagram dan langkah lengkap.">
+<title>Membalik dan menggabung — materi-fungsi</title>
+<meta name="description" content="Injektif, surjektif, bijektif, fungsi invers, komposisi, serta sifat genap–ganjil dan monoton. Dijelaskan dengan diagram dan langkah lengkap.">
 <meta name="theme-color" content="#f7f6f0">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
 <link rel="stylesheet" href="assets/tema.css">
   <link rel="stylesheet" href="autoscroll.css">
+  <link rel="stylesheet" href="../shared/medical-theme.css">
 </head>
 <body>
 <a class="skip" href="#utama">Lompat ke isi</a>
@@ -50,25 +51,25 @@
   <div class="page">
 
     <aside class="rail" aria-label="Isi bab 03">
-      <p class="rail-title">Bab 03 Â· Lanjut</p>
+      <p class="rail-title">Bab 03 · Lanjut</p>
       <ol>
         <li><a href="#jenis" data-for="12"><span class="n">12</span><span>Injektif, surjektif, bijektif</span></a></li>
         <li><a href="#invers" data-for="13"><span class="n">13</span><span>Fungsi invers</span></a></li>
         <li><a href="#komposisi" data-for="14"><span class="n">14</span><span>Komposisi fungsi</span></a></li>
         <li><a href="#sifat" data-for="15"><span class="n">15</span><span>Genap, ganjil, monoton</span></a></li>
       </ol>
-      <p class="rail-note">Empat bagian terakhir. Di sini fungsi mulai dibalik dan digabung â€” dua operasi yang paling sering keluar di ujian.</p>
+      <p class="rail-note">Empat bagian terakhir. Di sini fungsi mulai dibalik dan digabung — dua operasi yang paling sering keluar di ujian.</p>
     </aside>
 
     <div class="content">
 
       <div class="page-head">
         <div class="crumbs">
-          <a href="index.html">Beranda</a><span>/</span><span>Bab 03 Â· Lanjut</span>
+          <a href="index.html">Beranda</a><span>/</span><span>Bab 03 · Lanjut</span>
         </div>
-        <p class="kicker">Bab 03 Â· bagian 12 dari 15</p>
+        <p class="kicker">Bab 03 · bagian 12 dari 15</p>
         <h1>Membalik dan menggabung</h1>
-        <p class="lede">Tidak semua fungsi boleh dibalik. Tidak semua pasangan fungsi boleh digabung. Bab ini menjelaskan syaratnya â€” bukan sekadar rumusnya.</p>
+        <p class="lede">Tidak semua fungsi boleh dibalik. Tidak semua pasangan fungsi boleh digabung. Bab ini menjelaskan syaratnya — bukan sekadar rumusnya.</p>
       </div>
 
       <section class="sec" id="jenis" data-lesson="12">
@@ -86,7 +87,7 @@
           <p><em>Injektif</em> berarti tidak ada output yang dipakai dua kali. <em>Surjektif</em> berarti semua output terpakai. <em>Bijektif</em> berarti keduanya.</p>
         </div>
 
-        <p>Sampai sini kita hanya peduli pada aturan â€œsatu input, satu outputâ€. Tapi ada pertanyaan lanjutan: apakah dua input berbeda bisa menghasilkan output yang sama? Dan apakah semua anggota kodomain benar-benar tercapai? Dua pertanyaan itulah yang melahirkan tiga istilah ini.</p>
+        <p>Sampai sini kita hanya peduli pada aturan “satu input, satu output”. Tapi ada pertanyaan lanjutan: apakah dua input berbeda bisa menghasilkan output yang sama? Dan apakah semua anggota kodomain benar-benar tercapai? Dua pertanyaan itulah yang melahirkan tiga istilah ini.</p>
 
         <div class="table-wrap">
           <table>
@@ -279,12 +280,12 @@
           <dd>Surjektif. Setiap $y\ge0$ punya akar $x=\sqrt y$.</dd>
 
           <dt>$f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^3$</dt>
-          <dd>Surjektif sekaligus injektif â€” jadi bijektif.</dd>
+          <dd>Surjektif sekaligus injektif — jadi bijektif.</dd>
         </div>
 
         <div class="note">
           <span class="note-label">urutan berpikir</span>
-          <p>Jangan bertanya â€œapakah fungsi ini surjektif?â€ tanpa menyebut kodomainnya. Pertanyaan yang benar: â€œapakah $f:A\to B$ surjektif?â€ â€” karena surjektif berarti range tepat sama dengan $B$.</p>
+          <p>Jangan bertanya “apakah fungsi ini surjektif?” tanpa menyebut kodomainnya. Pertanyaan yang benar: “apakah $f:A\to B$ surjektif?” — karena surjektif berarti range tepat sama dengan $B$.</p>
         </div>
 
         <div class="trap">
@@ -294,7 +295,7 @@
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> Apakah $f(x)=3x-2$ dari $\mathbb{R}$ ke $\mathbb{R}$ bijektif?</p>
             <p style="color:var(--green)">Ya. Injektif: $3a-2=3b-2\Rightarrow a=b$. Surjektif: untuk setiap $y$, pilih $x=\frac{y+2}{3}$.</p>
@@ -342,7 +343,7 @@
 
         <p>Bayangkan mesin yang menerima angka, mengalikannya dengan $2$, lalu menambah $1$. Kalau kamu memasukkan $3$, keluar $7$. Sekarang bayangkan mesin kedua yang menerima $7$ dan mengembalikannya menjadi $3$. Mesin kedua itulah inversnya.</p>
 
-        <p>Supaya bisa dibalik, mesin pertama harus <strong>tidak pernah menghasilkan output yang sama untuk dua input berbeda</strong>. Kalau dua input berbeda memberi output sama, mesin pembalik tidak akan tahu harus kembali ke yang mana. Inilah alasan invers hanya ada untuk fungsi <strong>bijektif</strong> â€” injektif supaya arah baliknya tidak ambigu, surjektif supaya semua output punya jalan pulang.</p>
+        <p>Supaya bisa dibalik, mesin pertama harus <strong>tidak pernah menghasilkan output yang sama untuk dua input berbeda</strong>. Kalau dua input berbeda memberi output sama, mesin pembalik tidak akan tahu harus kembali ke yang mana. Inilah alasan invers hanya ada untuk fungsi <strong>bijektif</strong> — injektif supaya arah baliknya tidak ambigu, surjektif supaya semua output punya jalan pulang.</p>
 
         <div class="panel" style="margin:22px 0">
           <p style="margin:0 0 10px"><strong>Definisi.</strong> Jika $f:A\to B$ bijektif, maka inversnya $f^{-1}:B\to A$ memenuhi dua syarat sekaligus:</p>
@@ -363,7 +364,7 @@
           </li>
           <li>
             <span class="step-label">tukar posisi $x$ dan $y$</span>
-            <p>Sekarang $x$ berperan sebagai output dan $y$ sebagai input. Inilah inti â€œmembalik arahâ€.</p>
+            <p>Sekarang $x$ berperan sebagai output dan $y$ sebagai input. Inilah inti “membalik arah”.</p>
           </li>
           <li>
             <span class="step-label">selesaikan untuk $y$</span>
@@ -403,7 +404,7 @@
                 <span class="step-label">periksa</span>
                 <p>$f\left(\dfrac{x-1}{2}\right)$</p>
                 <p>$=2\cdot\dfrac{x-1}{2}+1$</p>
-                <p>$=(x-1)+1=x$ âœ“</p>
+                <p>$=(x-1)+1=x$ ✓</p>
               </li>
             </ol>
             <span class="answer">$f^{-1}(x)=\dfrac{x-1}{2}$</span>
@@ -430,14 +431,14 @@
             <ol class="steps">
               <li>
                 <span class="step-label">pastikan bijektif pada domain itu</span>
-                <p>Untuk $x\ge0$, $x^2$ selalu naik, jadi injektif. Range-nya $[0,\infty)$, jadi surjektif ke $[0,\infty)$. Bijektif âœ“</p>
+                <p>Untuk $x\ge0$, $x^2$ selalu naik, jadi injektif. Range-nya $[0,\infty)$, jadi surjektif ke $[0,\infty)$. Bijektif ✓</p>
               </li>
               <li>
                 <span class="step-label">tulis $y=x^2$, lalu tukar</span>
                 <p>$x=y^2$</p>
               </li>
               <li>
-                <span class="step-label">ambil akar â€” pilih tanda yang sesuai domain</span>
+                <span class="step-label">ambil akar — pilih tanda yang sesuai domain</span>
                 <p>$y=\pm\sqrt{x}$. Karena domain asal $y\ge0$, kita ambil yang positif.</p>
                 <p>$y=\sqrt{x}$</p>
               </li>
@@ -485,7 +486,7 @@
               <text x="248" y="112" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">f(x) = 2x + 1</text>
 
               <line x1="148" y1="362" x2="424" y2="206" stroke="#b03a26" stroke-width="2.2"/>
-              <text x="356" y="200" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#b03a26">fâ»Â¹(x) = (x âˆ’ 1)/2</text>
+              <text x="356" y="200" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#b03a26">f⁻¹(x) = (x − 1)/2</text>
 
               <line x1="240" y1="180" x2="320" y2="260" stroke="#2f6b4f" stroke-width="1" stroke-dasharray="3 3"/>
               <circle cx="240" cy="180" r="4.5" fill="#1f4e79"/>
@@ -496,11 +497,11 @@
               <g font-family="'IBM Plex Mono',monospace" font-size="8.5">
                 <text x="246" y="174" fill="#1f4e79">(1, 3)</text>
                 <text x="328" y="272" fill="#b03a26">(3, 1)</text>
-                <text x="118" y="356" fill="#2f6b4f">(âˆ’1, âˆ’1)</text>
+                <text x="118" y="356" fill="#2f6b4f">(−1, −1)</text>
               </g>
             </svg>
           </div>
-          <figcaption><b>Cermin $y=x$.</b> Titik $(1,3)$ pada $f$ berpasangan dengan $(3,1)$ pada $f^{-1}$ â€” koordinatnya bertukar. Kedua grafik bertemu di $(-1,-1)$, yaitu titik yang koordinatnya sama, sehingga tidak berubah saat dicerminkan.</figcaption>
+          <figcaption><b>Cermin $y=x$.</b> Titik $(1,3)$ pada $f$ berpasangan dengan $(3,1)$ pada $f^{-1}$ — koordinatnya bertukar. Kedua grafik bertemu di $(-1,-1)$, yaitu titik yang koordinatnya sama, sehingga tidak berubah saat dicerminkan.</figcaption>
         </figure>
 
         <h3>Domain dan range bertukar tempat</h3>
@@ -508,7 +509,7 @@
         <p>Karena arahnya dibalik, himpunan input dan output juga bertukar:</p>
 
         <div class="formula">
-          <div class="formula-head"><span>aturan</span><span>domainâ€“range invers</span></div>
+          <div class="formula-head"><span>aturan</span><span>domain–range invers</span></div>
           <div class="formula-body">$D_{f^{-1}}=R_f\qquad\text{dan}\qquad R_{f^{-1}}=D_f$</div>
           <div class="formula-foot">Ini bukan hafalan tambahan; ia konsekuensi langsung dari definisi. Apa yang dulu keluar sekarang masuk.</div>
         </div>
@@ -536,7 +537,7 @@
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> Tentukan invers $f(x)=3x-6$.</p>
             <p style="color:var(--green)">$y=3x-6 \Rightarrow x=3y-6 \Rightarrow y=\dfrac{x+6}{3}$. Jadi $f^{-1}(x)=\dfrac{x}{3}+2$.</p>
@@ -545,7 +546,7 @@
             <p style="color:var(--green)">Karena tidak injektif: $f(2)=f(-2)=4$. Arah baliknya ambigu.</p>
 
             <p style="margin-top:14px"><strong>3.</strong> Jika $D_f=[2,\infty)$ dan $R_f=[5,\infty)$, sebutkan domain dan range $f^{-1}$.</p>
-            <p style="color:var(--green)">$D_{f^{-1}}=[5,\infty)$ dan $R_{f^{-1}}=[2,\infty)$ â€” bertukar.</p>
+            <p style="color:var(--green)">$D_{f^{-1}}=[5,\infty)$ dan $R_{f^{-1}}=[2,\infty)$ — bertukar.</p>
           </div>
         </details>
 
@@ -554,7 +555,7 @@
           <ul>
             <li>Invers membatalkan fungsi: $f^{-1}(f(x))=x$ dan $f(f^{-1}(y))=y$.</li>
             <li>Invers hanya ada kalau fungsinya bijektif; kalau tidak, batasi domainnya dulu.</li>
-            <li>Prosedur: $y=f(x)$ â†’ tukar $x$ dan $y$ â†’ selesaikan $y$ â†’ tulis $f^{-1}(x)$.</li>
+            <li>Prosedur: $y=f(x)$ → tukar $x$ dan $y$ → selesaikan $y$ → tulis $f^{-1}(x)$.</li>
             <li>$f^{-1}(x)$ bukan $\dfrac{1}{f(x)}$.</li>
             <li>Grafik invers adalah cermin terhadap $y=x$; domain dan range bertukar.</li>
           </ul>
@@ -582,14 +583,14 @@
           <p>$(f\circ g)(x)=f\big(g(x)\big)$ berarti <em>$g$ dulu, baru $f$</em>. Yang paling dekat dengan $x$ dikerjakan lebih awal.</p>
         </div>
 
-        <p>Kalau dua fungsi punya tipe inputâ€“output yang cocok, keduanya bisa disambung. Output dari fungsi pertama langsung menjadi input fungsi kedua. Proses menyambung inilah yang disebut <strong>komposisi</strong>.</p>
+        <p>Kalau dua fungsi punya tipe input–output yang cocok, keduanya bisa disambung. Output dari fungsi pertama langsung menjadi input fungsi kedua. Proses menyambung inilah yang disebut <strong>komposisi</strong>.</p>
 
         <p>Analogi paling jelas: dua mesin yang dirangkai. Masukkan $x$ ke mesin $g$, hasilnya $g(x)$ langsung masuk ke mesin $f$, keluar $f(g(x))$. Tidak ada yang berhenti di tengah.</p>
 
         <div class="formula">
           <div class="formula-head"><span>notasi</span><span>komposisi dua fungsi</span></div>
           <div class="formula-body">$(f\circ g)(x)=f\big(g(x)\big)$</div>
-          <div class="formula-foot">Dibaca â€œ$f$ bundaran $g$â€ atau â€œ$f$ setelah $g$â€. Simbol $\circ$ bukan perkalian dan bukan titik â€” ia penanda komposisi.</div>
+          <div class="formula-foot">Dibaca “$f$ bundaran $g$” atau “$f$ setelah $g$”. Simbol $\circ$ bukan perkalian dan bukan titik — ia penanda komposisi.</div>
         </div>
 
         <figure class="fig">
@@ -637,7 +638,7 @@
 
               <text x="180" y="212" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">dikerjakan lebih dulu</text>
               <text x="460" y="212" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">dikerjakan belakangan</text>
-              <text x="370" y="240" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#b03a26">alur mengalir ke kanan Â· notasi dibaca dari kanan</text>
+              <text x="370" y="240" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#b03a26">alur mengalir ke kanan · notasi dibaca dari kanan</text>
             </svg>
           </div>
           <figcaption><b>Satu alur, dua mesin.</b> $x$ masuk ke $g$ lebih dulu karena $g$ menempel langsung pada $x$ di dalam kurung. Hasil antara $g(x)$ kemudian menjadi bahan mentah bagi $f$.</figcaption>
@@ -656,15 +657,15 @@
             <p class="example-q">Diketahui $f(x)=x^2+1$ dan $g(x)=3x$. Hitung $(f\circ g)(2)$.</p>
             <ol class="steps">
               <li>
-                <span class="step-label">rute 1 â€” hitung dari dalam</span>
+                <span class="step-label">rute 1 — hitung dari dalam</span>
                 <p>$g(2)=3(2)=6$</p>
                 <p>Lalu masukkan $6$ ke $f$:</p>
                 <p>$f(6)=6^2+1=37$</p>
               </li>
               <li>
-                <span class="step-label">rute 2 â€” susun rumus dulu</span>
+                <span class="step-label">rute 2 — susun rumus dulu</span>
                 <p>$(f\circ g)(x)=f(3x)=(3x)^2+1=9x^2+1$</p>
-                <p>$(f\circ g)(2)=9(4)+1=37$ âœ“</p>
+                <p>$(f\circ g)(2)=9(4)+1=37$ ✓</p>
               </li>
             </ol>
             <span class="answer">$(f\circ g)(2)=37$</span>
@@ -685,12 +686,12 @@
             <p class="example-q">Dengan $f(x)=x^2$ dan $g(x)=x+1$, tentukan $(f\circ g)(x)$ dan $(g\circ f)(x)$.</p>
             <ol class="steps">
               <li>
-                <span class="step-label">$(f\circ g)(x)$ â€” $g$ dulu</span>
+                <span class="step-label">$(f\circ g)(x)$ — $g$ dulu</span>
                 <p>$f\big(g(x)\big)=f(x+1)=(x+1)^2$</p>
                 <p>$=x^2+2x+1$</p>
               </li>
               <li>
-                <span class="step-label">$(g\circ f)(x)$ â€” $f$ dulu</span>
+                <span class="step-label">$(g\circ f)(x)$ — $f$ dulu</span>
                 <p>$g\big(f(x)\big)=g(x^2)=x^2+1$</p>
               </li>
               <li>
@@ -732,7 +733,7 @@
           </li>
         </ol>
 
-        <p>Kalau salah satu gagal, komposisinya tidak terdefinisi di titik itu â€” walaupun rumus gabungannya terlihat baik-baik saja.</p>
+        <p>Kalau salah satu gagal, komposisinya tidak terdefinisi di titik itu — walaupun rumus gabungannya terlihat baik-baik saja.</p>
 
         <div class="example">
           <div class="example-head">
@@ -790,12 +791,12 @@
 
         <div class="note">
           <span class="note-label">contoh yang menyenangkan</span>
-          <p>Kalau $f(x)=\sqrt{x}$ dan $g(x)=x^2$, maka $(f\circ g)(x)=\sqrt{x^2}=|x|$, dengan domain $\mathbb{R}$. Perhatikan bahwa hasilnya bukan $x$, melainkan $|x|$ â€” persis seperti yang dibahas di bagian 10. Inilah alasan $\sqrt{x^2}=|x|$ bukan sekadar formalitas.</p>
+          <p>Kalau $f(x)=\sqrt{x}$ dan $g(x)=x^2$, maka $(f\circ g)(x)=\sqrt{x^2}=|x|$, dengan domain $\mathbb{R}$. Perhatikan bahwa hasilnya bukan $x$, melainkan $|x|$ — persis seperti yang dibahas di bagian 10. Inilah alasan $\sqrt{x^2}=|x|$ bukan sekadar formalitas.</p>
         </div>
 
         <h3>Membongkar fungsi menjadi komposisi</h3>
 
-        <p>Soal juga sering berjalan sebaliknya: diberi satu fungsi rumit, diminta menuliskannya sebagai $f\circ g$. Tidak ada jawaban tunggal â€” yang penting hasilnya benar.</p>
+        <p>Soal juga sering berjalan sebaliknya: diberi satu fungsi rumit, diminta menuliskannya sebagai $f\circ g$. Tidak ada jawaban tunggal — yang penting hasilnya benar.</p>
 
         <div class="example">
           <div class="example-head">
@@ -806,16 +807,16 @@
             <p class="example-q">Tulis $h(x)=\sqrt{2x+5}$ sebagai komposisi dua fungsi.</p>
             <ol class="steps">
               <li>
-                <span class="step-label">lihat bagian â€œluarâ€</span>
+                <span class="step-label">lihat bagian “luar”</span>
                 <p>Operasi terakhir yang dikerjakan adalah akar kuadrat. Jadi $f(u)=\sqrt{u}$.</p>
               </li>
               <li>
-                <span class="step-label">lihat bagian â€œdalamâ€</span>
+                <span class="step-label">lihat bagian “dalam”</span>
                 <p>Isi akarnya adalah $2x+5$. Jadi $g(x)=2x+5$.</p>
               </li>
               <li>
                 <span class="step-label">periksa</span>
-                <p>$f\big(g(x)\big)=\sqrt{2x+5}$ âœ“</p>
+                <p>$f\big(g(x)\big)=\sqrt{2x+5}$ ✓</p>
               </li>
             </ol>
             <span class="answer">$h=f\circ g$ dengan $f(u)=\sqrt{u}$ dan $g(x)=2x+5$</span>
@@ -826,12 +827,12 @@
         <div class="trap">
           <span class="trap-label">sering keliru</span>
           <p><strong>$(f\circ g)(x)$ dianggap $f(x)\cdot g(x)$.</strong> Simbol $\circ$ bukan titik perkalian. Untuk $f(x)=x^2$ dan $g(x)=x+1$: komposisinya $(x+1)^2$, sedangkan perkaliannya $x^3+x^2$.</p>
-          <p><strong>Mengerjakan dari kiri.</strong> $(f\circ g)(x)$ berarti $f(g(x))$ â€” $g$ lebih dulu. Menukar urutan menghasilkan fungsi yang berbeda.</p>
+          <p><strong>Mengerjakan dari kiri.</strong> $(f\circ g)(x)$ berarti $f(g(x))$ — $g$ lebih dulu. Menukar urutan menghasilkan fungsi yang berbeda.</p>
           <p><strong>Lupa memeriksa domain fungsi dalam.</strong> Rumus gabungan bisa terlihat mulus, padahal ada titik yang sebenarnya tidak boleh masuk sejak langkah pertama.</p>
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> $f(x)=x+3$, $g(x)=2x$. Hitung $(f\circ g)(4)$.</p>
             <p style="color:var(--green)">$g(4)=8$, lalu $f(8)=11$. Jadi $(f\circ g)(4)=11$.</p>
@@ -848,7 +849,7 @@
           <h3>Rangkuman bagian 14</h3>
           <ul>
             <li>$(f\circ g)(x)=f(g(x))$: kerjakan $g$ lebih dulu, lalu $f$.</li>
-            <li>Umumnya $f\circ g\neq g\circ f$ â€” urutan mengubah hasil.</li>
+            <li>Umumnya $f\circ g\neq g\circ f$ — urutan mengubah hasil.</li>
             <li>$(f\circ g)(x)$ bukan $f(x)\cdot g(x)$.</li>
             <li>Domain komposisi butuh dua syarat: $x\in D_g$ dan $g(x)\in D_f$.</li>
             <li>Mengurai fungsi: bagian luar jadi $f$, bagian dalam jadi $g$.</li>
@@ -874,7 +875,7 @@
 
         <div class="inti">
           <span class="kicker">satu kalimat inti</span>
-          <p><em>Genap</em> itu cermin kiriâ€“kanan. <em>Ganjil</em> itu putaran setengah lingkaran. <em>Monoton</em> itu satu arah saja: selalu naik, atau selalu turun.</p>
+          <p><em>Genap</em> itu cermin kiri–kanan. <em>Ganjil</em> itu putaran setengah lingkaran. <em>Monoton</em> itu satu arah saja: selalu naik, atau selalu turun.</p>
         </div>
 
         <h3>Genap dan ganjil: dua jenis simetri</h3>
@@ -885,16 +886,16 @@
           <div class="panel">
             <span class="chip chip-blue">genap</span>
             <p style="margin:10px 0 8px;font-family:var(--mono);font-size:.9rem">$f(-x)=f(x)$</p>
-            <p style="margin:0;font-size:.93rem;color:var(--muted)">Ganti $x$ dengan $-x$, hasilnya tidak berubah. Grafiknya simetris terhadap <strong>sumbu $y$</strong> â€” sisi kiri adalah cermin sisi kanan.</p>
+            <p style="margin:0;font-size:.93rem;color:var(--muted)">Ganti $x$ dengan $-x$, hasilnya tidak berubah. Grafiknya simetris terhadap <strong>sumbu $y$</strong> — sisi kiri adalah cermin sisi kanan.</p>
           </div>
           <div class="panel">
             <span class="chip chip-red">ganjil</span>
             <p style="margin:10px 0 8px;font-family:var(--mono);font-size:.9rem">$f(-x)=-f(x)$</p>
-            <p style="margin:0;font-size:.93rem;color:var(--muted)">Ganti $x$ dengan $-x$, hasilnya berbalik tanda. Grafiknya simetris terhadap <strong>titik asal</strong> â€” diputar $180^\circ$ tampak sama.</p>
+            <p style="margin:0;font-size:.93rem;color:var(--muted)">Ganti $x$ dengan $-x$, hasilnya berbalik tanda. Grafiknya simetris terhadap <strong>titik asal</strong> — diputar $180^\circ$ tampak sama.</p>
           </div>
         </div>
 
-        <p>Perhatikan bahwa keduanya mensyaratkan <strong>domain simetris</strong>. Kalau $x$ boleh masuk tetapi $-x$ tidak, pertanyaan â€œ$f(-x)$â€ tidak punya jawaban, sehingga fungsinya tidak bisa disebut genap maupun ganjil.</p>
+        <p>Perhatikan bahwa keduanya mensyaratkan <strong>domain simetris</strong>. Kalau $x$ boleh masuk tetapi $-x$ tidak, pertanyaan “$f(-x)$” tidak punya jawaban, sehingga fungsinya tidak bisa disebut genap maupun ganjil.</p>
 
         <figure class="fig">
           <div class="fig-frame">
@@ -920,11 +921,11 @@
               <circle cx="210" cy="180" r="4.5" fill="#b03a26"/>
 
               <g font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">
-                <text x="96" y="172">(âˆ’a, f(a))</text>
+                <text x="96" y="172">(−a, f(a))</text>
                 <text x="216" y="172">(a, f(a))</text>
               </g>
-              <text x="180" y="52" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = xÂ²</text>
-              <text x="180" y="322" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#2f6b4f">GENAP Â· cermin sumbu y</text>
+              <text x="180" y="52" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = x²</text>
+              <text x="180" y="322" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#2f6b4f">GENAP · cermin sumbu y</text>
 
               <!-- panel ganjil -->
               <line x1="420" y1="190" x2="720" y2="190" stroke="#16212c" stroke-width="1"/>
@@ -939,13 +940,13 @@
 
               <g font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">
                 <text x="612" y="132">(a, f(a))</text>
-                <text x="452" y="256">(âˆ’a, âˆ’f(a))</text>
+                <text x="452" y="256">(−a, −f(a))</text>
               </g>
-              <text x="632" y="78" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = xÂ³</text>
-              <text x="570" y="322" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#2f6b4f">GANJIL Â· simetris titik asal</text>
+              <text x="632" y="78" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1f4e79">y = x³</text>
+              <text x="570" y="322" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#2f6b4f">GANJIL · simetris titik asal</text>
             </svg>
           </div>
-          <figcaption><b>Dua simetri yang berbeda.</b> Pada $x^2$, titik di $x=-a$ dan $x=a$ punya ketinggian sama. Pada $x^3$, titik di $-a$ berada tepat berlawanan melalui titik asal â€” koordinatnya berbalik tanda keduanya.</figcaption>
+          <figcaption><b>Dua simetri yang berbeda.</b> Pada $x^2$, titik di $x=-a$ dan $x=a$ punya ketinggian sama. Pada $x^3$, titik di $-a$ berada tepat berlawanan melalui titik asal — koordinatnya berbalik tanda keduanya.</figcaption>
         </figure>
 
         <div class="table-wrap">
@@ -964,7 +965,7 @@
           </table>
         </div>
 
-        <p>Baris terakhir penting: $x^2+x$ bukan fungsi genap, dan juga bukan ganjil. â€œBukan genapâ€ tidak otomatis berarti â€œganjilâ€ â€” ada kategori ketiga, yaitu <strong>tidak keduanya</strong>.</p>
+        <p>Baris terakhir penting: $x^2+x$ bukan fungsi genap, dan juga bukan ganjil. “Bukan genap” tidak otomatis berarti “ganjil” — ada kategori ketiga, yaitu <strong>tidak keduanya</strong>.</p>
 
         <div class="note">
           <span class="note-label">pola yang membantu</span>
@@ -974,8 +975,8 @@
         <div class="trap">
           <span class="trap-label">sering keliru</span>
           <p><strong>Menganggap semua fungsi kuadrat genap.</strong> Hanya yang berbentuk $ax^2+c$ yang genap. Begitu ada suku $x$, seperti $x^2+3x$, simetrinya hilang.</p>
-          <p><strong>Menguji genapâ€“ganjil tanpa melihat domain.</strong> $f(x)=x^2$ dengan domain $[0,\infty)$ tidak genap, karena $f(-1)$ tidak terdefinisi. Simetri butuh pasangan di kedua sisi.</p>
-          <p><strong>Mengira â€œganjilâ€ berarti nilainya negatif.</strong> $f(x)=x^3$ bernilai positif di $x=2$. Yang â€œganjilâ€ adalah <em>polanya</em>, bukan tandanya.</p>
+          <p><strong>Menguji genap–ganjil tanpa melihat domain.</strong> $f(x)=x^2$ dengan domain $[0,\infty)$ tidak genap, karena $f(-1)$ tidak terdefinisi. Simetri butuh pasangan di kedua sisi.</p>
+          <p><strong>Mengira “ganjil” berarti nilainya negatif.</strong> $f(x)=x^3$ bernilai positif di $x=2$. Yang “ganjil” adalah <em>polanya</em>, bukan tandanya.</p>
         </div>
 
         <h3>Monoton: satu arah sepanjang interval</h3>
@@ -984,11 +985,11 @@
 
         <div class="formula">
           <div class="formula-head"><span>definisi</span><span>monoton naik dan turun</span></div>
-          <div class="formula-body">$x_1&lt;x_2 \;\Rightarrow\; f(x_1)&lt;f(x_2)$ &nbsp;Â·&nbsp; $x_1&lt;x_2 \;\Rightarrow\; f(x_1)&gt;f(x_2)$</div>
-          <div class="formula-foot">Kiri: <strong>naik</strong> â€” input lebih besar selalu memberi output lebih besar. Kanan: <strong>turun</strong> â€” input lebih besar justru memberi output lebih kecil.</div>
+          <div class="formula-body">$x_1&lt;x_2 \;\Rightarrow\; f(x_1)&lt;f(x_2)$ &nbsp;·&nbsp; $x_1&lt;x_2 \;\Rightarrow\; f(x_1)&gt;f(x_2)$</div>
+          <div class="formula-foot">Kiri: <strong>naik</strong> — input lebih besar selalu memberi output lebih besar. Kanan: <strong>turun</strong> — input lebih besar justru memberi output lebih kecil.</div>
         </div>
 
-        <p>Perhatikan kata â€œpada suatu intervalâ€. Ini bukan detail kecil. $f(x)=x^2$ tidak monoton di $\mathbb{R}$, karena ia turun dulu lalu naik. Tapi ia <strong>monoton turun</strong> di $(-\infty,0]$ dan <strong>monoton naik</strong> di $[0,\infty)$. Jadi pertanyaan yang benar selalu menyebut intervalnya.</p>
+        <p>Perhatikan kata “pada suatu interval”. Ini bukan detail kecil. $f(x)=x^2$ tidak monoton di $\mathbb{R}$, karena ia turun dulu lalu naik. Tapi ia <strong>monoton turun</strong> di $(-\infty,0]$ dan <strong>monoton naik</strong> di $[0,\infty)$. Jadi pertanyaan yang benar selalu menyebut intervalnya.</p>
 
         <figure class="fig">
           <div class="fig-frame">
@@ -1008,14 +1009,14 @@
               <line x1="60" y1="30" x2="60" y2="215" stroke="#16212c" stroke-width="1"/>
               <line x1="70" y1="200" x2="200" y2="50" stroke="#1f4e79" stroke-width="2.2"/>
               <text x="125" y="232" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#2f6b4f">NAIK</text>
-              <text x="125" y="22" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#55636f">xâ‚ &lt; xâ‚‚ â†’ f(xâ‚) &lt; f(xâ‚‚)</text>
+              <text x="125" y="22" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#55636f">x₁ &lt; x₂ → f(x₁) &lt; f(x₂)</text>
 
               <!-- turun -->
               <line x1="280" y1="190" x2="470" y2="190" stroke="#16212c" stroke-width="1"/>
               <line x1="310" y1="30" x2="310" y2="215" stroke="#16212c" stroke-width="1"/>
               <line x1="320" y1="50" x2="450" y2="200" stroke="#b03a26" stroke-width="2.2"/>
               <text x="375" y="232" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#b03a26">TURUN</text>
-              <text x="375" y="22" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#55636f">xâ‚ &lt; xâ‚‚ â†’ f(xâ‚) &gt; f(xâ‚‚)</text>
+              <text x="375" y="22" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#55636f">x₁ &lt; x₂ → f(x₁) &gt; f(x₂)</text>
 
               <!-- tidak monoton -->
               <line x1="530" y1="190" x2="730" y2="190" stroke="#16212c" stroke-width="1"/>
@@ -1023,11 +1024,11 @@
               <polyline points="550,50 580,130 610,175 630,190 650,175 680,130 710,50"
                         fill="none" stroke="#1f4e79" stroke-width="2.2"/>
               <circle cx="630" cy="190" r="4" fill="#b03a26"/>
-              <text x="630" y="232" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">TIDAK MONOTON DI â„</text>
+              <text x="630" y="232" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">TIDAK MONOTON DI ℝ</text>
               <text x="630" y="22" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#55636f">turun lalu naik</text>
             </svg>
           </div>
-          <figcaption><b>Arah harus konsisten.</b> Grafik ketiga tetap monoton <em>pada tiap sisi</em> titik puncaknya â€” hanya saja tidak pada seluruh $\mathbb{R}$.</figcaption>
+          <figcaption><b>Arah harus konsisten.</b> Grafik ketiga tetap monoton <em>pada tiap sisi</em> titik puncaknya — hanya saja tidak pada seluruh $\mathbb{R}$.</figcaption>
         </figure>
 
         <div class="example">
@@ -1043,7 +1044,7 @@
                 <p>Misalkan $x_1&lt;x_2$.</p>
               </li>
               <li>
-                <span class="step-label">kalikan dengan $2$ â€” tanda tidak berubah</span>
+                <span class="step-label">kalikan dengan $2$ — tanda tidak berubah</span>
                 <p>$2x_1&lt;2x_2$</p>
               </li>
               <li>
@@ -1082,8 +1083,8 @@
               </li>
               <li>
                 <span class="step-label">periksa dengan dua titik</span>
-                <p>$f(0)=3$, $f(1)=0$, $f(2)=-1$ â†’ menurun.</p>
-                <p>$f(2)=-1$, $f(3)=0$, $f(4)=3$ â†’ menaik.</p>
+                <p>$f(0)=3$, $f(1)=0$, $f(2)=-1$ → menurun.</p>
+                <p>$f(2)=-1$, $f(3)=0$, $f(4)=3$ → menaik.</p>
               </li>
             </ol>
             <span class="answer">turun di $(-\infty,2]$, naik di $[2,\infty)$</span>
@@ -1092,11 +1093,11 @@
 
         <div class="note">
           <span class="note-label">jembatan ke kalkulus</span>
-          <p>Di kalkulus, arah monoton dibaca dari tanda turunan: $f'(x)&gt;0$ berarti naik, $f'(x)&lt;0$ berarti turun. Untuk sekarang, cukup pakai grafik atau perbandingan $f(x_1)$ dan $f(x_2)$ seperti di atas. Definisi yang kamu pakai sekarang justru yang lebih mendasar â€” turunan hanya alat bantu untuk memeriksanya lebih cepat.</p>
+          <p>Di kalkulus, arah monoton dibaca dari tanda turunan: $f'(x)&gt;0$ berarti naik, $f'(x)&lt;0$ berarti turun. Untuk sekarang, cukup pakai grafik atau perbandingan $f(x_1)$ dan $f(x_2)$ seperti di atas. Definisi yang kamu pakai sekarang justru yang lebih mendasar — turunan hanya alat bantu untuk memeriksanya lebih cepat.</p>
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 4 pertanyaan</summary>
+          <summary>Cek pemahaman · 4 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> Apakah $f(x)=x^4+2x^2$ genap, ganjil, atau bukan keduanya?</p>
             <p style="color:var(--green)">Genap. $f(-x)=(-x)^4+2(-x)^2=x^4+2x^2=f(x)$.</p>
@@ -1105,7 +1106,7 @@
             <p style="color:var(--green)">Ya. $f(-x)=-x^3-x=-(x^3+x)=-f(x)$.</p>
 
             <p style="margin-top:14px"><strong>3.</strong> $f(x)=x^2$ dengan domain $[-2,2]$. Genap?</p>
-            <p style="color:var(--green)">Ya â€” domainnya simetris, dan $f(-x)=f(x)$ untuk semua $x$ di domain itu.</p>
+            <p style="color:var(--green)">Ya — domainnya simetris, dan $f(-x)=f(x)$ untuk semua $x$ di domain itu.</p>
 
             <p style="margin-top:14px"><strong>4.</strong> Di interval mana $f(x)=-2x+5$ monoton turun?</p>
             <p style="color:var(--green)">Di seluruh $\mathbb{R}$, karena $m=-2&lt;0$: setiap kenaikan $x$ menurunkan $y$.</p>
@@ -1118,7 +1119,7 @@
             <li>Genap: $f(-x)=f(x)$, grafik simetris terhadap sumbu $y$.</li>
             <li>Ganjil: $f(-x)=-f(x)$, grafik simetris terhadap titik asal.</li>
             <li>Ada fungsi yang bukan keduanya, misalnya $x^2+x$.</li>
-            <li>Uji genapâ€“ganjil hanya sah kalau domainnya simetris.</li>
+            <li>Uji genap–ganjil hanya sah kalau domainnya simetris.</li>
             <li>Monoton naik/turun selalu relatif terhadap suatu interval, bukan sekadar rumusnya.</li>
           </ul>
         </div>
@@ -1133,11 +1134,11 @@
       <nav class="nextprev" aria-label="Navigasi halaman">
         <a class="np" href="#komposisi">
           <span>sebelumnya</span>
-          <b>Bagian 14 Â· Komposisi fungsi</b>
+          <b>Bagian 14 · Komposisi fungsi</b>
         </a>
         <a class="np next" href="latihan.html">
           <span>selanjutnya</span>
-          <b>Latihan Â· 12 soal bertingkat</b>
+          <b>Latihan · 12 soal bertingkat</b>
         </a>
       </nav>
 
@@ -1147,7 +1148,7 @@
 
 <footer class="shell">
   <div class="foot">
-    <span>materi-fungsi Â· bab 03</span>
+    <span>materi-fungsi · bab 03</span>
     <span><a href="https://github.com/voltakyy/materi-fungsi">sumber di GitHub</a></span>
   </div>
 </footer>
@@ -1160,5 +1161,6 @@
   <script src="../shared/portal-nav.js" defer></script>
 </body>
 </html>
+
 
 

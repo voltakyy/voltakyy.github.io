@@ -23,6 +23,7 @@
     const idx = scriptUrl.pathname.lastIndexOf('shared/');
     if (idx !== -1) {
       rootPath = scriptUrl.pathname.substring(0, idx);
+      if (!rootPath.endsWith('/')) rootPath += '/';
     }
   }
 
@@ -119,7 +120,14 @@
     });
   }
 
-  // Auto load CSS stylesheet if not present
+  // Auto load shared medical-theme.css and portal-nav.css
+  if (!document.querySelector('link[href*="medical-theme.css"]')) {
+    const linkTheme = document.createElement('link');
+    linkTheme.rel = 'stylesheet';
+    linkTheme.href = rootPath + 'shared/medical-theme.css';
+    document.head.appendChild(linkTheme);
+  }
+
   if (!document.querySelector('link[href*="portal-nav.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';

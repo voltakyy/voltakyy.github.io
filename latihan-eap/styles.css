@@ -4,30 +4,33 @@
    Sistem Desain: Studio Paper Neo-Brutalist
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  --paper: #f6f0e4;
-  --paper-deep: #efe5d1;
-  --card: #fffdf7;
-  --ink: #24221f;
-  --ink-soft: #5f5a50;
-  --ink-faint: #8a8377;
-  --mustard: #f2b544;
-  --mustard-soft: #fdf2d4;
-  --tomato: #dd5a3a;
-  --tomato-soft: #fbe8e1;
-  --teal: #2b8a79;
-  --teal-soft: #e5f2ee;
-  --blue: #9fc3d8;
-  --blue-soft: #e8f1f5;
-  --plum: #7d5a86;
-  --plum-soft: #f0e9f2;
-  --font: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --display: 'Bricolage Grotesque', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --paper: #fafbfc;
+  --paper-deep: #f0f4f8;
+  --card: #ffffff;
+  --ink: #1a202c;
+  --ink-soft: #4a5568;
+  --ink-faint: #718096;
+  --mustard: #00a67e;
+  --mustard-soft: #e6f7f3;
+  --tomato: #ef4444;
+  --tomato-soft: #fee2e2;
+  --teal: #0066cc;
+  --teal-soft: #e0f2fe;
+  --blue: #0066cc;
+  --blue-soft: #e0f2fe;
+  --plum: #00a67e;
+  --plum-soft: #e6f7f3;
+  --font: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
-  --radius: 18px;
-  --shadow: 5px 5px 0 var(--ink);
+  --radius: 16px;
+  --border: #e2e8f0;
+  --shadow-sm: 0 2px 8px rgba(0, 102, 204, 0.05);
+  --shadow-lg: 0 12px 32px rgba(0, 102, 204, 0.12);
+  --shadow: 0 4px 16px rgba(0, 102, 204, 0.08);
   --shadow-sm: 3px 3px 0 var(--ink);
   --shadow-lg: 8px 8px 0 var(--ink);
 }
@@ -52,26 +55,13 @@ body {
   font-size: 16px;
   line-height: 1.55;
   font-size-adjust: from-font;
-  background:
-    radial-gradient(circle at 10% -5%, rgba(242,181,68,.30), transparent 32rem),
-    radial-gradient(circle at 94% 6%, rgba(159,195,216,.30), transparent 30rem),
-    radial-gradient(circle at 50% 105%, rgba(43,138,121,.15), transparent 35rem),
-    var(--paper);
-  background-attachment: fixed;
+  background: #fafbfc;
+  background-attachment: scroll;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(36,34,31,.12) 1px, transparent 1.6px);
-  background-size: 26px 26px;
-  opacity: .25;
-}
+body::before { display: none; }
 
 [hidden] { display: none !important; }
 button { font: inherit; color: inherit; cursor: pointer; }
@@ -130,7 +120,7 @@ img, svg { max-width: 100%; height: auto; }
   width: 52px;
   height: 52px;
   background: var(--mustard);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: var(--shadow-sm);
   font-size: 26px;
@@ -169,7 +159,7 @@ img, svg { max-width: 100%; height: auto; }
   font-family: var(--mono);
   font-size: 11.5px;
   font-weight: 700;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--card);
   box-shadow: var(--shadow-sm);
@@ -192,7 +182,7 @@ img, svg { max-width: 100%; height: auto; }
   margin: 20px 0 24px;
   padding: 16px 20px;
   background: var(--tomato-soft);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   display: flex;
@@ -233,7 +223,7 @@ img, svg { max-width: 100%; height: auto; }
   font-size: 14px;
   font-weight: 700;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
@@ -245,15 +235,15 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 .tab-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
   background: var(--paper-deep);
 }
 
 .tab-btn.active {
   background: var(--mustard);
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
 }
 
 /* ================= Panel Containers ================= */
@@ -274,7 +264,7 @@ img, svg { max-width: 100%; height: auto; }
 /* ================= Neo-Brutalist Cards ================= */
 .card {
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: clamp(18px, 3vw, 28px);
   box-shadow: var(--shadow);
@@ -323,7 +313,7 @@ img, svg { max-width: 100%; height: auto; }
 /* ================= Stat Boxes ================= */
 .stat-box {
   background: var(--paper-deep);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 16px;
   box-shadow: var(--shadow-sm);
@@ -360,7 +350,7 @@ img, svg { max-width: 100%; height: auto; }
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
   margin: 16px 0;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--card);
   box-shadow: var(--shadow-sm);
@@ -416,7 +406,7 @@ tr:nth-child(even) td {
 /* ================= Module Accordions & Cards ================= */
 .module-item {
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 16px;
   margin-bottom: 18px;
   box-shadow: var(--shadow-sm);
@@ -518,7 +508,7 @@ tr:nth-child(even) td {
 /* ================= Drilling Arena & Quiz ================= */
 .passage-card {
   background: var(--paper-deep);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 18px 20px;
   margin-bottom: 20px;
@@ -540,7 +530,7 @@ tr:nth-child(even) td {
 
 .question-block {
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 18px;
   margin-bottom: 18px;
@@ -586,7 +576,7 @@ tr:nth-child(even) td {
   min-height: 44px;
   cursor: pointer;
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   text-align: left;
   font-size: 14px;
@@ -605,7 +595,7 @@ tr:nth-child(even) td {
   place-items: center;
   width: 24px;
   height: 24px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-family: var(--mono);
   font-weight: 800;
@@ -665,7 +655,7 @@ tr:nth-child(even) td {
   flex-wrap: wrap;
   padding: 14px 20px;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow);
   margin-bottom: 24px;
@@ -707,20 +697,20 @@ tr:nth-child(even) td {
   font-size: 14px;
   font-weight: 800;
   background: var(--mustard);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
   transition: all 0.1s ease;
 }
 
 .btn-primary:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:active {
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
 }
 
 .btn-secondary {
@@ -732,7 +722,7 @@ tr:nth-child(even) td {
   font-size: 14px;
   font-weight: 700;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
   transition: all 0.1s ease;
@@ -773,7 +763,7 @@ tr:nth-child(even) td {
   font-family: var(--font);
   font-size: 14.5px;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: inset 0 2px 4px rgba(36,34,31,.06);
   outline: none;
@@ -799,20 +789,20 @@ textarea.outline-input {
 .topic-pill {
   padding: 6px 12px;
   background: var(--card);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   font-family: var(--display);
   font-size: 12.5px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   transition: transform 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   user-select: none;
 }
 
 .topic-pill:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
   background: var(--paper-deep);
 }
 
@@ -825,7 +815,7 @@ textarea.outline-input {
 
 .word-counter-dashboard {
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: var(--shadow-sm);
   padding: 18px 20px;
@@ -866,7 +856,7 @@ textarea.outline-input {
   width: 100%;
   height: 14px;
   background: var(--paper-deep);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 12px;
@@ -886,7 +876,7 @@ textarea.outline-input {
   border-radius: 10px;
   font-size: 13px;
   line-height: 1.5;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
 }
 
 .counter-status-banner.banner-info {
@@ -941,7 +931,7 @@ textarea.outline-input {
   margin: 16px 0;
   padding: 16px;
   background: var(--paper-deep);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
 }
 
@@ -989,7 +979,7 @@ textarea.outline-input {
   font-size: 16px;
   font-weight: 800;
   padding: 6px 18px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   margin-bottom: 20px;
 }
@@ -999,7 +989,7 @@ textarea.outline-input {
   background: white;
   color: #111;
   padding: 24px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow);
 }
@@ -1119,7 +1109,7 @@ textarea.outline-input {
 /* ================= Grammar Concept Cards & Clause Highlighter ================= */
 .grammar-concept-card {
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: var(--shadow-sm);
   padding: 20px;
@@ -1155,7 +1145,7 @@ textarea.outline-input {
 
 .clause-example-box {
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 14px 16px;
   margin: 12px 0;
@@ -1211,7 +1201,7 @@ textarea.outline-input {
   font-weight: 800;
   padding: 2px 7px;
   border-radius: 5px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   box-shadow: 1px 1px 0 var(--ink);
   display: inline-block;
   margin: 0 2px;
@@ -1287,7 +1277,7 @@ textarea.outline-input {
 .puzzle-drop-slot {
   min-height: 48px;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: inset 0 2px 4px rgba(36,34,31,.08);
   padding: 8px 12px;
@@ -1315,20 +1305,20 @@ textarea.outline-input {
 .puzzle-chip {
   padding: 6px 14px;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   font-family: var(--display);
   font-size: 13px;
   font-weight: 700;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   cursor: pointer;
   transition: transform 0.1s ease, background 0.1s ease, opacity 0.1s ease;
   user-select: none;
 }
 
 .puzzle-chip:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
   background: var(--paper-deep);
 }
 
@@ -1388,11 +1378,11 @@ textarea.outline-input {
   justify-content: space-between;
   gap: 10px;
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 10px 14px;
   margin-bottom: 12px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
 }
 
 .audio-controls-left {
@@ -1412,10 +1402,10 @@ textarea.outline-input {
   font-family: var(--display);
   font-size: 13px;
   font-weight: 700;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   transition: all 0.15s ease;
   user-select: none;
   background: var(--paper-deep);
@@ -1423,8 +1413,8 @@ textarea.outline-input {
 }
 
 .audio-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .audio-btn:active {
@@ -1503,7 +1493,7 @@ span.audio-spinner {
 
 .audio-speed-select {
   padding: 4px 8px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--paper);
   font-family: var(--mono);
@@ -1517,7 +1507,7 @@ span.audio-spinner {
   font-size: 11px;
   font-weight: 700;
   padding: 4px 10px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--paper-deep);
   display: inline-flex;
@@ -1543,7 +1533,7 @@ span.audio-spinner {
   gap: 4px;
   padding: 4px 8px;
   background: #fef08a;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-family: var(--mono);
   font-size: 11px;
@@ -1555,11 +1545,11 @@ span.audio-spinner {
 /* ================= Universal Neo-Brutalist Audio Player Bar ================= */
 .audio-player-unit {
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 14px;
   margin: 10px 0 14px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -1600,7 +1590,7 @@ span.audio-spinner {
   flex: 1;
   height: 8px;
   background: rgba(36, 34, 31, 0.12);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   position: relative;
   cursor: pointer;
@@ -1636,7 +1626,7 @@ span.audio-spinner {
   width: 14px;
   height: 14px;
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -1658,7 +1648,7 @@ span.audio-spinner {
   background: var(--mustard-soft) !important;
   border-color: var(--ink) !important;
   font-weight: 700;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
 }
 
 /* ================= Quick Action Hub & Subnav Cross Hints ================= */
@@ -1677,7 +1667,7 @@ span.audio-spinner {
   background: var(--paper);
   border: 2.5px solid var(--ink);
   border-radius: 12px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
   text-align: left;
   transition: all 0.15s ease;
@@ -1685,8 +1675,8 @@ span.audio-spinner {
 }
 
 .quick-nav-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--ink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
   background: var(--paper-deep);
 }
 
@@ -1725,7 +1715,7 @@ span.audio-spinner {
   color: var(--ink);
   background: var(--mustard);
   padding: 4px 8px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   white-space: nowrap;
 }
@@ -1774,7 +1764,7 @@ span.audio-spinner {
   font-family: var(--mono);
   font-size: 11.5px;
   font-weight: 700;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--paper);
   cursor: pointer;
@@ -1810,11 +1800,11 @@ span.audio-spinner {
 /* ================= Academic Paragraph Diagnostics ================= */
 .writing-diagnostics-card {
   background: var(--paper-deep);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 16px 18px;
   margin-top: 18px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
 }
 
 .diagnostics-header {
@@ -1844,10 +1834,10 @@ span.audio-spinner {
 
 .diag-item {
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 12px 14px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1912,11 +1902,11 @@ span.audio-spinner {
 /* ================= Interactive LJK Grid & Review Flag ================= */
 .exam-ljk-card {
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px 16px;
   margin-bottom: 20px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
 }
 
 .exam-ljk-header {
@@ -1947,7 +1937,7 @@ span.audio-spinner {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   display: inline-block;
 }
 
@@ -1963,7 +1953,7 @@ span.audio-spinner {
 
 .ljk-bubble {
   height: 38px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--paper-deep);
   color: var(--ink);
@@ -1975,15 +1965,15 @@ span.audio-spinner {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   transition: all 0.15s ease;
   position: relative;
   padding: 0;
 }
 
 .ljk-bubble:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .ljk-bubble.answered {
@@ -2012,7 +2002,7 @@ span.audio-spinner {
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--paper);
   color: var(--ink);
@@ -2052,7 +2042,7 @@ span.audio-spinner {
   width: 100%;
   max-width: 820px;
   max-height: 90vh;
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -2103,7 +2093,7 @@ span.audio-spinner {
   padding: 10px 14px;
   font-family: var(--font);
   font-size: 13.5px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--paper);
 }
@@ -2119,7 +2109,7 @@ span.audio-spinner {
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--paper-deep);
   cursor: pointer;
@@ -2138,10 +2128,10 @@ span.audio-spinner {
 
 .vocab-item-card {
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 12px 14px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -2162,7 +2152,7 @@ span.audio-spinner {
 
 .vocab-pronounce-btn {
   background: none;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 2px 6px;
   font-size: 11px;

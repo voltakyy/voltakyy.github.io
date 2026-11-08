@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Definisi &amp; notasi fungsi â€” materi-fungsi</title>
-<meta name="description" content="Fungsi adalah relasi yang tidak boleh bercabang. Bongkar definisi f: A â†’ B, arti f(x), dan cara membaca notasi fungsi tanpa tertukar dengan perkalian.">
+<title>Definisi &amp; notasi fungsi — materi-fungsi</title>
+<meta name="description" content="Fungsi adalah relasi yang tidak boleh bercabang. Bongkar definisi f: A → B, arti f(x), dan cara membaca notasi fungsi tanpa tertukar dengan perkalian.">
 <meta name="theme-color" content="#f7f6f0">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
 <link rel="stylesheet" href="assets/tema.css">
   <link rel="stylesheet" href="autoscroll.css">
+  <link rel="stylesheet" href="../shared/medical-theme.css">
 </head>
 <body>
 <a class="skip" href="#utama">Lompat ke isi</a>
@@ -50,7 +51,7 @@
   <div class="page">
 
     <aside class="rail" aria-label="Isi bab 01">
-      <p class="rail-title">Bab 01 Â· Dasar</p>
+      <p class="rail-title">Bab 01 · Dasar</p>
       <ol>
         <li><a href="#definisi" data-for="01"><span class="n">01</span><span>Definisi &amp; notasi</span></a></li>
         <li><a href="#domain" data-for="02"><span class="n">02</span><span>Domain, kodomain, range</span></a></li>
@@ -65,9 +66,9 @@
 
       <div class="page-head">
         <div class="crumbs">
-          <a href="index.html">Beranda</a><span>/</span><span>Bab 01 Â· Dasar</span>
+          <a href="index.html">Beranda</a><span>/</span><span>Bab 01 · Dasar</span>
         </div>
-        <p class="kicker">Bab 01 Â· bagian 01 dari 15</p>
+        <p class="kicker">Bab 01 · bagian 01 dari 15</p>
         <h1>Apa itu fungsi, sebenarnya?</h1>
         <p class="lede">Sebelum rumus, grafik, dan invers, ada satu janji sederhana yang harus dipegang: satu input tidak boleh menghasilkan dua jawaban berbeda. Dari janji itu, semua definisi lain dibangun.</p>
       </div>
@@ -87,7 +88,7 @@
           <p>Fungsi itu janji: <em>setiap input keluar tepat satu hasil.</em> Tidak ada input yang tidak kebagian, dan tidak ada input yang keluar dua kali dengan hasil berbeda.</p>
         </div>
 
-        <p>Bayangkan sebuah mesin. Kamu memasukkan angka $3$, mesin mengeluarkan $7$. Kamu masukkan $3$ lagi, mesin harus mengeluarkan $7$ lagi â€” bukan $9$, bukan $5$. Kalau hasilnya berubah-ubah untuk input yang sama, mesin itu rusak. Dalam matematika, aturan yang rusak seperti itu tidak layak disebut <strong>fungsi</strong>.</p>
+        <p>Bayangkan sebuah mesin. Kamu memasukkan angka $3$, mesin mengeluarkan $7$. Kamu masukkan $3$ lagi, mesin harus mengeluarkan $7$ lagi — bukan $9$, bukan $5$. Kalau hasilnya berubah-ubah untuk input yang sama, mesin itu rusak. Dalam matematika, aturan yang rusak seperti itu tidak layak disebut <strong>fungsi</strong>.</p>
 
         <p>Jadi fungsi lebih dulu soal <strong>janji</strong>, baru soal rumus. Rumus hanyalah salah satu cara menuliskan janji tersebut.</p>
 
@@ -107,25 +108,25 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>â€œsetiap anggota $A$â€</strong></td>
+                <td><strong>“setiap anggota $A$”</strong></td>
                 <td>semua input harus kebagian pasangan</td>
-                <td>ada input yatim â†’ bukan fungsi</td>
+                <td>ada input yatim → bukan fungsi</td>
               </tr>
               <tr>
-                <td><strong>â€œtepat satu anggota $B$â€</strong></td>
+                <td><strong>“tepat satu anggota $B$”</strong></td>
                 <td>satu input hanya boleh punya satu hasil</td>
-                <td>input bercabang ke dua hasil â†’ bukan fungsi</td>
+                <td>input bercabang ke dua hasil → bukan fungsi</td>
               </tr>
               <tr>
-                <td><strong>â€œanggota $B$â€</strong></td>
+                <td><strong>“anggota $B$”</strong></td>
                 <td>hasilnya harus berasal dari himpunan tujuan</td>
-                <td>hasil di luar $B$ â†’ bukan fungsi dari $A$ ke $B$</td>
+                <td>hasil di luar $B$ → bukan fungsi dari $A$ ke $B$</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <p>Perhatikan bahwa syaratnya <strong>tidak simetris</strong>. Dua input boleh berbagi satu output yang sama â€” itu masih sah. Yang dilarang hanya kebalikannya: satu input punya dua output.</p>
+        <p>Perhatikan bahwa syaratnya <strong>tidak simetris</strong>. Dua input boleh berbagi satu output yang sama — itu masih sah. Yang dilarang hanya kebalikannya: satu input punya dua output.</p>
 
         <figure class="fig">
           <div class="fig-frame">
@@ -141,8 +142,8 @@
               <ellipse cx="128" cy="170" rx="80" ry="128" fill="rgba(31,78,121,.045)" stroke="#1f4e79" stroke-width="1.4"/>
               <ellipse cx="392" cy="170" rx="80" ry="128" fill="rgba(31,78,121,.045)" stroke="#1f4e79" stroke-width="1.4"/>
 
-              <text x="128" y="24" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1.5" fill="#55636f">A Â· DOMAIN</text>
-              <text x="392" y="24" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1.5" fill="#55636f">B Â· KODOMAIN</text>
+              <text x="128" y="24" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1.5" fill="#55636f">A · DOMAIN</text>
+              <text x="392" y="24" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1.5" fill="#55636f">B · KODOMAIN</text>
 
               <g fill="#fffefa" stroke="#1f4e79" stroke-width="1.3">
                 <circle cx="104" cy="84" r="15"/><circle cx="104" cy="142" r="15"/>
@@ -170,15 +171,15 @@
               </g>
               <text x="368" y="176" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">tak pernah dicapai</text>
 
-              <text x="260" y="322" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing=".5" fill="#55636f">f(1)=a Â· f(2)=c Â· f(3)=a Â· f(4)=d</text>
+              <text x="260" y="322" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing=".5" fill="#55636f">f(1)=a · f(2)=c · f(3)=a · f(4)=d</text>
             </svg>
           </div>
-          <figcaption><b>Fungsi yang sah.</b> Semua anggota $A$ punya panah, dan tiap panah keluar hanya satu. Dua input ($1$ dan $3$) boleh berbagi output $a$. Anggota $b$ tidak pernah dicapai â€” itu tidak masalah, karena $b$ hanya bagian dari kodomain, bukan range.</figcaption>
+          <figcaption><b>Fungsi yang sah.</b> Semua anggota $A$ punya panah, dan tiap panah keluar hanya satu. Dua input ($1$ dan $3$) boleh berbagi output $a$. Anggota $b$ tidak pernah dicapai — itu tidak masalah, karena $b$ hanya bagian dari kodomain, bukan range.</figcaption>
         </figure>
 
         <h3>Membaca notasi $f(x)$</h3>
 
-        <p>Di sekolah dasar, tanda kurung berarti perkalian: $3(4)=12$. Di dunia fungsi, tanda kurung itu berarti <strong>â€œdimasukkan keâ€</strong>. Jadi $f(x)$ dibaca â€œ$f$ dari $x$â€, bukan â€œ$f$ kali $x$â€.</p>
+        <p>Di sekolah dasar, tanda kurung berarti perkalian: $3(4)=12$. Di dunia fungsi, tanda kurung itu berarti <strong>“dimasukkan ke”</strong>. Jadi $f(x)$ dibaca “$f$ dari $x$”, bukan “$f$ kali $x$”.</p>
 
         <div class="formula">
           <div class="formula-head"><span>notasi</span><span>fungsi satu variabel</span></div>
@@ -216,7 +217,7 @@
 
         <div class="trap">
           <span class="trap-label">sering keliru</span>
-          <p>Menulis $f(3)=23+1$ karena mengira $2$ dan $3$ ditempel. Yang benar: $2(3)$ berarti $2\times3$. Tanda kurung pada $f(3)$ menunjukkan <strong>input</strong>, sedangkan kurung pada $2(3)$ menunjukkan <strong>perkalian</strong> â€” dua hal berbeda yang kebetulan memakai simbol sama.</p>
+          <p>Menulis $f(3)=23+1$ karena mengira $2$ dan $3$ ditempel. Yang benar: $2(3)$ berarti $2\times3$. Tanda kurung pada $f(3)$ menunjukkan <strong>input</strong>, sedangkan kurung pada $2(3)$ menunjukkan <strong>perkalian</strong> — dua hal berbeda yang kebetulan memakai simbol sama.</p>
         </div>
 
         <h3>Satu fungsi, empat wajah</h3>
@@ -230,7 +231,7 @@
             </thead>
             <tbody>
               <tr><td><strong>Rumus</strong></td><td>$f(x)=2x$</td><td>paling ringkas, tapi butuh dihitung</td></tr>
-              <tr><td><strong>Tabel</strong></td><td>$x$: 1, 2, 3 â†’ $f(x)$: 2, 4, 6</td><td>hanya memuat sebagian input</td></tr>
+              <tr><td><strong>Tabel</strong></td><td>$x$: 1, 2, 3 → $f(x)$: 2, 4, 6</td><td>hanya memuat sebagian input</td></tr>
               <tr><td><strong>Pasangan berurutan</strong></td><td>$\{(1,2),(2,4),(3,6)\}$</td><td>urutan $(x,\,f(x))$ tidak boleh dibalik</td></tr>
               <tr><td><strong>Grafik</strong></td><td>garis lurus melalui titik asal</td><td>dibaca dengan uji garis vertikal (bagian 05)</td></tr>
             </tbody>
@@ -241,7 +242,7 @@
 
         <h3>Latihan membaca: fungsi atau bukan?</h3>
 
-        <p>Aturan praktisnya cuma satu: <strong>cek input-nya, bukan output-nya</strong>. Tanya dua hal â€” apakah semua input muncul, dan apakah ada input yang muncul dua kali dengan pasangan berbeda.</p>
+        <p>Aturan praktisnya cuma satu: <strong>cek input-nya, bukan output-nya</strong>. Tanya dua hal — apakah semua input muncul, dan apakah ada input yang muncul dua kali dengan pasangan berbeda.</p>
 
         <div class="example">
           <div class="example-head">
@@ -253,7 +254,7 @@
 
             <p style="margin-top:14px"><strong>(i)</strong> $\{(1,a),(2,b),(3,b)\}$</p>
             <ol class="steps">
-              <li><span class="step-label">cek input</span><p>Input yang muncul: $1$, $2$, $3$ â€” lengkap.</p></li>
+              <li><span class="step-label">cek input</span><p>Input yang muncul: $1$, $2$, $3$ — lengkap.</p></li>
               <li><span class="step-label">cek pengulangan</span><p>Tidak ada input yang muncul dua kali.</p></li>
               <li><span class="step-label">simpulkan</span><p>Fungsi. Output $b$ dipakai dua kali, tapi itu boleh.</p></li>
             </ol>
@@ -261,13 +262,13 @@
             <p style="margin-top:22px"><strong>(ii)</strong> $\{(1,a),(1,b),(2,c)\}$</p>
             <ol class="steps">
               <li><span class="step-label">cek input</span><p>Input $1$ muncul dua kali dengan hasil berbeda.</p></li>
-              <li><span class="step-label">simpulkan</span><p>Bukan fungsi â€” bercabang.</p></li>
+              <li><span class="step-label">simpulkan</span><p>Bukan fungsi — bercabang.</p></li>
             </ol>
 
             <p style="margin-top:22px"><strong>(iii)</strong> $\{(1,c),(3,a)\}$</p>
             <ol class="steps">
               <li><span class="step-label">cek input</span><p>Input $2$ tidak punya pasangan sama sekali.</p></li>
-              <li><span class="step-label">simpulkan</span><p>Bukan fungsi dari $\{1,2,3\}$ â€” ada input yatim.</p></li>
+              <li><span class="step-label">simpulkan</span><p>Bukan fungsi dari $\{1,2,3\}$ — ada input yatim.</p></li>
             </ol>
           </div>
         </div>
@@ -331,42 +332,42 @@
           </figure>
         </div>
 
-        <p style="font-size:.92rem;color:var(--muted)">Kiri: setiap input punya satu panah, jadi fungsi. Kanan: input $1$ bercabang ke $a$ dan $c$, sedangkan input $3$ tidak punya panah sama sekali â€” dua pelanggaran sekaligus.</p>
+        <p style="font-size:.92rem;color:var(--muted)">Kiri: setiap input punya satu panah, jadi fungsi. Kanan: input $1$ bercabang ke $a$ dan $c$, sedangkan input $3$ tidak punya panah sama sekali — dua pelanggaran sekaligus.</p>
 
         <h3>Fungsi di kehidupan nyata</h3>
 
         <p>Relasi berikut sering muncul di soal cerita. Yang menentukan bukan nama relasinya, tapi arah pemetaannya.</p>
 
         <div class="deflist">
-          <dt>NIM â†’ mahasiswa</dt>
+          <dt>NIM → mahasiswa</dt>
           <dd>Fungsi. Satu NIM hanya milik satu mahasiswa.</dd>
 
-          <dt>mahasiswa â†’ NIM</dt>
+          <dt>mahasiswa → NIM</dt>
           <dd>Fungsi juga, selama tidak ada NIM kembar. Inilah yang membuat NIM disebut unik.</dd>
 
-          <dt>mahasiswa â†’ mata kuliah</dt>
+          <dt>mahasiswa → mata kuliah</dt>
           <dd>Bukan fungsi. Satu mahasiswa bisa mengambil beberapa mata kuliah, jadi outputnya bercabang.</dd>
 
-          <dt>anak â†’ ibu kandung</dt>
+          <dt>anak → ibu kandung</dt>
           <dd>Fungsi. Setiap orang punya tepat satu ibu kandung.</dd>
 
-          <dt>ibu â†’ anak</dt>
+          <dt>ibu → anak</dt>
           <dd>Bukan fungsi. Seorang ibu bisa punya lebih dari satu anak.</dd>
 
-          <dt>suhu Â°C â†’ suhu Â°F</dt>
+          <dt>suhu °C → suhu °F</dt>
           <dd>Fungsi. Setiap nilai Celsius menghasilkan tepat satu nilai Fahrenheit.</dd>
         </div>
 
         <div class="note">
           <span class="note-label">kenapa ini penting</span>
-          <p>Hampir semua kesalahan di bab invers dan komposisi berasal dari satu hal: lupa bahwa fungsi tidak boleh bercabang. Kalau kamu sudah bisa menilai sebuah relasi dengan aturan â€œsatu input, satu outputâ€, dua bab berikutnya akan jauh lebih ringan.</p>
+          <p>Hampir semua kesalahan di bab invers dan komposisi berasal dari satu hal: lupa bahwa fungsi tidak boleh bercabang. Kalau kamu sudah bisa menilai sebuah relasi dengan aturan “satu input, satu output”, dua bab berikutnya akan jauh lebih ringan.</p>
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> Relasi dari $\{1,2,3\}$ ke $\{a,b\}$: $\{(1,a),(2,a),(3,b)\}$. Fungsi?</p>
-            <p style="color:var(--green)">Ya. Semua input muncul tepat sekali. Output $a$ dipakai dua kali â€” itu tetap sah.</p>
+            <p style="color:var(--green)">Ya. Semua input muncul tepat sekali. Output $a$ dipakai dua kali — itu tetap sah.</p>
 
             <p style="margin-top:14px"><strong>2.</strong> $f(x)=x^2$. Hitung $f(-3)$. Apakah hasilnya $-9$?</p>
             <p style="color:var(--green)">Bukan. $f(-3)=(-3)^2=9$. Tanda negatif ikut dikuadratkan, jadi hasilnya positif.</p>
@@ -381,7 +382,7 @@
           <ul>
             <li>Fungsi $f:A\to B$ memasangkan <strong>setiap</strong> anggota $A$ ke <strong>tepat satu</strong> anggota $B$.</li>
             <li>Dua input boleh berbagi satu output; satu input tidak boleh punya dua output.</li>
-            <li>$f(x)$ berarti â€œ$f$ dari $x$â€, bukan $f$ dikali $x$.</li>
+            <li>$f(x)$ berarti “$f$ dari $x$”, bukan $f$ dikali $x$.</li>
             <li>Fungsi bisa ditulis sebagai rumus, tabel, pasangan berurutan, atau grafik.</li>
             <li>$A$ disebut domain, $B$ disebut kodomain, dan hasil yang benar-benar muncul disebut range.</li>
           </ul>
@@ -409,7 +410,7 @@
           <p><em>Domain</em> itu yang boleh masuk, <em>kodomain</em> itu yang disiapkan, <em>range</em> itu yang benar-benar keluar.</p>
         </div>
 
-        <p>Bayangkan mesin minuman. Tombol yang tersedia adalah <strong>domain</strong> â€” hanya tombol itu yang bisa kamu tekan. Seluruh minuman yang tersedia di dalam mesin adalah <strong>kodomain</strong> â€” pilihan yang disiapkan. Tapi yang benar-benar keluar hari ini, mungkin hanya dua jenis, itulah <strong>range</strong>.</p>
+        <p>Bayangkan mesin minuman. Tombol yang tersedia adalah <strong>domain</strong> — hanya tombol itu yang bisa kamu tekan. Seluruh minuman yang tersedia di dalam mesin adalah <strong>kodomain</strong> — pilihan yang disiapkan. Tapi yang benar-benar keluar hari ini, mungkin hanya dua jenis, itulah <strong>range</strong>.</p>
 
         <p>Kesalahan paling umum adalah menukar range dengan kodomain. Kodomain itu <em>kemungkinan</em>, range itu <em>kenyataan</em>.</p>
 
@@ -572,7 +573,7 @@
                 <p>$x-4\neq 0 \;\Rightarrow\; x\neq 4$</p>
               </li>
               <li>
-                <span class="step-label">gabungkan â€” harus memenuhi keduanya</span>
+                <span class="step-label">gabungkan — harus memenuhi keduanya</span>
                 <p>Mulai dari $-1$, boleh ke kanan, tapi $4$ dilubangi.</p>
               </li>
             </ol>
@@ -611,7 +612,7 @@
               <text x="360" y="34" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">dilubangi</text>
             </svg>
           </div>
-          <figcaption><b>Titik penuh berarti ikut, titik kosong berarti tidak.</b> Domain $[-1,4)\cup(4,\infty)$ dibaca: â€œsemua bilangan dari $-1$ sampai tak hingga, kecuali $4$.â€</figcaption>
+          <figcaption><b>Titik penuh berarti ikut, titik kosong berarti tidak.</b> Domain $[-1,4)\cup(4,\infty)$ dibaca: “semua bilangan dari $-1$ sampai tak hingga, kecuali $4$.”</figcaption>
         </figure>
 
         <h3>Menentukan range: lihat nilai yang benar-benar keluar</h3>
@@ -663,7 +664,7 @@
 
         <div class="note">
           <span class="note-label">jalan pintas yang aman</span>
-          <p>Untuk $f(x)=ax^2+bx+c$, nilai ekstremnya ada di $x=-\dfrac{b}{2a}$ dengan nilai $y=c-\dfrac{b^2}{4a}$. Kalau $a&gt;0$, range-nya $[y_{\min},\infty)$. Kalau $a&lt;0$, range-nya $(-\infty,y_{\max}]$. Jalan pintas ini boleh dipakai, asal kamu tahu dari mana asalnya â€” yaitu melengkapi kuadrat seperti contoh 4.</p>
+          <p>Untuk $f(x)=ax^2+bx+c$, nilai ekstremnya ada di $x=-\dfrac{b}{2a}$ dengan nilai $y=c-\dfrac{b^2}{4a}$. Kalau $a&gt;0$, range-nya $[y_{\min},\infty)$. Kalau $a&lt;0$, range-nya $(-\infty,y_{\max}]$. Jalan pintas ini boleh dipakai, asal kamu tahu dari mana asalnya — yaitu melengkapi kuadrat seperti contoh 4.</p>
         </div>
 
         <div class="example">
@@ -704,7 +705,7 @@
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> Tentukan domain $f(x)=\sqrt{2x-6}$.</p>
             <p style="color:var(--green)">$2x-6\ge 0 \Rightarrow x\ge 3$, jadi $D_f=[3,\infty)$.</p>
@@ -722,7 +723,7 @@
           <ul>
             <li><strong>Domain</strong> = input yang boleh masuk. <strong>Kodomain</strong> = himpunan tujuan. <strong>Range</strong> = output yang benar-benar tercapai.</li>
             <li>Range selalu bagian dari kodomain, tapi belum tentu sama.</li>
-            <li>Domain rusak oleh penyebut nol dan isi akar negatif â€” plus batasan konteks.</li>
+            <li>Domain rusak oleh penyebut nol dan isi akar negatif — plus batasan konteks.</li>
             <li>Notasi interval: $[$ dan $]$ untuk batas yang ikut, $($ dan $)$ untuk yang tidak. Simbol $\infty$ selalu memakai kurung biasa.</li>
             <li>Range kuadrat dibaca dari titik ekstrem; range rasional dibaca dari nilai yang mustahil.</li>
           </ul>
@@ -750,7 +751,7 @@
           <p>Bukan fungsi bukan berarti salah. Hanya berarti aturannya <em>bercabang</em>, atau ada input yang <em>tidak kebagian</em>.</p>
         </div>
 
-        <p>Setiap fungsi adalah relasi, tapi tidak setiap relasi adalah fungsi. Relasi hanya kumpulan pasangan; fungsi menambahkan dua janji tadi. Jadi untuk memeriksa, kamu tidak perlu melihat rumusnya â€” cukup lihat pasangan inputâ€“output yang benar-benar terjadi.</p>
+        <p>Setiap fungsi adalah relasi, tapi tidak setiap relasi adalah fungsi. Relasi hanya kumpulan pasangan; fungsi menambahkan dua janji tadi. Jadi untuk memeriksa, kamu tidak perlu melihat rumusnya — cukup lihat pasangan input–output yang benar-benar terjadi.</p>
 
         <h3>Dua jenis pelanggaran</h3>
 
@@ -760,18 +761,18 @@
             <h3 style="margin:10px 0 8px">Input bercabang</h3>
             <p style="font-size:.94rem;color:var(--muted);margin:0 0 10px">Satu input menghasilkan dua output berbeda.</p>
             <p style="font-family:var(--mono);font-size:.82rem;margin:0">$(1,a)$ dan $(1,b)$</p>
-            <p style="font-size:.86rem;color:var(--muted);margin:10px 0 0">Contoh nyata: â€œakar dariâ€. $9$ punya dua akar, yaitu $3$ dan $-3$.</p>
+            <p style="font-size:.86rem;color:var(--muted);margin:10px 0 0">Contoh nyata: “akar dari”. $9$ punya dua akar, yaitu $3$ dan $-3$.</p>
           </div>
           <div class="panel">
             <span class="chip chip-red">pelanggaran B</span>
             <h3 style="margin:10px 0 8px">Input yatim</h3>
             <p style="font-size:.94rem;color:var(--muted);margin:0 0 10px">Ada anggota domain yang tidak punya pasangan sama sekali.</p>
             <p style="font-family:var(--mono);font-size:.82rem;margin:0">domain $\{1,2,3\}$, tetapi $2$ tidak muncul</p>
-            <p style="font-size:.86rem;color:var(--muted);margin:10px 0 0">Contoh nyata: â€œNIM â†’ mahasiswaâ€ kalau ada NIM yang belum terdaftar.</p>
+            <p style="font-size:.86rem;color:var(--muted);margin:10px 0 0">Contoh nyata: “NIM → mahasiswa” kalau ada NIM yang belum terdaftar.</p>
           </div>
         </div>
 
-        <p>Perhatikan bahwa pelanggaran B hanya muncul kalau <strong>domain sudah ditetapkan</strong>. Relasi $\{(1,a),(3,c)\}$ bisa jadi fungsi dari $\{1,3\}$ ke $\{a,c\}$, tapi bukan fungsi dari $\{1,2,3\}$. Jadi pertanyaan â€œfungsi atau bukanâ€ selalu relatif terhadap domain yang dipilih.</p>
+        <p>Perhatikan bahwa pelanggaran B hanya muncul kalau <strong>domain sudah ditetapkan</strong>. Relasi $\{(1,a),(3,c)\}$ bisa jadi fungsi dari $\{1,3\}$ ke $\{a,c\}$, tapi bukan fungsi dari $\{1,2,3\}$. Jadi pertanyaan “fungsi atau bukan” selalu relatif terhadap domain yang dipilih.</p>
 
         <h3>Contoh yang sering menjebak: persamaan</h3>
 
@@ -809,7 +810,7 @@
                 </g>
                 <g font-family="'Newsreader',serif" font-size="13" font-style="italic" fill="#b03a26">
                   <text x="248" y="76">y = 4</text>
-                  <text x="248" y="272">y = âˆ’4</text>
+                  <text x="248" y="272">y = −4</text>
                 </g>
               </svg>
             </div>
@@ -835,10 +836,10 @@
                 <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">
                   <text x="308" y="186">x</text>
                   <text x="180" y="36">y</text>
-                  <text x="52" y="188">âˆ’5</text>
+                  <text x="52" y="188">−5</text>
                   <text x="272" y="188">5</text>
                 </g>
-                <text x="170" y="300" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#2f6b4f">y = âˆš(25 âˆ’ xÂ²)</text>
+                <text x="170" y="300" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#2f6b4f">y = √(25 − x²)</text>
               </svg>
             </div>
             <figcaption><b>Bisa diselamatkan.</b> Ambil hanya busur atas, dan hasilnya jadi fungsi: setiap $x\in[-5,5]$ punya tepat satu $y$.</figcaption>
@@ -877,14 +878,14 @@
             <p class="example-q">Apakah tabel berikut mendefinisikan $y$ sebagai fungsi dari $x$?</p>
             <div class="table-wrap" style="margin:12px 0">
               <table style="min-width:0">
-                <thead><tr><th>$x$</th><th>âˆ’1</th><th>0</th><th>1</th><th>1</th><th>2</th></tr></thead>
+                <thead><tr><th>$x$</th><th>−1</th><th>0</th><th>1</th><th>1</th><th>2</th></tr></thead>
                 <tbody><tr><td><strong>$y$</strong></td><td>3</td><td>0</td><td>2</td><td>5</td><td>3</td></tr></tbody>
               </table>
             </div>
             <ol class="steps">
               <li><span class="step-label">cari $x$ yang berulang</span><p>$x=1$ muncul dua kali.</p></li>
               <li><span class="step-label">bandingkan hasilnya</span><p>Saat $x=1$, $y=2$; saat $x=1$ lagi, $y=5$.</p></li>
-              <li><span class="step-label">simpulkan</span><p>Dua hasil berbeda untuk input yang sama â€” bukan fungsi.</p></li>
+              <li><span class="step-label">simpulkan</span><p>Dua hasil berbeda untuk input yang sama — bukan fungsi.</p></li>
             </ol>
             <span class="answer">Bukan fungsi, karena $f(1)$ tidak punya nilai tunggal.</span>
           </div>
@@ -892,12 +893,12 @@
 
         <div class="trap">
           <span class="trap-label">sering keliru</span>
-          <p><strong>â€œAda dua titik dengan $y$ sama, berarti bukan fungsi.â€</strong> Salah. Yang dilarang adalah dua titik dengan <em>$x$ sama</em> dan $y$ berbeda. Pada $y=x^2$, titik $(2,4)$ dan $(-2,4)$ punya $y$ sama, tapi $x$-nya berbeda â€” tetap fungsi.</p>
-          <p><strong>â€œRumus selalu berarti fungsi.â€</strong> $y^2=x$ adalah rumus, tapi bukan fungsi $y$ terhadap $x$.</p>
+          <p><strong>“Ada dua titik dengan $y$ sama, berarti bukan fungsi.”</strong> Salah. Yang dilarang adalah dua titik dengan <em>$x$ sama</em> dan $y$ berbeda. Pada $y=x^2$, titik $(2,4)$ dan $(-2,4)$ punya $y$ sama, tapi $x$-nya berbeda — tetap fungsi.</p>
+          <p><strong>“Rumus selalu berarti fungsi.”</strong> $y^2=x$ adalah rumus, tapi bukan fungsi $y$ terhadap $x$.</p>
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> Relasi $\{(2,5),(3,5),(4,5)\}$ dari $\{2,3,4\}$ ke $\{5\}$. Fungsi?</p>
             <p style="color:var(--green)">Ya. Semua input muncul tepat sekali; output boleh sama semua.</p>
@@ -943,15 +944,15 @@
           <p>$f(x)$ bukan perkalian. $x$ adalah <em>tempat kosong</em>, dan apa pun yang kamu masukkan ke situ harus masuk ke <em>semua</em> tempat yang sama.</p>
         </div>
 
-        <p>Anggap rumus fungsi sebagai kalimat dengan satu lubang. Kalau $f(x)=2x+1$, maka kalimatnya adalah â€œdua kali <span style="border-bottom:2px solid var(--red);padding:0 12px"> </span> ditambah satuâ€. Lubang itu bisa diisi angka, huruf lain, atau bahkan seluruh ekspresi.</p>
+        <p>Anggap rumus fungsi sebagai kalimat dengan satu lubang. Kalau $f(x)=2x+1$, maka kalimatnya adalah “dua kali <span style="border-bottom:2px solid var(--red);padding:0 12px"> </span> ditambah satu”. Lubang itu bisa diisi angka, huruf lain, atau bahkan seluruh ekspresi.</p>
 
         <div class="formula">
           <div class="formula-head"><span>pola pengisian</span><span>satu lubang, banyak isi</span></div>
           <div class="formula-body">$f(\,\square\,)=2(\,\square\,)+1$</div>
-          <div class="formula-foot">Isi kotak dengan $3$ â†’ $f(3)=7$. Isi dengan $t$ â†’ $f(t)=2t+1$. Isi dengan $x+1$ â†’ $f(x+1)=2(x+1)+1$.</div>
+          <div class="formula-foot">Isi kotak dengan $3$ → $f(3)=7$. Isi dengan $t$ → $f(t)=2t+1$. Isi dengan $x+1$ → $f(x+1)=2(x+1)+1$.</div>
         </div>
 
-        <p>Karena itu, $f(x)=2x+1$ dan $f(t)=2t+1$ adalah fungsi yang <strong>sama persis</strong>. Nama variabelnya hanya label; yang penting aturannya. Matematikawan menyebutnya variabel dummy â€” variabel yang namanya tidak berpengaruh.</p>
+        <p>Karena itu, $f(x)=2x+1$ dan $f(t)=2t+1$ adalah fungsi yang <strong>sama persis</strong>. Nama variabelnya hanya label; yang penting aturannya. Matematikawan menyebutnya variabel dummy — variabel yang namanya tidak berpengaruh.</p>
 
         <h3>Mengisi dengan ekspresi</h3>
 
@@ -970,7 +971,7 @@
                 <p>$f(\square)=2(\square)+1$</p>
               </li>
               <li>
-                <span class="step-label">isi kotak dengan $x+1$ â€” pakai kurung</span>
+                <span class="step-label">isi kotak dengan $x+1$ — pakai kurung</span>
                 <p>$f(x+1)=2(x+1)+1$</p>
                 <p>$=2x+2+1$</p>
                 <p>$=2x+3$</p>
@@ -988,8 +989,8 @@
 
         <div class="trap">
           <span class="trap-label">sering keliru</span>
-          <p><strong>$f(x+1)\neq f(x)+1$.</strong> Untuk $f(x)=2x+1$: $f(x)+1=2x+2$, sedangkan $f(x+1)=2x+3$. Bukan hanya angkanya yang berbeda â€” artinya juga berbeda: $f(x)+1$ menambah hasil, $f(x+1)$ menggeser input.</p>
-          <p><strong>$f(a+b)\neq f(a)+f(b)$.</strong> Hampir semua fungsi biasa tidak â€œmembagiâ€ penjumlahan seperti itu. Kalau kamu memakainya, kamu sedang mengarang aturan baru.</p>
+          <p><strong>$f(x+1)\neq f(x)+1$.</strong> Untuk $f(x)=2x+1$: $f(x)+1=2x+2$, sedangkan $f(x+1)=2x+3$. Bukan hanya angkanya yang berbeda — artinya juga berbeda: $f(x)+1$ menambah hasil, $f(x+1)$ menggeser input.</p>
+          <p><strong>$f(a+b)\neq f(a)+f(b)$.</strong> Hampir semua fungsi biasa tidak “membagi” penjumlahan seperti itu. Kalau kamu memakainya, kamu sedang mengarang aturan baru.</p>
         </div>
 
         <h3>Dari hasil kembali ke input</h3>
@@ -1018,7 +1019,7 @@
               </li>
               <li>
                 <span class="step-label">periksa kembali</span>
-                <p>$f(3)=2(3)+1=7$ âœ“</p>
+                <p>$f(3)=2(3)+1=7$ ✓</p>
               </li>
             </ol>
             <span class="answer">$x=3$</span>
@@ -1056,7 +1057,7 @@
               </li>
             </ol>
             <span class="answer">$f(x+h)-f(x)=h(2x+h)$</span>
-            <p style="margin-top:14px;font-size:.92rem;color:var(--muted)">Kalau nanti kamu membagi dengan $h$ lalu mengambil $h\to 0$, hasilnya $2x$ â€” turunan dari $x^2$. Tapi itu cerita bab lain. Yang penting sekarang: substitusi dan penjabarannya sudah benar.</p>
+            <p style="margin-top:14px;font-size:.92rem;color:var(--muted)">Kalau nanti kamu membagi dengan $h$ lalu mengambil $h\to 0$, hasilnya $2x$ — turunan dari $x^2$. Tapi itu cerita bab lain. Yang penting sekarang: substitusi dan penjabarannya sudah benar.</p>
           </div>
         </div>
 
@@ -1066,7 +1067,7 @@
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> $f(x)=x^2-3$. Hitung $f(-2)$.</p>
             <p style="color:var(--green)">$f(-2)=(-2)^2-3=4-3=1$.</p>
@@ -1082,7 +1083,7 @@
         <div class="recap">
           <h3>Rangkuman bagian 04</h3>
           <ul>
-            <li>$f(x)$ berarti â€œ$f$ dari $x$â€; $x$ adalah tempat kosong, bukan faktor.</li>
+            <li>$f(x)$ berarti “$f$ dari $x$”; $x$ adalah tempat kosong, bukan faktor.</li>
             <li>Nama variabel bebas boleh diganti: $f(x)$ dan $f(t)$ bisa jadi fungsi yang sama.</li>
             <li>Saat mengisi ekspresi, bungkus dengan kurung: $2(x+1)$, bukan $2x+1$.</li>
             <li>$f(x+1)$ menggeser input; $f(x)+1$ menambah output. Dua hal berbeda.</li>
@@ -1103,7 +1104,7 @@
           <span class="sec-no">05</span>
           <div>
             <h2>Grafik fungsi &amp; uji garis vertikal</h2>
-            <p class="sec-sub">Cara melihat â€œsatu input, satu outputâ€ langsung dari gambarnya.</p>
+            <p class="sec-sub">Cara melihat “satu input, satu output” langsung dari gambarnya.</p>
           </div>
         </div>
 
@@ -1118,7 +1119,7 @@
 
         <div class="panel" style="margin:22px 0">
           <p style="margin:0 0 8px"><strong>Uji garis vertikal.</strong> Bayangkan garis vertikal digeser dari kiri ke kanan. Kalau di suatu posisi garis itu memotong grafik di <strong>lebih dari satu titik</strong>, maka grafik tersebut bukan grafik fungsi.</p>
-          <p style="margin:0;font-size:.92rem;color:var(--muted)">Alasannya sederhana: garis vertikal berarti â€œ$x$ tetapâ€. Dua titik potong berarti dua nilai $y$ untuk $x$ yang sama.</p>
+          <p style="margin:0;font-size:.92rem;color:var(--muted)">Alasannya sederhana: garis vertikal berarti “$x$ tetap”. Dua titik potong berarti dua nilai $y$ untuk $x$ yang sama.</p>
         </div>
 
         <figure class="fig">
@@ -1142,8 +1143,8 @@
                           fill="none" stroke="#1f4e79" stroke-width="1.8"/>
                 <line x1="165" y1="20" x2="165" y2="230" stroke="#b03a26" stroke-width="1.2" stroke-dasharray="4 4"/>
                 <circle cx="165" cy="82" r="4" fill="#b03a26"/>
-                <text x="120" y="248" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">y = xÂ²</text>
-                <text x="120" y="272" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#2f6b4f">1 potong Â· fungsi</text>
+                <text x="120" y="248" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">y = x²</text>
+                <text x="120" y="272" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#2f6b4f">1 potong · fungsi</text>
               </g>
 
               <!-- panel 2 : lingkaran -->
@@ -1154,8 +1155,8 @@
                 <line x1="390" y1="60" x2="390" y2="240" stroke="#b03a26" stroke-width="1.2" stroke-dasharray="4 4"/>
                 <circle cx="390" cy="98" r="4" fill="#b03a26"/>
                 <circle cx="390" cy="202" r="4" fill="#b03a26"/>
-                <text x="360" y="248" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">xÂ² + yÂ² = 4</text>
-                <text x="360" y="272" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">2 potong Â· bukan fungsi</text>
+                <text x="360" y="248" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">x² + y² = 4</text>
+                <text x="360" y="272" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">2 potong · bukan fungsi</text>
               </g>
 
               <!-- panel 3 : parabola mendatar -->
@@ -1167,8 +1168,8 @@
                 <line x1="640" y1="60" x2="640" y2="240" stroke="#b03a26" stroke-width="1.2" stroke-dasharray="4 4"/>
                 <circle cx="640" cy="122" r="4" fill="#b03a26"/>
                 <circle cx="640" cy="178" r="4" fill="#b03a26"/>
-                <text x="655" y="248" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">x = yÂ²</text>
-                <text x="655" y="272" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">2 potong Â· bukan fungsi</text>
+                <text x="655" y="248" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#55636f">x = y²</text>
+                <text x="655" y="272" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#b03a26">2 potong · bukan fungsi</text>
               </g>
             </svg>
           </div>
@@ -1214,8 +1215,8 @@
                 <span class="step-label">buat tabel nilai</span>
                 <div class="table-wrap" style="margin:10px 0">
                   <table style="min-width:0">
-                    <thead><tr><th>$x$</th><th>âˆ’1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
-                    <tbody><tr><td><strong>$f(x)$</strong></td><td>3</td><td>0</td><td>âˆ’1</td><td>0</td><td>3</td></tr></tbody>
+                    <thead><tr><th>$x$</th><th>−1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
+                    <tbody><tr><td><strong>$f(x)$</strong></td><td>3</td><td>0</td><td>−1</td><td>0</td><td>3</td></tr></tbody>
                   </table>
                 </div>
               </li>
@@ -1239,11 +1240,11 @@
         <div class="grid-2">
           <div class="panel panel-tight">
             <span class="chip chip-blue">domain</span>
-            <p style="margin:10px 0 0;font-size:.94rem;color:var(--muted)">Jatuhkan grafik ke <strong>sumbu $x$</strong>. Bayangan yang terbentuk adalah domain â€” semua posisi horizontal yang punya titik.</p>
+            <p style="margin:10px 0 0;font-size:.94rem;color:var(--muted)">Jatuhkan grafik ke <strong>sumbu $x$</strong>. Bayangan yang terbentuk adalah domain — semua posisi horizontal yang punya titik.</p>
           </div>
           <div class="panel panel-tight">
             <span class="chip chip-blue">range</span>
-            <p style="margin:10px 0 0;font-size:.94rem;color:var(--muted)">Jatuhkan grafik ke <strong>sumbu $y$</strong>. Bayangan vertikalnya adalah range â€” semua ketinggian yang benar-benar dicapai.</p>
+            <p style="margin:10px 0 0;font-size:.94rem;color:var(--muted)">Jatuhkan grafik ke <strong>sumbu $y$</strong>. Bayangan vertikalnya adalah range — semua ketinggian yang benar-benar dicapai.</p>
           </div>
         </div>
 
@@ -1251,12 +1252,12 @@
 
         <div class="trap">
           <span class="trap-label">sering keliru</span>
-          <p><strong>Menyambung titik melewati lubang.</strong> Grafik $y=\frac{1}{x}$ punya dua cabang terpisah. Menyambungkannya jadi satu garis halus adalah kesalahan besar â€” di $x=0$ fungsinya tidak ada.</p>
+          <p><strong>Menyambung titik melewati lubang.</strong> Grafik $y=\frac{1}{x}$ punya dua cabang terpisah. Menyambungkannya jadi satu garis halus adalah kesalahan besar — di $x=0$ fungsinya tidak ada.</p>
           <p><strong>Menganggap grafik fungsi selalu mulus.</strong> Fungsi tangga dan fungsi sepotong (bagian 11) punya patahan tajam atau titik terpisah, dan itu tetap fungsi.</p>
         </div>
 
         <details class="check">
-          <summary>Cek pemahaman Â· 3 pertanyaan</summary>
+          <summary>Cek pemahaman · 3 pertanyaan</summary>
           <div class="check-body">
             <p><strong>1.</strong> Sebuah grafik berbentuk garis lurus miring. Apakah pasti fungsi?</p>
             <p style="color:var(--green)">Ya, selama bukan garis vertikal. Garis miring memotong setiap garis vertikal tepat sekali.</p>
@@ -1275,7 +1276,7 @@
             <li>Grafik fungsi = himpunan titik $(x,f(x))$ untuk semua $x$ di domain.</li>
             <li>Uji garis vertikal: satu potongan boleh, dua potongan berarti bukan fungsi.</li>
             <li>Domain dibaca dari bayangan pada sumbu $x$; range dari bayangan pada sumbu $y$.</li>
-            <li>Gambar grafik: domain â†’ tabel â†’ titik â†’ hubungkan tanpa melewati lubang.</li>
+            <li>Gambar grafik: domain → tabel → titik → hubungkan tanpa melewati lubang.</li>
             <li>Grafik fungsi tidak harus mulus, tapi tidak boleh punya dua titik pada satu kolom vertikal.</li>
           </ul>
         </div>
@@ -1290,7 +1291,7 @@
       <nav class="nextprev" aria-label="Navigasi halaman">
         <a class="np" href="#substitusi">
           <span>sebelumnya</span>
-          <b>Bagian 04 Â· Notasi &amp; substitusi</b>
+          <b>Bagian 04 · Notasi &amp; substitusi</b>
         </a>
         <a class="np next" href="bentuk.html">
           <span>lanjut ke bab 02</span>
@@ -1304,7 +1305,7 @@
 
 <footer class="shell">
   <div class="foot">
-    <span>materi-fungsi Â· bab 01</span>
+    <span>materi-fungsi · bab 01</span>
     <span><a href="https://github.com/voltakyy/materi-fungsi">sumber di GitHub</a></span>
   </div>
 </footer>
@@ -1317,5 +1318,6 @@
   <script src="../shared/portal-nav.js" defer></script>
 </body>
 </html>
+
 
 

@@ -5,26 +5,26 @@
    ========================================================= */
 
 :root{
-  --paper:#f6f1e6;
-  --paper-deep:#e9e0cf;
-  --paper-soft:#fbf7ee;
-  --card:#fffdf7;
-  --ink:#23281f;
-  --body:#3a4037;
-  --muted:#52584d;
+  --paper: #fafbfc;
+  --paper-deep: #f0f4f8;
+  --paper-soft: #ffffff;
+  --card: #ffffff;
+  --ink: #1a202c;
+  --body: #4a5568;
+  --muted: #718096;
   --faint:#63695e;
   --line:rgba(35,40,31,.18);
   --edge:rgba(35,40,31,.44);
   --edge-strong:rgba(35,40,31,.68);
 
-  --cobalt:#2f5687;
-  --cobalt-deep:#243f63;
-  --cobalt-soft:#e4ebf3;
-  --coral:#984631;
-  --coral-deep:#7a3523;
-  --coral-soft:#f4e0d7;
-  --olive:#5a6940;
-  --olive-soft:#e9edda;
+  --cobalt: #0066cc;
+  --cobalt-deep: #0052a3;
+  --cobalt-soft: #e0f2fe;
+  --coral: #ef4444;
+  --coral-deep: #dc2626;
+  --coral-soft: #fee2e2;
+  --olive: #00a67e;
+  --olive-soft: #e6f7f3;
   --plum:#6f5068;
   --plum-soft:#f1e6ec;
   --gold:#d9b96a;
@@ -39,12 +39,12 @@
   --uts-gold:#f0c98e;
   --uts-line:rgba(250,242,221,.18);
 
-  --font:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
-  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --display: 'Plus Jakarta Sans', Georgia, serif;
   --mono:'Spline Sans Mono','IBM Plex Mono',Consolas,monospace;
 
-  --shadow-soft:0 1px 2px rgba(47,51,48,.035),0 12px 26px -20px rgba(47,51,48,.28);
-  --shadow-lift:0 2px 4px rgba(47,51,48,.05),0 20px 38px -24px rgba(47,51,48,.34);
+  --shadow-soft: 0 2px 8px rgba(0, 102, 204, 0.05);
+  --shadow-lift: 0 12px 32px rgba(0, 102, 204, 0.12);
   --shadow-panel:-20px 0 48px -34px rgba(47,51,48,.38);
   --shadow:var(--shadow-soft);
   --r-card:16px;

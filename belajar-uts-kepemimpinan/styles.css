@@ -3,30 +3,33 @@
    Sistem Desain: Studio Paper Neo-Brutalist (Identik dengan Ruang Visual)
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  --paper: #f6f0e4;
-  --paper-deep: #efe5d1;
-  --card: #fffdf7;
-  --ink: #24221f;
-  --ink-soft: #5f5a50;
-  --ink-faint: #8a8377;
-  --mustard: #f2b544;
-  --mustard-soft: #fdf2d4;
-  --tomato: #dd5a3a;
-  --tomato-soft: #fbe8e1;
-  --teal: #2b8a79;
-  --teal-soft: #e5f2ee;
-  --blue: #9fc3d8;
-  --blue-soft: #e8f1f5;
-  --plum: #7d5a86;
-  --plum-soft: #f0e9f2;
-  --font: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --display: 'Bricolage Grotesque', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --paper: #fafbfc;
+  --paper-deep: #f0f4f8;
+  --card: #ffffff;
+  --ink: #1a202c;
+  --ink-soft: #4a5568;
+  --ink-faint: #718096;
+  --mustard: #00a67e;
+  --mustard-soft: #e6f7f3;
+  --tomato: #ef4444;
+  --tomato-soft: #fee2e2;
+  --teal: #0066cc;
+  --teal-soft: #e0f2fe;
+  --blue: #0066cc;
+  --blue-soft: #e0f2fe;
+  --plum: #00a67e;
+  --plum-soft: #e6f7f3;
+  --font: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
-  --radius: 20px;
-  --shadow: 7px 7px 0 var(--ink);
+  --radius: 16px;
+  --border: #e2e8f0;
+  --shadow-sm: 0 2px 8px rgba(0, 102, 204, 0.05);
+  --shadow-lg: 0 12px 32px rgba(0, 102, 204, 0.12);
+  --shadow: 0 4px 16px rgba(0, 102, 204, 0.08);
 }
 
 *, *::before, *::after {
@@ -48,26 +51,13 @@ body {
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.55;
-  background:
-    radial-gradient(circle at 8% -4%, rgba(242,181,68,.28), transparent 34rem),
-    radial-gradient(circle at 96% 4%, rgba(159,195,216,.32), transparent 30rem),
-    radial-gradient(circle at 50% 110%, rgba(43,138,121,.14), transparent 36rem),
-    var(--paper);
-  background-attachment: fixed;
+  background: #fafbfc;
+  background-attachment: scroll;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(36,34,31,.12) 1px, transparent 1.6px);
-  background-size: 26px 26px;
-  opacity: .24;
-}
+body::before { display: none; }
 
 [hidden] { display: none !important; }
 button { font: inherit; color: inherit; }
@@ -129,10 +119,10 @@ img, svg { max-width: 100%; height: auto; }
   height: 42px;
   flex: 0 0 auto;
   padding: 4px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--card);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   display: grid;
   place-items: center;
 }
@@ -167,20 +157,20 @@ img, svg { max-width: 100%; height: auto; }
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--card);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   transition: all .15s ease;
   cursor: pointer;
 }
 .nav-pill:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
   background: var(--mustard-soft);
 }
 .nav-pill.active {
@@ -192,11 +182,11 @@ img, svg { max-width: 100%; height: auto; }
   font-size: 10px;
   letter-spacing: .04em;
   padding: 6px 12px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--mustard-soft);
   transform: rotate(2deg);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   white-space: nowrap;
   font-weight: 700;
 }
@@ -299,7 +289,7 @@ h1 .h1-question {
 .polaroid {
   position: relative;
   padding: 12px 12px 14px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--card);
   box-shadow: 10px 11px 0 var(--ink);
@@ -322,7 +312,7 @@ h1 .h1-question {
   display: block;
   width: 100%;
   height: auto;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 8px;
 }
 .hero-figure figcaption {
@@ -337,7 +327,7 @@ h1 .h1-question {
 /* ---------- Syllabus Card ---------- */
 .syllabus {
   padding: 24px clamp(18px, 3.5vw, 30px);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -393,7 +383,7 @@ h1 .h1-question {
   width: 12px;
   height: 12px;
   flex: 0 0 auto;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 50%;
   background: var(--teal);
 }
@@ -417,7 +407,7 @@ h1 .h1-question {
   flex: 0 0 auto;
   margin-left: auto;
   padding: 3px 10px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--mustard-soft);
   font-family: var(--mono);
@@ -450,16 +440,16 @@ h1 .h1-question {
   display: flex;
   flex-direction: column;
   padding: 24px clamp(18px, 3.5vw, 28px);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   text-decoration: none;
   transition: all .15s ease;
 }
 .year-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(--ink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
   background: var(--mustard-soft);
 }
 .year-card .yr {
@@ -496,7 +486,7 @@ h1 .h1-question {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--ink);
   color: #fffdf7;
@@ -507,7 +497,7 @@ h1 .h1-question {
 
 /* ---------- Official Header Card ---------- */
 .official-header-card {
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -522,7 +512,7 @@ h1 .h1-question {
   top: 14px;
   right: -32px;
   background: var(--mustard);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   font-family: var(--mono);
   font-size: 9px;
   font-weight: 800;
@@ -542,7 +532,7 @@ h1 .h1-question {
 .univ-logo-box {
   width: 58px;
   height: 58px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--teal);
   color: #fff;
@@ -551,7 +541,7 @@ h1 .h1-question {
   font-family: var(--display);
   font-weight: 850;
   font-size: 21px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
 }
 .univ-titles h1 {
@@ -574,7 +564,7 @@ h1 .h1-question {
   gap: 12px;
   margin-bottom: 18px;
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 18px;
 }
@@ -641,7 +631,7 @@ h1 .h1-question {
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--card);
   font-family: var(--display);
@@ -649,22 +639,22 @@ h1 .h1-question {
   font-weight: 750;
   color: var(--ink-soft);
   cursor: pointer;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   white-space: nowrap;
   flex: 0 0 auto;
   flex-shrink: 0;
   transition: all .15s ease;
 }
 .tab-trigger:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
   color: var(--ink);
 }
 .tab-trigger.active {
   background: var(--tomato);
   color: #fffdf7;
   border-color: var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   transform: translate(1px, 1px);
 }
 .tab-badge {
@@ -697,7 +687,7 @@ h1 .h1-question {
 
 /* ---------- Question & Solution Cards ---------- */
 .q-post {
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -734,13 +724,13 @@ h1 .h1-question {
 .badge-score {
   background: var(--mustard);
   color: var(--ink);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   font-family: var(--mono);
   font-weight: 700;
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 8px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
 }
 .badge-cpmk {
   background: var(--teal-soft);
@@ -764,7 +754,7 @@ h1 .h1-question {
 /* Solution Box */
 .solution-card {
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 20px clamp(14px, 3vw, 24px);
   margin-top: 18px;
@@ -805,13 +795,13 @@ h1 .h1-question {
 
 /* Code / Skeleton Box */
 .code-window {
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   background: #1e1e24;
   color: #f3ecdc;
   margin: 14px 0 18px;
   overflow: hidden;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
 }
 .code-bar {
   display: flex;
@@ -849,14 +839,14 @@ h1 .h1-question {
 /* Callout Boxes */
 .def-box {
   background: var(--card);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-left: 5px solid var(--teal);
   border-radius: 8px;
   padding: 12px 16px;
   margin: 12px 0 16px;
   font-size: 14px;
   line-height: 1.6;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
 }
 .def-box.gold {
   border-left-color: var(--mustard);
@@ -908,10 +898,10 @@ h1 .h1-question {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin: 16px 0;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--card);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   overscroll-behavior-x: contain;
 }
 .rubrik-table {
@@ -946,16 +936,16 @@ h1 .h1-question {
 
 /* Accordion / Details */
 details {
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--card);
   margin-bottom: 16px;
-  box-shadow: 4px 4px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: all .15s ease;
 }
 details[open] {
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: var(--shadow);
 }
 summary {
   padding: 16px 20px;
@@ -1005,12 +995,12 @@ details[open] summary::after {
 .search-input {
   width: 100%;
   padding: 14px 18px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--card);
   font-family: var(--font);
   font-size: 15px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   color: var(--ink);
 }
 .search-input:focus {
@@ -1024,11 +1014,11 @@ details[open] summary::after {
   gap: 16px;
 }
 .gl-item {
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--card);
   padding: 16px 18px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   font-size: 13.5px;
   line-height: 1.55;
   color: var(--ink-soft);
@@ -1070,11 +1060,11 @@ details[open] summary::after {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--card);
   padding: 20px;
-  box-shadow: 4px 4px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1111,10 +1101,10 @@ details[open] summary::after {
 
 /* ---------- Simulator Tab ---------- */
 .exam-score-bar {
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--mustard);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   padding: 18px 24px;
   margin-bottom: 24px;
   display: flex;
@@ -1147,13 +1137,13 @@ details[open] summary::after {
 }
 .grade-pill {
   padding: 6px 16px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--card);
   font-family: var(--mono);
   font-weight: 800;
   font-size: 13px;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   white-space: nowrap;
 }
 
@@ -1162,10 +1152,10 @@ details[open] summary::after {
   align-items: center;
   gap: 12px;
   background: var(--card);
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 10px 18px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 22px;
   flex-wrap: wrap;
 }
@@ -1187,7 +1177,7 @@ details[open] summary::after {
 }
 
 .essay-sim-card {
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -1197,7 +1187,7 @@ details[open] summary::after {
 .sim-textarea {
   width: 100%;
   min-height: 125px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 12px 14px;
   font-family: var(--font);
@@ -1226,7 +1216,7 @@ details[open] summary::after {
   align-items: center;
   gap: 10px;
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   padding: 6px 14px;
   border-radius: 8px;
 }
@@ -1257,20 +1247,20 @@ details[open] summary::after {
   width: 100%;
   text-align: left;
   padding: 12px 16px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--card);
   cursor: pointer;
   font-size: 14px;
   line-height: 1.45;
   color: var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   transition: all .15s ease;
 }
 .mc-opt-btn:hover {
   background: var(--mustard-soft);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 .mc-opt-btn.correct {
   background: var(--teal-soft) !important;
@@ -1297,7 +1287,7 @@ details[open] summary::after {
 
 /* ---------- Diagram Stage ---------- */
 .diagram-stage {
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -1313,14 +1303,14 @@ details[open] summary::after {
 }
 .diag-btn {
   padding: 8px 16px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--paper);
   font-family: var(--display);
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
   transition: all .15s ease;
 }
 .diag-btn:hover {
@@ -1333,7 +1323,7 @@ details[open] summary::after {
 }
 .diagram-canvas {
   background: var(--paper);
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 20px;
   overflow-x: auto;
@@ -1347,7 +1337,7 @@ details[open] summary::after {
   justify-content: center;
   gap: 8px;
   padding: 11px 20px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--card);
   color: var(--ink);
@@ -1356,12 +1346,12 @@ details[open] summary::after {
   font-weight: 750;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-sm);
   transition: all .15s ease;
 }
 .btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 .btn:active {
   transform: translate(1px, 1px);
@@ -1372,8 +1362,8 @@ details[open] summary::after {
 .btn-teal { background: var(--teal); color: #fff; }
 .btn-teal:hover { background: #349c89; }
 .btn-ghost { background: transparent; box-shadow: none; }
-.btn-ghost:hover { background: var(--card); box-shadow: 3px 3px 0 var(--ink); }
-.btn-small { padding: 8px 14px; border-radius: 8px; font-size: .84rem; box-shadow: 2px 2px 0 var(--ink); }
+.btn-ghost:hover { background: var(--card); box-shadow: var(--shadow-sm); }
+.btn-small { padding: 8px 14px; border-radius: 8px; font-size: .84rem; box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04); }
 
 /* ---------- Back to Top Floating Button ---------- */
 .back-to-top {
@@ -1385,8 +1375,8 @@ details[open] summary::after {
   border-radius: 50%;
   background: var(--mustard);
   color: var(--ink);
-  border: 2px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   font-size: 20px;
   font-weight: 800;
   cursor: pointer;
@@ -1397,8 +1387,8 @@ details[open] summary::after {
   transition: transform 0.15s ease, background 0.15s ease;
 }
 .back-to-top:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--ink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
   background: #ffd269;
 }
 .back-to-top:active {

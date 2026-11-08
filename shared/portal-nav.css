@@ -1,29 +1,21 @@
 /* =========================================================
-   RUANG BELAJAR UMS — MODERN TECH UNIVERSAL PORTAL TOPBAR
-   Linear / Raycast Developer Style · Frosted Glass & Micro-Borders
+   RUANG BELAJAR UMS — UNIVERSAL PORTAL TOPBAR
+   Medical Clinic Style (uupm.cc/demo/medical-clinic)
    ========================================================= */
 
-:root {
-  --portal-bar-bg: rgba(11, 15, 23, 0.82);
-  --portal-bar-ink: #f8fafc;
-  --portal-bar-muted: #94a3b8;
-  --portal-bar-border: rgba(255, 255, 255, 0.08);
-  --portal-bar-accent: #6366f1;
-  --portal-card-bg: #111827;
-  --portal-card-hover: #162032;
-  --portal-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', system-ui, sans-serif;
-  --portal-font-mono: 'JetBrains Mono', ui-monospace, monospace;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap");
 
-/* Light Mode support */
-[data-theme="light"], .theme-light, body.light-mode {
-  --portal-bar-bg: rgba(255, 255, 255, 0.85);
-  --portal-bar-ink: #0f172a;
-  --portal-bar-muted: #64748b;
-  --portal-bar-border: rgba(0, 0, 0, 0.08);
-  --portal-bar-accent: #4f46e5;
+:root {
+  --portal-bar-bg: #fffffffa;
+  --portal-bar-ink: #1a202c;
+  --portal-bar-muted: #4a5568;
+  --portal-bar-border: #e2e8f0;
+  --portal-bar-accent: #0066cc;
   --portal-card-bg: #ffffff;
-  --portal-card-hover: #f1f5f9;
+  --portal-card-hover: #f0f4f8;
+  --portal-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', system-ui, sans-serif;
+  --portal-font-heading: 'Plus Jakarta Sans', sans-serif;
+  --portal-font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 #ums-portal-bar {
@@ -33,20 +25,21 @@
   right: 0;
   z-index: 99999;
   background: var(--portal-bar-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--portal-bar-ink);
   border-bottom: 1px solid var(--portal-bar-border);
   font-family: var(--portal-font-sans);
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .ums-portal-inner {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 8px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,37 +58,38 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--portal-bar-ink);
-  border: 1px solid var(--portal-bar-border);
-  border-radius: 6px;
+  padding: 6px 14px;
+  background: rgba(0, 102, 204, 0.08);
+  color: var(--portal-bar-accent);
+  border: 1px solid rgba(0, 102, 204, 0.15);
+  border-radius: 50px;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 12.5px;
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .ums-portal-home-link:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--portal-bar-accent);
   color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
 }
 
 .ums-portal-crumb-sep {
-  color: var(--portal-bar-muted);
+  color: #cbd5e1;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   user-select: none;
 }
 
 .ums-portal-current-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  font-size: 12.5px;
+  gap: 8px;
+  font-family: var(--portal-font-heading);
+  font-weight: 700;
+  font-size: 14px;
   color: var(--portal-bar-ink);
   letter-spacing: -0.01em;
 }
@@ -106,7 +100,7 @@
   gap: 8px;
 }
 
-/* Switcher Dropdown (Raycast command palette style) */
+/* Switcher Dropdown */
 .ums-portal-dropdown {
   position: relative;
 }
@@ -115,21 +109,22 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
-  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  background: #ffffff;
   color: var(--portal-bar-ink);
   border: 1px solid var(--portal-bar-border);
-  border-radius: 6px;
+  border-radius: 50px;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 12.5px;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .ums-portal-dropbtn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--portal-bar-accent);
+  color: var(--portal-bar-accent);
 }
 
 .ums-portal-menu {
@@ -138,11 +133,11 @@
   top: calc(100% + 8px);
   right: 0;
   min-width: 280px;
-  background: var(--portal-card-bg);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
-  padding: 6px;
+  background: #ffffff;
+  border: 1px solid var(--portal-bar-border);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 102, 204, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 8px;
   z-index: 100000;
   list-style: none;
   margin: 0;
@@ -159,49 +154,49 @@
 }
 
 .ums-portal-menu-header {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--portal-bar-muted);
-  padding: 6px 10px 4px;
+  padding: 8px 12px 4px;
 }
 
 .ums-portal-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
+  padding: 9px 12px;
   color: var(--portal-bar-ink);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: 500;
-  font-size: 12.5px;
-  transition: all 0.12s ease;
+  font-size: 13px;
+  transition: all 0.15s ease;
 }
 
 .ums-portal-item:hover, .ums-portal-item:focus-visible {
-  background: var(--portal-card-hover);
-  color: #ffffff;
+  background: rgba(0, 102, 204, 0.08);
+  color: var(--portal-bar-accent);
   outline: none;
 }
 
 .ums-portal-item.current {
-  background: rgba(99, 102, 241, 0.15);
+  background: rgba(0, 102, 204, 0.12);
   color: var(--portal-bar-accent);
   font-weight: 700;
 }
 
 .ums-portal-item-tag {
   font-family: var(--portal-font-mono);
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--portal-bar-muted);
   font-weight: 600;
 }
 
 @media (max-width: 640px) {
   .ums-portal-inner {
-    padding: 6px 12px;
+    padding: 8px 14px;
   }
   .ums-portal-crumb-sep, .ums-portal-current-badge span:last-child {
     display: none;

@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Algoritma & Pemrograman (Python) â€” Portal Belajar & Bank Soal UTS UMS</title>
+  <title>Algoritma & Pemrograman (Python) — Portal Belajar & Bank Soal UTS UMS</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,21 +16,21 @@
       --font-mono: 'JetBrains Mono', monospace;
 
       /* Dark Mode Palette (Cyber-Academic) */
-      --bg-page: #0b0f17;
-      --bg-surface: #111827;
-      --bg-surface-elevated: #162032;
-      --bg-surface-card: #131c2e;
+      --bg-page: #fafbfc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f0f4f8;
+      --bg-surface-card: #ffffff;
       --bg-hover: #1e2c44;
-      --border-color: #22324d;
+      --border-color: #e2e8f0;
       --border-subtle: #19263c;
 
-      --text-main: #f8fafc;
-      --text-body: #cbd5e1;
+      --text-main: #1a202c;
+      --text-body: #4a5568;
       --text-muted: #8da2be;
       --text-subtle: #64748b;
 
-      --primary: #3b82f6;
-      --primary-hover: #2563eb;
+      --primary: #0066cc;
+      --primary-hover: #0052a3;
       --primary-light: rgba(59, 130, 246, 0.15);
       --primary-border: rgba(59, 130, 246, 0.35);
 
@@ -711,6 +711,7 @@
     }
   </style>
   <link rel="stylesheet" href="autoscroll.css">
+  <link rel="stylesheet" href="../shared/medical-theme.css">
 </head>
 <body>
 
@@ -718,7 +719,7 @@
   <header class="top-header no-print">
     <div class="header-inner">
       <a href="index.html" class="brand-group">
-        <div class="brand-logo">ðŸ</div>
+        <div class="brand-logo">🐍</div>
         <div class="brand-title">
           <span>ALPRO UMS</span>
           <span class="brand-subtitle">Algoritma &amp; Pemrograman Python</span>
@@ -727,19 +728,19 @@
 
       <div class="header-actions">
         <a href="uts-2026.html" class="nav-link-btn" style="border:1.5px solid #10b981; color:#10b981; font-weight:700;" title="Buka Halaman Khusus Soal &amp; Pembahasan UTS 2026/2027 (Terbaru)">
-          <span>ðŸš€</span> Page UTS 2026
+          <span>🚀</span> Page UTS 2026
         </a>
         <a href="uts-2025.html" class="nav-link-btn" style="border:1.5px solid #3b82f6; color:#3b82f6; font-weight:700;" title="Buka Halaman Khusus Soal &amp; Pembahasan UTS 2025/2026">
-          <span>ðŸŽ¯</span> Page UTS 2025
+          <span>🎯</span> Page UTS 2025
         </a>
         <a href="uts-2024.html" class="nav-link-btn" style="border:1.5px solid #f59e0b; color:#f59e0b; font-weight:700;" title="Buka Halaman Khusus Soal &amp; Pembahasan UTS 2024/2025">
-          <span>ðŸ“œ</span> Page UTS 2024
+          <span>📜</span> Page UTS 2024
         </a>
         <a href="https://github.com/voltakyy/materi-lohim" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Kunjungi Portal Materi Logika dan Himpunan">
-          <span>ðŸ“</span> Lohim UMS
+          <span>📐</span> Lohim UMS
         </a>
         <button class="theme-toggle-btn" onclick="toggleTheme()" title="Ganti Tema (Dark / Light)">
-          <span id="theme-icon">ðŸŒ™</span>
+          <span id="theme-icon">🌙</span>
         </button>
       </div>
     </div>
@@ -749,40 +750,40 @@
   <nav class="subnav-bar no-print">
     <div class="subnav-inner">
       <button class="tab-btn active" onclick="switchTab('tab-uts-2025')" style="border-bottom: 2px solid #3b82f6; font-weight:700;">
-        <span>ðŸŽ¯</span> UTS 2025/2026
+        <span>🎯</span> UTS 2025/2026
       </button>
       <button class="tab-btn" onclick="switchTab('tab-uts-2024')" style="border-bottom: 2px solid #f59e0b; font-weight:700;">
-        <span>ðŸ“œ</span> UTS 2024/2025
+        <span>📜</span> UTS 2024/2025
       </button>
       <button class="tab-btn" onclick="switchTab('tab-komparasi')">
-        <span>âš–ï¸</span> Komparasi 2025 vs 2024
+        <span>⚖️</span> Komparasi 2025 vs 2024
       </button>
       <button class="tab-btn" onclick="switchTab('tab-diktat')">
-        <span>ðŸ“š</span> Diktat Modul 1-5
+        <span>📚</span> Diktat Modul 1-5
       </button>
       <button class="tab-btn" onclick="switchTab('tab-tracing')">
-        <span>ðŸ§ª</span> Simulator NIM
+        <span>🧪</span> Simulator NIM
       </button>
       <button class="tab-btn" onclick="switchTab('tab-kasir')">
-        <span>ðŸ›’</span> Kasir &amp; Flowchart
+        <span>🛒</span> Kasir &amp; Flowchart
       </button>
       <button class="tab-btn" onclick="switchTab('tab-slicing-lab')">
-        <span>ðŸ”¤</span> Slicing Lab
+        <span>🔤</span> Slicing Lab
       </button>
       <button class="tab-btn" onclick="switchTab('tab-loop-pattern')">
-        <span>â­</span> Pola Bintang
+        <span>⭐</span> Pola Bintang
       </button>
       <button class="tab-btn" onclick="switchTab('tab-hvs-cheatsheet')">
-        <span>ðŸ“„</span> Lembar HVS A4
+        <span>📄</span> Lembar HVS A4
       </button>
       <button class="tab-btn" onclick="switchTab('tab-flashcards')">
-        <span>ðŸ—‚ï¸</span> Flashcards
+        <span>🗂️</span> Flashcards
       </button>
       <button class="tab-btn" onclick="switchTab('tab-arena')">
-        <span>âš”ï¸</span> UTS Arena
+        <span>⚔️</span> UTS Arena
       </button>
       <button class="tab-btn" onclick="switchTab('tab-runner')">
-        <span>ðŸ’»</span> Python Runner
+        <span>💻</span> Python Runner
       </button>
     </div>
   </nav>
@@ -796,21 +797,21 @@
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
           <span style="background:var(--primary-light); color:var(--primary); border:1px solid var(--primary-border); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">ARSIP RESMI REPOTIF HIMATIF UMS</span>
           <span style="background:var(--emerald-bg); color:var(--accent-emerald); border:1px solid var(--emerald-border); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">GASAL 2025/2026 (TERBARU)</span>
-          <span style="background:rgba(239,68,68,0.12); color:#ef4444; border:1px solid rgba(239,68,68,0.3); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">BUKU TERTUTUP Â· 90 MENIT Â· KELAS ABCD</span>
+          <span style="background:rgba(239,68,68,0.12); color:#ef4444; border:1px solid rgba(239,68,68,0.3); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">BUKU TERTUTUP · 90 MENIT · KELAS ABCD</span>
         </div>
-        <h1 style="font-size:24px; color:var(--text-main); margin-bottom:8px;">ðŸŽ¯ Bedah Tuntas Lembar Soal Asli UTS Gasal 2025/2026</h1>
+        <h1 style="font-size:24px; color:var(--text-main); margin-bottom:8px;">🎯 Bedah Tuntas Lembar Soal Asli UTS Gasal 2025/2026</h1>
         <p style="color:var(--text-body); font-size:14px; margin-bottom:12px;">
           Ujian diselenggarakan pada <strong>Rabu, 29 Oktober 2025 (Jam ke-3)</strong>. Dosen Penguji: <strong>Arif Setiawan, S.Kom., M.Eng.</strong>, <strong>Husni Thamrin, M.T., Ph.D.</strong>, dan <strong>Muhammad Syahriandi Adhantoro, S.Kom., M.Kom.</strong>
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:10px; border-top:1px solid var(--border-subtle);">
           <a href="uts-2026.html" class="nav-link-btn" style="padding:6px 14px; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:#10b981; color:#fff; border-radius:6px; font-weight:700;">
-            <span>ðŸš€</span> Buka Halaman UTS 2026 (Terbaru)
+            <span>🚀</span> Buka Halaman UTS 2026 (Terbaru)
           </a>
           <a href="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler.pdf" target="_blank" class="nav-link-btn" style="padding:6px 14px; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:var(--primary); color:#fff; border-radius:6px;">
-            <span>ðŸ“„</span> Unduh Berkas Asli Pindaian UTS 2025 (PDF)
+            <span>📄</span> Unduh Berkas Asli Pindaian UTS 2025 (PDF)
           </a>
           <button onclick="switchTab('tab-uts-2024')" class="nav-link-btn" style="padding:6px 14px; font-size:12px; cursor:pointer; background:var(--bg-surface-elevated); color:var(--text-main); border:1px solid var(--border-color); border-radius:6px;">
-            Lihat Soal UTS 2024 âž¡ï¸
+            Lihat Soal UTS 2024 ➡️
           </button>
         </div>
       </div>
@@ -818,7 +819,7 @@
       <!-- SOAL 1 (UTS 2025) -->
       <article class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--border-subtle); padding-bottom:8px;">
-          <h2 style="font-size:18px; margin:0; color:var(--primary);">ðŸ“Œ Soal 1: Konsep Dasar Algoritma &amp; Pemrograman</h2>
+          <h2 style="font-size:18px; margin:0; color:var(--primary);">📌 Soal 1: Konsep Dasar Algoritma &amp; Pemrograman</h2>
           <span style="background:var(--primary-light); color:var(--primary); font-size:12px; font-weight:700; padding:2px 8px; border-radius:4px;">Bobot: 25 Poin (CPMK 1)</span>
         </div>
 
@@ -872,7 +873,7 @@ print(f"Hasil Perkalian   ({angka1} * {angka2}) = {perkalian}")</code></pre>
       <!-- SOAL 2 (UTS 2025) -->
       <article class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--border-subtle); padding-bottom:8px;">
-          <h2 style="font-size:18px; margin:0; color:var(--primary);">ðŸ“Œ Soal 2: Sistem Kasir Minimarket &amp; Flowchart Diskon 10%</h2>
+          <h2 style="font-size:18px; margin:0; color:var(--primary);">📌 Soal 2: Sistem Kasir Minimarket &amp; Flowchart Diskon 10%</h2>
           <span style="background:var(--primary-light); color:var(--primary); font-size:12px; font-weight:700; padding:2px 8px; border-radius:4px;">Bobot: 40 Poin (CPMK 1)</span>
         </div>
         <p style="color:var(--text-muted); font-size:13.5px;">
@@ -958,14 +959,14 @@ DESKRIPSI:
           </svg>
         </div>
         <p style="text-align:center; font-size:13px; color:var(--text-muted);">
-          ðŸ‘‰ Ingin mencoba simulasi kasir dinamis? Buka tab <button onclick="switchTab('tab-kasir')" class="btn btn-outline" style="padding:2px 8px; font-size:11px;">ðŸ›’ Kasir &amp; Diskon</button>
+          👉 Ingin mencoba simulasi kasir dinamis? Buka tab <button onclick="switchTab('tab-kasir')" class="btn btn-outline" style="padding:2px 8px; font-size:11px;">🛒 Kasir &amp; Diskon</button>
         </p>
       </article>
 
       <!-- SOAL 3 (UTS 2025) -->
       <article class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--border-subtle); padding-bottom:8px;">
-          <h2 style="font-size:18px; margin:0; color:var(--primary);">ðŸ“Œ Soal 3: Tracing Nilai Variabel String NIM (Bobot: 35)</h2>
+          <h2 style="font-size:18px; margin:0; color:var(--primary);">📌 Soal 3: Tracing Nilai Variabel String NIM (Bobot: 35)</h2>
           <span style="background:var(--primary-light); color:var(--primary); font-size:12px; font-weight:700; padding:2px 8px; border-radius:4px;">Bobot: 35 Poin (CPMK 1)</span>
         </div>
         <p style="color:var(--text-muted); font-size:13.5px;">
@@ -1007,19 +1008,19 @@ w = n < 6</code></pre>
           <span style="background:var(--amber-bg); color:var(--accent-amber); border:1px solid var(--amber-border); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">GASAL 2024/2025</span>
           <span style="background:var(--emerald-bg); color:var(--accent-emerald); border:1px solid var(--emerald-border); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">DIPERKENANKAN 1 LEMBAR CATATAN HVS A4</span>
         </div>
-        <h1 style="font-size:24px; color:var(--text-main); margin-bottom:8px;">ðŸ“œ Bedah Tuntas Lembar Soal Asli UTS Gasal 2024/2025</h1>
+        <h1 style="font-size:24px; color:var(--text-main); margin-bottom:8px;">📜 Bedah Tuntas Lembar Soal Asli UTS Gasal 2024/2025</h1>
         <p style="color:var(--text-body); font-size:14px; margin-bottom:12px;">
           Ujian diselenggarakan pada <strong>Rabu, 30 Oktober 2024 (Jam ke-3)</strong> untuk Smt/Kelas 1/ABC. Terbagi atas <strong>Soal Tipe A (Dr. Husni Thamrin)</strong> dan <strong>Soal Tipe B (Arif Setiawan, M.Eng.)</strong>.
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:10px; border-top:1px solid var(--border-subtle);">
           <a href="uts-2026.html" class="nav-link-btn" style="padding:6px 14px; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:#10b981; color:#fff; border-radius:6px; font-weight:700;">
-            <span>ðŸš€</span> Buka Halaman UTS 2026 (Terbaru)
+            <span>🚀</span> Buka Halaman UTS 2026 (Terbaru)
           </a>
           <a href="repotif_arsip_alpro/doc_26_UTS_2024_Alpro_Algoritma_dan_Pemrograman.pdf" target="_blank" class="nav-link-btn" style="padding:6px 14px; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:var(--accent-amber); color:#000; font-weight:700; border-radius:6px;">
-            <span>ðŸ“„</span> Unduh Berkas Asli Pindaian UTS 2024 (PDF)
+            <span>📄</span> Unduh Berkas Asli Pindaian UTS 2024 (PDF)
           </a>
           <button onclick="switchTab('tab-uts-2025')" class="nav-link-btn" style="padding:6px 14px; font-size:12px; cursor:pointer; background:var(--bg-surface-elevated); color:var(--text-main); border:1px solid var(--border-color); border-radius:6px;">
-            â¬…ï¸ Lihat Soal UTS 2025 (Terbaru)
+            ⬅️ Lihat Soal UTS 2025 (Terbaru)
           </button>
         </div>
       </div>
@@ -1027,7 +1028,7 @@ w = n < 6</code></pre>
       <!-- TIPE A: HUSNI THAMRIN -->
       <article class="article-card" style="border: 1px solid var(--border-color);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--border-subtle); padding-bottom:8px;">
-          <h2 style="font-size:18px; margin:0; color:var(--accent-amber);">ðŸ‘¨â€ðŸ« Soal Tipe A: Dr. Husni Thamrin, M.T., Ph.D.</h2>
+          <h2 style="font-size:18px; margin:0; color:var(--accent-amber);">👨‍🏫 Soal Tipe A: Dr. Husni Thamrin, M.T., Ph.D.</h2>
           <span style="background:var(--amber-bg); color:var(--accent-amber); font-size:12px; font-weight:700; padding:2px 8px; border-radius:4px;">Total Skor: 100</span>
         </div>
 
@@ -1057,7 +1058,7 @@ print(f"Luas persegi adalah: {luas} cm2")             # 3. Menampilkan data</cod
             <tr><td><code>p</code></td><td><code>int(m) + 19</code></td><td><code>921</code></td><td><code>int</code></td><td>902 + 19 = 921.</td></tr>
             <tr><td><code>q</code></td><td><code>15 - n</code></td><td><code>6</code></td><td><code>int</code></td><td>15 - 9 = 6.</td></tr>
             <tr><td><code>r</code></td><td><code>p // 10</code></td><td><code>92</code></td><td><code>int</code></td><td>Pembagian bulat 921 // 10 = 92 (sisa dibuang).</td></tr>
-            <tr style="background:rgba(239,68,68,0.08); font-weight:700;"><td><code>s</code></td><td><code>2 * m</code></td><td><code>'902902'</code></td><td><code>str</code></td><td>âš ï¸ JEBAKAN POPULER: Karena m adalah string, 2 * m adalah duplikasi string!</td></tr>
+            <tr style="background:rgba(239,68,68,0.08); font-weight:700;"><td><code>s</code></td><td><code>2 * m</code></td><td><code>'902902'</code></td><td><code>str</code></td><td>⚠️ JEBAKAN POPULER: Karena m adalah string, 2 * m adalah duplikasi string!</td></tr>
             <tr><td><code>t</code></td><td><code>p % q</code></td><td><code>3</code></td><td><code>int</code></td><td>Sisa bagi 921 modulo 6 (153 * 6 = 918, sisa 3).</td></tr>
             <tr><td><code>u</code></td><td><code>t ** 2</code></td><td><code>9</code></td><td><code>int</code></td><td>3 pangkat 2 = 9.</td></tr>
             <tr><td><code>v</code></td><td><code>p - t</code></td><td><code>918</code></td><td><code>int</code></td><td>921 - 3 = 918.</td></tr>
@@ -1086,7 +1087,7 @@ print("Hasil jumlah koleksi:", hitung_jumlah(koleksi)) # Output: 150</code></pre
       <!-- TIPE B: ARIF SETIAWAN -->
       <article class="article-card" style="border: 1px solid var(--border-color); margin-top:20px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--border-subtle); padding-bottom:8px;">
-          <h2 style="font-size:18px; margin:0; color:var(--primary);">ðŸ‘¨â€ðŸ« Soal Tipe B: Arif Setiawan, S.Kom., M.Eng.</h2>
+          <h2 style="font-size:18px; margin:0; color:var(--primary);">👨‍🏫 Soal Tipe B: Arif Setiawan, S.Kom., M.Eng.</h2>
           <span style="background:var(--primary-light); color:var(--primary); font-size:12px; font-weight:700; padding:2px 8px; border-radius:4px;">Studi Kasus Nota Kopi (Skor: 90)</span>
         </div>
 
@@ -1146,7 +1147,7 @@ print("Metode Pembayaran: Transfer Bank")</code></pre>
     <!-- ==================== TAB: KOMPARASI 2025 VS 2024 ==================== -->
     <div id="tab-komparasi" class="tab-pane">
       <div class="article-card" style="border-left: 4px solid var(--accent-emerald);">
-        <h1 style="font-size:22px; color:var(--text-main); margin-bottom:8px;">âš–ï¸ Komparasi Pola Soal UTS 2025 vs 2024 (Informatika UMS)</h1>
+        <h1 style="font-size:22px; color:var(--text-main); margin-bottom:8px;">⚖️ Komparasi Pola Soal UTS 2025 vs 2024 (Informatika UMS)</h1>
         <p style="color:var(--text-body); font-size:14px; margin-bottom:14px;">
           Analisis perbandingan mendalam untuk memetakan pola kisi-kisi dan materi yang selalu diujikan dosen penguji (*Arif Setiawan, S.Kom., M.Eng.* &amp; *Husni Thamrin, M.T., Ph.D.*).
         </p>
@@ -1166,7 +1167,7 @@ print("Metode Pembayaran: Transfer Bank")</code></pre>
               <td><strong>Sifat Ujian</strong></td>
               <td><strong>Buku Tertutup</strong> (Murni hafalan &amp; pemahaman logika)</td>
               <td>Boleh membawa <strong>1 lembar catatan HVS A4</strong> bertuliskan tangan</td>
-              <td>Gunakan tab <button onclick="switchTab('tab-flashcards')" class="btn btn-outline" style="padding:1px 6px; font-size:11px;">ðŸ—‚ï¸ Flashcards</button> untuk menguasai hafalan konsep penting.</td>
+              <td>Gunakan tab <button onclick="switchTab('tab-flashcards')" class="btn btn-outline" style="padding:1px 6px; font-size:11px;">🗂️ Flashcards</button> untuk menguasai hafalan konsep penting.</td>
             </tr>
             <tr>
               <td><strong>Soal Teori Komputer</strong></td>
@@ -1204,12 +1205,12 @@ print("Metode Pembayaran: Transfer Bank")</code></pre>
             <span style="background:rgba(59,130,246,0.15); color:#3b82f6; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px;">NASKAH TERBARU</span>
             <span style="font-size:12px; color:var(--text-muted);">Rabu, 29 Okt 2025</span>
           </div>
-          <h3 style="font-size:18px; color:var(--text-main); margin-bottom:6px;">ðŸŽ¯ Halaman Khusus UTS 2025/2026</h3>
+          <h3 style="font-size:18px; color:var(--text-main); margin-bottom:6px;">🎯 Halaman Khusus UTS 2025/2026</h3>
           <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px;">
             Halaman lengkap dengan pindaian lembar soal asli 2 halaman (doc_213), pembahasan Soal 1 (Teori), Soal 2 (Kasir Minimarket Diskon 10%), dan Soal 3 (Tracing Slicing NIM).
           </p>
           <a href="uts-2025.html" class="btn btn-primary" style="display:block; text-align:center; padding:9px 14px; font-size:13px; text-decoration:none; background:#3b82f6; color:#fff; border-radius:6px; font-weight:700;">
-            Buka Halaman Soal UTS 2025 âž¡ï¸
+            Buka Halaman Soal UTS 2025 ➡️
           </a>
         </div>
 
@@ -1218,12 +1219,12 @@ print("Metode Pembayaran: Transfer Bank")</code></pre>
             <span style="background:rgba(245,158,11,0.15); color:#f59e0b; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px;">TIPE A &amp; TIPE B</span>
             <span style="font-size:12px; color:var(--text-muted);">Rabu, 30 Okt 2024</span>
           </div>
-          <h3 style="font-size:18px; color:var(--text-main); margin-bottom:6px;">ðŸ“œ Halaman Khusus UTS 2024/2025</h3>
+          <h3 style="font-size:18px; color:var(--text-main); margin-bottom:6px;">📜 Halaman Khusus UTS 2024/2025</h3>
           <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px;">
             Halaman lengkap dengan pindaian 3 halaman asli (doc_26), pembahasan Soal Tipe A (Dr. Husni Thamrin: 3 Perintah, NIM, Koleksi) &amp; Tipe B (Arif Setiawan: Nota Kopi Makmur Diskon 3%).
           </p>
           <a href="uts-2024.html" class="btn btn-primary" style="display:block; text-align:center; padding:9px 14px; font-size:13px; text-decoration:none; background:#f59e0b; color:#000; border-radius:6px; font-weight:700;">
-            Buka Halaman Soal UTS 2024 âž¡ï¸
+            Buka Halaman Soal UTS 2024 ➡️
           </a>
         </div>
       </div>
@@ -1233,17 +1234,17 @@ print("Metode Pembayaran: Transfer Bank")</code></pre>
           <span style="background:var(--primary-light); color:var(--primary); border:1px solid var(--primary-border); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">KURIKULUM RESMI UMS</span>
           <span style="background:var(--amber-bg); color:var(--accent-amber); border:1px solid var(--amber-border); padding:3px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700;">SEMESTER 1 GASAL (MABA)</span>
         </div>
-        <h1 style="font-size:24px; color:var(--text-main); margin-bottom:8px;">ðŸ Diktat Komprehensif Algoritma &amp; Pemrograman</h1>
+        <h1 style="font-size:24px; color:var(--text-main); margin-bottom:8px;">🐍 Diktat Komprehensif Algoritma &amp; Pemrograman</h1>
         <p style="color:var(--text-body); font-size:14px; margin-bottom:0;">
           Materi kuliah dan bank soal autentik Ujian Tengah Semester (UTS) Program Studi Informatika UMS. Dosen Penguji: <strong>Arif Setiawan, S.Kom., M.Eng.</strong>, <strong>Husni Thamrin, M.T., Ph.D.</strong>, dan <strong>M. Syahriandi Adhantoro, M.Kom.</strong>
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; padding-top:10px; border-top:1px solid var(--border-subtle);">
-          <span style="font-size:12px; font-weight:700; color:var(--text-subtle); display:flex; align-items:center; gap:4px;">ðŸ“¥ Berkas Asli Repotif HIMATIF UMS:</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-subtle); display:flex; align-items:center; gap:4px;">📥 Berkas Asli Repotif HIMATIF UMS:</span>
           <a href="repotif_arsip_alpro/doc_213_UTS_2025_Reguler_Algoritma_dan_Pemrograman_Reguler.pdf" target="_blank" class="nav-link-btn" style="padding:4px 10px; font-size:11px; text-decoration:none; display:inline-flex; align-items:center; gap:5px;">
-            <span>ðŸ“„</span> UTS 2025/2026 (PDF Asli)
+            <span>📄</span> UTS 2025/2026 (PDF Asli)
           </a>
           <a href="repotif_arsip_alpro/doc_26_UTS_2024_Alpro_Algoritma_dan_Pemrograman.pdf" target="_blank" class="nav-link-btn" style="padding:4px 10px; font-size:11px; text-decoration:none; display:inline-flex; align-items:center; gap:5px;">
-            <span>ðŸ“„</span> UTS 2024/2025 (PDF Asli)
+            <span>📄</span> UTS 2024/2025 (PDF Asli)
           </a>
         </div>
 
@@ -1251,7 +1252,7 @@ print("Metode Pembayaran: Transfer Bank")</code></pre>
 
       <!-- MODUL 1 -->
       <article class="article-card">
-        <h2>1ï¸âƒ£ Modul 1: Konsep Dasar Algoritma, Flowchart &amp; 3 Perintah Komputer</h2>
+        <h2>1️⃣ Modul 1: Konsep Dasar Algoritma, Flowchart &amp; 3 Perintah Komputer</h2>
         <p>
           Kata <strong>Algoritma</strong> diserap dari nama matematikawan muslim ternama <em>Abu Ja'far Muhammad bin Musa Al-Khawarizmi</em> (penemu Aljabar). Dalam bidang informatika, algoritma didefinisikan sebagai <strong>urutan langkah-langkah logis dan terstruktur yang disusun secara sistematis untuk menyelesaikan persoalan komputasi</strong>.
         </p>
@@ -1308,7 +1309,7 @@ print(salam)                                 # 3. Menampilkan data (Output)</cod
 
       <!-- MODUL 2 -->
       <article class="article-card">
-        <h2>2ï¸âƒ£ Modul 2: Tipe Data, Variabel &amp; Operator Aritmatika Python</h2>
+        <h2>2️⃣ Modul 2: Tipe Data, Variabel &amp; Operator Aritmatika Python</h2>
         <p>
           Python adalah bahasa yang berorientasi objek dengan <em>dynamically typed variables</em>. Anda tidak perlu mendeklarasikan tipe data secara eksplisit saat membuat variabel.
         </p>
@@ -1322,7 +1323,7 @@ print(salam)                                 # 3. Menampilkan data (Output)</cod
         </ul>
 
         <div class="callout warning">
-          <div class="callout-title">âš ï¸ JEBAKAN POPULER UTS: Tipe Data input()</div>
+          <div class="callout-title">⚠️ JEBAKAN POPULER UTS: Tipe Data input()</div>
           Fungsi <code>input()</code> di Python <strong>SELALU</strong> mengembalikan nilai bertipe <code>str</code> (string)!<br>
           Jika user memasukkan angka <code>5</code>, variabel akan bernilai string <code>'5'</code>.<br>
           Untuk operasi matematika, <strong>WAJIB</strong> dikonversi dengan <code>int(input(...))</code> atau <code>float(input(...))</code>!
@@ -1347,7 +1348,7 @@ print(salam)                                 # 3. Menampilkan data (Output)</cod
 
       <!-- MODUL 3 -->
       <article class="article-card">
-        <h2>3ï¸âƒ£ Modul 3: String Slicing Komprehensif (Materi Utama UTS)</h2>
+        <h2>3️⃣ Modul 3: String Slicing Komprehensif (Materi Utama UTS)</h2>
         <p>
           String di Python diperlakukan sebagai urutan karakter (<em>sequence</em>) yang setiap karakternya memiliki indeks numerik tetap.
         </p>
@@ -1361,16 +1362,16 @@ print(salam)                                 # 3. Menampilkan data (Output)</cod
         <h3>Sintaks Slicing: <code>teks[start : stop : step]</code></h3>
         <ul>
           <li><code>start</code>: Indeks awal pemotongan (inklusif).</li>
-          <li><code>stop</code>: Indeks batas akhir (<strong>eksklusif</strong> â€” karakter di indeks ini TIDAK diikutkan!).</li>
+          <li><code>stop</code>: Indeks batas akhir (<strong>eksklusif</strong> — karakter di indeks ini TIDAK diikutkan!).</li>
           <li><code>step</code>: Langkah lompatan. Jika positif, bergerak maju (kiri ke kanan). Jika negatif, bergerak mundur (kanan ke kiri).</li>
         </ul>
 
         <div class="callout info">
-          <div class="callout-title">ðŸ’¡ Bedah Rumus Tracing UTS UMS: <code>Z[9:6:-1]</code></div>
+          <div class="callout-title">💡 Bedah Rumus Tracing UTS UMS: <code>Z[9:6:-1]</code></div>
           Misalkan string NIM: <code>Z = 'L200240189'</code> (Panjang 10 karakter, indeks 0 sampai 9).<br>
-          â€¢ <code>start = 9</code>: Karakter di indeks 9 yaitu <code>'9'</code>.<br>
-          â€¢ <code>stop = 6</code>: Batas akhir berhenti di sebelum 6 (yaitu indeks 7).<br>
-          â€¢ <code>step = -1</code>: Melangkah mundur 1 langkah per karakter.<br>
+          • <code>start = 9</code>: Karakter di indeks 9 yaitu <code>'9'</code>.<br>
+          • <code>stop = 6</code>: Batas akhir berhenti di sebelum 6 (yaitu indeks 7).<br>
+          • <code>step = -1</code>: Melangkah mundur 1 langkah per karakter.<br>
           Karakter yang diambil berurutan: Indeks 9 (<code>'9'</code>), Indeks 8 (<code>'8'</code>), Indeks 7 (<code>'1'</code>).<br>
           <strong>Hasil potongan:</strong> <code>'981'</code> (String 3 karakter terbalik).
         </div>
@@ -1378,7 +1379,7 @@ print(salam)                                 # 3. Menampilkan data (Output)</cod
 
       <!-- MODUL 4 -->
       <article class="article-card">
-        <h2>4ï¸âƒ£ Modul 4: Struktur Kontrol Percabangan (if, elif, else)</h2>
+        <h2>4️⃣ Modul 4: Struktur Kontrol Percabangan (if, elif, else)</h2>
         <p>
           Percabangan memungkinkan program mengambil keputusan berdasarkan evaluasi kondisi boolean (<code>True</code> atau <code>False</code>).
         </p>
@@ -1397,7 +1398,7 @@ print("Total Bayar: Rp", total_bayar)</code></pre>
 
       <!-- MODUL 5 -->
       <article class="article-card">
-        <h2>5ï¸âƒ£ Modul 5: Struktur Kontrol Perulangan (for, while)</h2>
+        <h2>5️⃣ Modul 5: Struktur Kontrol Perulangan (for, while)</h2>
         <p>
           Perulangan digunakan untuk mengeksekusi blok kode yang sama berulang kali selama kondisi terpenuhi atau melintasi elemen koleksi.
         </p>
@@ -1423,17 +1424,17 @@ print("Total belanjaan:", total)</code></pre>
       <div class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
-            <h2 style="border:none; margin:0; padding:0;">ðŸ§ª Simulator Tracing NIM &amp; Evaluasi Variabel UTS</h2>
+            <h2 style="border:none; margin:0; padding:0;">🧪 Simulator Tracing NIM &amp; Evaluasi Variabel UTS</h2>
             <p style="margin:4px 0 0; font-size:13px; color:var(--text-muted);">
               Rekonstruksi presisi Soal No. 3 UTS 2025/2026 &amp; Soal No. 2 UTS 2024/2025 (Dr. Husni Thamrin).
             </p>
           </div>
           <div style="display:flex; gap:8px;">
             <button class="btn btn-emerald" onclick="stepForwardNimTrace()" id="btn-nim-step">
-              â–¶ï¸ Langkah Demi Langkah (Step)
+              ▶️ Langkah Demi Langkah (Step)
             </button>
             <button class="btn btn-outline" onclick="resetNimStepper()">
-              ðŸ”„ Reset
+              🔄 Reset
             </button>
           </div>
         </div>
@@ -1446,7 +1447,7 @@ print("Total belanjaan:", total)</code></pre>
             <input type="text" id="input-nim" value="L200240189" maxlength="10" oninput="runNimTracing()"
               style="padding:10px 14px; font-family:var(--font-mono); font-size:16px; font-weight:700; background:var(--bg-surface); color:var(--text-main); border:1px solid var(--primary-border); border-radius:var(--radius-sm); flex:1; min-width:200px;">
             <button class="btn btn-primary" onclick="runNimTracing()">
-              âš¡ Evaluasi Penuh
+              ⚡ Evaluasi Penuh
             </button>
             <button class="btn btn-outline" onclick="setPresetNim('L200240010')">NIM 010</button>
             <button class="btn btn-outline" onclick="setPresetNim('L200240123')">NIM 123</button>
@@ -1455,7 +1456,7 @@ print("Total belanjaan:", total)</code></pre>
         </div>
 
         <!-- VISUAL STRING RULER -->
-        <h3 style="font-size:15px; margin-bottom:4px;">ðŸ“ Penggaris Indeks Karakter String NIM (<code>Z</code>)</h3>
+        <h3 style="font-size:15px; margin-bottom:4px;">📏 Penggaris Indeks Karakter String NIM (<code>Z</code>)</h3>
         <div id="ruler-display" class="ruler-container"></div>
 
         <!-- STEPPER STATUS ALERT -->
@@ -1467,7 +1468,7 @@ print("Total belanjaan:", total)</code></pre>
         <!-- CODE & RESULT GRID -->
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px; margin-top:16px;">
           <div>
-            <h3 style="font-size:15px; margin-bottom:8px;">ðŸ“œ Kode Soal Asli UTS UMS:</h3>
+            <h3 style="font-size:15px; margin-bottom:8px;">📜 Kode Soal Asli UTS UMS:</h3>
             <pre><code id="code-snippet-box">Z = 'L200240189'
 m = Z[9:6:-1]
 n = int(m[0])
@@ -1482,7 +1483,7 @@ w = n < 6</code></pre>
           </div>
 
           <div>
-            <h3 style="font-size:15px; margin-bottom:8px;">ðŸ“Š Tabel Nilai Variabel Akhir:</h3>
+            <h3 style="font-size:15px; margin-bottom:8px;">📊 Tabel Nilai Variabel Akhir:</h3>
             <table class="academic-table" id="table-tracing-results">
               <thead>
                 <tr><th>Var</th><th>Tipe</th><th>Nilai</th><th>Operasi / Keterangan</th></tr>
@@ -1500,24 +1501,24 @@ w = n < 6</code></pre>
       <div class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
-            <h2 style="border:none; margin:0; padding:0;">ðŸ›’ Simulator Kasir Minimarket &amp; Alur Flowchart (Soal No. 2 UTS)</h2>
+            <h2 style="border:none; margin:0; padding:0;">🛒 Simulator Kasir Minimarket &amp; Alur Flowchart (Soal No. 2 UTS)</h2>
             <p style="margin:4px 0 0; font-size:13px; color:var(--text-muted);">
               Sistem kasir dinamis: input barang, hitung subtotal, diskon 10% jika &gt; Rp 100.000, dan animasi flowchart interaktif!
             </p>
           </div>
           <div style="display:flex; gap:8px;">
             <button class="btn btn-emerald" onclick="animateFlowchartExecution()">
-              â–¶ï¸ Simulasikan Eksekusi Alur
+              ▶️ Simulasikan Eksekusi Alur
             </button>
             <button class="btn btn-outline" onclick="copyReceiptText()">
-              ðŸ“‹ Salin Teks Struk
+              📋 Salin Teks Struk
             </button>
           </div>
         </div>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px; margin-top:16px;">
           <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
-            <h3 style="margin-top:0; color:var(--text-main);">âž• Input Transaksi Barang</h3>
+            <h3 style="margin-top:0; color:var(--text-main);">➕ Input Transaksi Barang</h3>
             <div style="display:flex; flex-direction:column; gap:12px; margin-top:12px;">
               <div>
                 <label style="font-size:12px; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">Nama Barang:</label>
@@ -1535,10 +1536,10 @@ w = n < 6</code></pre>
               </div>
               <div style="display:flex; gap:10px; margin-top:6px;">
                 <button class="btn btn-primary" onclick="addKasirItem()" style="flex:1;">
-                  ðŸ›’ Tambah Barang
+                  🛒 Tambah Barang
                 </button>
                 <button class="btn btn-outline" onclick="resetKasirCart()">
-                  ðŸ”„ Reset Keranjang
+                  🔄 Reset Keranjang
                 </button>
               </div>
             </div>
@@ -1568,39 +1569,39 @@ w = n < 6</code></pre>
 
           <!-- FLOWCHART STEPS VISUALIZER -->
           <div>
-            <h3 style="margin-top:0;">ðŸ—ºï¸ Alur Flowchart Eksekusi Sistem Kasir (Interaktif)</h3>
+            <h3 style="margin-top:0;">🗺️ Alur Flowchart Eksekusi Sistem Kasir (Interaktif)</h3>
             <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">Klik setiap tahapan di bawah untuk melihat aksi logikanya:</p>
             <div id="flowchart-steps-container">
               <div class="flowchart-step" id="fc-step-1" onclick="highlightFlowchartStep(1)">
-                <div class="fc-shape-badge">ðŸŸ¢</div>
+                <div class="fc-shape-badge">🟢</div>
                 <div><strong>1. Mulai (Terminator)</strong>: Program kasir dijalankan. Inisialisasi <code>total = 0</code>.</div>
               </div>
               <div class="flowchart-step" id="fc-step-2" onclick="highlightFlowchartStep(2)">
-                <div class="fc-shape-badge">ðŸ“¥</div>
+                <div class="fc-shape-badge">📥</div>
                 <div><strong>2. Input Barang (I/O)</strong>: Menerima masukan <code>harga</code> dan <code>jumlah</code>.</div>
               </div>
               <div class="flowchart-step" id="fc-step-3" onclick="highlightFlowchartStep(3)">
-                <div class="fc-shape-badge">âš™ï¸</div>
+                <div class="fc-shape-badge">⚙️</div>
                 <div><strong>3. Akumulasi (Proses)</strong>: <code>subtotal = harga * jumlah</code> &rarr; <code>total += subtotal</code>.</div>
               </div>
               <div class="flowchart-step" id="fc-step-4" onclick="highlightFlowchartStep(4)">
-                <div class="fc-shape-badge">â“</div>
+                <div class="fc-shape-badge">❓</div>
                 <div><strong>4. Perulangan (Decision)</strong>: Ada barang lain yang dibeli? (Ya / Tidak).</div>
               </div>
               <div class="flowchart-step" id="fc-step-5" onclick="highlightFlowchartStep(5)">
-                <div class="fc-shape-badge">ðŸ’Ž</div>
+                <div class="fc-shape-badge">💎</div>
                 <div><strong>5. Percabangan Diskon (Decision)</strong>: Apakah <code>total &gt; 100.000</code>?</div>
               </div>
               <div class="flowchart-step" id="fc-step-6" onclick="highlightFlowchartStep(6)">
-                <div class="fc-shape-badge">ðŸ·ï¸</div>
+                <div class="fc-shape-badge">🏷️</div>
                 <div><strong>6. Hitung Diskon (Proses)</strong>: Jika Ya &rarr; <code>diskon = 10% * total</code>. Jika Tidak &rarr; <code>diskon = 0</code>.</div>
               </div>
               <div class="flowchart-step" id="fc-step-7" onclick="highlightFlowchartStep(7)">
-                <div class="fc-shape-badge">ðŸ–¨ï¸</div>
+                <div class="fc-shape-badge">🖨️</div>
                 <div><strong>7. Cetak Struk (I/O)</strong>: Tampilkan rincian subtotal, diskon, dan total bayar.</div>
               </div>
               <div class="flowchart-step" id="fc-step-8" onclick="highlightFlowchartStep(8)">
-                <div class="fc-shape-badge">ðŸ”´</div>
+                <div class="fc-shape-badge">🔴</div>
                 <div><strong>8. Selesai (Terminator)</strong>: Transaksi berhasil tuntas.</div>
               </div>
             </div>
@@ -1615,13 +1616,13 @@ w = n < 6</code></pre>
       <div class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
-            <h2 style="border:none; margin:0; padding:0;">ðŸ”¤ Dynamic String Slicing Sandbox &amp; Palindrome Lab</h2>
+            <h2 style="border:none; margin:0; padding:0;">🔤 Dynamic String Slicing Sandbox &amp; Palindrome Lab</h2>
             <p style="margin:4px 0 0; font-size:13px; color:var(--text-muted);">
               Eksperimen pemotongan string Python untuk sembarang kata dengan slider interaktif dan deteksi otomatis palindrom!
             </p>
           </div>
           <button class="btn btn-emerald" onclick="startSlicingGame()">
-            ðŸŽ¯ Mainkan Tantangan Tebak Slicing
+            🎯 Mainkan Tantangan Tebak Slicing
           </button>
         </div>
 
@@ -1678,7 +1679,7 @@ w = n < 6</code></pre>
             <code id="slice-syntax-preview" style="display:block; font-size:16px; font-weight:700; color:var(--accent-cyan); margin-bottom:10px;">teks[0:11:1]</code>
             <div style="display:flex; gap:8px;">
               <span id="palindrome-badge" style="display:none; font-size:12px; font-weight:700; padding:4px 12px; border-radius:var(--radius-full); background:var(--emerald-bg); color:var(--accent-emerald); border:1px solid var(--emerald-border);">
-                âœ¨ Palindrom Sempurna!
+                ✨ Palindrom Sempurna!
               </span>
               <span id="slice-length-badge" style="font-size:12px; font-weight:600; padding:4px 12px; border-radius:var(--radius-full); background:var(--bg-surface-elevated); color:var(--text-muted); border:1px solid var(--border-color);">
                 Panjang: 11 Karakter
@@ -1697,7 +1698,7 @@ w = n < 6</code></pre>
         <!-- SLICING CHALLENGE MODAL / BOX -->
         <div id="slice-challenge-box" class="callout purple" style="display:none; margin-top:20px;">
           <div class="callout-title" style="display:flex; justify-content:space-between;">
-            <span>ðŸŽ¯ Tantangan Tebak Slicing:</span>
+            <span>🎯 Tantangan Tebak Slicing:</span>
             <span id="challenge-score-badge" style="font-size:12px; color:var(--accent-emerald);">Skor: 0</span>
           </div>
           <div id="challenge-question-text" style="font-size:14px; margin:6px 0 10px;"></div>
@@ -1717,17 +1718,17 @@ w = n < 6</code></pre>
       <div class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
-            <h2 style="border:none; margin:0; padding:0;">â­ Visual Nested Loop &amp; Generator Pola Bentuk</h2>
+            <h2 style="border:none; margin:0; padding:0;">⭐ Visual Nested Loop &amp; Generator Pola Bentuk</h2>
             <p style="margin:4px 0 0; font-size:13px; color:var(--text-muted);">
               Pahami alur perulangan bersarang <code>outer loop (baris)</code> dan <code>inner loop (kolom)</code> dengan animasi baris demi baris!
             </p>
           </div>
           <div style="display:flex; gap:8px;">
             <button class="btn btn-emerald" onclick="animatePatternPrinting()">
-              â–¶ï¸ Animasi Cetak Baris demi Baris
+              ▶️ Animasi Cetak Baris demi Baris
             </button>
             <button class="btn btn-outline" onclick="copyPatternCode()">
-              ðŸ“‹ Salin Kode Python
+              📋 Salin Kode Python
             </button>
           </div>
         </div>
@@ -1770,13 +1771,13 @@ w = n < 6</code></pre>
         <!-- PATTERN & CODE DISPLAY -->
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px;">
           <div>
-            <h3 style="margin-top:0; font-size:15px;">ðŸŽ¨ Visualisasi Hasil Pola:</h3>
+            <h3 style="margin-top:0; font-size:15px;">🎨 Visualisasi Hasil Pola:</h3>
             <div id="pattern-display-box" style="background:#090d16; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:20px; font-family:var(--font-mono); font-size:17px; line-height:1.4; color:var(--py-yellow); min-height:220px; white-space:pre; display:flex; align-items:center; justify-content:center; text-shadow:0 0 10px rgba(255, 212, 59, 0.3);">
             </div>
           </div>
 
           <div>
-            <h3 style="margin-top:0; font-size:15px;">ðŸ“œ Kode Python &amp; Logika Nested Loop:</h3>
+            <h3 style="margin-top:0; font-size:15px;">📜 Kode Python &amp; Logika Nested Loop:</h3>
             <pre><code id="pattern-code-box"></code></pre>
           </div>
         </div>
@@ -1789,13 +1790,13 @@ w = n < 6</code></pre>
       <div class="article-card no-print">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
           <div>
-            <h2 style="border:none; margin:0; padding:0;">ðŸ“„ Generator Lembar Catatan HVS A4 Resmi UTS</h2>
+            <h2 style="border:none; margin:0; padding:0;">📄 Generator Lembar Catatan HVS A4 Resmi UTS</h2>
             <p style="margin:4px 0 0; font-size:13px; color:var(--text-muted);">
               Sesuai instruksi resmi UTS UMS: <em>"Mahasiswa diperkenankan membawa catatan pada selembar kertas HVS A4"</em>.
             </p>
           </div>
           <button class="btn btn-primary" onclick="window.print()">
-            ðŸ–¨ï¸ Cetak / Simpan PDF Lembar A4
+            🖨️ Cetak / Simpan PDF Lembar A4
           </button>
         </div>
 
@@ -1826,36 +1827,36 @@ w = n < 6</code></pre>
           <div>
             <div class="hvs-box">
               <div class="hvs-box-title">1. OPERATOR &amp; ATURAN EVALUASI PYTHON</div>
-              â€¢ <code>/</code> (Float Div): <code>7 / 2 = 3.5</code> (Selalu bertipe float)<br>
-              â€¢ <code>//</code> (Floor Div): <code>7 // 2 = 3</code> (Pembagian bulat ke bawah)<br>
-              â€¢ <code>%</code> (Modulo): <code>10 % 3 = 1</code>, <code>1000 % 6 = 4</code> (Sisa bagi)<br>
-              â€¢ <code>**</code> (Pangkat): <code>4 ** 2 = 16</code>, <code>2 ** 3 = 8</code><br>
-              â€¢ <code>input()</code>: SELALU return string! Wajib <code>int()</code> / <code>float()</code>.<br>
-              â€¢ <strong>JEBAKAN UTS:</strong> <code>2 * '981' = '981981'</code> (Duplikasi String!)
+              • <code>/</code> (Float Div): <code>7 / 2 = 3.5</code> (Selalu bertipe float)<br>
+              • <code>//</code> (Floor Div): <code>7 // 2 = 3</code> (Pembagian bulat ke bawah)<br>
+              • <code>%</code> (Modulo): <code>10 % 3 = 1</code>, <code>1000 % 6 = 4</code> (Sisa bagi)<br>
+              • <code>**</code> (Pangkat): <code>4 ** 2 = 16</code>, <code>2 ** 3 = 8</code><br>
+              • <code>input()</code>: SELALU return string! Wajib <code>int()</code> / <code>float()</code>.<br>
+              • <strong>JEBAKAN UTS:</strong> <code>2 * '981' = '981981'</code> (Duplikasi String!)
             </div>
 
             <div class="hvs-box">
               <div class="hvs-box-title">2. TABEL RUMUS TRACING NIM UTS UMS</div>
               <code>Z = 'L200240189'</code><br>
-              â€¢ <code>m = Z[9:6:-1]</code> &rarr; Slicing mundur idx 9, 8, 7 = <code>'981'</code><br>
-              â€¢ <code>n = int(m[0])</code> &rarr; Ambil char pertama '9' jadi int <code>9</code><br>
-              â€¢ <code>p = int(m) + 19</code> &rarr; <code>981 + 19 = 1000</code><br>
-              â€¢ <code>q = 15 - n</code> &rarr; <code>15 - 9 = 6</code><br>
-              â€¢ <code>r = p // 10</code> &rarr; <code>1000 // 10 = 100</code><br>
-              â€¢ <code>s = 2 * m</code> &rarr; <code>'981981'</code> (String bukan angka!)<br>
-              â€¢ <code>t = p % q</code> &rarr; <code>1000 % 6 = 4</code><br>
-              â€¢ <code>u = t ** 2</code> &rarr; <code>4 ** 2 = 16</code><br>
-              â€¢ <code>v = p - t</code> &rarr; <code>1000 - 4 = 996</code><br>
-              â€¢ <code>w = n < 6</code> &rarr; <code>9 < 6 = False</code>
+              • <code>m = Z[9:6:-1]</code> &rarr; Slicing mundur idx 9, 8, 7 = <code>'981'</code><br>
+              • <code>n = int(m[0])</code> &rarr; Ambil char pertama '9' jadi int <code>9</code><br>
+              • <code>p = int(m) + 19</code> &rarr; <code>981 + 19 = 1000</code><br>
+              • <code>q = 15 - n</code> &rarr; <code>15 - 9 = 6</code><br>
+              • <code>r = p // 10</code> &rarr; <code>1000 // 10 = 100</code><br>
+              • <code>s = 2 * m</code> &rarr; <code>'981981'</code> (String bukan angka!)<br>
+              • <code>t = p % q</code> &rarr; <code>1000 % 6 = 4</code><br>
+              • <code>u = t ** 2</code> &rarr; <code>4 ** 2 = 16</code><br>
+              • <code>v = p - t</code> &rarr; <code>1000 - 4 = 996</code><br>
+              • <code>w = n < 6</code> &rarr; <code>9 < 6 = False</code>
             </div>
 
             <div class="hvs-box">
               <div class="hvs-box-title">3. SLICING STRING: teks[start : stop : step]</div>
-              â€¢ <code>start</code> inklusif, <code>stop</code> eksklusif (tidak ikut terambil).<br>
-              â€¢ <code>teks[::-1]</code> &rarr; Membalikkan string (Reverse).<br>
-              â€¢ <code>teks[:4]</code> &rarr; Mengambil 4 karakter pertama.<br>
-              â€¢ <code>teks[-4:]</code> &rarr; Mengambil 4 karakter terakhir.<br>
-              â€¢ <code>teks[::2]</code> &rarr; Mengambil huruf dengan lompatan 2.
+              • <code>start</code> inklusif, <code>stop</code> eksklusif (tidak ikut terambil).<br>
+              • <code>teks[::-1]</code> &rarr; Membalikkan string (Reverse).<br>
+              • <code>teks[:4]</code> &rarr; Mengambil 4 karakter pertama.<br>
+              • <code>teks[-4:]</code> &rarr; Mengambil 4 karakter terakhir.<br>
+              • <code>teks[::2]</code> &rarr; Mengambil huruf dengan lompatan 2.
             </div>
           </div>
 
@@ -1879,11 +1880,11 @@ total_bayar = total - diskon</pre>
 
             <div class="hvs-box">
               <div class="hvs-box-title">5. SIMBOL STANDAR FLOWCHART</div>
-              â€¢ <strong>Terminator (Oval):</strong> Mulai / Selesai.<br>
-              â€¢ <strong>Jajar Genjang:</strong> Input / Output data.<br>
-              â€¢ <strong>Persegi Panjang:</strong> Proses / Operasi perhitungan.<br>
-              â€¢ <strong>Belah Ketupat (Diamond):</strong> Decision (Percabangan Ya/Tidak).<br>
-              â€¢ <strong>Panah:</strong> Alur eksekusi (Flow line).
+              • <strong>Terminator (Oval):</strong> Mulai / Selesai.<br>
+              • <strong>Jajar Genjang:</strong> Input / Output data.<br>
+              • <strong>Persegi Panjang:</strong> Proses / Operasi perhitungan.<br>
+              • <strong>Belah Ketupat (Diamond):</strong> Decision (Percabangan Ya/Tidak).<br>
+              • <strong>Panah:</strong> Alur eksekusi (Flow line).
             </div>
 
             <div class="hvs-box">
@@ -1898,16 +1899,16 @@ total_bayar = total - diskon</pre>
             <div class="hvs-box">
               <div class="hvs-box-title">7. CATATAN PRIBADI MAHASISWA</div>
               <div id="hvs-custom-notes" style="font-size:10.5px; color:#334155; font-style:italic;">
-                â€¢ Hati-hati indentasi Python (4 spasi).<br>
-                â€¢ Operator perbandingan: <code>==</code> (sama dengan), <code>!=</code> (tidak sama).<br>
-                â€¢ Tipe data boolean: <code>True</code> dan <code>False</code> (huruf besar di awal).
+                • Hati-hati indentasi Python (4 spasi).<br>
+                • Operator perbandingan: <code>==</code> (sama dengan), <code>!=</code> (tidak sama).<br>
+                • Tipe data boolean: <code>True</code> dan <code>False</code> (huruf besar di awal).
               </div>
             </div>
           </div>
         </div>
 
         <div style="margin-top:14px; display:flex; justify-content:space-between; align-items:flex-end; font-size:11px; border-top:1px solid #cbd5e1; padding-top:6px;">
-          <span>RepoInformatika UMS â€” Logika &amp; Pemrograman</span>
+          <span>RepoInformatika UMS — Logika &amp; Pemrograman</span>
           <span style="text-align:center;">
             Tanda Tangan Mahasiswa:<br><br><br>
             ( ...................................................... )
@@ -1919,7 +1920,7 @@ total_bayar = total - diskon</pre>
     <!-- ==================== TAB 7: FLASHCARDS (25+ KARTU) ==================== -->
     <div id="tab-flashcards" class="tab-pane">
       <div class="article-card" style="text-align:center;">
-        <h2>ðŸ—‚ï¸ Flashcards Hafalan Konsep Kritis Alpro (25 Kartu)</h2>
+        <h2>🗂️ Flashcards Hafalan Konsep Kritis Alpro (25 Kartu)</h2>
         <p style="max-width:600px; margin:0 auto 12px;">
           Pilih filter kategori di bawah atau gunakan keyboard: <strong>Panah Kiri/Kanan</strong> untuk navigasi, dan <strong>Spasi</strong> untuk membalik kartu (Flip 3D)!
         </p>
@@ -1930,7 +1931,7 @@ total_bayar = total - diskon</pre>
           <button class="btn btn-outline" onclick="filterCards('Operator')" id="fc-btn-Operator" style="font-size:12px; padding:4px 10px;">Operator &amp; Tipe Data</button>
           <button class="btn btn-outline" onclick="filterCards('Slicing')" id="fc-btn-Slicing" style="font-size:12px; padding:4px 10px;">String &amp; Slicing</button>
           <button class="btn btn-outline" onclick="filterCards('Percabangan')" id="fc-btn-Percabangan" style="font-size:12px; padding:4px 10px;">Percabangan &amp; Kasir</button>
-          <button class="btn btn-outline" onclick="filterCards('Jebakan')" id="fc-btn-Jebakan" style="font-size:12px; padding:4px 10px;">âš ï¸ Jebakan UTS</button>
+          <button class="btn btn-outline" onclick="filterCards('Jebakan')" id="fc-btn-Jebakan" style="font-size:12px; padding:4px 10px;">⚠️ Jebakan UTS</button>
         </div>
 
         <!-- FLASHCARD 3D COMPONENT -->
@@ -1945,13 +1946,13 @@ total_bayar = total - diskon</pre>
                 Pertanyaan Kartu
               </div>
               <div style="font-size:11.5px; color:var(--text-muted);">
-                ðŸ”„ Ketuk kartu atau tekan [Spasi] untuk melihat jawaban
+                🔄 Ketuk kartu atau tekan [Spasi] untuk melihat jawaban
               </div>
             </div>
             <div class="fc-face fc-back">
               <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="font-size:11px; font-weight:700; color:var(--accent-emerald); text-transform:uppercase;">Kunci Konsep</span>
-                <span style="font-size:11px; color:var(--text-muted);">ðŸ’¡ Jawaban Benar</span>
+                <span style="font-size:11px; color:var(--text-muted);">💡 Jawaban Benar</span>
               </div>
               <div id="fc-back-text" style="font-size:14px; line-height:1.6; color:var(--text-body); margin:auto 0; overflow-y:auto; max-height:220px;">
                 Penjelasan jawaban...
@@ -1964,9 +1965,9 @@ total_bayar = total - diskon</pre>
         </div>
 
         <div style="display:flex; justify-content:center; gap:12px; margin-top:20px;">
-          <button class="btn btn-outline" onclick="prevCard()">â¬…ï¸ Sebelumnya</button>
-          <button class="btn btn-outline" onclick="shuffleCards()">ðŸ”€ Acak Kartu</button>
-          <button class="btn btn-primary" onclick="nextCard()">Berikutnya âž¡ï¸</button>
+          <button class="btn btn-outline" onclick="prevCard()">⬅️ Sebelumnya</button>
+          <button class="btn btn-outline" onclick="shuffleCards()">🔀 Acak Kartu</button>
+          <button class="btn btn-primary" onclick="nextCard()">Berikutnya ➡️</button>
         </div>
       </div>
     </div>
@@ -1976,15 +1977,15 @@ total_bayar = total - diskon</pre>
       <div class="article-card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid var(--border-color); padding-bottom:14px; margin-bottom:18px;">
           <div>
-            <h2 style="border:none; margin:0; padding:0;">âš”ï¸ UTS Exam Arena (15 Bank Soal Asli UMS)</h2>
+            <h2 style="border:none; margin:0; padding:0;">⚔️ UTS Exam Arena (15 Bank Soal Asli UMS)</h2>
             <p style="margin:4px 0 0; font-size:13px; color:var(--text-muted);">Simulasi ujian 90 menit lengkap dengan kisi-kisi NIM Ganjil vs NIM Genap.</p>
           </div>
           <div style="display:flex; align-items:center; gap:12px;">
             <div style="font-family:var(--font-mono); font-size:15px; font-weight:700; background:var(--bg-surface-elevated); padding:6px 12px; border-radius:var(--radius-sm); border:1px solid var(--border-color);" id="exam-timer">
-              â±ï¸ 90:00
+              ⏱️ 90:00
             </div>
             <button class="btn btn-outline" onclick="toggleTimer()" id="btn-timer-toggle">Pause</button>
-            <button class="btn btn-emerald" onclick="finishExam()">ðŸ Selesai Ujian</button>
+            <button class="btn btn-emerald" onclick="finishExam()">🏁 Selesai Ujian</button>
           </div>
         </div>
 
@@ -2000,16 +2001,16 @@ total_bayar = total - diskon</pre>
         <div id="quiz-question-container"></div>
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
-          <button class="btn btn-outline" onclick="prevQuizQuestion()" id="btn-prev-quiz">â¬…ï¸ Soal Sebelumnya</button>
+          <button class="btn btn-outline" onclick="prevQuizQuestion()" id="btn-prev-quiz">⬅️ Soal Sebelumnya</button>
           <span id="quiz-counter" style="font-size:13px; font-weight:600; color:var(--text-muted);">Soal 1 dari 15</span>
-          <button class="btn btn-primary" onclick="nextQuizQuestion()" id="btn-next-quiz">Soal Berikutnya âž¡ï¸</button>
+          <button class="btn btn-primary" onclick="nextQuizQuestion()" id="btn-next-quiz">Soal Berikutnya ➡️</button>
         </div>
 
         <!-- FINAL SCORE REPORT MODAL -->
         <div id="exam-report-box" class="callout success" style="display:none; margin-top:24px;">
-          <h3 style="margin-top:0; color:var(--accent-emerald);">ðŸŽ‰ RAPOR HASIL SIMULASI UTS</h3>
+          <h3 style="margin-top:0; color:var(--accent-emerald);">🎉 RAPOR HASIL SIMULASI UTS</h3>
           <div style="font-size:15px; line-height:1.7;" id="exam-report-details"></div>
-          <button class="btn btn-primary" onclick="restartExam()" style="margin-top:10px;">ðŸ”„ Ulangi Ujian dari Awal</button>
+          <button class="btn btn-primary" onclick="restartExam()" style="margin-top:10px;">🔄 Ulangi Ujian dari Awal</button>
         </div>
       </div>
     </div>
@@ -2017,7 +2018,7 @@ total_bayar = total - diskon</pre>
     <!-- ==================== TAB 9: PYTHON RUNNER ==================== -->
     <div id="tab-runner" class="tab-pane">
       <div class="article-card">
-        <h2>ðŸ’» Python Mini Runner &amp; Live Playground</h2>
+        <h2>💻 Python Mini Runner &amp; Live Playground</h2>
         <p>
           Tulis atau pilih kode Python di bawah ini untuk melihat hasil eksekusi dan output terminal secara langsung di browser tanpa perlu install Python!
         </p>
@@ -2034,7 +2035,7 @@ total_bayar = total - diskon</pre>
           <div>
             <textarea id="python-editor" rows="14" style="width:100%; padding:14px; font-family:var(--font-mono); font-size:13.5px; line-height:1.5; background:#0d131f; color:#f8fafc; border:1px solid var(--border-color); border-radius:var(--radius-sm); resize:vertical; outline:none;" spellcheck="false"></textarea>
             <div style="display:flex; gap:10px; margin-top:10px;">
-              <button class="btn btn-primary" onclick="runPythonCode()">â–¶ï¸ Eksekusi Kode (Run)</button>
+              <button class="btn btn-primary" onclick="runPythonCode()">▶️ Eksekusi Kode (Run)</button>
               <button class="btn btn-outline" onclick="clearRunnerTerminal()">Bersihkan Terminal</button>
             </div>
           </div>
@@ -2082,17 +2083,17 @@ total_bayar = total - diskon</pre>
     // ==========================================
     function toggleTheme() {
       const html = document.documentElement;
-      const current = html.getAttribute('data-theme') || 'dark';
+      const current = html.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('alpro_theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '🌙' : '☀️';
     }
 
     const savedTheme = localStorage.getItem('alpro_theme');
     if (savedTheme) {
       document.documentElement.setAttribute('data-theme', savedTheme);
-      document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸';
+      document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
     }
 
     // ==========================================
@@ -2105,7 +2106,7 @@ total_bayar = total - diskon</pre>
       { name: 'p', expr: 'int(m) + 19', desc: 'Konversi string m menjadi integer, lalu jumlahkan dengan 19.' },
       { name: 'q', expr: '15 - n', desc: 'Pengurangan nilai numerik: 15 dikurangi variabel n.' },
       { name: 'r', expr: 'p // 10', desc: 'Floor division (pembagian bulat dibuang desimalnya).' },
-      { name: 's', expr: '2 * m', desc: 'âš ï¸ JEBAKAN POPULER UTS: Perkalian integer dengan string menghasilkan duplikasi string!' },
+      { name: 's', expr: '2 * m', desc: '⚠️ JEBAKAN POPULER UTS: Perkalian integer dengan string menghasilkan duplikasi string!' },
       { name: 't', expr: 'p % q', desc: 'Operasi sisa bagi (modulo) dari p dibagi q.' },
       { name: 'u', expr: 't ** 2', desc: 'Eksponensial kuadrat (pangkat dua dari t).' },
       { name: 'v', expr: 'p - t', desc: 'Pengurangan numerik p dikurangi t.' },
@@ -2122,7 +2123,7 @@ total_bayar = total - diskon</pre>
     function resetNimStepper() {
       nimStepIndex = 0;
       document.getElementById('stepper-alert-box').style.display = 'none';
-      document.getElementById('btn-nim-step').textContent = 'â–¶ï¸ Langkah Demi Langkah (Step)';
+      document.getElementById('btn-nim-step').textContent = '▶️ Langkah Demi Langkah (Step)';
       runNimTracing();
     }
 
@@ -2143,7 +2144,7 @@ total_bayar = total - diskon</pre>
       `;
 
       document.getElementById('btn-nim-step').textContent = nimStepIndex < TRACE_STEPS.length ? 
-        `â–¶ï¸ Langkah Selanjutnya (${nimStepIndex + 1}/${TRACE_STEPS.length})` : 'ðŸ”„ Mulai Ulang Stepper';
+        `▶️ Langkah Selanjutnya (${nimStepIndex + 1}/${TRACE_STEPS.length})` : '🔄 Mulai Ulang Stepper';
 
       runNimTracing(nimStepIndex);
     }
@@ -2203,9 +2204,9 @@ w = n < 6        # Hasil: ${w}`;
         { var: 'p', type: 'int', val: p, desc: `int(m) + 19 &rarr; ${parseInt(m)||0} + 19 = ${p}` },
         { var: 'q', type: 'int', val: q, desc: `15 - n &rarr; 15 - ${n} = ${q}` },
         { var: 'r', type: 'int', val: r, desc: `p // 10 &rarr; pembagian bulat ${p} // 10 = ${r}` },
-        { var: 's', type: 'str', val: `'${s}'`, desc: 'âš ï¸ Duplikasi string! 2 * string = ulang 2x' },
+        { var: 's', type: 'str', val: `'${s}'`, desc: '⚠️ Duplikasi string! 2 * string = ulang 2x' },
         { var: 't', type: 'int', val: t, desc: `p % q &rarr; modulo ${p} % ${q} = ${t}` },
-        { var: 'u', type: 'int', val: u, desc: `t ** 2 &rarr; pangkat ${t}Â² = ${u}` },
+        { var: 'u', type: 'int', val: u, desc: `t ** 2 &rarr; pangkat ${t}² = ${u}` },
         { var: 'v', type: 'int', val: v, desc: `p - t &rarr; ${p} - ${t} = ${v}` },
         { var: 'w', type: 'bool', val: w ? 'True' : 'False', desc: `Perbandingan: apakah ${n} < 6? &rarr; ${w ? 'True' : 'False'}` }
       ];
@@ -2304,7 +2305,7 @@ w = n < 6        # Hasil: ${w}`;
       txt += "Terima kasih atas belanjaan Anda!";
 
       navigator.clipboard.writeText(txt).then(() => {
-        alert("âœ… Teks struk berhasil disalin ke clipboard!");
+        alert("✅ Teks struk berhasil disalin ke clipboard!");
       });
     }
 
@@ -2376,7 +2377,7 @@ w = n < 6        # Hasil: ${w}`;
         if (includedIndices.includes(i)) cell.classList.add('active-slice');
         cell.innerHTML = `
           <span class="pos-idx">+${i}</span>
-          <span class="char-val">${text[i] === ' ' ? 'â£' : text[i]}</span>
+          <span class="char-val">${text[i] === ' ' ? '␣' : text[i]}</span>
           <span class="neg-idx">-${len - i}</span>
         `;
         ruler.appendChild(cell);
@@ -2412,7 +2413,7 @@ w = n < 6        # Hasil: ${w}`;
       currentChallengeTarget = c.target;
 
       document.getElementById('challenge-question-text').innerHTML = 
-        `Diberikan teks <code>"${c.text}"</code>. Bentuklah potongan substring: <strong style="color:var(--accent-emerald); font-size:16px;">"${c.target}"</strong>.<br><small style="color:var(--text-muted);">ðŸ’¡ Petunjuk: ${c.hint}</small>`;
+        `Diberikan teks <code>"${c.text}"</code>. Bentuklah potongan substring: <strong style="color:var(--accent-emerald); font-size:16px;">"${c.target}"</strong>.<br><small style="color:var(--text-muted);">💡 Petunjuk: ${c.hint}</small>`;
       document.getElementById('challenge-answer-input').value = '';
       document.getElementById('challenge-feedback').textContent = '';
       document.getElementById('challenge-score-badge').textContent = `Skor: ${challengeScore}`;
@@ -2443,10 +2444,10 @@ w = n < 6        # Hasil: ${w}`;
           challengeScore += 25;
           document.getElementById('challenge-score-badge').textContent = `Skor: ${challengeScore}`;
           document.getElementById('challenge-feedback').innerHTML = 
-            `<span style="color:var(--accent-emerald);">ðŸŽ‰ BENAR! Slicing menghasilkan: '${res}'. Hebat!</span>`;
+            `<span style="color:var(--accent-emerald);">🎉 BENAR! Slicing menghasilkan: '${res}'. Hebat!</span>`;
         } else {
           document.getElementById('challenge-feedback').innerHTML = 
-            `<span style="color:var(--accent-rose);">âŒ Kurang tepat. Hasil Anda: '${res}', target: '${currentChallengeTarget}'. Coba lagi!</span>`;
+            `<span style="color:var(--accent-rose);">❌ Kurang tepat. Hasil Anda: '${res}', target: '${currentChallengeTarget}'. Coba lagi!</span>`;
         }
       } catch (e) {
         document.getElementById('challenge-feedback').innerHTML = 
@@ -2579,7 +2580,7 @@ for i in range(1, n + 1):
     function copyPatternCode() {
       const code = document.getElementById('pattern-code-box').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        alert("âœ… Kode Python pola berhasil disalin!");
+        alert("✅ Kode Python pola berhasil disalin!");
       });
     }
 
@@ -2596,7 +2597,7 @@ for i in range(1, n + 1):
         document.getElementById('hvs-custom-notes').innerHTML = customText.replace(/\n/g, '<br>');
       } else {
         document.getElementById('hvs-custom-notes').innerHTML = 
-          'â€¢ Hati-hati indentasi Python (4 spasi).<br>â€¢ Operator perbandingan: <code>==</code>, <code>!=</code>.<br>â€¢ Tipe boolean: <code>True</code> dan <code>False</code>.';
+          '• Hati-hati indentasi Python (4 spasi).<br>• Operator perbandingan: <code>==</code>, <code>!=</code>.<br>• Tipe boolean: <code>True</code> dan <code>False</code>.';
       }
     }
 
@@ -2626,7 +2627,7 @@ for i in range(1, n + 1):
         category: "Operator",
         topic: "Operator / vs //",
         q: "Apa perbedaan operator '/' dan '//' di Python?",
-        a: "â€¢ <code>/</code> (Float Division): Selalu menghasilkan angka desimal (float), misal: <code>4 / 2 = 2.0</code>.<br>â€¢ <code>//</code> (Floor Division): Pembagian bulat, membuang bagian pecahan ke bawah, misal: <code>7 // 2 = 3</code>."
+        a: "• <code>/</code> (Float Division): Selalu menghasilkan angka desimal (float), misal: <code>4 / 2 = 2.0</code>.<br>• <code>//</code> (Floor Division): Pembagian bulat, membuang bagian pecahan ke bawah, misal: <code>7 // 2 = 3</code>."
       },
       {
         category: "Jebakan",
@@ -2674,7 +2675,7 @@ for i in range(1, n + 1):
         category: "Jebakan",
         topic: "Perbandingan = vs ==",
         q: "Apa perbedaan tanda tunggal '=' dan ganda '==' di Python?",
-        a: "â€¢ <code>=</code> adalah Assignment Operator untuk menyimpan nilai ke variabel (contoh: <code>x = 5</code>).<br>â€¢ <code>==</code> adalah Comparison Operator untuk menguji kesamaan nilai (contoh: <code>if x == 5:</code>)."
+        a: "• <code>=</code> adalah Assignment Operator untuk menyimpan nilai ke variabel (contoh: <code>x = 5</code>).<br>• <code>==</code> adalah Comparison Operator untuk menguji kesamaan nilai (contoh: <code>if x == 5:</code>)."
       },
       {
         category: "Percabangan",
@@ -2716,7 +2717,7 @@ for i in range(1, n + 1):
     function renderCard() {
       if (activeDeck.length === 0) return;
       const card = activeDeck[currentCardIdx];
-      document.getElementById('fc-topic').textContent = `${card.category} â€¢ ${card.topic}`;
+      document.getElementById('fc-topic').textContent = `${card.category} • ${card.topic}`;
       document.getElementById('fc-counter').textContent = `${currentCardIdx + 1} / ${activeDeck.length}`;
       document.getElementById('fc-front-text').innerHTML = card.q;
       document.getElementById('fc-back-text').innerHTML = card.a;
@@ -2931,7 +2932,7 @@ for i in range(1, n + 1):
       if (isAnswered) {
         expHtml = `
           <div class="callout ${userAnswers[currentQuizIdx] === q.ans ? 'success' : 'danger'}" style="margin-top:14px;">
-            <strong>${userAnswers[currentQuizIdx] === q.ans ? 'âœ… Jawaban Anda Benar!' : 'âŒ Jawaban Kurang Tepat!'}</strong><br>
+            <strong>${userAnswers[currentQuizIdx] === q.ans ? '✅ Jawaban Anda Benar!' : '❌ Jawaban Kurang Tepat!'}</strong><br>
             ${q.exp}
           </div>
         `;
@@ -3021,7 +3022,7 @@ for i in range(1, n + 1):
         }
         const m = Math.floor(timeLeft / 60);
         const s = timeLeft % 60;
-        document.getElementById('exam-timer').textContent = `â±ï¸ ${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        document.getElementById('exam-timer').textContent = `⏱️ ${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
       }, 1000);
     }
 
@@ -3179,7 +3180,7 @@ for i in range(1, n + 1):
 
         term.textContent = output || '[Program selesai tanpa output teks]';
       } catch (err) {
-        term.textContent = 'âš ï¸ Terjadi Kesalahan: ' + err.message;
+        term.textContent = '⚠️ Terjadi Kesalahan: ' + err.message;
       }
     }
 
@@ -3203,5 +3204,6 @@ for i in range(1, n + 1):
   <script src="../shared/portal-nav.js" defer></script>
 </body>
 </html>
+
 
 

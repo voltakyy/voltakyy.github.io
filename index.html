@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="id" data-theme="dark">
+﻿<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -9,211 +9,189 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <meta name="theme-color" content="#0b0f17">
+  <link rel="stylesheet" href="./shared/medical-theme.css">
+  <meta name="theme-color" content="#0066cc">
 </head>
 <body>
 
   <a href="#mainContent" class="skip-link">Lewati ke konten utama</a>
 
-  <!-- Top Announcement Strip (Linear Changelog Style) -->
+  <!-- Announcement Bar (Medical Header Strip) -->
   <div class="top-announcement-strip">
     <div class="strip-inner">
       <div class="strip-left">
         <span class="strip-dot"></span>
-        <span class="strip-badge-code">GASAL 2026/2027</span>
-        <span>Persiapan UTS Informatika · Fakultas Komunikasi &amp; Informatika UMS</span>
+        <span class="strip-badge-code">UTS GASAL 2026/2027</span>
+        <span>Pusat Belajar &amp; Simulasi Ujian Resmi · Informatika UMS</span>
       </div>
       <div>
-        <button id="themeToggle" type="button" class="theme-toggle-btn" aria-label="Ganti mode tampilan">
-          <span class="theme-icon light-icon">☀️ Light</span>
-          <span class="theme-icon dark-icon">🌙 Dark</span>
-        </button>
+        <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="meta-link-btn btn-pill-blue">
+          <span>SPADA UMS ↗</span>
+        </a>
       </div>
     </div>
   </div>
 
   <div class="shell">
-    <!-- Tech Hero Header -->
-    <header class="tech-header">
+    <!-- Clinic Header -->
+    <header class="clinic-header">
       <div class="header-top-row">
         <div class="brand-group">
           <div class="brand-icon-box" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
             </svg>
           </div>
           <div>
             <h1 class="brand-title">
-              Ruang Belajar UMS
-              <span class="brand-version-pill">v2.5 Monorepo</span>
+              Ruang Belajar <span class="gradient-text">Informatika UMS</span>
             </h1>
-            <p class="brand-subtitle">Platform Terpadu Materi Kuliah, Bank Soal Interaktif, &amp; Arena Simulasi UTS</p>
+            <p class="brand-subtitle">Portal Satu Pintu Materi Kuliah, Bank Soal Teruji, &amp; Arena Simulasi Ujian</p>
           </div>
         </div>
 
         <div class="header-meta-actions">
           <span class="meta-link-btn btn-pill-blue">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
               <path d="M6 12v5c3 3 9 3 12 0v-5"/>
             </svg>
             Kelas B Informatika
           </span>
-          <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="meta-link-btn" title="Buka SPADA UMS">
-            <span>SPADA UMS</span>
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
           <a href="https://github.com/voltakyy/voltakyy.github.io" target="_blank" rel="noopener noreferrer" class="meta-link-btn" title="Buka Repositori GitHub">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg>
-            <span>GitHub</span>
+            <span>GitHub Monorepo</span>
           </a>
         </div>
       </div>
 
-      <!-- Linear Metrics Grid -->
-      <div class="metrics-grid">
-        <div class="metric-cell">
-          <span class="metric-tag">Modul Terintegrasi</span>
-          <span class="metric-stat">7 Matkul</span>
+      <!-- Trust Cards (Medical Clinic Stats) -->
+      <div class="metrics-row">
+        <div class="trust-card">
+          <span class="trust-label">Mata Kuliah Terintegrasi</span>
+          <span class="stat-number">7</span>
         </div>
-        <div class="metric-cell">
-          <span class="metric-tag">Bank Soal &amp; Kasus</span>
-          <span class="metric-stat">180+ Soal</span>
+        <div class="trust-card">
+          <span class="trust-label">Bank Soal &amp; Kasus</span>
+          <span class="stat-number">180+</span>
         </div>
-        <div class="metric-cell">
-          <span class="metric-tag">Listening Audio Sessions</span>
-          <span class="metric-stat">12 Sesi</span>
+        <div class="trust-card">
+          <span class="trust-label">Listening Audio Arena</span>
+          <span class="stat-number">12 Sesi</span>
         </div>
-        <div class="metric-cell">
-          <span class="metric-tag">Status Sistem</span>
-          <span class="metric-stat text-emerald">Production Ready</span>
+        <div class="trust-card">
+          <span class="trust-label">Status Verifikasi</span>
+          <span class="stat-number text-emerald">100%</span>
         </div>
       </div>
     </header>
 
-    <!-- Raycast Spotlight Command Bar -->
-    <section class="command-section" aria-label="Spotlight Command Search">
-      <div class="command-bar-box">
-        <span class="command-search-icon" aria-hidden="true">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Search Section (Medical Clinic Form Input) -->
+    <section class="search-section" aria-label="Pencarian Materi">
+      <div class="search-input-box">
+        <span style="color: var(--color-primary); display: flex; align-items: center;" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
         </span>
-        <input type="search" id="courseSearch" class="command-search-input" placeholder="Cari cepat (misal: listening, boolean, oop, limit, aqidah)..." aria-label="Cari mata kuliah atau topik">
-        <kbd class="command-key-badge" aria-hidden="true">/</kbd>
+        <input type="search" id="courseSearch" class="search-input" placeholder="Cari topik (misal: listening, boolean, oop, limit, aqidah, fungsi)..." aria-label="Cari mata kuliah atau topik">
+        <kbd class="search-key-badge" aria-hidden="true">/</kbd>
       </div>
 
-      <div class="filter-tabs-row" role="tablist" aria-label="Filter Berdasarkan Kategori">
-        <button type="button" class="filter-pill active" data-filter="all" role="tab" aria-selected="true">Semua (7)</button>
-        <button type="button" class="filter-pill" data-filter="sem3" role="tab" aria-selected="false">Semester 3</button>
-        <button type="button" class="filter-pill" data-filter="sem1" role="tab" aria-selected="false">Semester 1</button>
-        <button type="button" class="filter-pill" data-filter="programming" role="tab" aria-selected="false">Coding &amp; OOP</button>
-        <button type="button" class="filter-pill" data-filter="math" role="tab" aria-selected="false">Matematika &amp; Logika</button>
+      <div class="filter-badges-row" role="tablist" aria-label="Filter Berdasarkan Kategori">
+        <button type="button" class="filter-badge-btn active" data-filter="all" role="tab" aria-selected="true">Semua Modul (7)</button>
+        <button type="button" class="filter-badge-btn" data-filter="sem3" role="tab" aria-selected="false">Semester 3</button>
+        <button type="button" class="filter-badge-btn" data-filter="sem1" role="tab" aria-selected="false">Semester 1</button>
+        <button type="button" class="filter-badge-btn" data-filter="programming" role="tab" aria-selected="false">Coding &amp; OOP</button>
+        <button type="button" class="filter-badge-btn" data-filter="math" role="tab" aria-selected="false">Matematika &amp; Logika</button>
       </div>
     </section>
 
     <!-- Main Content -->
     <main id="mainContent">
 
-      <!-- Compact Dock Launchers -->
+      <!-- Quick Dock Grid -->
       <section aria-label="Peluncur Cepat Matkul">
-        <div class="section-headline-row">
+        <div class="section-header-block">
           <h2 class="section-title">Peluncur Cepat</h2>
-          <span class="section-caption">Akses 1-klik ke semua modul</span>
+          <span class="section-subtitle">Akses langsung ke seluruh arena belajar</span>
         </div>
 
         <div class="quick-dock-grid">
           <!-- 1. Pemvis -->
           <a href="./latihan-pemrograman-visual/" class="dock-item" data-category="sem3 programming" title="Buka Pemrograman Visual">
-            <span class="dock-badge-tag">INF201</span>
-            <div class="dock-icon bg-amber">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <span class="dock-tag">INF201</span>
+            <div class="dock-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
             </div>
-            <div class="dock-info">
-              <strong class="dock-title">Pemvis</strong>
-              <span class="dock-sub">Alice 3 &amp; OOP</span>
-            </div>
+            <strong class="dock-title">Pemvis</strong>
+            <span class="dock-sub">Alice 3 &amp; OOP</span>
           </a>
 
           <!-- 2. KKI -->
           <a href="./belajar-uts-kepemimpinan/" class="dock-item" data-category="sem3" title="Buka Kepemimpinan & KKI">
-            <span class="dock-badge-tag">INF204</span>
-            <div class="dock-icon bg-blue">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span class="dock-tag">INF204</span>
+            <div class="dock-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             </div>
-            <div class="dock-info">
-              <strong class="dock-title">KKI</strong>
-              <span class="dock-sub">Kepemimpinan</span>
-            </div>
+            <strong class="dock-title">KKI</strong>
+            <span class="dock-sub">Kepemimpinan</span>
           </a>
 
           <!-- 3. EAP -->
           <a href="./latihan-eap/" class="dock-item" data-category="sem3" title="Buka English for Academic Purposes">
-            <span class="dock-badge-tag">INF208</span>
-            <div class="dock-icon bg-teal">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span class="dock-tag">INF208</span>
+            <div class="dock-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
             </div>
-            <div class="dock-info">
-              <strong class="dock-title">EAP</strong>
-              <span class="dock-sub">Academic English</span>
-            </div>
+            <strong class="dock-title">EAP</strong>
+            <span class="dock-sub">Academic English</span>
           </a>
 
           <!-- 4. Alpro -->
           <a href="./materi-alpro/" class="dock-item" data-category="sem1 programming" title="Buka Algoritma & Pemrograman">
-            <span class="dock-badge-tag">INF102</span>
-            <div class="dock-icon bg-emerald">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <span class="dock-tag">INF102</span>
+            <div class="dock-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
-            <div class="dock-info">
-              <strong class="dock-title">Alpro</strong>
-              <span class="dock-sub">Python Dasar</span>
-            </div>
+            <strong class="dock-title">Alpro</strong>
+            <span class="dock-sub">Python Dasar</span>
           </a>
 
           <!-- 5. Kalkulus -->
           <a href="./latihan-kalkulus/" class="dock-item" data-category="sem1 math" title="Buka Kalkulus Reguler">
-            <span class="dock-badge-tag">INF103</span>
-            <div class="dock-icon bg-indigo">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+            <span class="dock-tag">INF103</span>
+            <div class="dock-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
             </div>
-            <div class="dock-info">
-              <strong class="dock-title">Kalkulus</strong>
-              <span class="dock-sub">Limit &amp; Turunan</span>
-            </div>
+            <strong class="dock-title">Kalkulus</strong>
+            <span class="dock-sub">Limit &amp; Turunan</span>
           </a>
 
           <!-- 6. Fungsi -->
           <a href="./materi-fungsi/" class="dock-item" data-category="sem1 math" title="Buka Modul Fungsi Matematika">
-            <span class="dock-badge-tag">MATH</span>
-            <div class="dock-icon bg-coral">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+            <span class="dock-tag">MATH</span>
+            <div class="dock-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
             </div>
-            <div class="dock-info">
-              <strong class="dock-title">Fungsi</strong>
-              <span class="dock-sub">Invers &amp; Domain</span>
-            </div>
+            <strong class="dock-title">Fungsi</strong>
+            <span class="dock-sub">Invers &amp; Domain</span>
           </a>
 
           <!-- 7. Lohim -->
           <a href="./materi-lohim/" class="dock-item" data-category="sem1 math" title="Buka Logika & Himpunan">
-            <span class="dock-badge-tag">INF105</span>
-            <div class="dock-icon bg-plum">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+            <span class="dock-tag">INF105</span>
+            <div class="dock-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
             </div>
-            <div class="dock-info">
-              <strong class="dock-title">Lohim</strong>
-              <span class="dock-sub">Boolean &amp; Venn</span>
-            </div>
+            <strong class="dock-title">Lohim</strong>
+            <span class="dock-sub">Boolean &amp; Venn</span>
           </a>
         </div>
       </section>
@@ -223,31 +201,31 @@
         <div class="empty-icon-wrap" aria-hidden="true">🔍</div>
         <h3>Mata Kuliah Tidak Ditemukan</h3>
         <p>Coba gunakan kata kunci lain (misalnya: <code>listening</code>, <code>boolean</code>, <code>oop</code>, <code>python</code>, atau <code>fungsi</code>).</p>
-        <button id="resetSearch" type="button" class="btn-tactile">
+        <button id="resetSearch" type="button" class="btn-primary" style="display: inline-flex; width: auto;">
           Bersihkan Pencarian
         </button>
       </div>
 
-      <!-- Detailed Course Cards Grid -->
+      <!-- Detailed Service Cards Deck (Medical Clinic Style) -->
       <section id="courseList" class="cards-deck-section" aria-label="Daftar Lengkap Modul Mata Kuliah">
 
         <!-- 1. Pemrograman Visual -->
-        <article class="course-card" data-category="sem3 programming">
+        <article class="service-card" data-category="sem3 programming">
           <div class="card-top-header">
             <div class="card-identity-group">
-              <div class="card-avatar bg-amber">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              <div class="card-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
               </div>
               <div>
                 <h3 class="card-name">Pemrograman Visual</h3>
                 <span class="card-meta">INF201 · Semester 3 · 3 SKS · Alice 3 &amp; OOP</span>
               </div>
             </div>
-            <span class="status-badge badge-amber">UTS 2026 Ready</span>
+            <span class="badge badge-primary">UTS 2026 Ready</span>
           </div>
 
           <p class="card-desc">
-            Pahami konsep cetak biru vs objek, hierarki pewarisan (inheritance), procedure vs function di Alice 3, hingga bedah naskah ujian resmi 2024 dan simulasi 2026.
+            Pahami konsep cetak biru vs objek, hierarki pewarisan (inheritance), procedure vs function di Alice 3, hingga bedah naskah ujian resmi 2024 dan modul 2026.
           </p>
 
           <div class="card-tags-row">
@@ -258,32 +236,32 @@
           </div>
 
           <div class="card-action-bar">
-            <a href="./latihan-pemrograman-visual/uts-2026.html" class="btn-card-primary" title="Buka Modul & Latihan Esai UTS 2026">
+            <a href="./latihan-pemrograman-visual/uts-2026.html" class="btn-primary" title="Buka Modul & Latihan Esai UTS 2026">
               <span>Latihan UTS 2026</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
-            <a href="./latihan-pemrograman-visual/uts-2024.html" class="btn-card-secondary" title="Buka Naskah Asli UTS Gasal 2024/2025">
+            <a href="./latihan-pemrograman-visual/uts-2024.html" class="btn-secondary" title="Buka Naskah Asli UTS Gasal 2024/2025">
               <span>Naskah 2024</span>
             </a>
-            <a href="./latihan-pemrograman-visual/" class="btn-card-secondary" title="Buka Beranda Pemvis">
-              <span>Modul Utama</span>
+            <a href="./latihan-pemrograman-visual/" class="btn-secondary" title="Buka Beranda Pemvis">
+              <span>Modul</span>
             </a>
           </div>
         </article>
 
         <!-- 2. KKI -->
-        <article class="course-card" data-category="sem3">
+        <article class="service-card" data-category="sem3">
           <div class="card-top-header">
             <div class="card-identity-group">
-              <div class="card-avatar bg-blue">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <div class="card-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               </div>
               <div>
                 <h3 class="card-name">Kepemimpinan &amp; KKI</h3>
                 <span class="card-meta">INF204 · Semester 3 · 2 SKS · Soft Skill &amp; Kasus</span>
               </div>
             </div>
-            <span class="status-badge badge-blue">40+ Kasus Esai</span>
+            <span class="badge badge-primary">40+ Kasus Esai</span>
           </div>
 
           <p class="card-desc">
@@ -298,32 +276,32 @@
           </div>
 
           <div class="card-action-bar">
-            <a href="./belajar-uts-kepemimpinan/uts-2025.html" class="btn-card-primary" title="Buka Arena Simulasi Esai UTS 2025/2026">
+            <a href="./belajar-uts-kepemimpinan/uts-2025.html" class="btn-primary" title="Buka Arena Simulasi Esai UTS 2025/2026">
               <span>Simulasi 2025/2026</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
-            <a href="./belajar-uts-kepemimpinan/uts-2024.html" class="btn-card-secondary" title="Buka Naskah Asli UTS 2024">
+            <a href="./belajar-uts-kepemimpinan/uts-2024.html" class="btn-secondary" title="Buka Naskah Asli UTS 2024">
               <span>Naskah 2024</span>
             </a>
-            <a href="./belajar-uts-kepemimpinan/" class="btn-card-secondary" title="Buka Beranda KKI">
+            <a href="./belajar-uts-kepemimpinan/" class="btn-secondary" title="Buka Beranda KKI">
               <span>Glosarium</span>
             </a>
           </div>
         </article>
 
         <!-- 3. EAP -->
-        <article class="course-card" data-category="sem3">
+        <article class="service-card" data-category="sem3">
           <div class="card-top-header">
             <div class="card-identity-group">
-              <div class="card-avatar bg-teal">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <div class="card-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
               </div>
               <div>
                 <h3 class="card-name">English for Academic Purposes (EAP)</h3>
                 <span class="card-meta">INF208 · Semester 3 · 2 SKS · Studio Ujian Interaktif</span>
               </div>
             </div>
-            <span class="status-badge badge-teal">Audio Arena Ready</span>
+            <span class="badge badge-success">Audio Arena Ready</span>
           </div>
 
           <p class="card-desc">
@@ -338,26 +316,26 @@
           </div>
 
           <div class="card-action-bar">
-            <a href="./latihan-eap/" class="btn-card-primary" title="Buka Ruang Latihan UTS EAP">
+            <a href="./latihan-eap/" class="btn-primary" title="Buka Ruang Latihan UTS EAP">
               <span>Buka Ruang EAP</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
           </div>
         </article>
 
         <!-- 4. Algoritma & Pemrograman -->
-        <article class="course-card" data-category="sem1 programming">
+        <article class="service-card" data-category="sem1 programming">
           <div class="card-top-header">
             <div class="card-identity-group">
-              <div class="card-avatar bg-emerald">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <div class="card-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
               <div>
                 <h3 class="card-name">Algoritma &amp; Pemrograman (Alpro)</h3>
                 <span class="card-meta">INF102 · Semester 1 · 3 SKS · Python Dasar</span>
               </div>
             </div>
-            <span class="status-badge badge-emerald">Python Practice</span>
+            <span class="badge badge-primary">Python Practice</span>
           </div>
 
           <p class="card-desc">
@@ -372,26 +350,26 @@
           </div>
 
           <div class="card-action-bar">
-            <a href="./materi-alpro/" class="btn-card-primary" title="Buka Latihan Soal UTS Python">
+            <a href="./materi-alpro/" class="btn-primary" title="Buka Latihan Soal UTS Python">
               <span>Buka Modul Alpro</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
           </div>
         </article>
 
         <!-- 5. Kalkulus -->
-        <article class="course-card" data-category="sem1 math">
+        <article class="service-card" data-category="sem1 math">
           <div class="card-top-header">
             <div class="card-identity-group">
-              <div class="card-avatar bg-indigo">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+              <div class="card-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
               </div>
               <div>
                 <h3 class="card-name">Kalkulus Reguler</h3>
                 <span class="card-meta">INF103 · Semester 1 · 3 SKS · Limit &amp; Turunan</span>
               </div>
             </div>
-            <span class="status-badge badge-indigo">KaTeX Solved</span>
+            <span class="badge badge-primary">KaTeX Solved</span>
           </div>
 
           <p class="card-desc">
@@ -406,29 +384,29 @@
           </div>
 
           <div class="card-action-bar">
-            <a href="./latihan-kalkulus/" class="btn-card-primary" title="Buka Soal Latihan PG Kalkulus">
+            <a href="./latihan-kalkulus/" class="btn-primary" title="Buka Soal Latihan PG Kalkulus">
               <span>Buka Latihan Kalkulus</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
-            <a href="./materi-fungsi/" class="btn-card-secondary" title="Buka Modul Terkait: Fungsi">
+            <a href="./materi-fungsi/" class="btn-secondary" title="Buka Modul Terkait: Fungsi">
               <span>Sub-Modul Fungsi</span>
             </a>
           </div>
         </article>
 
         <!-- 6. Materi Fungsi -->
-        <article class="course-card" data-category="sem1 math">
+        <article class="service-card" data-category="sem1 math">
           <div class="card-top-header">
             <div class="card-identity-group">
-              <div class="card-avatar bg-coral">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+              <div class="card-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
               </div>
               <div>
                 <h3 class="card-name">Fungsi &amp; Komposisi</h3>
                 <span class="card-meta">INF103-SUB · Semester 1 · Modul Matematika</span>
               </div>
             </div>
-            <span class="status-badge badge-coral">15 Bagian Lengkap</span>
+            <span class="badge badge-primary">15 Bagian Lengkap</span>
           </div>
 
           <p class="card-desc">
@@ -443,26 +421,26 @@
           </div>
 
           <div class="card-action-bar">
-            <a href="./materi-fungsi/" class="btn-card-primary" title="Buka Modul Materi Fungsi">
+            <a href="./materi-fungsi/" class="btn-primary" title="Buka Modul Materi Fungsi">
               <span>Buka Modul Fungsi</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
           </div>
         </article>
 
         <!-- 7. Logika & Himpunan -->
-        <article class="course-card" data-category="sem1 math">
+        <article class="service-card" data-category="sem1 math">
           <div class="card-top-header">
             <div class="card-identity-group">
-              <div class="card-avatar bg-plum">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+              <div class="card-avatar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
               </div>
               <div>
                 <h3 class="card-name">Logika &amp; Himpunan (Lohim)</h3>
                 <span class="card-meta">INF105 · Semester 1 · 3 SKS · Fondasi Logika</span>
               </div>
             </div>
-            <span class="status-badge badge-plum">Aljabar Boolean</span>
+            <span class="badge badge-primary">Aljabar Boolean</span>
           </div>
 
           <p class="card-desc">
@@ -477,77 +455,77 @@
           </div>
 
           <div class="card-action-bar">
-            <a href="./materi-lohim/" class="btn-card-primary" title="Buka Modul Logika & Himpunan">
+            <a href="./materi-lohim/" class="btn-primary" title="Buka Modul Logika & Himpunan">
               <span>Buka Modul Lohim</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
           </div>
         </article>
 
       </section>
 
-      <!-- Campus Resources Grid (Linear Integrations Style) -->
+      <!-- Campus Resources Grid -->
       <section aria-labelledby="deskTitle">
-        <div class="section-headline-row">
-          <h2 id="deskTitle" class="section-title">Pintasan Akademik UMS</h2>
-          <span class="section-caption">Akses langsung ke portal resmi universitas</span>
+        <div class="section-header-block">
+          <h2 id="deskTitle" class="section-title">Pintasan Resmi Kampus</h2>
+          <span class="section-subtitle">Akses cepat ke portal akademik Universitas Muhammadiyah Surakarta</span>
         </div>
 
-        <div class="campus-desk-grid">
-          <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="desk-card">
-            <div class="desk-card-icon bg-blue">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        <div class="campus-grid">
+          <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="campus-card">
+            <div class="campus-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
             </div>
-            <div class="desk-card-body">
+            <div class="campus-card-body">
               <strong>SPADA UMS</strong>
               <span>Portal E-Learning resmi dan materi kuliah dosen</span>
             </div>
-            <span class="desk-card-arrow">↗</span>
+            <span class="campus-card-arrow">↗</span>
           </a>
 
-          <a href="https://sia.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="desk-card">
-            <div class="desk-card-icon bg-emerald">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <a href="https://sia.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="campus-card">
+            <div class="campus-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             </div>
-            <div class="desk-card-body">
+            <div class="campus-card-body">
               <strong>SIA UMS</strong>
               <span>Sistem Informasi Akademik, KRS &amp; Transkrip</span>
             </div>
-            <span class="desk-card-arrow">↗</span>
+            <span class="campus-card-arrow">↗</span>
           </a>
 
-          <a href="https://library.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="desk-card">
-            <div class="desk-card-icon bg-amber">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <a href="https://library.ums.ac.id/" target="_blank" rel="noopener noreferrer" class="campus-card">
+            <div class="campus-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
             </div>
-            <div class="desk-card-body">
+            <div class="campus-card-body">
               <strong>Perpustakaan UMS</strong>
               <span>E-Library, buku digital &amp; jurnal ilmiah</span>
             </div>
-            <span class="desk-card-arrow">↗</span>
+            <span class="campus-card-arrow">↗</span>
           </a>
 
-          <a href="https://github.com/voltakyy" target="_blank" rel="noopener noreferrer" class="desk-card">
-            <div class="desk-card-icon bg-plum">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <a href="https://github.com/voltakyy" target="_blank" rel="noopener noreferrer" class="campus-card">
+            <div class="campus-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </div>
-            <div class="desk-card-body">
+            <div class="campus-card-body">
               <strong>GitHub @voltakyy</strong>
               <span>Profil pengembang dan repositori sumber belajar</span>
             </div>
-            <span class="desk-card-arrow">↗</span>
+            <span class="campus-card-arrow">↗</span>
           </a>
         </div>
       </section>
 
     </main>
 
-    <!-- Tech Footer -->
-    <footer class="tech-footer">
+    <!-- Clinic Footer -->
+    <footer class="clinic-footer">
       <div class="footer-inner">
         <div class="footer-brand-col">
           <strong>Ruang Belajar UMS</strong>
-          <p>Portal web terpadu satu pintu untuk persiapan Ujian Tengah Semester (UTS) Program Studi Informatika, Universitas Muhammadiyah Surakarta.</p>
+          <p>Portal web terpadu satu pintu untuk persiapan Ujian Tengah Semester (UTS) Program Studi Informatika, Fakultas Komunikasi &amp; Informatika, Universitas Muhammadiyah Surakarta.</p>
         </div>
         <div class="footer-credits-col">
           <span>Inisiatif belajar oleh <strong>Rizky (<a href="https://github.com/voltakyy" target="_blank" rel="noopener">@voltakyy</a>)</strong></span>
