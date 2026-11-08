@@ -1,16 +1,13 @@
 /* =========================================================
    RUANG BELAJAR UMS — MASTER MEDICAL-CLINIC DESIGN SYSTEM
    Exact tokens & aesthetic from https://www.uupm.cc/demo/medical-clinic
-   Applied universally across all 7 courses and 31 pages
+   Applied universally across all 7 courses and all pages
    ========================================================= */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
 :root,
 html,
-html[data-theme],
-html[data-theme="dark"],
-html[data-theme="light"],
 body {
   /* Medical Clinic Primary & Secondary Palette */
   --color-primary: #0066cc !important;
@@ -42,6 +39,7 @@ body {
   --paper-3: #e2e8f0 !important;
   --paper-soft: #ffffff !important;
   --card: #ffffff !important;
+  --card-bg: #ffffff !important;
   --ink: #1a202c !important;
   --ink-soft: #4a5568 !important;
   --ink-faint: #718096 !important;
@@ -60,7 +58,7 @@ body {
   --bg-hover: #e0f2fe !important;
   --text-main: #1a202c !important;
   --text-body: #4a5568 !important;
-  --text-subtle: #a0aec0 !important;
+  --text-subtle: #718096 !important;
   --primary: #0066cc !important;
   --primary-hover: #0052a3 !important;
   --primary-light: rgba(0, 102, 204, 0.08) !important;
@@ -98,425 +96,390 @@ body {
   --shadow-md: 0 6px 20px rgba(0, 102, 204, 0.09) !important;
   --shadow-lg: 0 12px 32px rgba(0, 102, 204, 0.12) !important;
 
-  /* Radii */
-  --radius: 16px !important;
+  /* Typography */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  --display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace !important;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace !important;
+
+  --radius: 12px !important;
   --radius-sm: 8px !important;
   --radius-md: 12px !important;
   --radius-lg: 16px !important;
-  --radius-full: 9999px !important;
-
-  /* Typography */
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
-  --font-mono: 'JetBrains Mono', monospace !important;
-  --display: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
-  --mono: 'JetBrains Mono', monospace !important;
+  --radius-pill: 999px !important;
 }
 
-/* =========================================================
-   GLOBAL RESET & BASE CANVAS (APPLIES TO ALL PAGES)
-   ========================================================= */
-html, body {
+/* Base Body Resets */
+html {
+  font-family: var(--font);
+  background-color: #fafbfc !important;
+  color: #1a202c !important;
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+
+body {
+  font-family: var(--font) !important;
+  background: #fafbfc !important;
   background-color: #fafbfc !important;
   background-image: none !important;
   color: #1a202c !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  -webkit-font-smoothing: antialiased;
+  line-height: 1.6 !important;
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
 }
 
-/* Eliminate all retro yellow dot grids, pseudo-element patterns */
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.site-title, .portal-hero-title, .univ-titles h1, .univ-titles h2 {
+  font-family: var(--display) !important;
+  color: #1a202c !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Total Elimination of Pseudo-Element Ribbons & Brutalist Badges */
+.official-header-card::before,
+.official-header-card::after,
+.site-head::before,
+.site-head::after,
+.course-hero::before,
+.course-hero::after,
 body::before,
-body::after,
-.shell::before,
-.shell::after,
-main::before,
-main::after,
-#stage::before,
-#stage::after {
+body::after {
   display: none !important;
   content: none !important;
-  background-image: none !important;
+  background: none !important;
+  border: none !important;
+  transform: none !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-.brand-title, .section-title, .hero-title, .card-title,
-.exam-title, .modal-title, .site-title, .brand-text {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  color: #1a202c !important;
-  letter-spacing: -0.02em;
-}
-
-p, li, span, td, div {
-  color: inherit;
-}
-
-/* =========================================================
-   HEADERS & NAVIGATION BARS ACROSS ALL COURSES
-   ========================================================= */
+/* Header & Official Cards */
+.official-header-card,
 .site-head,
-.topbar,
-.top-header,
-header.site-head,
-header.topbar {
+.course-hero {
   background: #ffffff !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  border-radius: 0 0 16px 16px !important;
-  padding: 16px 24px !important;
-  margin-bottom: 24px !important;
-  box-shadow: 0 2px 10px rgba(0, 102, 204, 0.04) !important;
-}
-
-.brand-mark {
-  background: rgba(0, 102, 204, 0.08) !important;
-  border: 1px solid rgba(0, 102, 204, 0.2) !important;
-  border-radius: 12px !important;
-  box-shadow: none !important;
-}
-
-/* Official Header Card & University Brand */
-.official-header-card {
   border: 1px solid #e2e8f0 !important;
   border-radius: 16px !important;
-  background: #ffffff !important;
-  box-shadow: 0 2px 10px rgba(0, 102, 204, 0.05) !important;
+  box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08) !important;
   position: relative !important;
   overflow: hidden !important;
 }
-.official-header-card::before {
-  display: none !important;
-}
+
 .univ-brand {
   border-bottom: 1px solid #e2e8f0 !important;
-}
-.univ-logo-box {
-  background: #0066cc !important;
-  border: 1px solid #0066cc !important;
-  border-radius: 12px !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2) !important;
-}
-.exam-meta-grid {
-  background: #f0f4f8 !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 12px !important;
-}
-.meta-val {
-  color: #1a202c !important;
-}
-.guidance-box {
-  background: rgba(0, 102, 204, 0.06) !important;
-  border-left: 4px solid #0066cc !important;
-  border-radius: 0 10px 10px 0 !important;
-  color: #1a202c !important;
-}
-.guidance-box strong {
-  color: #0066cc !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
 }
 
-/* Exam Tabs & Triggers */
-.exam-tabs, .tab-strip, .tab-nav {
+.univ-logo-box {
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25) !important;
+  font-family: var(--display) !important;
+  font-weight: 800 !important;
+}
+
+.univ-titles h1 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem) !important;
+  font-weight: 800 !important;
+  color: #1a202c !important;
+}
+
+.univ-titles p {
+  color: #718096 !important;
+  font-size: 13px !important;
+}
+
+.exam-meta-grid {
+  border: 1px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.meta-item {
+  border-right: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding: 12px 16px !important;
+}
+
+.meta-label {
+  color: #718096 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+
+.meta-val {
+  color: #1a202c !important;
+  font-weight: 700 !important;
+}
+
+.guidance-box {
+  background: #f0fdf4 !important;
+  border: 1px solid #bbf7d0 !important;
+  border-left: 4px solid #00a67e !important;
+  border-radius: 12px !important;
+  color: #166534 !important;
+}
+
+.guidance-title {
+  color: #00a67e !important;
+  font-weight: 700 !important;
+}
+
+/* Tabs & Segmented Switchers */
+.exam-tabs-wrap {
+  position: sticky !important;
+  top: 48px !important;
+  z-index: 50 !important;
+  background: rgba(250, 251, 252, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding: 10px 0 !important;
+}
+
+.exam-tabs {
+  display: flex !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  padding-bottom: 2px !important;
+}
+
+.exam-tabs::-webkit-scrollbar { display: none !important; }
+
+.tab-trigger,
+.nav-pill,
+.tab-btn {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
-  border-radius: 14px !important;
-  padding: 6px !important;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.04) !important;
-}
-.tab-trigger {
-  background: transparent !important;
   color: #4a5568 !important;
-  border: 1px solid transparent !important;
   border-radius: 10px !important;
-  padding: 8px 16px !important;
+  padding: 9px 18px !important;
+  font-family: var(--display) !important;
+  font-size: 13.5px !important;
   font-weight: 600 !important;
-  box-shadow: none !important;
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
 }
-.tab-trigger:hover {
+
+.tab-trigger:hover,
+.nav-pill:hover,
+.tab-btn:hover {
   background: #f0f4f8 !important;
   color: #0066cc !important;
-  border-color: #e2e8f0 !important;
-  box-shadow: none !important;
+  border-color: #cbd5e1 !important;
   transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.08) !important;
 }
-.tab-trigger.active {
+
+.tab-trigger.active,
+.nav-pill.active,
+.tab-btn.active {
   background: #0066cc !important;
   color: #ffffff !important;
   border-color: #0066cc !important;
   box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
   transform: none !important;
-}
-.tab-trigger.active .tab-badge {
-  background: rgba(255, 255, 255, 0.2) !important;
-  color: #ffffff !important;
-}
-.tab-badge {
-  background: rgba(0, 102, 204, 0.08) !important;
-  color: #0066cc !important;
-  border-radius: 50px !important;
+  font-weight: 700 !important;
 }
 
-/* =========================================================
-   CARD & CONTAINER OVERRIDES (MEDICAL CLINIC SURFACES)
-   ========================================================= */
+.tab-trigger.active .tab-badge,
+.tab-btn.active .tab-badge {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+.tab-badge {
+  background: #e2e8f0 !important;
+  color: #4a5568 !important;
+  border-radius: 6px !important;
+  font-size: 10.5px !important;
+  padding: 2px 7px !important;
+  font-weight: 600 !important;
+}
+
+/* Question & Content Cards */
+.q-card,
+.case-study-card,
 .card,
-.hero-card,
-.service-card,
-.trust-card,
-.quiz-card,
-.flashcard,
-.case-card,
-.exam-card,
-.module-box,
-.modul-card,
 .materi-card,
 .concept-card,
-.practice-card,
-.topic-card,
-.guide-card,
-.arena-card,
-.arena-question-card,
-.article-card,
-.theory-card,
-.summary-card,
-.matrix-card,
-.rubric-card,
-.ljk-sheet,
-.vocab-modal-content,
-.modal-content,
-.panel,
-.step-card,
-.law-card,
-.truth-table-wrap,
-.code-panel,
-.kki-timer-box,
-.timer-pill-wrap,
-.timer-box,
-.exam-alert-banner,
-.alert-card,
-.stat-card,
-.screen,
-.box,
-.def-card,
-.glossary-card,
-.nim-tester,
-.trace-table-wrap {
+.sim-card,
+.soal-card {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
-  border-radius: 16px !important;
-  box-shadow: 0 2px 10px rgba(0, 102, 204, 0.05) !important;
-  color: #1a202c !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
 }
 
-.card:hover,
-.service-card:hover,
-.quiz-card:hover,
-.article-card:hover,
-.arena-question-card:hover,
-.case-card:hover,
-.modul-card:hover,
-.flashcard:hover {
-  border-color: #0066cc !important;
-  box-shadow: 0 10px 28px rgba(0, 102, 204, 0.12) !important;
+.q-card:hover,
+.case-study-card:hover,
+.materi-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.09) !important;
 }
 
-/* =========================================================
-   BUTTONS & CALLS TO ACTION (MEDICAL CLINIC BUTTONS)
-   ========================================================= */
-button.btn-primary,
+/* Buttons */
+.btn,
 .btn-primary,
-a.btn-primary,
-.btn-uts-primary,
-button.action-btn,
-.btn-submit-exam,
-.btn-teal,
-.btn-emerald,
-.btn-score,
-.btn-generate,
-.btn-sim-start,
-.cta-btn,
-.btn-run {
+.action-btn {
   background: #0066cc !important;
   color: #ffffff !important;
-  border: 1px solid #0066cc !important;
-  border-radius: 12px !important;
-  font-weight: 600 !important;
-  font-family: 'Inter', sans-serif !important;
-  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-family: var(--display) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2) !important;
   transition: all 0.2s ease !important;
-  text-decoration: none !important;
+  min-height: 40px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  gap: 8px !important;
   cursor: pointer !important;
-  padding: 10px 20px !important;
+  text-decoration: none !important;
 }
 
-button.btn-primary:hover,
+.btn:hover,
 .btn-primary:hover,
-.btn-uts-primary:hover,
-button.action-btn:hover,
-.btn-submit-exam:hover,
-.btn-sim-start:hover {
+.action-btn:hover {
   background: #0052a3 !important;
-  border-color: #0052a3 !important;
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.3) !important;
   transform: translateY(-1px) !important;
 }
 
-button.btn-secondary,
 .btn-secondary,
-a.btn-secondary,
-.btn-uts-secondary,
-.btn-outline,
-.btn-ghost,
-.btn-reset,
-.btn-clear {
-  background: #ffffff !important;
+.btn-ghost {
+  background: #f0f4f8 !important;
   color: #0066cc !important;
-  border: 1.5px solid #0066cc !important;
-  border-radius: 12px !important;
-  font-weight: 600 !important;
-  font-family: 'Inter', sans-serif !important;
+  border: 1px solid #e2e8f0 !important;
   box-shadow: none !important;
-  transition: all 0.2s ease !important;
-  text-decoration: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  padding: 10px 20px !important;
 }
 
-button.btn-secondary:hover,
 .btn-secondary:hover,
-.btn-outline:hover {
-  background: #0066cc !important;
-  color: #ffffff !important;
-  transform: translateY(-1px) !important;
+.btn-ghost:hover {
+  background: #e0f2fe !important;
+  border-color: #0066cc !important;
+  color: #0052a3 !important;
 }
 
-/* =========================================================
-   BADGES & PILLS (CLINICAL ROUNDED PILLS)
-   ========================================================= */
+/* Badges & Pills */
+.pill,
 .badge,
-.badge-teal,
-.badge-mustard,
-.badge-blue,
-.badge-plum,
-.badge-tomato,
-.badge-score,
-.badge-source,
-.badge-qno,
-.badge-cpmk,
-.chapter-pill,
-.challenge-tag,
-.ios-tag,
-.chip,
-.nav-pill,
-.stamp-badge,
-.status-badge,
-.filter-chip,
-.filter-pill,
-.tag {
-  border-radius: 50px !important;
+.tag,
+.key-badge {
+  border-radius: 999px !important;
+  font-family: var(--mono) !important;
+  font-size: 11px !important;
   font-weight: 600 !important;
-  font-size: 12px !important;
-  letter-spacing: 0.02em !important;
-  padding: 5px 14px !important;
-  border: 1px solid rgba(0, 102, 204, 0.18) !important;
-  background: rgba(0, 102, 204, 0.08) !important;
-  color: #0066cc !important;
-  box-shadow: none !important;
+  padding: 3px 10px !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 5px !important;
-  transform: none !important;
-  text-decoration: none !important;
-}
-
-.badge-mustard, .badge-teal, .badge-score {
-  border-color: rgba(0, 166, 126, 0.2) !important;
-  background: rgba(0, 166, 126, 0.08) !important;
-  color: #00a67e !important;
-}
-
-.badge-tomato, .badge-danger {
-  border-color: rgba(239, 68, 68, 0.2) !important;
-  background: rgba(239, 68, 68, 0.08) !important;
-  color: #ef4444 !important;
-}
-
-.nav-pill:hover, .stamp-badge:hover {
-  background: #0066cc !important;
-  color: #ffffff !important;
-  transform: translateY(-1px) !important;
-}
-
-.nav-pill.active {
-  background: #0066cc !important;
-  color: #ffffff !important;
-}
-
-/* =========================================================
-   TABS & NAVIGATION STRIPS
-   ========================================================= */
-.tab-nav,
-.nav-tabs,
-.tab-strip,
-.exam-nav {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 14px !important;
-  padding: 6px !important;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.04) !important;
-  display: flex !important;
-  gap: 6px !important;
-  flex-wrap: wrap !important;
-}
-
-.tab-btn,
-.nav-tab,
-.tab-link {
-  background: transparent !important;
-  color: #4a5568 !important;
-  border: none !important;
-  border-radius: 10px !important;
-  padding: 8px 16px !important;
-  font-weight: 600 !important;
-  font-family: 'Inter', sans-serif !important;
   box-shadow: none !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
 }
 
-.tab-btn:hover,
-.nav-tab:hover {
-  background: #f0f4f8 !important;
+.pill-primary, .tag-teal, .badge-primary {
+  background: #e0f2fe !important;
   color: #0066cc !important;
+  border: 1px solid rgba(0, 102, 204, 0.2) !important;
 }
 
-.tab-btn.active,
-.tab-btn[aria-selected="true"],
-.nav-tab.active {
+.pill-secondary, .tag-green, .badge-success {
+  background: #e6f7f3 !important;
+  color: #00a67e !important;
+  border: 1px solid rgba(0, 166, 126, 0.2) !important;
+}
+
+/* AutoScroll Dock Overhaul */
+#autoScrollControl,
+.autoscroll-panel {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  z-index: 99999 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.16) !important;
+  padding: 6px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+#autoScrollPlayBtn,
+.as-btn {
   background: #0066cc !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.22) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3) !important;
+  cursor: pointer !important;
 }
 
-/* =========================================================
-   TABLES & TRUTH TABLES
-   ========================================================= */
-table,
-.academic-table,
-.truth-table,
-.cs-table,
-.deep-table,
-.rubric-table {
+#autoScrollPlayBtn:hover,
+.as-btn:hover {
+  background: #0052a3 !important;
+}
+
+#autoScrollSpeed,
+.as-speed {
+  background: #e0f2fe !important;
+  color: #0066cc !important;
+  border: 1px solid rgba(0, 102, 204, 0.2) !important;
+  border-radius: 999px !important;
+  font-family: var(--mono) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+/* Code & Pre Blocks */
+pre, code {
+  font-family: var(--mono) !important;
+}
+
+pre {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  overflow-x: auto !important;
+  color: #1e293b !important;
+}
+
+code:not(pre code) {
+  background: #f1f5f9 !important;
+  color: #0066cc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 2px 6px !important;
+  font-size: 0.9em !important;
+}
+
+/* Tables & Mobile Safeguards */
+table {
   width: 100% !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
-  background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 12px !important;
   overflow: hidden !important;
@@ -524,22 +487,19 @@ table,
 }
 
 th {
-  background: #f0f4f8 !important;
+  background: #f8fafc !important;
   color: #1a202c !important;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--display) !important;
   font-weight: 700 !important;
-  font-size: 13px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
   padding: 12px 16px !important;
-  border-bottom: 1.5px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  text-align: left !important;
 }
 
 td {
   padding: 12px 16px !important;
-  border-bottom: 1px solid #edf2f7 !important;
-  color: #1a202c !important;
-  font-size: 14px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #4a5568 !important;
 }
 
 tr:last-child td {
@@ -547,188 +507,40 @@ tr:last-child td {
 }
 
 tr:hover td {
-  background: #fafbfc !important;
+  background: #f8fafc !important;
 }
 
-/* =========================================================
-   FORM INPUTS, TEXTAREAS & SELECTS
-   ========================================================= */
-input[type="text"],
-input[type="search"],
-input[type="number"],
-input[type="email"],
-textarea,
-select {
-  background: #ffffff !important;
-  border: 1.5px solid #e2e8f0 !important;
-  border-radius: 12px !important;
-  padding: 10px 16px !important;
-  color: #1a202c !important;
-  font-family: 'Inter', sans-serif !important;
-  font-size: 14px !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #0066cc !important;
-  outline: none !important;
-  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15) !important;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  accent-color: #0066cc !important;
-  cursor: pointer !important;
-}
-
-/* =========================================================
-   MATH & FORMULAS (KATEX / KALKULUS / FUNGSI)
-   ========================================================= */
-.katex-display,
-.math-block,
-.formula-box {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-left: 4px solid #0066cc !important;
-  border-radius: 12px !important;
-  padding: 14px 18px !important;
-  margin: 14px 0 !important;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.04) !important;
-  color: #1a202c !important;
-  overflow-x: auto !important;
-}
-
-/* =========================================================
-   TIMERS & SIMULATION HEADERS
-   ========================================================= */
-.kki-timer-box,
-.timer-pill,
-.timer-display,
-.exam-timer {
-  background: #ffffff !important;
-  border: 1.5px solid #0066cc !important;
-  color: #0066cc !important;
-  border-radius: 50px !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-weight: 700 !important;
-  padding: 6px 14px !important;
-}
-
-/* =========================================================
-   CODE BLOCKS
-   ========================================================= */
-pre {
-  background: #1e293b !important;
-  color: #f8fafc !important;
-  border-radius: 12px !important;
-  border: 1px solid #334155 !important;
-  padding: 16px !important;
-}
-
-pre code {
-  color: #f8fafc !important;
-  background: transparent !important;
-}
-
-:not(pre) > code {
-  background: #f0f4f8 !important;
-  color: #0066cc !important;
-  padding: 2px 6px !important;
-  border-radius: 6px !important;
-  font-size: 13px !important;
-  border: 1px solid #e2e8f0 !important;
-}
-
-/* =========================================================
-   MOBILE RESPONSIVENESS & ZERO-OVERFLOW SAFEGUARDS
-   ========================================================= */
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  min-inline-size: 0;
-}
-
-html, body {
-  max-width: 100vw !important;
-  overflow-x: clip !important;
-  margin: 0 !important;
-  -webkit-text-size-adjust: 100% !important;
-}
-
-.shell, main, .screen, .container, #main-content, .topbar-in, .header-inner {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* Ensure code, formulas, and wide tables never cause horizontal page scroll */
-pre, code, .katex-display, .math-block, .formula-box, .code-panel, pre code {
-  max-width: 100% !important;
-  overflow-x: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-}
-
-table, .academic-table, .truth-table, .cs-table, .deep-table, .rubric-table {
-  max-width: 100% !important;
-}
-
+/* Mobile Line / Overflow Fixes */
 @media (max-width: 768px) {
-  body {
-    font-size: 15px !important;
-    line-height: 1.55 !important;
+  .exam-tabs-wrap {
+    top: 44px !important;
   }
-
-  /* Padding containment for shells on mobile */
-  .shell {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-    width: 100% !important;
+  
+  .univ-brand {
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
-
-  /* Table responsive wrap and zero-overflow */
-  table, .academic-table, .truth-table, .cs-table, .deep-table, .rubric-table, .rubrik-table {
-    min-width: 0 !important;
+  
+  .exam-meta-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .meta-item {
+    border-right: none !important;
+  }
+  
+  table {
     display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
+    min-width: 0 !important;
   }
-
-  /* Nav headers and pills on mobile: smooth swipeable row */
-  .head-meta, .exam-nav, .tab-nav, .nav-tabs {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    width: 100% !important;
-    padding-bottom: 6px !important;
-    scrollbar-width: none;
-  }
-  .head-meta::-webkit-scrollbar, .exam-nav::-webkit-scrollbar, .tab-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-pill, .tab-btn, .badge {
-    flex-shrink: 0 !important;
-    white-space: nowrap !important;
-  }
-
-  /* Tap target height */
-  button, .btn, .btn-primary, .btn-secondary, a.btn-primary, a.btn-secondary, .tab-btn, .nav-pill {
-    min-height: 40px !important;
-    touch-action: manipulation;
-  }
-
-  /* Break long words / URLs cleanly */
-  p, li, span, h1, h2, h3, h4, td, div {
-    overflow-wrap: break-word !important;
-  }
-
-  /* Flex containers that might overflow */
-  .hero-actions, .filter-group, .action-buttons {
-    flex-wrap: wrap !important;
-    gap: 8px !important;
+  
+  #autoScrollControl,
+  .autoscroll-panel {
+    bottom: 12px !important;
+    left: 12px !important;
+    right: 12px !important;
+    justify-content: center !important;
   }
 }
-

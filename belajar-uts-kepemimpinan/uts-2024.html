@@ -18,9 +18,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3.5">
+<link rel="stylesheet" href="styles.css?v=4.0">
 
 <style>
+
 /* =========================================================
    Ruang Kepemimpinan — UTS KKI 2024 (Studio Paper Neo-Brutalist)
    Sistem Desain Identik dengan Ruang Visual (Pemvis)
@@ -82,7 +83,7 @@ button { font: inherit; color: inherit; }
 a { color: inherit; }
 img, svg { max-width: 100%; height: auto; }
 ::selection { background: rgba(242,181,68,.55); color: var(--ink); }
-:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+:focus-visible { outline: 1px solid #e2e8f0; outline-offset: 3px; }
 
 .skip-link {
   position: fixed;
@@ -102,7 +103,7 @@ img, svg { max-width: 100%; height: auto; }
 }
 .skip-link:focus {
   top: 16px;
-  outline: 3px solid var(--mustard);
+  outline: 1px solid #e2e8f0;
 }
 
 .shell {
@@ -155,7 +156,7 @@ img, svg { max-width: 100%; height: auto; }
 .brand-text em {
   font-style: normal;
   color: var(--teal);
-  border-bottom: 2.5px solid var(--mustard);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .exam-nav {
@@ -280,7 +281,7 @@ img, svg { max-width: 100%; height: auto; }
   margin-top: 2px;
 }
 .guidance-box {
-  border-left: 4px solid var(--tomato);
+  border-left: 1px solid #e2e8f0;
   background: var(--tomato-soft);
   padding: 13px 18px;
   border-radius: 0 10px 10px 0;
@@ -344,13 +345,7 @@ img, svg { max-width: 100%; height: auto; }
   box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
   color: var(--ink);
 }
-.tab-trigger.active {
-  background: #0066cc !important;
-  color: #ffffff !important;
-  border-color: #0066cc !important;
-  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
-  transform: none !important;
-}
+.tab-trigger.active { background: #0066cc !important; color: #ffffff !important; border-color: #0066cc !important; box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important; transform: none !important; }
 .tab-badge {
   font-family: var(--mono);
   font-size: 10px;
@@ -407,7 +402,7 @@ img, svg { max-width: 100%; height: auto; }
 }
 .badge-qno {
   background: var(--ink);
-  color: #fffdf7;
+  color: #fafbfc;
   font-family: var(--display);
   font-weight: 800;
   font-size: 14.5px;
@@ -1029,8 +1024,10 @@ img, svg { max-width: 100%; height: auto; }
     border: 1px solid #666 !important;
   }
 }
+
 </style>
-  <link rel="stylesheet" href="../shared/medical-theme.css?v=3.5">
+  <link rel="stylesheet" href="../shared/medical-theme.css?v=4.0">
+  <link rel="stylesheet" href="../shared/portal-nav.css?v=4.0">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
@@ -2437,7 +2434,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
   
-  <script src="../shared/portal-nav.js" defer></script>
+  <script src="../shared/portal-nav.js?v=4.0" defer></script>
 </body>
 </html>
 

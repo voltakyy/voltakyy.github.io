@@ -6,8 +6,9 @@
 <title>LOHIM LAB — Modern Logic & Set Theory Interactive Master</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+
 /* ==========================================================================
    DESIGN TOKENS: MODERN CYBER-ACADEMIC SLATE & ELECTRIC INDIGO (DARK / LIGHT)
    ========================================================================== */
@@ -351,7 +352,7 @@ body {
   font-size: 13px;
   text-decoration: none;
   transition: all 0.2s;
-  border-left: 2px solid transparent;
+  border-left: 1px solid #e2e8f0transparent;
 }
 
 .toc-link:hover, .toc-link.active {
@@ -441,7 +442,7 @@ body {
   padding: 14px 16px;
   border-radius: var(--radius-sm);
   margin: 16px 0;
-  border-left: 4px solid;
+  border-left: 1px solid #e2e8f0;
   font-size: 13.5px;
 }
 
@@ -524,8 +525,8 @@ body {
 }
 .toggle-cell-btn.val-T { background: var(--emerald-bg); color: var(--accent-emerald); border-color: var(--emerald-border); }
 .toggle-cell-btn.val-F { background: var(--rose-bg); color: var(--accent-rose); border-color: var(--rose-border); }
-.toggle-cell-btn.is-correct { outline: 2px solid var(--accent-emerald); box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
-.toggle-cell-btn.is-wrong { outline: 2px solid var(--accent-rose); animation: shake 0.3s; }
+.toggle-cell-btn.is-correct { outline: 1px solid #e2e8f0; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
+.toggle-cell-btn.is-wrong { outline: 1px solid #e2e8f0; animation: shake 0.3s; }
 
 @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
 
@@ -827,7 +828,7 @@ body {
 .uts-soal-card {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-color);
-  border-left: 4px solid var(--border-color);
+  border-left: 1px solid #e2e8f0;
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   margin-bottom: 12px;
@@ -863,7 +864,7 @@ body {
 .uts-soal-card blockquote {
   margin: 6px 0 10px;
   padding: 8px 12px;
-  border-left: 3px solid var(--primary);
+  border-left: 1px solid #e2e8f0;
   background: var(--bg-surface);
   color: var(--text-body);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -875,7 +876,7 @@ body {
 .uts-callout-warning {
   background: var(--amber-bg);
   border: 1px solid var(--amber-border);
-  border-left: 4px solid var(--accent-amber);
+  border-left: 1px solid #e2e8f0;
   border-radius: var(--radius-sm);
   padding: 14px 16px;
   margin: 16px 0 20px;
@@ -899,7 +900,7 @@ body {
 .uts-callout-info {
   background: var(--primary-light);
   border: 1px solid var(--primary-border);
-  border-left: 4px solid var(--primary);
+  border-left: 1px solid #e2e8f0;
   border-radius: var(--radius-sm);
   padding: 14px 16px;
   margin: 14px 0 18px;
@@ -930,9 +931,11 @@ body {
   margin-bottom: 16px;
 }
 
+
 </style>
-  <link rel="stylesheet" href="autoscroll.css?v=3.5">
-  <link rel="stylesheet" href="../shared/medical-theme.css?v=3.5">
+  <link rel="stylesheet" href="autoscroll.css?v=4.0">
+  <link rel="stylesheet" href="../shared/medical-theme.css?v=4.0">
+  <link rel="stylesheet" href="../shared/portal-nav.css?v=4.0">
 </head>
 <body>
 
@@ -3556,7 +3559,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </script>
 <script src="autoscroll.js" defer></script>
   
-  <script src="../shared/portal-nav.js" defer></script>
+  <script src="../shared/portal-nav.js?v=4.0" defer></script>
 </body>
 </html>
 

@@ -72,7 +72,7 @@
   }
   body::selection{background:var(--butter);color:var(--ink)}
   ::selection{background:var(--butter);color:var(--ink)}
-  :focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+  :focus-visible{outline:1px solid #e2e8f0;outline-offset:3px}
   .site-nav .nav-uts:focus-visible,
   .shelf-uts:focus-visible,
   .hub-uts:not(.hub-cheat):focus-visible{outline-color:var(--uts-gold);outline-offset:4px}
@@ -251,7 +251,7 @@
   /* lembar jawaban tetap terasa seperti kertas, bukan kartu dashboard */
   .exam-sheet{border-radius:9px;box-shadow:var(--shadow-lift);border-color:var(--edge-strong)}
   .exam-sheet-head{border-bottom:1px solid var(--edge-strong)}
-  .exam-instruction{border-left:3px solid var(--coral);background:var(--butter-soft);border-radius:0 10px 10px 0;color:#5c4d32}
+  .exam-instruction{border-left:1px solid #e2e8f0;background:var(--butter-soft);border-radius:0 10px 10px 0;color:#5c4d32}
 
   /* ---------- hero ---------- */
   .hero{padding-top:46px}
@@ -262,8 +262,8 @@
     box-shadow:none;
     transform:rotate(-2deg);
   }
-  h1 em{border-bottom:2px solid var(--coral);padding-bottom:.02em}
-  .cta-note{border-left:2px solid var(--coral);color:var(--faint);font-size:9.5px}
+  h1 em{border-bottom:1px solid #e2e8f0;padding-bottom:.02em}
+  .cta-note{border-left:1px solid #e2e8f0;color:var(--faint);font-size:9.5px}
   .best-note{
     border:1px dashed var(--edge-strong);
     border-radius:9px;
@@ -395,7 +395,7 @@
   .feedback-head{border-bottom:1px solid var(--line)}
   .feedback-icon{border:1px solid var(--edge);border-radius:50%;background:rgba(255,253,247,.8)}
   .rich p,.rich ul,.rich ol{color:var(--body)}
-  .note{border-left:3px solid var(--coral);background:var(--butter-soft);border-radius:0 9px 9px 0;color:#5c4d32}
+  .note{border-left:1px solid #e2e8f0;background:var(--butter-soft);border-radius:0 9px 9px 0;color:#5c4d32}
   .answer-line{border:1px dashed var(--edge);border-radius:8px;background:rgba(255,253,247,.7)}
   .feedback-foot{border-top:1px solid var(--line)}
   .quiz-footnote{font-size:9.5px;color:var(--faint)}
@@ -425,7 +425,7 @@
   .formula-head{background:var(--paper);border-bottom:1px solid var(--line);padding-top:18px}
   .formula-content section{border-bottom:1px dashed var(--line)}
   .formula-content p{color:var(--body)}
-  .formula-tip{border-left:3px solid var(--olive);background:var(--olive-soft);border-radius:0 8px 8px 0}
+  .formula-tip{border-left:1px solid #e2e8f0;background:var(--olive-soft);border-radius:0 8px 8px 0}
 
   /* ---------- modul: kerangka ---------- */
   .doc-page .site-head{padding-bottom:14px}
@@ -469,7 +469,7 @@
   .toc-head{background:var(--butter-soft);border-bottom:1px solid var(--line);padding:11px 13px 9px}
   .toc-head strong{font-size:9px}
   .toc-head span{font-size:8.5px}
-  .toc-list a{border-left:2px solid transparent;font-size:.78rem;padding:7px 13px}
+  .toc-list a{border-left:1px solid #e2e8f0transparent;font-size:.78rem;padding:7px 13px}
   .toc-list a:hover{background:rgba(60,95,140,.06)}
   .toc-list a[aria-current="true"]{border-left-color:var(--coral);background:rgba(169,87,65,.07);font-weight:600}
   .toc-foot{border-top:1px dashed var(--line);font-size:8px}
@@ -479,7 +479,7 @@
   /* ---------- modul: isi bacaan ---------- */
   .lesson-intro{
     border:1px solid var(--line);
-    border-left:3px solid var(--chapter-accent,var(--cobalt));
+    border-left:1px solid #e2e8f0);
     border-radius:3px 13px 13px 3px;
     background:rgba(255,253,247,.68);
     padding:15px 16px;
@@ -509,12 +509,12 @@
   .formula-card--plum{background-color:var(--plum-soft)}
   .formula-title{color:var(--muted)}
   .formula-card .formula-lead{letter-spacing:-.01em}
-  .callout{border-left:3px solid var(--callout-line,var(--coral));border-radius:0 11px 11px 0;background:var(--callout-bg,var(--butter-soft));color:#554b3a;padding:11px 13px 12px}
+  .callout{border-left:1px solid #e2e8f0);border-radius:0 11px 11px 0;background:var(--callout-bg,var(--butter-soft));color:#554b3a;padding:11px 13px 12px}
   .callout--info{--callout-bg:var(--cobalt-soft)}
   .callout--ok{--callout-bg:var(--olive-soft)}
   .callout--warn{--callout-bg:var(--coral-soft)}
   .callout--gold{--callout-bg:var(--butter-soft)}
-  .pullquote{border-left:3px solid var(--chapter-accent,var(--cobalt));color:var(--ink)}
+  .pullquote{border-left:1px solid #e2e8f0);color:var(--ink)}
   .example{overflow:hidden;border-radius:14px}
   .example-head{border-bottom:1px solid var(--line);background:var(--butter-soft);padding:10px 13px}
   .example-head .ex-label{border:1px solid var(--edge);border-radius:6px;background:var(--card)}
@@ -764,7 +764,7 @@
   .cheat-print-steps b{color:var(--coral-deep)}
   .a5-sheet{border:1px solid var(--edge-strong);border-radius:4px;box-shadow:var(--shadow-lift)}
   .cheat-legend{border-radius:15px;background:rgba(255,253,247,.65)}
-  .cheat-legend-grid div{border-left:2px solid rgba(169,87,65,.5)}
+  .cheat-legend-grid div{border-left:1px solid #e2e8f0}
   .cheat-legend-grid div:nth-child(2){border-left-color:rgba(60,95,140,.5)}
   .cheat-legend-grid div:nth-child(3){border-left-color:rgba(104,119,79,.5)}
   .cheat-legend-grid b{font-size:8.5px;letter-spacing:.04em;text-transform:none}
@@ -860,7 +860,7 @@
     margin-top:clamp(26px,4vw,42px);
     padding:clamp(22px,3.6vw,38px);
     border:1px solid var(--edge);
-    border-left:4px solid var(--accent);
+    border-left:1px solid #e2e8f0;
     border-radius:16px;
     background:var(--card);
     box-shadow:var(--shadow-soft);
@@ -919,7 +919,7 @@
     margin:20px 0 0;
     padding:14px 16px;
     border:1px solid var(--line);
-    border-left:3px solid var(--accent);
+    border-left:1px solid #e2e8f0;
     border-radius:0 10px 10px 0;
     background:var(--accent-soft);
     font-size:.9rem;
@@ -1026,7 +1026,7 @@
     margin:9px 0 0;
     padding:10px 12px;
     border:1px solid var(--line);
-    border-left:3px solid var(--accent);
+    border-left:1px solid #e2e8f0;
     border-radius:0 8px 8px 0;
     background:var(--paper-soft);
     color:var(--ink);
@@ -1069,7 +1069,7 @@
   .deep-note{
     margin:16px 0 0;
     padding:11px 14px;
-    border-left:2px solid var(--line);
+    border-left:1px solid #e2e8f0;
     color:var(--muted);
     font-size:.8rem;
     line-height:1.62;
@@ -1132,7 +1132,7 @@
   .deep-defs > div{
     padding:13px 14px;
     border:1px solid var(--line);
-    border-top:2px solid var(--accent);
+    border-top:1px solid #e2e8f0;
     border-radius:0 0 9px 9px;
     background:var(--paper-soft);
   }
@@ -1319,4 +1319,183 @@
     .deep-q{font-size:.88rem}
     .deep-check,.deep-trap{font-size:.8rem}
   }
+}
+
+
+/* =========================================================
+   INJECTED MEDICAL CLINIC OVERRIDES (uupm.cc/demo/medical-clinic)
+   ========================================================= */
+:root {
+  --color-primary: #0066cc !important;
+  --color-secondary: #00a67e !important;
+  --paper: #fafbfc !important;
+  --paper-deep: #f0f4f8 !important;
+  --card: #ffffff !important;
+  --ink: #1a202c !important;
+  --ink-soft: #4a5568 !important;
+  --ink-faint: #718096 !important;
+  --mustard: #00a67e !important;
+  --mustard-soft: #e6f7f3 !important;
+  --tomato: #ef4444 !important;
+  --tomato-soft: #fee2e2 !important;
+  --teal: #0066cc !important;
+  --teal-soft: #e0f2fe !important;
+  --blue: #0066cc !important;
+  --blue-soft: #e0f2fe !important;
+  --plum: #00a67e !important;
+  --plum-soft: #e6f7f3 !important;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  --display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  --mono: 'JetBrains Mono', monospace !important;
+  --radius: 12px !important;
+  --border: #e2e8f0 !important;
+  --shadow-sm: 0 2px 8px rgba(0, 102, 204, 0.05) !important;
+  --shadow: 0 4px 16px rgba(0, 102, 204, 0.08) !important;
+  --shadow-lg: 0 12px 32px rgba(0, 102, 204, 0.12) !important;
+}
+
+html, body {
+  background: #fafbfc !important;
+  background-color: #fafbfc !important;
+  color: #1a202c !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #1a202c !important;
+}
+
+/* Ribbons suppression */
+.official-header-card::before,
+.official-header-card::after,
+.site-head::before,
+.site-head::after,
+body::before,
+body::after {
+  display: none !important;
+  content: none !important;
+}
+
+.official-header-card,
+.site-head,
+.course-hero {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08) !important;
+}
+
+.univ-brand {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.univ-logo-box {
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25) !important;
+}
+
+.exam-meta-grid {
+  border: 1px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+  border-radius: 12px !important;
+}
+
+.meta-item {
+  border-color: #e2e8f0 !important;
+}
+
+.exam-tabs-wrap {
+  background: rgba(250, 251, 252, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.tab-trigger,
+.nav-pill,
+.tab-btn {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #4a5568 !important;
+  border-radius: 10px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tab-trigger:hover,
+.nav-pill:hover,
+.tab-btn:hover {
+  background: #f0f4f8 !important;
+  color: #0066cc !important;
+  border-color: #cbd5e1 !important;
+  transform: translateY(-1px) !important;
+}
+
+.tab-trigger.active,
+.nav-pill.active,
+.tab-btn.active {
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border-color: #0066cc !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25) !important;
+  transform: none !important;
+}
+
+.q-card,
+.case-study-card,
+.card,
+.materi-card,
+.concept-card,
+.sim-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05) !important;
+}
+
+.btn,
+.btn-primary,
+.action-btn {
+  background: #0066cc !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2) !important;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.action-btn:hover {
+  background: #0052a3 !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.3) !important;
+}
+
+table {
+  width: 100% !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+th {
+  background: #f8fafc !important;
+  color: #1a202c !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #4a5568 !important;
 }
