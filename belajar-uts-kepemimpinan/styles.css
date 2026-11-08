@@ -147,10 +147,14 @@ img, svg { max-width: 100%; height: auto; }
   flex-wrap: wrap;
 }
 .exam-nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  padding: 6px 4px 14px !important;
 }
 .nav-pill {
   display: inline-flex;
@@ -1390,9 +1394,15 @@ details[open] summary::after {
     gap: 12px;
   }
   .exam-nav {
-    width: 100%;
-    gap: 8px;
-  }
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  padding: 6px 4px 14px !important;
+}
   .univ-brand {
     flex-direction: column;
     align-items: flex-start;

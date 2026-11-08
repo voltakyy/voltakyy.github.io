@@ -1599,6 +1599,8 @@ body::after {
    ========================================================= */
 .site-head {
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   justify-content: space-between !important;
   gap: 16px !important;
@@ -1617,6 +1619,8 @@ body::after {
 .brand,
 .brand-wrap {
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   gap: 12px !important;
   text-decoration: none !important;
@@ -1659,6 +1663,8 @@ body::after {
 
 .head-meta {
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   gap: 8px !important;
   flex-wrap: wrap !important;
@@ -1666,6 +1672,8 @@ body::after {
 
 .site-nav {
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   gap: 6px !important;
   flex-wrap: wrap !important;
@@ -1766,6 +1774,8 @@ body::after {
 .univ-brand {
   border-bottom: 1px solid #e2e8f0 !important;
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   gap: 16px !important;
   padding-bottom: 18px !important;
@@ -1808,6 +1818,8 @@ body::after {
   border-bottom: 1px solid #e2e8f0 !important;
   padding: 10px 0 !important;
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   gap: 8px !important;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch !important;

@@ -207,31 +207,37 @@ img, svg { max-width: 100%; height: auto; }
 
 /* ================= Navigation Tabs ================= */
 .tab-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 4px 0 16px;
-  margin-bottom: 24px;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  padding: 6px 4px 14px !important;
+  margin-bottom: 20px !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
 }
 
 .tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  font-family: var(--display);
-  font-size: 14px;
-  font-weight: 700;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  white-space: nowrap;
-  flex-shrink: 0;
-  min-inline-size: max-content;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-  user-select: none;
-  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 9px 18px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04) !important;
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: none !important;
+  min-inline-size: max-content !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none !important;
+  cursor: pointer !important;
 }
 
 .tab-btn:hover {
@@ -1503,16 +1509,18 @@ span.audio-spinner {
 }
 
 .audio-status-pill {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--paper-deep);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 999px !important;
+  background: #f8fafc !important;
+  color: #64748b !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  box-shadow: none !important;
 }
 
 .audio-status-pill.playing {
@@ -1528,31 +1536,31 @@ span.audio-spinner {
 }
 
 .audio-source-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  background: #fef08a;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--ink);
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 5px 12px !important;
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  border-radius: 999px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  color: #0066cc !important;
+  box-shadow: none !important;
 }
 
 /* ================= Universal Neo-Brutalist Audio Player Bar ================= */
 .audio-player-unit {
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 14px;
-  margin: 10px 0 14px;
-  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  padding: 14px 18px !important;
+  margin: 12px 0 16px !important;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.05) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
 }
 
 .audio-controls-row {
