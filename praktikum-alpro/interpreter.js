@@ -235,6 +235,12 @@ class GvrInterpreter {
 
         // Check if command is a user-defined function
         if (this.functions.has(cmd)) {
+          if (this.stack.length > 250) {
+            const err = `Line ${lineNo}: Call stack overflow! Terlalu banyak pemanggilan fungsi bersarang (kemungkinan rekursi tanpa henti).`;
+            this.error = err;
+            this.isFinished = true;
+            return { lineNo, command: cmd, error: err, isFinished: true };
+          }
           const fn = this.functions.get(cmd);
           this.stack.push({
             type: 'BLOCK',
@@ -375,6 +381,64 @@ class GvrInterpreter {
     this.stack.pop();
     return this.step();
   }
+
+  // Count non-empty, non-comment lines (the standard rule used by Aslab in quizzes)
+  static countEffectiveLines(code) {
+    if (!code) return 0;
+    return code.split('\n').filter(line => {
+      const trimmed = line.trim();
+      return trimmed.length > 0 && !trimmed.startsWith('#');
+    }).length;
+  }
+
+  // HTML syntax highlighter for GvRng code
+  static highlightLine(rawText) {
+    if (!rawText) return '&nbsp;';
+    
+    // Check if whole line is comment
+    const trimmed = rawText.trim();
+    if (trimmed.startsWith('#')) {
+      return `<span class="tok-comment">${escapeHtml(rawText)}</span>`;
+    }
+
+    // Split inline comment if exists
+    let codePart = rawText;
+    let commentPart = '';
+    const hashIdx = rawText.indexOf('#');
+    if (hashIdx >= 0) {
+      codePart = rawText.slice(0, hashIdx);
+      commentPart = rawText.slice(hashIdx);
+    }
+
+    // Replace keywords
+    let html = escapeHtml(codePart);
+
+    // Keywords
+    html = html.replace(/\b(define|do|while|if|elif|else)\b/g, '<span class="tok-kw">$1</span>');
+    
+    // Numbers
+    html = html.replace(/\b(\d+)\b/g, '<span class="tok-num">$1</span>');
+
+    // Built-in actions
+    html = html.replace(/\b(move|turnleft|pickbeeper|putbeeper|turnoff)\b/g, '<span class="tok-fn">$1</span>');
+
+    // Sensors
+    html = html.replace(/\b(front_is_clear|front_is_blocked|left_is_clear|left_is_blocked|right_is_clear|right_is_blocked|next_to_a_beeper|not_next_to_a_beeper|any_beepers_in_beeper_bag|no_beepers_in_beeper_bag|facing_north|not_facing_north|facing_south|not_facing_south|facing_east|not_facing_east|facing_west|not_facing_west)\b/g, '<span class="tok-cond">$1</span>');
+
+    if (commentPart) {
+      html += `<span class="tok-comment">${escapeHtml(commentPart)}</span>`;
+    }
+
+    return html;
+  }
+}
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 window.GvrInterpreter = GvrInterpreter;
