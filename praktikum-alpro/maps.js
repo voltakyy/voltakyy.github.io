@@ -211,5 +211,79 @@ while front_is_clear:
     move
 turnright
 turnoff`
+  },
+
+  // =========================================================================
+  // PUZZLE 4: LINTASAN MENARA BEEPER VARIATIF (SOAL ASLAB 2)
+  // Max Lines Constraint: <= 22 Baris, Wajib while & define
+  // =========================================================================
+  menara: {
+    id: 'menara',
+    title: 'Puzzle 4: Lintasan Menara Beeper Bertumpuk',
+    source: 'Soal Quiz Aslab — No. 2',
+    constraint: 'Maksimal 22 baris, wajib while & define',
+    description: 'Robot harus menyusuri 4 menara berulang, mengambil semua beeper yang jumlahnya berbeda-beda di tiap titik (membutuhkan while next_to_a_beeper), lalu kembali ke dekat titik awal.',
+    cols: 24,
+    rows: 14,
+    robot: { x: 4, y: 4, dir: 'EAST', beepers: 0 },
+    beepers: [
+      [7, 8, 3],  // Puncak menara 1 (3 beeper)
+      [9, 4, 1],  // Lembah 1 (1 beeper)
+      [11, 6, 2], // Puncak menara 2 (2 beeper)
+      [13, 4, 1], // Lembah 2 (1 beeper)
+      [15, 8, 2], // Puncak menara 3 (2 beeper)
+      [17, 4, 3], // Lembah 3 (3 beeper)
+      [19, 7, 1], // Puncak menara 4 (1 beeper)
+      [21, 4, 2]  // Ujung akhir (2 beeper)
+    ],
+    hWalls: [
+      // Dasar bawah
+      [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3], [10, 3], [11, 3],
+      [12, 3], [13, 3], [14, 3], [15, 3], [16, 3], [17, 3], [18, 3], [19, 3], [20, 3], [21, 3],
+      // Puncak menara 1
+      [6, 8], [7, 8],
+      // Puncak menara 2
+      [10, 6], [11, 6],
+      // Puncak menara 3
+      [14, 8], [15, 8],
+      // Puncak menara 4
+      [18, 7], [19, 7]
+    ],
+    vWalls: [
+      // Menara 1
+      [5, 4], [5, 5], [5, 6], [5, 7], [5, 8],
+      [7, 4], [7, 5], [7, 6], [7, 7], [7, 8],
+      // Menara 2
+      [9, 4], [9, 5], [9, 6],
+      [11, 4], [11, 5], [11, 6],
+      // Menara 3
+      [13, 4], [13, 5], [13, 6], [13, 7], [13, 8],
+      [15, 4], [15, 5], [15, 6], [15, 7], [15, 8],
+      // Menara 4
+      [17, 4], [17, 5], [17, 6], [17, 7],
+      [19, 4], [19, 5], [19, 6], [19, 7],
+      // Ujung kanan
+      [21, 4]
+    ],
+    solution: `# Solusi Resmi Soal Aslab 2 - Menara Beeper Variatif (18 Baris)
+define turnright:
+    do 3:
+        turnleft
+define ambil_semua:
+    while next_to_a_beeper:
+        pickbeeper
+define susur_menara:
+    while front_is_clear:
+        move
+        ambil_semua
+    if left_is_clear:
+        turnleft
+    else:
+        turnright
+while not_facing_west:
+    susur_menara
+while front_is_clear:
+    move
+turnoff`
   }
 };
