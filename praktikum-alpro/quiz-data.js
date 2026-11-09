@@ -194,3 +194,4 @@ window.GVR_QUIZ_QUESTIONS = [
     explanation: 'Pola lintasan zig-zag horizontal (boustrophedon): baris 1 berjalan ke Timur, lalu belok kiri naik ke baris 2 (berjalan ke Barat). Di ujung baris 2, robot belok kanan untuk naik ke baris 3 (kembali berjalan ke Timur). Inilah yang membuat fungsi `next_row_left` dan `next_row_right` sangat efisien dibuat.'
   }
 ];
+
