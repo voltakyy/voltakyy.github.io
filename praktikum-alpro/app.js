@@ -39,6 +39,44 @@ document.addEventListener('DOMContentLoaded', () => {
   let isEditMode = false;
   let activeMapKey = 'spiral';
 
+  // Web Audio API Synthesizer for Subtle Interactive Cues
+  let audioCtx = null;
+  function getAudioCtx() {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) audioCtx = new AudioContext();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  function playTone(freq, type = 'sine', duration = 0.08, gainVal = 0.04) {
+    try {
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      gain.gain.setValueAtTime(gainVal, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    } catch (e) {
+      // Audio not permitted or supported, silent fallback
+    }
+  }
+
+  function playSuccessChord() {
+    [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+      setTimeout(() => playTone(freq, 'triangle', 0.25, 0.05), i * 80);
+    });
+  }
+
   // Resize canvas for sharp retina display
   function setupCanvas() {
     const dpr = window.devicePixelRatio || 1;
@@ -142,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (result.error) {
         pause();
+        playTone(180, 'sawtooth', 0.25, 0.08); // Buzz error
         log(result.error, 'error');
         renderCodeLines(result.lineNo);
         return;
@@ -153,10 +192,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (result.command) {
         log(`Baris ${result.lineNo}: ${result.command}`);
+        if (result.command.includes('pickbeeper')) {
+          playTone(880, 'sine', 0.12, 0.06); // Pick high chime
+        } else if (result.command.includes('putbeeper')) {
+          playTone(440, 'sine', 0.12, 0.06); // Put chime
+        } else if (result.command.includes('move')) {
+          playTone(520, 'sine', 0.04, 0.02); // Subtle step tick
+        }
       }
 
       if (result.isFinished) {
         pause();
+        playSuccessChord();
         log(`Robot selesai! Total pergerakan/langkah: ${world.robot.stepCount} langkah.`, 'success');
       }
     } catch (err) {
@@ -369,6 +416,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+  });
+
+  // 9. Keyboard Shortcuts for Pro Usage
+  document.addEventListener('keydown', (e) => {
+    // Ignore if typing inside textarea
+    if (document.activeElement === customCodeTextarea) return;
+
+    if (e.code === 'Space') {
+      e.preventDefault();
+      if (isRunning) pause();
+      else play();
+    } else if (e.code === 'ArrowRight') {
+      e.preventDefault();
+      pause();
+      if (isEditMode) toggleEditor(false);
+      doStep();
+    } else if (e.key === 'r' || e.key === 'R') {
+      e.preventDefault();
+      resetSimulation();
+    }
   });
 
   // Initial load
