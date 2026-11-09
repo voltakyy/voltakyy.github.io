@@ -85,7 +85,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Effective lines of current code
     const curCode = customCodeTextarea.value;
     const lines = GvrInterpreter.countEffectiveLines(curCode);
-    if (statLines) statLines.textContent = lines.toString();
+    if (statLines) {
+      const mapDef = window.GVR_MAPS && window.GVR_MAPS[activeMapKey];
+      statLines.textContent = lines.toString();
+      if (mapDef && mapDef.constraint) {
+        // Extract max lines number if exists (e.g. "Maksimal 9 baris" -> 9)
+        const match = mapDef.constraint.match(/(\d+)\s*baris/i);
+        if (match) {
+          const maxLines = parseInt(match[1], 10);
+          if (lines > maxLines) {
+            statLines.style.color = '#ef4444';
+            statLines.title = `PERINGATAN: Melebihi batas maksimal ${maxLines} baris!`;
+          } else {
+            statLines.style.color = '#00a67e';
+            statLines.title = `AMAN: Memenuhi kuota maksimal ${maxLines} baris.`;
+          }
+        } else {
+          statLines.style.color = '#0f172a';
+          statLines.title = '';
+        }
+      }
+    }
   }
 
   function renderCodeLines(activeLine = -1) {
@@ -289,6 +309,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (toggleEditBtn) {
     toggleEditBtn.addEventListener('click', () => toggleEditor());
+  }
+
+  if (customCodeTextarea) {
+    customCodeTextarea.addEventListener('input', () => {
+      updateMetrics();
+    });
   }
 
   if (loadSolutionBtn) {
