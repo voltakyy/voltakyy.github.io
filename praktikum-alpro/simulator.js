@@ -25,6 +25,7 @@ class GvrWorld {
     this.hWalls = new Set(); // wall between (x, y) and (x, y+1)
     this.vWalls = new Set(); // wall between (x, y) and (x+1, y)
     this.initialSnapshot = null;
+    this.pathHistory = []; // stores [{x, y}] coordinates visited
   }
 
   setRobot(x, y, dir = 'EAST', beepers = 0) {
@@ -34,6 +35,7 @@ class GvrWorld {
     this.robot.beepers = beepers;
     this.robot.isOff = false;
     this.robot.stepCount = 0;
+    this.pathHistory = [{ x, y }];
   }
 
   addBeeper(x, y, count = 1) {
@@ -76,6 +78,7 @@ class GvrWorld {
     this.vWalls = new Set(this.initialSnapshot.vWalls);
     this.cols = this.initialSnapshot.cols;
     this.rows = this.initialSnapshot.rows;
+    this.pathHistory = [{ x: this.robot.x, y: this.robot.y }];
   }
 
   // Comprehensive Sensor Suite according to GvRng Specification
@@ -171,6 +174,7 @@ class GvrWorld {
     else if (this.robot.dir === 'EAST') this.robot.x += 1;
     else if (this.robot.dir === 'WEST') this.robot.x -= 1;
     this.robot.stepCount += 1;
+    this.pathHistory.push({ x: this.robot.x, y: this.robot.y });
   }
 
   turnleft() {
@@ -266,6 +270,23 @@ class GvrWorld {
       }
     }
 
+    // 1b. Path Trail Trace
+    if (this.pathHistory && this.pathHistory.length > 1) {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(0, 102, 204, 0.35)';
+      ctx.lineWidth = 3;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      const pStart = toPx(this.pathHistory[0].x, this.pathHistory[0].y);
+      ctx.moveTo(pStart.px, pStart.py);
+      for (let i = 1; i < this.pathHistory.length; i++) {
+        const pt = toPx(this.pathHistory[i].x, this.pathHistory[i].y);
+        ctx.lineTo(pt.px, pt.py);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
     // 2. Beepers
     this.beepers.forEach((count, key) => {
       if (count <= 0) return;
@@ -356,6 +377,146 @@ class GvrWorld {
     ctx.fill();
 
     ctx.restore();
+    ctx.restore();
+  }
+
+  // Render Static Target Preview Canvas
+  renderTargetPreview(canvas, targetDef) {
+    if (!canvas || !targetDef) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+
+    const padX = 36;
+    const padY = 36;
+    const availW = canvas.width / dpr - padX * 2;
+    const availH = canvas.height / dpr - padY * 2;
+
+    const cellW = availW / (this.cols - 1 || 1);
+    const cellH = availH / (this.rows - 1 || 1);
+    const cellSize = Math.min(cellW, cellH, 46);
+
+    const gridW = (this.cols - 1) * cellSize;
+    const gridH = (this.rows - 1) * cellSize;
+    const startX = padX + ((availW - gridW) / 2);
+    const startY = (canvas.height / dpr) - padY - ((availH - gridH) / 2);
+
+    const toPx = (gx, gy) => ({
+      px: startX + (gx - 1) * cellSize,
+      py: startY - (gy - 1) * cellSize
+    });
+
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+
+    // 1. Grid Dots & Coordinates
+    ctx.font = '10px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    for (let x = 1; x <= this.cols; x++) {
+      for (let y = 1; y <= this.rows; y++) {
+        const { px, py } = toPx(x, y);
+        ctx.beginPath();
+        ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#cbd5e1';
+        ctx.fill();
+
+        if (y === 1) {
+          ctx.fillStyle = '#64748b';
+          ctx.fillText(x.toString(), px, py + 18);
+        }
+        if (x === 1) {
+          ctx.fillStyle = '#64748b';
+          ctx.fillText(y.toString(), px - 18, py);
+        }
+      }
+    }
+
+    // 2. Target Beepers (if any remain or placed at target)
+    if (targetDef.remainingBeepers > 0 && targetDef.beeperPositions) {
+      targetDef.beeperPositions.forEach(([gx, gy, count]) => {
+        const { px, py } = toPx(gx, gy);
+        ctx.beginPath();
+        ctx.arc(px, py, cellSize * 0.34, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 166, 126, 0.15)';
+        ctx.fill();
+        ctx.strokeStyle = '#00a67e';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        ctx.fillStyle = '#008a69';
+        ctx.font = 'bold 12px "JetBrains Mono", monospace';
+        ctx.fillText(count.toString(), px, py + 1);
+      });
+    }
+
+    // 3. Walls
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+
+    this.hWalls.forEach(key => {
+      const [x, y] = key.split(',').map(Number);
+      const p1 = toPx(x - 0.5, y + 0.5);
+      const p2 = toPx(x + 0.5, y + 0.5);
+      ctx.beginPath();
+      ctx.moveTo(p1.px, p1.py);
+      ctx.lineTo(p2.px, p2.py);
+      ctx.stroke();
+    });
+
+    this.vWalls.forEach(key => {
+      const [x, y] = key.split(',').map(Number);
+      const p1 = toPx(x + 0.5, y - 0.5);
+      const p2 = toPx(x + 0.5, y + 0.5);
+      ctx.beginPath();
+      ctx.moveTo(p1.px, p1.py);
+      ctx.lineTo(p2.px, p2.py);
+      ctx.stroke();
+    });
+
+    // 4. Target Robot Position (Emerald Green Finish Outline)
+    if (targetDef.finalRobot) {
+      const r = targetDef.finalRobot;
+      const rpos = toPx(r.x, r.y);
+      ctx.save();
+      ctx.translate(rpos.px, rpos.py);
+
+      let angle = 0;
+      if (r.dir === 'NORTH') angle = -Math.PI / 2;
+      else if (r.dir === 'SOUTH') angle = Math.PI / 2;
+      else if (r.dir === 'WEST') angle = Math.PI;
+      else if (r.dir === 'EAST') angle = 0;
+      ctx.rotate(angle);
+
+      const rSize = cellSize * 0.42;
+      ctx.beginPath();
+      ctx.moveTo(rSize, 0);
+      ctx.lineTo(-rSize * 0.75, -rSize * 0.75);
+      ctx.lineTo(-rSize * 0.4, 0);
+      ctx.lineTo(-rSize * 0.75, rSize * 0.75);
+      ctx.closePath();
+
+      ctx.fillStyle = '#00a67e'; // Green finish robot
+      ctx.strokeStyle = '#006647';
+      ctx.lineWidth = 2.5;
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(rSize * 0.25, 0, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+
+      ctx.restore();
+
+      // Finish Badge Flag
+      ctx.fillStyle = '#008a69';
+      ctx.font = 'bold 11px "Inter", sans-serif';
+      ctx.fillText(`FINISH (${r.x}, ${r.y})`, rpos.px, rpos.py - cellSize * 0.65);
+    }
+
     ctx.restore();
   }
 }

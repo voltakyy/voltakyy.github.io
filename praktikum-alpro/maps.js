@@ -1,118 +1,126 @@
 /**
- * GvRng Puzzles & Official Exam Maps
- * Formatted directly from:
- * - Soal Quiz Aslab.pdf (30 Okt 2026)
- * - QUIZ Dasprog B.pdf
- * - WhatsApp Archival Material (Ujian Tengah Jangka Panjang & Efisiensi Energi)
+ * GvRng Puzzle & Coding Challenges — Master Dataset
+ * Diambil 100% lengkap dari:
+ * 1. QUIZ Dasprog B.pdf (Soal 1 & 2)
+ * 2. Soal Quiz Aslab.pdf (Soal 1, 2, 3)
+ * 3. Buku Praktikum / WhatsApp Images (Hal 51, Hal 52, Hal 53)
  */
 
-window.GVR_MAPS = {
+window.GVR_MISSIONS = [
   // =========================================================================
-  // PUZZLE 1: PAK MUKHLIS SPIRAL (SOAL ASLAB 1)
-  // Max Lines Constraint: <= 9 Baris
+  // MISI 1: PAK MUKHLIS SPIRAL (SOAL ASLAB 1)
   // =========================================================================
-  spiral: {
+  {
     id: 'spiral',
-    title: 'Puzzle 1: Ruangan Spiral Pak Mukhlis',
-    source: 'Soal Quiz Aslab — No. 1',
-    constraint: 'Maksimal 9 baris kode',
-    description: 'Pak Mukhlis ingin menyapu setiap sudut ruangan berbentuk spiral. Di tiap sudut terdapat sejumlah sampah (beeper). Program harus mengumpulkan semua beeper dan berhenti di tengah spiral.',
+    number: 1,
+    title: 'Pak Mukhlis & Ruangan Spiral',
+    source: 'Soal Quiz Aslab (30 Okt 2026) — No. 1',
+    category: 'Struktur Loop & Dinding',
+    badge: 'Maksimal 9 Baris Kode',
+    badgeType: 'badge-blue',
+    prompt: 'Pak Mukhlis ingin menyapu setiap sudut ruangan yang berbentuk spiral seperti yang terlihat pada gambar. Di tiap sudut terdapat sejumlah sampah (beeper). Bantulah Pak Mukhlis dengan membuat program agar sampah tersebut dapat tersapu oleh Pak Mukhlis! (Program tidak lebih dari 9 baris)',
+    constraints: {
+      maxLines: 9,
+      requiredKeywords: ['while'],
+      mustClearAllBeepers: true,
+      mustReturnToStart: false,
+      mustTurnoff: true
+    },
     cols: 14,
     rows: 14,
-    robot: { x: 4, y: 3, dir: 'EAST', beepers: 0 },
-    beepers: [
-      [11, 3, 1], // Sudut luar kanan bawah
-      [11, 11, 1], // Sudut luar kanan atas
-      [4, 11, 1], // Sudut luar kiri atas
-      [4, 5, 1], // Sudut tengah kiri bawah
-      [9, 5, 1], // Sudut tengah kanan bawah
-      [9, 9, 1], // Sudut tengah kanan atas
-      [6, 9, 1], // Sudut dalam kiri atas
-      [6, 7, 1], // Sudut dalam kiri tengah
-      [7, 7, 1]  // Pusat spiral
+    initialRobot: { x: 4, y: 3, dir: 'EAST', beepers: 0 },
+    initialBeepers: [
+      [11, 3, 1], [11, 11, 1], [4, 11, 1], [4, 5, 1],
+      [9, 5, 1], [9, 9, 1], [6, 9, 1], [6, 7, 1], [7, 7, 1]
     ],
-    // Dinding spiral konsentris
+    targetState: {
+      description: 'Seluruh 9 sampah beeper di semua sudut spiral terambil (0 beeper tersisa di peta, 9 beeper di tas robot). Robot berhenti di pusat jalan buntu spiral.',
+      finalRobot: { x: 7, y: 7, dir: 'NORTH', beepers: 9, isOff: true },
+      remainingBeepers: 0
+    },
     hWalls: [
-      // Dinding bawah luar
       [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2], [11, 2],
-      // Dinding atas luar
       [4, 11], [5, 11], [6, 11], [7, 11], [8, 11], [9, 11], [10, 11],
-      // Spiral dalam lapis 2
       [5, 4], [6, 4], [7, 4], [8, 4], [9, 4],
       [5, 9], [6, 9], [7, 9], [8, 9],
-      // Spiral lapis 3
-      [6, 6], [7, 6],
-      [7, 8]
+      [6, 6], [7, 6], [7, 8]
     ],
     vWalls: [
-      // Dinding kanan luar
       [11, 3], [11, 4], [11, 5], [11, 6], [11, 7], [11, 8], [11, 9], [11, 10],
-      // Dinding kiri luar
       [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [3, 10],
-      // Spiral lapis 2
       [9, 5], [9, 6], [9, 7], [9, 8],
       [4, 5], [4, 6], [4, 7], [4, 8], [4, 9],
-      // Spiral lapis 3
-      [8, 7], [8, 8],
-      [5, 7], [5, 8]
+      [8, 7], [8, 8], [5, 7], [5, 8]
     ],
-    solution: `# Solusi Resmi Aslab - Spiral Pak Mukhlis (7 Baris)
+    starterCode: `# Tuliskan kode program GvRng di sini
+# Syarat: Maksimal 9 baris kode!
+# Hint: Gunakan perulangan while dan sensor front_is_clear serta front_is_blocked
+
+while front_is_clear:
+    # Lengkapi instruksi di sini
+    move
+`,
+    solutionCode: `# Solusi Resmi Aslab — Hanya 7 Baris Kode (Batas: 9 Baris)
 while front_is_clear:
     move
     if next_to_a_beeper:
         pickbeeper
     if front_is_blocked:
         turnleft
-turnoff`
+turnoff`,
+    logicExplanation: `Kenapa kode ini hanya 7 baris dan berhasil?\n1. Robot terus melangkah sepanjang lorong lurus (\`move\`).\n2. Jika ada beeper di petak, robot mengambilnya (\`pickbeeper\`).\n3. Di setiap sudut ruangan, robot terhalang dinding (\`front_is_blocked\`), lalu robot belok kiri (\`turnleft\`).\n4. Karena ini spiral, setelah belok kiri jalannya terbuka kembali sehingga loop \`while front_is_clear\` berlanjut!\n5. Saat tiba di pusat spiral (jalan buntu), setelah robot belok kiri depannya TETAP tertutup dinding. Kondisi \`while front_is_clear\` menjadi False, loop selesai, lalu \`turnoff\`. Sangat elegan!`
   },
 
   // =========================================================================
-  // PUZZLE 2: INSPEKSI LORONG GEDUNG (QUIZ DASPROG B SOAL 1)
-  // Max Lines Constraint: <= 35 Baris, Wajib define & if-else
+  // MISI 2: ROBOT INSPEKSI LORONG GEDUNG (QUIZ DASPROG B SOAL 1)
   // =========================================================================
-  inspeksi: {
+  {
     id: 'inspeksi',
-    title: 'Puzzle 2: Robot Inspeksi Lorong Gedung',
+    number: 2,
+    title: 'Robot Inspeksi Lorong Menara Gedung',
     source: 'Quiz Dasprog B — Soal 1',
-    constraint: 'Maksimal 35 baris, wajib define & percabangan if-else',
-    description: 'Sebuah robot inspeksi ditugaskan memeriksa lorong-lorong berundak 3 menara di sebuah gedung. Robot menyusuri seluruh rute hingga ujung lorong, lalu kembali ke posisi awal di (4, 7).',
+    category: 'Modularitas & Percabangan',
+    badge: 'Maksimal 35 Baris · Wajib define & if-else',
+    badgeType: 'badge-red',
+    prompt: 'Sebuah robot inspeksi ditugaskan untuk memeriksa lorong-lorong di sebuah gedung. Robot harus menyusuri seluruh jalur lorong sesuai dengan rute pada gambar hingga mencapai titik akhir. Setelah seluruh lorong selesai diperiksa, robot harus kembali ke posisi awal.\n\nKetentuan pengerjaan:\n1. Robot harus menyusuri seluruh jalur lorong sesuai gambar.\n2. Robot kembali ke posisi awal.\n3. Program wajib menggunakan define dan struktur percabangan if-else.\n4. Program maksimal terdiri dari 35 baris kode.',
+    constraints: {
+      maxLines: 35,
+      requiredKeywords: ['define', 'if', 'else'],
+      mustClearAllBeepers: false,
+      mustReturnToStart: true,
+      mustTurnoff: true
+    },
     cols: 14,
     rows: 15,
-    robot: { x: 4, y: 7, dir: 'NORTH', beepers: 0 },
-    beepers: [],
-    // Dinding membatasi jalur lorong berundak
+    initialRobot: { x: 4, y: 7, dir: 'NORTH', beepers: 0 },
+    initialBeepers: [],
+    targetState: {
+      description: 'Robot telah menyusuri seluruh lorong menara bertingkat naik-turun hingga titik akhir di (10, 8), lalu kembali ke posisi awal di (4, 7) dan mematikan sistem.',
+      finalRobot: { x: 4, y: 7, dir: 'NORTH', beepers: 0, isOff: true },
+      remainingBeepers: 0
+    },
     hWalls: [
-      // Tutup atas pilar 1 (y=10)
-      [4, 10], [5, 10],
-      // Dasar lekukan 1 (y=7)
-      [5, 7], [6, 7],
-      // Tutup atas pilar 2 (y=12)
-      [6, 12], [7, 12],
-      // Dasar lekukan 2 (y=8)
-      [7, 8], [8, 8],
-      // Tutup atas pilar 3 (y=13)
-      [8, 13], [9, 13],
-      // Ujung kanan turun & lorong pulang bawah (y=6)
-      [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [10, 6],
-      [9, 8], [10, 8]
+      [4, 10], [5, 10], [5, 7], [6, 7], [6, 12], [7, 12],
+      [7, 8], [8, 8], [8, 13], [9, 13], [4, 6], [5, 6],
+      [6, 6], [7, 6], [8, 6], [9, 6], [10, 6], [9, 8], [10, 8]
     ],
     vWalls: [
-      // Dinding samping luar kiri pilar 1
-      [3, 7], [3, 8], [3, 9], [3, 10],
-      // Dinding antara pilar 1 turun
-      [4, 8], [4, 9],
-      // Sisi kanan lekuk 1 naik ke pilar 2
-      [5, 8],
-      // Dinding pilar 2
-      [5, 9], [5, 10], [5, 11], [5, 12],
-      [6, 9], [6, 10], [6, 11],
-      // Dinding pilar 3
-      [7, 10], [7, 11], [7, 12], [7, 13],
-      [8, 9], [8, 10], [8, 11], [8, 12],
-      // Dinding luar kanan pilar 3 & lorong pulang
+      [3, 7], [3, 8], [3, 9], [3, 10], [4, 8], [4, 9], [5, 8],
+      [5, 9], [5, 10], [5, 11], [5, 12], [6, 9], [6, 10], [6, 11],
+      [7, 10], [7, 11], [7, 12], [7, 13], [8, 9], [8, 10], [8, 11], [8, 12],
       [10, 7], [10, 8]
     ],
-    solution: `# Solusi Resmi Quiz Dasprog B - Inspeksi Gedung (26 Baris)
+    starterCode: `# Tuliskan program inspeksi lorong gedung
+# Wajib: define dan percabangan if-else, maksimal 35 baris!
+
+define turnright:
+    # TODO: Buat fungsi belok kanan
+    do 3:
+        turnleft
+
+# TODO: Buat fungsi inspeksi lorong dan jalankan
+`,
+    solutionCode: `# Solusi Resmi Quiz Dasprog B (26 Baris Kode, Batas: 35 Baris)
 define turnright:
     do 3:
         turnleft
@@ -139,50 +147,62 @@ turnright
 while front_is_clear:
     move
 turnright
-turnoff`
+turnoff`,
+    logicExplanation: `Alur Algoritma:\n1. Mengabstraksikan belok kanan dengan \`define turnright\` (3x turnleft).\n2. Fungsi \`inspect_corridor\` memeriksa lorong dengan mengevaluasi kondisi sensor \`right_is_clear\` pada setiap tikungan menara.\n3. Setelah selesai memeriksa menara ketiga di kanan (10, 8), robot turun ke lorong dasar horizontal di y=7 lalu berjalan lurus kembali ke posisi awal di (4, 7).`
   },
 
   // =========================================================================
-  // PUZZLE 3: ROBOT PEMBERSIH GEDUNG (QUIZ DASPROG B SOAL 2)
-  // Wajib while, if-else, define, kumpulkan semua sampah beeper & kembali
+  // MISI 3: ROBOT PEMBERSIH GEDUNG 6 SAMPAH (QUIZ DASPROG B SOAL 2)
   // =========================================================================
-  pembersih: {
+  {
     id: 'pembersih',
-    title: 'Puzzle 3: Robot Pembersih Gedung & Sampah',
+    number: 3,
+    title: 'Robot Pembersih Gedung & 6 Sampah Beeper',
     source: 'Quiz Dasprog B — Soal 2',
-    constraint: 'Wajib while, if-else, define, kembali ke (4, 7)',
-    description: 'Sebuah robot pembersih ditugaskan membersihkan lorong persegi gedung dengan 6 titik sampah beeper. Robot menyusuri lorong, memungut semua sampah, lalu kembali ke posisi awal dan berhenti.',
+    category: 'Pembersihan Sampah & Kembali',
+    badge: 'Wajib while, if-else, & define',
+    badgeType: 'badge-red',
+    prompt: 'Sebuah robot pembersih ditugaskan untuk membersihkan lorong-lorong di sebuah gedung. Di sepanjang lorong terdapat beberapa sampah yang ditandai dengan beeper. Robot harus menyusuri jalur sesuai gambar dan mengambil setiap sampah yang ditemukan. Setelah seluruh sampah berhasil dikumpulkan, robot harus kembali ke posisi awal dan berhenti.\n\nKetentuan pengerjaan:\n1. Robot harus mengambil seluruh sampah yang ditandai dengan beeper (6 titik beeper).\n2. Program wajib menggunakan while, if-else, dan define.\n3. Tidak ada batas maksimal jumlah baris kode.\n4. Setelah seluruh sampah terkumpul, robot harus kembali ke posisi awal dan berhenti.',
+    constraints: {
+      maxLines: 999,
+      requiredKeywords: ['while', 'if', 'else', 'define'],
+      mustClearAllBeepers: true,
+      mustReturnToStart: true,
+      mustTurnoff: true
+    },
     cols: 16,
     rows: 15,
-    robot: { x: 4, y: 7, dir: 'NORTH', beepers: 0 },
-    beepers: [
-      [4, 9, 1],
-      [4, 11, 1],
-      [7, 13, 1],
-      [8, 13, 1],
-      [11, 11, 1],
-      [11, 9, 1]
+    initialRobot: { x: 4, y: 7, dir: 'NORTH', beepers: 0 },
+    initialBeepers: [
+      [4, 9, 1], [4, 11, 1], [7, 13, 1], [8, 13, 1], [11, 11, 1], [11, 9, 1]
     ],
-    // Dinding lorong segiempat bertingkat
+    targetState: {
+      description: 'Semua 6 beeper sampah di sepanjang lorong telah dipungut (tas robot = 6 beeper, 0 beeper di peta). Robot kembali ke posisi awal (4, 7) dan melakukan turnoff.',
+      finalRobot: { x: 4, y: 7, dir: 'NORTH', beepers: 6, isOff: true },
+      remainingBeepers: 0
+    },
     hWalls: [
-      // Dinding atas luar (y=13)
       [5, 13], [6, 13], [7, 13], [8, 13], [9, 13], [10, 13],
-      // Dinding bawah luar (y=6)
       [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [10, 6], [11, 6],
-      // Ruang tengah
-      [6, 8], [7, 8], [8, 8], [9, 8],
-      [6, 11], [7, 11], [8, 11], [9, 11]
+      [6, 8], [7, 8], [8, 8], [9, 8], [6, 11], [7, 11], [8, 11], [9, 11]
     ],
     vWalls: [
-      // Dinding kiri luar
       [3, 7], [3, 8], [3, 9], [3, 10], [3, 11], [3, 12],
-      // Dinding kanan luar
       [11, 7], [11, 8], [11, 9], [11, 10], [11, 11], [11, 12],
-      // Dinding dalam
-      [5, 8], [5, 9], [5, 10], [5, 11],
-      [9, 8], [9, 9], [9, 10], [9, 11]
+      [5, 8], [5, 9], [5, 10], [5, 11], [9, 8], [9, 9], [9, 10], [9, 11]
     ],
-    solution: `# Solusi Quiz Dasprog B - Pembersih Gedung (Menggunakan while, if-else, define)
+    starterCode: `# Tuliskan program pembersih gedung
+# Wajib: while, if-else, dan define
+
+define turnright:
+    do 3:
+        turnleft
+
+define check_and_pick:
+    # TODO: Ambil beeper jika berada di petak beeper
+    pass
+`,
+    solutionCode: `# Solusi Resmi Quiz Dasprog B (Menggunakan while, if-else, dan define)
 define turnright:
     do 3:
         turnleft
@@ -199,9 +219,10 @@ define step_and_clean:
             move
         else:
             turnright
-# Mengitari koridor hingga mengumpulkan 6 beeper
-while any_beepers_in_world: # simulator loop
+# Mengitari koridor hingga seluruh sampah bersih
+while any_beepers_in_world:
     step_and_clean
+check_and_pick
 while not_facing_south:
     turnleft
 while front_is_clear:
@@ -210,62 +231,72 @@ turnright
 while front_is_clear:
     move
 turnright
-turnoff`
+turnoff`,
+    logicExplanation: `Alur Logika:\n1. Robot memindai setiap petak sebelum melangkah dengan \`check_and_pick\`.\n2. \`step_and_clean\` menangani navigasi: jika depan kosong robot maju, jika terbentur dinding robot belok kanan menyusuri koridor persegi.\n3. Perulangan \`while any_beepers_in_world:\` menjamin robot tidak akan pulang sebelum seluruh sampah terangkat.\n4. Setelah semua beeper bersih, robot berputar ke arah Selatan dan Barat untuk kembali tepat di titik awal (4, 7).`
   },
 
   // =========================================================================
-  // PUZZLE 4: LINTASAN MENARA BEEPER VARIATIF (SOAL ASLAB 2)
-  // Max Lines Constraint: <= 22 Baris, Wajib while & define
+  // MISI 4: LINTASAN MENARA BEEPER BERTUMPUK (SOAL ASLAB 2)
   // =========================================================================
-  menara: {
+  {
     id: 'menara',
-    title: 'Puzzle 4: Lintasan Menara Beeper Bertumpuk',
-    source: 'Soal Quiz Aslab — No. 2',
-    constraint: 'Maksimal 22 baris, wajib while & define',
-    description: 'Robot harus menyusuri 4 menara berulang, mengambil semua beeper yang jumlahnya berbeda-beda di tiap titik (membutuhkan while next_to_a_beeper), lalu kembali ke dekat titik awal.',
+    number: 4,
+    title: 'Lintasan 4 Menara Beeper Bertumpuk',
+    source: 'Soal Quiz Aslab (30 Okt 2026) — No. 2',
+    category: 'Penanganan Beeper Variatif',
+    badge: 'Maksimal 22 Baris · Wajib while & define',
+    badgeType: 'badge-blue',
+    prompt: 'Buatlah program Gvrng agar robot menyusuri seluruh lintasan dunia robot (Gambar 2), mengambil semua beeper lalu kembali sekitar titik awal. Jumlah beeper tiap titik berbeda. Gunakan while & define untuk membantu program anda! (Program tidak lebih dari 22 baris)\n\nLihat Gambar 2.1 (Tampilan sebelum dijalankan) vs Gambar 2.2 (Tampilan setelah dijalankan).',
+    constraints: {
+      maxLines: 22,
+      requiredKeywords: ['while', 'define'],
+      mustClearAllBeepers: true,
+      mustReturnToStart: true,
+      mustTurnoff: true
+    },
     cols: 24,
     rows: 14,
-    robot: { x: 4, y: 4, dir: 'EAST', beepers: 0 },
-    beepers: [
-      [7, 8, 3],  // Puncak menara 1 (3 beeper)
+    initialRobot: { x: 4, y: 4, dir: 'EAST', beepers: 0 },
+    initialBeepers: [
+      [7, 8, 3],  // Puncak 1 (3 beeper)
       [9, 4, 1],  // Lembah 1 (1 beeper)
-      [11, 6, 2], // Puncak menara 2 (2 beeper)
+      [11, 6, 2], // Puncak 2 (2 beeper)
       [13, 4, 1], // Lembah 2 (1 beeper)
-      [15, 8, 2], // Puncak menara 3 (2 beeper)
+      [15, 8, 2], // Puncak 3 (2 beeper)
       [17, 4, 3], // Lembah 3 (3 beeper)
-      [19, 7, 1], // Puncak menara 4 (1 beeper)
+      [19, 7, 1], // Puncak 4 (1 beeper)
       [21, 4, 2]  // Ujung akhir (2 beeper)
     ],
+    targetState: {
+      description: 'Persis sesuai Gambar 2.2 Aslab: Seluruh beeper di semua puncak dan lembah menara telah bersih total (tas = 15 beeper). Robot kembali ke sekitar titik awal (4, 4) dan turnoff.',
+      finalRobot: { x: 4, y: 4, dir: 'WEST', beepers: 15, isOff: true },
+      remainingBeepers: 0
+    },
     hWalls: [
-      // Dasar bawah
       [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3], [10, 3], [11, 3],
       [12, 3], [13, 3], [14, 3], [15, 3], [16, 3], [17, 3], [18, 3], [19, 3], [20, 3], [21, 3],
-      // Puncak menara 1
-      [6, 8], [7, 8],
-      // Puncak menara 2
-      [10, 6], [11, 6],
-      // Puncak menara 3
-      [14, 8], [15, 8],
-      // Puncak menara 4
-      [18, 7], [19, 7]
+      [6, 8], [7, 8], [10, 6], [11, 6], [14, 8], [15, 8], [18, 7], [19, 7]
     ],
     vWalls: [
-      // Menara 1
-      [5, 4], [5, 5], [5, 6], [5, 7], [5, 8],
-      [7, 4], [7, 5], [7, 6], [7, 7], [7, 8],
-      // Menara 2
-      [9, 4], [9, 5], [9, 6],
-      [11, 4], [11, 5], [11, 6],
-      // Menara 3
-      [13, 4], [13, 5], [13, 6], [13, 7], [13, 8],
-      [15, 4], [15, 5], [15, 6], [15, 7], [15, 8],
-      // Menara 4
-      [17, 4], [17, 5], [17, 6], [17, 7],
-      [19, 4], [19, 5], [19, 6], [19, 7],
-      // Ujung kanan
+      [5, 4], [5, 5], [5, 6], [5, 7], [5, 8], [7, 4], [7, 5], [7, 6], [7, 7], [7, 8],
+      [9, 4], [9, 5], [9, 6], [11, 4], [11, 5], [11, 6],
+      [13, 4], [13, 5], [13, 6], [13, 7], [13, 8], [15, 4], [15, 5], [15, 6], [15, 7], [15, 8],
+      [17, 4], [17, 5], [17, 6], [17, 7], [19, 4], [19, 5], [19, 6], [19, 7],
       [21, 4]
     ],
-    solution: `# Solusi Resmi Soal Aslab 2 - Menara Beeper Variatif (18 Baris)
+    starterCode: `# Program Menara Beeper Variatif (Maksimal 22 Baris)
+# Wajib menggunakan while & define
+
+define turnright:
+    do 3:
+        turnleft
+
+define ambil_semua:
+    # TODO: Ambil semua beeper di petak sampai habis!
+    while next_to_a_beeper:
+        pickbeeper
+`,
+    solutionCode: `# Solusi Resmi Aslab 2 (18 Baris Kode, Batas: 22 Baris)
 define turnright:
     do 3:
         turnleft
@@ -284,38 +315,59 @@ while not_facing_west:
     susur_menara
 while front_is_clear:
     move
-turnoff`
+turnoff`,
+    logicExplanation: `Trik Aslab Paling Krusial:\n1. Jumlah beeper berbeda-beda (ada yang 1, 2, atau 3). Menggunakan \`pickbeeper\` tunggal akan gagal karena menyisakan beeper di puncak!\n2. Fungsi \`ambil_semua\` memakai \`while next_to_a_beeper: pickbeeper\` sehingga berapa pun jumlah beeper pasti terangkat semua tanpa error.\n3. Fungsi \`susur_menara\` menyusuri naik dan turun setiap menara hingga mencapai batas barat untuk pulang.`
   },
 
   // =========================================================================
-  // PUZZLE 5: POLA PAPAN CATUR BEEPER 4x4 (SOAL ASLAB 3)
-  // Max Lines Constraint: <= 24 Baris, Wajib while, do, dan define
+  // MISI 5: POLA PAPAN CATUR BEEPER 4x4 (SOAL ASLAB 3)
   // =========================================================================
-  catur: {
+  {
     id: 'catur',
-    title: 'Puzzle 5: Pola Papan Catur Beeper (Checkerboard)',
-    source: 'Soal Quiz Aslab — No. 3',
-    constraint: 'Maksimal 24 baris, wajib while, do, dan define',
-    description: 'Sebuah ruangan 4x4 berisi beeper yang tersusun berselang-seling membentuk pola papan catur (checkerboard). Robot harus menyusuri seluruh petak dan mengumpulkan semua beeper.',
+    number: 5,
+    title: 'Pola Papan Catur Beeper 4x4',
+    source: 'Soal Quiz Aslab (30 Okt 2026) — No. 3',
+    category: 'Pemindaian Bidang Teratur',
+    badge: 'Maksimal 24 Baris · Wajib while, do, define',
+    badgeType: 'badge-blue',
+    prompt: 'Buatlah program GvRng yang membuat robot menyusuri seluruh lintasan dan mengambil semua beeper yang tersusun dengan pola papan catur. Gunakan while, do, dan define untuk membantu program anda. (Program tidak lebih dari 24 baris). Dunia robot tampak seperti pada Gambar 3.',
+    constraints: {
+      maxLines: 24,
+      requiredKeywords: ['while', 'do', 'define'],
+      mustClearAllBeepers: true,
+      mustReturnToStart: false,
+      mustTurnoff: true
+    },
     cols: 12,
     rows: 12,
-    robot: { x: 4, y: 4, dir: 'EAST', beepers: 0 },
-    beepers: [
-      [4, 4, 1], [6, 4, 1], // Baris 1
-      [5, 5, 1], [7, 5, 1], // Baris 2
-      [4, 6, 1], [6, 6, 1], // Baris 3
-      [5, 7, 1], [7, 7, 1]  // Baris 4
+    initialRobot: { x: 4, y: 4, dir: 'EAST', beepers: 0 },
+    initialBeepers: [
+      [4, 4, 1], [6, 4, 1], [5, 5, 1], [7, 5, 1],
+      [4, 6, 1], [6, 6, 1], [5, 7, 1], [7, 7, 1]
     ],
-    // Dinding kotak mengelilingi ruangan 4x4
+    targetState: {
+      description: 'Seluruh 8 beeper pada pola papan catur terangkat bersih (tas = 8 beeper). Robot menyelesaikan pemindaian 4 baris.',
+      finalRobot: { x: 4, y: 7, dir: 'WEST', beepers: 8, isOff: true },
+      remainingBeepers: 0
+    },
     hWalls: [
-      [4, 3], [5, 3], [6, 3], [7, 3], // Bawah
-      [4, 7], [5, 7], [6, 7], [7, 7]  // Atas
+      [4, 3], [5, 3], [6, 3], [7, 3],
+      [4, 7], [5, 7], [6, 7], [7, 7]
     ],
     vWalls: [
-      [3, 4], [3, 5], [3, 6], [3, 7], // Kiri
-      [7, 4], [7, 5], [7, 6], [7, 7]  // Kanan
+      [3, 4], [3, 5], [3, 6], [3, 7],
+      [7, 4], [7, 5], [7, 6], [7, 7]
     ],
-    solution: `# Solusi Resmi Aslab 3 - Papan Catur Beeper (20 Baris)
+    starterCode: `# Program Papan Catur Beeper (Maksimal 24 Baris)
+# Wajib: while, do, dan define
+
+define turnright:
+    do 3:
+        turnleft
+
+# TODO: Buat fungsi sapu baris dan transisi antar baris
+`,
+    solutionCode: `# Solusi Resmi Aslab 3 (20 Baris Kode, Batas: 24 Baris)
 define turnright:
     do 3:
         turnleft
@@ -335,7 +387,6 @@ define next_row_right:
     turnright
     move
     turnright
-# Susur 4 baris bergantian
 sweep_row
 next_row_left
 sweep_row
@@ -343,44 +394,66 @@ next_row_right
 sweep_row
 next_row_left
 sweep_row
-turnoff`
+turnoff`,
+    logicExplanation: `Alur Lintasan Boustrophedon (Ular Tangga):\n- Baris 1: Jalan ke Timur sambil menyapu (\`sweep_row\`).\n- Di ujung kanan: Belok kiri naik 1 langkah lalu hadap Barat (\`next_row_left\`).\n- Baris 2: Jalan ke Barat sambil menyapu (\`sweep_row\`).\n- Di ujung kiri: Belok kanan naik 1 langkah lalu hadap Timur (\`next_row_right\`).\n- Mengulang pola untuk baris 3 dan 4. Hanya membutuhkan 20 baris kode!`
   },
 
   // =========================================================================
-  // PUZZLE 6: LORONG 3 PILAR & PINDAHKAN BEEPER (HALAMAN 51 BUKU)
-  // Max Lines Constraint: <= 30 Baris
+  // MISI 6: LORONG 3 PILAR & PINDAHKAN BEEPER (HALAMAN 51 BUKU)
   // =========================================================================
-  tiga_pilar: {
+  {
     id: 'tiga_pilar',
-    title: 'Puzzle 6: Tiga Pilar & Pemindahan Beeper',
+    number: 6,
+    title: 'Tiga Pilar & Pemindahan Beeper',
     source: 'Buku Praktikum — Hal 51 (Ujian Tengah Jangka Panjang)',
-    constraint: 'Maksimal 30 baris kode',
-    description: 'Robot memasuki 3 lorong pilar bertingkat, mengambil beeper di setiap puncak pilar, lalu meletakkan ketiga beeper tersebut di ujung lorong seberang.',
+    category: 'Pengumpulan & Peletakan Beeper',
+    badge: 'Maksimal 30 Baris Kode',
+    badgeType: 'badge-green',
+    prompt: 'Buatlah program GvRng sehingga robot memasuki lorong, mengambil semua alat pemberi sinyal (beeper), dan menempatkan semua alat pemberi sinyal tersebut di ujung lorong yang lain. Dunia robot tampak seperti sebuah gambar. Program Anda tidak boleh lebih dari 30 baris!',
+    constraints: {
+      maxLines: 30,
+      requiredKeywords: ['define', 'do'],
+      mustClearAllBeepers: false, // beepers moved from pillars to target end
+      mustReturnToStart: false,
+      mustTurnoff: true
+    },
     cols: 14,
     rows: 12,
-    robot: { x: 3, y: 3, dir: 'EAST', beepers: 0 },
-    beepers: [
+    initialRobot: { x: 3, y: 3, dir: 'EAST', beepers: 0 },
+    initialBeepers: [
       [5, 6, 1], // Puncak pilar 1
       [7, 7, 1], // Puncak pilar 2
       [9, 8, 1]  // Puncak pilar 3
     ],
+    targetState: {
+      description: 'Ketiga beeper di puncak pilar telah diambil, lalu ditaruh semuanya di ujung lorong seberang (petak 11, 4). Tas robot kembali 0 dan robot turnoff.',
+      finalRobot: { x: 11, y: 4, dir: 'EAST', beepers: 0, isOff: true },
+      remainingBeepers: 3 // beepers placed at target end
+    },
     hWalls: [
       [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2], [11, 2],
-      [4, 6], [5, 6],
-      [6, 7], [7, 7],
-      [8, 8], [9, 8],
+      [4, 6], [5, 6], [6, 7], [7, 7], [8, 8], [9, 8],
       [4, 4], [6, 5], [8, 6], [10, 5], [11, 5]
     ],
     vWalls: [
-      [4, 3], [4, 4], [4, 5],
-      [5, 3], [5, 4], [5, 5],
-      [6, 3], [6, 4], [6, 5], [6, 6],
-      [7, 3], [7, 4], [7, 5], [7, 6],
-      [8, 3], [8, 4], [8, 5], [8, 6], [8, 7],
-      [9, 3], [9, 4], [9, 5], [9, 6], [9, 7],
+      [4, 3], [4, 4], [4, 5], [5, 3], [5, 4], [5, 5],
+      [6, 3], [6, 4], [6, 5], [6, 6], [7, 3], [7, 4], [7, 5], [7, 6],
+      [8, 3], [8, 4], [8, 5], [8, 6], [8, 7], [9, 3], [9, 4], [9, 5], [9, 6], [9, 7],
       [11, 3], [11, 4]
     ],
-    solution: `# Solusi Resmi Halaman 51 Buku (28 Baris)
+    starterCode: `# Program Ujian Jangka Panjang Hal 51 (Maksimal 30 Baris)
+
+define move3:
+    do 3:
+        move
+
+define turnright:
+    do 3:
+        turnleft
+
+# TODO: Definisikan fungsi pick untuk masuk lorong pilar, ambil beeper, lalu keluar
+`,
+    solutionCode: `# Solusi Resmi Halaman 51 Buku (28 Baris Kode, Batas: 30 Baris)
 define move3:
     do 3:
         move
@@ -406,50 +479,129 @@ do 3:
 move
 do 3:
     putbeeper
-turnoff`
+turnoff`,
+    logicExplanation: `Alur Kerja Solusi Buku Hal 51:\n1. \`define move3:\` memampatkan 3 kali langkah menjadi 1 perintah ringkas.\n2. Fungsi \`pick\` memandu robot masuk ke dalam lorong pilar bertingkat, memungut beeper di ujungnya, lalu berputar arah dan keluar kembali ke jalur bawah.\n3. \`do 3: pick\` mengulang pemanggilan fungsi untuk ketiga pilar.\n4. Di akhir lorong seberang, robot mengeksekusi \`do 3: putbeeper\` untuk menaruh ketiga beeper sekaligus, lalu \`turnoff\`.`
   },
 
   // =========================================================================
-  // PUZZLE 7: TIGA KOTAK & ANALISIS ENERGI (HALAMAN 52-53 BUKU)
-  // Membandingkan Efisiensi Baris vs Energi Langkah
+  // MISI 7: MENGELILINGI 3 KOTAK (HALAMAN 52 — ALTERNATIF 1)
   // =========================================================================
-  tiga_kotak: {
-    id: 'tiga_kotak',
-    title: 'Puzzle 7: Mengelilingi 3 Kotak (Analisis Hemat Energi)',
-    source: 'Buku Praktikum — Hal 52-53',
-    constraint: 'Maksimal 30 baris, bandingkan Alternatif 1 vs Alternatif 2',
-    description: 'Robot mengelilingi 3 kotak balok terpisah. Mengambil beeper bila ditemukan di sepanjang sisi kotak, lalu kembali ke posisi awal. Alternatif 2 mendemonstrasikan algoritma lebih hemat energi (22 langkah vs 26 langkah).',
+  {
+    id: 'tiga_kotak_alt1',
+    number: 7,
+    title: 'Mengelilingi 3 Kotak (Alternatif 1: 20 Baris)',
+    source: 'Buku Praktikum — Hal 52',
+    category: 'Analisis Algoritma & Jalur Kotak',
+    badge: '20 Baris Kode · 26 Gerakan Fisik',
+    badgeType: 'badge-green',
+    prompt: 'Buat program hingga 30 baris agar robot mengelilingi semua kotak dan kemudian kembali ke posisi awalnya. Jika robot menemukan alat pemberi sinyal (beeper), robot harus mengambilnya. Posisi alat pemberi sinyal dapat diubah, tetapi harus selalu berada dekat dengan kotak-kotak tersebut.\n\nAlternatif 1 mengutamakan sedikitnya baris kode instruksi (hanya 20 baris).',
+    constraints: {
+      maxLines: 30,
+      requiredKeywords: ['define', 'do'],
+      mustClearAllBeepers: true,
+      mustReturnToStart: true,
+      mustTurnoff: true
+    },
     cols: 14,
     rows: 10,
-    robot: { x: 3, y: 4, dir: 'NORTH', beepers: 0 },
-    beepers: [
-      [5, 6, 1], // Di atas kotak 1
-      [6, 5, 1], // Di kanan kotak 1
-      [10, 6, 1] // Di atas kotak 3
+    initialRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 0 },
+    initialBeepers: [
+      [5, 6, 1], [6, 5, 1], [10, 6, 1]
     ],
+    targetState: {
+      description: 'Robot mengelilingi 3 kotak dengan 26 gerakan eksekusi. Semua beeper dekat kotak diambil. Robot kembali ke posisi awal di (3, 4).',
+      finalRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 3, isOff: true },
+      remainingBeepers: 0
+    },
     hWalls: [
-      // Kotak 1
-      [4, 4], [5, 4],
-      [4, 6], [5, 6],
-      // Kotak 2
-      [7, 4], [8, 4],
-      [7, 6], [8, 6],
-      // Kotak 3
-      [10, 4], [11, 4],
-      [10, 6], [11, 6]
+      [4, 4], [5, 4], [4, 6], [5, 6],
+      [7, 4], [8, 4], [7, 6], [8, 6],
+      [10, 4], [11, 4], [10, 6], [11, 6]
     ],
     vWalls: [
-      // Kotak 1
-      [3, 5], [3, 6],
-      [5, 5], [5, 6],
-      // Kotak 2
-      [6, 5], [6, 6],
-      [8, 5], [8, 6],
-      // Kotak 3
-      [9, 5], [9, 6],
-      [11, 5], [11, 6]
+      [3, 5], [3, 6], [5, 5], [5, 6],
+      [6, 5], [6, 6], [8, 5], [8, 6],
+      [9, 5], [9, 6], [11, 5], [11, 6]
     ],
-    solution: `# Alternatif 2 Resmi Buku Hal 53 (Hemat Energi: hanya 22 gerakan)
+    starterCode: `# Alternatif 1 Resmi Buku Hal 52 (20 Baris)
+
+define circumference:
+    do 4:
+        # TODO: Cek beeper dan kelilingi sisi kotak
+        pass
+`,
+    solutionCode: `# Solusi Resmi Buku Hal 52 — Alternatif 1 (20 Baris)
+define circumference:
+    do 4:
+        if next_to_a_beeper:
+            pickbeeper
+        turnleft
+        move
+        if next_to_a_beeper:
+            pickbeeper
+        move
+do 3:
+    do 3:
+        move
+    circumference
+turnleft
+turnleft
+do 9:
+    move
+turnleft
+turnleft
+turnoff`,
+    logicExplanation: `Analisis Alternatif 1:\n- Baris instruksi sangat sedikit, yaitu hanya 20 baris.\n- Namun, robot mengeksekusi 26 gerakan fisik (karena pola putaran di sekeliling kotak yang menghasilkan gerakan tambahan saat berpindah antar kotak).`
+  },
+
+  // =========================================================================
+  // MISI 8: MENGELILINGI 3 KOTAK (HALAMAN 53 — ALTERNATIF 2 HEMAT ENERGI)
+  // =========================================================================
+  {
+    id: 'tiga_kotak_alt2',
+    number: 8,
+    title: 'Mengelilingi 3 Kotak (Alternatif 2: Hemat Energi 22 Gerakan)',
+    source: 'Buku Praktikum — Hal 53',
+    category: 'Analisis Efisiensi Runtime',
+    badge: '22 Gerakan Fisik · Hemat Energi Robot!',
+    badgeType: 'badge-green',
+    prompt: 'Alternatif 2 dari soal mengelilingi 3 kotak.\nCatatan Resmi Buku Hal 53:\n"Program pertama memiliki instruksi yang lebih sedikit, yaitu 20 baris. Pada program kedua, robot mengeksekusi instruksi gerakan yang lebih sedikit, yaitu 22 kali, sedangkan pada program pertama 26 instruksi gerakan. Program kedua lebih hemat energi, robot!"',
+    constraints: {
+      maxLines: 30,
+      requiredKeywords: ['define', 'do'],
+      mustClearAllBeepers: true,
+      mustReturnToStart: true,
+      mustTurnoff: true
+    },
+    cols: 14,
+    rows: 10,
+    initialRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 0 },
+    initialBeepers: [
+      [5, 6, 1], [6, 5, 1], [10, 6, 1]
+    ],
+    targetState: {
+      description: 'Robot mengelilingi ketiga kotak hanya dengan 22 gerakan fisik (hemat 4 gerakan dibanding Alternatif 1!). Seluruh beeper terambil dan robot kembali ke (3, 4).',
+      finalRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 3, isOff: true },
+      remainingBeepers: 0
+    },
+    hWalls: [
+      [4, 4], [5, 4], [4, 6], [5, 6],
+      [7, 4], [8, 4], [7, 6], [8, 6],
+      [10, 4], [11, 4], [10, 6], [11, 6]
+    ],
+    vWalls: [
+      [3, 5], [3, 6], [5, 5], [5, 6],
+      [6, 5], [6, 6], [8, 5], [8, 6],
+      [9, 5], [9, 6], [11, 5], [11, 6]
+    ],
+    starterCode: `# Alternatif 2 Resmi Buku Hal 53 (Hemat Energi: 22 Langkah)
+
+define circumference:
+    do 4:
+        # TODO: Rancang urutan langkah dan belokan yang tidak memboroskan pergerakan
+        pass
+`,
+    solutionCode: `# Solusi Resmi Buku Hal 53 — Alternatif 2 (24 Baris, 22 Gerakan)
 define circumference:
     do 4:
         if next_to_a_beeper:
@@ -473,6 +625,7 @@ do 7:
     move
 turnleft
 turnleft
-turnoff`
+turnoff`,
+    logicExplanation: `Kenapa Alternatif 2 Lebih Hemat Energi?\nPada Alternatif 2, fungsi \`circumference\` memindahkan instruksi \`turnleft\` ke akhir putaran sisi kotak dan mengoptimalkan langkah pulang (hanya \`do 7: move\` dibanding \`do 9: move\`). Hasilnya: robot hanya melangkah 22 kali fisik, lebih hemat 4 langkah dibanding Alternatif 1!`
   }
-};
+];
