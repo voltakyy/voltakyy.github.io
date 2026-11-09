@@ -78,7 +78,7 @@ class GvrWorld {
     this.rows = this.initialSnapshot.rows;
   }
 
-  // Check if robot can move forward
+  // Comprehensive Sensor Suite according to GvRng Specification
   frontIsClear() {
     const { x, y, dir } = this.robot;
     if (dir === 'NORTH') {
@@ -97,13 +97,20 @@ class GvrWorld {
     return false;
   }
 
-  // Sensors
+  frontIsBlocked() {
+    return !this.frontIsClear();
+  }
+
   leftIsClear() {
     const origDir = this.robot.dir;
     this.robot.dir = this.getLeftDir(origDir);
     const clear = this.frontIsClear();
     this.robot.dir = origDir;
     return clear;
+  }
+
+  leftIsBlocked() {
+    return !this.leftIsClear();
   }
 
   rightIsClear() {
@@ -114,25 +121,34 @@ class GvrWorld {
     return clear;
   }
 
-  getLeftDir(dir) {
-    const order = ['NORTH', 'WEST', 'SOUTH', 'EAST'];
-    const idx = order.indexOf(dir);
-    return order[(idx + 1) % 4];
-  }
-
-  getRightDir(dir) {
-    const order = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
-    const idx = order.indexOf(dir);
-    return order[(idx + 1) % 4];
+  rightIsBlocked() {
+    return !this.rightIsClear();
   }
 
   nextToABeeper() {
     return this.getBeeperCount(this.robot.x, this.robot.y) > 0;
   }
 
+  notNextToABeeper() {
+    return !this.nextToABeeper();
+  }
+
   anyBeepersInBag() {
     return this.robot.beepers > 0;
   }
+
+  noBeepersInBag() {
+    return !this.anyBeepersInBag();
+  }
+
+  facingNorth() { return this.robot.dir === 'NORTH'; }
+  notFacingNorth() { return this.robot.dir !== 'NORTH'; }
+  facingSouth() { return this.robot.dir === 'SOUTH'; }
+  notFacingSouth() { return this.robot.dir !== 'SOUTH'; }
+  facingEast() { return this.robot.dir === 'EAST'; }
+  notFacingEast() { return this.robot.dir !== 'EAST'; }
+  facingWest() { return this.robot.dir === 'WEST'; }
+  notFacingWest() { return this.robot.dir !== 'WEST'; }
 
   // Robot Primitive Actions
   move() {
