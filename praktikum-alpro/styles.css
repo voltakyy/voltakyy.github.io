@@ -317,6 +317,58 @@ body.gvr-app-body {
   overflow: hidden;
 }
 
+/* Subtabs in Right Pane */
+.gvr-editor-subtabs {
+  display: flex;
+  background: #0c121e;
+  border-bottom: 1px solid #1e293b;
+  overflow-x: auto;
+}
+
+.subtab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #94a3b8;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.subtab-btn:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.subtab-btn.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.subtab-panel {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.subtab-panel.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtab-content-padded {
+  padding: 1.25rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
 /* Control Execution Bar */
 .gvr-control-bar {
   background: #131c31;

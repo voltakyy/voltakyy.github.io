@@ -81,6 +81,18 @@ class GvrWorld {
     this.pathHistory = [{ x: this.robot.x, y: this.robot.y }];
   }
 
+  getLeftDir(dir) {
+    const order = ['NORTH', 'WEST', 'SOUTH', 'EAST'];
+    const idx = order.indexOf(dir);
+    return order[(idx + 1) % 4];
+  }
+
+  getRightDir(dir) {
+    const order = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
+    const idx = order.indexOf(dir);
+    return order[(idx + 1) % 4];
+  }
+
   // Comprehensive Sensor Suite according to GvRng Specification
   frontIsClear() {
     const { x, y, dir } = this.robot;

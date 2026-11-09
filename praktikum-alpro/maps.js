@@ -39,18 +39,19 @@ window.GVR_MISSIONS = [
       remainingBeepers: 0
     },
     hWalls: [
-      [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2], [11, 2],
-      [4, 11], [5, 11], [6, 11], [7, 11], [8, 11], [9, 11], [10, 11],
-      [5, 4], [6, 4], [7, 4], [8, 4], [9, 4],
-      [5, 9], [6, 9], [7, 9], [8, 9],
-      [6, 6], [7, 6], [7, 8]
+      [4, 2], [4, 3], [4, 4], [4, 11], [5, 2], [5, 3], [5, 4], [5, 5], [5, 10], [5, 11],
+      [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [6, 9], [6, 10], [6, 11],
+      [7, 2], [7, 3], [7, 4], [7, 5], [7, 6], [7, 7], [7, 8], [7, 9], [7, 10], [7, 11],
+      [8, 2], [8, 3], [8, 4], [8, 5], [8, 8], [8, 9], [8, 10], [8, 11],
+      [9, 2], [9, 3], [9, 4], [9, 9], [9, 10], [9, 11], [10, 2], [10, 3], [10, 10], [10, 11],
+      [11, 2], [11, 11]
     ],
     vWalls: [
-      [11, 3], [11, 4], [11, 5], [11, 6], [11, 7], [11, 8], [11, 9], [11, 10],
-      [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [3, 10],
-      [9, 5], [9, 6], [9, 7], [9, 8],
-      [4, 5], [4, 6], [4, 7], [4, 8], [4, 9],
-      [8, 7], [8, 8], [5, 7], [5, 8]
+      [3, 3], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [3, 10], [3, 11],
+      [4, 6], [4, 7], [4, 8], [4, 9], [4, 10], [5, 7], [5, 8], [5, 9],
+      [6, 8], [7, 7], [8, 6], [8, 7], [8, 8], [9, 5], [9, 6], [9, 7], [9, 8], [9, 9],
+      [10, 4], [10, 5], [10, 6], [10, 7], [10, 8], [10, 9], [10, 10],
+      [11, 3], [11, 4], [11, 5], [11, 6], [11, 7], [11, 8], [11, 9], [11, 10], [11, 11]
     ],
     starterCode: `# Tuliskan kode program GvRng di sini
 # Syarat: Maksimal 9 baris kode!
@@ -174,7 +175,7 @@ turnoff`,
     rows: 15,
     initialRobot: { x: 4, y: 7, dir: 'NORTH', beepers: 0 },
     initialBeepers: [
-      [4, 9, 1], [4, 11, 1], [7, 13, 1], [8, 13, 1], [11, 11, 1], [11, 9, 1]
+      [4, 9, 1], [4, 11, 1], [7, 12, 1], [8, 12, 1], [11, 11, 1], [11, 9, 1]
     ],
     targetState: {
       description: 'Semua 6 beeper sampah di sepanjang lorong telah dipungut (tas robot = 6 beeper, 0 beeper di peta). Robot kembali ke posisi awal (4, 7) dan melakukan turnoff.',
@@ -182,14 +183,14 @@ turnoff`,
       remainingBeepers: 0
     },
     hWalls: [
-      [5, 13], [6, 13], [7, 13], [8, 13], [9, 13], [10, 13],
-      [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [10, 6], [11, 6],
-      [6, 8], [7, 8], [8, 8], [9, 8], [6, 11], [7, 11], [8, 11], [9, 11]
+      [4, 6], [4, 12], [5, 6], [5, 7], [5, 11], [5, 12], [6, 6], [6, 7], [6, 11], [6, 12],
+      [7, 6], [7, 7], [7, 11], [7, 12], [8, 6], [8, 7], [8, 11], [8, 12], [9, 6], [9, 7],
+      [9, 11], [9, 12], [10, 6], [10, 7], [10, 11], [10, 12], [11, 6], [11, 12]
     ],
     vWalls: [
       [3, 7], [3, 8], [3, 9], [3, 10], [3, 11], [3, 12],
-      [11, 7], [11, 8], [11, 9], [11, 10], [11, 11], [11, 12],
-      [5, 8], [5, 9], [5, 10], [5, 11], [9, 8], [9, 9], [9, 10], [9, 11]
+      [4, 8], [4, 9], [4, 10], [4, 11], [10, 8], [10, 9], [10, 10], [10, 11],
+      [11, 7], [11, 8], [11, 9], [11, 10], [11, 11], [11, 12]
     ],
     starterCode: `# Tuliskan program pembersih gedung
 # Wajib: while, if-else, dan define
@@ -418,28 +419,28 @@ turnoff`,
       mustTurnoff: true
     },
     cols: 14,
-    rows: 12,
-    initialRobot: { x: 3, y: 3, dir: 'EAST', beepers: 0 },
+    rows: 10,
+    initialRobot: { x: 2, y: 2, dir: 'EAST', beepers: 0 },
     initialBeepers: [
-      [5, 6, 1], // Puncak pilar 1
-      [7, 7, 1], // Puncak pilar 2
-      [9, 8, 1]  // Puncak pilar 3
+      [4, 5, 1], // Puncak pilar 1
+      [7, 6, 1], // Puncak pilar 2
+      [10, 7, 1]  // Puncak pilar 3
     ],
     targetState: {
-      description: 'Ketiga beeper di puncak pilar telah diambil, lalu ditaruh semuanya di ujung lorong seberang (petak 11, 4). Tas robot kembali 0 dan robot turnoff.',
-      finalRobot: { x: 11, y: 4, dir: 'EAST', beepers: 0, isOff: true },
-      remainingBeepers: 3 // beepers placed at target end
+      description: 'Ketiga beeper di puncak pilar telah diambil, lalu ditaruh semuanya di ujung lorong seberang (petak 12, 5). Tas robot kembali 0 dan robot turnoff.',
+      finalRobot: { x: 12, y: 5, dir: 'EAST', beepers: 0, isOff: true },
+      remainingBeepers: 3
     },
     hWalls: [
-      [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2], [11, 2],
-      [4, 6], [5, 6], [6, 7], [7, 7], [8, 8], [9, 8],
-      [4, 4], [6, 5], [8, 6], [10, 5], [11, 5]
+      [2, 1], [2, 2], [3, 1], [3, 2], [4, 1], [4, 2], [4, 4], [4, 5],
+      [5, 1], [5, 5], [6, 2], [6, 3], [7, 2], [7, 3], [7, 5], [7, 6],
+      [8, 2], [8, 6], [9, 3], [9, 4], [10, 3], [10, 4], [10, 6], [10, 7],
+      [11, 3], [11, 7], [12, 4], [12, 5]
     ],
     vWalls: [
-      [4, 3], [4, 4], [4, 5], [5, 3], [5, 4], [5, 5],
-      [6, 3], [6, 4], [6, 5], [6, 6], [7, 3], [7, 4], [7, 5], [7, 6],
-      [8, 3], [8, 4], [8, 5], [8, 6], [8, 7], [9, 3], [9, 4], [9, 5], [9, 6], [9, 7],
-      [11, 3], [11, 4]
+      [1, 2], [3, 5], [4, 3], [4, 4], [5, 2], [5, 4], [5, 5],
+      [6, 6], [7, 4], [7, 5], [8, 3], [8, 5], [8, 6],
+      [9, 7], [10, 5], [10, 6], [11, 4], [11, 6], [11, 7], [12, 5]
     ],
     starterCode: `# Program Ujian Jangka Panjang Hal 51 (Maksimal 30 Baris)
 
@@ -503,25 +504,21 @@ turnoff`,
       mustTurnoff: true
     },
     cols: 14,
-    rows: 10,
-    initialRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 0 },
+    rows: 8,
+    initialRobot: { x: 2, y: 2, dir: 'EAST', beepers: 0 },
     initialBeepers: [
-      [5, 6, 1], [6, 5, 1], [10, 6, 1]
+      [4, 4, 1], [7, 4, 1], [10, 4, 1]
     ],
     targetState: {
-      description: 'Robot mengelilingi 3 kotak dengan 26 gerakan eksekusi. Semua beeper dekat kotak diambil. Robot kembali ke posisi awal di (3, 4).',
-      finalRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 3, isOff: true },
+      description: 'Robot mengelilingi 3 kotak dengan pola 20 baris instruksi. Semua beeper dekat kotak diambil. Robot kembali ke posisi awal di (2, 2).',
+      finalRobot: { x: 2, y: 2, dir: 'EAST', beepers: 3, isOff: true },
       remainingBeepers: 0
     },
     hWalls: [
-      [4, 4], [5, 4], [4, 6], [5, 6],
-      [7, 4], [8, 4], [7, 6], [8, 6],
-      [10, 4], [11, 4], [10, 6], [11, 6]
+      [4, 2], [4, 3], [7, 2], [7, 3], [10, 2], [10, 3]
     ],
     vWalls: [
-      [3, 5], [3, 6], [5, 5], [5, 6],
-      [6, 5], [6, 6], [8, 5], [8, 6],
-      [9, 5], [9, 6], [11, 5], [11, 6]
+      [3, 3], [4, 3], [6, 3], [7, 3], [9, 3], [10, 3]
     ],
     starterCode: `# Alternatif 1 Resmi Buku Hal 52 (20 Baris)
 
@@ -574,25 +571,21 @@ turnoff`,
       mustTurnoff: true
     },
     cols: 14,
-    rows: 10,
-    initialRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 0 },
+    rows: 8,
+    initialRobot: { x: 2, y: 2, dir: 'EAST', beepers: 0 },
     initialBeepers: [
-      [5, 6, 1], [6, 5, 1], [10, 6, 1]
+      [4, 4, 1], [7, 4, 1], [10, 4, 1]
     ],
     targetState: {
-      description: 'Robot mengelilingi ketiga kotak hanya dengan 22 gerakan fisik (hemat 4 gerakan dibanding Alternatif 1!). Seluruh beeper terambil dan robot kembali ke (3, 4).',
-      finalRobot: { x: 3, y: 4, dir: 'NORTH', beepers: 3, isOff: true },
+      description: 'Robot mengelilingi ketiga kotak hanya dengan 22 gerakan fisik (hemat 4 gerakan dibanding Alternatif 1!). Seluruh beeper terambil dan robot kembali ke (2, 2).',
+      finalRobot: { x: 2, y: 2, dir: 'EAST', beepers: 3, isOff: true },
       remainingBeepers: 0
     },
     hWalls: [
-      [4, 4], [5, 4], [4, 6], [5, 6],
-      [7, 4], [8, 4], [7, 6], [8, 6],
-      [10, 4], [11, 4], [10, 6], [11, 6]
+      [4, 2], [4, 3], [7, 2], [7, 3], [10, 2], [10, 3]
     ],
     vWalls: [
-      [3, 5], [3, 6], [5, 5], [5, 6],
-      [6, 5], [6, 6], [8, 5], [8, 6],
-      [9, 5], [9, 6], [11, 5], [11, 6]
+      [3, 3], [4, 3], [6, 3], [7, 3], [9, 3], [10, 3]
     ],
     starterCode: `# Alternatif 2 Resmi Buku Hal 53 (Hemat Energi: 22 Langkah)
 

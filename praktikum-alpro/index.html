@@ -130,6 +130,22 @@
     <!-- RIGHT: CODE EDITOR & CONTROLS PANE -->
     <section class="gvr-editor-pane">
       
+      <!-- Right Pane Subtabs -->
+      <div class="gvr-editor-subtabs" role="tablist">
+        <button class="subtab-btn active" data-subtab="paneEditor" role="tab">
+          💻 Editor GvRng
+        </button>
+        <button class="subtab-btn" data-subtab="paneSoal" role="tab">
+          📋 Detail Soal &amp; Target Visual
+        </button>
+        <button class="subtab-btn" data-subtab="paneTracing" role="tab">
+          📊 Step Tracing
+        </button>
+        <button class="subtab-btn" data-subtab="paneKamus" role="tab">
+          ⚡ Kamus Sensor
+        </button>
+      </div>
+
       <!-- Controls Toolbar -->
       <div class="gvr-control-bar">
         <div class="gvr-btn-group">
@@ -151,7 +167,13 @@
           </button>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 0.6rem;">
+        <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+          <button id="btnIndentTab" class="gvr-action-btn btn-reset" title="Indentasi Kode (Tombol Tab keyboard / 4 Spasi)" style="padding: 0.35rem 0.55rem; font-size: 0.75rem;">
+            ⇥ Tab
+          </button>
+          <button id="btnOutdentTab" class="gvr-action-btn btn-reset" title="Kurangi Indentasi (Shift+Tab)" style="padding: 0.35rem 0.55rem; font-size: 0.75rem;">
+            ⇤ Shift+Tab
+          </button>
           <button id="btnLoadStarter" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.6rem;">
             Template
           </button>
@@ -160,31 +182,109 @@
           </button>
           <div class="speed-box">
             <span>Kecepatan:</span>
-            <input id="speedSlider" type="range" min="1" max="5" value="3" style="width: 70px; accent-color: #0066cc;">
+            <input id="speedSlider" type="range" min="1" max="5" value="3" style="width: 65px; accent-color: #0066cc;">
             <span id="speedLabel" style="min-width: 20px;">3x</span>
           </div>
         </div>
       </div>
 
-      <!-- Mission Objectives Banner -->
-      <div class="gvr-objective-box">
-        <div class="objective-title-row">
-          <span id="missionTitle" class="objective-heading">Misi GvRng</span>
-          <span id="missionConstraint" class="constraint-pill">Ketentuan Baris</span>
+      <!-- SUBTAB 1: CODE EDITOR & PROMPT -->
+      <div id="paneEditor" class="subtab-panel active">
+        <!-- Mission Objectives Banner -->
+        <div class="gvr-objective-box">
+          <div class="objective-title-row">
+            <span id="missionTitle" class="objective-heading">Misi GvRng</span>
+            <span id="missionConstraint" class="constraint-pill">Ketentuan Baris</span>
+          </div>
+          <p id="missionPrompt" class="objective-prompt-text">Deskripsi soal...</p>
         </div>
-        <p id="missionPrompt" class="objective-prompt-text">Deskripsi soal...</p>
+
+        <!-- GvRng Code Editor Area with Line Numbers Gutter -->
+        <div class="gvr-editor-container">
+          <!-- Dynamic Line Number Gutter -->
+          <div id="editorGutter" class="gvr-gutter" aria-hidden="true"></div>
+
+          <!-- Textarea Editor -->
+          <div class="gvr-textarea-box">
+            <textarea id="editorTextarea" spellcheck="false" placeholder="# Tuliskan kode program GvRng di sini..."></textarea>
+          </div>
+        </div>
       </div>
 
-      <!-- GvRng Code Editor Area with Line Numbers Gutter -->
-      <div class="gvr-editor-container">
-        <!-- Dynamic Line Number Gutter -->
-        <div id="editorGutter" class="gvr-gutter" aria-hidden="true">
-          <!-- Populated by app.js -->
+      <!-- SUBTAB 2: DETAIL SOAL & TARGET VISUAL EXPLANATION -->
+      <div id="paneSoal" class="subtab-panel">
+        <div class="subtab-content-padded">
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 0; color: #38bdf8;">📋 Deskripsi Lengkap &amp; Target Visual</h3>
+          <div id="tabSoalDetail" style="background: #090d16; padding: 1rem; border-radius: 8px; border: 1px solid #1e293b; margin-bottom: 1rem; white-space: pre-line;"></div>
+          <h4 style="color: #facc15; margin-bottom: 0.3rem;">💡 Analisis Logika &amp; Trik Aslab:</h4>
+          <div id="tabSoalLogic" style="background: #090d16; padding: 1rem; border-radius: 8px; border: 1px solid #1e293b; white-space: pre-line; font-size: 0.88rem;"></div>
         </div>
+      </div>
 
-        <!-- Textarea Editor -->
-        <div class="gvr-textarea-box">
-          <textarea id="editorTextarea" spellcheck="false" placeholder="# Tuliskan kode program GvRng di sini..."></textarea>
+      <!-- SUBTAB 3: STEP TRACING TABLE -->
+      <div id="paneTracing" class="subtab-panel">
+        <div class="subtab-content-padded" style="padding: 0.75rem;">
+          <h4 style="margin: 0 0 0.5rem; color: #34d399; font-size: 0.9rem;">📊 Log Tracing Langkah Demi Langkah:</h4>
+          <table style="width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;">
+            <thead>
+              <tr style="background: #1e293b; color: #94a3b8; text-align: left;">
+                <th style="padding: 4px 8px;">#</th>
+                <th style="padding: 4px 8px;">Baris</th>
+                <th style="padding: 4px 8px;">Perintah</th>
+                <th style="padding: 4px 8px;">Posisi</th>
+                <th style="padding: 4px 8px;">Hadap</th>
+                <th style="padding: 4px 8px;">Tas</th>
+              </tr>
+            </thead>
+            <tbody id="traceTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUBTAB 4: KAMUS SENSOR & SINTAKS -->
+      <div id="paneKamus" class="subtab-panel">
+        <div class="subtab-content-padded">
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 0; color: #38bdf8;">⚡ Kamus Lengkap GvRng</h3>
+          
+          <h4 style="color: #facc15; margin-bottom: 0.2rem;">1. Perintah Dasar Robot:</h4>
+          <ul style="margin: 0 0 1rem; padding-left: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <li><code>move</code> — Maju 1 langkah ke depan</li>
+            <li><code>turnleft</code> — Belok 90° ke kiri</li>
+            <li><code>pickbeeper</code> — Ambil 1 beeper dari petak robot</li>
+            <li><code>putbeeper</code> — Taruh 1 beeper dari tas robot</li>
+            <li><code>turnoff</code> — Matikan robot (mengakhiri program)</li>
+          </ul>
+
+          <h4 style="color: #34d399; margin-bottom: 0.2rem;">2. Sensor Dinding &amp; Rintangan:</h4>
+          <ul style="margin: 0 0 1rem; padding-left: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <li><code>front_is_clear</code> / <code>front_is_blocked</code></li>
+            <li><code>left_is_clear</code> / <code>left_is_blocked</code></li>
+            <li><code>right_is_clear</code> / <code>right_is_blocked</code></li>
+          </ul>
+
+          <h4 style="color: #60a5fa; margin-bottom: 0.2rem;">3. Sensor Beeper &amp; Arah Hadap:</h4>
+          <ul style="margin: 0 0 1rem; padding-left: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <li><code>next_to_a_beeper</code> / <code>not_next_to_a_beeper</code></li>
+            <li><code>any_beepers_in_beeper_bag</code> / <code>no_beepers_in_beeper_bag</code></li>
+            <li><code>facing_north</code>, <code>facing_south</code>, <code>facing_east</code>, <code>facing_west</code></li>
+          </ul>
+
+          <h4 style="color: #f472b6; margin-bottom: 0.2rem;">4. Struktur Blok (Wajib Indentasi 4 Spasi):</h4>
+          <pre style="background: #090d16; padding: 0.75rem; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #f8fafc;">define turnright:
+    turnleft
+    turnleft
+    turnleft
+
+do 4:
+    move
+
+while front_is_clear:
+    move
+
+if next_to_a_beeper:
+    pickbeeper
+else:
+    move</pre>
         </div>
       </div>
 

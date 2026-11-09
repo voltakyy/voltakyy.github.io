@@ -179,6 +179,62 @@ document.addEventListener('DOMContentLoaded', () => {
     editorGutter.scrollTop = editorTextarea.scrollTop;
   }
 
+  // Support Tab key (indentation) & Shift+Tab (outdent) with multi-line selection support
+  function handleTabIndentation(textarea, isShift) {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const val = textarea.value;
+
+    if (start === end && !isShift) {
+      // Single cursor, simple 4-space insertion
+      if (document.queryCommandSupported && document.queryCommandSupported('insertText')) {
+        document.execCommand('insertText', false, '    ');
+      } else {
+        textarea.setRangeText('    ', start, end, 'end');
+      }
+      updateGutter(-1);
+      updateTelemetry();
+      return;
+    }
+
+    // Multi-line selection or Shift+Tab outdent
+    const lineStart = val.lastIndexOf('\n', start - 1) + 1;
+    let lineEnd = val.indexOf('\n', end);
+    if (lineEnd === -1) lineEnd = val.length;
+
+    const selectedLines = val.substring(lineStart, lineEnd).split('\n');
+    let modifiedLines = [];
+    let startOffset = 0;
+    let endOffset = 0;
+
+    if (!isShift) {
+      // Indent each line by 4 spaces
+      modifiedLines = selectedLines.map(line => '    ' + line);
+      startOffset = 4;
+      endOffset = 4 * selectedLines.length;
+    } else {
+      // Outdent (remove up to 4 spaces from start of each line)
+      modifiedLines = selectedLines.map((line, idx) => {
+        const match = line.match(/^ {1,4}/);
+        if (match) {
+          const removed = match[0].length;
+          if (idx === 0) startOffset = -removed;
+          endOffset -= removed;
+          return line.slice(removed);
+        }
+        return line;
+      });
+    }
+
+    const replacement = modifiedLines.join('\n');
+    textarea.setRangeText(replacement, lineStart, lineEnd, 'preserve');
+    textarea.selectionStart = Math.max(lineStart, start + startOffset);
+    textarea.selectionEnd = Math.max(textarea.selectionStart, end + endOffset);
+
+    updateGutter(-1);
+    updateTelemetry();
+  }
+
   if (editorTextarea) {
     editorTextarea.addEventListener('scroll', () => {
       if (editorGutter) editorGutter.scrollTop = editorTextarea.scrollTop;
@@ -189,16 +245,11 @@ document.addEventListener('DOMContentLoaded', () => {
       updateTelemetry();
     });
 
-    // Support Tab key in editor
     editorTextarea.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab') {
+      if (e.key === 'Tab' || e.keyCode === 9) {
         e.preventDefault();
-        const start = editorTextarea.selectionStart;
-        const end = editorTextarea.selectionEnd;
-        editorTextarea.value = editorTextarea.value.substring(0, start) + '    ' + editorTextarea.value.substring(end);
-        editorTextarea.selectionStart = editorTextarea.selectionEnd = start + 4;
-        updateGutter(-1);
-        updateTelemetry();
+        e.stopPropagation();
+        handleTabIndentation(editorTextarea, e.shiftKey);
       }
     });
   }
@@ -268,6 +319,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (res.command.includes('pickbeeper')) playTone(880, 'sine', 0.12, 0.06);
         else if (res.command.includes('putbeeper')) playTone(440, 'sine', 0.12, 0.06);
         else if (res.command.includes('move')) playTone(520, 'sine', 0.04, 0.02);
+
+        // Append to Step Tracing Table
+        const traceBody = document.getElementById('traceTableBody');
+        if (traceBody) {
+          const tr = document.createElement('tr');
+          tr.style.borderBottom = '1px solid #1e293b';
+          tr.innerHTML = `
+            <td style="padding: 4px 8px; color: #94a3b8;">${world.robot.stepCount}</td>
+            <td style="padding: 4px 8px; color: #38bdf8;">${res.lineNo || '-'}</td>
+            <td style="padding: 4px 8px; font-weight: bold; color: #f8fafc;">${res.command}</td>
+            <td style="padding: 4px 8px; color: #34d399;">(${world.robot.x}, ${world.robot.y})</td>
+            <td style="padding: 4px 8px; color: #facc15;">${world.robot.dir}</td>
+            <td style="padding: 4px 8px; color: #f472b6;">${world.robot.beepers}</td>
+          `;
+          traceBody.appendChild(tr);
+          const scrollContainer = traceBody.closest('.subtab-panel');
+          if (scrollContainer) scrollContainer.scrollTop = scrollContainer.scrollHeight;
+        }
       }
 
       if (res.isFinished) {
@@ -325,6 +394,9 @@ document.addEventListener('DOMContentLoaded', () => {
     pause();
     world.restoreSnapshot();
     world.render(liveCanvas);
+
+    const traceBody = document.getElementById('traceTableBody');
+    if (traceBody) traceBody.innerHTML = '';
 
     try {
       interpreter.loadSource(editorTextarea.value);
@@ -422,6 +494,16 @@ document.addEventListener('DOMContentLoaded', () => {
     missionTitle.textContent = `Misi #${mission.number}: ${mission.title}`;
     missionConstraint.textContent = mission.badge;
     missionPrompt.textContent = mission.prompt;
+
+    // Populate Soal & Logic Tab
+    const tabSoalDetail = document.getElementById('tabSoalDetail');
+    const tabSoalLogic = document.getElementById('tabSoalLogic');
+    if (tabSoalDetail) {
+      tabSoalDetail.textContent = mission.prompt + '\n\nTarget Output Visual:\n' + (mission.targetState ? mission.targetState.description : '');
+    }
+    if (tabSoalLogic) {
+      tabSoalLogic.textContent = mission.logicExplanation || 'Analisis alur logika robot untuk menyelesaikan teka-teki ini.';
+    }
 
     // Setup World Grid
     world.cols = mission.cols || 15;
@@ -545,6 +627,36 @@ document.addEventListener('DOMContentLoaded', () => {
         pause();
         run();
       }
+    });
+  }
+
+  // Subtabs Switcher in Right Pane
+  const subtabBtns = document.querySelectorAll('.subtab-btn');
+  const subtabPanels = document.querySelectorAll('.subtab-panel');
+  subtabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      subtabBtns.forEach(b => b.classList.remove('active'));
+      subtabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const panelId = btn.getAttribute('data-subtab');
+      const panel = document.getElementById(panelId);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // Indent and Outdent Toolbar Buttons
+  const btnIndentTab = document.getElementById('btnIndentTab');
+  const btnOutdentTab = document.getElementById('btnOutdentTab');
+  if (btnIndentTab) {
+    btnIndentTab.addEventListener('click', () => {
+      editorTextarea.focus();
+      handleTabIndentation(editorTextarea, false);
+    });
+  }
+  if (btnOutdentTab) {
+    btnOutdentTab.addEventListener('click', () => {
+      editorTextarea.focus();
+      handleTabIndentation(editorTextarea, true);
     });
   }
 
