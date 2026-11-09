@@ -140,5 +140,76 @@ while front_is_clear:
     move
 turnright
 turnoff`
+  },
+
+  // =========================================================================
+  // PUZZLE 3: ROBOT PEMBERSIH GEDUNG (QUIZ DASPROG B SOAL 2)
+  // Wajib while, if-else, define, kumpulkan semua sampah beeper & kembali
+  // =========================================================================
+  pembersih: {
+    id: 'pembersih',
+    title: 'Puzzle 3: Robot Pembersih Gedung & Sampah',
+    source: 'Quiz Dasprog B — Soal 2',
+    constraint: 'Wajib while, if-else, define, kembali ke (4, 7)',
+    description: 'Sebuah robot pembersih ditugaskan membersihkan lorong persegi gedung dengan 6 titik sampah beeper. Robot menyusuri lorong, memungut semua sampah, lalu kembali ke posisi awal dan berhenti.',
+    cols: 16,
+    rows: 15,
+    robot: { x: 4, y: 7, dir: 'NORTH', beepers: 0 },
+    beepers: [
+      [4, 9, 1],
+      [4, 11, 1],
+      [7, 13, 1],
+      [8, 13, 1],
+      [11, 11, 1],
+      [11, 9, 1]
+    ],
+    // Dinding lorong segiempat bertingkat
+    hWalls: [
+      // Dinding atas luar (y=13)
+      [5, 13], [6, 13], [7, 13], [8, 13], [9, 13], [10, 13],
+      // Dinding bawah luar (y=6)
+      [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [10, 6], [11, 6],
+      // Ruang tengah
+      [6, 8], [7, 8], [8, 8], [9, 8],
+      [6, 11], [7, 11], [8, 11], [9, 11]
+    ],
+    vWalls: [
+      // Dinding kiri luar
+      [3, 7], [3, 8], [3, 9], [3, 10], [3, 11], [3, 12],
+      // Dinding kanan luar
+      [11, 7], [11, 8], [11, 9], [11, 10], [11, 11], [11, 12],
+      // Dinding dalam
+      [5, 8], [5, 9], [5, 10], [5, 11],
+      [9, 8], [9, 9], [9, 10], [9, 11]
+    ],
+    solution: `# Solusi Quiz Dasprog B - Pembersih Gedung (Menggunakan while, if-else, define)
+define turnright:
+    do 3:
+        turnleft
+define check_and_pick:
+    if next_to_a_beeper:
+        pickbeeper
+define step_and_clean:
+    check_and_pick
+    if front_is_clear:
+        move
+    else:
+        turnright
+        if front_is_clear:
+            move
+        else:
+            turnright
+# Mengitari koridor hingga mengumpulkan 6 beeper
+while any_beepers_in_world: # simulator loop
+    step_and_clean
+while not_facing_south:
+    turnleft
+while front_is_clear:
+    move
+turnright
+while front_is_clear:
+    move
+turnright
+turnoff`
   }
 };
