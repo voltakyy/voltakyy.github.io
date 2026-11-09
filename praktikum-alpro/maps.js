@@ -285,5 +285,64 @@ while not_facing_west:
 while front_is_clear:
     move
 turnoff`
+  },
+
+  // =========================================================================
+  // PUZZLE 5: POLA PAPAN CATUR BEEPER 4x4 (SOAL ASLAB 3)
+  // Max Lines Constraint: <= 24 Baris, Wajib while, do, dan define
+  // =========================================================================
+  catur: {
+    id: 'catur',
+    title: 'Puzzle 5: Pola Papan Catur Beeper (Checkerboard)',
+    source: 'Soal Quiz Aslab — No. 3',
+    constraint: 'Maksimal 24 baris, wajib while, do, dan define',
+    description: 'Sebuah ruangan 4x4 berisi beeper yang tersusun berselang-seling membentuk pola papan catur (checkerboard). Robot harus menyusuri seluruh petak dan mengumpulkan semua beeper.',
+    cols: 12,
+    rows: 12,
+    robot: { x: 4, y: 4, dir: 'EAST', beepers: 0 },
+    beepers: [
+      [4, 4, 1], [6, 4, 1], // Baris 1
+      [5, 5, 1], [7, 5, 1], // Baris 2
+      [4, 6, 1], [6, 6, 1], // Baris 3
+      [5, 7, 1], [7, 7, 1]  // Baris 4
+    ],
+    // Dinding kotak mengelilingi ruangan 4x4
+    hWalls: [
+      [4, 3], [5, 3], [6, 3], [7, 3], // Bawah
+      [4, 7], [5, 7], [6, 7], [7, 7]  // Atas
+    ],
+    vWalls: [
+      [3, 4], [3, 5], [3, 6], [3, 7], // Kiri
+      [7, 4], [7, 5], [7, 6], [7, 7]  // Kanan
+    ],
+    solution: `# Solusi Resmi Aslab 3 - Papan Catur Beeper (20 Baris)
+define turnright:
+    do 3:
+        turnleft
+define pick_if_any:
+    if next_to_a_beeper:
+        pickbeeper
+define sweep_row:
+    while front_is_clear:
+        pick_if_any
+        move
+    pick_if_any
+define next_row_left:
+    turnleft
+    move
+    turnleft
+define next_row_right:
+    turnright
+    move
+    turnright
+# Susur 4 baris bergantian
+sweep_row
+next_row_left
+sweep_row
+next_row_right
+sweep_row
+next_row_left
+sweep_row
+turnoff`
   }
 };
