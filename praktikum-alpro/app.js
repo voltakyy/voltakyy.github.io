@@ -1,50 +1,54 @@
 /**
- * Praktikum Alpro GvRng — Interactive Puzzle & Challenge Arena
- * Dual-Canvas Visualizer (Live vs Target Program Output),
- * Real-Time Objective Validation, and Step Tracing
+ * GvRng Web Simulator — Professional Web IDE & Puzzle Runner Engine
+ * True Guido van Robot NG runtime with step-by-step debugger, live line gutter,
+ * dual visual output comparison, and authentic GvRng rules.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // Elements
   const liveCanvas = document.getElementById('worldCanvas');
   const targetCanvas = document.getElementById('targetCanvas');
-  const missionSidebarList = document.getElementById('missionSidebarList');
+  const canvasViewport = document.getElementById('canvasViewport');
+  const targetCanvasWrapper = document.getElementById('targetCanvasWrapper');
+  const puzzleSelect = document.getElementById('puzzleSelect');
 
-  // Mission Info Elements
-  const missionTitle = document.getElementById('missionTitle');
-  const missionSource = document.getElementById('missionSource');
-  const missionBadge = document.getElementById('missionBadge');
-  const missionPrompt = document.getElementById('missionPrompt');
-  const missionConstraintText = document.getElementById('missionConstraintText');
-  const missionTargetDesc = document.getElementById('missionTargetDesc');
-  const logicExplanationBox = document.getElementById('logicExplanationBox');
+  // View mode toggles
+  const btnViewLive = document.getElementById('btnViewLive');
+  const btnViewTarget = document.getElementById('btnViewTarget');
+  const btnViewSplit = document.getElementById('btnViewSplit');
+  const btnToggleTrail = document.getElementById('btnToggleTrail');
 
-  // Code & Editor
-  const customCodeTextarea = document.getElementById('customCodeTextarea');
-  const codeLinesList = document.getElementById('codeLinesList');
-  const codeViewerWrapper = document.getElementById('codeViewerWrapper');
-  const btnLoadStarter = document.getElementById('btnLoadStarter');
-  const btnLoadSolution = document.getElementById('btnLoadSolution');
-  const btnToggleEdit = document.getElementById('btnToggleEdit');
-  const statLines = document.getElementById('statLines');
-
-  // Playback Controls
-  const btnPlay = document.getElementById('btnPlay');
+  // Execution Controls
+  const btnRun = document.getElementById('btnRun');
   const btnStep = document.getElementById('btnStep');
   const btnReset = document.getElementById('btnReset');
   const btnValidate = document.getElementById('btnValidate');
+  const btnLoadStarter = document.getElementById('btnLoadStarter');
+  const btnLoadSolution = document.getElementById('btnLoadSolution');
   const speedSlider = document.getElementById('speedSlider');
   const speedLabel = document.getElementById('speedLabel');
 
-  // Telemetry
-  const statPos = document.getElementById('statPos');
-  const statDir = document.getElementById('statDir');
-  const statBag = document.getElementById('statBag');
-  const statWorld = document.getElementById('statWorld');
-  const statSteps = document.getElementById('statSteps');
-  const consoleLog = document.getElementById('consoleLog');
-  const traceTableBody = document.getElementById('traceTableBody');
-  const validationBanner = document.getElementById('validationBanner');
+  // Mission Info Elements
+  const missionTitle = document.getElementById('missionTitle');
+  const missionConstraint = document.getElementById('missionConstraint');
+  const missionPrompt = document.getElementById('missionPrompt');
+
+  // Editor & Gutter
+  const editorGutter = document.getElementById('editorGutter');
+  const editorTextarea = document.getElementById('editorTextarea');
+
+  // Telemetry Elements
+  const telPos = document.getElementById('telPos');
+  const telDir = document.getElementById('telDir');
+  const telBag = document.getElementById('telBag');
+  const telWorld = document.getElementById('telWorld');
+  const telSteps = document.getElementById('telSteps');
+  const telLines = document.getElementById('telLines');
+  const telStatus = document.getElementById('telStatus');
+
+  // Terminal & Toast
+  const termBody = document.getElementById('termBody');
+  const toastNotification = document.getElementById('toastNotification');
 
   // State
   const missions = window.GVR_MISSIONS || [];
@@ -53,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let interpreter = new GvrInterpreter(world);
   let isRunning = false;
   let playInterval = null;
-  let currentSpeed = 250;
-  let isEditMode = false;
-  let traceHistory = [];
+  let currentSpeed = 200;
+  let showTrail = true;
+  let viewMode = 'live'; // 'live', 'target', 'split'
 
   // Web Audio Synthesizer
   let audioCtx = null;
@@ -85,33 +89,41 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
   }
 
-  function playSuccessChord() {
+  function playVictoryFanfare() {
     [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
-      setTimeout(() => playTone(freq, 'triangle', 0.25, 0.05), i * 80);
+      setTimeout(() => playTone(freq, 'triangle', 0.28, 0.06), i * 90);
     });
   }
 
-  // Setup Canvases
+  // Canvas Setup & Rendering
   function setupCanvases() {
     const dpr = window.devicePixelRatio || 1;
 
+    // Dimensions based on viewport
+    const containerW = canvasViewport.clientWidth - 40;
+    const containerH = canvasViewport.clientHeight - 40;
+
+    let targetW = Math.max(380, Math.min(containerW, 640));
+    let targetH = Math.max(340, Math.min(containerH, 520));
+
+    if (viewMode === 'split') {
+      targetW = Math.max(320, (containerW - 30) / 2);
+    }
+
     if (liveCanvas) {
-      const rect = liveCanvas.getBoundingClientRect();
-      const w = rect.width || 480;
-      const h = rect.height || 400;
-      liveCanvas.width = w * dpr;
-      liveCanvas.height = h * dpr;
+      liveCanvas.width = targetW * dpr;
+      liveCanvas.height = targetH * dpr;
+      liveCanvas.style.width = `${targetW}px`;
+      liveCanvas.style.height = `${targetH}px`;
       world.render(liveCanvas);
     }
 
     if (targetCanvas && currentMission) {
-      const rect = targetCanvas.getBoundingClientRect();
-      const w = rect.width || 480;
-      const h = rect.height || 400;
-      targetCanvas.width = w * dpr;
-      targetCanvas.height = h * dpr;
+      targetCanvas.width = targetW * dpr;
+      targetCanvas.height = targetH * dpr;
+      targetCanvas.style.width = `${targetW}px`;
+      targetCanvas.style.height = `${targetH}px`;
 
-      // Render target preview
       world.renderTargetPreview(targetCanvas, {
         finalRobot: currentMission.targetState.finalRobot,
         remainingBeepers: currentMission.targetState.remainingBeepers,
@@ -122,151 +134,171 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('resize', setupCanvases);
 
-  // Logging
-  function log(msg, type = 'info') {
-    if (!consoleLog) return;
-    const entry = document.createElement('div');
-    entry.className = `log-entry ${type}`;
-    const time = new Date().toLocaleTimeString('id-ID', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    entry.textContent = `[${time}] ${msg}`;
-    consoleLog.appendChild(entry);
-    consoleLog.scrollTop = consoleLog.scrollHeight;
+  // Terminal Log
+  function termLog(msg, type = 'info') {
+    if (!termBody) return;
+    const div = document.createElement('div');
+    div.className = `term-entry ${type}`;
+    const time = new Date().toLocaleTimeString('id-ID', { hour12: false });
+    div.textContent = `[${time}] ${msg}`;
+    termBody.appendChild(div);
+    termBody.scrollTop = termBody.scrollHeight;
   }
 
-  function clearLog() {
-    if (consoleLog) consoleLog.innerHTML = '<div class="log-entry info">Simulator siap. Jalankan atau langkah kodinganmu!</div>';
+  function clearTerm() {
+    if (termBody) termBody.innerHTML = '<div class="term-entry info">GvRng Web Runtime v2.0 siap. Klik Run atau Step untuk mengeksekusi program.</div>';
   }
 
-  // Telemetry & Tracing
-  function updateMetrics() {
-    if (statPos) statPos.textContent = `(${world.robot.x}, ${world.robot.y})`;
-    if (statDir) statDir.textContent = world.robot.dir;
-    if (statBag) statBag.textContent = world.robot.beepers.toString();
-
-    let totalWorld = 0;
-    world.beepers.forEach(c => totalWorld += c);
-    if (statWorld) statWorld.textContent = totalWorld.toString();
-    if (statSteps) statSteps.textContent = world.robot.stepCount.toString();
-
-    // Line Count Validator
-    const curCode = customCodeTextarea.value;
-    const lines = GvrInterpreter.countEffectiveLines(curCode);
-    if (statLines) {
-      statLines.textContent = lines.toString();
-      if (currentMission && currentMission.constraints && currentMission.constraints.maxLines) {
-        const limit = currentMission.constraints.maxLines;
-        if (lines > limit) {
-          statLines.style.color = '#ef4444';
-          statLines.title = `PERINGATAN: Melebihi batas maksimal ${limit} baris!`;
-        } else {
-          statLines.style.color = '#00a67e';
-          statLines.title = `AMAN: Memenuhi kuota maksimal ${limit} baris.`;
-        }
-      }
-    }
-  }
-
-  function recordTrace(lineNo, command) {
-    if (!traceTableBody) return;
-    const stepNo = world.robot.stepCount;
-    let beepersOnCell = world.getBeeperCount(world.robot.x, world.robot.y);
-
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><strong>#${stepNo}</strong></td>
-      <td>Line ${lineNo || '-'}</td>
-      <td><code>${escapeHtml(command || '-')}</code></td>
-      <td>(${world.robot.x}, ${world.robot.y})</td>
-      <td>${world.robot.dir}</td>
-      <td>${world.robot.beepers}</td>
-      <td>${beepersOnCell}</td>
+  function showToast(title, desc, type = 'success') {
+    if (!toastNotification) return;
+    toastNotification.className = `gvr-toast ${type}`;
+    toastNotification.innerHTML = `
+      <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">${title}</strong>
+      <span style="font-size: 0.85rem; line-height: 1.4;">${desc}</span>
     `;
-    traceTableBody.prepend(tr);
-
-    // Limit trace table to last 40 rows to avoid DOM lag
-    if (traceTableBody.children.length > 40) {
-      traceTableBody.removeChild(traceTableBody.lastChild);
-    }
+    toastNotification.style.display = 'block';
+    setTimeout(() => {
+      toastNotification.style.display = 'none';
+    }, 4500);
   }
 
-  function renderCodeLines(activeLine = -1) {
-    if (isEditMode) return;
-    const lines = customCodeTextarea.value.split('\n');
-    codeLinesList.innerHTML = '';
+  // Update Gutter (Line Numbers & Active Marker)
+  function updateGutter(activeLine = -1) {
+    if (!editorGutter || !editorTextarea) return;
+    const lines = editorTextarea.value.split('\n');
+    const totalLines = Math.max(lines.length, 1);
 
-    lines.forEach((line, idx) => {
-      const lineNo = idx + 1;
-      const li = document.createElement('li');
-      li.className = 'code-line';
-      if (lineNo === activeLine) {
-        li.classList.add('active');
-        li.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    let html = '';
+    for (let i = 1; i <= totalLines; i++) {
+      const isActive = i === activeLine;
+      html += `<div class="gutter-num ${isActive ? 'active' : ''}">${i}</div>`;
+    }
+    editorGutter.innerHTML = html;
+
+    // Scroll gutter to match textarea scroll
+    editorGutter.scrollTop = editorTextarea.scrollTop;
+  }
+
+  if (editorTextarea) {
+    editorTextarea.addEventListener('scroll', () => {
+      if (editorGutter) editorGutter.scrollTop = editorTextarea.scrollTop;
+    });
+
+    editorTextarea.addEventListener('input', () => {
+      updateGutter(-1);
+      updateTelemetry();
+    });
+
+    // Support Tab key in editor
+    editorTextarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const start = editorTextarea.selectionStart;
+        const end = editorTextarea.selectionEnd;
+        editorTextarea.value = editorTextarea.value.substring(0, start) + '    ' + editorTextarea.value.substring(end);
+        editorTextarea.selectionStart = editorTextarea.selectionEnd = start + 4;
+        updateGutter(-1);
+        updateTelemetry();
       }
-      li.innerHTML = GvrInterpreter.highlightLine(line);
-      codeLinesList.appendChild(li);
     });
   }
 
-  // Execution Step
+  // Telemetry Bar
+  function updateTelemetry(statusText = null) {
+    if (telPos) telPos.textContent = `(${world.robot.x}, ${world.robot.y})`;
+    if (telDir) telDir.textContent = world.robot.dir;
+    if (telBag) telBag.textContent = world.robot.beepers.toString();
+
+    let totalWorld = 0;
+    world.beepers.forEach(cnt => totalWorld += cnt);
+    if (telWorld) telWorld.textContent = totalWorld.toString();
+    if (telSteps) telSteps.textContent = world.robot.stepCount.toString();
+
+    const lines = GvrInterpreter.countEffectiveLines(editorTextarea.value);
+    if (telLines) {
+      telLines.textContent = lines.toString();
+      if (currentMission && currentMission.constraints && currentMission.constraints.maxLines) {
+        const max = currentMission.constraints.maxLines;
+        if (lines > max && max < 999) {
+          telLines.style.color = '#f87171';
+          telLines.title = `Melebihi batas ${max} baris!`;
+        } else {
+          telLines.style.color = '#34d399';
+          telLines.title = `Batas: ${max} baris`;
+        }
+      }
+    }
+
+    if (statusText && telStatus) {
+      telStatus.textContent = statusText;
+    }
+  }
+
+  // Step Execution
   function doStep() {
     if (interpreter.isFinished) {
       pause();
-      log('Eksekusi selesai.', 'success');
-      validateMissionObjectives(false);
+      termLog('Program selesai dieksekusi.', 'success');
+      updateTelemetry('SELESAI');
+      validateObjectives(false);
       return;
     }
 
     try {
-      const result = interpreter.step();
+      const res = interpreter.step();
       world.render(liveCanvas);
-      updateMetrics();
+      updateTelemetry('BERJALAN');
 
-      if (result.error) {
+      if (res.error) {
         pause();
         playTone(180, 'sawtooth', 0.25, 0.08);
-        log(result.error, 'error');
-        renderCodeLines(result.lineNo);
-        recordTrace(result.lineNo, `ERROR: ${result.error}`);
-        validateMissionObjectives(false);
+        termLog(res.error, 'error');
+        updateGutter(res.lineNo);
+        updateTelemetry('CRASH');
+        showToast('TABRAKAN / ERROR', res.error, 'error');
         return;
       }
 
-      if (result.lineNo) renderCodeLines(result.lineNo);
-
-      if (result.command) {
-        log(`Baris ${result.lineNo}: ${result.command}`);
-        recordTrace(result.lineNo, result.command);
-
-        if (result.command.includes('pickbeeper')) playTone(880, 'sine', 0.12, 0.06);
-        else if (result.command.includes('putbeeper')) playTone(440, 'sine', 0.12, 0.06);
-        else if (result.command.includes('move')) playTone(520, 'sine', 0.04, 0.02);
+      if (res.lineNo) {
+        updateGutter(res.lineNo);
       }
 
-      if (result.isFinished) {
+      if (res.command) {
+        termLog(`Line ${res.lineNo}: ${res.command}`);
+        if (res.command.includes('pickbeeper')) playTone(880, 'sine', 0.12, 0.06);
+        else if (res.command.includes('putbeeper')) playTone(440, 'sine', 0.12, 0.06);
+        else if (res.command.includes('move')) playTone(520, 'sine', 0.04, 0.02);
+      }
+
+      if (res.isFinished) {
         pause();
-        log(`Robot selesai! Total pergerakan/langkah: ${world.robot.stepCount} langkah.`, 'success');
-        validateMissionObjectives(false);
+        termLog(`Robot selesai! Total pergerakan: ${world.robot.stepCount} langkah fisik.`, 'success');
+        updateTelemetry('SELESAI (TURNOFF)');
+        validateObjectives(false);
       }
     } catch (err) {
       pause();
-      log(`Runtime Error: ${err.message}`, 'error');
+      termLog(`Runtime Error: ${err.message}`, 'error');
+      updateTelemetry('ERROR');
     }
   }
 
-  function play() {
+  function run() {
     if (isRunning) return;
-    if (isEditMode) toggleEditor(false);
 
-    if (interpreter.isFinished) resetSimulation();
+    if (interpreter.isFinished) {
+      resetSimulation();
+    }
 
     isRunning = true;
-    btnPlay.innerHTML = `
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+    btnRun.innerHTML = `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
         <rect x="6" y="4" width="4" height="16"/>
         <rect x="14" y="4" width="4" height="16"/>
       </svg> Pause
     `;
-    btnPlay.classList.add('btn-primary');
+    btnRun.style.background = '#f59e0b';
+    updateTelemetry('RUNNING');
 
     playInterval = setInterval(() => {
       doStep();
@@ -280,11 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(playInterval);
       playInterval = null;
     }
-    btnPlay.innerHTML = `
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+    btnRun.innerHTML = `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
         <path d="M8 5v14l11-7z"/>
-      </svg> Play
+      </svg> Run
     `;
+    btnRun.style.background = '#10b981';
+    updateTelemetry(world.robot.isOff ? 'SELESAI' : 'PAUSED');
   }
 
   function resetSimulation() {
@@ -293,167 +327,103 @@ document.addEventListener('DOMContentLoaded', () => {
     world.render(liveCanvas);
 
     try {
-      interpreter.loadSource(customCodeTextarea.value);
+      interpreter.loadSource(editorTextarea.value);
     } catch (err) {
-      log(`Syntax Error: ${err.message}`, 'error');
+      termLog(`Syntax Error: ${err.message}`, 'error');
     }
 
-    if (traceTableBody) traceTableBody.innerHTML = '';
-    updateMetrics();
-    renderCodeLines(-1);
-    clearLog();
-    if (validationBanner) validationBanner.style.display = 'none';
+    updateGutter(-1);
+    updateTelemetry('READY');
+    clearTerm();
+    termLog('Dunia & robot di-reset ke kondisi awal.', 'info');
   }
 
-  function toggleEditor(forceEdit = null) {
-    if (forceEdit !== null) isEditMode = forceEdit;
-    else isEditMode = !isEditMode;
-
-    if (isEditMode) {
-      pause();
-      codeViewerWrapper.style.display = 'none';
-      customCodeTextarea.style.display = 'block';
-      btnToggleEdit.textContent = 'Lihat Alur Eksekusi';
-      btnToggleEdit.classList.add('highlight');
-    } else {
-      customCodeTextarea.style.display = 'none';
-      codeViewerWrapper.style.display = 'block';
-      btnToggleEdit.textContent = 'Edit Kodingan';
-      btnToggleEdit.classList.remove('highlight');
-      resetSimulation();
-    }
-  }
-
-  // Objective Validation Engine
-  function validateMissionObjectives(showAlertOnSuccess = true) {
-    if (!currentMission || !validationBanner) return;
-
-    const code = customCodeTextarea.value;
+  // Objective Validation
+  function validateObjectives(showToastNotification = true) {
+    if (!currentMission) return;
+    const code = editorTextarea.value;
     const lines = GvrInterpreter.countEffectiveLines(code);
     const c = currentMission.constraints;
+
     const errors = [];
     const successes = [];
 
-    // 1. Crash or Turned off check
+    // Check robot turned off
     if (!world.robot.isOff) {
-      errors.push('Robot belum mematikan sistem (harus diakhiri perintah turnoff).');
+      errors.push('Robot belum dimatikan (wajib diakhiri turnoff)');
     } else {
-      successes.push('Robot berhasil dimatikan dengan aman (turnoff).');
+      successes.push('Robot aman dimatikan (turnoff)');
     }
 
-    // 2. Beepers check
-    let beepersInWorld = 0;
-    world.beepers.forEach(cnt => beepersInWorld += cnt);
+    // Check beepers in world
+    let totalBeepers = 0;
+    world.beepers.forEach(cnt => totalBeepers += cnt);
 
     if (c.mustClearAllBeepers) {
-      if (beepersInWorld > 0) {
-        errors.push(`Masih ada ${beepersInWorld} sampah beeper yang belum terambil di dunia!`);
+      if (totalBeepers > 0) {
+        errors.push(`Masih ada ${totalBeepers} sampah beeper belum terambil`);
       } else {
-        successes.push(`Seluruh sampah beeper berhasil dipungut (Beeper di tas: ${world.robot.beepers}).`);
+        successes.push(`Seluruh beeper berhasil dipungut (${world.robot.beepers} di tas)`);
       }
     }
 
-    // 3. Return to start position check
+    // Check return to start
     if (c.mustReturnToStart) {
-      const initR = currentMission.initialRobot;
-      if (world.robot.x !== initR.x || world.robot.y !== initR.y) {
-        errors.push(`Robot tidak kembali ke posisi awal (${initR.x}, ${initR.y}). Saat ini di (${world.robot.x}, ${world.robot.y}).`);
+      const init = currentMission.initialRobot;
+      if (world.robot.x !== init.x || world.robot.y !== init.y) {
+        errors.push(`Robot tidak kembali ke posisi awal (${init.x}, ${init.y})`);
       } else {
-        successes.push(`Robot berhasil kembali ke posisi awal (${initR.x}, ${initR.y}).`);
+        successes.push(`Robot kembali ke titik awal (${init.x}, ${init.y})`);
       }
     }
 
-    // 4. Line count limit
+    // Check lines limit
     if (c.maxLines && c.maxLines < 999) {
       if (lines > c.maxLines) {
-        errors.push(`Kode terdiri dari ${lines} baris, melebihi kuota maksimal ${c.maxLines} baris.`);
+        errors.push(`Kode ${lines} baris, melebihi kuota maksimal ${c.maxLines} baris`);
       } else {
-        successes.push(`Jumlah baris (${lines} baris) memenuhi batas maksimal ${c.maxLines} baris.`);
+        successes.push(`Jumlah baris (${lines} baris) memenuhi batas ${c.maxLines} baris`);
       }
     }
 
-    // 5. Required keywords check
+    // Check required keywords
     if (c.requiredKeywords) {
       c.requiredKeywords.forEach(kw => {
         const regex = new RegExp(`\\b${kw}\\b`, 'i');
         if (!regex.test(code)) {
-          errors.push(`Program wajib menggunakan struktur '${kw}'!`);
+          errors.push(`Program wajib menggunakan kata kunci '${kw}'`);
         } else {
-          successes.push(`Menggunakan struktur '${kw}'.`);
+          successes.push(`Menggunakan struktur '${kw}'`);
         }
       });
     }
 
-    validationBanner.style.display = 'block';
-
     if (errors.length === 0) {
-      playSuccessChord();
-      validationBanner.className = 'validation-banner success';
-      validationBanner.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <span style="font-size: 1.8rem;">🎉</span>
-          <div>
-            <h4 style="margin: 0; font-size: 1.1rem; color: #065f46;">SELAMAT! MISI SELESAI SEMPURNA!</h4>
-            <p style="margin: 0.2rem 0 0; font-size: 0.88rem; color: #047857;">
-              Hasil kodinganmu telah cocok 100% dengan target visual program dan memenuhi seluruh ketentuan aslab!
-            </p>
-            <ul style="margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.82rem; color: #065f46;">
-              ${successes.map(s => `<li>✓ ${s}</li>`).join('')}
-            </ul>
-          </div>
-        </div>
-      `;
-      log('VALIDASI BERHASIL: Seluruh kriteria misi terpenuhi!', 'success');
+      playVictoryFanfare();
+      termLog('🎉 VALIDASI SUKSES: Seluruh objektif misi terpenuhi 100%!', 'success');
+      if (showToastNotification) {
+        showToast('🎉 MISI SELESAI SEMPURNA!', 'Visual output program Anda cocok 100% dengan target soal!', 'success');
+      }
     } else {
-      validationBanner.className = 'validation-banner error';
-      validationBanner.innerHTML = `
-        <div style="display: flex; align-items: start; gap: 0.75rem;">
-          <span style="font-size: 1.8rem;">⚠️</span>
-          <div>
-            <h4 style="margin: 0; font-size: 1.05rem; color: #991b1b;">HASIL KODINGAN BELUM MEMENUHI TARGET</h4>
-            <p style="margin: 0.2rem 0 0; font-size: 0.88rem; color: #b91c1c;">
-              Periksa catatan berikut dan bandingkan dengan Target Output Program di sebelah kanan:
-            </p>
-            <ul style="margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.82rem; color: #991b1b;">
-              ${errors.map(e => `<li>✗ ${e}</li>`).join('')}
-            </ul>
-          </div>
-        </div>
-      `;
-      log(`VALIDASI GAGAL: ${errors.join(' | ')}`, 'warn');
+      termLog(`⚠️ VALIDASI BELUM TERPENUHI: ${errors.join(', ')}`, 'warn');
+      if (showToastNotification) {
+        showToast('⚠️ BELUM SESUAI TARGET', errors.join(' • '), 'error');
+      }
     }
   }
 
-  // Load Mission
+  // Load Puzzle Mission
   function loadMission(missionId) {
     pause();
     const mission = missions.find(m => m.id === missionId) || missions[0];
     currentMission = mission;
 
-    // Update Sidebar Active state
-    const items = missionSidebarList.querySelectorAll('.mission-nav-item');
-    items.forEach(el => {
-      if (el.getAttribute('data-id') === mission.id) el.classList.add('active');
-      else el.classList.remove('active');
-    });
-
-    // Update Header Info
-    missionTitle.textContent = `Misi ${mission.number}: ${mission.title}`;
-    missionSource.textContent = mission.source;
-    missionBadge.textContent = mission.badge;
-    missionBadge.className = `clinic-badge ${mission.badgeType}`;
+    // Update Header
+    missionTitle.textContent = `Misi #${mission.number}: ${mission.title}`;
+    missionConstraint.textContent = mission.badge;
     missionPrompt.textContent = mission.prompt;
-    missionConstraintText.textContent = `Batas: ${mission.constraints.maxLines ? mission.constraints.maxLines + ' baris' : 'Tanpa batas'}, Wajib: ${mission.constraints.requiredKeywords ? mission.constraints.requiredKeywords.join(', ') : '-'}`;
-    missionTargetDesc.textContent = mission.targetState.description;
 
-    if (logicExplanationBox) {
-      logicExplanationBox.innerHTML = `
-        <strong>💡 Analisis Logika &amp; Trik Aslab:</strong>
-        <p style="margin: 0.4rem 0 0; white-space: pre-line; font-size: 0.88rem; color: #475569;">${mission.logicExplanation}</p>
-      `;
-    }
-
-    // Configure World
+    // Setup World Grid
     world.cols = mission.cols || 15;
     world.rows = mission.rows || 15;
     world.reset();
@@ -470,70 +440,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     world.saveSnapshot();
 
-    // Default: load starter code for students
-    customCodeTextarea.value = mission.starterCode.trim();
+    // Load starter code by default
+    editorTextarea.value = mission.starterCode.trim();
 
     setupCanvases();
     resetSimulation();
-    log(`Misi ${mission.number} dimuat: ${mission.title}`, 'info');
+    updateGutter(-1);
+    termLog(`Memuat ${mission.title} (${mission.source})`, 'info');
   }
 
-  // Render Mission Sidebar
-  function renderMissionSidebar() {
-    if (!missionSidebarList) return;
-    missionSidebarList.innerHTML = '';
-
+  // Populate Puzzle Select Dropdown
+  function populatePuzzleSelect() {
+    if (!puzzleSelect) return;
+    puzzleSelect.innerHTML = '';
     missions.forEach(m => {
-      const btn = document.createElement('button');
-      btn.className = `mission-nav-item ${m.id === currentMission.id ? 'active' : ''}`;
-      btn.setAttribute('data-id', m.id);
-      btn.innerHTML = `
-        <div class="mission-item-header">
-          <span class="mission-number">Misi #${m.number}</span>
-          <span class="mission-cat">${escapeHtml(m.category)}</span>
-        </div>
-        <strong class="mission-item-title">${escapeHtml(m.title)}</strong>
-        <span class="mission-item-source">${escapeHtml(m.source)}</span>
-      `;
-      btn.addEventListener('click', () => loadMission(m.id));
-      missionSidebarList.appendChild(btn);
+      const opt = document.createElement('option');
+      opt.value = m.id;
+      opt.textContent = `Misi ${m.number}: ${m.title} (${m.source})`;
+      puzzleSelect.appendChild(opt);
+    });
+
+    puzzleSelect.addEventListener('change', (e) => {
+      loadMission(e.target.value);
     });
   }
 
-  // Event Listeners
-  if (btnPlay) {
-    btnPlay.addEventListener('click', () => {
+  // View Mode Switcher
+  function setViewMode(mode) {
+    viewMode = mode;
+    btnViewLive.classList.toggle('active', mode === 'live');
+    btnViewTarget.classList.toggle('active', mode === 'target');
+    btnViewSplit.classList.toggle('active', mode === 'split');
+
+    if (mode === 'live') {
+      canvasViewport.classList.remove('split-mode');
+      document.getElementById('liveCanvasWrapper').style.display = 'block';
+      targetCanvasWrapper.style.display = 'none';
+    } else if (mode === 'target') {
+      canvasViewport.classList.remove('split-mode');
+      document.getElementById('liveCanvasWrapper').style.display = 'none';
+      targetCanvasWrapper.style.display = 'block';
+    } else if (mode === 'split') {
+      canvasViewport.classList.add('split-mode');
+      document.getElementById('liveCanvasWrapper').style.display = 'block';
+      targetCanvasWrapper.style.display = 'block';
+    }
+
+    setupCanvases();
+  }
+
+  if (btnViewLive) btnViewLive.addEventListener('click', () => setViewMode('live'));
+  if (btnViewTarget) btnViewTarget.addEventListener('click', () => setViewMode('target'));
+  if (btnViewSplit) btnViewSplit.addEventListener('click', () => setViewMode('split'));
+
+  // Execution Listeners
+  if (btnRun) {
+    btnRun.addEventListener('click', () => {
       if (isRunning) pause();
-      else play();
+      else run();
     });
   }
 
   if (btnStep) {
     btnStep.addEventListener('click', () => {
       pause();
-      if (isEditMode) toggleEditor(false);
       doStep();
     });
   }
 
   if (btnReset) btnReset.addEventListener('click', resetSimulation);
-
-  if (btnValidate) {
-    btnValidate.addEventListener('click', () => {
-      validateMissionObjectives(true);
-    });
-  }
-
-  if (btnToggleEdit) {
-    btnToggleEdit.addEventListener('click', () => toggleEditor());
-  }
+  if (btnValidate) btnValidate.addEventListener('click', () => validateObjectives(true));
 
   if (btnLoadStarter) {
     btnLoadStarter.addEventListener('click', () => {
       if (currentMission) {
-        customCodeTextarea.value = currentMission.starterCode.trim();
+        editorTextarea.value = currentMission.starterCode.trim();
         resetSimulation();
-        log('Template latihan siswa dimuat ulang.', 'info');
+        updateGutter(-1);
+        termLog('Template latihan siswa dimuat.', 'info');
       }
     });
   }
@@ -541,46 +525,40 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnLoadSolution) {
     btnLoadSolution.addEventListener('click', () => {
       if (currentMission) {
-        customCodeTextarea.value = currentMission.solutionCode.trim();
+        editorTextarea.value = currentMission.solutionCode.trim();
         resetSimulation();
-        log('Solusi resmi aslab dimuat. Klik Step atau Play untuk melihat animasi alur kodenya!', 'success');
+        updateGutter(-1);
+        termLog('Kunci solusi resmi aslab dimuat. Tekan Run atau Step untuk melihat alur!', 'success');
       }
-    });
-  }
-
-  if (customCodeTextarea) {
-    customCodeTextarea.addEventListener('input', () => {
-      updateMetrics();
     });
   }
 
   if (speedSlider) {
     speedSlider.addEventListener('input', (e) => {
       const val = parseInt(e.target.value, 10);
-      const speeds = [800, 500, 250, 100, 30];
-      currentSpeed = speeds[val - 1] || 250;
-      const labels = ['Sangat Lambat', 'Lambat', 'Normal', 'Cepat', 'Kilat'];
+      const speeds = [600, 350, 180, 70, 20];
+      currentSpeed = speeds[val - 1] || 180;
+      const labels = ['1x', '2x', '3x', '4x', '5x'];
       if (speedLabel) speedLabel.textContent = labels[val - 1];
 
       if (isRunning) {
         pause();
-        play();
+        run();
       }
     });
   }
 
   // Keyboard Shortcuts
   document.addEventListener('keydown', (e) => {
-    if (document.activeElement === customCodeTextarea) return;
+    if (document.activeElement === editorTextarea) return;
 
     if (e.code === 'Space') {
       e.preventDefault();
       if (isRunning) pause();
-      else play();
+      else run();
     } else if (e.code === 'ArrowRight') {
       e.preventDefault();
       pause();
-      if (isEditMode) toggleEditor(false);
       doStep();
     } else if (e.key === 'r' || e.key === 'R') {
       e.preventDefault();
@@ -588,16 +566,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-
-  // Initialize
-  renderMissionSidebar();
+  // Init
+  populatePuzzleSelect();
   loadMission(missions[0].id);
+  setViewMode('live');
 });

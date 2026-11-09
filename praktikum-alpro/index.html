@@ -3,307 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Praktikum Alpro (GvRng) — Arena Teka-Teki Koding &amp; Labirin Interaktif</title>
-  <meta name="description" content="Platform teka-teki koding GvRng interaktif lengkap dengan simulator visual output program, target hasil akhir soal, dan validasi objektif praktikum Informatika UMS.">
+  <title>GvRng Web Simulator — Guido van Robot NG Web IDE &amp; Puzzle Runner</title>
+  <meta name="description" content="Simulator GvRng (Guido van Robot NG) berbasis web untuk menyelesaikan teka-teki labirin praktikum Algoritma &amp; Pemrograman Informatika UMS.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../shared/medical-theme.css?v=5.2">
-  <link rel="stylesheet" href="../shared/portal-nav.css?v=5.2">
-  <link rel="stylesheet" href="styles.css?v=2.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3.0">
 </head>
-<body>
+<body class="gvr-app-body">
 
-  <!-- Top Strip Announcement -->
-  <div class="top-strip">
-    <div class="top-strip-inner">
-      <div class="top-strip-left">
-        <span class="strip-pill">PRAKTIKUM DASPROG / ALPRO</span>
-        <span>Guido van Robot NG (GvRng) · Arena Teka-Teki Koding &amp; Visual Output Program</span>
+  <!-- 1. TOP APP BAR -->
+  <header class="gvr-topbar">
+    <div class="gvr-brand">
+      <div class="gvr-brand-logo" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+          <circle cx="12" cy="5" r="2"></circle>
+          <path d="M12 7v4"></path>
+          <line x1="8" y1="16" x2="8" y2="16"></line>
+          <line x1="16" y1="16" x2="16" y2="16"></line>
+        </svg>
       </div>
-      <div>
-        <a href="../index.html" class="top-strip-link">
-          ← Kembali ke Portal Ruang Belajar UMS
-        </a>
+      <div class="gvr-brand-text">
+        GvRng <span style="color: #38bdf8;">Web IDE</span>
+        <span class="gvr-version-pill">v2.0 Simulator</span>
       </div>
     </div>
-  </div>
 
-  <div class="gvr-shell">
-    <!-- Header -->
-    <header class="gvr-header">
-      <div class="header-meta">
-        <div class="brand-wrapper">
-          <div class="brand-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
-              <circle cx="12" cy="5" r="2"></circle>
-              <path d="M12 7v4"></path>
-              <line x1="8" y1="16" x2="8" y2="16"></line>
-              <line x1="16" y1="16" x2="16" y2="16"></line>
-            </svg>
-          </div>
-          <div>
-            <h1 class="brand-title">
-              Arena Teka-Teki Koding <span class="brand-badge">GvRng Alpro</span>
-            </h1>
-            <p class="brand-subtitle">8 Misi Labirin Pilihan dari QUIZ Dasprog B, Soal Quiz Aslab, &amp; Panduan Praktikum UMS</p>
-          </div>
+    <!-- Puzzle Selector -->
+    <div class="gvr-puzzle-selector-box">
+      <label for="puzzleSelect" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Teka-Teki:</label>
+      <select id="puzzleSelect" class="gvr-select" aria-label="Pilih Teka-Teki GvRng">
+        <!-- Loaded by app.js from GVR_MISSIONS -->
+      </select>
+    </div>
+
+    <!-- Top Navigation Actions -->
+    <div class="gvr-top-actions">
+      <a href="../index.html" class="gvr-top-btn" title="Kembali ke Portal Ruang Belajar UMS">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Portal UMS
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. MAIN APPLICATION WORKSPACE -->
+  <main class="gvr-workspace">
+    
+    <!-- LEFT: WORLD SIMULATOR PANE -->
+    <section class="gvr-world-pane">
+      <div class="gvr-pane-toolbar">
+        <div class="gvr-toolbar-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="9" y1="21" x2="9" y2="9"/>
+          </svg>
+          Dunia Robot Guido (.gvrw)
         </div>
 
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <span class="clinic-badge badge-blue">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-            </svg>
-            Informatika UMS 2026
-          </span>
-          <a href="../index.html" class="clinic-badge" style="text-decoration: none; background: #ffffff; border: 1px solid #cbd5e1; color: #475569;">
-            Portal Utama ↗
-          </a>
+        <!-- View Mode Switcher -->
+        <div class="gvr-view-toggle-group">
+          <button id="btnViewLive" class="gvr-view-btn active" title="Tampilkan pergerakan live robot">
+            ▶ Simulasi Live
+          </button>
+          <button id="btnViewTarget" class="gvr-view-btn" title="Tampilkan gambar target output hasil program">
+            🎯 Target Output
+          </button>
+          <button id="btnViewSplit" class="gvr-view-btn" title="Tampilkan Live dan Target berdampingan">
+            🔲 Dua Layar (Split)
+          </button>
         </div>
       </div>
-    </header>
 
-    <!-- Main Grid: Mission Sidebar + Interactive Puzzle Workspace -->
-    <div class="arena-grid-layout">
+      <!-- Canvas Viewport -->
+      <div id="canvasViewport" class="gvr-canvas-viewport">
+        <!-- Live World Canvas -->
+        <div id="liveCanvasWrapper" class="canvas-container-box">
+          <span class="canvas-badge-overlay">KONDISI SAAT INI / LIVE</span>
+          <canvas id="worldCanvas" width="560" height="460"></canvas>
+        </div>
+
+        <!-- Target World Canvas (Expected Program Output) -->
+        <div id="targetCanvasWrapper" class="canvas-container-box">
+          <span class="canvas-badge-overlay target">🎯 TARGET OUTPUT HASIL PROGRAM</span>
+          <canvas id="targetCanvas" width="560" height="460"></canvas>
+        </div>
+      </div>
+
+      <!-- Telemetry Status Bar -->
+      <div class="gvr-telemetry-bar">
+        <div class="telemetry-item">
+          <span class="tel-label">ROBOT:</span>
+          <span id="telPos" class="tel-val accent">(1, 1)</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">HADAP:</span>
+          <span id="telDir" class="tel-val">EAST</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">TAS:</span>
+          <span id="telBag" class="tel-val amber">0 beeper</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">PETA:</span>
+          <span id="telWorld" class="tel-val">0 beeper</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">LANGKAH:</span>
+          <span id="telSteps" class="tel-val">0</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">BARIS:</span>
+          <span id="telLines" class="tel-val success">0</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="tel-label">STATUS:</span>
+          <span id="telStatus" class="tel-val" style="color: #94a3b8;">READY</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: CODE EDITOR & CONTROLS PANE -->
+    <section class="gvr-editor-pane">
       
-      <!-- Left Column: Mission Nav List -->
-      <aside class="sidebar-missions-box">
-        <div class="sidebar-header">
-          <span>Daftar Teka-Teki (Misi)</span>
-          <span style="font-size: 0.75rem; background: #e0f2fe; color: #0369a1; padding: 0.15rem 0.5rem; border-radius: 999px;">8 Misi</span>
-        </div>
-        <div id="missionSidebarList" class="mission-nav-list">
-          <!-- Rendered dynamically by app.js -->
-        </div>
-      </aside>
-
-      <!-- Right Column: Active Mission Workspace -->
-      <main class="workspace-container">
-        
-        <!-- Active Mission Header & Problem Prompt -->
-        <div class="mission-card">
-          <div class="mission-card-head">
-            <div>
-              <span id="missionSource" style="font-size: 0.82rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Sumber Soal</span>
-              <h2 id="missionTitle" style="font-family: var(--display); font-size: 1.4rem; color: #1e293b; margin: 0.2rem 0;">Judul Misi</h2>
-            </div>
-            <span id="missionBadge" class="clinic-badge badge-blue">Ketentuan</span>
-          </div>
-
-          <!-- Problem Statement from PDF/Book -->
-          <div id="missionPrompt" class="prompt-text">
-            Deskripsi soal praktikum...
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: #475569;">
-            <div><strong>📋 Aturan Pengerjaan:</strong> <span id="missionConstraintText">-</span></div>
-          </div>
+      <!-- Controls Toolbar -->
+      <div class="gvr-control-bar">
+        <div class="gvr-btn-group">
+          <button id="btnRun" class="gvr-action-btn btn-run" title="Jalankan program otomatis (Spasi)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Run
+          </button>
+          <button id="btnStep" class="gvr-action-btn btn-step" title="Jalankan 1 langkah instruksi (Panah Kanan)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            Step
+          </button>
+          <button id="btnReset" class="gvr-action-btn btn-reset" title="Kembalikan robot &amp; dunia ke awal (R)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path></svg>
+            Reset
+          </button>
+          <button id="btnValidate" class="gvr-action-btn" style="background: #0066cc; color: #fff;" title="Periksa apakah program sudah memenuhi target">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Cek Misi
+          </button>
         </div>
 
-        <!-- DUAL CANVAS SECTION: SEBELUM vs TARGET SETELAH -->
-        <div class="dual-canvas-section">
-          
-          <!-- Canvas 1: Live Interactive Simulation (Sebelum / Sedang Berjalan) -->
-          <div class="canvas-card">
-            <div class="canvas-card-head">
-              <span class="canvas-card-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-                1. Simulasi Live Kode Siswa (Input / Running)
-              </span>
-              <span style="font-size: 0.75rem; font-weight: 700; color: #0066cc; background: #e0f2fe; padding: 0.15rem 0.5rem; border-radius: 4px;">Live Canvas</span>
-            </div>
-            <div class="canvas-box">
-              <canvas id="worldCanvas" width="480" height="400"></canvas>
-            </div>
-            <div class="canvas-caption">
-              Visualisasi pergerakan robot secara langsung. Perhatikan garis putus-putus biru yang menandai jejak lintasan yang telah ditempuh robot!
-            </div>
-          </div>
-
-          <!-- Canvas 2: Expected Target Output (Visual Output Program Hasil Kodenya) -->
-          <div class="canvas-card">
-            <div class="canvas-card-head">
-              <span class="canvas-card-title" style="color: #008a69;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-                2. Target Visual Output Program (Hasil Akhir)
-              </span>
-              <span style="font-size: 0.75rem; font-weight: 700; color: #008a69; background: #e6f7f3; padding: 0.15rem 0.5rem; border-radius: 4px;">Expected Result</span>
-            </div>
-            <div class="canvas-box">
-              <canvas id="targetCanvas" width="480" height="400"></canvas>
-            </div>
-            <div class="canvas-caption" id="missionTargetDesc">
-              Target hasil akhir yang harus dicapai: posisi akhir robot, arah hadap, dan kondisi sampah beeper setelah program selesai dijalankan.
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Telemetry Row -->
-        <div class="telemetry-row">
-          <div class="tel-item">
-            <span class="tel-label">Posisi Saat Ini</span>
-            <span id="statPos" class="tel-val">(1, 1)</span>
-          </div>
-          <div class="tel-item">
-            <span class="tel-label">Arah Hadap</span>
-            <span id="statDir" class="tel-val">EAST</span>
-          </div>
-          <div class="tel-item">
-            <span class="tel-label">Beeper di Tas</span>
-            <span id="statBag" class="tel-val">0</span>
-          </div>
-          <div class="tel-item">
-            <span class="tel-label">Beeper Tersisa di Peta</span>
-            <span id="statWorld" class="tel-val">0</span>
-          </div>
-          <div class="tel-item">
-            <span class="tel-label">Langkah Fisik</span>
-            <span id="statSteps" class="tel-val">0</span>
-          </div>
-          <div class="tel-item">
-            <span class="tel-label">Baris Kode Efektif</span>
-            <span id="statLines" class="tel-val">0</span>
-          </div>
-        </div>
-
-        <!-- Playback & Validation Controls -->
-        <div class="playback-controls-bar">
-          <div class="btn-ctrl-group">
-            <button id="btnPlay" class="btn-ctrl btn-primary" title="Jalankan otomatis">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              Play
-            </button>
-            <button id="btnStep" class="btn-ctrl btn-step" title="Jalankan 1 langkah per klik untuk melihat alur kodenya">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              Step (1 Langkah)
-            </button>
-            <button id="btnReset" class="btn-ctrl btn-outline" title="Reset robot ke kondisi awal">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path></svg>
-              Reset
-            </button>
-            <button id="btnValidate" class="btn-ctrl btn-validate" title="Cek apakah hasil kodinganmu sudah sesuai target">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              Validasi Misi!
-            </button>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 600; color: #475569;">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <button id="btnLoadStarter" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.6rem;">
+            Template
+          </button>
+          <button id="btnLoadSolution" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.6rem; color: #38bdf8;">
+            Solusi Aslab
+          </button>
+          <div class="speed-box">
             <span>Kecepatan:</span>
-            <input id="speedSlider" type="range" min="1" max="5" value="3" style="width: 90px; accent-color: #0066cc;" aria-label="Slider Kecepatan">
-            <span id="speedLabel" style="min-width: 50px;">Normal</span>
+            <input id="speedSlider" type="range" min="1" max="5" value="3" style="width: 70px; accent-color: #0066cc;">
+            <span id="speedLabel" style="min-width: 20px;">3x</span>
           </div>
         </div>
+      </div>
 
-        <!-- Validation Result Banner -->
-        <div id="validationBanner" class="validation-banner">
-          <!-- Dynamically populated -->
+      <!-- Mission Objectives Banner -->
+      <div class="gvr-objective-box">
+        <div class="objective-title-row">
+          <span id="missionTitle" class="objective-heading">Misi GvRng</span>
+          <span id="missionConstraint" class="constraint-pill">Ketentuan Baris</span>
+        </div>
+        <p id="missionPrompt" class="objective-prompt-text">Deskripsi soal...</p>
+      </div>
+
+      <!-- GvRng Code Editor Area with Line Numbers Gutter -->
+      <div class="gvr-editor-container">
+        <!-- Dynamic Line Number Gutter -->
+        <div id="editorGutter" class="gvr-gutter" aria-hidden="true">
+          <!-- Populated by app.js -->
         </div>
 
-        <!-- Code Editor Section -->
-        <div class="code-section-card">
-          <div class="code-section-head">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; font-weight: 700; color: #38bdf8;">PROGRAM GVRNG (.gvr)</span>
-              <span style="font-size: 0.72rem; color: #94a3b8;">· Baris yang aktif disorot kuning saat di-step</span>
-            </div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <button id="btnLoadStarter" class="btn-ctrl btn-outline" style="padding: 0.3rem 0.7rem; font-size: 0.75rem; border-color: #475569; color: #cbd5e1; background: #1e293b;">
-                Template Latihan Siswa
-              </button>
-              <button id="btnLoadSolution" class="btn-ctrl btn-outline" style="padding: 0.3rem 0.7rem; font-size: 0.75rem; border-color: #0284c7; color: #38bdf8; background: #0f2744;">
-                Intip Solusi Resmi Aslab 👁️
-              </button>
-              <button id="btnToggleEdit" class="btn-ctrl btn-primary" style="padding: 0.3rem 0.75rem; font-size: 0.75rem;">
-                Edit Kodingan
-              </button>
-            </div>
-          </div>
-
-          <!-- Highlighted Code Line Viewer -->
-          <div id="codeViewerWrapper" class="editor-area-wrapper">
-            <ol id="codeLinesList" class="code-lines-container">
-              <!-- Rendered with active step line highlight -->
-            </ol>
-          </div>
-
-          <!-- Textarea for Custom Coding -->
-          <textarea id="customCodeTextarea" style="display: none;" spellcheck="false" placeholder="Tuliskan kode program GvRng di sini..."></textarea>
+        <!-- Textarea Editor -->
+        <div class="gvr-textarea-box">
+          <textarea id="editorTextarea" spellcheck="false" placeholder="# Tuliskan kode program GvRng di sini..."></textarea>
         </div>
+      </div>
 
-        <!-- Live Step-by-Step Tracing Table -->
-        <div class="tracing-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <h3 style="font-family: var(--display); font-size: 1.05rem; margin: 0; color: #1e293b;">
-              📊 Tracing Alur Eksekusi Langkah Demi Langkah (Step Tracing)
-            </h3>
-            <span style="font-size: 0.78rem; color: #64748b;">Mencatat perubahan status robot &amp; sensor setiap langkah</span>
-          </div>
-
-          <div class="table-wrapper">
-            <table class="trace-table">
-              <thead>
-                <tr>
-                  <th>Langkah</th>
-                  <th>Baris</th>
-                  <th>Instruksi</th>
-                  <th>Posisi (X, Y)</th>
-                  <th>Arah</th>
-                  <th>Beeper Tas</th>
-                  <th>Beeper Petak</th>
-                </tr>
-              </thead>
-              <tbody id="traceTableBody">
-                <!-- Logged rows appear here -->
-              </tbody>
-            </table>
-          </div>
+      <!-- Output Terminal Console -->
+      <div class="gvr-terminal">
+        <div class="gvr-terminal-head">
+          <span>TERMINAL GVRNG / KONSOL EKSEKUSI</span>
+          <span style="font-size: 0.68rem; color: #64748b;">Shortcuts: Spasi = Run/Pause · Panah Kanan = Step · R = Reset</span>
         </div>
-
-        <!-- Logic Analysis & Aslab Tips -->
-        <div id="logicExplanationBox" class="mission-card" style="background: #f8fafc; border-left: 4px solid #f59e0b;">
-          <strong>💡 Analisis Logika &amp; Trik Aslab:</strong>
-          <p style="margin: 0.3rem 0 0; color: #475569; font-size: 0.9rem;">Pilih misi untuk membaca analisis.</p>
+        <div id="termBody" class="gvr-terminal-body">
+          <div class="term-entry info">GvRng Web Runtime v2.0 siap. Klik Run atau Step untuk mengeksekusi program.</div>
         </div>
+      </div>
 
-        <!-- Console Log Box -->
-        <div class="console-box">
-          <div style="font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 0.25rem;">Log Konsol:</div>
-          <div id="consoleLog">
-            <div class="log-entry info">Simulator siap. Jalankan atau langkah kodinganmu!</div>
-          </div>
-        </div>
+    </section>
 
-      </main>
-    </div>
+  </main>
 
-    <!-- Footer -->
-    <footer class="gvr-footer">
-      <p>
-        <strong>Ruang Belajar Informatika UMS</strong> · Modul Praktikum Algoritma &amp; Pemrograman (GvRng)<br>
-        Seluruh materi diambil dari arsip resmi QUIZ Dasprog B, Soal Quiz Aslab, dan Panduan Praktikum UMS.
-      </p>
-      <p style="margin-top: 0.5rem;">
-        <a href="../index.html" style="color: #0066cc; text-decoration: none; font-weight: 600;">← Kembali ke Portal Utama</a> ·
-        <a href="https://spada.ums.ac.id/" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: none; font-weight: 600;">SPADA UMS</a> ·
-        <a href="https://github.com/voltakyy/voltakyy.github.io" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: none; font-weight: 600;">GitHub Repository</a>
-      </p>
-    </footer>
-  </div>
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="gvr-toast"></div>
 
   <!-- Scripts -->
-  <script src="simulator.js?v=2.0"></script>
-  <script src="interpreter.js?v=2.0"></script>
-  <script src="maps.js?v=2.0"></script>
-  <script src="app.js?v=2.0"></script>
+  <script src="simulator.js?v=3.0"></script>
+  <script src="interpreter.js?v=3.0"></script>
+  <script src="maps.js?v=3.0"></script>
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>
