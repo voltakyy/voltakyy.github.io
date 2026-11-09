@@ -141,6 +141,16 @@ class GvrWorld {
     return !this.anyBeepersInBag();
   }
 
+  anyBeepersInWorld() {
+    let total = 0;
+    this.beepers.forEach(c => total += c);
+    return total > 0;
+  }
+
+  noBeepersInWorld() {
+    return !this.anyBeepersInWorld();
+  }
+
   facingNorth() { return this.robot.dir === 'NORTH'; }
   notFacingNorth() { return this.robot.dir !== 'NORTH'; }
   facingSouth() { return this.robot.dir === 'SOUTH'; }

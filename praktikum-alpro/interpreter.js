@@ -196,6 +196,8 @@ class GvrInterpreter {
       case 'not_next_to_a_beeper': return !this.world.nextToABeeper();
       case 'any_beepers_in_beeper_bag': return this.world.anyBeepersInBag();
       case 'no_beepers_in_beeper_bag': return !this.world.anyBeepersInBag();
+      case 'any_beepers_in_world': return this.world.anyBeepersInWorld();
+      case 'no_beepers_in_world': return !this.world.anyBeepersInWorld();
       case 'facing_north': return this.world.robot.dir === 'NORTH';
       case 'not_facing_north': return this.world.robot.dir !== 'NORTH';
       case 'facing_south': return this.world.robot.dir === 'SOUTH';
