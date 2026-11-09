@@ -64,5 +64,81 @@ while front_is_clear:
     if front_is_blocked:
         turnleft
 turnoff`
+  },
+
+  // =========================================================================
+  // PUZZLE 2: INSPEKSI LORONG GEDUNG (QUIZ DASPROG B SOAL 1)
+  // Max Lines Constraint: <= 35 Baris, Wajib define & if-else
+  // =========================================================================
+  inspeksi: {
+    id: 'inspeksi',
+    title: 'Puzzle 2: Robot Inspeksi Lorong Gedung',
+    source: 'Quiz Dasprog B — Soal 1',
+    constraint: 'Maksimal 35 baris, wajib define & percabangan if-else',
+    description: 'Sebuah robot inspeksi ditugaskan memeriksa lorong-lorong berundak 3 menara di sebuah gedung. Robot menyusuri seluruh rute hingga ujung lorong, lalu kembali ke posisi awal di (4, 7).',
+    cols: 14,
+    rows: 15,
+    robot: { x: 4, y: 7, dir: 'NORTH', beepers: 0 },
+    beepers: [],
+    // Dinding membatasi jalur lorong berundak
+    hWalls: [
+      // Tutup atas pilar 1 (y=10)
+      [4, 10], [5, 10],
+      // Dasar lekukan 1 (y=7)
+      [5, 7], [6, 7],
+      // Tutup atas pilar 2 (y=12)
+      [6, 12], [7, 12],
+      // Dasar lekukan 2 (y=8)
+      [7, 8], [8, 8],
+      // Tutup atas pilar 3 (y=13)
+      [8, 13], [9, 13],
+      // Ujung kanan turun & lorong pulang bawah (y=6)
+      [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [10, 6],
+      [9, 8], [10, 8]
+    ],
+    vWalls: [
+      // Dinding samping luar kiri pilar 1
+      [3, 7], [3, 8], [3, 9], [3, 10],
+      // Dinding antara pilar 1 turun
+      [4, 8], [4, 9],
+      // Sisi kanan lekuk 1 naik ke pilar 2
+      [5, 8],
+      // Dinding pilar 2
+      [5, 9], [5, 10], [5, 11], [5, 12],
+      [6, 9], [6, 10], [6, 11],
+      // Dinding pilar 3
+      [7, 10], [7, 11], [7, 12], [7, 13],
+      [8, 9], [8, 10], [8, 11], [8, 12],
+      // Dinding luar kanan pilar 3 & lorong pulang
+      [10, 7], [10, 8]
+    ],
+    solution: `# Solusi Resmi Quiz Dasprog B - Inspeksi Gedung (26 Baris)
+define turnright:
+    do 3:
+        turnleft
+define turnaround:
+    turnleft
+    turnleft
+define inspect_corridor:
+    while front_is_clear:
+        move
+    if right_is_clear:
+        turnright
+        move
+        if right_is_clear:
+            turnright
+        else:
+            turnleft
+    else:
+        turnleft
+while not_facing_south:
+    inspect_corridor
+while front_is_clear:
+    move
+turnright
+while front_is_clear:
+    move
+turnright
+turnoff`
   }
 };
