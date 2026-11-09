@@ -344,5 +344,135 @@ sweep_row
 next_row_left
 sweep_row
 turnoff`
+  },
+
+  // =========================================================================
+  // PUZZLE 6: LORONG 3 PILAR & PINDAHKAN BEEPER (HALAMAN 51 BUKU)
+  // Max Lines Constraint: <= 30 Baris
+  // =========================================================================
+  tiga_pilar: {
+    id: 'tiga_pilar',
+    title: 'Puzzle 6: Tiga Pilar & Pemindahan Beeper',
+    source: 'Buku Praktikum — Hal 51 (Ujian Tengah Jangka Panjang)',
+    constraint: 'Maksimal 30 baris kode',
+    description: 'Robot memasuki 3 lorong pilar bertingkat, mengambil beeper di setiap puncak pilar, lalu meletakkan ketiga beeper tersebut di ujung lorong seberang.',
+    cols: 14,
+    rows: 12,
+    robot: { x: 3, y: 3, dir: 'EAST', beepers: 0 },
+    beepers: [
+      [5, 6, 1], // Puncak pilar 1
+      [7, 7, 1], // Puncak pilar 2
+      [9, 8, 1]  // Puncak pilar 3
+    ],
+    hWalls: [
+      [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2], [11, 2],
+      [4, 6], [5, 6],
+      [6, 7], [7, 7],
+      [8, 8], [9, 8],
+      [4, 4], [6, 5], [8, 6], [10, 5], [11, 5]
+    ],
+    vWalls: [
+      [4, 3], [4, 4], [4, 5],
+      [5, 3], [5, 4], [5, 5],
+      [6, 3], [6, 4], [6, 5], [6, 6],
+      [7, 3], [7, 4], [7, 5], [7, 6],
+      [8, 3], [8, 4], [8, 5], [8, 6], [8, 7],
+      [9, 3], [9, 4], [9, 5], [9, 6], [9, 7],
+      [11, 3], [11, 4]
+    ],
+    solution: `# Solusi Resmi Halaman 51 Buku (28 Baris)
+define move3:
+    do 3:
+        move
+define turnright:
+    do 3:
+        turnleft
+define pick:
+    move3
+    turnleft
+    move3
+    turnleft
+    move
+    pickbeeper
+    turnleft
+    turnleft
+    move
+    turnright
+    move
+    move
+    turnleft
+do 3:
+    pick
+move
+do 3:
+    putbeeper
+turnoff`
+  },
+
+  // =========================================================================
+  // PUZZLE 7: TIGA KOTAK & ANALISIS ENERGI (HALAMAN 52-53 BUKU)
+  // Membandingkan Efisiensi Baris vs Energi Langkah
+  // =========================================================================
+  tiga_kotak: {
+    id: 'tiga_kotak',
+    title: 'Puzzle 7: Mengelilingi 3 Kotak (Analisis Hemat Energi)',
+    source: 'Buku Praktikum — Hal 52-53',
+    constraint: 'Maksimal 30 baris, bandingkan Alternatif 1 vs Alternatif 2',
+    description: 'Robot mengelilingi 3 kotak balok terpisah. Mengambil beeper bila ditemukan di sepanjang sisi kotak, lalu kembali ke posisi awal. Alternatif 2 mendemonstrasikan algoritma lebih hemat energi (22 langkah vs 26 langkah).',
+    cols: 14,
+    rows: 10,
+    robot: { x: 3, y: 4, dir: 'NORTH', beepers: 0 },
+    beepers: [
+      [5, 6, 1], // Di atas kotak 1
+      [6, 5, 1], // Di kanan kotak 1
+      [10, 6, 1] // Di atas kotak 3
+    ],
+    hWalls: [
+      // Kotak 1
+      [4, 4], [5, 4],
+      [4, 6], [5, 6],
+      // Kotak 2
+      [7, 4], [8, 4],
+      [7, 6], [8, 6],
+      // Kotak 3
+      [10, 4], [11, 4],
+      [10, 6], [11, 6]
+    ],
+    vWalls: [
+      // Kotak 1
+      [3, 5], [3, 6],
+      [5, 5], [5, 6],
+      // Kotak 2
+      [6, 5], [6, 6],
+      [8, 5], [8, 6],
+      // Kotak 3
+      [9, 5], [9, 6],
+      [11, 5], [11, 6]
+    ],
+    solution: `# Alternatif 2 Resmi Buku Hal 53 (Hemat Energi: hanya 22 gerakan)
+define circumference:
+    do 4:
+        if next_to_a_beeper:
+            pickbeeper
+        move
+        if next_to_a_beeper:
+            pickbeeper
+        move
+        turnleft
+move
+circumference
+do 3:
+    move
+circumference
+do 3:
+    move
+circumference
+turnleft
+turnleft
+do 7:
+    move
+turnleft
+turnleft
+turnoff`
   }
 };
