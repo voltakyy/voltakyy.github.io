@@ -368,33 +368,29 @@ define turnright:
 
 # TODO: Buat fungsi sapu baris dan transisi antar baris
 `,
-    solutionCode: `# Solusi Resmi Aslab 3 (20 Baris Kode, Batas: 24 Baris)
+    solutionCode: `# Solusi Resmi Aslab 3 (23 Baris Kode, Batas: 24 Baris)
 define turnright:
     do 3:
         turnleft
-define pick_if_any:
+define check_pick:
     if next_to_a_beeper:
         pickbeeper
 define sweep_row:
     while front_is_clear:
-        pick_if_any
+        check_pick
         move
-    pick_if_any
-define next_row_left:
+    check_pick
+define sweep_up:
+    sweep_row
     turnleft
     move
     turnleft
-define next_row_right:
-    turnright
-    move
-    turnright
-sweep_row
-next_row_left
-sweep_row
-next_row_right
-sweep_row
-next_row_left
-sweep_row
+    sweep_row
+sweep_up
+turnright
+move
+turnright
+sweep_up
 turnoff`,
     logicExplanation: `Alur Lintasan Boustrophedon (Ular Tangga):\n- Baris 1: Jalan ke Timur sambil menyapu (\`sweep_row\`).\n- Di ujung kanan: Belok kiri naik 1 langkah lalu hadap Barat (\`next_row_left\`).\n- Baris 2: Jalan ke Barat sambil menyapu (\`sweep_row\`).\n- Di ujung kiri: Belok kanan naik 1 langkah lalu hadap Timur (\`next_row_right\`).\n- Mengulang pola untuk baris 3 dan 4. Hanya membutuhkan 20 baris kode!`
   },

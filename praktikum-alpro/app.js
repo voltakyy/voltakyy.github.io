@@ -496,11 +496,31 @@ document.addEventListener('DOMContentLoaded', () => {
     missionPrompt.textContent = mission.prompt;
 
     // Populate Soal & Logic Tab
+    const tabSoalBadge = document.getElementById('tabSoalBadge');
+    if (tabSoalBadge) tabSoalBadge.textContent = mission.badge;
+
     const tabSoalDetail = document.getElementById('tabSoalDetail');
     const tabSoalLogic = document.getElementById('tabSoalLogic');
     if (tabSoalDetail) {
-      tabSoalDetail.textContent = mission.prompt + '\n\nTarget Output Visual:\n' + (mission.targetState ? mission.targetState.description : '');
+      tabSoalDetail.textContent = mission.prompt;
     }
+
+    const tabTargetItems = document.getElementById('tabTargetItems');
+    if (tabTargetItems && mission.targetState) {
+      const ts = mission.targetState;
+      const fr = ts.finalRobot;
+      tabTargetItems.innerHTML = `
+        <div>📌 <strong>Sasaran Akhir:</strong> ${ts.description}</div>
+        <div>🤖 <strong>Posisi Akhir Robot:</strong> Koordinat (${fr.x}, ${fr.y}) · Hadap ${fr.dir} · Tas: ${fr.beepers} beeper · Status: turnoff</div>
+        <div>🟡 <strong>Sisa Beeper di Peta:</strong> ${ts.remainingBeepers} beeper</div>
+      `;
+    }
+
+    const tabContekanCode = document.getElementById('tabContekanCode');
+    if (tabContekanCode) {
+      tabContekanCode.textContent = mission.solutionCode.trim();
+    }
+
     if (tabSoalLogic) {
       tabSoalLogic.textContent = mission.logicExplanation || 'Analisis alur logika robot untuk menyelesaikan teka-teki ini.';
     }
@@ -610,7 +630,34 @@ document.addEventListener('DOMContentLoaded', () => {
         editorTextarea.value = currentMission.solutionCode.trim();
         resetSimulation();
         updateGutter(-1);
-        termLog('Kunci solusi resmi aslab dimuat. Tekan Run atau Step untuk melihat alur!', 'success');
+        playTone(660, 'sine', 0.15, 0.08);
+        termLog('Kunci contekan resmi aslab dimuat ke editor. Tekan Run atau Step untuk melihat robot menyelesaikan misi!', 'success');
+        showToast('💡 KUNCI CONTEKAN DIMUAT', 'Solusi resmi 100% lolos uji telah dipasang di editor.', 'success');
+      }
+    });
+  }
+
+  // Contekan Panel Action Buttons
+  const btnCopyContekan = document.getElementById('btnCopyContekan');
+  const btnApplyContekan = document.getElementById('btnApplyContekan');
+  if (btnCopyContekan) {
+    btnCopyContekan.addEventListener('click', () => {
+      if (currentMission) {
+        navigator.clipboard.writeText(currentMission.solutionCode.trim()).then(() => {
+          showToast('📋 TERSALIN', 'Kunci contekan solusi berhasil disalin ke clipboard!', 'success');
+        });
+      }
+    });
+  }
+  if (btnApplyContekan) {
+    btnApplyContekan.addEventListener('click', () => {
+      if (currentMission) {
+        editorTextarea.value = currentMission.solutionCode.trim();
+        resetSimulation();
+        updateGutter(-1);
+        const tabEditorBtn = document.querySelector('[data-subtab="paneEditor"]');
+        if (tabEditorBtn) tabEditorBtn.click();
+        showToast('💡 CONTEKAN DIPASANG', 'Kunci solusi resmi telah dipasang ke editor. Tekan Run!', 'info');
       }
     });
   }

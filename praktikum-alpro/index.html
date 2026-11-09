@@ -136,7 +136,7 @@
           💻 Editor GvRng
         </button>
         <button class="subtab-btn" data-subtab="paneSoal" role="tab">
-          📋 Detail Soal &amp; Target Visual
+          💡 Contekan &amp; Target Soal
         </button>
         <button class="subtab-btn" data-subtab="paneTracing" role="tab">
           📊 Step Tracing
@@ -177,8 +177,8 @@
           <button id="btnLoadStarter" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.6rem;">
             Template
           </button>
-          <button id="btnLoadSolution" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.6rem; color: #38bdf8;">
-            Solusi Aslab
+          <button id="btnLoadSolution" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.65rem; color: #38bdf8; border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.08); font-weight: 700;">
+            💡 Kunci Contekan
           </button>
           <div class="speed-box">
             <span>Kecepatan:</span>
@@ -214,10 +214,47 @@
       <!-- SUBTAB 2: DETAIL SOAL & TARGET VISUAL EXPLANATION -->
       <div id="paneSoal" class="subtab-panel">
         <div class="subtab-content-padded">
-          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 0; color: #38bdf8;">📋 Deskripsi Lengkap &amp; Target Visual</h3>
-          <div id="tabSoalDetail" style="background: #090d16; padding: 1rem; border-radius: 8px; border: 1px solid #1e293b; margin-bottom: 1rem; white-space: pre-line;"></div>
-          <h4 style="color: #facc15; margin-bottom: 0.3rem;">💡 Analisis Logika &amp; Trik Aslab:</h4>
-          <div id="tabSoalLogic" style="background: #090d16; padding: 1rem; border-radius: 8px; border: 1px solid #1e293b; white-space: pre-line; font-size: 0.88rem;"></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem;">
+            <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; color: #38bdf8; font-size: 1.05rem;">
+              📋 Detail Soal &amp; Target Visual
+            </h3>
+            <span id="tabSoalBadge" class="constraint-pill" style="font-size: 0.75rem;">Maksimal 9 Baris</span>
+          </div>
+
+          <!-- Problem prompt card -->
+          <div id="tabSoalDetail" style="background: #090d16; padding: 0.9rem; border-radius: 8px; border: 1px solid #1e293b; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.6; white-space: pre-line;"></div>
+
+          <!-- Target Checklist Banner -->
+          <div id="tabTargetChecklist" style="background: rgba(30, 41, 59, 0.5); padding: 0.8rem; border-radius: 8px; border: 1px solid #334155; margin-bottom: 1rem;">
+            <h4 style="margin: 0 0 0.5rem; color: #34d399; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem;">
+              🎯 Target Kondisi Akhir Program:
+            </h4>
+            <div id="tabTargetItems" style="font-size: 0.82rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.35rem;"></div>
+          </div>
+
+          <!-- Verified Solution / Contekan Box -->
+          <div style="background: #090d16; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 1rem; overflow: hidden;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0.9rem; background: rgba(56, 189, 248, 0.1); border-bottom: 1px solid rgba(56, 189, 248, 0.2);">
+              <span style="font-weight: 700; color: #38bdf8; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem;">
+                💡 Kunci Contekan Solusi Resmi (100% Lolos Uji)
+              </span>
+              <div style="display: flex; gap: 0.4rem;">
+                <button id="btnCopyContekan" class="gvr-action-btn" style="padding: 0.25rem 0.55rem; font-size: 0.72rem; background: #1e293b; border-color: #334155;">
+                  📋 Salin
+                </button>
+                <button id="btnApplyContekan" class="gvr-action-btn" style="padding: 0.25rem 0.55rem; font-size: 0.72rem; background: #0066cc; color: white;">
+                  📥 Pasang ke Editor
+                </button>
+              </div>
+            </div>
+            <pre id="tabContekanCode" style="margin: 0; padding: 0.9rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #f8fafc; overflow-x: auto; line-height: 1.5;"></pre>
+          </div>
+
+          <!-- Logic Breakdown -->
+          <h4 style="color: #facc15; margin: 0 0 0.4rem; font-size: 0.9rem;">
+            🧠 Bedah Logika &amp; Trik Penyelesaian Aslab:
+          </h4>
+          <div id="tabSoalLogic" style="background: #090d16; padding: 0.9rem; border-radius: 8px; border: 1px solid #1e293b; font-size: 0.84rem; line-height: 1.6; color: #cbd5e1; white-space: pre-line;"></div>
         </div>
       </div>
 
