@@ -1245,3 +1245,42 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 9px;
   }
 }
+
+/* =========================================================
+   UI/UX PRO MAX — MICRO-INTERACTIONS & ELEVATION
+   ========================================================= */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.45); }
+  70% { box-shadow: 0 0 0 7px rgba(5, 150, 105, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+}
+
+.strip-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-success);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  flex-shrink: 0;
+}
+
+/* Tactile Mobile Touch Feedback */
+button, .btn-primary, .btn-secondary, .dock-item, .meta-link-btn, .filter-badge-btn, .campus-card {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button:active, .btn-primary:active, .btn-secondary:active {
+  transform: scale(0.97) !important;
+}
+
+.dock-item:active {
+  transform: scale(0.96) !important;
+}
+
+/* Accessible Visible Focus Rings (WCAG 2.1 AA) */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
