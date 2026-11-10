@@ -1,22 +1,29 @@
 /**
- * GvRng Web Simulator — Professional Web IDE & Puzzle Runner Engine
- * True Guido van Robot NG runtime with step-by-step debugger, live line gutter,
- * dual visual output comparison, and authentic GvRng rules.
+ * GvRng Studio Web IDE & Unified World Builder Application (v3.0)
+ * Integrates Arena Simulator, Interactive World Builder, Step Debugger,
+ * Virtual Helper Keyboard, Validation Engine, and Authentic .GVRW Code Sync
+ * on a SINGLE SEAMLESS PAGE.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Elements
+  // Canvases & Viewport
   const liveCanvas = document.getElementById('worldCanvas');
   const targetCanvas = document.getElementById('targetCanvas');
   const canvasViewport = document.getElementById('canvasViewport');
   const targetCanvasWrapper = document.getElementById('targetCanvasWrapper');
   const puzzleSelect = document.getElementById('puzzleSelect');
+  const liveCanvasIndicator = document.getElementById('liveCanvasIndicator');
 
-  // View mode toggles
+  // Unified Mode Switcher (Simulasi vs Desain Peta)
+  const btnModeSimulate = document.getElementById('btnModeSimulate');
+  const btnModeBuild = document.getElementById('btnModeBuild');
+  const simViewToolbar = document.getElementById('simViewToolbar');
+  const builderInlineToolbar = document.getElementById('builderInlineToolbar');
+
+  // View Mode Buttons (Simulasi)
   const btnViewLive = document.getElementById('btnViewLive');
   const btnViewTarget = document.getElementById('btnViewTarget');
   const btnViewSplit = document.getElementById('btnViewSplit');
-  const btnToggleTrail = document.getElementById('btnToggleTrail');
 
   // Execution Controls
   const btnRun = document.getElementById('btnRun');
@@ -25,19 +32,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnValidate = document.getElementById('btnValidate');
   const btnLoadStarter = document.getElementById('btnLoadStarter');
   const btnLoadSolution = document.getElementById('btnLoadSolution');
-  const speedSlider = document.getElementById('speedSlider');
-  const speedLabel = document.getElementById('speedLabel');
 
   // Mission Info Elements
   const missionTitle = document.getElementById('missionTitle');
+  const missionBadgePill = document.getElementById('missionBadgePill');
   const missionConstraint = document.getElementById('missionConstraint');
   const missionPrompt = document.getElementById('missionPrompt');
+  const solutionCodeDisplay = document.getElementById('solutionCodeDisplay');
+  const missionDockCarousel = document.getElementById('missionDockCarousel');
 
-  // Editor & Gutter
+  // Stepper & Drawer
+  const btnPrevMission = document.getElementById('btnPrevMission');
+  const btnNextMission = document.getElementById('btnNextMission');
+  const btnOpenDrawer = document.getElementById('btnOpenDrawer');
+  const missionDrawerModal = document.getElementById('missionDrawerModal');
+  const btnCloseMissionDrawer = document.getElementById('btnCloseMissionDrawer');
+  const missionDrawerGrid = document.getElementById('missionDrawerGrid');
+
+  // Editor & Line Gutter
   const editorGutter = document.getElementById('editorGutter');
   const editorTextarea = document.getElementById('editorTextarea');
 
-  // Telemetry Elements
+  // Telemetry HUD Elements
   const telPos = document.getElementById('telPos');
   const telDir = document.getElementById('telDir');
   const telBag = document.getElementById('telBag');
@@ -46,856 +62,785 @@ document.addEventListener('DOMContentLoaded', () => {
   const telLines = document.getElementById('telLines');
   const telStatus = document.getElementById('telStatus');
 
-  // Terminal & Toast
+  // Tracing Terminal & Toast
   const termBody = document.getElementById('termBody');
   const toastNotification = document.getElementById('toastNotification');
 
-  // State
+  // Celebration Modal
+  const celebrationModal = document.getElementById('celebrationModal');
+  const btnCloseCelebration = document.getElementById('btnCloseCelebration');
+  const cstatSteps = document.getElementById('cstatSteps');
+  const cstatLines = document.getElementById('cstatLines');
+  const cstatBeepers = document.getElementById('cstatBeepers');
+  const celebrateDesc = document.getElementById('celebrateDesc');
+
+  // Builder Engine Instance
+  const wb = window.gvrWorldBuilder || new GvrWorldBuilder();
+  window.gvrWorldBuilder = wb;
+
+  // Simulator Runtime State
   const missions = window.GVR_MISSIONS || [];
+  let currentMissionIndex = 0;
   let currentMission = missions[0];
   let world = new GvrWorld(15, 15);
+  let targetWorld = new GvrWorld(15, 15);
   let interpreter = new GvrInterpreter(world);
   let isRunning = false;
   let playInterval = null;
-  let currentSpeed = 200;
-  let showTrail = true;
+  let currentSpeed = 180;
   let viewMode = 'live'; // 'live', 'target', 'split'
+  let studioMode = 'simulate'; // 'simulate' or 'build'
 
-  // Web Audio Synthesizer
-  let audioCtx = null;
-  function getAudioCtx() {
-    if (!audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (AudioContext) audioCtx = new AudioContext();
-    }
-    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-    return audioCtx;
-  }
-
-  function playTone(freq, type = 'sine', duration = 0.08, gainVal = 0.04) {
-    try {
-      const ctx = getAudioCtx();
-      if (!ctx) return;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = type;
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-      gain.gain.setValueAtTime(gainVal, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + duration);
-    } catch (e) {}
-  }
-
-  function playVictoryFanfare() {
-    [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
-      setTimeout(() => playTone(freq, 'triangle', 0.28, 0.06), i * 90);
-    });
-  }
-
-  // Canvas Setup & Rendering
-  function setupCanvases() {
-    if (!canvasViewport) return;
-    const dpr = window.devicePixelRatio || 1;
-
-    // Dimensions based on viewport
-    const padH = 20;
-    const containerW = Math.max(260, canvasViewport.clientWidth - padH);
-    let targetW = Math.min(containerW, 720);
-
-    // Calculate proportional height based on world dimensions
-    const cols = currentMission ? (currentMission.cols || 15) : 15;
-    const rows = currentMission ? (currentMission.rows || 15) : 15;
-    const aspect = (rows + 1) / (cols + 1);
-
-    // Give comfortable room for grid + labels + padding without letterbox void
-    let idealH = Math.round(targetW * aspect) + 50;
-    let targetH = Math.max(220, Math.min(idealH, 460));
-
-    if (viewMode === 'split') {
-      if (window.innerWidth > 768) {
-        targetW = Math.max(260, (containerW - 20) / 2);
-        targetH = Math.max(220, Math.min(targetW * aspect + 50, 460));
-      }
-    }
-
-    if (liveCanvas) {
-      liveCanvas.width = targetW * dpr;
-      liveCanvas.height = targetH * dpr;
-      liveCanvas.style.width = `${targetW}px`;
-      liveCanvas.style.height = `${targetH}px`;
-      world.render(liveCanvas);
-    }
-
-    if (targetCanvas && currentMission) {
-      targetCanvas.width = targetW * dpr;
-      targetCanvas.height = targetH * dpr;
-      targetCanvas.style.width = `${targetW}px`;
-      targetCanvas.style.height = `${targetH}px`;
-
-      world.renderTargetPreview(targetCanvas, {
-        finalRobot: currentMission.targetState.finalRobot,
-        remainingBeepers: currentMission.targetState.remainingBeepers,
-        beeperPositions: currentMission.targetState.beeperPositions || []
-      });
-    }
-  }
-
-  window.addEventListener('resize', setupCanvases);
-
-  // Terminal Log
-  function termLog(msg, type = 'info') {
-    if (!termBody) return;
-    const div = document.createElement('div');
-    div.className = `term-entry ${type}`;
-    const time = new Date().toLocaleTimeString('id-ID', { hour12: false });
-    div.textContent = `[${time}] ${msg}`;
-    termBody.appendChild(div);
-    termBody.scrollTop = termBody.scrollHeight;
-  }
-
-  function clearTerm() {
-    if (termBody) termBody.innerHTML = '<div class="term-entry info">GvRng Web Runtime v2.0 siap. Klik Run atau Step untuk mengeksekusi program.</div>';
-  }
-
-  function showToast(title, desc, type = 'success') {
+  // ==========================================
+  // TOAST NOTIFICATIONS
+  // ==========================================
+  function showToast(msg, duration = 3000) {
     if (!toastNotification) return;
-    toastNotification.className = `gvr-toast ${type}`;
-    toastNotification.innerHTML = `
-      <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">${title}</strong>
-      <span style="font-size: 0.85rem; line-height: 1.4;">${desc}</span>
-    `;
-    toastNotification.style.display = 'block';
-    setTimeout(() => {
-      toastNotification.style.display = 'none';
-    }, 4500);
+    toastNotification.textContent = msg;
+    toastNotification.classList.add('show');
+    clearTimeout(toastNotification._timer);
+    toastNotification._timer = setTimeout(() => {
+      toastNotification.classList.remove('show');
+    }, duration);
   }
 
-  // Update Gutter (Line Numbers & Active Marker)
-  function updateGutter(activeLine = -1) {
-    if (!editorGutter || !editorTextarea) return;
-    const lines = editorTextarea.value.split('\n');
-    const totalLines = Math.max(lines.length, 1);
+  // ==========================================
+  // TOP NAVIGATION SWITCHER (STUDIO vs BANK SOAL)
+  // ==========================================
+  const modePills = document.querySelectorAll('.nav-tab-btn');
+  const tabViews = document.querySelectorAll('.main-tab-view');
 
-    let html = '';
-    for (let i = 1; i <= totalLines; i++) {
-      const isActive = i === activeLine;
-      html += `<div class="gutter-num ${isActive ? 'active' : ''}">${i}</div>`;
-    }
-    editorGutter.innerHTML = html;
+  modePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetTab = pill.getAttribute('data-tab');
+      modePills.forEach(p => p.classList.toggle('active', p === pill));
+      tabViews.forEach(v => v.classList.toggle('active', v.id === targetTab));
 
-    // Scroll gutter to match textarea scroll
-    editorGutter.scrollTop = editorTextarea.scrollTop;
-  }
-
-  // Support Tab key (indentation) & Shift+Tab (outdent) with multi-line selection support
-  function handleTabIndentation(textarea, isShift) {
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const val = textarea.value;
-
-    if (start === end && !isShift) {
-      // Single cursor, simple 4-space insertion
-      if (document.queryCommandSupported && document.queryCommandSupported('insertText')) {
-        document.execCommand('insertText', false, '    ');
-      } else {
-        textarea.setRangeText('    ', start, end, 'end');
+      if (targetTab === 'tabSimulator') {
+        renderSimulatorCanvases();
       }
-      updateGutter(-1);
-      updateTelemetry();
-      return;
-    }
+    });
+  });
 
-    // Multi-line selection or Shift+Tab outdent
-    const lineStart = val.lastIndexOf('\n', start - 1) + 1;
-    let lineEnd = val.indexOf('\n', end);
-    if (lineEnd === -1) lineEnd = val.length;
-
-    const selectedLines = val.substring(lineStart, lineEnd).split('\n');
-    let modifiedLines = [];
-    let startOffset = 0;
-    let endOffset = 0;
-
-    if (!isShift) {
-      // Indent each line by 4 spaces
-      modifiedLines = selectedLines.map(line => '    ' + line);
-      startOffset = 4;
-      endOffset = 4 * selectedLines.length;
+  // ==========================================
+  // UNIFIED STUDIO SUBMODE SWITCHER
+  // (Uji Kode vs Desain Peta pada SATU Halaman)
+  // ==========================================
+  function setStudioSubmode(mode) {
+    studioMode = mode;
+    if (mode === 'simulate') {
+      if (btnModeSimulate) btnModeSimulate.classList.add('active');
+      if (btnModeBuild) btnModeBuild.classList.remove('active');
+      if (builderInlineToolbar) builderInlineToolbar.style.display = 'none';
+      if (simViewToolbar) simViewToolbar.style.display = 'flex';
+      if (liveCanvasIndicator) liveCanvasIndicator.textContent = 'KONDISI SAAT INI / LIVE';
+      wb.isEnabled = false;
+      renderSimulatorCanvases();
     } else {
-      // Outdent (remove up to 4 spaces from start of each line)
-      modifiedLines = selectedLines.map((line, idx) => {
-        const match = line.match(/^ {1,4}/);
-        if (match) {
-          const removed = match[0].length;
-          if (idx === 0) startOffset = -removed;
-          endOffset -= removed;
-          return line.slice(removed);
-        }
-        return line;
-      });
-    }
+      if (btnModeBuild) btnModeBuild.classList.add('active');
+      if (btnModeSimulate) btnModeSimulate.classList.remove('active');
+      if (builderInlineToolbar) builderInlineToolbar.style.display = 'flex';
+      if (simViewToolbar) simViewToolbar.style.display = 'none';
+      if (liveCanvasIndicator) liveCanvasIndicator.textContent = 'MODE DESAIN PETA (Klik Kanvas untuk Pasang/Hapus)';
 
-    const replacement = modifiedLines.join('\n');
-    textarea.setRangeText(replacement, lineStart, lineEnd, 'preserve');
-    textarea.selectionStart = Math.max(lineStart, start + startOffset);
-    textarea.selectionEnd = Math.max(textarea.selectionStart, end + endOffset);
+      // Switch viewport to live canvas for builder
+      setViewMode('live');
 
-    updateGutter(-1);
-    updateTelemetry();
-  }
-
-  if (editorTextarea) {
-    editorTextarea.addEventListener('scroll', () => {
-      if (editorGutter) editorGutter.scrollTop = editorTextarea.scrollTop;
-    });
-
-    editorTextarea.addEventListener('input', () => {
-      updateGutter(-1);
-      updateTelemetry();
-    });
-
-    editorTextarea.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab' || e.keyCode === 9) {
-        e.preventDefault();
-        e.stopPropagation();
-        handleTabIndentation(editorTextarea, e.shiftKey);
-      }
-    });
-  }
-
-  // Telemetry Bar
-  function updateTelemetry(statusText = null) {
-    if (telPos) telPos.textContent = `(${world.robot.x}, ${world.robot.y})`;
-    if (telDir) telDir.textContent = world.robot.dir;
-    if (telBag) telBag.textContent = world.robot.beepers.toString();
-
-    let totalWorld = 0;
-    world.beepers.forEach(cnt => totalWorld += cnt);
-    if (telWorld) telWorld.textContent = totalWorld.toString();
-    if (telSteps) telSteps.textContent = world.robot.stepCount.toString();
-
-    const lines = GvrInterpreter.countEffectiveLines(editorTextarea.value);
-    if (telLines) {
-      telLines.textContent = lines.toString();
-      if (currentMission && currentMission.constraints && currentMission.constraints.maxLines) {
-        const max = currentMission.constraints.maxLines;
-        if (lines > max && max < 999) {
-          telLines.style.color = '#f87171';
-          telLines.title = `Melebihi batas ${max} baris!`;
+      // Initialize builder on live canvas
+      wb.init(liveCanvas);
+      wb.syncFromWorlds(world, targetWorld);
+      wb.isEnabled = true;
+      wb.onWorldChanged = (updatedWorld) => {
+        if (wb.activeLayer === 'initial') {
+          world = updatedWorld;
+          world.saveSnapshot();
+          interpreter = new GvrInterpreter(world);
         } else {
-          telLines.style.color = '#34d399';
-          telLines.title = `Batas: ${max} baris`;
+          targetWorld = updatedWorld;
         }
-      }
-    }
-
-    if (statusText && telStatus) {
-      telStatus.textContent = statusText;
-    }
-  }
-
-  // Step Execution
-  function doStep() {
-    if (interpreter.isFinished) {
-      pause();
-      termLog('Program selesai dieksekusi.', 'success');
-      updateTelemetry('SELESAI');
-      validateObjectives(false);
-      return;
-    }
-
-    try {
-      const res = interpreter.step();
-      world.render(liveCanvas);
-      updateTelemetry('BERJALAN');
-
-      if (res.error) {
-        pause();
-        playTone(180, 'sawtooth', 0.25, 0.08);
-        termLog(res.error, 'error');
-        updateGutter(res.lineNo);
-        updateTelemetry('CRASH');
-        showToast('TABRAKAN / ERROR', res.error, 'error');
-        return;
-      }
-
-      if (res.lineNo) {
-        updateGutter(res.lineNo);
-      }
-
-      if (res.command) {
-        termLog(`Line ${res.lineNo}: ${res.command}`);
-        if (res.command.includes('pickbeeper')) playTone(880, 'sine', 0.12, 0.06);
-        else if (res.command.includes('putbeeper')) playTone(440, 'sine', 0.12, 0.06);
-        else if (res.command.includes('move')) playTone(520, 'sine', 0.04, 0.02);
-
-        // Append to Step Tracing Table
-        const traceBody = document.getElementById('traceTableBody');
-        if (traceBody) {
-          const tr = document.createElement('tr');
-          tr.style.borderBottom = '1px solid #1e293b';
-          tr.innerHTML = `
-            <td style="padding: 4px 8px; color: #94a3b8;">${world.robot.stepCount}</td>
-            <td style="padding: 4px 8px; color: #38bdf8;">${res.lineNo || '-'}</td>
-            <td style="padding: 4px 8px; font-weight: bold; color: #f8fafc;">${res.command}</td>
-            <td style="padding: 4px 8px; color: #34d399;">(${world.robot.x}, ${world.robot.y})</td>
-            <td style="padding: 4px 8px; color: #facc15;">${world.robot.dir}</td>
-            <td style="padding: 4px 8px; color: #f472b6;">${world.robot.beepers}</td>
-          `;
-          traceBody.appendChild(tr);
-          const scrollContainer = traceBody.closest('.subtab-panel');
-          if (scrollContainer) scrollContainer.scrollTop = scrollContainer.scrollHeight;
-        }
-      }
-
-      if (res.isFinished) {
-        pause();
-        termLog(`Robot selesai! Total pergerakan: ${world.robot.stepCount} langkah fisik.`, 'success');
-        updateTelemetry('SELESAI (TURNOFF)');
-        validateObjectives(false);
-      }
-    } catch (err) {
-      pause();
-      termLog(`Runtime Error: ${err.message}`, 'error');
-      updateTelemetry('ERROR');
+        updateTelemetry('EDITED');
+        updateGvrwPanel();
+      };
+      wb.render();
+      updateGvrwPanel();
     }
   }
 
-  function run() {
-    if (isRunning) return;
-
-    if (interpreter.isFinished) {
-      resetSimulation();
-    }
-
-    isRunning = true;
-    btnRun.innerHTML = `
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <rect x="6" y="4" width="4" height="16"/>
-        <rect x="14" y="4" width="4" height="16"/>
-      </svg> Pause
-    `;
-    btnRun.style.background = '#f59e0b';
-    updateTelemetry('RUNNING');
-
-    playInterval = setInterval(() => {
-      doStep();
-      if (interpreter.isFinished) pause();
-    }, currentSpeed);
+  if (btnModeSimulate) {
+    btnModeSimulate.addEventListener('click', () => setStudioSubmode('simulate'));
+  }
+  if (btnModeBuild) {
+    btnModeBuild.addEventListener('click', () => setStudioSubmode('build'));
   }
 
-  function pause() {
-    isRunning = false;
-    if (playInterval) {
-      clearInterval(playInterval);
-      playInterval = null;
-    }
-    btnRun.innerHTML = `
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M8 5v14l11-7z"/>
-      </svg> Run
-    `;
-    btnRun.style.background = '#10b981';
-    updateTelemetry(world.robot.isOff ? 'SELESAI' : 'PAUSED');
-  }
-
-  function resetSimulation() {
-    pause();
-    world.restoreSnapshot();
-    world.render(liveCanvas);
-
-    const traceBody = document.getElementById('traceTableBody');
-    if (traceBody) traceBody.innerHTML = '';
-
-    try {
-      interpreter.loadSource(editorTextarea.value);
-    } catch (err) {
-      termLog(`Syntax Error: ${err.message}`, 'error');
-    }
-
-    updateGutter(-1);
-    updateTelemetry('READY');
-    clearTerm();
-    termLog('Dunia & robot di-reset ke kondisi awal.', 'info');
-  }
-
-  // Objective Validation
-  function validateObjectives(showToastNotification = true) {
-    if (!currentMission) return;
-    const code = editorTextarea.value;
-    const lines = GvrInterpreter.countEffectiveLines(code);
-    const c = currentMission.constraints;
-
-    const errors = [];
-    const successes = [];
-
-    // Check robot turned off
-    if (!world.robot.isOff) {
-      errors.push('Robot belum dimatikan (wajib diakhiri turnoff)');
-    } else {
-      successes.push('Robot aman dimatikan (turnoff)');
-    }
-
-    // Check beepers in world
-    let totalBeepers = 0;
-    world.beepers.forEach(cnt => totalBeepers += cnt);
-
-    if (c.mustClearAllBeepers) {
-      if (totalBeepers > 0) {
-        errors.push(`Masih ada ${totalBeepers} sampah beeper belum terambil`);
-      } else {
-        successes.push(`Seluruh beeper berhasil dipungut (${world.robot.beepers} di tas)`);
-      }
-    }
-
-    // Check return to start
-    if (c.mustReturnToStart) {
-      const init = currentMission.initialRobot;
-      if (world.robot.x !== init.x || world.robot.y !== init.y) {
-        errors.push(`Robot tidak kembali ke posisi awal (${init.x}, ${init.y})`);
-      } else {
-        successes.push(`Robot kembali ke titik awal (${init.x}, ${init.y})`);
-      }
-    }
-
-    // Check lines limit
-    if (c.maxLines && c.maxLines < 999) {
-      if (lines > c.maxLines) {
-        errors.push(`Kode ${lines} baris, melebihi kuota maksimal ${c.maxLines} baris`);
-      } else {
-        successes.push(`Jumlah baris (${lines} baris) memenuhi batas ${c.maxLines} baris`);
-      }
-    }
-
-    // Check required keywords
-    if (c.requiredKeywords) {
-      c.requiredKeywords.forEach(kw => {
-        const regex = new RegExp(`\\b${kw}\\b`, 'i');
-        if (!regex.test(code)) {
-          errors.push(`Program wajib menggunakan kata kunci '${kw}'`);
-        } else {
-          successes.push(`Menggunakan struktur '${kw}'`);
-        }
-      });
-    }
-
-    if (errors.length === 0) {
-      playVictoryFanfare();
-      termLog('🎉 VALIDASI SUKSES: Seluruh objektif misi terpenuhi 100%!', 'success');
-      if (showToastNotification) {
-        showToast('🎉 MISI SELESAI SEMPURNA!', 'Visual output program Anda cocok 100% dengan target soal!', 'success');
-      }
-    } else {
-      termLog(`⚠️ VALIDASI BELUM TERPENUHI: ${errors.join(', ')}`, 'warn');
-      if (showToastNotification) {
-        showToast('⚠️ BELUM SESUAI TARGET', errors.join(' • '), 'error');
-      }
-    }
-  }
-
-  // Load Puzzle Mission
+  // ==========================================
+  // MISSION LOADING & CAROUSEL
+  // ==========================================
   function loadMission(missionId) {
-    pause();
-    const mission = missions.find(m => m.id === missionId) || missions[0];
-    currentMission = mission;
+    const foundIdx = missions.findIndex(m => m.id === missionId);
+    if (foundIdx === -1) return;
 
-    // Update Header & Hub Pill
-    missionTitle.textContent = `Misi #${mission.number}: ${mission.title}`;
-    missionConstraint.textContent = mission.badge;
-    missionPrompt.textContent = mission.prompt;
+    currentMissionIndex = foundIdx;
+    currentMission = missions[foundIdx];
 
-    const hubMissionNum = document.getElementById('hubMissionNum');
-    const hubMissionTitle = document.getElementById('hubMissionTitle');
-    if (hubMissionNum) hubMissionNum.textContent = `Misi ${mission.number}`;
-    if (hubMissionTitle) hubMissionTitle.textContent = mission.title;
-
-    if (puzzleSelect) puzzleSelect.value = mission.id;
-
-    // Highlight active dock item in Quick Dock Grid
-    document.querySelectorAll('.dock-item, .mission-chip').forEach(item => {
-      item.classList.toggle('active', item.getAttribute('data-mission') === mission.id);
-    });
-
-    // Highlight active card in Modal
-    document.querySelectorAll('.modal-mission-card').forEach(card => {
-      card.classList.toggle('active', card.getAttribute('data-mission') === mission.id);
-    });
-
-    // Populate Soal & Logic Tab
-    const tabSoalBadge = document.getElementById('tabSoalBadge');
-    if (tabSoalBadge) tabSoalBadge.textContent = mission.badge;
-
-    const tabSoalDetail = document.getElementById('tabSoalDetail');
-    const tabSoalLogic = document.getElementById('tabSoalLogic');
-    if (tabSoalDetail) {
-      tabSoalDetail.textContent = mission.prompt;
+    // Reconstruct World
+    world = new GvrWorld(currentMission.cols, currentMission.rows);
+    if (currentMission.initialRobot) {
+      world.setRobot(
+        currentMission.initialRobot.x,
+        currentMission.initialRobot.y,
+        currentMission.initialRobot.dir,
+        currentMission.initialRobot.beepers || 0
+      );
     }
-
-    const tabTargetItems = document.getElementById('tabTargetItems');
-    if (tabTargetItems && mission.targetState) {
-      const ts = mission.targetState;
-      const fr = ts.finalRobot;
-      tabTargetItems.innerHTML = `
-        <div>📌 <strong>Sasaran Akhir:</strong> ${ts.description}</div>
-        <div>🤖 <strong>Posisi Akhir Robot:</strong> Koordinat (${fr.x}, ${fr.y}) · Hadap ${fr.dir} · Tas: ${fr.beepers} beeper · Status: turnoff</div>
-        <div>🟡 <strong>Sisa Beeper di Peta:</strong> ${ts.remainingBeepers} beeper</div>
-      `;
+    if (currentMission.initialBeepers) {
+      currentMission.initialBeepers.forEach(([x, y, count]) => {
+        world.addBeeper(x, y, count);
+      });
     }
-
-    const tabContekanCode = document.getElementById('tabContekanCode');
-    if (tabContekanCode) {
-      tabContekanCode.textContent = mission.solutionCode.trim();
+    if (currentMission.hWalls) {
+      currentMission.hWalls.forEach(([a, s]) => world.addHWall(a, s));
     }
-
-    if (tabSoalLogic) {
-      tabSoalLogic.textContent = mission.logicExplanation || 'Analisis alur logika robot untuk menyelesaikan teka-teki ini.';
+    if (currentMission.vWalls) {
+      currentMission.vWalls.forEach(([a, s]) => world.addVWall(a, s));
     }
-
-    // Setup World Grid
-    world.cols = mission.cols || 15;
-    world.rows = mission.rows || 15;
-    world.reset();
-
-    const r = mission.initialRobot;
-    world.setRobot(r.x, r.y, r.dir, r.beepers || 0);
-
-    mission.initialBeepers.forEach(([x, y, count]) => {
-      world.addBeeper(x, y, count || 1);
-    });
-
-    mission.hWalls.forEach(([x, y]) => world.addHWall(x, y));
-    mission.vWalls.forEach(([x, y]) => world.addVWall(x, y));
-
     world.saveSnapshot();
 
-    // Load starter code by default
-    editorTextarea.value = mission.starterCode.trim();
-
-    setupCanvases();
-    resetSimulation();
-    updateGutter(-1);
-    termLog(`Memuat ${mission.title} (${mission.source})`, 'info');
-  }
-
-  // Populate Puzzle Select Dropdown
-  function populatePuzzleSelect() {
-    if (!puzzleSelect) return;
-    puzzleSelect.innerHTML = '';
-    missions.forEach(m => {
-      const opt = document.createElement('option');
-      opt.value = m.id;
-      opt.textContent = `Misi ${m.number}: ${m.title} (${m.source})`;
-      puzzleSelect.appendChild(opt);
-    });
-
-    puzzleSelect.addEventListener('change', (e) => {
-      loadMission(e.target.value);
-    });
-  }
-
-  // View Mode Switcher
-  function setViewMode(mode) {
-    viewMode = mode;
-    btnViewLive.classList.toggle('active', mode === 'live');
-    btnViewTarget.classList.toggle('active', mode === 'target');
-    btnViewSplit.classList.toggle('active', mode === 'split');
-
-    if (mode === 'live') {
-      canvasViewport.classList.remove('split-mode');
-      document.getElementById('liveCanvasWrapper').style.display = 'block';
-      targetCanvasWrapper.style.display = 'none';
-    } else if (mode === 'target') {
-      canvasViewport.classList.remove('split-mode');
-      document.getElementById('liveCanvasWrapper').style.display = 'none';
-      targetCanvasWrapper.style.display = 'block';
-    } else if (mode === 'split') {
-      canvasViewport.classList.add('split-mode');
-      document.getElementById('liveCanvasWrapper').style.display = 'block';
-      targetCanvasWrapper.style.display = 'block';
+    // Reconstruct Target World
+    if (currentMission.targetWorldInstance) {
+      targetWorld = currentMission.targetWorldInstance.clone();
+    } else {
+      targetWorld = new GvrWorld(currentMission.cols, currentMission.rows);
+      if (currentMission.targetState && currentMission.targetState.finalRobot) {
+        const fr = currentMission.targetState.finalRobot;
+        targetWorld.setRobot(fr.x, fr.y, fr.dir, fr.beepers || 0);
+        targetWorld.robot.isOff = true;
+      }
+      if (currentMission.targetBeepers) {
+        currentMission.targetBeepers.forEach(([x, y, count]) => targetWorld.addBeeper(x, y, count));
+      }
+      if (currentMission.hWalls) currentMission.hWalls.forEach(([a, s]) => targetWorld.addHWall(a, s));
+      if (currentMission.vWalls) currentMission.vWalls.forEach(([a, s]) => targetWorld.addVWall(a, s));
     }
 
-    setupCanvases();
+    interpreter = new GvrInterpreter(world);
+
+    // Sync builder instance
+    wb.syncFromWorlds(world, targetWorld);
+
+    // Update UI headers
+    if (missionBadgePill) missionBadgePill.textContent = `Misi ${currentMission.number}`;
+    if (missionTitle) missionTitle.textContent = currentMission.title;
+    if (missionConstraint) missionConstraint.textContent = currentMission.badge || currentMission.category;
+    if (missionPrompt) missionPrompt.textContent = currentMission.prompt;
+    if (solutionCodeDisplay) solutionCodeDisplay.textContent = currentMission.solutionCode || '# Solusi belum dipublikasikan';
+    if (puzzleSelect) puzzleSelect.value = currentMission.id;
+
+    // Load starter code into editor
+    if (editorTextarea) {
+      editorTextarea.value = currentMission.starterCode || '';
+      updateLineGutter();
+    }
+
+    // Reset controls
+    stopRun();
+    updateTelemetry('READY');
+    updateGvrwPanel();
+    renderSimulatorCanvases();
+    updateCarouselActive();
+  }
+
+  function updateCarouselActive() {
+    if (!missionDockCarousel) return;
+    const cards = missionDockCarousel.querySelectorAll('.dock-mission-card');
+    cards.forEach(c => {
+      c.classList.toggle('active', c.getAttribute('data-id') === currentMission.id);
+    });
+  }
+
+  function populateMissionCarousel() {
+    if (!missionDockCarousel) return;
+    missionDockCarousel.innerHTML = '';
+    missions.forEach((m, idx) => {
+      const chip = document.createElement('button');
+      chip.className = 'dock-mission-card' + (idx === currentMissionIndex ? ' active' : '');
+      chip.setAttribute('data-id', m.id);
+      chip.textContent = `${m.number}: ${m.title.split('&')[0].trim()}`;
+      chip.addEventListener('click', () => loadMission(m.id));
+      missionDockCarousel.appendChild(chip);
+    });
+
+    // Populate dropdown
+    if (puzzleSelect) {
+      puzzleSelect.innerHTML = '';
+      missions.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.id;
+        opt.textContent = `Misi ${m.number}: ${m.title}`;
+        puzzleSelect.appendChild(opt);
+      });
+      puzzleSelect.value = currentMission.id;
+      puzzleSelect.addEventListener('change', (e) => loadMission(e.target.value));
+    }
+
+    // Populate modal drawer
+    if (missionDrawerGrid) {
+      missionDrawerGrid.innerHTML = '';
+      missions.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'dock-mission-card';
+        card.style.padding = '10px 12px';
+        card.innerHTML = `
+          <strong style="display:block; margin-bottom:2px;">Misi ${m.number}: ${m.title}</strong>
+          <span style="font-size:11px; color:#64748b;">${m.source || m.category}</span>
+        `;
+        card.addEventListener('click', () => {
+          loadMission(m.id);
+          if (missionDrawerModal) missionDrawerModal.setAttribute('aria-hidden', 'true');
+        });
+        missionDrawerGrid.appendChild(card);
+      });
+    }
+  }
+
+  // Stepper buttons
+  if (btnPrevMission) {
+    btnPrevMission.addEventListener('click', () => {
+      const nextIdx = (currentMissionIndex - 1 + missions.length) % missions.length;
+      loadMission(missions[nextIdx].id);
+    });
+  }
+  if (btnNextMission) {
+    btnNextMission.addEventListener('click', () => {
+      const nextIdx = (currentMissionIndex + 1) % missions.length;
+      loadMission(missions[nextIdx].id);
+    });
+  }
+
+  // Modal drawer open/close
+  if (btnOpenDrawer) {
+    btnOpenDrawer.addEventListener('click', () => {
+      if (missionDrawerModal) missionDrawerModal.removeAttribute('aria-hidden');
+    });
+  }
+  if (btnCloseMissionDrawer) {
+    btnCloseMissionDrawer.addEventListener('click', () => {
+      if (missionDrawerModal) missionDrawerModal.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  // ==========================================
+  // VIEWPORT LAYOUT & CANVAS RENDERING
+  // ==========================================
+  function setViewMode(mode) {
+    viewMode = mode;
+    if (btnViewLive) btnViewLive.classList.toggle('active', mode === 'live');
+    if (btnViewTarget) btnViewTarget.classList.toggle('active', mode === 'target');
+    if (btnViewSplit) btnViewSplit.classList.toggle('active', mode === 'split');
+
+    if (canvasViewport) {
+      canvasViewport.className = 'canvases-viewport mode-' + mode;
+    }
+
+    if (targetCanvasWrapper) {
+      targetCanvasWrapper.style.display = (mode === 'target' || mode === 'split') ? 'flex' : 'none';
+    }
+
+    renderSimulatorCanvases();
   }
 
   if (btnViewLive) btnViewLive.addEventListener('click', () => setViewMode('live'));
   if (btnViewTarget) btnViewTarget.addEventListener('click', () => setViewMode('target'));
   if (btnViewSplit) btnViewSplit.addEventListener('click', () => setViewMode('split'));
 
-  // Execution Listeners
-  if (btnRun) {
-    btnRun.addEventListener('click', () => {
-      if (isRunning) pause();
-      else run();
+  function renderSimulatorCanvases() {
+    if (studioMode === 'build') {
+      wb.render();
+      return;
+    }
+
+    if (viewMode === 'live' || viewMode === 'split') {
+      if (liveCanvas) {
+        world.render(liveCanvas, { isTargetView: false });
+      }
+    }
+    if (viewMode === 'target' || viewMode === 'split') {
+      if (targetCanvas) {
+        targetWorld.render(targetCanvas, { isTargetView: true });
+      }
+    }
+  }
+
+  // ==========================================
+  // TELEMETRY HUD & GVRW UPDATE
+  // ==========================================
+  function updateTelemetry(status = 'READY') {
+    if (telPos) telPos.textContent = `(${world.robot.x}, ${world.robot.y})`;
+    if (telDir) telDir.textContent = world.robot.dir;
+    if (telBag) telBag.textContent = world.robot.beepers.toString();
+    
+    if (telWorld) {
+      let totalB = 0;
+      world.beepers.forEach(c => totalB += c);
+      telWorld.textContent = `${totalB} beeper`;
+    }
+
+    if (telSteps) telSteps.textContent = world.robot.stepCount.toString();
+    if (telStatus) {
+      telStatus.textContent = status;
+      telStatus.className = 'hud-item-val ' + (
+        status === 'RUNNING' ? 'text-amber' :
+        status === 'FINISHED' ? 'text-emerald' :
+        status === 'CRASHED' ? 'text-rose' : 'text-emerald'
+      );
+    }
+  }
+
+  function updateGvrwPanel() {
+    const textarea = document.getElementById('builderGvrwText');
+    if (textarea && document.activeElement !== textarea) {
+      textarea.value = world.toGvrw();
+    }
+  }
+
+  // ==========================================
+  // EDITOR LINE GUTTER & SYNTAX
+  // ==========================================
+  function updateLineGutter(activeLineNum = null) {
+    if (!editorTextarea || !editorGutter) return;
+    const lines = editorTextarea.value.split('\n');
+    const count = lines.length;
+
+    let html = '';
+    for (let i = 1; i <= count; i++) {
+      const isActive = i === activeLineNum;
+      html += `<div class="gutter-num${isActive ? ' active-line' : ''}">${i}</div>`;
+    }
+    editorGutter.innerHTML = html;
+
+    if (telLines) {
+      const codeLines = lines.filter(l => l.trim() && !l.trim().startsWith('#')).length;
+      telLines.textContent = codeLines.toString();
+    }
+  }
+
+  if (editorTextarea) {
+    editorTextarea.addEventListener('input', () => updateLineGutter());
+    editorTextarea.addEventListener('scroll', () => {
+      if (editorGutter) editorGutter.scrollTop = editorTextarea.scrollTop;
+    });
+
+    editorTextarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const start = editorTextarea.selectionStart;
+        const end = editorTextarea.selectionEnd;
+        editorTextarea.value = editorTextarea.value.substring(0, start) + '    ' + editorTextarea.value.substring(end);
+        editorTextarea.selectionStart = editorTextarea.selectionEnd = start + 4;
+        updateLineGutter();
+      }
     });
   }
 
-  if (btnStep) {
-    btnStep.addEventListener('click', () => {
-      pause();
-      doStep();
+  // ==========================================
+  // VIRTUAL GVRNG KEYBOARD FOR MOBILE PHONES
+  // ==========================================
+  const vkeyBtns = document.querySelectorAll('.vkey-btn');
+  vkeyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!editorTextarea) return;
+      const insertStr = btn.getAttribute('data-insert').replace(/\\n/g, '\n');
+      const start = editorTextarea.selectionStart;
+      const end = editorTextarea.selectionEnd;
+      const val = editorTextarea.value;
+
+      editorTextarea.value = val.substring(0, start) + insertStr + val.substring(end);
+      editorTextarea.selectionStart = editorTextarea.selectionEnd = start + insertStr.length;
+      editorTextarea.focus();
+      updateLineGutter();
     });
-  }
+  });
 
-  if (btnReset) btnReset.addEventListener('click', resetSimulation);
-  if (btnValidate) btnValidate.addEventListener('click', () => validateObjectives(true));
-
+  // Starter & Solution Loaders
   if (btnLoadStarter) {
     btnLoadStarter.addEventListener('click', () => {
-      if (currentMission) {
-        editorTextarea.value = currentMission.starterCode.trim();
-        resetSimulation();
-        updateGutter(-1);
-        termLog('Template latihan siswa dimuat.', 'info');
+      if (editorTextarea && currentMission) {
+        editorTextarea.value = currentMission.starterCode || '';
+        updateLineGutter();
+        showToast('↺ Kode starter awal dimuat.');
       }
     });
   }
-
   if (btnLoadSolution) {
     btnLoadSolution.addEventListener('click', () => {
-      if (currentMission) {
-        editorTextarea.value = currentMission.solutionCode.trim();
-        resetSimulation();
-        updateGutter(-1);
-        playTone(660, 'sine', 0.15, 0.08);
-        termLog('Kunci contekan resmi aslab dimuat ke editor. Tekan Run atau Step untuk melihat robot menyelesaikan misi!', 'success');
-        showToast('💡 KUNCI CONTEKAN DIMUAT', 'Solusi resmi 100% lolos uji telah dipasang di editor.', 'success');
+      if (editorTextarea && currentMission && currentMission.solutionCode) {
+        editorTextarea.value = currentMission.solutionCode;
+        updateLineGutter();
+        showToast('💡 Kunci contekan resmi dimuat ke editor.');
       }
     });
   }
 
-  // Contekan Panel Action Buttons
-  const btnCopyContekan = document.getElementById('btnCopyContekan');
-  const btnApplyContekan = document.getElementById('btnApplyContekan');
-  if (btnCopyContekan) {
-    btnCopyContekan.addEventListener('click', () => {
-      if (currentMission) {
-        navigator.clipboard.writeText(currentMission.solutionCode.trim()).then(() => {
-          showToast('📋 TERSALIN', 'Kunci contekan solusi berhasil disalin ke clipboard!', 'success');
-        });
-      }
-    });
-  }
-  if (btnApplyContekan) {
-    btnApplyContekan.addEventListener('click', () => {
-      if (currentMission) {
-        editorTextarea.value = currentMission.solutionCode.trim();
-        resetSimulation();
-        updateGutter(-1);
-        const tabEditorBtn = document.querySelector('[data-subtab="paneEditor"]');
-        if (tabEditorBtn) tabEditorBtn.click();
-        showToast('💡 CONTEKAN DIPASANG', 'Kunci solusi resmi telah dipasang ke editor. Tekan Run!', 'info');
-      }
-    });
-  }
-
-  // Speed Pills Selector (Touch-friendly segmented buttons)
-  const speedPills = document.querySelectorAll('.speed-pill');
-  speedPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      speedPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      const spd = parseInt(pill.getAttribute('data-speed'), 10);
-      currentSpeed = spd;
-      if (isRunning) {
-        pause();
-        run();
-      }
-    });
-  });
-
-  if (speedSlider) {
-    speedSlider.addEventListener('input', (e) => {
-      const val = parseInt(e.target.value, 10);
-      const speeds = [600, 350, 180, 50, 15];
-      currentSpeed = speeds[val - 1] || 180;
-      if (isRunning) {
-        pause();
-        run();
-      }
-    });
-  }
-
-  // Mission Discovery: Stepper (Prev/Next)
-  const btnPrevMission = document.getElementById('btnPrevMission');
-  const btnNextMission = document.getElementById('btnNextMission');
-  if (btnPrevMission) {
-    btnPrevMission.addEventListener('click', () => {
-      const idx = missions.findIndex(m => m.id === currentMission.id);
-      const prevIdx = (idx - 1 + missions.length) % missions.length;
-      loadMission(missions[prevIdx].id);
-    });
-  }
-  if (btnNextMission) {
-    btnNextMission.addEventListener('click', () => {
-      const idx = missions.findIndex(m => m.id === currentMission.id);
-      const nextIdx = (idx + 1) % missions.length;
-      loadMission(missions[nextIdx].id);
-    });
-  }
-
-  // Populate Quick Dock 8 Missions (Matching Voltakyy Peluncur Cepat)
-  function populateMissionCarousel() {
-    const list = document.getElementById('missionCarouselList');
-    if (!list) return;
-    list.innerHTML = '';
-    missions.forEach(m => {
-      const card = document.createElement('div');
-      card.className = `dock-item ${m.id === currentMission.id ? 'active' : ''}`;
-      card.setAttribute('data-mission', m.id);
-      card.innerHTML = `
-        <span class="dock-tag-pill">${m.badge.split('·')[0].trim()}</span>
-        <div class="dock-icon-box">M${m.number}</div>
-        <h4 class="dock-title">${m.title}</h4>
-        <span class="dock-badge-sub">${m.source.split('—')[0].trim()}</span>
-      `;
-      card.addEventListener('click', () => {
-        loadMission(m.id);
-        const arena = document.querySelector('.arena-card');
-        if (arena && window.innerWidth < 768) {
-          arena.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-      list.appendChild(card);
-    });
-  }
-
-  // Mission Drawer Modal
-  const missionDrawerModal = document.getElementById('missionDrawerModal');
-  const btnOpenMissionDrawer = document.getElementById('btnOpenMissionDrawer');
-  const btnShowAllMissions = document.getElementById('btnShowAllMissions');
-  const btnCloseMissionDrawer = document.getElementById('btnCloseMissionDrawer');
-  const missionDrawerGrid = document.getElementById('missionDrawerGrid');
-
-  function openMissionDrawer() {
-    if (!missionDrawerModal) return;
-    renderMissionDrawerCards();
-    missionDrawerModal.classList.add('active');
-  }
-
-  function closeMissionDrawer() {
-    if (!missionDrawerModal) return;
-    missionDrawerModal.classList.remove('active');
-  }
-
-  function renderMissionDrawerCards() {
-    if (!missionDrawerGrid) return;
-    missionDrawerGrid.innerHTML = '';
-    missions.forEach(m => {
-      const card = document.createElement('div');
-      card.className = `modal-mission-card ${m.id === currentMission.id ? 'active' : ''}`;
-      card.setAttribute('data-mission', m.id);
-      card.innerHTML = `
-        <div class="card-top-row">
-          <span class="card-num">Misi #${m.number}</span>
-          <span class="badge-blue" style="font-size: 0.68rem;">${m.badge}</span>
-        </div>
-        <h4 class="card-title">${m.title}</h4>
-        <div class="card-source">${m.source}</div>
-        <p style="font-size: 0.78rem; color: #94a3b8; margin: 0.2rem 0 0.5rem; line-height: 1.4;">${m.prompt.substring(0, 95)}...</p>
-        <button class="card-btn">${m.id === currentMission.id ? '✓ Sedang Aktif' : 'Pilih Misi Ini'}</button>
-      `;
-      card.addEventListener('click', () => {
-        loadMission(m.id);
-        closeMissionDrawer();
-      });
-      missionDrawerGrid.appendChild(card);
-    });
-  }
-
-  if (btnOpenMissionDrawer) btnOpenMissionDrawer.addEventListener('click', openMissionDrawer);
-  if (btnShowAllMissions) btnShowAllMissions.addEventListener('click', openMissionDrawer);
-  if (btnCloseMissionDrawer) btnCloseMissionDrawer.addEventListener('click', closeMissionDrawer);
-  if (missionDrawerModal) {
-    missionDrawerModal.addEventListener('click', (e) => {
-      if (e.target === missionDrawerModal) closeMissionDrawer();
-    });
-  }
-
-  // Global Mode Navigation (Simulator vs Quiz vs Arsip)
-  const modeNavBtns = document.querySelectorAll('.nav-tab-btn');
-  const mainTabViews = document.querySelectorAll('.main-tab-view');
-  modeNavBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetTab = btn.getAttribute('data-tab');
-      modeNavBtns.forEach(b => b.classList.remove('active'));
-      mainTabViews.forEach(v => v.classList.remove('active'));
-      btn.classList.add('active');
-      const targetView = document.getElementById(targetTab);
-      if (targetView) targetView.classList.add('active');
-
-      if (targetTab === 'tabSimulator') {
-        setTimeout(setupCanvases, 50);
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-
-  // Global Exports for Arsip and external callers
-  window.loadMission = function(missionId) {
-    const simTabBtn = document.querySelector('.nav-tab-btn[data-tab="tabSimulator"]');
-    if (simTabBtn && !simTabBtn.classList.contains('active')) {
-      simTabBtn.click();
-    }
-    loadMission(missionId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-  window.loadMapAndSolution = window.loadMission;
-
-  // Subtabs Switcher in Right Pane
+  // Subtabs switcher in editor pane
   const subtabBtns = document.querySelectorAll('.subtab-btn');
   const subtabPanels = document.querySelectorAll('.subtab-panel');
   subtabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      subtabBtns.forEach(b => b.classList.remove('active'));
-      subtabPanels.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      const panelId = btn.getAttribute('data-subtab');
-      const panel = document.getElementById(panelId);
-      if (panel) panel.classList.add('active');
+      const target = btn.getAttribute('data-subtab');
+      subtabBtns.forEach(b => b.classList.toggle('active', b === btn));
+      subtabPanels.forEach(p => p.classList.toggle('active', p.id === target));
+      if (target === 'paneGvrw') {
+        updateGvrwPanel();
+      }
     });
   });
 
-  // Indent and Outdent Toolbar Buttons
-  const btnIndentTab = document.getElementById('btnIndentTab');
-  const btnOutdentTab = document.getElementById('btnOutdentTab');
-  if (btnIndentTab) {
-    btnIndentTab.addEventListener('click', () => {
-      editorTextarea.focus();
-      handleTabIndentation(editorTextarea, false);
+  // Speed selection
+  const speedBtns = document.querySelectorAll('.speed-btn');
+  speedBtns.forEach(b => {
+    b.addEventListener('click', () => {
+      speedBtns.forEach(btn => btn.classList.remove('active'));
+      b.classList.add('active');
+      currentSpeed = parseInt(b.getAttribute('data-speed'), 10);
+      if (isRunning) {
+        clearInterval(playInterval);
+        playInterval = setInterval(runStep, currentSpeed);
+      }
     });
-  }
-  if (btnOutdentTab) {
-    btnOutdentTab.addEventListener('click', () => {
-      editorTextarea.focus();
-      handleTabIndentation(editorTextarea, true);
-    });
+  });
+
+  // ==========================================
+  // EXECUTION CONTROLS (RUN, STEP, RESET)
+  // ==========================================
+  function logTerminal(msg, type = 'normal') {
+    if (!termBody) return;
+    const line = document.createElement('div');
+    line.className = 'terminal-line log-' + type;
+    line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+    termBody.appendChild(line);
+    termBody.scrollTop = termBody.scrollHeight;
   }
 
-  // Keyboard Shortcuts
-  document.addEventListener('keydown', (e) => {
-    if (document.activeElement === editorTextarea) return;
+  function resetSimulator() {
+    stopRun();
+    world.restoreSnapshot();
+    interpreter = new GvrInterpreter(world);
+    updateTelemetry('READY');
+    updateLineGutter();
+    renderSimulatorCanvases();
+    logTerminal('Simulator di-reset ke kondisi awal.', 'system');
+  }
 
-    if (e.code === 'Space') {
-      e.preventDefault();
-      if (isRunning) pause();
-      else run();
-    } else if (e.code === 'ArrowRight') {
-      e.preventDefault();
-      pause();
-      doStep();
-    } else if (e.key === 'r' || e.key === 'R') {
-      e.preventDefault();
-      resetSimulation();
-    } else if (e.key === 'Escape') {
-      closeMissionDrawer();
+  function stopRun() {
+    isRunning = false;
+    clearInterval(playInterval);
+    if (btnRun) {
+      btnRun.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Run</span>`;
     }
+  }
+
+  function runStep() {
+    if (!interpreter.stack.length || interpreter.isFinished) {
+      stopRun();
+      updateTelemetry('FINISHED');
+      updateLineGutter();
+      renderSimulatorCanvases();
+      logTerminal('Program selesai dieksekusi.', 'success');
+      return false;
+    }
+
+    try {
+      const activeLineNo = interpreter.step();
+      updateLineGutter(activeLineNo);
+      updateTelemetry('RUNNING');
+      renderSimulatorCanvases();
+      return true;
+    } catch (err) {
+      stopRun();
+      updateTelemetry('CRASHED');
+      logTerminal(err.message, 'error');
+      showToast('❌ ' + err.message, 4000);
+      return false;
+    }
+  }
+
+  function startRun() {
+    // If currently in builder mode, switch back to simulation view seamlessly
+    if (studioMode === 'build') {
+      setStudioSubmode('simulate');
+    }
+
+    if (isRunning) {
+      stopRun();
+      updateTelemetry('PAUSED');
+      return;
+    }
+
+    if (interpreter.isFinished || !interpreter.stack.length) {
+      const code = editorTextarea ? editorTextarea.value : '';
+      if (!code.trim()) {
+        showToast('⚠️ Editor kosong! Tuliskan kode program GvRng terlebih dahulu.');
+        return;
+      }
+      try {
+        interpreter.loadSource(code);
+      } catch (err) {
+        showToast('❌ ' + err.message, 4000);
+        logTerminal(err.message, 'error');
+        return;
+      }
+    }
+
+    isRunning = true;
+    if (btnRun) {
+      btnRun.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg><span>Pause</span>`;
+    }
+    updateTelemetry('RUNNING');
+    playInterval = setInterval(runStep, currentSpeed);
+  }
+
+  if (btnRun) btnRun.addEventListener('click', startRun);
+  if (btnStep) {
+    btnStep.addEventListener('click', () => {
+      if (studioMode === 'build') setStudioSubmode('simulate');
+      if (isRunning) stopRun();
+      if (interpreter.isFinished || !interpreter.stack.length) {
+        const code = editorTextarea ? editorTextarea.value : '';
+        try {
+          interpreter.loadSource(code);
+        } catch (err) {
+          showToast('❌ ' + err.message);
+          return;
+        }
+      }
+      runStep();
+    });
+  }
+  if (btnReset) btnReset.addEventListener('click', resetSimulator);
+
+  // ==========================================
+  // MISSION VALIDATION ENGINE ("CEK MISI")
+  // ==========================================
+  function validateMissionSolution() {
+    const diffs = world.diffState(targetWorld);
+
+    if (diffs.length === 0) {
+      showCelebrationModal();
+    } else {
+      showToast('⚠️ Belum selesai: ' + diffs[0], 5000);
+      logTerminal('Validasi gagal: ' + diffs.join('; '), 'error');
+    }
+  }
+
+  function showCelebrationModal() {
+    if (!celebrationModal) return;
+    if (cstatSteps) cstatSteps.textContent = world.robot.stepCount.toString();
+    if (cstatLines) {
+      const lines = editorTextarea ? editorTextarea.value.trim().split('\n').filter(l => l.trim() && !l.trim().startsWith('#')).length : 0;
+      cstatLines.textContent = lines.toString();
+    }
+    if (cstatBeepers) cstatBeepers.textContent = world.robot.beepers.toString();
+    if (celebrateDesc) {
+      celebrateDesc.textContent = `Luar biasa! Kode programmu berhasil menyelesaikan ${currentMission.title} dengan sukses tanpa menabrak tembok.`;
+    }
+
+    celebrationModal.style.display = 'flex';
+    celebrationModal.removeAttribute('aria-hidden');
+  }
+
+  if (btnValidate) btnValidate.addEventListener('click', validateMissionSolution);
+  if (btnCloseCelebration) {
+    btnCloseCelebration.addEventListener('click', () => {
+      if (celebrationModal) {
+        celebrationModal.style.display = 'none';
+        celebrationModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  // ==========================================
+  // INLINE WORLD BUILDER CONTROLS
+  // ==========================================
+  // Layer buttons
+  const btnBuilderLayerInitial = document.getElementById('btnBuilderLayerInitial');
+  const btnBuilderLayerGoal = document.getElementById('btnBuilderLayerGoal');
+  if (btnBuilderLayerInitial) {
+    btnBuilderLayerInitial.addEventListener('click', () => {
+      btnBuilderLayerInitial.classList.add('active');
+      if (btnBuilderLayerGoal) btnBuilderLayerGoal.classList.remove('active');
+      wb.setLayer('initial');
+    });
+  }
+  if (btnBuilderLayerGoal) {
+    btnBuilderLayerGoal.addEventListener('click', () => {
+      btnBuilderLayerGoal.classList.add('active');
+      if (btnBuilderLayerInitial) btnBuilderLayerInitial.classList.remove('active');
+      wb.setLayer('goal');
+    });
+  }
+
+  // Tools buttons
+  const toolBtns = document.querySelectorAll('.builder-tool-btn');
+  const robotToolOptions = document.getElementById('robotToolOptions');
+  const beeperToolOptions = document.getElementById('beeperToolOptions');
+  const eraserToolOptions = document.getElementById('eraserToolOptions');
+
+  toolBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tool = btn.getAttribute('data-tool');
+      toolBtns.forEach(b => b.classList.toggle('active', b === btn));
+      wb.setTool(tool);
+
+      if (robotToolOptions) robotToolOptions.style.display = tool === 'robot' ? 'flex' : 'none';
+      if (beeperToolOptions) beeperToolOptions.style.display = tool === 'beeper' ? 'flex' : 'none';
+      if (eraserToolOptions) eraserToolOptions.style.display = tool === 'eraser' ? 'flex' : 'none';
+    });
   });
 
-  // Init
-  populatePuzzleSelect();
+  // Robot direction options
+  const btnOptDirs = document.querySelectorAll('.btn-opt-dir');
+  btnOptDirs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btnOptDirs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      wb.robotDir = btn.getAttribute('data-dir');
+    });
+  });
+
+  const inputRobotBag = document.getElementById('inputRobotBag');
+  if (inputRobotBag) {
+    inputRobotBag.addEventListener('input', (e) => {
+      wb.robotBag = parseInt(e.target.value, 10) || 0;
+    });
+  }
+
+  // Beeper options (+1, -1, 0 Hapus)
+  const btnBeeperPlus = document.getElementById('btnBeeperPlus');
+  const btnBeeperMinus = document.getElementById('btnBeeperMinus');
+  const btnBeeperZero = document.getElementById('btnBeeperZero');
+
+  function updateBeeperPills(activeBtn, delta) {
+    [btnBeeperPlus, btnBeeperMinus, btnBeeperZero].forEach(b => {
+      if (b) b.classList.toggle('active', b === activeBtn);
+    });
+    wb.beeperDelta = delta;
+  }
+
+  if (btnBeeperPlus) {
+    btnBeeperPlus.addEventListener('click', () => updateBeeperPills(btnBeeperPlus, 1));
+  }
+  if (btnBeeperMinus) {
+    btnBeeperMinus.addEventListener('click', () => updateBeeperPills(btnBeeperMinus, -1));
+  }
+  if (btnBeeperZero) {
+    btnBeeperZero.addEventListener('click', () => updateBeeperPills(btnBeeperZero, 0));
+  }
+
+  // Eraser options (all, beeper, wall)
+  const btnEraserAll = document.getElementById('btnEraserAll');
+  const btnEraserBeeper = document.getElementById('btnEraserBeeper');
+  const btnEraserWall = document.getElementById('btnEraserWall');
+
+  function updateEraserPills(activeBtn, filter) {
+    [btnEraserAll, btnEraserBeeper, btnEraserWall].forEach(b => {
+      if (b) b.classList.toggle('active', b === activeBtn);
+    });
+    wb.eraserFilter = filter;
+  }
+
+  if (btnEraserAll) {
+    btnEraserAll.addEventListener('click', () => updateEraserPills(btnEraserAll, 'all'));
+  }
+  if (btnEraserBeeper) {
+    btnEraserBeeper.addEventListener('click', () => updateEraserPills(btnEraserBeeper, 'beeper'));
+  }
+  if (btnEraserWall) {
+    btnEraserWall.addEventListener('click', () => updateEraserPills(btnEraserWall, 'wall'));
+  }
+
+  // Grid resizing
+  const btnApplyResize = document.getElementById('btnApplyResize');
+  const builderCols = document.getElementById('builderCols');
+  const builderRows = document.getElementById('builderRows');
+  if (btnApplyResize) {
+    btnApplyResize.addEventListener('click', () => {
+      const c = parseInt(builderCols.value, 10) || 15;
+      const r = parseInt(builderRows.value, 10) || 15;
+      wb.resizeGrid(c, r);
+      world = wb.initialWorld;
+      targetWorld = wb.goalWorld;
+      interpreter = new GvrInterpreter(world);
+      showToast(`Ukuran kisi diubah ke ${c} × ${r}`);
+    });
+  }
+
+  // Presets & Clear
+  const btnLoadPreset = document.getElementById('btnLoadPreset');
+  const presetSelect = document.getElementById('presetSelect');
+  if (btnLoadPreset && presetSelect) {
+    btnLoadPreset.addEventListener('click', () => {
+      wb.loadPreset(presetSelect.value);
+      world = wb.initialWorld;
+      targetWorld = wb.goalWorld;
+      interpreter = new GvrInterpreter(world);
+      showToast('Preset dimuat!');
+    });
+  }
+
+  const btnClearAll = document.getElementById('btnClearAll');
+  if (btnClearAll) {
+    btnClearAll.addEventListener('click', () => {
+      if (confirm('Yakin ingin membersihkan semua tembok dan beeper pada peta ini?')) {
+        wb.getActiveWorld().clearAll();
+        wb.render();
+        updateGvrwPanel();
+        updateTelemetry('CLEARED');
+        showToast('Peta dibersihkan.');
+      }
+    });
+  }
+
+  // .gvrw Code buttons (Authentic format without 'size')
+  const btnCopyGvrw = document.getElementById('btnCopyGvrw');
+  const btnDownloadGvrw = document.getElementById('btnDownloadGvrw');
+  const btnLoadFromGvrw = document.getElementById('btnLoadFromGvrw');
+  const builderGvrwText = document.getElementById('builderGvrwText');
+
+  if (btnCopyGvrw && builderGvrwText) {
+    btnCopyGvrw.addEventListener('click', () => {
+      navigator.clipboard.writeText(builderGvrwText.value);
+      showToast('📋 Kode .gvrw disalin ke clipboard!');
+    });
+  }
+
+  if (btnDownloadGvrw && builderGvrwText) {
+    btnDownloadGvrw.addEventListener('click', () => {
+      const blob = new Blob([builderGvrwText.value], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'peta-gvrng.gvrw';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  if (btnLoadFromGvrw && builderGvrwText) {
+    btnLoadFromGvrw.addEventListener('click', () => {
+      wb.loadFromGvrwText(builderGvrwText.value);
+      world = wb.initialWorld;
+      interpreter = new GvrInterpreter(world);
+      updateTelemetry('UPDATED');
+      showToast('Teks .gvrw diterapkan ke kanvas!');
+    });
+  }
+
+  // ==========================================
+  // INITIALIZATION
+  // ==========================================
+  window.loadMapAndSolution = loadMission;
   populateMissionCarousel();
   loadMission(missions[0].id);
   setViewMode('live');
+  setStudioSubmode('simulate');
 });
