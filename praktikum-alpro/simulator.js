@@ -347,20 +347,14 @@ class GvrWorld {
       ctx.stroke();
     });
 
-    // 4. Beepers (Rendered in cell centers with ocean blue tokens)
+    // 4. Beepers (Rendered in cell centers with proportional ocean blue tokens)
     this.beepers.forEach((count, key) => {
       if (count <= 0) return;
       const [gx, gy] = key.split(',').map(Number);
       const { px, py } = toPx(gx + 0.5, gy + 0.5);
 
-      const bRadius = Math.max(10, Math.min(18, cellSize * 0.40));
-      const fontSize = Math.max(9, Math.min(13, Math.round(bRadius * 1.05)));
-
-      // Outer sea-blue glow
-      ctx.beginPath();
-      ctx.arc(px, py, bRadius + 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(14, 165, 233, 0.35)';
-      ctx.fill();
+      const bRadius = Math.max(5.5, Math.min(10, cellSize * 0.22));
+      const fontSize = Math.max(7, Math.min(10, Math.round(bRadius * 1.1)));
 
       // Main Token Disc (Ocean Blue Gradient)
       ctx.beginPath();
@@ -371,15 +365,16 @@ class GvrWorld {
       ctx.fillStyle = grad;
       ctx.fill();
 
-      // Crisp border: 2px white outline + 1px deep ocean contrast border
+      // Crisp border: 1.5px white outline
       ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1.5;
       ctx.stroke();
 
+      // Subtle dark contrast rim
       ctx.beginPath();
-      ctx.arc(px, py, bRadius + 1, 0, Math.PI * 2);
+      ctx.arc(px, py, bRadius + 0.5, 0, Math.PI * 2);
       ctx.strokeStyle = '#0369a1';
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 0.8;
       ctx.stroke();
 
       // High-contrast crisp white number badge
@@ -438,17 +433,18 @@ class GvrWorld {
     const beeperCountUnderRobot = this.beepers.get(robotCellKey) || 0;
     if (beeperCountUnderRobot > 0) {
       const { px, py } = toPx(this.robot.x + 0.5, this.robot.y + 0.5);
-      const badgeX = px + cellSize * 0.35;
-      const badgeY = py - cellSize * 0.35;
+      const badgeX = px + cellSize * 0.30;
+      const badgeY = py - cellSize * 0.30;
+      const miniR = Math.max(5, Math.min(7.5, cellSize * 0.18));
       ctx.beginPath();
-      ctx.arc(badgeX, badgeY, 9, 0, Math.PI * 2);
+      ctx.arc(badgeX, badgeY, miniR, 0, Math.PI * 2);
       ctx.fillStyle = '#0284c7';
       ctx.fill();
       ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = 1;
       ctx.stroke();
       ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 9px "JetBrains Mono", monospace';
+      ctx.font = `bold ${Math.max(6.5, Math.round(miniR * 1.05))}px "JetBrains Mono", monospace`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(beeperCountUnderRobot.toString(), badgeX, badgeY + 0.5);
@@ -526,17 +522,12 @@ class GvrWorld {
     ctx.lineTo(pBR.px, pBR.py);
     ctx.stroke();
 
-    // 2. Target Beepers (Radiant emerald tokens)
+    // 2. Target Beepers (Proportional emerald tokens)
     if (targetDef.remainingBeepers > 0 && targetDef.beeperPositions) {
       targetDef.beeperPositions.forEach(([gx, gy, count]) => {
         const { px, py } = toPx(gx + 0.5, gy + 0.5);
-        const bRadius = Math.max(10, Math.min(18, cellSize * 0.40));
-        const fontSize = Math.max(9, Math.min(13, Math.round(bRadius * 1.05)));
-
-        ctx.beginPath();
-        ctx.arc(px, py, bRadius + 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(16, 185, 129, 0.28)';
-        ctx.fill();
+        const bRadius = Math.max(5.5, Math.min(10, cellSize * 0.22));
+        const fontSize = Math.max(7, Math.min(10, Math.round(bRadius * 1.1)));
 
         ctx.beginPath();
         ctx.arc(px, py, bRadius, 0, Math.PI * 2);
@@ -547,13 +538,13 @@ class GvrWorld {
         ctx.fill();
 
         ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 1.5;
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(px, py, bRadius + 1, 0, Math.PI * 2);
+        ctx.arc(px, py, bRadius + 0.5, 0, Math.PI * 2);
         ctx.strokeStyle = '#064e3b';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 0.8;
         ctx.stroke();
 
         ctx.fillStyle = '#ffffff';
