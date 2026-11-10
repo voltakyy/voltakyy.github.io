@@ -513,14 +513,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (puzzleSelect) puzzleSelect.value = mission.id;
 
-    // Highlight active chip in Carousel
-    document.querySelectorAll('.mission-chip').forEach(chip => {
-      chip.classList.toggle('active', chip.getAttribute('data-mission') === mission.id);
+    // Highlight active dock item in Quick Dock Grid
+    document.querySelectorAll('.dock-item, .mission-chip').forEach(item => {
+      item.classList.toggle('active', item.getAttribute('data-mission') === mission.id);
     });
-    const activeChip = document.querySelector(`.mission-chip[data-mission="${mission.id}"]`);
-    if (activeChip && activeChip.scrollIntoView) {
-      activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
 
     // Highlight active card in Modal
     document.querySelectorAll('.modal-mission-card').forEach(card => {
@@ -739,24 +735,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Populate Mission Carousel
+  // Populate Quick Dock 8 Missions (Matching Voltakyy Peluncur Cepat)
   function populateMissionCarousel() {
     const list = document.getElementById('missionCarouselList');
     if (!list) return;
     list.innerHTML = '';
     missions.forEach(m => {
-      const chip = document.createElement('button');
-      chip.className = `mission-chip ${m.id === currentMission.id ? 'active' : ''}`;
-      chip.setAttribute('data-mission', m.id);
-      chip.innerHTML = `
-        <span class="chip-num">Misi #${m.number}</span>
-        <span class="chip-title">${m.title}</span>
-        <span class="chip-badge">${m.badge.split('·')[0].trim()}</span>
+      const card = document.createElement('div');
+      card.className = `dock-item ${m.id === currentMission.id ? 'active' : ''}`;
+      card.setAttribute('data-mission', m.id);
+      card.innerHTML = `
+        <span class="dock-tag-pill">${m.badge.split('·')[0].trim()}</span>
+        <div class="dock-icon-box">M${m.number}</div>
+        <h4 class="dock-title">${m.title}</h4>
+        <span class="dock-badge-sub">${m.source.split('—')[0].trim()}</span>
       `;
-      chip.addEventListener('click', () => {
+      card.addEventListener('click', () => {
         loadMission(m.id);
+        const arena = document.querySelector('.arena-card');
+        if (arena && window.innerWidth < 768) {
+          arena.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
-      list.appendChild(chip);
+      list.appendChild(card);
     });
   }
 
