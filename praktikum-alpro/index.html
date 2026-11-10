@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>GvRng Web Simulator — Guido van Robot NG Web IDE &amp; Puzzle Runner</title>
-  <meta name="description" content="Simulator GvRng (Guido van Robot NG) berbasis web untuk menyelesaikan teka-teki labirin praktikum Algoritma &amp; Pemrograman Informatika UMS.">
+  <title>GvRng Web Studio — Guido van Robot NG Web IDE &amp; Puzzle Runner</title>
+  <meta name="description" content="Simulator GvRng (Guido van Robot NG) berbasis web untuk menyelesaikan teka-teki labirin praktikum Algoritma &amp; Pemrograman Informatika UMS lengkap dengan Kuis Interaktif dan Bank Soal.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=5.0">
 </head>
 <body class="gvr-app-body">
 
-  <!-- 1. TOP APP BAR -->
+  <!-- 1. TOP APP BAR (HEADER) -->
   <header class="gvr-topbar">
     <div class="gvr-brand">
       <div class="gvr-brand-logo" aria-hidden="true">
@@ -26,18 +26,13 @@
         </svg>
       </div>
       <div class="gvr-brand-text">
-        GvRng <span style="color: #38bdf8;">Web IDE</span>
-        <span class="gvr-version-pill">v2.0 Simulator</span>
+        <span class="brand-title">GvRng <span class="brand-accent">Studio</span></span>
+        <span class="gvr-version-pill">v2.5 Pro</span>
       </div>
     </div>
 
-    <!-- Puzzle Selector -->
-    <div class="gvr-puzzle-selector-box">
-      <label for="puzzleSelect" style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Teka-Teki:</label>
-      <select id="puzzleSelect" class="gvr-select" aria-label="Pilih Teka-Teki GvRng">
-        <!-- Loaded by app.js from GVR_MISSIONS -->
-      </select>
-    </div>
+    <!-- Hidden native select for fallback/programmatic access -->
+    <select id="puzzleSelect" class="gvr-select-hidden" aria-hidden="true" tabindex="-1"></select>
 
     <!-- Top Navigation Actions -->
     <div class="gvr-top-actions">
@@ -45,269 +40,327 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
-        Portal UMS
+        <span class="btn-text">Portal UMS</span>
       </a>
     </div>
   </header>
 
-  <!-- 2. MAIN APPLICATION WORKSPACE -->
-  <main class="gvr-workspace">
-    
-    <!-- LEFT: WORLD SIMULATOR PANE -->
-    <section class="gvr-world-pane">
-      <div class="gvr-pane-toolbar">
-        <div class="gvr-toolbar-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-            <line x1="3" y1="9" x2="21" y2="9"/>
-            <line x1="9" y1="21" x2="9" y2="9"/>
-          </svg>
-          Dunia Robot Guido (.gvrw)
-        </div>
+  <!-- 2. GLOBAL MODE NAVIGATION BAR (UNMISSABLE ON MOBILE & DESKTOP) -->
+  <nav class="gvr-mode-nav" aria-label="Mode Aplikasi">
+    <div class="gvr-mode-nav-inner">
+      <button class="nav-tab-btn active" data-tab="tabSimulator" id="modeBtnSimulator">
+        <span class="tab-icon">🧩</span>
+        <span class="tab-label">Simulator Teka-Teki</span>
+        <span class="tab-badge">8 Misi</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tabQuiz" id="modeBtnQuiz">
+        <span class="tab-icon">📝</span>
+        <span class="tab-label">Kuis Interaktif</span>
+        <span class="tab-badge badge-quiz">15 Soal</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tabArsip" id="modeBtnArsip">
+        <span class="tab-icon">📚</span>
+        <span class="tab-label">Bank Soal &amp; PDF</span>
+        <span class="tab-badge badge-arsip">Aslab UMS</span>
+      </button>
+    </div>
+  </nav>
 
-        <!-- View Mode Switcher -->
-        <div class="gvr-view-toggle-group">
-          <button id="btnViewLive" class="gvr-view-btn active" title="Tampilkan pergerakan live robot">
-            ▶ Simulasi Live
-          </button>
-          <button id="btnViewTarget" class="gvr-view-btn" title="Tampilkan gambar target output hasil program">
-            🎯 Target Output
-          </button>
-          <button id="btnViewSplit" class="gvr-view-btn" title="Tampilkan Live dan Target berdampingan">
-            🔲 Dua Layar (Split)
-          </button>
-        </div>
-      </div>
+  <!-- 3. MAIN CONTAINER WITH 3 TAB VIEWS -->
+  <div class="gvr-main-content">
 
-      <!-- Canvas Viewport -->
-      <div id="canvasViewport" class="gvr-canvas-viewport">
-        <!-- Live World Canvas -->
-        <div id="liveCanvasWrapper" class="canvas-container-box">
-          <span class="canvas-badge-overlay">KONDISI SAAT INI / LIVE</span>
-          <canvas id="worldCanvas" width="560" height="460"></canvas>
-        </div>
-
-        <!-- Target World Canvas (Expected Program Output) -->
-        <div id="targetCanvasWrapper" class="canvas-container-box">
-          <span class="canvas-badge-overlay target">🎯 TARGET OUTPUT HASIL PROGRAM</span>
-          <canvas id="targetCanvas" width="560" height="460"></canvas>
-        </div>
-      </div>
-
-      <!-- Telemetry Status Bar -->
-      <div class="gvr-telemetry-bar">
-        <div class="telemetry-item">
-          <span class="tel-label">ROBOT:</span>
-          <span id="telPos" class="tel-val accent">(1, 1)</span>
-        </div>
-        <div class="telemetry-item">
-          <span class="tel-label">HADAP:</span>
-          <span id="telDir" class="tel-val">EAST</span>
-        </div>
-        <div class="telemetry-item">
-          <span class="tel-label">TAS:</span>
-          <span id="telBag" class="tel-val amber">0 beeper</span>
-        </div>
-        <div class="telemetry-item">
-          <span class="tel-label">PETA:</span>
-          <span id="telWorld" class="tel-val">0 beeper</span>
-        </div>
-        <div class="telemetry-item">
-          <span class="tel-label">LANGKAH:</span>
-          <span id="telSteps" class="tel-val">0</span>
-        </div>
-        <div class="telemetry-item">
-          <span class="tel-label">BARIS:</span>
-          <span id="telLines" class="tel-val success">0</span>
-        </div>
-        <div class="telemetry-item">
-          <span class="tel-label">STATUS:</span>
-          <span id="telStatus" class="tel-val" style="color: #94a3b8;">READY</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- RIGHT: CODE EDITOR & CONTROLS PANE -->
-    <section class="gvr-editor-pane">
+    <!-- ======================================================================= -->
+    <!-- VIEW 1: SIMULATOR LABIRIN & WEB IDE -->
+    <!-- ======================================================================= -->
+    <div id="tabSimulator" class="main-tab-view active">
       
-      <!-- Right Pane Subtabs -->
-      <div class="gvr-editor-subtabs" role="tablist">
-        <button class="subtab-btn active" data-subtab="paneEditor" role="tab">
-          💻 Editor GvRng
-        </button>
-        <button class="subtab-btn" data-subtab="paneSoal" role="tab">
-          💡 Contekan &amp; Target Soal
-        </button>
-        <button class="subtab-btn" data-subtab="paneTracing" role="tab">
-          📊 Step Tracing
-        </button>
-        <button class="subtab-btn" data-subtab="paneKamus" role="tab">
-          ⚡ Kamus Sensor
-        </button>
-      </div>
+      <!-- MISSION DISCOVERY HUB BAR -->
+      <section class="gvr-mission-hub" aria-label="Pilihan Misi Puzzle">
+        <div class="mission-hub-top">
+          <div class="mission-nav-stepper">
+            <button id="btnPrevMission" class="mission-nav-btn" title="Misi Sebelumnya (Panah Kiri)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            
+            <button id="btnOpenMissionDrawer" class="mission-current-pill" title="Klik untuk membuka daftar seluruh 8 misi">
+              <span class="mission-pill-tag" id="hubMissionNum">Misi 1</span>
+              <span class="mission-pill-title" id="hubMissionTitle">Memuat Misi...</span>
+              <svg class="mission-pill-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
 
-      <!-- Controls Toolbar -->
-      <div class="gvr-control-bar">
-        <div class="gvr-btn-group">
-          <button id="btnRun" class="gvr-action-btn btn-run" title="Jalankan program otomatis (Spasi)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            Run
-          </button>
-          <button id="btnStep" class="gvr-action-btn btn-step" title="Jalankan 1 langkah instruksi (Panah Kanan)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            Step
-          </button>
-          <button id="btnReset" class="gvr-action-btn btn-reset" title="Kembalikan robot &amp; dunia ke awal (R)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path></svg>
-            Reset
-          </button>
-          <button id="btnValidate" class="gvr-action-btn" style="background: #0066cc; color: #fff;" title="Periksa apakah program sudah memenuhi target">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            Cek Misi
+            <button id="btnNextMission" class="mission-nav-btn" title="Misi Selanjutnya (Panah Kanan)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+
+          <button id="btnShowAllMissions" class="btn-all-missions" title="Buka katalog 8 misi">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Daftar 8 Misi</span>
           </button>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
-          <button id="btnIndentTab" class="gvr-action-btn btn-reset" title="Indentasi Kode (Tombol Tab keyboard / 4 Spasi)" style="padding: 0.35rem 0.55rem; font-size: 0.75rem;">
-            ⇥ Tab
-          </button>
-          <button id="btnOutdentTab" class="gvr-action-btn btn-reset" title="Kurangi Indentasi (Shift+Tab)" style="padding: 0.35rem 0.55rem; font-size: 0.75rem;">
-            ⇤ Shift+Tab
-          </button>
-          <button id="btnLoadStarter" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.6rem;">
-            Template
-          </button>
-          <button id="btnLoadSolution" class="gvr-action-btn btn-reset" style="font-size: 0.75rem; padding: 0.35rem 0.65rem; color: #38bdf8; border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.08); font-weight: 700;">
-            💡 Kunci Contekan
-          </button>
-          <div class="speed-box">
-            <span>Kecepatan:</span>
-            <input id="speedSlider" type="range" min="1" max="5" value="3" style="width: 65px; accent-color: #0066cc;">
-            <span id="speedLabel" style="min-width: 20px;">3x</span>
+        <!-- Horizontal Swipeable Chips Carousel -->
+        <div class="mission-carousel-container">
+          <div id="missionCarouselList" class="mission-carousel-track">
+            <!-- Dynamically populated by app.js -->
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- SUBTAB 1: CODE EDITOR & PROMPT -->
-      <div id="paneEditor" class="subtab-panel active">
-        <!-- Mission Objectives Banner -->
-        <div class="gvr-objective-box">
-          <div class="objective-title-row">
-            <span id="missionTitle" class="objective-heading">Misi GvRng</span>
-            <span id="missionConstraint" class="constraint-pill">Ketentuan Baris</span>
-          </div>
-          <p id="missionPrompt" class="objective-prompt-text">Deskripsi soal...</p>
-        </div>
+      <!-- SIMULATOR WORKSPACE (SPLIT PANE) -->
+      <main class="gvr-workspace">
+        
+        <!-- LEFT: WORLD SIMULATOR PANE -->
+        <section class="gvr-world-pane">
+          <div class="gvr-pane-toolbar">
+            <div class="gvr-toolbar-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+              <span>Dunia Robot Guido (.gvrw)</span>
+            </div>
 
-        <!-- GvRng Code Editor Area with Line Numbers Gutter -->
-        <div class="gvr-editor-container">
-          <!-- Dynamic Line Number Gutter -->
-          <div id="editorGutter" class="gvr-gutter" aria-hidden="true"></div>
-
-          <!-- Textarea Editor -->
-          <div class="gvr-textarea-box">
-            <textarea id="editorTextarea" spellcheck="false" placeholder="# Tuliskan kode program GvRng di sini..."></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- SUBTAB 2: DETAIL SOAL & TARGET VISUAL EXPLANATION -->
-      <div id="paneSoal" class="subtab-panel">
-        <div class="subtab-content-padded">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem;">
-            <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; color: #38bdf8; font-size: 1.05rem;">
-              📋 Detail Soal &amp; Target Visual
-            </h3>
-            <span id="tabSoalBadge" class="constraint-pill" style="font-size: 0.75rem;">Maksimal 9 Baris</span>
+            <!-- View Mode Switcher -->
+            <div class="gvr-view-toggle-group">
+              <button id="btnViewLive" class="gvr-view-btn active" title="Tampilkan simulasi robot langsung">
+                ▶ Live
+              </button>
+              <button id="btnViewTarget" class="gvr-view-btn" title="Tampilkan target akhir yang diharapkan">
+                🎯 Target
+              </button>
+              <button id="btnViewSplit" class="gvr-view-btn" title="Tampilkan Live &amp; Target berdampingan">
+                🔲 Split
+              </button>
+            </div>
           </div>
 
-          <!-- Problem prompt card -->
-          <div id="tabSoalDetail" style="background: #090d16; padding: 0.9rem; border-radius: 8px; border: 1px solid #1e293b; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.6; white-space: pre-line;"></div>
+          <!-- Canvas Viewport -->
+          <div id="canvasViewport" class="gvr-canvas-viewport">
+            <!-- Live World Canvas -->
+            <div id="liveCanvasWrapper" class="canvas-container-box">
+              <span class="canvas-badge-overlay">KONDISI SAAT INI / LIVE</span>
+              <canvas id="worldCanvas" width="560" height="340"></canvas>
+            </div>
 
-          <!-- Target Checklist Banner -->
-          <div id="tabTargetChecklist" style="background: rgba(30, 41, 59, 0.5); padding: 0.8rem; border-radius: 8px; border: 1px solid #334155; margin-bottom: 1rem;">
-            <h4 style="margin: 0 0 0.5rem; color: #34d399; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem;">
-              🎯 Target Kondisi Akhir Program:
-            </h4>
-            <div id="tabTargetItems" style="font-size: 0.82rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.35rem;"></div>
+            <!-- Target World Canvas (Expected Program Output) -->
+            <div id="targetCanvasWrapper" class="canvas-container-box">
+              <span class="canvas-badge-overlay target">🎯 TARGET OUTPUT HASIL PROGRAM</span>
+              <canvas id="targetCanvas" width="560" height="340"></canvas>
+            </div>
           </div>
 
-          <!-- Verified Solution / Contekan Box -->
-          <div style="background: #090d16; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 1rem; overflow: hidden;">
-            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0.9rem; background: rgba(56, 189, 248, 0.1); border-bottom: 1px solid rgba(56, 189, 248, 0.2);">
-              <span style="font-weight: 700; color: #38bdf8; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem;">
-                💡 Kunci Contekan Solusi Resmi (100% Lolos Uji)
-              </span>
-              <div style="display: flex; gap: 0.4rem;">
-                <button id="btnCopyContekan" class="gvr-action-btn" style="padding: 0.25rem 0.55rem; font-size: 0.72rem; background: #1e293b; border-color: #334155;">
-                  📋 Salin
-                </button>
-                <button id="btnApplyContekan" class="gvr-action-btn" style="padding: 0.25rem 0.55rem; font-size: 0.72rem; background: #0066cc; color: white;">
-                  📥 Pasang ke Editor
-                </button>
+          <!-- Telemetry Status Bar (Cockpit HUD) -->
+          <div class="gvr-telemetry-hud">
+            <div class="hud-item">
+              <span class="hud-label">ROBOT</span>
+              <span id="telPos" class="hud-val accent">(1, 1)</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">HADAP</span>
+              <span id="telDir" class="hud-val">EAST</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">TAS</span>
+              <span id="telBag" class="hud-val amber">0</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">PETA</span>
+              <span id="telWorld" class="hud-val">0</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">LANGKAH</span>
+              <span id="telSteps" class="hud-val">0</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">BARIS KODE</span>
+              <span id="telLines" class="hud-val success">0</span>
+            </div>
+            <div class="hud-item hud-status">
+              <span class="hud-label">STATUS</span>
+              <span id="telStatus" class="hud-val status-text">READY</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT: CODE EDITOR & CONTROLS PANE -->
+        <section class="gvr-editor-pane">
+          
+          <!-- Subtabs Navigation -->
+          <div class="gvr-editor-subtabs" role="tablist">
+            <button class="subtab-btn active" data-subtab="paneEditor" role="tab">
+              💻 Kode Editor
+            </button>
+            <button class="subtab-btn" data-subtab="paneSoal" role="tab">
+              💡 Detail &amp; Kunci
+            </button>
+            <button class="subtab-btn" data-subtab="paneTracing" role="tab">
+              📊 Tracing
+            </button>
+            <button class="subtab-btn" data-subtab="paneKamus" role="tab">
+              ⚡ Kamus Sensor
+            </button>
+          </div>
+
+          <!-- Controls Toolbar (Thumb-First on Mobile) -->
+          <div class="gvr-control-bar">
+            <!-- Row 1: Primary Action Buttons -->
+            <div class="control-actions-primary">
+              <button id="btnRun" class="gvr-action-btn btn-run" title="Jalankan program otomatis (Spasi)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <span>Run</span>
+              </button>
+              <button id="btnStep" class="gvr-action-btn btn-step" title="Jalankan 1 instruksi (Panah Kanan)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span>Step</span>
+              </button>
+              <button id="btnReset" class="gvr-action-btn btn-reset" title="Reset robot ke awal (R)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path></svg>
+                <span>Reset</span>
+              </button>
+              <button id="btnValidate" class="gvr-action-btn btn-validate" title="Cek apakah solusi memenuhi target">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Cek Misi</span>
+              </button>
+            </div>
+
+            <!-- Row 2: Secondary Developer Aids & Speed Selector -->
+            <div class="control-actions-secondary">
+              <button id="btnLoadSolution" class="btn-tool-pill btn-solution-highlight" title="Pasang kunci contekan 100% lolos uji">
+                💡 Pasang Contekan
+              </button>
+              <button id="btnLoadStarter" class="btn-tool-pill" title="Kembali ke template awal">
+                Template
+              </button>
+              <button id="btnIndentTab" class="btn-tool-pill" title="Indent 4 Spasi (Tab)">
+                ⇥ Tab
+              </button>
+              <button id="btnOutdentTab" class="btn-tool-pill" title="Outdent (Shift+Tab)">
+                ⇤ Outdent
+              </button>
+
+              <!-- Speed Selector Pills -->
+              <div class="speed-selector-group" title="Kecepatan animasi langkah">
+                <span class="speed-title">⚡</span>
+                <button class="speed-pill" data-speed="600">1x</button>
+                <button class="speed-pill" data-speed="350">2x</button>
+                <button class="speed-pill active" data-speed="180">3x</button>
+                <button class="speed-pill" data-speed="50">5x</button>
+                <button class="speed-pill" data-speed="15">Max</button>
+                <input id="speedSlider" type="range" min="1" max="5" value="3" class="hidden-slider" aria-hidden="true">
+                <span id="speedLabel" style="display: none;">3x</span>
               </div>
             </div>
-            <pre id="tabContekanCode" style="margin: 0; padding: 0.9rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #f8fafc; overflow-x: auto; line-height: 1.5;"></pre>
           </div>
 
-          <!-- Logic Breakdown -->
-          <h4 style="color: #facc15; margin: 0 0 0.4rem; font-size: 0.9rem;">
-            🧠 Bedah Logika &amp; Trik Penyelesaian Aslab:
-          </h4>
-          <div id="tabSoalLogic" style="background: #090d16; padding: 0.9rem; border-radius: 8px; border: 1px solid #1e293b; font-size: 0.84rem; line-height: 1.6; color: #cbd5e1; white-space: pre-line;"></div>
-        </div>
-      </div>
+          <!-- SUBTAB 1: CODE EDITOR -->
+          <div id="paneEditor" class="subtab-panel active">
+            <!-- Mission Objectives Banner -->
+            <div class="gvr-objective-box">
+              <div class="objective-title-row">
+                <span id="missionTitle" class="objective-heading">Misi GvRng</span>
+                <span id="missionConstraint" class="constraint-pill">Ketentuan Baris</span>
+              </div>
+              <p id="missionPrompt" class="objective-prompt-text">Deskripsi soal...</p>
+            </div>
 
-      <!-- SUBTAB 3: STEP TRACING TABLE -->
-      <div id="paneTracing" class="subtab-panel">
-        <div class="subtab-content-padded" style="padding: 0.75rem;">
-          <h4 style="margin: 0 0 0.5rem; color: #34d399; font-size: 0.9rem;">📊 Log Tracing Langkah Demi Langkah:</h4>
-          <table style="width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;">
-            <thead>
-              <tr style="background: #1e293b; color: #94a3b8; text-align: left;">
-                <th style="padding: 4px 8px;">#</th>
-                <th style="padding: 4px 8px;">Baris</th>
-                <th style="padding: 4px 8px;">Perintah</th>
-                <th style="padding: 4px 8px;">Posisi</th>
-                <th style="padding: 4px 8px;">Hadap</th>
-                <th style="padding: 4px 8px;">Tas</th>
-              </tr>
-            </thead>
-            <tbody id="traceTableBody"></tbody>
-          </table>
-        </div>
-      </div>
+            <!-- GvRng Code Editor Area with Line Numbers Gutter -->
+            <div class="gvr-editor-container">
+              <div id="editorGutter" class="gvr-gutter" aria-hidden="true"></div>
+              <div class="gvr-textarea-box">
+                <textarea id="editorTextarea" spellcheck="false" placeholder="# Tuliskan kode program GvRng di sini..."></textarea>
+              </div>
+            </div>
+          </div>
 
-      <!-- SUBTAB 4: KAMUS SENSOR & SINTAKS -->
-      <div id="paneKamus" class="subtab-panel">
-        <div class="subtab-content-padded">
-          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 0; color: #38bdf8;">⚡ Kamus Lengkap GvRng</h3>
-          
-          <h4 style="color: #facc15; margin-bottom: 0.2rem;">1. Perintah Dasar Robot:</h4>
-          <ul style="margin: 0 0 1rem; padding-left: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
-            <li><code>move</code> — Maju 1 langkah ke depan</li>
-            <li><code>turnleft</code> — Belok 90° ke kiri</li>
-            <li><code>pickbeeper</code> — Ambil 1 beeper dari petak robot</li>
-            <li><code>putbeeper</code> — Taruh 1 beeper dari tas robot</li>
-            <li><code>turnoff</code> — Matikan robot (mengakhiri program)</li>
-          </ul>
+          <!-- SUBTAB 2: DETAIL SOAL & TARGET VISUAL EXPLANATION -->
+          <div id="paneSoal" class="subtab-panel">
+            <div class="subtab-content-padded">
+              <div class="soal-header-row">
+                <h3 class="soal-heading">📋 Detail Soal &amp; Target Visual</h3>
+                <span id="tabSoalBadge" class="constraint-pill">Maksimal Baris</span>
+              </div>
 
-          <h4 style="color: #34d399; margin-bottom: 0.2rem;">2. Sensor Dinding &amp; Rintangan:</h4>
-          <ul style="margin: 0 0 1rem; padding-left: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
-            <li><code>front_is_clear</code> / <code>front_is_blocked</code></li>
-            <li><code>left_is_clear</code> / <code>left_is_blocked</code></li>
-            <li><code>right_is_clear</code> / <code>right_is_blocked</code></li>
-          </ul>
+              <!-- Problem prompt card -->
+              <div id="tabSoalDetail" class="soal-detail-card"></div>
 
-          <h4 style="color: #60a5fa; margin-bottom: 0.2rem;">3. Sensor Beeper &amp; Arah Hadap:</h4>
-          <ul style="margin: 0 0 1rem; padding-left: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
-            <li><code>next_to_a_beeper</code> / <code>not_next_to_a_beeper</code></li>
-            <li><code>any_beepers_in_beeper_bag</code> / <code>no_beepers_in_beeper_bag</code></li>
-            <li><code>facing_north</code>, <code>facing_south</code>, <code>facing_east</code>, <code>facing_west</code></li>
-          </ul>
+              <!-- Target Checklist Banner -->
+              <div id="tabTargetChecklist" class="target-checklist-card">
+                <h4 class="target-card-title">🎯 Target Kondisi Akhir Program:</h4>
+                <div id="tabTargetItems" class="target-items-list"></div>
+              </div>
 
-          <h4 style="color: #f472b6; margin-bottom: 0.2rem;">4. Struktur Blok (Wajib Indentasi 4 Spasi):</h4>
-          <pre style="background: #090d16; padding: 0.75rem; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #f8fafc;">define turnright:
+              <!-- Verified Solution / Contekan Box -->
+              <div class="contekan-container-card">
+                <div class="contekan-card-head">
+                  <span class="contekan-head-title">💡 Kunci Contekan Solusi Resmi (100% Lolos Uji)</span>
+                  <div class="contekan-btn-group">
+                    <button id="btnCopyContekan" class="btn-mini-action">📋 Salin</button>
+                    <button id="btnApplyContekan" class="btn-mini-action btn-apply-primary">📥 Pasang ke Editor</button>
+                  </div>
+                </div>
+                <pre id="tabContekanCode" class="contekan-code-block"></pre>
+              </div>
+
+              <!-- Logic Breakdown -->
+              <h4 class="logic-breakdown-title">🧠 Bedah Logika &amp; Trik Penyelesaian Aslab:</h4>
+              <div id="tabSoalLogic" class="logic-breakdown-card"></div>
+            </div>
+          </div>
+
+          <!-- SUBTAB 3: STEP TRACING TABLE -->
+          <div id="paneTracing" class="subtab-panel">
+            <div class="subtab-content-padded">
+              <h4 class="tracing-head-title">📊 Log Tracing Langkah Demi Langkah:</h4>
+              <div class="table-responsive-wrapper">
+                <table class="tracing-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Baris</th>
+                      <th>Perintah</th>
+                      <th>Posisi</th>
+                      <th>Hadap</th>
+                      <th>Tas</th>
+                    </tr>
+                  </thead>
+                  <tbody id="traceTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUBTAB 4: KAMUS SENSOR & SINTAKS -->
+          <div id="paneKamus" class="subtab-panel">
+            <div class="subtab-content-padded">
+              <h3 class="kamus-main-title">⚡ Kamus Lengkap GvRng</h3>
+              
+              <h4 class="kamus-section-title text-amber">1. Perintah Dasar Robot:</h4>
+              <ul class="kamus-list">
+                <li><code>move</code> — Maju 1 langkah ke depan</li>
+                <li><code>turnleft</code> — Belok 90° ke kiri</li>
+                <li><code>pickbeeper</code> — Ambil 1 beeper dari petak robot</li>
+                <li><code>putbeeper</code> — Taruh 1 beeper dari tas robot</li>
+                <li><code>turnoff</code> — Matikan robot (mengakhiri program)</li>
+              </ul>
+
+              <h4 class="kamus-section-title text-emerald">2. Sensor Dinding &amp; Rintangan:</h4>
+              <ul class="kamus-list">
+                <li><code>front_is_clear</code> / <code>front_is_blocked</code></li>
+                <li><code>left_is_clear</code> / <code>left_is_blocked</code></li>
+                <li><code>right_is_clear</code> / <code>right_is_blocked</code></li>
+              </ul>
+
+              <h4 class="kamus-section-title text-blue">3. Sensor Beeper &amp; Arah Hadap:</h4>
+              <ul class="kamus-list">
+                <li><code>next_to_a_beeper</code> / <code>not_next_to_a_beeper</code></li>
+                <li><code>any_beepers_in_beeper_bag</code> / <code>no_beepers_in_beeper_bag</code></li>
+                <li><code>facing_north</code>, <code>facing_south</code>, <code>facing_east</code>, <code>facing_west</code></li>
+              </ul>
+
+              <h4 class="kamus-section-title text-pink">4. Struktur Blok (Wajib Indentasi 4 Spasi):</h4>
+              <pre class="kamus-code-preview">define turnright:
     turnleft
     turnleft
     turnleft
@@ -322,31 +375,126 @@ if next_to_a_beeper:
     pickbeeper
 else:
     move</pre>
+            </div>
+          </div>
+
+          <!-- Output Terminal Console -->
+          <div class="gvr-terminal">
+            <div class="gvr-terminal-head">
+              <span>TERMINAL GVRNG / KONSOL EKSEKUSI</span>
+              <span class="terminal-shortcut-hint">Spasi: Run/Pause · →: Step · R: Reset</span>
+            </div>
+            <div id="termBody" class="gvr-terminal-body">
+              <div class="term-entry info">GvRng Web Runtime v2.5 siap. Pilih misi dan jalankan kode.</div>
+            </div>
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- VIEW 2: KUIS INTERAKTIF (15 SOAL ASLAB) -->
+    <!-- ======================================================================= -->
+    <div id="tabQuiz" class="main-tab-view">
+      <div class="quiz-view-wrapper">
+        
+        <!-- Quiz Control Card Header -->
+        <header class="quiz-hero-card">
+          <div class="quiz-hero-text">
+            <h2 class="quiz-hero-title">📝 Kuis Interaktif Pemrograman Robot GvRng</h2>
+            <p class="quiz-hero-subtitle">15 Soal Pilihan Ganda Teruji Sesuai Silabus Praktikum Algoritma &amp; Pemrograman Informatika UMS.</p>
+          </div>
+
+          <!-- Progress Bar & Score Counters -->
+          <div class="quiz-status-bar">
+            <div class="quiz-progress-section">
+              <div class="quiz-progress-labels">
+                <span id="quizProgressText" class="quiz-progress-counter">Soal 1 dari 15</span>
+                <span class="quiz-score-badge correct">✓ Benar: <strong id="quizScoreCorrect">0</strong></span>
+                <span class="quiz-score-badge wrong">✗ Salah: <strong id="quizScoreWrong">0</strong></span>
+              </div>
+              <div class="quiz-progress-track">
+                <div id="quizProgressFill" class="quiz-progress-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <button id="btnRestartQuiz" class="btn-restart-quiz" title="Reset dan ulangi dari soal pertama">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path></svg>
+              <span>Ulangi Kuis</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Dynamic Question Card Container (Rendered by quiz.js) -->
+        <div id="quizContainer" class="quiz-body-container">
+          <!-- quiz.js will inject question card and options here -->
         </div>
+
+        <!-- Quiz Footer Navigation -->
+        <footer class="quiz-footer-nav">
+          <button id="btnPrevQuestion" class="quiz-nav-btn prev" disabled>
+            ← Soal Sebelumnya
+          </button>
+          <button id="btnNextQuestion" class="quiz-nav-btn next">
+            Soal Selanjutnya →
+          </button>
+        </footer>
+
       </div>
+    </div>
 
-      <!-- Output Terminal Console -->
-      <div class="gvr-terminal">
-        <div class="gvr-terminal-head">
-          <span>TERMINAL GVRNG / KONSOL EKSEKUSI</span>
-          <span style="font-size: 0.68rem; color: #64748b;">Shortcuts: Spasi = Run/Pause · Panah Kanan = Step · R = Reset</span>
+    <!-- ======================================================================= -->
+    <!-- VIEW 3: BANK SOAL & ARSIP PDF RESMI ASLAB -->
+    <!-- ======================================================================= -->
+    <div id="tabArsip" class="main-tab-view">
+      <div class="arsip-view-wrapper">
+        
+        <!-- Arsip Hero Header -->
+        <header class="arsip-hero-card">
+          <h2 class="arsip-hero-title">📚 Bank Soal Praktikum &amp; Arsip PDF Resmi Aslab</h2>
+          <p class="arsip-hero-subtitle">
+            Koleksi lengkap 8 permasalahan praktikum dari <strong>Quiz Dasprog B</strong>, <strong>Soal Quiz Aslab 30 Oktober 2026</strong>, dan <strong>Diktat Praktikum Halaman 51–53</strong> lengkap dengan batasan baris kode, trik logika, serta tombol langsung uji di simulator.
+          </p>
+        </header>
+
+        <!-- Dynamic Question Archive (Rendered by arsip-soal.js) -->
+        <div id="arsipSoalContainer" class="arsip-body-container">
+          <!-- arsip-soal.js will inject problem cards with solution code here -->
         </div>
-        <div id="termBody" class="gvr-terminal-body">
-          <div class="term-entry info">GvRng Web Runtime v2.0 siap. Klik Run atau Step untuk mengeksekusi program.</div>
-        </div>
+
       </div>
+    </div>
 
-    </section>
+  </div>
 
-  </main>
+  <!-- 4. MISSION SELECTION MODAL / BOTTOM SHEET (DISCOVER ALL 8 PUZZLES) -->
+  <div id="missionDrawerModal" class="gvr-modal-backdrop" aria-hidden="true">
+    <div class="gvr-modal-sheet" role="dialog" aria-labelledby="modalSheetTitle">
+      <div class="modal-sheet-head">
+        <div>
+          <h3 id="modalSheetTitle" class="modal-sheet-title">🧩 Katalog 8 Teka-Teki GvRng</h3>
+          <p class="modal-sheet-subtitle">Pilih tantangan untuk langsung dimainkan di Web Simulator</p>
+        </div>
+        <button id="btnCloseMissionDrawer" class="modal-close-btn" aria-label="Tutup Katalog">✕</button>
+      </div>
+      <div id="missionDrawerGrid" class="modal-sheet-grid">
+        <!-- Dynamically rendered by app.js from GVR_MISSIONS -->
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Notification -->
   <div id="toastNotification" class="gvr-toast"></div>
 
   <!-- Scripts -->
-  <script src="simulator.js?v=4.0"></script>
-  <script src="interpreter.js?v=4.0"></script>
-  <script src="maps.js?v=4.0"></script>
-  <script src="app.js?v=4.0"></script>
+  <script src="simulator.js?v=5.0"></script>
+  <script src="interpreter.js?v=5.0"></script>
+  <script src="maps.js?v=5.0"></script>
+  <script src="quiz-data.js?v=5.0"></script>
+  <script src="quiz.js?v=5.0"></script>
+  <script src="arsip-soal.js?v=5.0"></script>
+  <script src="app.js?v=5.0"></script>
 </body>
 </html>

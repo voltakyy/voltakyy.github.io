@@ -97,17 +97,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Canvas Setup & Rendering
   function setupCanvases() {
+    if (!canvasViewport) return;
     const dpr = window.devicePixelRatio || 1;
 
     // Dimensions based on viewport
-    const containerW = canvasViewport.clientWidth - 40;
-    const containerH = canvasViewport.clientHeight - 40;
+    const padH = 20;
+    const containerW = Math.max(260, canvasViewport.clientWidth - padH);
+    let targetW = Math.min(containerW, 720);
 
-    let targetW = Math.max(380, Math.min(containerW, 640));
-    let targetH = Math.max(340, Math.min(containerH, 520));
+    // Calculate proportional height based on world dimensions
+    const cols = currentMission ? (currentMission.cols || 15) : 15;
+    const rows = currentMission ? (currentMission.rows || 15) : 15;
+    const aspect = (rows + 1) / (cols + 1);
+
+    // Give comfortable room for grid + labels + padding without letterbox void
+    let idealH = Math.round(targetW * aspect) + 50;
+    let targetH = Math.max(220, Math.min(idealH, 460));
 
     if (viewMode === 'split') {
-      targetW = Math.max(320, (containerW - 30) / 2);
+      if (window.innerWidth > 768) {
+        targetW = Math.max(260, (containerW - 20) / 2);
+        targetH = Math.max(220, Math.min(targetW * aspect + 50, 460));
+      }
     }
 
     if (liveCanvas) {
@@ -490,10 +501,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const mission = missions.find(m => m.id === missionId) || missions[0];
     currentMission = mission;
 
-    // Update Header
+    // Update Header & Hub Pill
     missionTitle.textContent = `Misi #${mission.number}: ${mission.title}`;
     missionConstraint.textContent = mission.badge;
     missionPrompt.textContent = mission.prompt;
+
+    const hubMissionNum = document.getElementById('hubMissionNum');
+    const hubMissionTitle = document.getElementById('hubMissionTitle');
+    if (hubMissionNum) hubMissionNum.textContent = `Misi ${mission.number}`;
+    if (hubMissionTitle) hubMissionTitle.textContent = mission.title;
+
+    if (puzzleSelect) puzzleSelect.value = mission.id;
+
+    // Highlight active chip in Carousel
+    document.querySelectorAll('.mission-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.getAttribute('data-mission') === mission.id);
+    });
+    const activeChip = document.querySelector(`.mission-chip[data-mission="${mission.id}"]`);
+    if (activeChip && activeChip.scrollIntoView) {
+      activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    // Highlight active card in Modal
+    document.querySelectorAll('.modal-mission-card').forEach(card => {
+      card.classList.toggle('active', card.getAttribute('data-mission') === mission.id);
+    });
 
     // Populate Soal & Logic Tab
     const tabSoalBadge = document.getElementById('tabSoalBadge');
@@ -662,20 +694,153 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Speed Pills Selector (Touch-friendly segmented buttons)
+  const speedPills = document.querySelectorAll('.speed-pill');
+  speedPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      speedPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const spd = parseInt(pill.getAttribute('data-speed'), 10);
+      currentSpeed = spd;
+      if (isRunning) {
+        pause();
+        run();
+      }
+    });
+  });
+
   if (speedSlider) {
     speedSlider.addEventListener('input', (e) => {
       const val = parseInt(e.target.value, 10);
-      const speeds = [600, 350, 180, 70, 20];
+      const speeds = [600, 350, 180, 50, 15];
       currentSpeed = speeds[val - 1] || 180;
-      const labels = ['1x', '2x', '3x', '4x', '5x'];
-      if (speedLabel) speedLabel.textContent = labels[val - 1];
-
       if (isRunning) {
         pause();
         run();
       }
     });
   }
+
+  // Mission Discovery: Stepper (Prev/Next)
+  const btnPrevMission = document.getElementById('btnPrevMission');
+  const btnNextMission = document.getElementById('btnNextMission');
+  if (btnPrevMission) {
+    btnPrevMission.addEventListener('click', () => {
+      const idx = missions.findIndex(m => m.id === currentMission.id);
+      const prevIdx = (idx - 1 + missions.length) % missions.length;
+      loadMission(missions[prevIdx].id);
+    });
+  }
+  if (btnNextMission) {
+    btnNextMission.addEventListener('click', () => {
+      const idx = missions.findIndex(m => m.id === currentMission.id);
+      const nextIdx = (idx + 1) % missions.length;
+      loadMission(missions[nextIdx].id);
+    });
+  }
+
+  // Populate Mission Carousel
+  function populateMissionCarousel() {
+    const list = document.getElementById('missionCarouselList');
+    if (!list) return;
+    list.innerHTML = '';
+    missions.forEach(m => {
+      const chip = document.createElement('button');
+      chip.className = `mission-chip ${m.id === currentMission.id ? 'active' : ''}`;
+      chip.setAttribute('data-mission', m.id);
+      chip.innerHTML = `
+        <span class="chip-num">Misi #${m.number}</span>
+        <span class="chip-title">${m.title}</span>
+        <span class="chip-badge">${m.badge.split('·')[0].trim()}</span>
+      `;
+      chip.addEventListener('click', () => {
+        loadMission(m.id);
+      });
+      list.appendChild(chip);
+    });
+  }
+
+  // Mission Drawer Modal
+  const missionDrawerModal = document.getElementById('missionDrawerModal');
+  const btnOpenMissionDrawer = document.getElementById('btnOpenMissionDrawer');
+  const btnShowAllMissions = document.getElementById('btnShowAllMissions');
+  const btnCloseMissionDrawer = document.getElementById('btnCloseMissionDrawer');
+  const missionDrawerGrid = document.getElementById('missionDrawerGrid');
+
+  function openMissionDrawer() {
+    if (!missionDrawerModal) return;
+    renderMissionDrawerCards();
+    missionDrawerModal.classList.add('active');
+  }
+
+  function closeMissionDrawer() {
+    if (!missionDrawerModal) return;
+    missionDrawerModal.classList.remove('active');
+  }
+
+  function renderMissionDrawerCards() {
+    if (!missionDrawerGrid) return;
+    missionDrawerGrid.innerHTML = '';
+    missions.forEach(m => {
+      const card = document.createElement('div');
+      card.className = `modal-mission-card ${m.id === currentMission.id ? 'active' : ''}`;
+      card.setAttribute('data-mission', m.id);
+      card.innerHTML = `
+        <div class="card-top-row">
+          <span class="card-num">Misi #${m.number}</span>
+          <span class="badge-blue" style="font-size: 0.68rem;">${m.badge}</span>
+        </div>
+        <h4 class="card-title">${m.title}</h4>
+        <div class="card-source">${m.source}</div>
+        <p style="font-size: 0.78rem; color: #94a3b8; margin: 0.2rem 0 0.5rem; line-height: 1.4;">${m.prompt.substring(0, 95)}...</p>
+        <button class="card-btn">${m.id === currentMission.id ? '✓ Sedang Aktif' : 'Pilih Misi Ini'}</button>
+      `;
+      card.addEventListener('click', () => {
+        loadMission(m.id);
+        closeMissionDrawer();
+      });
+      missionDrawerGrid.appendChild(card);
+    });
+  }
+
+  if (btnOpenMissionDrawer) btnOpenMissionDrawer.addEventListener('click', openMissionDrawer);
+  if (btnShowAllMissions) btnShowAllMissions.addEventListener('click', openMissionDrawer);
+  if (btnCloseMissionDrawer) btnCloseMissionDrawer.addEventListener('click', closeMissionDrawer);
+  if (missionDrawerModal) {
+    missionDrawerModal.addEventListener('click', (e) => {
+      if (e.target === missionDrawerModal) closeMissionDrawer();
+    });
+  }
+
+  // Global Mode Navigation (Simulator vs Quiz vs Arsip)
+  const modeNavBtns = document.querySelectorAll('.nav-tab-btn');
+  const mainTabViews = document.querySelectorAll('.main-tab-view');
+  modeNavBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+      modeNavBtns.forEach(b => b.classList.remove('active'));
+      mainTabViews.forEach(v => v.classList.remove('active'));
+      btn.classList.add('active');
+      const targetView = document.getElementById(targetTab);
+      if (targetView) targetView.classList.add('active');
+
+      if (targetTab === 'tabSimulator') {
+        setTimeout(setupCanvases, 50);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Global Exports for Arsip and external callers
+  window.loadMission = function(missionId) {
+    const simTabBtn = document.querySelector('.nav-tab-btn[data-tab="tabSimulator"]');
+    if (simTabBtn && !simTabBtn.classList.contains('active')) {
+      simTabBtn.click();
+    }
+    loadMission(missionId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  window.loadMapAndSolution = window.loadMission;
 
   // Subtabs Switcher in Right Pane
   const subtabBtns = document.querySelectorAll('.subtab-btn');
@@ -722,11 +887,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (e.key === 'r' || e.key === 'R') {
       e.preventDefault();
       resetSimulation();
+    } else if (e.key === 'Escape') {
+      closeMissionDrawer();
     }
   });
 
   // Init
   populatePuzzleSelect();
+  populateMissionCarousel();
   loadMission(missions[0].id);
   setViewMode('live');
 });
