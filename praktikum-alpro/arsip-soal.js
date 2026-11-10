@@ -273,7 +273,7 @@ turnoff`
       if (simTabBtn) simTabBtn.click();
 
       // Change select dropdown and load map
-      const mapSelect = document.getElementById('mapSelect');
+      const mapSelect = document.getElementById('mapSelect') || document.getElementById('puzzleSelect');
       if (mapSelect) {
         mapSelect.value = mapKey;
       }
