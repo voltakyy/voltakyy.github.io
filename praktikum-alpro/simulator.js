@@ -1,6 +1,6 @@
 /**
  * GvRng 2D World Simulation Engine
- * Handles Cartesian Grid (1,1 bottom-left), Walls, Beepers, and Robot State
+ * Handles Authentic Cartesian Grid (Intersections at dots (x, y), Cells between dots, Dot-to-Dot Walls)
  */
 
 class GvrWorld {
@@ -21,9 +21,11 @@ class GvrWorld {
     };
     // Map of "x,y" -> beeper count
     this.beepers = new Map();
-    // Wall sets: horizontal walls (above cell x,y) and vertical walls (right of cell x,y)
-    this.hWalls = new Set(); // wall between (x, y) and (x, y+1)
-    this.vWalls = new Set(); // wall between (x, y) and (x+1, y)
+    // Wall sets:
+    // hWalls: horizontal wall on Street s from Avenue a to a+1 (connects dot (a, s) to (a+1, s))
+    // vWalls: vertical wall on Avenue a from Street s to s+1 (connects dot (a, s) to (a, s+1))
+    this.hWalls = new Set();
+    this.vWalls = new Set();
     this.initialSnapshot = null;
     this.pathHistory = []; // stores [{x, y}] coordinates visited
   }
@@ -48,14 +50,14 @@ class GvrWorld {
     return this.beepers.get(`${x},${y}`) || 0;
   }
 
-  // Add horizontal wall segment between (x, y) and (x, y+1)
-  addHWall(x, y) {
-    this.hWalls.add(`${x},${y}`);
+  // Add horizontal wall segment on Street s from Avenue a to a+1
+  addHWall(a, s) {
+    this.hWalls.add(`${a},${s}`);
   }
 
-  // Add vertical wall segment between (x, y) and (x+1, y)
-  addVWall(x, y) {
-    this.vWalls.add(`${x},${y}`);
+  // Add vertical wall segment on Avenue a from Street s to s+1
+  addVWall(a, s) {
+    this.vWalls.add(`${a},${s}`);
   }
 
   // Save snapshot to allow resetting to the exact initial world state
@@ -97,17 +99,17 @@ class GvrWorld {
   frontIsClear() {
     const { x, y, dir } = this.robot;
     if (dir === 'NORTH') {
-      if (y >= this.rows) return false;
-      return !this.hWalls.has(`${x},${y}`);
+      if (y >= this.rows - 1) return false;
+      return !this.hWalls.has(`${x},${y + 1}`);
     } else if (dir === 'SOUTH') {
       if (y <= 1) return false;
-      return !this.hWalls.has(`${x},${y - 1}`);
+      return !this.hWalls.has(`${x},${y}`);
     } else if (dir === 'EAST') {
-      if (x >= this.cols) return false;
-      return !this.vWalls.has(`${x},${y}`);
+      if (x >= this.cols - 1) return false;
+      return !this.vWalls.has(`${x + 1},${y}`);
     } else if (dir === 'WEST') {
       if (x <= 1) return false;
-      return !this.vWalls.has(`${x - 1},${y}`);
+      return !this.vWalls.has(`${x},${y}`);
     }
     return false;
   }
@@ -179,7 +181,7 @@ class GvrWorld {
   move() {
     if (this.robot.isOff) throw new Error('Robot sudah dimatikan (turnoff)!');
     if (!this.frontIsClear()) {
-      throw new Error(`TABRAKAN! Robot menabrak dinding di koordinat (${this.robot.x}, ${this.robot.y}) saat menghadap ${this.robot.dir}!`);
+      throw new Error(`TABRAKAN! Robot menabrak dinding di petak (${this.robot.x}, ${this.robot.y}) saat menghadap ${this.robot.dir}!`);
     }
     if (this.robot.dir === 'NORTH') this.robot.y += 1;
     else if (this.robot.dir === 'SOUTH') this.robot.y -= 1;
@@ -200,7 +202,7 @@ class GvrWorld {
     const key = `${this.robot.x},${this.robot.y}`;
     const count = this.beepers.get(key) || 0;
     if (count <= 0) {
-      throw new Error(`ERROR! Tidak ada beeper di koordinat (${this.robot.x}, ${this.robot.y}) untuk diambil (pickbeeper)!`);
+      throw new Error(`ERROR! Tidak ada beeper di petak (${this.robot.x}, ${this.robot.y}) untuk diambil (pickbeeper)!`);
     }
     if (count === 1) this.beepers.delete(key);
     else this.beepers.set(key, count - 1);
@@ -229,22 +231,21 @@ class GvrWorld {
     const dpr = window.devicePixelRatio || 1;
 
     // Viewport padding
-    const padX = 36;
-    const padY = 36;
+    const padX = 40;
+    const padY = 40;
     const availW = canvas.width / dpr - padX * 2;
     const availH = canvas.height / dpr - padY * 2;
 
     const cellW = availW / (this.cols - 1 || 1);
     const cellH = availH / (this.rows - 1 || 1);
-    const cellSize = Math.min(cellW, cellH, 46);
+    const cellSize = Math.min(cellW, cellH, 44);
 
-    // Center grid in canvas
     const gridW = (this.cols - 1) * cellSize;
     const gridH = (this.rows - 1) * cellSize;
     const startX = padX + ((availW - gridW) / 2);
     const startY = (canvas.height / dpr) - padY - ((availH - gridH) / 2);
 
-    // Coord transform: (x, y) in 1..cols, 1..rows -> Canvas coords
+    // Coord transform: (gx, gy) in 1..cols, 1..rows -> Canvas coords for grid intersections (dots)
     const toPx = (gx, gy) => ({
       px: startX + (gx - 1) * cellSize,
       py: startY - (gy - 1) * cellSize
@@ -255,8 +256,8 @@ class GvrWorld {
     ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
 
     // 1. Grid Dots & Axes Coordinates
-    ctx.fillStyle = '#cbd5e1';
-    ctx.font = '10px "JetBrains Mono", monospace';
+    ctx.fillStyle = '#64748b';
+    ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
@@ -266,7 +267,7 @@ class GvrWorld {
 
         // Dot
         ctx.beginPath();
-        ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+        ctx.arc(px, py, 2.8, 0, Math.PI * 2);
         ctx.fillStyle = '#94a3b8';
         ctx.fill();
 
@@ -282,75 +283,93 @@ class GvrWorld {
       }
     }
 
-    // 1b. Path Trail Trace
+    // 1b. Boundary Walls (Avenue 1 and Street 1)
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+
+    // Western boundary (Avenue 1)
+    const pBL = toPx(1, 1);
+    const pTL = toPx(1, this.rows);
+    ctx.beginPath();
+    ctx.moveTo(pBL.px, pBL.py);
+    ctx.lineTo(pTL.px, pTL.py);
+    ctx.stroke();
+
+    // Southern boundary (Street 1)
+    const pBR = toPx(this.cols, 1);
+    ctx.beginPath();
+    ctx.moveTo(pBL.px, pBL.py);
+    ctx.lineTo(pBR.px, pBR.py);
+    ctx.stroke();
+
+    // 2. Path Trail Trace (through cell centers)
     if (this.pathHistory && this.pathHistory.length > 1) {
       ctx.save();
       ctx.strokeStyle = 'rgba(0, 102, 204, 0.35)';
       ctx.lineWidth = 3;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
-      const pStart = toPx(this.pathHistory[0].x, this.pathHistory[0].y);
+      const pStart = toPx(this.pathHistory[0].x + 0.5, this.pathHistory[0].y + 0.5);
       ctx.moveTo(pStart.px, pStart.py);
       for (let i = 1; i < this.pathHistory.length; i++) {
-        const pt = toPx(this.pathHistory[i].x, this.pathHistory[i].y);
+        const pt = toPx(this.pathHistory[i].x + 0.5, this.pathHistory[i].y + 0.5);
         ctx.lineTo(pt.px, pt.py);
       }
       ctx.stroke();
       ctx.restore();
     }
 
-    // 2. Beepers
+    // 3. Walls (Drawn directly dot-to-dot!)
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+
+    // Horizontal walls on Street s from Ave a to a+1
+    this.hWalls.forEach(key => {
+      const [a, s] = key.split(',').map(Number);
+      const p1 = toPx(a, s);
+      const p2 = toPx(a + 1, s);
+      ctx.beginPath();
+      ctx.moveTo(p1.px, p1.py);
+      ctx.lineTo(p2.px, p2.py);
+      ctx.stroke();
+    });
+
+    // Vertical walls on Ave a from Street s to s+1
+    this.vWalls.forEach(key => {
+      const [a, s] = key.split(',').map(Number);
+      const p1 = toPx(a, s);
+      const p2 = toPx(a, s + 1);
+      ctx.beginPath();
+      ctx.moveTo(p1.px, p1.py);
+      ctx.lineTo(p2.px, p2.py);
+      ctx.stroke();
+    });
+
+    // 4. Beepers (Squarely inside cells (gx + 0.5, gy + 0.5))
     this.beepers.forEach((count, key) => {
       if (count <= 0) return;
       const [gx, gy] = key.split(',').map(Number);
-      const { px, py } = toPx(gx, gy);
+      const { px, py } = toPx(gx + 0.5, gy + 0.5);
 
       // Outer ring
       ctx.beginPath();
-      ctx.arc(px, py, cellSize * 0.34, 0, Math.PI * 2);
+      ctx.arc(px, py, cellSize * 0.36, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(59, 130, 246, 0.15)';
       ctx.fill();
       ctx.strokeStyle = '#2563eb';
       ctx.lineWidth = 2.5;
       ctx.stroke();
 
-      // Inner badge or count
+      // Inner badge count
       ctx.fillStyle = '#1d4ed8';
       ctx.font = 'bold 12px "JetBrains Mono", monospace';
       ctx.fillText(count.toString(), px, py + 1);
     });
 
-    // 3. Walls (Red solid thick lines with subtle glow)
-    ctx.strokeStyle = '#ef4444';
-    ctx.lineWidth = 4;
-    ctx.lineCap = 'round';
-
-    // Horizontal walls: between (x,y) and (x, y+1)
-    this.hWalls.forEach(key => {
-      const [x, y] = key.split(',').map(Number);
-      // In GvRng, a horizontal wall at (x, y) sits midway between y and y+1, extending from x-0.5 to x+0.5
-      const p1 = toPx(x - 0.5, y + 0.5);
-      const p2 = toPx(x + 0.5, y + 0.5);
-      ctx.beginPath();
-      ctx.moveTo(p1.px, p1.py);
-      ctx.lineTo(p2.px, p2.py);
-      ctx.stroke();
-    });
-
-    // Vertical walls: between (x,y) and (x+1, y)
-    this.vWalls.forEach(key => {
-      const [x, y] = key.split(',').map(Number);
-      // In GvRng, a vertical wall sits midway between x and x+1, extending from y-0.5 to y+0.5
-      const p1 = toPx(x + 0.5, y - 0.5);
-      const p2 = toPx(x + 0.5, y + 0.5);
-      ctx.beginPath();
-      ctx.moveTo(p1.px, p1.py);
-      ctx.lineTo(p2.px, p2.py);
-      ctx.stroke();
-    });
-
-    // 4. Robot Guido
-    const rpos = toPx(this.robot.x, this.robot.y);
+    // 5. Robot Guido (Squarely inside cell (x + 0.5, y + 0.5))
+    const rpos = toPx(this.robot.x + 0.5, this.robot.y + 0.5);
     ctx.save();
     ctx.translate(rpos.px, rpos.py);
 
@@ -363,7 +382,7 @@ class GvrWorld {
     ctx.rotate(angle);
 
     // Draw Robot Body (Modern Arrow-Wedge like Guido van Robot)
-    const rSize = cellSize * 0.42;
+    const rSize = cellSize * 0.44;
     ctx.beginPath();
     ctx.moveTo(rSize, 0); // Nose
     ctx.lineTo(-rSize * 0.75, -rSize * 0.75); // Left fin
@@ -398,14 +417,14 @@ class GvrWorld {
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
 
-    const padX = 36;
-    const padY = 36;
+    const padX = 40;
+    const padY = 40;
     const availW = canvas.width / dpr - padX * 2;
     const availH = canvas.height / dpr - padY * 2;
 
     const cellW = availW / (this.cols - 1 || 1);
     const cellH = availH / (this.rows - 1 || 1);
-    const cellSize = Math.min(cellW, cellH, 46);
+    const cellSize = Math.min(cellW, cellH, 44);
 
     const gridW = (this.cols - 1) * cellSize;
     const gridH = (this.rows - 1) * cellSize;
@@ -422,7 +441,7 @@ class GvrWorld {
     ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
 
     // 1. Grid Dots & Coordinates
-    ctx.font = '10px "JetBrains Mono", monospace';
+    ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
@@ -430,7 +449,7 @@ class GvrWorld {
       for (let y = 1; y <= this.rows; y++) {
         const { px, py } = toPx(x, y);
         ctx.beginPath();
-        ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+        ctx.arc(px, py, 2.8, 0, Math.PI * 2);
         ctx.fillStyle = '#cbd5e1';
         ctx.fill();
 
@@ -445,12 +464,30 @@ class GvrWorld {
       }
     }
 
-    // 2. Target Beepers (if any remain or placed at target)
+    // 1b. Boundary Walls
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+
+    const pBL = toPx(1, 1);
+    const pTL = toPx(1, this.rows);
+    ctx.beginPath();
+    ctx.moveTo(pBL.px, pBL.py);
+    ctx.lineTo(pTL.px, pTL.py);
+    ctx.stroke();
+
+    const pBR = toPx(this.cols, 1);
+    ctx.beginPath();
+    ctx.moveTo(pBL.px, pBL.py);
+    ctx.lineTo(pBR.px, pBR.py);
+    ctx.stroke();
+
+    // 2. Target Beepers
     if (targetDef.remainingBeepers > 0 && targetDef.beeperPositions) {
       targetDef.beeperPositions.forEach(([gx, gy, count]) => {
-        const { px, py } = toPx(gx, gy);
+        const { px, py } = toPx(gx + 0.5, gy + 0.5);
         ctx.beginPath();
-        ctx.arc(px, py, cellSize * 0.34, 0, Math.PI * 2);
+        ctx.arc(px, py, cellSize * 0.36, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(0, 166, 126, 0.15)';
         ctx.fill();
         ctx.strokeStyle = '#00a67e';
@@ -469,9 +506,9 @@ class GvrWorld {
     ctx.lineCap = 'round';
 
     this.hWalls.forEach(key => {
-      const [x, y] = key.split(',').map(Number);
-      const p1 = toPx(x - 0.5, y + 0.5);
-      const p2 = toPx(x + 0.5, y + 0.5);
+      const [a, s] = key.split(',').map(Number);
+      const p1 = toPx(a, s);
+      const p2 = toPx(a + 1, s);
       ctx.beginPath();
       ctx.moveTo(p1.px, p1.py);
       ctx.lineTo(p2.px, p2.py);
@@ -479,9 +516,9 @@ class GvrWorld {
     });
 
     this.vWalls.forEach(key => {
-      const [x, y] = key.split(',').map(Number);
-      const p1 = toPx(x + 0.5, y - 0.5);
-      const p2 = toPx(x + 0.5, y + 0.5);
+      const [a, s] = key.split(',').map(Number);
+      const p1 = toPx(a, s);
+      const p2 = toPx(a, s + 1);
       ctx.beginPath();
       ctx.moveTo(p1.px, p1.py);
       ctx.lineTo(p2.px, p2.py);
@@ -491,7 +528,7 @@ class GvrWorld {
     // 4. Target Robot Position (Emerald Green Finish Outline)
     if (targetDef.finalRobot) {
       const r = targetDef.finalRobot;
-      const rpos = toPx(r.x, r.y);
+      const rpos = toPx(r.x + 0.5, r.y + 0.5);
       ctx.save();
       ctx.translate(rpos.px, rpos.py);
 
@@ -502,7 +539,7 @@ class GvrWorld {
       else if (r.dir === 'EAST') angle = 0;
       ctx.rotate(angle);
 
-      const rSize = cellSize * 0.42;
+      const rSize = cellSize * 0.44;
       ctx.beginPath();
       ctx.moveTo(rSize, 0);
       ctx.lineTo(-rSize * 0.75, -rSize * 0.75);
@@ -510,7 +547,7 @@ class GvrWorld {
       ctx.lineTo(-rSize * 0.75, rSize * 0.75);
       ctx.closePath();
 
-      ctx.fillStyle = '#00a67e'; // Green finish robot
+      ctx.fillStyle = '#00a67e';
       ctx.strokeStyle = '#006647';
       ctx.lineWidth = 2.5;
       ctx.fill();
@@ -535,3 +572,6 @@ class GvrWorld {
 
 // Export to window for browser access
 window.GvrWorld = GvrWorld;
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { GvrWorld };
+}
