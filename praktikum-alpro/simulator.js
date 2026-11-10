@@ -347,25 +347,48 @@ class GvrWorld {
       ctx.stroke();
     });
 
-    // 4. Beepers (Squarely inside cells (gx + 0.5, gy + 0.5))
+    // 4. Beepers (Rendered in cell centers with radiant golden amber tokens)
     this.beepers.forEach((count, key) => {
       if (count <= 0) return;
       const [gx, gy] = key.split(',').map(Number);
       const { px, py } = toPx(gx + 0.5, gy + 0.5);
 
-      // Outer ring
+      const bRadius = Math.max(10, Math.min(18, cellSize * 0.40));
+      const fontSize = Math.max(9, Math.min(13, Math.round(bRadius * 1.05)));
+
+      // Outer golden glow
       ctx.beginPath();
-      ctx.arc(px, py, cellSize * 0.36, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.15)';
+      ctx.arc(px, py, bRadius + 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(245, 158, 11, 0.32)';
       ctx.fill();
-      ctx.strokeStyle = '#2563eb';
-      ctx.lineWidth = 2.5;
+
+      // Main Token Disc (Vibrant Gradient)
+      ctx.beginPath();
+      ctx.arc(px, py, bRadius, 0, Math.PI * 2);
+      const grad = ctx.createLinearGradient(px, py - bRadius, px, py + bRadius);
+      grad.addColorStop(0, '#fbbf24');
+      grad.addColorStop(1, '#d97706');
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Crisp border: 2px white outline + 1px dark contrast border
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Inner badge count
-      ctx.fillStyle = '#1d4ed8';
-      ctx.font = 'bold 12px "JetBrains Mono", monospace';
-      ctx.fillText(count.toString(), px, py + 1);
+      ctx.beginPath();
+      ctx.arc(px, py, bRadius + 1, 0, Math.PI * 2);
+      ctx.strokeStyle = '#78350f';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // High-contrast number badge
+      ctx.fillStyle = '#451a03';
+      ctx.font = `bold ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const textToDisplay = count > 99 ? '99+' : count.toString();
+      ctx.fillText(textToDisplay, px, py + 0.5);
     });
 
     // 5. Robot Guido (Squarely inside cell (x + 0.5, y + 0.5))
@@ -409,6 +432,27 @@ class GvrWorld {
 
     ctx.restore();
     ctx.restore();
+
+    // Overlap indicator badge if robot is standing on top of a beeper cell
+    const robotCellKey = `${this.robot.x},${this.robot.y}`;
+    const beeperCountUnderRobot = this.beepers.get(robotCellKey) || 0;
+    if (beeperCountUnderRobot > 0) {
+      const { px, py } = toPx(this.robot.x + 0.5, this.robot.y + 0.5);
+      const badgeX = px + cellSize * 0.35;
+      const badgeY = py - cellSize * 0.35;
+      ctx.beginPath();
+      ctx.arc(badgeX, badgeY, 9, 0, Math.PI * 2);
+      ctx.fillStyle = '#f59e0b';
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.fillStyle = '#451a03';
+      ctx.font = 'bold 9px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(beeperCountUnderRobot.toString(), badgeX, badgeY + 0.5);
+    }
   }
 
   // Render Static Target Preview Canvas
@@ -482,21 +526,41 @@ class GvrWorld {
     ctx.lineTo(pBR.px, pBR.py);
     ctx.stroke();
 
-    // 2. Target Beepers
+    // 2. Target Beepers (Radiant emerald tokens)
     if (targetDef.remainingBeepers > 0 && targetDef.beeperPositions) {
       targetDef.beeperPositions.forEach(([gx, gy, count]) => {
         const { px, py } = toPx(gx + 0.5, gy + 0.5);
+        const bRadius = Math.max(10, Math.min(18, cellSize * 0.40));
+        const fontSize = Math.max(9, Math.min(13, Math.round(bRadius * 1.05)));
+
         ctx.beginPath();
-        ctx.arc(px, py, cellSize * 0.36, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 166, 126, 0.15)';
+        ctx.arc(px, py, bRadius + 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(16, 185, 129, 0.28)';
         ctx.fill();
-        ctx.strokeStyle = '#00a67e';
-        ctx.lineWidth = 2.5;
+
+        ctx.beginPath();
+        ctx.arc(px, py, bRadius, 0, Math.PI * 2);
+        const grad = ctx.createLinearGradient(px, py - bRadius, px, py + bRadius);
+        grad.addColorStop(0, '#34d399');
+        grad.addColorStop(1, '#059669');
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
         ctx.stroke();
 
-        ctx.fillStyle = '#008a69';
-        ctx.font = 'bold 12px "JetBrains Mono", monospace';
-        ctx.fillText(count.toString(), px, py + 1);
+        ctx.beginPath();
+        ctx.arc(px, py, bRadius + 1, 0, Math.PI * 2);
+        ctx.strokeStyle = '#064e3b';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `bold ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(count > 99 ? '99+' : count.toString(), px, py + 0.5);
       });
     }
 
