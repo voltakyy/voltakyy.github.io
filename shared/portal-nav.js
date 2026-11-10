@@ -11,6 +11,7 @@
     { id: 'belajar-uts-kepemimpinan', name: 'Kepemimpinan & KKI', badge: '40+ Kasus Esai', path: 'belajar-uts-kepemimpinan/' },
     { id: 'latihan-pemrograman-visual', name: 'Pemrograman Visual', badge: 'Alice 3 & OOP', path: 'latihan-pemrograman-visual/' },
     { id: 'materi-alpro', name: 'Algoritma & Pemrograman', badge: 'Python Dasar', path: 'materi-alpro/' },
+    { id: 'praktikum-alpro', name: 'Praktikum Alpro (GvRng)', badge: 'GvRng Studio', path: 'praktikum-alpro/' },
     { id: 'latihan-kalkulus', name: 'Kalkulus Reguler', badge: 'Limit & Turunan', path: 'latihan-kalkulus/' },
     { id: 'materi-fungsi', name: 'Fungsi & Komposisi', badge: 'Modul Matematika', path: 'materi-fungsi/' },
     { id: 'materi-lohim', name: 'Logika & Himpunan', badge: 'Boolean & Venn', path: 'materi-lohim/' }
@@ -23,6 +24,12 @@
   // Determine current course
   const currentPath = window.location.pathname.replace(/\\/g, '/');
   let currentCourse = courses.find(c => currentPath.includes(c.id));
+
+  // Skip injection on root portal homepage to avoid duplicate header & self-referencing breadcrumb
+  if (!currentCourse) {
+    const isRoot = currentPath === '/' || currentPath.endsWith('/index.html') || currentPath.endsWith('voltakyy.github.io/') || currentPath.endsWith('voltakyy.github.io');
+    if (isRoot) return;
+  }
 
   // Determine relative root for local CSS/JS fallback
   let localRoot = '../';

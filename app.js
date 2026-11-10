@@ -1,33 +1,13 @@
 /**
- * RUANG BELAJAR UMS — MODERN TECH DEVELOPER SCRIPT
- * Raycast/Linear style command search, keyboard shortcuts, and dark/light persistence
+ * RUANG BELAJAR UMS — PORTAL CLIENT ENGINE
+ * Live search, category filtering, responsive dock sync, and keyboard shortcuts
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Theme Switching (Default: Dark)
-  const htmlEl = document.documentElement;
-  const themeToggle = document.getElementById('themeToggle');
-  const storedTheme = localStorage.getItem('ums_portal_theme') || 'dark';
-  
-  function applyTheme(theme) {
-    htmlEl.setAttribute('data-theme', theme);
-    localStorage.setItem('ums_portal_theme', theme);
-  }
-  
-  applyTheme(storedTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = htmlEl.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-    });
-  }
-
-  // Live Spotlight Search & Filtering
+  // Elements
   const searchInput = document.getElementById('courseSearch');
-  const filterPills = document.querySelectorAll('.filter-pill');
-  const courseCards = document.querySelectorAll('.course-card');
+  const filterPills = document.querySelectorAll('.filter-badge-btn, .filter-pill');
+  const courseCards = document.querySelectorAll('.service-card, .course-card');
   const dockItems = document.querySelectorAll('.dock-item');
   const emptyState = document.getElementById('emptyState');
   const resetBtn = document.getElementById('resetSearch');
@@ -39,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let visibleCards = 0;
     const q = searchQuery.toLowerCase().trim();
 
-    // Filter Cards
+    // Filter Detailed Service Cards
     courseCards.forEach(card => {
       const categories = (card.dataset.category || '').toLowerCase().split(' ');
       const text = (card.innerText || '').toLowerCase();
@@ -48,14 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const matchesSearch = !q || text.includes(q);
 
       if (matchesCategory && matchesSearch) {
-        card.style.display = 'flex';
+        card.style.display = '';
         visibleCards++;
       } else {
         card.style.display = 'none';
       }
     });
 
-    // Filter Dock items
+    // Filter Quick Dock Launcher items
     dockItems.forEach(dock => {
       const categories = (dock.dataset.category || '').toLowerCase().split(' ');
       const text = (dock.innerText || '').toLowerCase();
@@ -63,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const matchesCategory = (activeCategory === 'all') || categories.includes(activeCategory);
       const matchesSearch = !q || text.includes(q);
 
-      dock.style.display = (matchesCategory && matchesSearch) ? 'flex' : 'none';
+      dock.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
     });
 
     // Handle Empty State
@@ -72,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Search input listeners
+  // Live search input listeners
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
@@ -115,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       searchQuery = '';
       activeCategory = 'all';
       filterPills.forEach(b => {
-        const isAll = b.dataset.filter === 'all';
+        const isAll = (b.dataset.filter === 'all');
         b.classList.toggle('active', isAll);
         b.setAttribute('aria-selected', isAll ? 'true' : 'false');
       });
